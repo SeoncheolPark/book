@@ -13,7 +13,17 @@ $$ \mathbf{y}=(y_{1},\ldots,y_{n}), n=2^{J}$$
 <div class="definition">
 
 주어진 자료 $\mathbf{y}$의 **상세(detail)** $d_{k}$는
-$$d_{k}=y_{2k}-y_{2k-1},k=1,2,\ldots,\frac{n}{2}$$
+$$d_{k}=y_{2k}-y_{2k-1},\qquad{k=1,2,\ldots,\frac{n}{2}}$$
+이다.
+
+</div>
+
+한편, 상세와 유사한 개념으로 **성김(coarser)**을 정의한다.
+
+<div class="definition">
+
+주어진 자료 $\mathbf{y}$의 **성김(coarser)** $c_{k}$은
+$$c_{k}=y_{2k}+y_{2k-1},\qquad{k=1,2,\ldots,\frac{n}{2}}$$
 이다.
 
 </div>
