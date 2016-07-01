@@ -2,15 +2,10 @@
 title: "통계공부와 관련된 글들"
 author: "Seoncheol Park"
 date: "`r Sys.Date()`"
+header-includes:
+   - \usepackage{bm}
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
-output:
-  bookdown::pdf_book:
-    includes:
-      in_header: preamble.tex
-    keep_tex: yes
-    latex_engine: xelatex
-mainfont: NanumGothic
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
@@ -21,4 +16,4 @@ description: "통계공부를 하면서 몇 가지 내용들을 gitbook 형식�
 
 # 일러두기
 
-각 절은 독립된 구성으로 되어 있으며, 한 권 이상의 책들을 참고문헌으로 하여 그들의 정의 및 표현을 따라가는 방식으로 구성되어 있다. 따라서 각 장마다 표현 및 한국어 용어 번역이 상이할 수 있다.
+각 장은 독립된 구성으로 되어 있으며, 한 권 이상의 책들을 참고문헌으로 하여 그들의 정의 및 표현을 따라가는 방식으로 구성되어 있다. 따라서 각 장마다 표현 및 한국어 용어 번역이 상이할 수 있다.
