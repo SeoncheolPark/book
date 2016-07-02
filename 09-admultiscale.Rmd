@@ -38,7 +38,23 @@ $$\text{평균(average)=짝(even)+0.5차이} \qquad{\text{프라이멀 리프팅
 
 1. **분할(split)**: 관찰값들을 짝과 홀 두 개의 분리 집합(disjoint set)으로 분할(partition)한다(꼭 짝과 홀로 나누지 않아도 된다).
 
-2. **에측(predict)**: 홀로 색인(index)된 투입값을 이 값과 짝의 데이터만을 이용해 예측된 값으로 대체한다. (듀엘 리프팅)
+2. **에측(predict)**: 홀로 색인(index)된 투입값을 이 값과 짝의 데이터만을 이용해 예측된 값으로 대체한다. (듀얼 리프팅)
 
 3. **갱신(update)**: $s_{j,k}=s_{j+1,2k}+\frac{d_{j,k}}{2}$ (프라이멀 리프팅)
 
+일반적인 리프팅 스킴의 프라이멀 리프팅과 듀얼 리프팅의 **정변환(forward transform)**은 다음과 같다.
+$$\text{차이(difference)=홀(odd)-p짝(even)} \qquad{\text{듀얼 리프팅(dual lifting)}}$$
+$$\text{평균(average)=짝(even)+u차이} \qquad{\text{프라이멀 리프팅(primal lifting)}}$$
+이 때 $p=1$, $u=0.5$인 경우를 특별히 Haar 웨이블릿 변환(Haar wavelet transformation)이라고 부르는 것이다.
+
+리프팅의 **역변환(backward transform)**은 다음과 같다.
+$$\text{짝(even)=평균(average)-u차이(difference)} $$
+$$\text{홀(odd)=차이(difference)+p짝} $$
+
+리프팅 스킴 방법은 데이터가 일정한 간격(equally space)으로 있어야 한다는 가정이 불필요하며 $n=2^{J}$일 필요도 없다. 그러나 $p$와 $u$를 바꿀 경우 직교성(orthogonality)이 안되기 시작하며 2차원 자료인 경우에도 잘 작동하지 않는다. 만약 시공간 자료(spatio-temporal data)에 리프팅을 적용할 수 있다면 군집 분석(clustering analysis)을 할 때 군집의 크기(clustering size)를 고민할 필요가 없다는 장점이 생긴다.
+
+## 2차원 자료의 리프팅 스킴(lifting in two dimensions)
+
+이 절의 내용은 [@Jang2012]의 서술을 참고하였다. 2차원 자료에서는 1차원 자료와 다르게 짝과 홀을 정할 수 없다는 문제점이 있다. 불규칙한 격자점에서, 이웃(neighborhood)은 삼각분할(triangulation)을 통해 정의된다.
+
+리프팅 스킴은 모든 해상도 수준(resolution level)에서 **다중척도 들로네 삼각분할(multiscale Delaunay triangulation)**이라 부르는 꼭지점들의 이웃 구조를 사용한다. 삼각형 격자 위에 있는 자료를 다중척도 표현으로 분해(decomposition)하는 것은 현재 수준 $l$에서 $l+1$로 넘어갈 때 빼길 원하는 점 주변의 국소적 재삼각분할(local retriangulation)을 필요로 한다. 이 알고리즘은 수준이 고정되었을 때 이웃은 변하지 않는다라는 가정 하에서 진행된다.

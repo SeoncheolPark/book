@@ -98,7 +98,7 @@ $$
 ### 에르고딕 과정(ergodic process)
 
 $$\lim_{\|\mathbf{h}\| \rightarrow \infty}C(\mathbf{h}) \rightarrow \mathbf{0}$$
-인 process를 ergodic process라고 한다. 이 성질은 충분히 긴 (정상상태)과정에서 앙상블평균(통계적평균)과 시간평균이 같다는 것이다.
+인 과정(process)을 **에르고딕 과정(ergodic process)**이라고 한다. 이 성질은 충분히 긴 (정상상태)과정에서 앙상블평균(통계적평균)과 시간평균이 같다는 것이다.
 $$\bar{Z}_{n}:\frac{1}{n}\sum_{i=1}^{n}Z(t_{i}) \rightarrow \mu .$$
 
 "앙상블 평균은 시간을 고정시켜 놓고 표본 함수를 무한 개로 하여 계산한 것이고 시간평균은 표본 함수를 고정시켜 놓고 시간을 무한대로 하여 계산한 것이다."
