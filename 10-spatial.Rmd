@@ -147,3 +147,43 @@ $$
 ### 콜모고로프 존재 정리
 
 정상성이 아닌 경우에는 **콜모고로프 존재 정리(Kolmogorov's existence theorem)**으로 해결할 수 있다고 한다.
+
+## 공분산함수의 성질
+
+여기서부터는 공분산함수(covariance function) $C(\mathbf{h})$의 성질에 대해 다루겠다.
+
+- $C(\mathbf{0}) \geq 0$ (분산이 음이 아님)
+
+- $C(\mathbf{-h})=C(\mathbf{h})$
+
+- $|C(\mathbf{h})| \leq C(\mathbf{0})$ (코쉬-슈바르츠 부등식)
+
+- $C_{1}$, $C_{2}$가 양정치함수이면 $a_{1}C_{1}+a_{2}C_{2}$ 또한 양정치함수이다. ($a_{1}$, $a_{2} \geq 0$) 추가적으로 $C_{1}C_{2}$ 또한 양정치함수이다.
+
+- $C_{1}, C_{2}, \ldots$가 양정치함수의 수열이고 이것의 극한 $\lim_{n \rightarrow \infty}C_{n}$이 존재하면 이것 또한 양정치함수이다.
+
+### 등방성
+
+$C(\mathbf{h})=C_{0}(\|\mathbf{h}\|)$인(or $\gamma(\mathbf{h})=\gamma_{0}(\|\mathbf{h}\|)$) $C_{0}$가 존재할 경우 이 공간과정이 $Z(\mathbf{s})$를 **등방성(isotropy)**을 갖는다라고 한다. 이것은 $d$차원에서 정의한 $\mathbf{h}$ 1차원인 거리에만 의존하는 공분산함수로 표현 가능하다는 것이다.
+
+### 동질성
+
+(잘 쓰이지는 않지만) $Z(\mathbf{s})$가 내재적(intrinsic)이고 등방성(isotrophic)인 경우 $Z(\mathbf{s})$를 **동질성(homogeneous)**을 갖는다라고 한다.
+
+### 이등방성
+
+**이등방성(anisotropy)**란 말 그대로 등방성이 아닌 경우를 얘기하지만 이런 경우가 너무 많아 범위를 나누어 생각한다.
+
+#### Geometric anisotropy
+
+이것은
+$$\gamma(\mathbf{h})=\gamma_{0}(\|A\mathbf{h}\|)$$
+즉 어떤 linear transfomation matrix $A$를 통해 변환한 후 isotropic한 경우를 얘기한다. 보통 $A$는 symmetric positive definite matrix를 다루며 이 때 $\|A\mathbf{h}\|$는 ellipse contour가 된다.
+
+#### Zonal anisotropy
+
+이것은 geometric anisotropy의 generalized version이라고 생각하면 된다.
+$$\gamma(\mathbf{h})=\sum_{i=1}^{K}\gamma_{0}(\|A_{i}\mathbf{h}\|)$$
+로 $A$ 대신 $A_{i}$들로 표현할 수 있는 경우를 얘기한다. 즉 $\gamma(\mathbf{h})$에 대응되는 spatial process를 $Z(\mathbf{s})$라 할 때 각 variogram에 해당하는 independent spatial process의 sum으로 즉
+$$Z(\mathbf{s})=Z_{1}(\mathbf{s})+ \cdots Z_{k}(\mathbf{s})$$
+로 표현할 수 있다는 것이다.
