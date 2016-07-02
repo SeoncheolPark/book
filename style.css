@@ -13,88 +13,66 @@ pre code {
   white-space: inherit;
 }
 
+
+.equation {
+  margin: 3pt 0;
+  text-align: center;
+}
+.equation:not(.displaymath) {
+  position: relative;
+  counter-increment: equation;
+}
+.equation:not(.displaymath):after {
+  content: "(" counter(equation) ")";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  bottom: 50%;
+  line-height: 0;
+}
+.theorem,
+.proof,
+.definition,
+.example {
+  margin: 12pt 0;
+}
+.theorem:before,
+.proof:before,
+.definition:before,
+.example:before {
+  margin-left: 0pt;
+}
 .theorem {
-
-    display: block;
-
-    margin: 12px 0;
-
-    font-style: italic;
-
+  font-style: italic;
 }
-
 .theorem:before {
-
-    content: "Theorem.";
-
-    font-weight: bold;
-
-    font-style: normal;
-
+  counter-increment: theorem;
+  content: "Theorem " counter(theorem) ". ";
+  font-style: normal;
+  font-weight: bold;
+  font-variant: small-caps;
 }
-
-.lemma {
-
-    display: block;
-
-    margin: 12px 0;
-
-    font-style: italic;
-
-}
-
-.lemma:before {
-
-    content: "Lemma.";
-
-    font-weight: bold;
-
-    font-style: normal;
-
-}
-
-.proof {
-
-    display: block;
-
-    margin: 12px 0;
-
-    font-style: normal;
-
-}
-
 .proof:before {
-
-    content: "Proof.";
-
-    font-style: italic;
-
+  counter-increment: proof;
+  content: "Proof " counter(proof) ". ";
+  font-style: italic;
+  font-weight: bold;
+  font-variant: small-caps;
 }
-
 .proof:after {
-
-    content: "\25FC";
-
-    float:right;
-
+  content: "\25FC";
+  float:right;
 }
-
-.definition {
-
-    display: block;
-
-    margin: 12px 0;
-
-    font-style: normal;
-
-}
-
 .definition:before {
-
-    content: "Definition.";
-
-    font-weight: bold;
-
-    font-style: normal;
-
+  counter-increment: definition;
+  content: "Definition " counter(definition) ". ";
+  font-style: normal;
+  font-weight: bold;
 }
+.example:before {
+  counter-increment: example;
+  content: "Example " counter(example) ". ";
+  font-style: normal;
+  font-weight: bold;
+}
+
