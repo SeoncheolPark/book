@@ -12,10 +12,10 @@
 
 - 점 패턴 데이터(point pattern data)
 
-## 공간 확률과정(spatial process)
+## 공간 과정(spatial process)
 
-연속자료의 **공간 확률과정(spatial process)**은 다음과 같이 나타낸다.
-$$\{Z (\mathbf{s}), \mathbf{s} \in \mathcal{D} \subset \mathbb{R}^{d} \} .$$
+연속자료의 **공간 과정(spatial process)**은 다음과 같이 나타낸다.
+\{Z (\mathbf{s}), \mathbf{s} \in \mathcal{D} \subset \mathbb{R}^{d} \} .$$
 여기서 $\mathbf{s}$는 위치(location)이며 $d$차원 자료이다. $d$는 2차원일 수도 있고 고도를 고려하면 3차원일 수도 있다. $Z(\mathbf{s})$는 $\mathbf{s}$에서의 확률변수를 나타낸다.
 
 만약 이산자료라면
@@ -32,7 +32,12 @@ $$\text{covariance function}: C(\mathbf{s}_{1},\mathbf{s}_{2})=E(Z(\mathbf{s}_{1
 우리의 관심사는 $C(\mathbf{s}_{1},\mathbf{s}_{2})$이다(공간 변화 모델링, spatial variation modeling).
 
 그렇다면 우리는 왜 이러한 공간 변화(sptaial variation)를 고려해야 하는가? 간단한 회귀분석의 예를 들면
-$$\mathbf{y}=\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\epsilon}, \qquad{\epsilon_{i} \sim (0, \sigma^{2}\Sigma_{0})}$$
+$$
+\begin{equation}
+\mathbf{y}=\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\epsilon}, \qquad{\epsilon_{i} \sim (0, \sigma^{2}\Sigma_{0})}
+\end{equation}
+$$
+
 으로 식을 쓸 수 있다. 그런데 여기서 오차항을 $\epsilon_{i} \stackrel{\text{iid}}{\sim} (0, \sigma^{2})$이라고 놓고 모델링을 하면 일치성(consistency)은 만족하나 효율성(efficiency)이 깨지는 결과를 얻는다. 즉 추론(inference)를 하기 위해서 변동(variability)을 구할 때 이것이 커지므로 신뢰구간(confidence interval)도 커지고 부정확한 검정(test) 결과를 주는 것이다.
 
 ## 공간자료의 정상성(stationary in spatial data)
@@ -85,14 +90,16 @@ $$2\gamma(\mathbf{h})=2(C(\mathbf{0})-c(\mathbf{h}))$$
 3. $B(t)$ has independent increments with $B(t)-B(s) \sim \mathcal{N}(0,\sigma^{2}(t-s)), t>s$
 
 를 만족시킨다고 한다. 이 때 $\sigma^{2}$을 확산계수(diffusion coefficient)라고 한다. 편의상 1차원에서 생각하자. 그러면 $E(B(t+h)-B(t))=0$, $\text{Var}(B(t+h)-B(t))=2|h|$이므로 내재정상성이다. 그러나 $h < 0$인 경우에 공분산을 계산하면
+
 $$
-\begin{aligned}
-\text{Cov}(B(t+h),B(t)) &= E(B(t+h)B(t))\\
-&=E[B(t+h)\{B(t)-B(t+h)+B(t+h)\}]\\
-&=E[B^{2}(t+h)]+E[B(t+h)]E[B(t)-B(t+h)]\\
-&=\sigma^{2}(t+h)+0=\sigma^{2}(t+h).\\
-\end{aligned}
+\begin{eqnarray}
+\text{Cov}(B(t+h),B(t)) &=& E(B(t+h)B(t))\nonumber\\
+&=&E[B(t+h)\{B(t)-B(t+h)+B(t+h)\}]\nonumber\\
+&=&E[B^{2}(t+h)]+E[B(t+h)]E[B(t)-B(t+h)]\nonumber\\
+&=&\sigma^{2}(t+h)+0=\sigma^{2}(t+h).
+\end{eqnarray}
 $$
+
 가 된다. 같은 방법으로 $h > 0$인 경우도 증명할 수 있으며 결국 $Cov(B(t+h),B(t))=\min (t+h,t)$가 된다. 이는 $h$의 함수가 아니고 차이로 표현 못한다는 뜻이므로 약정상성이 아니다.
 
 ### 에르고딕 과정(ergodic process)
@@ -122,11 +129,12 @@ $C(\mathbf{h})=\text{Cov}(Z(\mathbf{s}+\mathbf{h}), (Z(\mathbf{s})$, $C(\cdot); 
 <div class="theorem">
 
 실수값을 갖는 연속 함수 $C$가 양정치함수라는 것은 그 함수가 symmetric nonnegative measure $F$로부터 $\mathcal{R}^{d}$로 가는 Fourier transform인 경우이다. 즉 
+
 $$
-\begin{aligned}
-C(\mathbf{h})&=\int_{\mathbb{R}^{d}}\exp(i\mathbf{h}^{T}\mathbf{x})dF(\mathbf{x})\\
-&=\int_{\mathbb{R}^{d}}\cos(\mathbf{h}^{T}\mathbf{x})dF(\mathbf{x}) \text{ (spectral representation)}
-\end{aligned}
+\begin{eqnarray}
+C(\mathbf{h})&=&\int_{\mathbb{R}^{d}}\exp(i\mathbf{h}^{T}\mathbf{x})dF(\mathbf{x})\nonumber\\
+&=&\int_{\mathbb{R}^{d}}\cos(\mathbf{h}^{T}\mathbf{x})dF(\mathbf{x}) \text{ (spectral representation)}
+\end{eqnarray}
 $$
 
 </div>
@@ -174,16 +182,65 @@ $C(\mathbf{h})=C_{0}(\|\mathbf{h}\|)$인(or $\gamma(\mathbf{h})=\gamma_{0}(\|\ma
 
 **이등방성(anisotropy)**란 말 그대로 등방성이 아닌 경우를 얘기하지만 이런 경우가 너무 많아 범위를 나누어 생각한다.
 
-#### Geometric anisotropy
+#### 기하학적 이등방성(Geometric anisotropy)
 
 이것은
 $$\gamma(\mathbf{h})=\gamma_{0}(\|A\mathbf{h}\|)$$
-즉 어떤 linear transfomation matrix $A$를 통해 변환한 후 isotropic한 경우를 얘기한다. 보통 $A$는 symmetric positive definite matrix를 다루며 이 때 $\|A\mathbf{h}\|$는 ellipse contour가 된다.
+즉 어떤 **선형변환행렬(linear transfomation matrix)** $A$를 통해 변환한 후 등방성인 경우를 얘기한다. 보통 $A$는 대칭인 양정치행렬(symmetric positive definite matrix)을 다루며 이 때 $\|A\mathbf{h}\|$는 타원형 등고선(ellipse contour)이 된다.
 
-#### Zonal anisotropy
+#### 띠모양 이등방성(zonal anisotropy)
 
-이것은 geometric anisotropy의 generalized version이라고 생각하면 된다.
+이것은 기하학적 이등방성의 일반화된 버전이라고 생각하면 된다.
 $$\gamma(\mathbf{h})=\sum_{i=1}^{K}\gamma_{0}(\|A_{i}\mathbf{h}\|)$$
-로 $A$ 대신 $A_{i}$들로 표현할 수 있는 경우를 얘기한다. 즉 $\gamma(\mathbf{h})$에 대응되는 spatial process를 $Z(\mathbf{s})$라 할 때 각 variogram에 해당하는 independent spatial process의 sum으로 즉
+로 $A$ 대신 $A_{i}$들로 표현할 수 있는 경우를 얘기한다. 즉 $\gamma(\mathbf{h})$에 대응되는 공간과정을 $Z(\mathbf{s})$라 할 때 각 변동도(variogram)에 해당하는 독립인 공간과정(independent spatial process)의 합으로 즉
 $$Z(\mathbf{s})=Z_{1}(\mathbf{s})+ \cdots Z_{k}(\mathbf{s})$$
 로 표현할 수 있다는 것이다.
+
+여기서 각각은 변동도인데 이들의 합도 변동도인가?라는 궁금증을 가질 수 있다. 이것은 맞다고 한다. 앞서 '공분산함수가 되려면 이 함수가 양정치함수이어야 한다'라는 것에 대해 배운 적이 있다. 변동도에 대해서도 똑같이 생각해 볼 수 있을 것이다. 유효한 변동도(valid variogram)이란 무엇인가? 이를 확인해 보기 위해 다음 정의를 살펴보자.
+
+$\gamma(\mathbf{h})=C(\mathbf{0})-C(\mathbf{h})$라고 하자. 이 때 $C(\mathbf{h})$는 양정치함수이나 $C(\mathbf{0})$의 존재로 $\gamma(\mathbf{h})$가 양정치함수라고 말할 수는 없다. 대신 $\sum a_{i}=0$을 만족하는($C(\mathbf{0})$ 때문에 붙는 조건이다) 임의의 $a_{1}, \cdots a_{n}$에 대해
+$$\sum_{i}\sum_{j}a_{i}a_{j}\gamma(\mathbf{s}_{i},\mathbf{s}_{j}) \leq 0$$
+인 경우 $\gamma(\mathbf{h})$를 **조건부 음정치(conditionally negative definite)**라고 한다.
+
+우리는 종속구조(dependent structure)를 모델링하기 위해 공분산 준변동도(covariance semivariogram)를 생각하고 있다. 그런데 공간 데이터를 가지고 있으면 이를 어떤 표면(surface)으로 표현 가능하고 이 과정이 부드러운(smooth)지, 즉 과정이 연속인지 또는 미분가능한지 체크해 보고 싶을 수 있다. 이를 공분산을 가지고 체크해 볼 수 있다고 한다. 즉 공분산은 종속구조를 측정하는 것 이외의 또 다른 기능을 갖고 있는 것이다.
+
+###공간 확률과정의 연속성과 미분가능성(continuity and differentiabiliy of spatial stochastic process
+
+우선 **연속성(continuity)**과 **미분가능성(differentiability)**의 정의를 해야 한다. 여러 버전이 있으나 여기서는 두 가지만 소개하기로 한다.
+
+#### 경로연속(path-continuity) 또는 경로 미분가능성(path-differentiability)
+
+어떤 확률과정 $Z(\mathbf{s})$가 **경로연속(path-continuity)** (또는 K번 미분가능(K-times differentiability))하다는 것은 그것의 실현(realization)이 연속(K번 미분가능)한 것이다. 말은 쉬우나 보이기는 어렵다.
+
+$\{ Z(\mathbf{s}) , S \in \mathcal{D}\}$를 확률변수의 모임(collection)이라고 할 때 $(\omega \in \Omega, \mathcal{F}, P)$에서 $\omega$ 하나당 $\{ Z(\mathbf{s})\}$가 나오고 이것을 실현한 것이다.
+
+#### 평균제곱연속(mean-square continuity) 또는 평균제곱 미분가능성(mean-square differentiability)
+
+어떤 확률과정 $Z(\mathbf{s})$가 $\mathbf{s}$에서 **평균제곱연속(mean-square continuity)**이라는 것(다른 말로 $L_{2}$-수렴)은
+$$E[(Z(\mathbf{s}+\mathbf{h}))^{2}] \stackrel{\|\mathbf{h}\| \rightarrow 0}{\rightarrow} 0$$
+인 경우이다.
+
+같은 방법으로 어떤 확률과정 $Z(\mathbf{s})$가 미분계수 $Z'(\mathbf{s})$에 대해  **평균제곱 미분가능(mean-square differentiable)**이라는 것은
+$$E[(\frac{Z(\mathbf{s}+\mathbf{h})-Z(\mathbf{s})}{h}-Z'(\mathbf{s}))^{2}] \stackrel{\|\mathbf{h}\| \rightarrow 0}{\rightarrow} 0$$
+인 경우이다.
+
+사실 $\frac{Z(\mathbf{s}+\mathbf{h})-Z(\mathbf{s})}{h}$의 극한으로 $Z'(\mathbf{s})$를 정의하는 것이다. 고차원의 경우도 반복적으로 정의가 가능하다. 이것의 생김새로 보아 변동도와 관련이 있을 것이다라는 생각도 해 볼 수 있을 것이다.
+
+그렇다면 이 둘 사이에는 어떤 관계가 있을까? 안타깝께도 내재하는 관계는 없다. 즉 경로연속이나 평균제곱연속은 아닌 경우도 있고 그 반대도 있다.
+
+한편 공분산과 평균제곱연속(또는 미분가능성)은 어떤 연관성이 있는 걸까?
+$$E[(Z(\mathbf{s}+\mathbf{h}))^{2}] \stackrel{\|\mathbf{h}\| \rightarrow 0}{\rightarrow} 0$$
+으로부터
+$$2\gamma(\mathbf{h})=2(C(\mathbf{0})-C(\mathbf{h})) \stackrel{\|\mathbf{h}\| \rightarrow 0}{\rightarrow} 0$$
+즉 $C$라는 함수가 $\mathbf{0}$에서 연속이라는 것을 알 수 있다.
+
+(약)정상성을 가정할 경우 ($\mathbf{s} \in \mathbb{R}^{d}$, $\mathbf{s}$는 고정되어있지 않다)
+$$ \mathbf{s} \text{에서 평균제곱연속} \leftrightarrow C(\cdot)\text{이 } \mathbf{0}\text{에서 연속}$$
+$$C(\cdot)\text{이 } \mathbf{0}\text{에서 연속} \rightarrow Z(\mathbf{s})\text{가 모든 지점에서 평균제곱연속}$$
+위 결과로부터, $Z(\mathbf{s})$는 모든 지점에서 평균제곱연속이거나 어떠한 지점에서도 평균제곱연속하지 못함을 알 수 있다. (어떤 특정한 지역에서만 평균제곱연속할 수 없다)
+
+또한 다음과 같은 사실도 알 수 있다.
+$$C(\cdot) \text{가 원점에서 연속이면} \rightarrow C(\cdot) \text{는 모든 지점에서 연속이다}.$$
+이것의 증명에 대해서는 각자 생각해보기로 한다.
+
+### Bartlett의 정리(Bartlett's theorem)

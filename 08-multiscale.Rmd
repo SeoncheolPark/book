@@ -50,7 +50,7 @@ library(waveslim)
 
 `wavethresh` 라이브러리를 실행시킨 상황에서, 다음 벡터의 웨이블릿 변환을 실행해본다.
 
-```{r, fig.align='center', comment=">"}
+```{r, fig.align='center', comment=">", fig.cap = 'Wavelet decomposition coefficients.'}
 y <- c(1,1,7,9,2,8,8,6)
 ## wd: wavelet transform
 ywd <- wd(y, filter.number=1, family="DaubExPhase")

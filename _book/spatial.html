@@ -129,7 +129,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="9" data-path="spatial.html"><a href="spatial.html"><i class="fa fa-check"></i><b>9</b> 공간통계학</a><ul>
 <li class="chapter" data-level="9.1" data-path="spatial.html"><a href="spatial.html#-classes-of-spatial-data"><i class="fa fa-check"></i><b>9.1</b> 공간자료의 종류(classes of spatial data)</a></li>
-<li class="chapter" data-level="9.2" data-path="spatial.html"><a href="spatial.html#-spatial-process"><i class="fa fa-check"></i><b>9.2</b> 공간 확률과정(spatial process)</a></li>
+<li class="chapter" data-level="9.2" data-path="spatial.html"><a href="spatial.html#-spatial-process"><i class="fa fa-check"></i><b>9.2</b> 공간 과정(spatial process)</a></li>
 <li class="chapter" data-level="9.3" data-path="spatial.html"><a href="spatial.html#-stationary-in-spatial-data"><i class="fa fa-check"></i><b>9.3</b> 공간자료의 정상성(stationary in spatial data)</a><ul>
 <li class="chapter" data-level="9.3.1" data-path="spatial.html"><a href="spatial.html#strictly-stationary"><i class="fa fa-check"></i><b>9.3.1</b> 순정상성(strictly stationary)</a></li>
 <li class="chapter" data-level="9.3.2" data-path="spatial.html"><a href="spatial.html#second-order-stationary-weakly-stationary"><i class="fa fa-check"></i><b>9.3.2</b> 약정상성(second order stationary, weakly stationary)</a></li>
@@ -144,6 +144,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.4.1" data-path="spatial.html"><a href="spatial.html#isotropy"><i class="fa fa-check"></i><b>9.4.1</b> 등방성(isotropy)</a></li>
 <li class="chapter" data-level="9.4.2" data-path="spatial.html"><a href="spatial.html#homogeneous"><i class="fa fa-check"></i><b>9.4.2</b> 동질성(homogeneous)</a></li>
 <li class="chapter" data-level="9.4.3" data-path="spatial.html"><a href="spatial.html#anisotropy"><i class="fa fa-check"></i><b>9.4.3</b> 이등방성(anisotropy)</a></li>
+<li class="chapter" data-level="9.4.4" data-path="spatial.html"><a href="spatial.html#---continuity-and-differentiabiliy-of-spatial-stochastic-process"><i class="fa fa-check"></i><b>9.4.4</b> 공간 확률과정의 연속성과 미분가능성(continuity and differentiabiliy of spatial stochastic process</a></li>
+<li class="chapter" data-level="9.4.5" data-path="spatial.html"><a href="spatial.html#bartlett-bartletts-theorem"><i class="fa fa-check"></i><b>9.4.5</b> Bartlett의 정리(Bartlett’s theorem)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>10</b> References</a></li>
@@ -180,12 +182,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </div>
 <div id="-spatial-process" class="section level2">
-<h2><span class="header-section-number">9.2</span> 공간 확률과정(spatial process)</h2>
-<p>연속자료의 <strong>공간 확률과정(spatial process)</strong>은 다음과 같이 나타낸다. <span class="math display">\[\{Z (\mathbf{s}), \mathbf{s} \in \mathcal{D} \subset \mathbb{R}^{d} \} .\]</span> 여기서 <span class="math inline">\(\mathbf{s}\)</span>는 위치(location)이며 <span class="math inline">\(d\)</span>차원 자료이다. <span class="math inline">\(d\)</span>는 2차원일 수도 있고 고도를 고려하면 3차원일 수도 있다. <span class="math inline">\(Z(\mathbf{s})\)</span>는 <span class="math inline">\(\mathbf{s}\)</span>에서의 확률변수를 나타낸다.</p>
+<h2><span class="header-section-number">9.2</span> 공간 과정(spatial process)</h2>
+<p>연속자료의 <strong>공간 과정(spatial process)</strong>은 다음과 같이 나타낸다. {Z (),   ^{d} } .$$ 여기서 <span class="math inline">\(\mathbf{s}\)</span>는 위치(location)이며 <span class="math inline">\(d\)</span>차원 자료이다. <span class="math inline">\(d\)</span>는 2차원일 수도 있고 고도를 고려하면 3차원일 수도 있다. <span class="math inline">\(Z(\mathbf{s})\)</span>는 <span class="math inline">\(\mathbf{s}\)</span>에서의 확률변수를 나타낸다.</p>
 <p>만약 이산자료라면 <span class="math display">\[\{Z (\mathbf{s}), \mathbf{s} \in \mathcal{D} \subset \mathbb{Z}^{d} \} \]</span> 로 바뀐다.</p>
 <p>점 패턴 자료의 경우에는 굳이 표현하자면 <span class="math display">\[\{ (\mathbf{s}_{1},z(\mathbf{s}_{1})), \cdots , (\mathbf{s}_{n},z(\mathbf{s}_{n}))  \} \]</span> 으로 쓸 수 있으며 이 때 <span class="math inline">\(s\)</span>, <span class="math inline">\(Z\)</span>, <span class="math inline">\(n\)</span> 모두 무작위라고 한다.</p>
 <p>다음은 <span class="math inline">\(Z(\mathbf{s})\)</span>의 평균과 분산을 생각해보자. <span class="math display">\[\text{mean function}:\mu(\mathbf{s})=E(z(\mathbf{s}))\]</span> <span class="math display">\[\text{covariance function}: C(\mathbf{s}_{1},\mathbf{s}_{2})=E(Z(\mathbf{s}_{1}-\mu(\mathbf{s}_{1})))(Z(\mathbf{s}_{2}-\mu(\mathbf{s}_{2}))).\]</span> 우리의 관심사는 <span class="math inline">\(C(\mathbf{s}_{1},\mathbf{s}_{2})\)</span>이다(공간 변화 모델링, spatial variation modeling).</p>
-<p>그렇다면 우리는 왜 이러한 공간 변화(sptaial variation)를 고려해야 하는가? 간단한 회귀분석의 예를 들면 <span class="math display">\[\mathbf{y}=\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\epsilon}, \qquad{\epsilon_{i} \sim (0, \sigma^{2}\Sigma_{0})}\]</span> 으로 식을 쓸 수 있다. 그런데 여기서 오차항을 <span class="math inline">\(\epsilon_{i} \stackrel{\text{iid}}{\sim} (0, \sigma^{2})\)</span>이라고 놓고 모델링을 하면 일치성(consistency)은 만족하나 효율성(efficiency)이 깨지는 결과를 얻는다. 즉 추론(inference)를 하기 위해서 변동(variability)을 구할 때 이것이 커지므로 신뢰구간(confidence interval)도 커지고 부정확한 검정(test) 결과를 주는 것이다.</p>
+<p>그렇다면 우리는 왜 이러한 공간 변화(sptaial variation)를 고려해야 하는가? 간단한 회귀분석의 예를 들면 <span class="math display">\[
+\begin{equation}
+\mathbf{y}=\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\epsilon}, \qquad{\epsilon_{i} \sim (0, \sigma^{2}\Sigma_{0})}
+\end{equation}
+\]</span></p>
+<p>으로 식을 쓸 수 있다. 그런데 여기서 오차항을 <span class="math inline">\(\epsilon_{i} \stackrel{\text{iid}}{\sim} (0, \sigma^{2})\)</span>이라고 놓고 모델링을 하면 일치성(consistency)은 만족하나 효율성(efficiency)이 깨지는 결과를 얻는다. 즉 추론(inference)를 하기 위해서 변동(variability)을 구할 때 이것이 커지므로 신뢰구간(confidence interval)도 커지고 부정확한 검정(test) 결과를 주는 것이다.</p>
 </div>
 <div id="-stationary-in-spatial-data" class="section level2">
 <h2><span class="header-section-number">9.3</span> 공간자료의 정상성(stationary in spatial data)</h2>
@@ -223,14 +230,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><span class="math inline">\(B(t)\)</span>는 almost surely continuous</li>
 <li><span class="math inline">\(B(t)\)</span> has independent increments with <span class="math inline">\(B(t)-B(s) \sim \mathcal{N}(0,\sigma^{2}(t-s)), t&gt;s\)</span></li>
 </ol>
-<p>를 만족시킨다고 한다. 이 때 <span class="math inline">\(\sigma^{2}\)</span>을 확산계수(diffusion coefficient)라고 한다. 편의상 1차원에서 생각하자. 그러면 <span class="math inline">\(E(B(t+h)-B(t))=0\)</span>, <span class="math inline">\(\text{Var}(B(t+h)-B(t))=2|h|\)</span>이므로 내재정상성이다. 그러나 <span class="math inline">\(h &lt; 0\)</span>인 경우에 공분산을 계산하면 <span class="math display">\[
-\begin{aligned}
-\text{Cov}(B(t+h),B(t)) &amp;= E(B(t+h)B(t))\\
-&amp;=E[B(t+h)\{B(t)-B(t+h)+B(t+h)\}]\\
-&amp;=E[B^{2}(t+h)]+E[B(t+h)]E[B(t)-B(t+h)]\\
-&amp;=\sigma^{2}(t+h)+0=\sigma^{2}(t+h).\\
-\end{aligned}
-\]</span> 가 된다. 같은 방법으로 <span class="math inline">\(h &gt; 0\)</span>인 경우도 증명할 수 있으며 결국 <span class="math inline">\(Cov(B(t+h),B(t))=\min (t+h,t)\)</span>가 된다. 이는 <span class="math inline">\(h\)</span>의 함수가 아니고 차이로 표현 못한다는 뜻이므로 약정상성이 아니다.</p>
+<p>를 만족시킨다고 한다. 이 때 <span class="math inline">\(\sigma^{2}\)</span>을 확산계수(diffusion coefficient)라고 한다. 편의상 1차원에서 생각하자. 그러면 <span class="math inline">\(E(B(t+h)-B(t))=0\)</span>, <span class="math inline">\(\text{Var}(B(t+h)-B(t))=2|h|\)</span>이므로 내재정상성이다. 그러나 <span class="math inline">\(h &lt; 0\)</span>인 경우에 공분산을 계산하면</p>
+<p><span class="math display">\[
+\begin{eqnarray}
+\text{Cov}(B(t+h),B(t)) &amp;=&amp; E(B(t+h)B(t))\nonumber\\
+&amp;=&amp;E[B(t+h)\{B(t)-B(t+h)+B(t+h)\}]\nonumber\\
+&amp;=&amp;E[B^{2}(t+h)]+E[B(t+h)]E[B(t)-B(t+h)]\nonumber\\
+&amp;=&amp;\sigma^{2}(t+h)+0=\sigma^{2}(t+h).
+\end{eqnarray}
+\]</span></p>
+<p>가 된다. 같은 방법으로 <span class="math inline">\(h &gt; 0\)</span>인 경우도 증명할 수 있으며 결국 <span class="math inline">\(Cov(B(t+h),B(t))=\min (t+h,t)\)</span>가 된다. 이는 <span class="math inline">\(h\)</span>의 함수가 아니고 차이로 표현 못한다는 뜻이므로 약정상성이 아니다.</p>
 </div>
 </div>
 <div id="-ergodic-process" class="section level3">
@@ -250,11 +259,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3><span class="header-section-number">9.3.7</span> 스펙트럴 표현 정리(spectral representation theorem)</h3>
 <p><strong>스펙트럴 표현 정리(spectral representation theorem)</strong>는 다른 말로 <strong>Bochner의 정리(Bochner’s theorem)</strong>이라고 부른다.</p>
 <div class="theorem">
-<p>실수값을 갖는 연속 함수 <span class="math inline">\(C\)</span>가 양정치함수라는 것은 그 함수가 symmetric nonnegative measure <span class="math inline">\(F\)</span>로부터 <span class="math inline">\(\mathcal{R}^{d}\)</span>로 가는 Fourier transform인 경우이다. 즉 <span class="math display">\[
-\begin{aligned}
-C(\mathbf{h})&amp;=\int_{\mathbb{R}^{d}}\exp(i\mathbf{h}^{T}\mathbf{x})dF(\mathbf{x})\\
-&amp;=\int_{\mathbb{R}^{d}}\cos(\mathbf{h}^{T}\mathbf{x})dF(\mathbf{x}) \text{ (spectral representation)}
-\end{aligned}
+<p>실수값을 갖는 연속 함수 <span class="math inline">\(C\)</span>가 양정치함수라는 것은 그 함수가 symmetric nonnegative measure <span class="math inline">\(F\)</span>로부터 <span class="math inline">\(\mathcal{R}^{d}\)</span>로 가는 Fourier transform인 경우이다. 즉</p>
+<p><span class="math display">\[
+\begin{eqnarray}
+C(\mathbf{h})&amp;=&amp;\int_{\mathbb{R}^{d}}\exp(i\mathbf{h}^{T}\mathbf{x})dF(\mathbf{x})\nonumber\\
+&amp;=&amp;\int_{\mathbb{R}^{d}}\cos(\mathbf{h}^{T}\mathbf{x})dF(\mathbf{x}) \text{ (spectral representation)}
+\end{eqnarray}
 \]</span></p>
 </div>
 <p>인 경우이다. 여기서 <span class="math inline">\(F\)</span>를 <strong>스펙트럼 측도(spectral measure)</strong>라고 한다. 만약 <span class="math inline">\(F\)</span>가 좋은 성질을 갖고 있어서 <strong>(르베그) 밀도함수((Lebesgue) density function)</strong> <span class="math inline">\(f\)</span>가 있으면, 즉 <span class="math inline">\(F(\mathbf{x})=f(\mathbf{x})d\mathbf{x}\)</span>이면 <span class="math inline">\(f(\mathbf{x})\)</span>를 <strong>스펙트럼 밀도(spectral density)</strong>라고 하며 이것의 스펙트럼 표현(spectral representation)은 <span class="math display">\[
@@ -291,15 +301,40 @@ C(\mathbf{h}) =\int_{\mathbb{R}^{d}}\exp(i\mathbf{h}^{T}\mathbf{x})dF(\mathbf{x}
 <div id="anisotropy" class="section level3">
 <h3><span class="header-section-number">9.4.3</span> 이등방성(anisotropy)</h3>
 <p><strong>이등방성(anisotropy)</strong>란 말 그대로 등방성이 아닌 경우를 얘기하지만 이런 경우가 너무 많아 범위를 나누어 생각한다.</p>
-<div id="geometric-anisotropy" class="section level4">
-<h4><span class="header-section-number">9.4.3.1</span> Geometric anisotropy</h4>
-<p>이것은 <span class="math display">\[\gamma(\mathbf{h})=\gamma_{0}(\|A\mathbf{h}\|)\]</span> 즉 어떤 linear transfomation matrix <span class="math inline">\(A\)</span>를 통해 변환한 후 isotropic한 경우를 얘기한다. 보통 <span class="math inline">\(A\)</span>는 symmetric positive definite matrix를 다루며 이 때 <span class="math inline">\(\|A\mathbf{h}\|\)</span>는 ellipse contour가 된다.</p>
+<div id="-geometric-anisotropy" class="section level4">
+<h4><span class="header-section-number">9.4.3.1</span> 기하학적 이등방성(Geometric anisotropy)</h4>
+<p>이것은 <span class="math display">\[\gamma(\mathbf{h})=\gamma_{0}(\|A\mathbf{h}\|)\]</span> 즉 어떤 <strong>선형변환행렬(linear transfomation matrix)</strong> <span class="math inline">\(A\)</span>를 통해 변환한 후 등방성인 경우를 얘기한다. 보통 <span class="math inline">\(A\)</span>는 대칭인 양정치행렬(symmetric positive definite matrix)을 다루며 이 때 <span class="math inline">\(\|A\mathbf{h}\|\)</span>는 타원형 등고선(ellipse contour)이 된다.</p>
 </div>
-<div id="zonal-anisotropy" class="section level4">
-<h4><span class="header-section-number">9.4.3.2</span> Zonal anisotropy</h4>
-<p>이것은 geometric anisotropy의 generalized version이라고 생각하면 된다. <span class="math display">\[\gamma(\mathbf{h})=\sum_{i=1}^{K}\gamma_{0}(\|A_{i}\mathbf{h}\|)\]</span> 로 <span class="math inline">\(A\)</span> 대신 <span class="math inline">\(A_{i}\)</span>들로 표현할 수 있는 경우를 얘기한다. 즉 <span class="math inline">\(\gamma(\mathbf{h})\)</span>에 대응되는 spatial process를 <span class="math inline">\(Z(\mathbf{s})\)</span>라 할 때 각 variogram에 해당하는 independent spatial process의 sum으로 즉 <span class="math display">\[Z(\mathbf{s})=Z_{1}(\mathbf{s})+ \cdots Z_{k}(\mathbf{s})\]</span> 로 표현할 수 있다는 것이다.</p>
+<div id="-zonal-anisotropy" class="section level4">
+<h4><span class="header-section-number">9.4.3.2</span> 띠모양 이등방성(zonal anisotropy)</h4>
+<p>이것은 기하학적 이등방성의 일반화된 버전이라고 생각하면 된다. <span class="math display">\[\gamma(\mathbf{h})=\sum_{i=1}^{K}\gamma_{0}(\|A_{i}\mathbf{h}\|)\]</span> 로 <span class="math inline">\(A\)</span> 대신 <span class="math inline">\(A_{i}\)</span>들로 표현할 수 있는 경우를 얘기한다. 즉 <span class="math inline">\(\gamma(\mathbf{h})\)</span>에 대응되는 공간과정을 <span class="math inline">\(Z(\mathbf{s})\)</span>라 할 때 각 변동도(variogram)에 해당하는 독립인 공간과정(independent spatial process)의 합으로 즉 <span class="math display">\[Z(\mathbf{s})=Z_{1}(\mathbf{s})+ \cdots Z_{k}(\mathbf{s})\]</span> 로 표현할 수 있다는 것이다.</p>
+<p>여기서 각각은 변동도인데 이들의 합도 변동도인가?라는 궁금증을 가질 수 있다. 이것은 맞다고 한다. 앞서 ’공분산함수가 되려면 이 함수가 양정치함수이어야 한다’라는 것에 대해 배운 적이 있다. 변동도에 대해서도 똑같이 생각해 볼 수 있을 것이다. 유효한 변동도(valid variogram)이란 무엇인가? 이를 확인해 보기 위해 다음 정의를 살펴보자.</p>
+<p><span class="math inline">\(\gamma(\mathbf{h})=C(\mathbf{0})-C(\mathbf{h})\)</span>라고 하자. 이 때 <span class="math inline">\(C(\mathbf{h})\)</span>는 양정치함수이나 <span class="math inline">\(C(\mathbf{0})\)</span>의 존재로 <span class="math inline">\(\gamma(\mathbf{h})\)</span>가 양정치함수라고 말할 수는 없다. 대신 <span class="math inline">\(\sum a_{i}=0\)</span>을 만족하는(<span class="math inline">\(C(\mathbf{0})\)</span> 때문에 붙는 조건이다) 임의의 <span class="math inline">\(a_{1}, \cdots a_{n}\)</span>에 대해 <span class="math display">\[\sum_{i}\sum_{j}a_{i}a_{j}\gamma(\mathbf{s}_{i},\mathbf{s}_{j}) \leq 0\]</span> 인 경우 <span class="math inline">\(\gamma(\mathbf{h})\)</span>를 <strong>조건부 음정치(conditionally negative definite)</strong>라고 한다.</p>
+<p>우리는 종속구조(dependent structure)를 모델링하기 위해 공분산 준변동도(covariance semivariogram)를 생각하고 있다. 그런데 공간 데이터를 가지고 있으면 이를 어떤 표면(surface)으로 표현 가능하고 이 과정이 부드러운(smooth)지, 즉 과정이 연속인지 또는 미분가능한지 체크해 보고 싶을 수 있다. 이를 공분산을 가지고 체크해 볼 수 있다고 한다. 즉 공분산은 종속구조를 측정하는 것 이외의 또 다른 기능을 갖고 있는 것이다.</p>
+</div>
+</div>
+<div id="---continuity-and-differentiabiliy-of-spatial-stochastic-process" class="section level3">
+<h3><span class="header-section-number">9.4.4</span> 공간 확률과정의 연속성과 미분가능성(continuity and differentiabiliy of spatial stochastic process</h3>
+<p>우선 <strong>연속성(continuity)</strong>과 <strong>미분가능성(differentiability)</strong>의 정의를 해야 한다. 여러 버전이 있으나 여기서는 두 가지만 소개하기로 한다.</p>
+<div id="path-continuity---path-differentiability" class="section level4">
+<h4><span class="header-section-number">9.4.4.1</span> 경로연속(path-continuity) 또는 경로 미분가능성(path-differentiability)</h4>
+<p>어떤 확률과정 <span class="math inline">\(Z(\mathbf{s})\)</span>가 <strong>경로연속(path-continuity)</strong> (또는 K번 미분가능(K-times differentiability))하다는 것은 그것의 실현(realization)이 연속(K번 미분가능)한 것이다. 말은 쉬우나 보이기는 어렵다.</p>
+<p><span class="math inline">\(\{ Z(\mathbf{s}) , S \in \mathcal{D}\}\)</span>를 확률변수의 모임(collection)이라고 할 때 <span class="math inline">\((\omega \in \Omega, \mathcal{F}, P)\)</span>에서 <span class="math inline">\(\omega\)</span> 하나당 <span class="math inline">\(\{ Z(\mathbf{s})\}\)</span>가 나오고 이것을 실현한 것이다.</p>
+</div>
+<div id="mean-square-continuity---mean-square-differentiability" class="section level4">
+<h4><span class="header-section-number">9.4.4.2</span> 평균제곱연속(mean-square continuity) 또는 평균제곱 미분가능성(mean-square differentiability)</h4>
+<p>어떤 확률과정 <span class="math inline">\(Z(\mathbf{s})\)</span>가 <span class="math inline">\(\mathbf{s}\)</span>에서 <strong>평균제곱연속(mean-square continuity)</strong>이라는 것(다른 말로 <span class="math inline">\(L_{2}\)</span>-수렴)은 <span class="math display">\[E[(Z(\mathbf{s}+\mathbf{h}))^{2}] \stackrel{\|\mathbf{h}\| \rightarrow 0}{\rightarrow} 0\]</span> 인 경우이다.</p>
+<p>같은 방법으로 어떤 확률과정 <span class="math inline">\(Z(\mathbf{s})\)</span>가 미분계수 <span class="math inline">\(Z&#39;(\mathbf{s})\)</span>에 대해 <strong>평균제곱 미분가능(mean-square differentiable)</strong>이라는 것은 <span class="math display">\[E[(\frac{Z(\mathbf{s}+\mathbf{h})-Z(\mathbf{s})}{h}-Z&#39;(\mathbf{s}))^{2}] \stackrel{\|\mathbf{h}\| \rightarrow 0}{\rightarrow} 0\]</span> 인 경우이다.</p>
+<p>사실 <span class="math inline">\(\frac{Z(\mathbf{s}+\mathbf{h})-Z(\mathbf{s})}{h}\)</span>의 극한으로 <span class="math inline">\(Z&#39;(\mathbf{s})\)</span>를 정의하는 것이다. 고차원의 경우도 반복적으로 정의가 가능하다. 이것의 생김새로 보아 변동도와 관련이 있을 것이다라는 생각도 해 볼 수 있을 것이다.</p>
+<p>그렇다면 이 둘 사이에는 어떤 관계가 있을까? 안타깝께도 내재하는 관계는 없다. 즉 경로연속이나 평균제곱연속은 아닌 경우도 있고 그 반대도 있다.</p>
+<p>한편 공분산과 평균제곱연속(또는 미분가능성)은 어떤 연관성이 있는 걸까? <span class="math display">\[E[(Z(\mathbf{s}+\mathbf{h}))^{2}] \stackrel{\|\mathbf{h}\| \rightarrow 0}{\rightarrow} 0\]</span> 으로부터 <span class="math display">\[2\gamma(\mathbf{h})=2(C(\mathbf{0})-C(\mathbf{h})) \stackrel{\|\mathbf{h}\| \rightarrow 0}{\rightarrow} 0\]</span> 즉 <span class="math inline">\(C\)</span>라는 함수가 <span class="math inline">\(\mathbf{0}\)</span>에서 연속이라는 것을 알 수 있다.</p>
+<p>(약)정상성을 가정할 경우 (<span class="math inline">\(\mathbf{s} \in \mathbb{R}^{d}\)</span>, <span class="math inline">\(\mathbf{s}\)</span>는 고정되어있지 않다) <span class="math display">\[ \mathbf{s} \text{에서 평균제곱연속} \leftrightarrow C(\cdot)\text{이 } \mathbf{0}\text{에서 연속}\]</span> <span class="math display">\[C(\cdot)\text{이 } \mathbf{0}\text{에서 연속} \rightarrow Z(\mathbf{s})\text{가 모든 지점에서 평균제곱연속}\]</span> 위 결과로부터, <span class="math inline">\(Z(\mathbf{s})\)</span>는 모든 지점에서 평균제곱연속이거나 어떠한 지점에서도 평균제곱연속하지 못함을 알 수 있다. (어떤 특정한 지역에서만 평균제곱연속할 수 없다)</p>
+<p>또한 다음과 같은 사실도 알 수 있다. <span class="math display">\[C(\cdot) \text{가 원점에서 연속이면} \rightarrow C(\cdot) \text{는 모든 지점에서 연속이다}.\]</span> 이것의 증명에 대해서는 각자 생각해보기로 한다.</p>
+</div>
+</div>
+<div id="bartlett-bartletts-theorem" class="section level3">
+<h3><span class="header-section-number">9.4.5</span> Bartlett의 정리(Bartlett’s theorem)</h3>
 
-</div>
 </div>
 </div>
 </div>

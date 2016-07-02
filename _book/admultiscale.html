@@ -129,7 +129,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="9" data-path="spatial.html"><a href="spatial.html"><i class="fa fa-check"></i><b>9</b> 공간통계학</a><ul>
 <li class="chapter" data-level="9.1" data-path="spatial.html"><a href="spatial.html#-classes-of-spatial-data"><i class="fa fa-check"></i><b>9.1</b> 공간자료의 종류(classes of spatial data)</a></li>
-<li class="chapter" data-level="9.2" data-path="spatial.html"><a href="spatial.html#-spatial-process"><i class="fa fa-check"></i><b>9.2</b> 공간 확률과정(spatial process)</a></li>
+<li class="chapter" data-level="9.2" data-path="spatial.html"><a href="spatial.html#-spatial-process"><i class="fa fa-check"></i><b>9.2</b> 공간 과정(spatial process)</a></li>
 <li class="chapter" data-level="9.3" data-path="spatial.html"><a href="spatial.html#-stationary-in-spatial-data"><i class="fa fa-check"></i><b>9.3</b> 공간자료의 정상성(stationary in spatial data)</a><ul>
 <li class="chapter" data-level="9.3.1" data-path="spatial.html"><a href="spatial.html#strictly-stationary"><i class="fa fa-check"></i><b>9.3.1</b> 순정상성(strictly stationary)</a></li>
 <li class="chapter" data-level="9.3.2" data-path="spatial.html"><a href="spatial.html#second-order-stationary-weakly-stationary"><i class="fa fa-check"></i><b>9.3.2</b> 약정상성(second order stationary, weakly stationary)</a></li>
@@ -144,6 +144,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.4.1" data-path="spatial.html"><a href="spatial.html#isotropy"><i class="fa fa-check"></i><b>9.4.1</b> 등방성(isotropy)</a></li>
 <li class="chapter" data-level="9.4.2" data-path="spatial.html"><a href="spatial.html#homogeneous"><i class="fa fa-check"></i><b>9.4.2</b> 동질성(homogeneous)</a></li>
 <li class="chapter" data-level="9.4.3" data-path="spatial.html"><a href="spatial.html#anisotropy"><i class="fa fa-check"></i><b>9.4.3</b> 이등방성(anisotropy)</a></li>
+<li class="chapter" data-level="9.4.4" data-path="spatial.html"><a href="spatial.html#---continuity-and-differentiabiliy-of-spatial-stochastic-process"><i class="fa fa-check"></i><b>9.4.4</b> 공간 확률과정의 연속성과 미분가능성(continuity and differentiabiliy of spatial stochastic process</a></li>
+<li class="chapter" data-level="9.4.5" data-path="spatial.html"><a href="spatial.html#bartlett-bartletts-theorem"><i class="fa fa-check"></i><b>9.4.5</b> Bartlett의 정리(Bartlett’s theorem)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>10</b> References</a></li>
@@ -185,14 +187,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 위 식들의 역변환(inverse transform)은 다음과 같다.
 \begin{equation}
     s_{j+1,2k+1}=s_{j,k}+\frac{d_{j,k}}{2}
-\end{equation}\begin{equation}\label{eqn:four}
-    s_{j+1,2k}=s_{j,k}-\frac{d_{j,k}}{2}
+\end{equation}\begin{equation}
+    s_{j+1,2k}=s_{j,k}-\frac{d_{j,k}}{2}\label{eq:four}
 \end{equation}
-이항하여 정리하면 다음과 같은 식을 얻는다.
+식 (\ref{eq:four})를 이항하여 정리하면 다음과 같은 식을 얻는다.
 \begin{equation}
     s_{j,k}=s_{j+1,2k}+\frac{d_{j,k}}{2}.
 \end{equation}
 <p>웨이블릿 변환에서는 <span class="math inline">\(s_{j,k}\)</span>와 <span class="math inline">\(d_{j,k}\)</span>를 동시에 얻지만 리프팅 스킴에서는 <span class="math inline">\(d_{j,k}\)</span>를 얻은 후 순차적으로 <span class="math inline">\(s_{j,k}\)</span>를 얻는다.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<img src="images/advmultiscale_lifting.png" alt="Forward lifting scheme using Haar transform."  />
+<p class="caption">
+Figure 8.1: Forward lifting scheme using Haar transform.
+</p>
+</div>
 <p>정리하면 <span class="math display">\[\text{차이(difference)=홀(odd)-짝(even)} \qquad{\text{듀얼 리프팅(dual lifting)}}\]</span> <span class="math display">\[\text{평균(average)=짝(even)+0.5차이} \qquad{\text{프라이멀 리프팅(primal lifting)}}\]</span> 이며 여기서 짝과 홀을 어떻게 정하느냐에 따라 계산값이 달라진다.</p>
 <p>리프팅 스킴의 계산 절차를 다음과 같이 세 단계로 요약할 수 있다.</p>
 <ol style="list-style-type: decimal">
@@ -201,13 +209,31 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><p><strong>갱신(update)</strong>: <span class="math inline">\(s_{j,k}=s_{j+1,2k}+\frac{d_{j,k}}{2}\)</span> (프라이멀 리프팅)</p></li>
 </ol>
 <p>일반적인 리프팅 스킴의 프라이멀 리프팅과 듀얼 리프팅의 <strong>정변환(forward transform)</strong>은 다음과 같다. <span class="math display">\[\text{차이(difference)=홀(odd)-p짝(even)} \qquad{\text{듀얼 리프팅(dual lifting)}}\]</span> <span class="math display">\[\text{평균(average)=짝(even)+u차이} \qquad{\text{프라이멀 리프팅(primal lifting)}}\]</span> 이 때 <span class="math inline">\(p=1\)</span>, <span class="math inline">\(u=0.5\)</span>인 경우를 특별히 Haar 웨이블릿 변환(Haar wavelet transformation)이라고 부르는 것이다.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
+<img src="images/advmultiscale_lifting02.png" alt="Standard lifting scheme using primal and dual lifting."  />
+<p class="caption">
+Figure 8.2: Standard lifting scheme using primal and dual lifting.
+</p>
+</div>
 <p>리프팅의 <strong>역변환(backward transform)</strong>은 다음과 같다. <span class="math display">\[\text{짝(even)=평균(average)-u차이(difference)} \]</span> <span class="math display">\[\text{홀(odd)=차이(difference)+p짝} \]</span></p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
+<img src="images/advmultiscale_invlifting.png" alt="Backward lifting scheme."  />
+<p class="caption">
+Figure 8.3: Backward lifting scheme.
+</p>
+</div>
 <p>리프팅 스킴 방법은 데이터가 일정한 간격(equally space)으로 있어야 한다는 가정이 불필요하며 <span class="math inline">\(n=2^{J}\)</span>일 필요도 없다. 그러나 <span class="math inline">\(p\)</span>와 <span class="math inline">\(u\)</span>를 바꿀 경우 직교성(orthogonality)이 안되기 시작하며 2차원 자료인 경우에도 잘 작동하지 않는다. 만약 시공간 자료(spatio-temporal data)에 리프팅을 적용할 수 있다면 군집 분석(clustering analysis)을 할 때 군집의 크기(clustering size)를 고민할 필요가 없다는 장점이 생긴다.</p>
 </div>
 <div id="---lifting-in-two-dimensions" class="section level2">
 <h2><span class="header-section-number">8.3</span> 2차원 자료의 리프팅 스킴(lifting in two dimensions)</h2>
 <p>이 절의 내용은 <span class="citation">(Jang 2012)</span>의 서술을 참고하였다. 2차원 자료에서는 1차원 자료와 다르게 짝과 홀을 정할 수 없다는 문제점이 있다. 불규칙한 격자점에서, 이웃(neighborhood)은 삼각분할(triangulation)을 통해 정의된다.</p>
 <p>리프팅 스킴은 모든 해상도 수준(resolution level)에서 <strong>다중척도 들로네 삼각분할(multiscale Delaunay triangulation)</strong>이라 부르는 꼭지점들의 이웃 구조를 사용한다. 삼각형 격자 위에 있는 자료를 다중척도 표현으로 분해(decomposition)하는 것은 현재 수준 <span class="math inline">\(l\)</span>에서 <span class="math inline">\(l+1\)</span>로 넘어갈 때 빼길 원하는 점 주변의 국소적 재삼각분할(local retriangulation)을 필요로 한다. 이 알고리즘은 수준이 고정되었을 때 이웃은 변하지 않는다라는 가정 하에서 진행된다.</p>
+<div class="figure" style="text-align: center"><span id="fig:2dlifting"></span>
+<img src="images/advmultiscale_lifting2d.png" alt="2D lifting scheme example."  />
+<p class="caption">
+Figure 8.4: 2D lifting scheme example.
+</p>
+</div>
 
 </div>
 </div>
