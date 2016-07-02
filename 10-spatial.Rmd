@@ -1,0 +1,76 @@
+# 공간통계학
+
+이 장에서는 공간통계학과 관련된 내용을 다룬다. 주된 내용은 2015년 공간통계학 특강 수업 내용이다.
+
+## 공간 자료의 종류
+
+결과적으로 공간 자료의 종류는 크게 세 가지로 나눌 수 있다.
+
+- 연속자료(continuous data; 이것을 다루는 분야가 geostatistics)
+
+- 이산자료(discrete data, lattice data, areal data)
+
+- 점 패턴 데이터(point pattern data)
+
+## 공간 확률과정
+
+연속자료의 **공간 확률과정(spatial process)**은 다음과 같이 나타낸다.
+$$\{Z (\mathbf{s}), \mathbf{s} \in \mathcal{D} \subset \mathbb{R}^{d} \} .$$
+여기서 $\mathbf{s}$는 위치(location)이며 $d$차원 자료이다. $d$는 2차원일 수도 있고 고도를 고려하면 3차원일 수도 있다. $Z(\mathbf{s})$는 $\mathbf{s}$에서의 확률변수를 나타낸다.
+
+만약 이산자료라면
+$$\{Z (\mathbf{s}), \mathbf{s} \in \mathcal{D} \subset \mathbb{Z}^{d} \} $$
+로 바뀐다.
+
+점 패턴 자료의 경우에는 굳이 표현하자면
+$$\{ (\mathbf{s}_{1},z(\mathbf{s}_{1})), \cdots , (\mathbf{s}_{n},z(\mathbf{s}_{n}))  \} $$
+으로 쓸 수 있으며 이 때 $s$, $Z$, $n$ 모두 무작위라고 한다.
+
+다음은 $Z(\mathbf{s})$의 평균과 분산을 생각해보자.
+$$\text{mean function}:\mu(\mathbf{s})=E(z(\mathbf{s}))$$
+$$\text{covariance function}: C(\mathbf{s}_{1},\mathbf{s}_{2})=E(Z(\mathbf{s}_{1}-\mu(\mathbf{s}_{1})))(Z(\mathbf{s}_{2}-\mu(\mathbf{s}_{2}))).$$
+우리의 관심사는 $C(\mathbf{s}_{1},\mathbf{s}_{2})$이다(공간 변화 모델링, spatial variation modeling).
+
+그렇다면 우리는 왜 이러한 공간 변화(sptaial variation)를 고려해야 하는가? 간단한 회귀분석의 예를 들면
+$$\mathbf{y}=\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\epsilon}, \qquad{\epsilon_{i} \sim (0, \sigma^{2}\Sigma_{0})}$$
+으로 식을 쓸 수 있다. 그런데 여기서 오차항을 $\epsilon_{i} \stackrel{\text{iid}}{\sim} (0, \sigma^{2})$이라고 놓고 모델링을 하면 일치성(consistency)은 만족하나 효율성(efficiency)이 깨지는 결과를 얻는다. 즉 추론(inference)를 하기 위해서 변동(variability)을 구할 때 이것이 커지므로 신뢰구간(confidence interval)도 커지고 부정확한 검정(test) 결과를 주는 것이다.
+
+## 공간자료에서의 정상성
+
+그렇다면 우리는 왜 **정상성(stationary)**을 고려하는가? 그 이유는 정상성이 아니면 점근(asymptotic) 결과가 거의 없어 모델링하기 어렵기 때문이다. 이론적 배경을 얘기해 줄 때 정상성이 필요한 것이다. 여기서는 세 가지 정상성 개념이 등장한다. 
+
+### 순정상성(strictly stationary)
+
+이것은
+$$(Z(\mathbf{s}_{1}), \cdots , Z(\mathbf{s}_{k})) \stackrel{\mathcal{D}}{=} (Z(\mathbf{s}_{1}+\mathbf{h}), \cdots , Z(\mathbf{s}_{k}+\mathbf{h}))$$
+으로 $\mathbf{h}$만큼 장소가 변해도 분포가 동일하다는 것이다. 또한 $\mathbf{s}_{1}, \cdots , \mathbf{s}_{k}, \mathbf{s}_{1}+\mathbf{h}, \cdots , \mathbf{s}_{k}+\mathbf{h} \in \mathcal{D}$ 라는 가정이 필요하다.
+
+### 약정상성(second order stationary, weakly stationary)
+
+이것은
+$$\mu(\mathbf{s})=\mu \text{ (mean function이 상수)}$$
+$$C(\mathbf{s}_{1},\mathbf{s}_{2})=C_{0}(\mathbf{s}_{1}-\mathbf{s}_{2})$$
+두 가지 조건을 만족하는 것이다. 두 번째 조건은 covariance function이 distribution에 depend하는 어떤 함수 $C_{0}$로 표현된다는 것이다. $C \in \mathbb{R}^{d}\times \mathbb{R}^{d}$, $C_{0} \in \mathbb{R}^{d}$라는 점에서 두 함수는 다른 함수이다.
+
+이것을 만족하는 예는 **가우스 과정(Gaussian process, GP)**, **가우스 임의장(Gaussian random field, GRF)**이 있다. 보통 **\mathbf{s}**가 1차원이면 주로 과정(process), 2차원이면 주로 장(field)이라고 부른다.
+
+### 내재정상성(intrinsic stationary)
+
+이것은 차이(difference)를 가지고 정의한다.
+$$E(Z(\mathbf{s}+\mathbf{h})-Z(\mathbf{s}))=0, \forall \mathbf{h}$$
+$$\text{Var}(Z(\mathbf{s}+\mathbf{h})-Z(\mathbf{s}))=2\gamma(\mathbf{h}), \forall \mathbf{h}$$
+여기서 $2\gamma(\mathbf{h})$를 **변동도(variogram)**, $\gamma(\mathbf{h})$를 **준변동도(semivariogram)**라고 한다.
+
+### 정상성들 사이의 관계
+
+#### Strict stationary와 weak stationary간의 관계
+
+$C(\mathbf{h})=\text{Cov}(Z(\mathbf{s}+\mathbf{h}), Z(\mathbf{h}))$일 때, $C(\mathbf{s},\mathbf{s}) < \infty$인 경우에는 strict stationry이면 무조건 weak stationary가 된다. 한편 Gaussian process나 Gaussian random field인 경우는 처음 두 moment만 알면 모든 정보를 알 수 있어 weak stationary이면 strict stationary 또한 성립한다고 한다.
+
+#### Weak stationary와 intrinsic stationary간의 관계
+
+$$2\gamma(\mathbf{h})=2(C(\mathbf{0})-c(\mathbf{h}))$$
+관계식을 살펴보면, $C$가 주어지면 $\gamma$를 정의할 수 있다. 그렇다는 얘기는 weak stationary이면 intrinsic stationary도 된다는 것이다. 그러나 $\gamma(\mathbf{h})$만 알 경우 $C(\mathbf{0})$과 $C(\mathbf{h})$를 동시에 specify하지 못한다.
+
+일반적으로 $\lim_{\mathbf{h}\rightarrow \infty}\gamma(\mathbf{h})=C(\mathbf{0})$로 정의하여 $C(\mathbf{0})$과 $C(\mathbf{h})$를 정의한다. 이 말인즉 거리가 멀면 $C(\mathbf{h})$는 $\mathbf{0}$이 될 것이라고 생각하는 것이다.
+
