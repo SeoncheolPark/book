@@ -167,31 +167,31 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## wd: wavelet transform
 ywd &lt;-<span class="st"> </span><span class="kw">wd</span>(y, <span class="dt">filter.number=</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">&quot;DaubExPhase&quot;</span>)
 <span class="kw">names</span>(ywd)</code></pre></div>
-<pre><code>## [1] &quot;C&quot;        &quot;D&quot;        &quot;nlevels&quot;  &quot;fl.dbase&quot; &quot;filter&quot;   &quot;type&quot;    
-## [7] &quot;bc&quot;       &quot;date&quot;</code></pre>
+<pre><code>&gt; [1] &quot;C&quot;        &quot;D&quot;        &quot;nlevels&quot;  &quot;fl.dbase&quot; &quot;filter&quot;   &quot;type&quot;    
+&gt; [7] &quot;bc&quot;       &quot;date&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## what filter produced a particular wavelet decomposition object
 ywd$filter</code></pre></div>
-<pre><code>## $H
-## [1] 0.7071068 0.7071068
-## 
-## $G
-## NULL
-## 
-## $name
-## [1] &quot;Haar wavelet&quot;
-## 
-## $family
-## [1] &quot;DaubExPhase&quot;
-## 
-## $filter.number
-## [1] 1</code></pre>
+<pre><code>&gt; $H
+&gt; [1] 0.7071068 0.7071068
+&gt; 
+&gt; $G
+&gt; NULL
+&gt; 
+&gt; $name
+&gt; [1] &quot;Haar wavelet&quot;
+&gt; 
+&gt; $family
+&gt; [1] &quot;DaubExPhase&quot;
+&gt; 
+&gt; $filter.number
+&gt; [1] 1</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## level 2 detail coefficients
 <span class="kw">accessD</span>(ywd, <span class="dt">level=</span><span class="dv">2</span>)</code></pre></div>
-<pre><code>## [1]  0.000000 -1.414214 -4.242641  1.414214</code></pre>
+<pre><code>&gt; [1]  0.000000 -1.414214 -4.242641  1.414214</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## plot wavelet decomposition coefficients
 <span class="kw">plot</span>(ywd)</code></pre></div>
 <p><img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>## [1] 7 7 7</code></pre>
+<pre><code>&gt; [1] 7 7 7</code></pre>
 
 </div>
 </div>
