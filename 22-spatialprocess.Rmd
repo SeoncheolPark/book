@@ -1,6 +1,6 @@
-# 공간 과정 {#spatialprocess}
+# 공간과정 {#spatialprocess}
 
-연속자료의 **공간 과정(spatial process)**은 다음과 같이 나타낸다.
+연속자료의 **공간과정(spatial process)**은 다음과 같이 나타낸다.
 $$\{Z (\mathbf{s}), \mathbf{s} \in \mathcal{D} \subset \mathbb{R}^{d} \} .$$
 여기서 $\mathbf{s}$는 위치(location)이며 $d$차원 자료이다. $d$는 2차원일 수도 있고 고도를 고려하면 3차원일 수도 있다. $Z(\mathbf{s})$는 $\mathbf{s}$에서의 확률변수를 나타낸다.
 
