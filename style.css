@@ -34,14 +34,16 @@ pre code {
 .proof,
 .definition,
 .example
-.corollary {
+.corollary
+.remark {
   margin: 12pt 0;
 }
 .theorem:before,
 .proof:before,
 .definition:before,
 .example:before
-.corollary:before {
+.corollary:before
+.remark:before {
   margin-left: 0pt;
 }
 .theorem {
@@ -79,6 +81,12 @@ pre code {
 }
 .corollary:before {
   content: "Corollary . ";
+  font-style: italic;
+  font-weight: bold;
+  font-variant: small-caps;
+}
+.remark:before {
+  content: "Remark . ";
   font-style: italic;
   font-weight: bold;
   font-variant: small-caps;

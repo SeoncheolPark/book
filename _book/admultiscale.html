@@ -113,7 +113,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="part"><span><b>Multiscale Methods in Statistics</b></span></li>
 <li class="chapter" data-level="2" data-path="multiscale.html"><a href="multiscale.html"><i class="fa fa-check"></i><b>2</b> 다중척도 방법론</a><ul>
 <li class="chapter" data-level="2.1" data-path="multiscale.html"><a href="multiscale.html#-multiscale-transform"><i class="fa fa-check"></i><b>2.1</b> 다중척도 변환(multiscale transform)</a></li>
-<li class="chapter" data-level="2.2" data-path="multiscale.html"><a href="multiscale.html#r-r-multiscale"><i class="fa fa-check"></i><b>2.2</b> R 예제(R-multiscale)</a></li>
+<li class="chapter" data-level="2.2" data-path="multiscale.html"><a href="multiscale.html#inverse"><i class="fa fa-check"></i><b>2.2</b> 역(inverse)</a></li>
+<li class="chapter" data-level="2.3" data-path="multiscale.html"><a href="multiscale.html#sparsity"><i class="fa fa-check"></i><b>2.3</b> 희소성(sparsity)</a></li>
+<li class="chapter" data-level="2.4" data-path="multiscale.html"><a href="multiscale.html#r-r-multiscale"><i class="fa fa-check"></i><b>2.4</b> R 예제(R-multiscale)</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="admultiscale.html"><a href="admultiscale.html"><i class="fa fa-check"></i><b>3</b> 고급 다중척도 방법론</a><ul>
 <li class="chapter" data-level="3.1" data-path="admultiscale.html"><a href="admultiscale.html#--second-generation-wavelet-transform"><i class="fa fa-check"></i><b>3.1</b> 2세대 웨이블릿 변환(second-generation wavelet transform)</a></li>
@@ -154,7 +156,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.9" data-path="covfct.html"><a href="covfct.html#kent---kents-sufficient-condition-for-path-continuity-2-d-ver"><i class="fa fa-check"></i><b>6.9</b> Kent의 경로연속을 위한 충분조건(Kent’s sufficient condition for path-continuity) (2-d ver)</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="covmodel.html"><a href="covmodel.html"><i class="fa fa-check"></i><b>7</b> 공분산모형</a><ul>
-<li class="chapter" data-level="7.1" data-path="covmodel.html"><a href="covmodel.html#-nugget-effect"><i class="fa fa-check"></i><b>7.1</b> 덩어리 효과(Nugget effect)</a></li>
+<li class="chapter" data-level="7.1" data-path="covmodel.html"><a href="covmodel.html#-nugget-effect"><i class="fa fa-check"></i><b>7.1</b> 덩어리 효과(nugget effect)</a></li>
 <li class="chapter" data-level="7.2" data-path="covmodel.html"><a href="covmodel.html#--idealized-shape-of-variogram-isotropic-case"><i class="fa fa-check"></i><b>7.2</b> 이상적인 변동도의 모양(idealized Shape of Variogram (isotropic case))</a></li>
 <li class="chapter" data-level="7.3" data-path="covmodel.html"><a href="covmodel.html#-effective-range"><i class="fa fa-check"></i><b>7.3</b> 유효 범위(effective range)</a></li>
 <li class="chapter" data-level="7.4" data-path="covmodel.html"><a href="covmodel.html#----classical-parametric-isotropic-variogram-models"><i class="fa fa-check"></i><b>7.4</b> 대표적인 모수 등방성 변동도 모형들(classical parametric isotropic variogram models)</a><ul>
@@ -162,7 +164,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="7.5" data-path="covmodel.html"><a href="covmodel.html#---variograms-in-other-situation"><i class="fa fa-check"></i><b>7.5</b> 기타 다른 상황에서의 변동도들(variograms in other situation)</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>8</b> References</a></li>
+<li class="chapter" data-level="8" data-path="variogramest.html"><a href="variogramest.html"><i class="fa fa-check"></i><b>8</b> 변동도의 추정</a></li>
+<li class="chapter" data-level="9" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>9</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -209,7 +212,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     s_{j,k}=s_{j+1,2k}+\frac{d_{j,k}}{2}.
 \end{equation}
 <p>웨이블릿 변환에서는 <span class="math inline">\(s_{j,k}\)</span>와 <span class="math inline">\(d_{j,k}\)</span>를 동시에 얻지만 리프팅 스킴에서는 <span class="math inline">\(d_{j,k}\)</span>를 얻은 후 순차적으로 <span class="math inline">\(s_{j,k}\)</span>를 얻는다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
 <img src="images/advmultiscale_lifting.png" alt="Forward lifting scheme using Haar transform." width="231" />
 <p class="caption">
 Figure 3.1: Forward lifting scheme using Haar transform.
@@ -223,14 +226,14 @@ Figure 3.1: Forward lifting scheme using Haar transform.
 <li><p><strong>갱신(update)</strong>: <span class="math inline">\(s_{j,k}=s_{j+1,2k}+\frac{d_{j,k}}{2}\)</span> (프라이멀 리프팅)</p></li>
 </ol>
 <p>일반적인 리프팅 스킴의 프라이멀 리프팅과 듀얼 리프팅의 <strong>정변환(forward transform)</strong>은 다음과 같다. <span class="math display">\[\text{차이(difference)=홀(odd)-p짝(even)} \qquad{\text{듀얼 리프팅(dual lifting)}}\]</span> <span class="math display">\[\text{평균(average)=짝(even)+u차이} \qquad{\text{프라이멀 리프팅(primal lifting)}}\]</span> 이 때 <span class="math inline">\(p=1\)</span>, <span class="math inline">\(u=0.5\)</span>인 경우를 특별히 Haar 웨이블릿 변환(Haar wavelet transformation)이라고 부르는 것이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-7"></span>
 <img src="images/advmultiscale_lifting02.png" alt="Standard lifting scheme using primal and dual lifting." width="235" />
 <p class="caption">
 Figure 3.2: Standard lifting scheme using primal and dual lifting.
 </p>
 </div>
 <p>리프팅의 <strong>역변환(backward transform)</strong>은 다음과 같다. <span class="math display">\[\text{짝(even)=평균(average)-u차이(difference)} \]</span> <span class="math display">\[\text{홀(odd)=차이(difference)+p짝} \]</span></p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
 <img src="images/advmultiscale_invlifting.png" alt="Backward lifting scheme." width="217" />
 <p class="caption">
 Figure 3.3: Backward lifting scheme.
@@ -296,7 +299,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://seoncheolpark.github.io/book/_book/12-admultiscale.Rmd",
+"link": "https://seoncheolpark.github.io/book/_book/19-admultiscale.Rmd",
 "text": null
 },
 "download": null,

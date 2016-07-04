@@ -39,7 +39,7 @@ MathJax.Hub.Config({
   
   
 <link rel="prev" href="covfct.html">
-<link rel="next" href="references.html">
+<link rel="next" href="variogramest.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -113,7 +113,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="part"><span><b>Multiscale Methods in Statistics</b></span></li>
 <li class="chapter" data-level="2" data-path="multiscale.html"><a href="multiscale.html"><i class="fa fa-check"></i><b>2</b> 다중척도 방법론</a><ul>
 <li class="chapter" data-level="2.1" data-path="multiscale.html"><a href="multiscale.html#-multiscale-transform"><i class="fa fa-check"></i><b>2.1</b> 다중척도 변환(multiscale transform)</a></li>
-<li class="chapter" data-level="2.2" data-path="multiscale.html"><a href="multiscale.html#r-r-multiscale"><i class="fa fa-check"></i><b>2.2</b> R 예제(R-multiscale)</a></li>
+<li class="chapter" data-level="2.2" data-path="multiscale.html"><a href="multiscale.html#inverse"><i class="fa fa-check"></i><b>2.2</b> 역(inverse)</a></li>
+<li class="chapter" data-level="2.3" data-path="multiscale.html"><a href="multiscale.html#sparsity"><i class="fa fa-check"></i><b>2.3</b> 희소성(sparsity)</a></li>
+<li class="chapter" data-level="2.4" data-path="multiscale.html"><a href="multiscale.html#r-r-multiscale"><i class="fa fa-check"></i><b>2.4</b> R 예제(R-multiscale)</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="admultiscale.html"><a href="admultiscale.html"><i class="fa fa-check"></i><b>3</b> 고급 다중척도 방법론</a><ul>
 <li class="chapter" data-level="3.1" data-path="admultiscale.html"><a href="admultiscale.html#--second-generation-wavelet-transform"><i class="fa fa-check"></i><b>3.1</b> 2세대 웨이블릿 변환(second-generation wavelet transform)</a></li>
@@ -154,7 +156,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.9" data-path="covfct.html"><a href="covfct.html#kent---kents-sufficient-condition-for-path-continuity-2-d-ver"><i class="fa fa-check"></i><b>6.9</b> Kent의 경로연속을 위한 충분조건(Kent’s sufficient condition for path-continuity) (2-d ver)</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="covmodel.html"><a href="covmodel.html"><i class="fa fa-check"></i><b>7</b> 공분산모형</a><ul>
-<li class="chapter" data-level="7.1" data-path="covmodel.html"><a href="covmodel.html#-nugget-effect"><i class="fa fa-check"></i><b>7.1</b> 덩어리 효과(Nugget effect)</a></li>
+<li class="chapter" data-level="7.1" data-path="covmodel.html"><a href="covmodel.html#-nugget-effect"><i class="fa fa-check"></i><b>7.1</b> 덩어리 효과(nugget effect)</a></li>
 <li class="chapter" data-level="7.2" data-path="covmodel.html"><a href="covmodel.html#--idealized-shape-of-variogram-isotropic-case"><i class="fa fa-check"></i><b>7.2</b> 이상적인 변동도의 모양(idealized Shape of Variogram (isotropic case))</a></li>
 <li class="chapter" data-level="7.3" data-path="covmodel.html"><a href="covmodel.html#-effective-range"><i class="fa fa-check"></i><b>7.3</b> 유효 범위(effective range)</a></li>
 <li class="chapter" data-level="7.4" data-path="covmodel.html"><a href="covmodel.html#----classical-parametric-isotropic-variogram-models"><i class="fa fa-check"></i><b>7.4</b> 대표적인 모수 등방성 변동도 모형들(classical parametric isotropic variogram models)</a><ul>
@@ -162,7 +164,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="7.5" data-path="covmodel.html"><a href="covmodel.html#---variograms-in-other-situation"><i class="fa fa-check"></i><b>7.5</b> 기타 다른 상황에서의 변동도들(variograms in other situation)</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>8</b> References</a></li>
+<li class="chapter" data-level="8" data-path="variogramest.html"><a href="variogramest.html"><i class="fa fa-check"></i><b>8</b> 변동도의 추정</a></li>
+<li class="chapter" data-level="9" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>9</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -187,7 +190,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">Chapter 7</span> 공분산모형</h1>
 <p>이 장에서는 공분산모형에는 어떤 것들이 있는지 살펴볼 것이다.</p>
 <div id="-nugget-effect" class="section level2">
-<h2><span class="header-section-number">7.1</span> 덩어리 효과(Nugget effect)</h2>
+<h2><span class="header-section-number">7.1</span> 덩어리 효과(nugget effect)</h2>
 <p><strong>덩어리 효과(nugget effect)</strong>란 공간자료분석에서 흔히 나타나는 특징 중 하나이다.</p>
 <p>일반적으로 공간자료 모델링은 다음과 같이 한다. <span class="math display">\[Y(\mathbf{s})=\mu(\mathbf{s})+Z(\mathbf{s})+\epsilon(\mathbf{s}).\]</span> 여기서 <span class="math inline">\(Y(\mathbf{s})\)</span>는 <strong>관측과정(observed process)</strong>, <span class="math inline">\(\mu(\mathbf{s})=E(Y(\mathbf{s}))\)</span>는 <strong>결정적 평균 함수(deterministic mean function)</strong>, <span class="math inline">\(Z(\mathbf{s})\)</span>는 <strong>순수 공간과정(spatial process)</strong>, 마지막으로 <span class="math inline">\(\epsilon(\mathbf{s})\)</span>는 <strong>나머지 설명되지 않은 항(remaining unexplained term)</strong>이다. 일종의 백색잡음(white noise)이라고 생각해도 좋다. 그리고 <span class="math inline">\(Z(\mathbf{s}) \bot \epsilon(\mathbf{s})\)</span>이다.</p>
 <p><span class="math inline">\(\epsilon(\mathbf{s})\)</span>에 대해 공분산을 생각해보면, <span class="math display">\[
@@ -205,7 +208,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="--idealized-shape-of-variogram-isotropic-case" class="section level2">
 <h2><span class="header-section-number">7.2</span> 이상적인 변동도의 모양(idealized Shape of Variogram (isotropic case))</h2>
 <p>그렇다면 일반적으로 생각하는 변동도의 모양은 어떠한가?</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
 <img src="images/sp_variogram.png" alt="Variogram example." width="196" />
 <p class="caption">
 Figure 7.1: Variogram example.
@@ -356,7 +359,7 @@ K_{\alpha}(x) \sim \left\{ \begin{array}{ll}
         </div>
       </div>
 <a href="covfct.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="variogramest.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>

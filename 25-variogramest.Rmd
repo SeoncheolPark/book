@@ -1,0 +1,7 @@
+# 변동도의 추정 {#variogramest}
+
+이 문서에서는 variogram을 어떻게 추정할 것인지에 대해 다룰 것이다. 크게 두 가지가 있다.
+
+- Empirical model (nonparametric)
+
+- Parametric fit
