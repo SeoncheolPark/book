@@ -33,13 +33,15 @@ pre code {
 .theorem,
 .proof,
 .definition,
-.example {
+.example
+.corollary {
   margin: 12pt 0;
 }
 .theorem:before,
 .proof:before,
 .definition:before,
-.example:before {
+.example:before
+.corollary:before {
   margin-left: 0pt;
 }
 .theorem {
@@ -74,5 +76,11 @@ pre code {
   content: "Example " counter(example) ". ";
   font-style: normal;
   font-weight: bold;
+}
+.corollary:before {
+  content: "Corollary . ";
+  font-style: italic;
+  font-weight: bold;
+  font-variant: small-caps;
 }
 

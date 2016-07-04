@@ -1,0 +1,15 @@
+# (PART) Spatial Statistics {-}
+
+# 공간통계학 {#spatial}
+
+이 장에서는 공간통계학과 관련된 내용을 다룬다. 주된 내용은 2015년 공간통계학 특강 수업 내용이다.
+
+## 공간자료의 종류(classes of spatial data)
+
+결과적으로 공간 자료의 종류는 크게 세 가지로 나눌 수 있다.
+
+- 연속자료(continuous data; 이것을 다루는 분야가 geostatistics)
+
+- 이산자료(discrete data, lattice data, areal data)
+
+- 점 패턴 데이터(point pattern data)

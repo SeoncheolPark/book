@@ -1,116 +1,4 @@
-# 공간통계학 {#spatial}
-
-이 장에서는 공간통계학과 관련된 내용을 다룬다. 주된 내용은 2015년 공간통계학 특강 수업 내용이다.
-
-## 공간자료의 종류(classes of spatial data)
-
-결과적으로 공간 자료의 종류는 크게 세 가지로 나눌 수 있다.
-
-- 연속자료(continuous data; 이것을 다루는 분야가 geostatistics)
-
-- 이산자료(discrete data, lattice data, areal data)
-
-- 점 패턴 데이터(point pattern data)
-
-## 공간 과정(spatial process)
-
-연속자료의 **공간 과정(spatial process)**은 다음과 같이 나타낸다.
-\{Z (\mathbf{s}), \mathbf{s} \in \mathcal{D} \subset \mathbb{R}^{d} \} .$$
-여기서 $\mathbf{s}$는 위치(location)이며 $d$차원 자료이다. $d$는 2차원일 수도 있고 고도를 고려하면 3차원일 수도 있다. $Z(\mathbf{s})$는 $\mathbf{s}$에서의 확률변수를 나타낸다.
-
-만약 이산자료라면
-$$\{Z (\mathbf{s}), \mathbf{s} \in \mathcal{D} \subset \mathbb{Z}^{d} \} $$
-로 바뀐다.
-
-점 패턴 자료의 경우에는 굳이 표현하자면
-$$\{ (\mathbf{s}_{1},z(\mathbf{s}_{1})), \cdots , (\mathbf{s}_{n},z(\mathbf{s}_{n}))  \} $$
-으로 쓸 수 있으며 이 때 $s$, $Z$, $n$ 모두 무작위라고 한다.
-
-다음은 $Z(\mathbf{s})$의 평균과 분산을 생각해보자.
-$$\text{mean function}:\mu(\mathbf{s})=E(z(\mathbf{s}))$$
-$$\text{covariance function}: C(\mathbf{s}_{1},\mathbf{s}_{2})=E(Z(\mathbf{s}_{1}-\mu(\mathbf{s}_{1})))(Z(\mathbf{s}_{2}-\mu(\mathbf{s}_{2}))).$$
-우리의 관심사는 $C(\mathbf{s}_{1},\mathbf{s}_{2})$이다(공간 변화 모델링, spatial variation modeling).
-
-그렇다면 우리는 왜 이러한 공간 변화(sptaial variation)를 고려해야 하는가? 간단한 회귀분석의 예를 들면
-$$
-\begin{equation}
-\mathbf{y}=\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\epsilon}, \qquad{\epsilon_{i} \sim (0, \sigma^{2}\Sigma_{0})}
-\end{equation}
-$$
-
-으로 식을 쓸 수 있다. 그런데 여기서 오차항을 $\epsilon_{i} \stackrel{\text{iid}}{\sim} (0, \sigma^{2})$이라고 놓고 모델링을 하면 일치성(consistency)은 만족하나 효율성(efficiency)이 깨지는 결과를 얻는다. 즉 추론(inference)를 하기 위해서 변동(variability)을 구할 때 이것이 커지므로 신뢰구간(confidence interval)도 커지고 부정확한 검정(test) 결과를 주는 것이다.
-
-## 공간자료의 정상성(stationary in spatial data)
-
-그렇다면 우리는 왜 **정상성(stationary)**을 고려하는가? 그 이유는 정상성이 아니면 점근(asymptotic) 결과가 거의 없어 모델링하기 어렵기 때문이다. 이론적 배경을 얘기해 줄 때 정상성이 필요한 것이다. 여기서는 세 가지 정상성 개념이 등장한다. 
-
-### 순정상성(strictly stationary)
-
-이것은
-$$(Z(\mathbf{s}_{1}), \cdots , Z(\mathbf{s}_{k})) \stackrel{\mathcal{D}}{=} (Z(\mathbf{s}_{1}+\mathbf{h}), \cdots , Z(\mathbf{s}_{k}+\mathbf{h}))$$
-으로 $\mathbf{h}$만큼 장소가 변해도 분포가 동일하다는 것이다. 또한 $\mathbf{s}_{1}, \cdots , \mathbf{s}_{k}, \mathbf{s}_{1}+\mathbf{h}, \cdots , \mathbf{s}_{k}+\mathbf{h} \in \mathcal{D}$ 라는 가정이 필요하다.
-
-### 약정상성(second order stationary, weakly stationary)
-
-이것은
-$$\mu(\mathbf{s})=\mu \text{ (mean function이 상수)}$$
-$$C(\mathbf{s}_{1},\mathbf{s}_{2})=C_{0}(\mathbf{s}_{1}-\mathbf{s}_{2})$$
-두 가지 조건을 만족하는 것이다. 두 번째 조건은 covariance function이 distribution에 depend하는 어떤 함수 $C_{0}$로 표현된다는 것이다. $C \in \mathbb{R}^{d}\times \mathbb{R}^{d}$, $C_{0} \in \mathbb{R}^{d}$라는 점에서 두 함수는 다른 함수이다.
-
-이것을 만족하는 예는 **가우스 과정(Gaussian process, GP)**, **가우스 임의장(Gaussian random field, GRF)**이 있다. 보통 **\mathbf{s}**가 1차원이면 주로 과정(process), 2차원이면 주로 장(field)이라고 부른다.
-
-### 내재정상성(intrinsic stationary)
-
-이것은 차이(difference)를 가지고 정의한다.
-$$E(Z(\mathbf{s}+\mathbf{h})-Z(\mathbf{s}))=0, \forall \mathbf{h}$$
-$$\text{Var}(Z(\mathbf{s}+\mathbf{h})-Z(\mathbf{s}))=2\gamma(\mathbf{h}), \forall \mathbf{h}$$
-여기서 $2\gamma(\mathbf{h})$를 **변동도(variogram)**, $\gamma(\mathbf{h})$를 **준변동도(semivariogram)**라고 한다.
-
-### 정상성들 사이의 관계(relationship between stationarity)
-
-일반적으로 순정상성이 가장 강한 조건이며 그 다음이 약정상성, 내재정상성이 가장 약한 조건을 가진다. 그러나 특별한 경우에는 역방향도 성립할 수 있다.
-
-#### 순정상성과 약정상성간의 관계(relationship between strong and weak stationary)
-
-$C(\mathbf{h})=\text{Cov}(Z(\mathbf{s}+\mathbf{h}), Z(\mathbf{h}))$일 때, $C(\mathbf{s},\mathbf{s}) < \infty$인 경우에는 순정상성이면 무조건 약정상성이 된다. 한편 가우스 과정이나 가우스 임의장인 경우는 처음 두 적률(moment)만 알면 모든 정보를 알 수 있어 약정상성이면 순정상성 또한 성립한다고 한다(우리가 가우스 과정이나 가우스 임의장을 많이 쓰는 이유이기도 하다).
-
-#### 약정상성와 내재정상성간의 관계(relationship between weak and intrinsic stationary)
-
-$$2\gamma(\mathbf{h})=2(C(\mathbf{0})-c(\mathbf{h}))$$
-관계식을 살펴보면, $C$가 주어지면 $\gamma$를 정의할 수 있다. 그렇다는 얘기는 약정상성이면 내재정상성도 된다는 것이다. 그러나 $\gamma(\mathbf{h})$만 알 경우 $C(\mathbf{0})$과 $C(\mathbf{h})$를 동시에 specify하지 못한다.
-
-일반적으로 $\lim_{\mathbf{h}\rightarrow \infty}\gamma(\mathbf{h})=C(\mathbf{0})$로 정의하여 $C(\mathbf{0})$과 $C(\mathbf{h})$를 정의한다. 이 말인즉 거리가 멀면 $C(\mathbf{h})$는 $\mathbf{0}$이 될 것이라고 생각하는 것이다.
-
-#### 내재정상성이나 약정상성이 안 되는 예(counterexample of intrinsic stationary but not weak stationary)
-
-내재정상성이나 약정상성이 안 되는 경우의 예로는 **브라운 운동(Brownian motion)**이 있다. 브라운 운동 $B(t)$는 어떤 과정(process)이며
-
-1. $B(t)=0$ when $t=0$,
-2. $B(t)$는 almost surely continuous
-3. $B(t)$ has independent increments with $B(t)-B(s) \sim \mathcal{N}(0,\sigma^{2}(t-s)), t>s$
-
-를 만족시킨다고 한다. 이 때 $\sigma^{2}$을 확산계수(diffusion coefficient)라고 한다. 편의상 1차원에서 생각하자. 그러면 $E(B(t+h)-B(t))=0$, $\text{Var}(B(t+h)-B(t))=2|h|$이므로 내재정상성이다. 그러나 $h < 0$인 경우에 공분산을 계산하면
-
-$$
-\begin{eqnarray}
-\text{Cov}(B(t+h),B(t)) &=& E(B(t+h)B(t))\nonumber\\
-&=&E[B(t+h)\{B(t)-B(t+h)+B(t+h)\}]\nonumber\\
-&=&E[B^{2}(t+h)]+E[B(t+h)]E[B(t)-B(t+h)]\nonumber\\
-&=&\sigma^{2}(t+h)+0=\sigma^{2}(t+h).
-\end{eqnarray}
-$$
-
-가 된다. 같은 방법으로 $h > 0$인 경우도 증명할 수 있으며 결국 $Cov(B(t+h),B(t))=\min (t+h,t)$가 된다. 이는 $h$의 함수가 아니고 차이로 표현 못한다는 뜻이므로 약정상성이 아니다.
-
-### 에르고딕 과정(ergodic process)
-
-$$\lim_{\|\mathbf{h}\| \rightarrow \infty}C(\mathbf{h}) \rightarrow \mathbf{0}$$
-인 과정(process)을 **에르고딕 과정(ergodic process)**이라고 한다. 이 성질은 충분히 긴 (정상상태)과정에서 앙상블평균(통계적평균)과 시간평균이 같다는 것이다.
-$$\bar{Z}_{n}:\frac{1}{n}\sum_{i=1}^{n}Z(t_{i}) \rightarrow \mu .$$
-
-"앙상블 평균은 시간을 고정시켜 놓고 표본 함수를 무한 개로 하여 계산한 것이고 시간평균은 표본 함수를 고정시켜 놓고 시간을 무한대로 하여 계산한 것이다."
-
-### 공분산함수(covariance function)
+# 공분산함수{#covfct}
 
 **공분산함수(covariance function)** $C(\mathbf{h})$는
 
@@ -122,7 +10,7 @@ $C(\mathbf{h})=\text{Cov}(Z(\mathbf{s}+\mathbf{h}), (Z(\mathbf{s})$, $C(\cdot); 
 
 그러나 저 둘을 보이는 것은 모든 유한한 표본에 대해 항상 성립해야 하는 것을 보여야하기 때문에 어렵다. 이를 좀 더 쉽게 보일 수 있는 방법으로 Bochner (1933, 1955)의 정리를 이용하는 것이다.
 
-### 스펙트럴 표현 정리(spectral representation theorem)
+## 스펙트럴 표현 정리(spectral representation theorem)
 
 **스펙트럴 표현 정리(spectral representation theorem)**는 다른 말로 **Bochner의 정리(Bochner's theorem)**이라고 부른다.
 
@@ -152,7 +40,7 @@ C(\mathbf{h}) =\int_{\mathbb{R}^{d}}\exp(i\mathbf{h}^{T}\mathbf{x})dF(\mathbf{x}
 $$
 임을 보이고 $f(\mathbf{x})$가 양(positive)임을 보이기만 하면 된다.
 
-### 콜모고로프 존재 정리(Kolmogorov's existence theorem)
+## 콜모고로프 존재 정리(Kolmogorov's existence theorem)
 
 정상성이 아닌 경우에는 **콜모고로프 존재 정리(Kolmogorov's existence theorem)**으로 해결할 수 있다고 한다.
 
@@ -170,25 +58,25 @@ $$
 
 - $C_{1}, C_{2}, \ldots$가 양정치함수의 수열이고 이것의 극한 $\lim_{n \rightarrow \infty}C_{n}$이 존재하면 이것 또한 양정치함수이다.
 
-### 등방성(isotropy)
+## 등방성(isotropy)
 
 $C(\mathbf{h})=C_{0}(\|\mathbf{h}\|)$인(or $\gamma(\mathbf{h})=\gamma_{0}(\|\mathbf{h}\|)$) $C_{0}$가 존재할 경우 이 공간과정이 $Z(\mathbf{s})$를 **등방성(isotropy)**을 갖는다라고 한다. 이것은 $d$차원에서 정의한 $\mathbf{h}$ 1차원인 거리에만 의존하는 공분산함수로 표현 가능하다는 것이다.
 
-### 동질성(homogeneous)
+## 동질성(homogeneous)
 
 (잘 쓰이지는 않지만) $Z(\mathbf{s})$가 내재적(intrinsic)이고 등방성(isotrophic)인 경우 $Z(\mathbf{s})$를 **동질성(homogeneous)**을 갖는다라고 한다.
 
-### 이등방성(anisotropy)
+## 이등방성(anisotropy)
 
 **이등방성(anisotropy)**란 말 그대로 등방성이 아닌 경우를 얘기하지만 이런 경우가 너무 많아 범위를 나누어 생각한다.
 
-#### 기하학적 이등방성(Geometric anisotropy)
+### 기하학적 이등방성(Geometric anisotropy)
 
 이것은
 $$\gamma(\mathbf{h})=\gamma_{0}(\|A\mathbf{h}\|)$$
 즉 어떤 **선형변환행렬(linear transfomation matrix)** $A$를 통해 변환한 후 등방성인 경우를 얘기한다. 보통 $A$는 대칭인 양정치행렬(symmetric positive definite matrix)을 다루며 이 때 $\|A\mathbf{h}\|$는 타원형 등고선(ellipse contour)이 된다.
 
-#### 띠모양 이등방성(zonal anisotropy)
+### 띠모양 이등방성(zonal anisotropy)
 
 이것은 기하학적 이등방성의 일반화된 버전이라고 생각하면 된다.
 $$\gamma(\mathbf{h})=\sum_{i=1}^{K}\gamma_{0}(\|A_{i}\mathbf{h}\|)$$
@@ -204,17 +92,17 @@ $$\sum_{i}\sum_{j}a_{i}a_{j}\gamma(\mathbf{s}_{i},\mathbf{s}_{j}) \leq 0$$
 
 우리는 종속구조(dependent structure)를 모델링하기 위해 공분산 준변동도(covariance semivariogram)를 생각하고 있다. 그런데 공간 데이터를 가지고 있으면 이를 어떤 표면(surface)으로 표현 가능하고 이 과정이 부드러운(smooth)지, 즉 과정이 연속인지 또는 미분가능한지 체크해 보고 싶을 수 있다. 이를 공분산을 가지고 체크해 볼 수 있다고 한다. 즉 공분산은 종속구조를 측정하는 것 이외의 또 다른 기능을 갖고 있는 것이다.
 
-###공간 확률과정의 연속성과 미분가능성(continuity and differentiabiliy of spatial stochastic process
+## 공간 확률과정의 연속성과 미분가능성(continuity and differentiabiliy of spatial stochastic process
 
 우선 **연속성(continuity)**과 **미분가능성(differentiability)**의 정의를 해야 한다. 여러 버전이 있으나 여기서는 두 가지만 소개하기로 한다.
 
-#### 경로연속(path-continuity) 또는 경로 미분가능성(path-differentiability)
+### 경로연속(path-continuity) 또는 경로 미분가능성(path-differentiability)
 
 어떤 확률과정 $Z(\mathbf{s})$가 **경로연속(path-continuity)** (또는 K번 미분가능(K-times differentiability))하다는 것은 그것의 실현(realization)이 연속(K번 미분가능)한 것이다. 말은 쉬우나 보이기는 어렵다.
 
 $\{ Z(\mathbf{s}) , S \in \mathcal{D}\}$를 확률변수의 모임(collection)이라고 할 때 $(\omega \in \Omega, \mathcal{F}, P)$에서 $\omega$ 하나당 $\{ Z(\mathbf{s})\}$가 나오고 이것을 실현한 것이다.
 
-#### 평균제곱연속(mean-square continuity) 또는 평균제곱 미분가능성(mean-square differentiability)
+### 평균제곱연속(mean-square continuity) 또는 평균제곱 미분가능성(mean-square differentiability)
 
 어떤 확률과정 $Z(\mathbf{s})$가 $\mathbf{s}$에서 **평균제곱연속(mean-square continuity)**이라는 것(다른 말로 $L_{2}$-수렴)은
 $$E[(Z(\mathbf{s}+\mathbf{h}))^{2}] \stackrel{\|\mathbf{h}\| \rightarrow 0}{\rightarrow} 0$$
@@ -243,4 +131,59 @@ $$C(\cdot)\text{이 } \mathbf{0}\text{에서 연속} \rightarrow Z(\mathbf{s})\t
 $$C(\cdot) \text{가 원점에서 연속이면} \rightarrow C(\cdot) \text{는 모든 지점에서 연속이다}.$$
 이것의 증명에 대해서는 각자 생각해보기로 한다.
 
-### Bartlett의 정리(Bartlett's theorem)
+## Bartlett의 정리(Bartlett's theorem)
+
+이 정리는 다음 두 가지를 일컫는 말이다.
+
+<div class="theorem">
+
+공분산함수 $\rho(\mathbf{u})$를 갖는 정상확률과정이 k-번 평균제곱 미분가능하다는 것은 $\rho(\mathbf{u})$가 원점에서 2k-번 미분가능하다는 것과 동치이다. (k=0일 경우 위에서 말했던 관계와 같다.)
+
+k번 미분가능한 평균제곱 미분계수(k-th mean-square derivative) $Z^{(k)}(\mathbf{s})$의 공분산함수는 $(-1)^{k}C^{(2k)}$이다.
+
+</div>
+
+위 설명 내용은 나중에 공분산 모형으로 체크해 볼 수 있다. 지수 공분산 모형(exponential covariance model)은 미분가능하지 않다. 한편 Matern 계급(class)을 이용할 경우 모수를 조절해서 어느 정도까지 공분산 모형이 미분가능할 지 조절할 수 있다. 한편 비모수적인 방법으로 경험적 변동도(empirical variogram)를 쓸 수 있는데, 이 방법으로는 공분산 모형이 몇 번 미분가능한지 구분할 수 없다.
+
+<div class="example">
+
+(1-d인 경우) $Z_{h}(\mathbf{s})=\frac{Z(\mathbf{s}+\mathbf{h})-Z(\mathbf{s})}{h}$로 정의하고 이것의 공분산함수 $C_{h}(\mathbf{t})$를 계산하면
+$$C_{h}(\mathbf{t})=\text{Cov}(Z_{h}(\mathbf{s}+\mathbf{t}),Z_{h}(\mathbf{s}))=\frac{1}{h^{2}}\{2C(\mathbf{t})-C(\mathbf{t}+\mathbf{h})-C(\mathbf{t}-\mathbf{h})\}$$
+이다. 만약 $C(\cdot)$이 두 번 미분가능하다면
+$$C_{h}(\mathbf{t}) \stackrel{\|\mathbf{h}\| \rightarrow 0}{\rightarrow} -C^{''}(\mathbf{t})$$
+이다.
+
+</div>
+
+한편 평균제곱 연속성은 프랙탈 분석(fractal analysis) (표면의 부드러움 체크 관련), first index estimation 등과도 관련된다고 한다.
+
+## Kent의 경로연속을 위한 충분조건(Kent's sufficient condition for path-continuity) (2-d ver)
+
+평균제곱연속이나 경로연속이지 않은 경우(path-continuous 조건이 mean-square continuous조건보다 strong하다)는 것을 보이는 [@Kent1989]의 정리를 소개하였다. 여기서는 간단하게 2-d version으로 정리한다.
+
+<div class="theorem">
+
+$\rho(\mathbf{u})$를 상관함수(correlation function)라고 하자. 이 함수를 테일러 전개로
+$$\rho(\mathbf{u})=\rho_{m}(\mathbf{u})+r_{m}(\mathbf{u}), \mathbf{u} \in \mathbb{R}^{2},$$
+여기서 $\rho_{m}(\mathbf{u})$는 $\mathbf{u}=\mathbf{0}$에서 전개한 테일러 급수의 m차 다항함수, $r_{m}(\mathbf{u})$는 나머지(remainder)이다.
+
+</div>
+
+이 때, 경로연속이 성립할 충분조건은 $\rho (\cdot)$이 두번 연속 미분가능하고 $|r_{2}(\mathbf{u})|$가 다음의 순서로
+$$|r_{2}(\mathbf{u})|=O(\frac{|\mathbf{u}|^{2}}{(\log |\mathbf{u}|)^{3+\gamma}}) \text{ as } |u| \rightarrow 0 \text{ for some } \gamma >0$$
+0으로 가는 것이다.
+
+<div class="corollary">
+
+정상 가우스 과정일 때 경로 연속에 대한 충분조건은
+$$\rho(\mathbf{0})-\rho(\mathbf{u})=O(\frac{1}{(\log |\mathbf{u}|)^{1+\epsilon}})=o(1) \text{ as } |\mathbf{u}| \rightarrow 0 \text{ for some } \epsilon > 0$$
+이다. 왼쪽의 $\rho(\mathbf{0})-\rho(\mathbf{u})$은 가우스 과정일 경우 나머지의 차수(order)가 아닌 상관(correlation)의 차수로 표현 가능하다는 뜻이다.
+
+</div>
+
+분산 1일 시
+$$\rho(\mathbf{0})-\rho(\mathbf{u})=\gamma(\mathbf{u}) \stackrel{\|\mathbf{u}\| \rightarrow 0}{\rightarrow} 0$$
+이며 이 화살표는 평균제곱 연속성의 정의와 같다. ($\rho(\mathbf{0})-\rho(\mathbf{u})=o(1)$)
+
+한편 corollary의 차수보다 천천히 0으로 가면 평균제곱 연속은 되지만 경로연속이 되지는 않는다.
+
