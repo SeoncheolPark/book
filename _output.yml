@@ -5,7 +5,7 @@ bookdown::gitbook:
       before: |
         <li><a href="./">통계공부와 관련된 글들</a></li>
       after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+        <li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
     edit:
       link: https://seoncheolpark.github.io/book/_book/%s
 bookdown::pdf_book:
