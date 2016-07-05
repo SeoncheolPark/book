@@ -1,0 +1,100 @@
+# 웨이블릿 변환 {#wavelettransform}
+
+웨이블릿은 'Wave'와 프랑스어 'let'의 합성어로, 'let'은 'small'이라는 뜻을 가지고 있다. 즉 웨이블릿은 'small wave'라는 뜻으로, **컴팩트 받침(compactly supported)**인 함수들을 일컷는 말이다 . 사인(Sine), 코사인(cosine) 기저(basis)는 $(-\infty, \infty)$에서 정의되는 매우 큰 파동이므로 웨이블릿에 해당하지 않는다.
+
+**웨이블릿 변환(wavelet transform)**이란 웨이블릿 기저함수를 이용해 데이터를 변환하는 것을 말한다. 여기서 웨이블릿 기저함수라는 건 적분하면 0이 되고, 진동하면서 진폭이 0으로 수렴하는 함수를 말한다.
+
+## 이산 Haar 웨이블릿 변환(discrete Haar wavelet transform)
+
+가장 단순한 웨이블릿 변환으로 **Haar 웨이블릿 변환(Haar wavelet transform)**이 있다.
+
+앞서 상세와 성김은 다음과 같이 구할 수 있었음을 상기하자.
+$$d_{k}=y_{2k}-y_{2k-1}, c_{k}=y_{2k}+y_{2k-1}.$$
+에너지를 보존하기 위해 다음과 같이 $\alpha$라는 상수를 고려하자.
+$$d_{k}=\alpha(y_{2k}-y_{2k-1}), c_{k}=\alpha(y_{2k}+y_{2k-1}).$$
+그러면
+\begin{eqnarray*}
+d_{k}^{2}+c_{k}^{2}&=&\alpha^{2}(y_{2k}^{2}-2y_{2k}y_{2k-1}+y_{2k-1}^{2}+\alpha^{2}(y_{2k}^{2}+2y_{2k}y_{2k-1}+y_{2k-1}^{2})\\
+&=&2\alpha^{2}(y_{2k}^{2}+y_{2k-1}^{2})
+\end{eqnarray*}
+즉 $2\alpha^{2}=1 \Rightarrow \alpha=\frac{1}{\sqrt{2}}$이면 $y$와 $d$의 에너지가 보존(conserved)된다. 이렇게
+$$d_{k}=\frac{1}{\sqrt{2}}(y_{2k}-y_{2k-1}), c_{k}=\frac{1}{\sqrt{2}}(y_{2k}+y_{2k-1}).$$
+하는 것을 **표준화(normalization)**라고 말하기도 한다. 정리하면 **Haar 웨이블릿 변환(Haar wavelet transform)**의 **이산 웨이블릿 계수(discrete wavelet coefficient)** $d_{k}$는
+$$d_{k}=g_{0}y_{2k}+g_{1}y_{2k-1}=\sum_{l=-\infty}^{\infty}g_{l}y_{2k-l}$$
+이며 여기서
+$$
+g_{l} = 
+\begin{cases}
+\frac{1}{\sqrt{2}} & \text{if $l=0$} \\
+-\frac{1}{\sqrt{2}} & \text{if $l=1$}\\
+0 & \text{o.w.}\\
+\end{cases}
+$$
+
+여기서 $g_{l}$을 **고역 필터(high-pass filter)**라고 부른다. 마찬가지로 성김에 대해서도
+$$
+c_{k}=
+\sum_{l=-\infty}^{\infty}h_{l}y_{2k-l},
+h_{l} = 
+\begin{cases}
+\frac{1}{\sqrt{2}} & \text{if $l=0$}\\
+\frac{1}{\sqrt{2}} & \text{if $l=1$}\\
+0 & \text{o.w.}
+\end{cases}
+$$
+로 나타낼 수 있고 $h_{l}$을 **저역 필터(low-pass filter)**라 부른다.
+
+세부와 성김은 앞서 언급한 피라미드 알고리즘으로 구할 수도 있지만 여기서는 $\mathbf{d}=\mathbf{Wy}$처럼 통계학자들에게 익숙한 행렬 꼴로 바꾸어 표현한다.
+
+<div class="example">
+
+행렬을 이용해 웨이블릿 계수를 계산해보자. 다음과 같은 자료 $\mathbf{y}=(1,1,7,9,2,8,8,6)$에 행렬 $W$을 다음과 같이 정의하면
+
+$$
+W =
+\begin{bmatrix}
+\frac{\sqrt{2}}{4} & \frac{\sqrt{2}}{4} & \frac{\sqrt{2}}{4} & \frac{\sqrt{2}}{4} & \frac{\sqrt{2}}{4} & \frac{\sqrt{2}}{4} & \frac{\sqrt{2}}{4} & \frac{\sqrt{2}}{4}\\
+\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} & 0 & 0 & 0 & 0 & 0 & 0\\
+ 0 & 0 & \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} & 0 & 0 & 0 & 0\\
+ 0 & 0 & 0 & 0 &  \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} & 0 & 0\\
+ 0 & 0 & 0 & 0 & 0 & 0 &  \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}}\\
+ \frac{1}{2} & \frac{1}{2} & -\frac{1}{2} & -\frac{1}{2} & 0 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & 0 &  \frac{1}{2} & \frac{1}{2} & -\frac{1}{2} & -\frac{1}{2}\\
+ \frac{\sqrt{2}}{4} & \frac{\sqrt{2}}{4} & \frac{\sqrt{2}}{4} & \frac{\sqrt{2}}{4} & -\frac{\sqrt{2}}{4} & -\frac{\sqrt{2}}{4} & -\frac{\sqrt{2}}{4} & -\frac{\sqrt{2}}{4}\\
+\end{bmatrix}
+$$
+
+$\mathbf{d}=(\frac{21\sqrt{2}}{2},0,-\sqrt{2},-3\sqrt{2},\sqrt{2},-7,-2,\frac{3\sqrt{2}}{2})$를 얻을 수 있다. (이 예제에서는 [@Nason2010]의 정의를 따라갔다.)
+
+</div>
+
+위 예제의 $W$처럼 Haar 웨이블릿의 $W$는 **정규직교(orthonormal)**라는 성질을 갖는데, 정규직교의 의미는 $W^{T}W=\mathbf{I}$이다. 그러나 모든 웨이블릿의 $W$가 정규직교인 것은 아니다. 그리고
+$$\| \mathbf{d} \|^{2}=\mathbf{d}^{T}\mathbf{d}=(W\mathbf{y})^{T}(W\mathbf{y})=\mathbf{y}^{T}W^{T}W\mathbf{y}=\| \mathbf{y} \|^{2}$$
+이 식은 **Parseval 등식(Parseval's identity)**에 대응된다.
+
+정규직교인 웨이블릿의 $W$은 다음과 같은 장점을 갖는다. 다음과 같이 원래 자료와 추정량에 대한 공식이 다음과 같이 주어졌을 때,
+$$y=f+\epsilon, \epsilon \sim (\cdot, \sigma^{2}I) \rightarrow d=\theta +e, Wy=d, Wf=\theta, W\epsilon=e$$
+정규직교인 $W$이면
+$$Var(W\epsilon)=WVar(\epsilon)W^{T}=\sigma^{2}I=Var(\epsilon)$$
+이다. 즉 원래 자료와 추정량의 분산 구조가 같다.
+
+## 압축계수(scaling coefficient)와 전이계수(translation coefficient) 개념
+
+$p(x)$라는 함수가 주어졌을 때, 이것의 **압축 및 전이된 버전(scaled and translated version)**은 다음과 같이 정의된다.
+$$
+\| p_{j,k}(x) \|^{2}=\int_{\infty}^{\infty}p_{j,k}^{2}(x)dx=\int_{\infty}^{\infty}2^{j}p^{2}(2^{j}x-k)dx=\int_{\infty}^{\infty}p^{2}(y)dy=\| p(y) \|^{2}
+$$
+$$p_{j,k}(x)=2^{\frac{j}{2}}p(2^{j}x-k)$$
+
+
+## 섬세한 척도 근사(fine-scale approximation)
+
+다음과 같이 **Haar 함수(Haar function)**를 정의한다.
+
+$$
+\phi(x) = 
+\begin{cases}
+1 & \text{if $x \in [0,1]$}\\
+0 & \text{o.w.}
+\end{cases}
+$$

@@ -38,8 +38,8 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="covmodel.html">
-<link rel="next" href="references.html">
+<link rel="prev" href="multiscale.html">
+<link rel="next" href="admultiscale.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -117,10 +117,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3" data-path="multiscale.html"><a href="multiscale.html#sparsity"><i class="fa fa-check"></i><b>2.3</b> 희소성(sparsity)</a></li>
 <li class="chapter" data-level="2.4" data-path="multiscale.html"><a href="multiscale.html#r-r-multiscale"><i class="fa fa-check"></i><b>2.4</b> R 예제(R-multiscale)</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="wavelettransform.html"><a href="wavelettransform.html"><i class="fa fa-check"></i><b>3</b> 웨이블릿 변환</a><ul>
-<li class="chapter" data-level="3.1" data-path="wavelettransform.html"><a href="wavelettransform.html#-haar--discrete-haar-wavelet-transform"><i class="fa fa-check"></i><b>3.1</b> 이산 Haar 웨이블릿 변환(discrete Haar wavelet transform)</a></li>
-<li class="chapter" data-level="3.2" data-path="wavelettransform.html"><a href="wavelettransform.html#scaling-coefficient-translation-coefficient-"><i class="fa fa-check"></i><b>3.2</b> 압축계수(scaling coefficient)와 전이계수(translation coefficient) 개념</a></li>
-<li class="chapter" data-level="3.3" data-path="wavelettransform.html"><a href="wavelettransform.html#--fine-scale-approximation"><i class="fa fa-check"></i><b>3.3</b> 섬세한 척도 근사(fine-scale approximation)</a></li>
+<li class="chapter" data-level="3" data-path="haarwavelet.html"><a href="haarwavelet.html"><i class="fa fa-check"></i><b>3</b> Haar 웨이블릿</a><ul>
+<li class="chapter" data-level="3.1" data-path="haarwavelet.html"><a href="haarwavelet.html#-haar--discrete-haar-wavelet-transform"><i class="fa fa-check"></i><b>3.1</b> 이산 Haar 웨이블릿 변환(discrete Haar wavelet transform)</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="admultiscale.html"><a href="admultiscale.html"><i class="fa fa-check"></i><b>4</b> 고급 다중척도 방법론</a><ul>
 <li class="chapter" data-level="4.1" data-path="admultiscale.html"><a href="admultiscale.html#--second-generation-wavelet-transform"><i class="fa fa-check"></i><b>4.1</b> 2세대 웨이블릿 변환(second-generation wavelet transform)</a></li>
@@ -191,22 +189,70 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="variogramest" class="section level1">
-<h1><span class="header-section-number">Chapter 9</span> 변동도의 추정</h1>
-<p>이 문서에서는 variogram을 어떻게 추정할 것인지에 대해 다룰 것이다. 크게 두 가지가 있다.</p>
-<ul>
-<li><p>Empirical model (nonparametric)</p></li>
-<li><p>Parametric fit</p></li>
-</ul>
+<div id="haarwavelet" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Haar 웨이블릿</h1>
+<p><strong>웨이블릿 변환(wavelet transform)</strong>이란 웨이블릿 기저함수를 이용해 데이터를 변환하는 것을 말한다. 여기서 웨이블릿 기저함수라는 건 적분하면 0이 되고, 진동하면서 진폭이 0으로 수렴하는 함수를 말한다.</p>
+<div id="-haar--discrete-haar-wavelet-transform" class="section level2">
+<h2><span class="header-section-number">3.1</span> 이산 Haar 웨이블릿 변환(discrete Haar wavelet transform)</h2>
+<p>가장 단순한 웨이블릿 변환으로 <strong>Haar 웨이블릿 변환(Haar wavelet transform)</strong>이 있다.</p>
+앞서 상세와 성김은 다음과 같이 구할 수 있었음을 상기하자. <span class="math display">\[d_{k}=y_{2k}-y_{2k-1}, c_{k}=y_{2k}+y_{2k-1}.\]</span> 에너지를 보존하기 위해 다음과 같이 <span class="math inline">\(\alpha\)</span>라는 상수를 고려하자. <span class="math display">\[d_{k}=\alpha(y_{2k}-y_{2k-1}), c_{k}=\alpha(y_{2k}+y_{2k-1}).\]</span> 그러면
+\begin{eqnarray*}
+d_{k}^{2}+c_{k}^{2}&amp;=&amp;\alpha^{2}(y_{2k}^{2}-2y_{2k}y_{2k-1}+y_{2k-1}^{2}+\alpha^{2}(y_{2k}^{2}+2y_{2k}y_{2k-1}+y_{2k-1}^{2})\\
+&amp;=&amp;2\alpha^{2}(y_{2k}^{2}+y_{2k-1}^{2})
+\end{eqnarray*}
+<p>즉 <span class="math inline">\(2\alpha^{2}=1 \Rightarrow \alpha=\frac{1}{\sqrt{2}}\)</span>이면 <span class="math inline">\(y\)</span>와 <span class="math inline">\(d\)</span>의 에너지가 보존(conserved)된다. 이렇게 <span class="math display">\[d_{k}=\frac{1}{\sqrt{2}}(y_{2k}-y_{2k-1}), c_{k}=\frac{1}{\sqrt{2}}(y_{2k}+y_{2k-1}).\]</span> 하는 것을 <strong>표준화(normalization)</strong>라고 말하기도 한다. 정리하면 <strong>Haar 웨이블릿 변환(Haar wavelet transform)</strong>의 <strong>이산 웨이블릿 계수(discrete wavelet coefficient)</strong> <span class="math inline">\(d_{k}\)</span>는 <span class="math display">\[d_{k}=g_{0}y_{2k}+g_{1}y_{2k-1}=\sum_{l=-\infty}^{\infty}g_{l}y_{2k-l}\]</span> 이며 여기서 <span class="math display">\[
+g_{l} = 
+\begin{cases}
+\frac{1}{\sqrt{2}} &amp; \text{if $l=0$} \\
+-\frac{1}{\sqrt{2}} &amp; \text{if $l=1$}\\
+0 &amp; \text{o.w.}\\
+\end{cases}
+\]</span></p>
+<p>여기서 <span class="math inline">\(g_{l}\)</span>을 <strong>고역 필터(high-pass filter)</strong>라고 부른다. 마찬가지로 성김에 대해서도 <span class="math display">\[
+c_{k}=
+\sum_{l=-\infty}^{\infty}h_{l}y_{2k-l},
+h_{l} = 
+\begin{cases}
+\frac{1}{\sqrt{2}} &amp; \text{if $l=0$}\\
+\frac{1}{\sqrt{2}} &amp; \text{if $l=1$}\\
+0 &amp; \text{o.w.}
+\end{cases}
+\]</span> 로 나타낼 수 있고 <span class="math inline">\(h_{l}\)</span>을 <strong>저역 필터(low-pass filter)</strong>라 부른다.</p>
+<p>세부와 성김은 앞서 언급한 피라미드 알고리즘으로 구할 수도 있지만 여기서는 <span class="math inline">\(\mathbf{d}=\mathbf{Wy}\)</span>처럼 통계학자들에게 익숙한 행렬 꼴로 바꾸어 표현한다.</p>
+<div class="example">
+<p>행렬을 이용해 웨이블릿 계수를 계산해보자. 다음과 같은 자료 <span class="math inline">\(\mathbf{y}=(1,1,7,9,2,8,8,6)\)</span>에 행렬 <span class="math inline">\(W\)</span>을 다음과 같이 정의하면</p>
+<p><span class="math display">\[
+W =
+\begin{bmatrix}
+\frac{\sqrt{2}}{4} &amp; \frac{\sqrt{2}}{4} &amp; \frac{\sqrt{2}}{4} &amp; \frac{\sqrt{2}}{4} &amp; \frac{\sqrt{2}}{4} &amp; \frac{\sqrt{2}}{4} &amp; \frac{\sqrt{2}}{4} &amp; \frac{\sqrt{2}}{4}\\
+\frac{1}{\sqrt{2}} &amp; -\frac{1}{\sqrt{2}} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\
+ 0 &amp; 0 &amp; \frac{1}{\sqrt{2}} &amp; -\frac{1}{\sqrt{2}} &amp; 0 &amp; 0 &amp; 0 &amp; 0\\
+ 0 &amp; 0 &amp; 0 &amp; 0 &amp;  \frac{1}{\sqrt{2}} &amp; -\frac{1}{\sqrt{2}} &amp; 0 &amp; 0\\
+ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp;  \frac{1}{\sqrt{2}} &amp; -\frac{1}{\sqrt{2}}\\
+ \frac{1}{2} &amp; \frac{1}{2} &amp; -\frac{1}{2} &amp; -\frac{1}{2} &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+ 0 &amp; 0 &amp; 0 &amp; 0 &amp;  \frac{1}{2} &amp; \frac{1}{2} &amp; -\frac{1}{2} &amp; -\frac{1}{2}\\
+ \frac{\sqrt{2}}{4} &amp; \frac{\sqrt{2}}{4} &amp; \frac{\sqrt{2}}{4} &amp; \frac{\sqrt{2}}{4} &amp; -\frac{\sqrt{2}}{4} &amp; -\frac{\sqrt{2}}{4} &amp; -\frac{\sqrt{2}}{4} &amp; -\frac{\sqrt{2}}{4}\\
+\end{bmatrix}
+\]</span></p>
+<p><span class="math inline">\(\mathbf{d}=(\frac{21\sqrt{2}}{2},0,-\sqrt{2},-3\sqrt{2},\sqrt{2},-7,-2,\frac{3\sqrt{2}}{2})\)</span>를 얻을 수 있다. (이 예제에서는 <span class="citation">(Nason <a href="#ref-Nason2010">2010</a>)</span>의 정의를 따라갔다.)</p>
+<p>위 예제의 <span class="math inline">\(W\)</span>처럼 Haar 웨이블릿의 <span class="math inline">\(W\)</span>는 <strong>정규직교(orthonormal)</strong>라는 성질을 갖는데, 정규직교의 의미는 <span class="math inline">\(W^{T}W=\mathbf{I}\)</span>이다. 그러나 모든 웨이블릿의 <span class="math inline">\(W\)</span>가 정규직교인 것은 아니다. 그리고 <span class="math display">\[\| \mathbf{d} \|^{2}=\mathbf{d}^{T}\mathbf{d}=(W\mathbf{y})^{T}(W\mathbf{y})=\mathbf{y}^{T}W^{T}W\mathbf{y}=\| \mathbf{y} \|^{2}\]</span> 이 식은 <strong>Parseval 등식(Parseval’s identity)</strong>에 대응된다.</p>
+</div>
 
+</div>
+</div>
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-Nason2010">
+<p>Nason, Guy. 2010. <em>Wavelet Methods in Statistics with R</em>. 2nd ed. Spring Street, New York: Springer Science &amp; Business Media.</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="covmodel.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="multiscale.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="admultiscale.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -233,7 +279,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://seoncheolpark.github.io/book/_book/25-variogramest.Rmd",
+"link": "https://seoncheolpark.github.io/book/_book/12-haarwavelet.Rmd",
 "text": null
 },
 "download": null,
