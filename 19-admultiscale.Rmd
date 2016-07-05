@@ -124,5 +124,3 @@ knitr::include_graphics("images/advmultiscale_lifting2d.png")
 ```
 
 위 그림에서 빨간색 점들로 검은색 점을 포함하는 **보로노이 다이어그램(Voronoi diagram)**을 그린다. (a), (b), (c)는 각각 첫 번째, 두 번째 및 세 번째 리프팅 스킴에 대응된다. (d)는 투입된 자료를 네 가지 수준으로 구분한 그림이다. 빨간색 점들은 $s_{t,2k+1}$에 대응되며 검은색 점들은 $s_{t,2k}$에 대응된다. 갱신 단계에서, 우리는 검은색 지점의 상세 이미지(detail image) $d_{t+1,k}$를 얻을 수 있고, 빨간색 지점의 갱신된 근사 이미지(approximation image) $s_{t+1,k}$를 얻을 수 있다. 산재된 자료(scattered data)의 경우 척도(scale)은 '연속(continuous)' 개념에 대응된다. 다시 말하면, 모든 자료는 각자 고유의 척도를 가지고 있고, 이 척도는 주변과의 거리에 관계되어 결정되는 것이다.
-
-## Radon 변환(Radon transform)
