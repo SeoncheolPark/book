@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-07-05">
+<meta name="date" content="2016-07-07">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -121,6 +121,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.1" data-path="wavelettransform.html"><a href="wavelettransform.html#-haar--discrete-haar-wavelet-transform"><i class="fa fa-check"></i><b>3.1</b> 이산 Haar 웨이블릿 변환(discrete Haar wavelet transform)</a></li>
 <li class="chapter" data-level="3.2" data-path="wavelettransform.html"><a href="wavelettransform.html#scaling-coefficient-translation-coefficient-"><i class="fa fa-check"></i><b>3.2</b> 압축계수(scaling coefficient)와 전이계수(translation coefficient) 개념</a></li>
 <li class="chapter" data-level="3.3" data-path="wavelettransform.html"><a href="wavelettransform.html#--fine-scale-approximation"><i class="fa fa-check"></i><b>3.3</b> 섬세한 척도 근사(fine-scale approximation)</a></li>
+<li class="chapter" data-level="3.4" data-path="wavelettransform.html"><a href="wavelettransform.html#-----computing-coarser-scale-coefficients-from-fine-scale"><i class="fa fa-check"></i><b>3.4</b> 섬세한 척도로부터 성긴 척도 계수의 계산(computing coarser scale coefficients from fine scale)</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="wavelettransform.html"><a href="wavelettransform.html#---defference-between-scale-approximations--"><i class="fa fa-check"></i><b>3.4.1</b> 척도 근사들 사이의 차이(defference between scale approximations)(이를 웨이블릿이라 부름)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="wavelettransform.html"><a href="wavelettransform.html#-types-of-wavelets"><i class="fa fa-check"></i><b>3.5</b> 웨이블릿의 종류들(types of wavelets)</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="wavelettransform.html"><a href="wavelettransform.html#haar-haar-wavelet"><i class="fa fa-check"></i><b>3.5.1</b> Haar 웨이블릿(Haar wavelet)</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="admultiscale.html"><a href="admultiscale.html"><i class="fa fa-check"></i><b>4</b> 고급 다중척도 방법론</a><ul>
 <li class="chapter" data-level="4.1" data-path="admultiscale.html"><a href="admultiscale.html#--second-generation-wavelet-transform"><i class="fa fa-check"></i><b>4.1</b> 2세대 웨이블릿 변환(second-generation wavelet transform)</a></li>
@@ -217,7 +223,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     s_{j,k}=s_{j+1,2k}+\frac{d_{j,k}}{2}.
 \end{equation}
 <p>웨이블릿 변환에서는 <span class="math inline">\(s_{j,k}\)</span>와 <span class="math inline">\(d_{j,k}\)</span>를 동시에 얻지만 리프팅 스킴에서는 <span class="math inline">\(d_{j,k}\)</span>를 얻은 후 순차적으로 <span class="math inline">\(s_{j,k}\)</span>를 얻는다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
 <img src="images/advmultiscale_lifting.png" alt="Forward lifting scheme using Haar transform." width="231" />
 <p class="caption">
 Figure 4.1: Forward lifting scheme using Haar transform.
@@ -231,14 +237,14 @@ Figure 4.1: Forward lifting scheme using Haar transform.
 <li><p><strong>갱신(update)</strong>: <span class="math inline">\(s_{j,k}=s_{j+1,2k}+\frac{d_{j,k}}{2}\)</span> (프라이멀 리프팅)</p></li>
 </ol>
 <p>일반적인 리프팅 스킴의 프라이멀 리프팅과 듀얼 리프팅의 <strong>정변환(forward transform)</strong>은 다음과 같다. <span class="math display">\[\text{차이(difference)=홀(odd)-p짝(even)} \qquad{\text{듀얼 리프팅(dual lifting)}}\]</span> <span class="math display">\[\text{평균(average)=짝(even)+u차이} \qquad{\text{프라이멀 리프팅(primal lifting)}}\]</span> 이 때 <span class="math inline">\(p=1\)</span>, <span class="math inline">\(u=0.5\)</span>인 경우를 특별히 Haar 웨이블릿 변환(Haar wavelet transformation)이라고 부르는 것이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-7"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-11"></span>
 <img src="images/advmultiscale_lifting02.png" alt="Standard lifting scheme using primal and dual lifting." width="235" />
 <p class="caption">
 Figure 4.2: Standard lifting scheme using primal and dual lifting.
 </p>
 </div>
 <p>리프팅의 <strong>역변환(backward transform)</strong>은 다음과 같다. <span class="math display">\[\text{짝(even)=평균(average)-u차이(difference)} \]</span> <span class="math display">\[\text{홀(odd)=차이(difference)+p짝} \]</span></p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-12"></span>
 <img src="images/advmultiscale_invlifting.png" alt="Backward lifting scheme." width="217" />
 <p class="caption">
 Figure 4.3: Backward lifting scheme.
