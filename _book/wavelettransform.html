@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-07-07">
+<meta name="date" content="2016-07-08">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -121,11 +121,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.1" data-path="wavelettransform.html"><a href="wavelettransform.html#-haar--discrete-haar-wavelet-transform"><i class="fa fa-check"></i><b>3.1</b> 이산 Haar 웨이블릿 변환(discrete Haar wavelet transform)</a></li>
 <li class="chapter" data-level="3.2" data-path="wavelettransform.html"><a href="wavelettransform.html#scaling-coefficient-translation-coefficient-"><i class="fa fa-check"></i><b>3.2</b> 압축계수(scaling coefficient)와 전이계수(translation coefficient) 개념</a></li>
 <li class="chapter" data-level="3.3" data-path="wavelettransform.html"><a href="wavelettransform.html#--fine-scale-approximation"><i class="fa fa-check"></i><b>3.3</b> 섬세한 척도 근사(fine-scale approximation)</a></li>
-<li class="chapter" data-level="3.4" data-path="wavelettransform.html"><a href="wavelettransform.html#-----computing-coarser-scale-coefficients-from-fine-scale"><i class="fa fa-check"></i><b>3.4</b> 섬세한 척도로부터 성긴 척도 계수의 계산(computing coarser scale coefficients from fine scale)</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="wavelettransform.html"><a href="wavelettransform.html#---defference-between-scale-approximations--"><i class="fa fa-check"></i><b>3.4.1</b> 척도 근사들 사이의 차이(defference between scale approximations)(이를 웨이블릿이라 부름)</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5" data-path="wavelettransform.html"><a href="wavelettransform.html#-types-of-wavelets"><i class="fa fa-check"></i><b>3.5</b> 웨이블릿의 종류들(types of wavelets)</a><ul>
-<li class="chapter" data-level="3.5.1" data-path="wavelettransform.html"><a href="wavelettransform.html#haar-haar-wavelet"><i class="fa fa-check"></i><b>3.5.1</b> Haar 웨이블릿(Haar wavelet)</a></li>
+<li class="chapter" data-level="3.4" data-path="wavelettransform.html"><a href="wavelettransform.html#-----computing-coarser-scale-coefficients-from-fine-scale"><i class="fa fa-check"></i><b>3.4</b> 섬세한 척도로부터 성긴 척도 계수의 계산(computing coarser scale coefficients from fine scale)</a></li>
+<li class="chapter" data-level="3.5" data-path="wavelettransform.html"><a href="wavelettransform.html#---defference-between-scale-approximations--"><i class="fa fa-check"></i><b>3.5</b> 척도 근사들 사이의 차이(defference between scale approximations)(이를 웨이블릿이라 부름)</a></li>
+<li class="chapter" data-level="3.6" data-path="wavelettransform.html"><a href="wavelettransform.html#-types-of-wavelets"><i class="fa fa-check"></i><b>3.6</b> 웨이블릿의 종류들(types of wavelets)</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="wavelettransform.html"><a href="wavelettransform.html#haar-haar-wavelet"><i class="fa fa-check"></i><b>3.6.1</b> Haar 웨이블릿(Haar wavelet)</a></li>
+<li class="chapter" data-level="3.6.2" data-path="wavelettransform.html"><a href="wavelettransform.html#shannon-shannon-wavelet"><i class="fa fa-check"></i><b>3.6.2</b> Shannon 웨이블릿(Shannon wavelet)</a></li>
+<li class="chapter" data-level="3.6.3" data-path="wavelettransform.html"><a href="wavelettransform.html#meyer-meyer-wavelet"><i class="fa fa-check"></i><b>3.6.3</b> Meyer 웨이블릿(Meyer wavelet)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="admultiscale.html"><a href="admultiscale.html"><i class="fa fa-check"></i><b>4</b> 고급 다중척도 방법론</a><ul>
@@ -175,7 +176,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="covmodel.html"><a href="covmodel.html#---variograms-in-other-situation"><i class="fa fa-check"></i><b>8.5</b> 기타 다른 상황에서의 변동도들(variograms in other situation)</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="variogramest.html"><a href="variogramest.html"><i class="fa fa-check"></i><b>9</b> 변동도의 추정</a></li>
+<li class="chapter" data-level="9" data-path="variogramest.html"><a href="variogramest.html"><i class="fa fa-check"></i><b>9</b> 변동도의 추정</a><ul>
+<li class="chapter" data-level="9.1" data-path="variogramest.html"><a href="variogramest.html#empirical-variogram"><i class="fa fa-check"></i><b>9.1</b> 경험변동도(empirical variogram)</a></li>
+<li class="chapter" data-level="9.2" data-path="variogramest.html"><a href="variogramest.html#----fitting-parametric-models-to-empirical-variogram"><i class="fa fa-check"></i><b>9.2</b> 경험변동도를 이용한 모수적 모형 추정(fitting parametric models to empirical variogram)</a></li>
+</ul></li>
 <li class="chapter" data-level="10" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>10</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
@@ -304,8 +308,9 @@ c_{J-1,k}&amp;=&amp;\int_{2^{-(J-1)}k}^{2^{-(J-1)}(k+1)}f(x)\phi_{J-1,k}(x)dx\\
 Figure 3.3: Relationship between Haar scale function.
 </p>
 </div>
-<div id="---defference-between-scale-approximations--" class="section level3">
-<h3><span class="header-section-number">3.4.1</span> 척도 근사들 사이의 차이(defference between scale approximations)(이를 웨이블릿이라 부름)</h3>
+</div>
+<div id="---defference-between-scale-approximations--" class="section level2">
+<h2><span class="header-section-number">3.5</span> 척도 근사들 사이의 차이(defference between scale approximations)(이를 웨이블릿이라 부름)</h2>
 척도 근사들의 차이에서 도출된 함수들이 작은 파도(small wave) 형태를 띄므로 이것을 웨이블릿이라 부른다. 앞서 근사식 <span class="math inline">\(f_{J}=\sum_{k=0}^{2^{J}-1}c_{J,k}\phi_{J,k}(x)\)</span>과 <span class="math inline">\(p_{j,k}(x)=2^{\frac{j}{2}}p(2^{j}x-k)\)</span>으로부터 <span class="math inline">\(J=1\)</span>일 때에는 <span class="math display">\[f_{1}(x)=c_{10}\phi_{10}(x)+c_{11}\phi_{11}(x)=c_{10}2^{\frac{1}{2}}\phi(2x)+c_{11}2^{\frac{1}{2}}\phi(2x-1)
 \]</span> 이다. 여기서 <span class="math inline">\(f_{0}(x)=c_{00}\phi_{00}(x)\)</span>라 하고 <span class="math inline">\(c_{J-1,k}=\frac{c_{J,2k}+c_{J,2k-1}}{\sqrt{2}}\)</span>를 이용하면
 \begin{eqnarray*}
@@ -341,11 +346,10 @@ f_{j+1}(x)&amp;=&amp;\sum_{k=0}^{2^{j}-1}c_{jk}\phi_{jk}(x)+\sum_{k=0}^{2^{j}-1}
 \end{eqnarray*}
 <p>즉 <span class="math inline">\(f_{j+1}(x)\)</span>은 가장 성긴 근사함수인 <span class="math inline">\(f_{0}\)</span>와 각 수준에서의 차이인 <span class="math inline">\(g_{l}\)</span>들의 합으로 표현할 수 있다.</p>
 </div>
-</div>
 <div id="-types-of-wavelets" class="section level2">
-<h2><span class="header-section-number">3.5</span> 웨이블릿의 종류들(types of wavelets)</h2>
+<h2><span class="header-section-number">3.6</span> 웨이블릿의 종류들(types of wavelets)</h2>
 <div id="haar-haar-wavelet" class="section level3">
-<h3><span class="header-section-number">3.5.1</span> Haar 웨이블릿(Haar wavelet)</h3>
+<h3><span class="header-section-number">3.6.1</span> Haar 웨이블릿(Haar wavelet)</h3>
 <p>다음과 같이 <strong>Haar 함수(Haar function)</strong>의 정의를 다시 상기하자. <span class="math display">\[
 \phi(x) =
 \begin{cases}
@@ -364,7 +368,39 @@ f_{j+1}(x)&amp;=&amp;\sum_{k=0}^{2^{j}-1}c_{jk}\phi_{jk}(x)+\sum_{k=0}^{2^{j}-1}
 \frac{\sin (\omega)}{\omega} &amp; \text{if $\omega \neq 0$}\\
 1 &amp;\text{if $\omega = 0$}
 \end{cases}
-\]</span></p>
+\]</span> 이다. <span class="math inline">\(\hat{\phi}(\omega)\)</span>는 <span class="math inline">\(| \omega |^{-1}\)</span>만큼의 감쇠(decay)를 가지며 꼬리가 굉장히 긴 함수이다. 즉 주파수 영역에서 이 함수는 컴팩트 받침과 거리가 먼 함수가 된다. 시간 영역과 주파수 영역 사이에 불확정성 원리(uncertainty principle)이 있다는 것은 알려진 사실이다.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
+<img src="images/multiscale_008.png" alt="Haar function (left) and Haar function in frequency domain after Fourier transform (right)." width="250" />
+<p class="caption">
+Figure 3.5: Haar function (left) and Haar function in frequency domain after Fourier transform (right).
+</p>
+</div>
+</div>
+<div id="shannon-shannon-wavelet" class="section level3">
+<h3><span class="header-section-number">3.6.2</span> Shannon 웨이블릿(Shannon wavelet)</h3>
+<p>Haar와 반대로 주파수 영역에서 컴팩트 받침인 웨이블릿을 생각할 수 있다. 이것의 대표적인 예가 <strong>Shannon 웨이블릿(Shannon wavelet)</strong>이다. 다음과 같은 모웨이블릿(mother wavelet)을 생각하자. 그리고 그것의 푸리에 변환은 <span class="math display">\[\psi(x)=\frac{\sin(2\pi x)-\cos(\pi x)}{\pi (x - \frac{1}{2})} \rightarrow \hat{\psi}(\omega)=-e^{-\frac{i\omega}{2}}I_{[-2\pi,-\pi]\cup[\pi,2\pi]}(\omega).\]</span> 따라서 주파수 영역에서는 컴팩트 받침이다. Shannon의 부웨이블릿(father wavelet)와 대응되는 푸리에 변환은 다음과 같다. <span class="math display">\[\phi(x)=\text{sinc}(\pi x) \rightarrow \hat{\phi}(\omega)=1.\]</span> 즉 주파수 영역에서는 컴팩트 받침이다. 한편 시간 영역에서 <span class="math inline">\(\phi(x)\)</span>의 그림은 다음과 같다고 한다(출처: 위키, 체크 필요)</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-11"></span>
+<img src="images/multiscale_Shannon.png" alt="Real Shannon wavelet function." width="255" />
+<p class="caption">
+Figure 3.6: Real Shannon wavelet function.
+</p>
+</div>
+</div>
+<div id="meyer-meyer-wavelet" class="section level3">
+<h3><span class="header-section-number">3.6.3</span> Meyer 웨이블릿(Meyer wavelet)</h3>
+<p>Shannon 웨이블릿과 유사하며, 주파수 영역에서 상자 함수(box function)를 약간 부드럽게 한 형태의 웨이블릿이 <strong>Meyer 웨이블릿(Meyer wavelet)</strong>이다.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-12"></span>
+<img src="images/multiscale_Meyer.png" alt="Scaling function and wavelet function of Meyer wavelet on time domain." width="128" />
+<p class="caption">
+Figure 3.7: Scaling function and wavelet function of Meyer wavelet on time domain.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-13"></span>
+<img src="images/multiscale_Meyer02.png" alt="Meyer scaling function on frequency domain." width="212" />
+<p class="caption">
+Figure 3.8: Meyer scaling function on frequency domain.
+</p>
+</div>
 
 </div>
 </div>

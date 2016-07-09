@@ -146,7 +146,7 @@ $$\phi(x)=\phi(2x)+\phi(2x-1)$$
 knitr::include_graphics("images/multiscale_006.png")
 ```
 
-### 척도 근사들 사이의 차이(defference between scale approximations)(이를 웨이블릿이라 부름)
+## 척도 근사들 사이의 차이(defference between scale approximations)(이를 웨이블릿이라 부름)
 
 척도 근사들의 차이에서 도출된 함수들이 작은 파도(small wave) 형태를 띄므로 이것을 웨이블릿이라 부른다. 앞서 근사식 $f_{J}=\sum_{k=0}^{2^{J}-1}c_{J,k}\phi_{J,k}(x)$과 $p_{j,k}(x)=2^{\frac{j}{2}}p(2^{j}x-k)$으로부터 $J=1$일 때에는
 $$f_{1}(x)=c_{10}\phi_{10}(x)+c_{11}\phi_{11}(x)=c_{10}2^{\frac{1}{2}}\phi(2x)+c_{11}2^{\frac{1}{2}}\phi(2x-1)
@@ -223,3 +223,32 @@ $$
 1 &\text{if $\omega = 0$}
 \end{cases}
 $$
+이다. $\hat{\phi}(\omega)$는 $| \omega |^{-1}$만큼의 감쇠(decay)를 가지며 꼬리가 굉장히 긴 함수이다. 즉 주파수 영역에서 이 함수는 컴팩트 받침과 거리가 먼 함수가 된다. 시간 영역과 주파수 영역 사이에 불확정성 원리(uncertainty principle)이 있다는 것은 알려진 사실이다.
+
+```{r, echo=F, fig.cap='Haar function (left) and Haar function in frequency domain after Fourier transform (right).', fig.align='center'}
+knitr::include_graphics("images/multiscale_008.png")
+```
+
+### Shannon 웨이블릿(Shannon wavelet)
+
+Haar와 반대로 주파수 영역에서 컴팩트 받침인 웨이블릿을 생각할 수 있다. 이것의 대표적인 예가 **Shannon 웨이블릿(Shannon wavelet)**이다. 다음과 같은 모웨이블릿(mother wavelet)을 생각하자. 그리고 그것의 푸리에 변환은 
+$$\psi(x)=\frac{\sin(2\pi x)-\cos(\pi x)}{\pi (x - \frac{1}{2})} \rightarrow \hat{\psi}(\omega)=-e^{-\frac{i\omega}{2}}I_{[-2\pi,-\pi]\cup[\pi,2\pi]}(\omega).$$
+따라서 주파수 영역에서는 컴팩트 받침이다. Shannon의 부웨이블릿(father wavelet)와 대응되는 푸리에 변환은 다음과 같다.
+$$\phi(x)=\text{sinc}(\pi x) \rightarrow \hat{\phi}(\omega)=1.$$
+즉 주파수 영역에서는 컴팩트 받침이다. 한편 시간 영역에서 $\phi(x)$의 그림은 다음과 같다고 한다(출처: 위키, 체크 필요)
+
+```{r, echo=F, fig.cap='Real Shannon wavelet function.', fig.align='center'}
+knitr::include_graphics("images/multiscale_Shannon.png")
+```
+
+### Meyer 웨이블릿(Meyer wavelet)
+
+Shannon 웨이블릿과 유사하며, 주파수 영역에서 상자 함수(box function)를 약간 부드럽게 한 형태의 웨이블릿이 **Meyer 웨이블릿(Meyer wavelet)**이다.
+
+```{r, echo=F, fig.cap='Scaling function and wavelet function of Meyer wavelet on time domain.', fig.align='center'}
+knitr::include_graphics("images/multiscale_Meyer.png")
+```
+
+```{r, echo=F, fig.cap='Meyer scaling function on frequency domain.', fig.align='center'}
+knitr::include_graphics("images/multiscale_Meyer02.png")
+```
