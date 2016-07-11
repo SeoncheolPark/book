@@ -38,8 +38,8 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="covfct.html">
-<link rel="next" href="variogramest.html">
+<link rel="prev" href="waveletshrinkage.html">
+<link rel="next" href="admultiscale.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -220,171 +220,47 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="covmodel" class="section level1">
-<h1><span class="header-section-number">Chapter 10</span> 공분산모형</h1>
-<p>이 장에서는 공분산모형에는 어떤 것들이 있는지 살펴볼 것이다.</p>
-<div id="-nugget-effect" class="section level2">
-<h2><span class="header-section-number">10.1</span> 덩어리 효과(nugget effect)</h2>
-<p><strong>덩어리 효과(nugget effect)</strong>란 공간자료분석에서 흔히 나타나는 특징 중 하나이다.</p>
-<p>일반적으로 공간자료 모델링은 다음과 같이 한다. <span class="math display">\[Y(\mathbf{s})=\mu(\mathbf{s})+Z(\mathbf{s})+\epsilon(\mathbf{s}).\]</span> 여기서 <span class="math inline">\(Y(\mathbf{s})\)</span>는 <strong>관측과정(observed process)</strong>, <span class="math inline">\(\mu(\mathbf{s})=E(Y(\mathbf{s}))\)</span>는 <strong>결정적 평균 함수(deterministic mean function)</strong>, <span class="math inline">\(Z(\mathbf{s})\)</span>는 <strong>순수 공간과정(spatial process)</strong>, 마지막으로 <span class="math inline">\(\epsilon(\mathbf{s})\)</span>는 <strong>나머지 설명되지 않은 항(remaining unexplained term)</strong>이다. 일종의 백색잡음(white noise)이라고 생각해도 좋다. 그리고 <span class="math inline">\(Z(\mathbf{s}) \bot \epsilon(\mathbf{s})\)</span>이다.</p>
-<p><span class="math inline">\(\epsilon(\mathbf{s})\)</span>에 대해 공분산을 생각해보면, <span class="math display">\[
-\text{COV}(\epsilon(\mathbf{s}),\epsilon(\mathbf{s}+\mathbf{h}))= \left\{ \begin{array}{ll}
-\sigma_{\epsilon}^{2} &amp; \textrm{if $\mathbf{h}$=0}\\
-0 &amp; \textrm{o.w.}
-\end{array} \right.
-\]</span> 인데 여기서 <span class="math inline">\(\sigma_{\epsilon}^{2}\)</span>을 <strong>덩어리(nugget)</strong>이라고 한다. 그리고 이러한 <span class="math inline">\(\epsilon(\mathbf{s})\)</span>가 있는게 <strong>덩어리 효과(nugget effect)</strong>가 있다고 한다.</p>
-<p>그렇다면 왜 이름이 덩어리인지 생각해 볼 필요가 있다. ‘Nugget’은 ’조그만 덩어리’ 라는 이름의 영어로, 금광 채굴 문제에서 유래했다고 한다. 유전 발굴과 같은 경우에는 변동성이 작아 어느 지점에서 유전이 발견되면 그 주변에서도 높은 확률로 유전이 발견되지만, 금광의 경우는 microscale variability가 있어 어느 지점에서 발견되었다 하더라도 주변에는 금광이 없을 수도 있다는 것이다.</p>
-<p>또 다른 관점으로도 덩어리 효과를 표현할 수 있다. 극한값에서 생각을 해 보면 <span class="math display">\[C(\mathbf{0})-C(\mathbf{h})=\gamma(\mathbf{h})=\frac{1}{2}\text{Var}(Z(\mathbf{s}+\mathbf{h})-Z(\mathbf{s}))\]</span> 로 표현할 수 있는데, 덩어리 효가 존재할 경우 <span class="math display">\[\lim_{\mathbf{h}\rightarrow \mathbf{0}}\gamma(\mathbf{h})=\gamma_{0} &gt;0\]</span> 일 수도 있다는 것이다. 이떄 이 <span class="math inline">\(\gamma_{0}\)</span>가 덩어리 효에 대응되는 것이다.</p>
-<p>평균제곱과정(mean square process)인 경우 공분산이 <span class="math inline">\(\mathbf{h}=\mathbf{0}\)</span>일 때 연속이어야 한다. 따라서 평균제곱이며 연속인 공간과정 <span class="math inline">\(Z(\mathbf{s})\)</span>의 경우 이러한 현상이 존재 할 수 없고 <span class="math inline">\(\epsilon(\mathbf{s})\)</span>는 <span class="math inline">\(\mathbf{h}=\mathbf{0}\)</span>일 때 불연속일 수 있고 <span class="math inline">\(Z(\mathbf{s}) \bot \epsilon(\mathbf{s})\)</span>이므로 덩어리 효과가 존재할 수 있는 것이다.</p>
-<p>그런데 앞서 또 다른 관점으로 설명할 때 <span class="math inline">\(\sigma_{\epsilon}^{2}\)</span> 대신 <span class="math inline">\(\gamma_{0}\)</span>이라는 표기를 썼는데 그 이유는 측정 오류(measurement error)가 존재할 수도 있기 때문이다. 엄밀히 얘기하면 <span class="math display">\[\sigma_{\epsilon}^{2}=\text{measurement error variance } + \text{ 순수한 microscale error variance}\]</span> 로 표현할 수 있는데 공간자료의 경우 반복관찰이 없어 집합이 1개이므로 이 둘을 따로 구분해서 측정하는 것이 불가능하다. 여러 번 측정할 수 있으면 둘을 구분해서 추정할 수 있다고 한다. (독립인 자료의 경우)</p>
-<p>그렇다면 언제 반복이 있느냐? 시공간 자료(spatio-temporal data)에서 시간(temporal) 정보를 다 빼냈을 경우 반복이 있는 자료라 생각할 수 있고 이 둘을 구분하여 추정할 수 있다고 한다.</p>
-</div>
-<div id="--idealized-shape-of-variogram-isotropic-case" class="section level2">
-<h2><span class="header-section-number">10.2</span> 이상적인 변동도의 모양(idealized Shape of Variogram (isotropic case))</h2>
-<p>그렇다면 일반적으로 생각하는 변동도의 모양은 어떠한가?</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-31"></span>
-<img src="images/sp_variogram.png" alt="Variogram example." width="196" />
+<div id="advwaveletshrinkage" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> 웨이블릿 수축의 고등 논제들</h1>
+<p>이 장의 내용은 앞 장의 내용과 이어진다.</p>
+<div id="cross-validation" class="section level2">
+<h2><span class="header-section-number">5.1</span> 교차타당성(cross-validation)</h2>
+<p>다음과 같은 일반적인 모델 <span class="math inline">\(y_{i}=f(x_{i})+e_{i}\)</span>이 있고, <span class="math inline">\(f\)</span>를 회귀적합 <span class="math inline">\(f_{lambda}\)</span>를 통해 추정하려고 한다(<span class="math inline">\(\lambda\)</span>: smoothing parameter). 그렇다면 <span class="math inline">\(\lambda\)</span>를 어떻게 선택할 것인가? 이를 해결하기 위해 등장한 방법이 <strong>교차타당성(cross-validation)</strong>이다. 교차타당성의 정의는 다음과 같다. <span class="math display">\[\text{CV}(\lambda)=\frac{1}{n}\sum_{i=1}^{n}(y_{i}-\hat{f}_{\lambda}^{-i}(x_{i}))^{2}.\]</span> 여기서 <span class="math inline">\(\hat{f}_{\lambda}^{-i}(x_{i})\)</span>는 i번째 자료를 제외하고 <span class="math inline">\(f\)</span>를 적합한 다음 <span class="math inline">\(x_{i}\)</span>의 예측값이다(<span class="math inline">\(x_{i}\)</span>값이 없으므로 추정값이 아니라 예측값이 된다). 그렇다면 왜 교차타당성이 쓰이게 되었는가? 이것을 이해하기 위해서는 <strong>Mean squared error (MSE)</strong>와 <strong>Predicted squared error (PSE)</strong>에 대해 알아야 한다.</p>
+<p>위와 같은 모형 하에서 MSE와 PSE는 <span class="math display">\[\text{MSE}(\lambda)=\frac{1}{n}\sum_{i=1}^{n}E(\hat{f}_{\lambda}(x_{i})-f(x_{i}))^{2}, \text{PSE}(\lambda)=\frac{1}{n}\sum_{i=1}^{n}E(y_{i}^{*}-\hat{f}_{\lambda}(x_{i}))^{2}\]</span> 이다. 여기서 <span class="math inline">\(y_{i}^{*}\)</span>는 <span class="math inline">\(x_{i}\)</span>에서의 새로운 관찰값이다. 즉, <span class="math inline">\(y_{i}^{*}=f(x_{i})+\epsilon_{i}^{*}, (\epsilon_{i}^{*}\)</span>는 <span class="math inline">\(\epsilon_{i}\)</span>와 독립)이다.</p>
+위의 PSE를 약간 변형해 보면
+\begin{eqnarray*}
+\text{PSE}(\lambda)&amp;=&amp;\frac{1}{n}\sum_{i=1}^{n}E(y_{i}^{*}-\hat{f}_{\lambda}(x_{i}))^{2}\\
+&amp;=&amp;\frac{1}{n}\sum_{i=1}^{n}E(y_{i}^{*}-f(x_{i}))^{2}+\frac{1}{n}\sum_{i=1}^{n}E(f(x_{i})-\hat{f}_{\lambda}(x_{i}))^{2}\\
+&amp;=&amp;\sigma^{2}+\text{MSE}(\lambda).
+\end{eqnarray*}
+중간에 두 항은 독립이라고 보고 cross-product term을 생략하였다. 이 전개는 회귀분석에서 prediction interval이 커지는 것과 일맥상통한다. 한편, CV의 기댓값은
+\begin{eqnarray*}
+E(y_{i}-\hat{f}_{\lambda}^{-i}(x_{i}))^{2}&amp;=&amp;E(y_{i}-f(x_{i})+f(x_{i})-\hat{f}_{\lambda}^{-i}(x_{i}))^{2}\\
+&amp;=&amp;E(y_{i}-f(x_{i}))^{2}+E(f(x_{i})-\hat{f}_{\lambda}^{-i}(x_{i}))^{2}+2E(y_{i}-f(x_{i}))(f(x_{i})-\hat{f}_{\lambda}^{-i}(x_{i}))\\
+&amp;=&amp;\sigma^{2}+E(f(x_{i})-\hat{f}_{\lambda}^{-i}(x_{i}))^{2}.\\
+\end{eqnarray*}
+<p>만약 <span class="math inline">\(\hat{f}_{\lambda}^{-i}(x_{i}) \approx \hat{f}_{\lambda}(x_{i})\)</span>이면 <span class="math inline">\(E(\text{CV})=\text{PSE}(\lambda)\)</span>이고 <span class="math inline">\(\min_{\lambda}E(\text{CV}) \approx \min_{\lambda}\text{PSE}(\lambda) \approx \min_{\lambda}\text{MSE}(\lambda)\)</span>이다. 물론 <span class="math inline">\(\min_{\lambda}E(\text{CV}) \neq \min_{\lambda}\text{CV}\)</span>이나 아주 틀린 생각은 아니다.</p>
+<p><span class="citation">(G. P. Nason <a href="#ref-Nason1996">1996</a>)</span>에서는 웨이블렛에서 교차타당성을 하기 위한 몇 가지 방법을 제시했다. 첫 번째 방법은 하나의 자료 대신 절반의 자료(<span class="math inline">\(\frac{n}{2}\)</span>)를 제거하는 이다. 다음과 같은 <span class="math inline">\(y_{1}, \cdots, y_{n}, y_{i}=g(x_{i})+\epsilon_{i}, n=2^{J}\)</span>이라는 자료가 있다고 가정하자. 그러면 two-fold CV를 하는 방법은 다음과 같다.\  <span class="math inline">\(\lambda\)</span>의 후보군 <span class="math inline">\(\lambda \in (\lambda_{L}, \lambda^{U})\)</span>를 설정한다.\  먼저 모든 홀수번째 항의 <span class="math inline">\(y_{i}\)</span>를 제거하고 남은 <span class="math inline">\(y_{j}\)</span>에 대해 re-index를 한다(<span class="math inline">\(y_{j},j=1,\cdots,\frac{n}{2}\)</span>).\  웨이블렛 축소를 이용해 <span class="math inline">\(y_{j},j=1,\cdots,\frac{n}{2}\)</span>로부터 <span class="math inline">\(\hat{g}^{E}\)</span>를 얻는다(이 때 bound problem이 생기므로 bound treatment를 해 줘야 한다).\ <span class="math display">\[\mathbf{y} \xrightarrow{\text{DWT}} \mathbf{d} \text{ (thresholding $\lambda$) } \xrightarrow{\text{IDWT}}  \hat{g}^{E}\]</span>  Even-index 자료를 가지고 odd index의 함수값을 예측하기 위해 다음과 같은 예측값 <span class="math inline">\(\bar{g}_{\lambda,j}^{E}=\frac{(\hat{g}_{\lambda,j+1}^{E}+\hat{g}_{\lambda,j}^{E})}{2}, j=1,2,\cdots,\frac{n}{2}\)</span>를 계산한다.\  비슷한 방법으로 <span class="math inline">\(\bar{g}_{\lambda,j}^{O}\)</span>를 계산한다.\  <span class="math inline">\(\hat{M}(\lambda)=\sum_{j=1}^{\frac{n}{2}}\{(\bar{g}_{\lambda,j}^{E}-y_{2j+1})^{2}+(\bar{g}_{\lambda,j}^{O}-y_{2j})\}^{2}\)</span>를 계산한다. 여기서 앞 항은 even-index 자료를 가지고 odd 자료를 예측한 것이고, 뒤 항은 odd-index 자료를 가지고 even 자료를 예측한 것이다.\  <span class="math inline">\(\hat{M}(\lambda)\)</span>가 제일 작은 <span class="math inline">\(\lambda^{*}=\text{argmin}_{\lambda \in (\lambda_{L},\lambda^{U})} \hat{M}(\lambda)\)</span>를 최종적으로 선택한다.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-18"></span>
+<img src="images/advwaveletshrinkage_foldlarge.png" alt="Relation between the large number of folds and CV." width="306" />
 <p class="caption">
-Figure 10.1: Variogram example.
+Figure 5.1: Relation between the large number of folds and CV.
 </p>
 </div>
-<p>새로 등장하는 용어인 <strong>문턱(sill)</strong>과 <strong>범위(range)</strong> 그리고 <strong>덩어리(nugget)</strong>의 의미를 꼭 알아두자. 변동도의 모양은 공분산이 얼마나 빨리 줄어드는지, 그 때 형태(shape)는 어떠한지에 따라 달라진다. 정상과정인 경우 <span class="math display">\[\gamma(\mathbf{h})=C(\mathbf{0})-C(\mathbf{h})\]</span> 가 성립한다. 그런데 <span class="math inline">\(\mathbf{h}\)</span>를 키우면 <span class="math inline">\(C(\mathbf{h})\)</span>가 줄어드므로 종속성(dependency)이 감소할 것이다. 그리고 정상과정인 경우 <span class="math inline">\(C(\mathbf{0})\neq \infty\)</span>이므로 <span class="math inline">\(\mathbf{h} \rightarrow \infty\)</span>일 때 <span class="math inline">\(\gamma(\mathbf{h})\)</span>가 수렴할 것이다. (그렇지 않다면 비정상과정이다)</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-19"></span>
+<img src="images/advwaveletshrinkage_fold.png" alt="Relation between the small number of folds and CV." width="306" />
+<p class="caption">
+Figure 5.2: Relation between the small number of folds and CV.
+</p>
 </div>
-<div id="-effective-range" class="section level2">
-<h2><span class="header-section-number">10.3</span> 유효 범위(effective range)</h2>
-<p>앞서 말한 성질들에 variogram은 <span class="math inline">\(\mathbf{h} \rightarrow \infty\)</span>어떤 값으로 수렴한다. 그런데 어느정도 지난 <span class="math inline">\(\mathbf{h}\)</span>이후에 수렴값과 맞닿으면 range를 정의할 수 있으나 점근해서 수렴하는 경우는 range가 <span class="math inline">\(\infty\)</span>가 되는 문제가 발생한다. 이럴 때 대신 쓰는 정의로 <strong>유효 범위(effective range)</strong>라는 것이 있다. 이 것의 정의는 다음과 같다. <span class="math display">\[\gamma(\mathbf{h}) \text{가 sill의 95% 접근하는 smallest } \|\mathbf{h}\| .\]</span></p>
-</div>
-<div id="----classical-parametric-isotropic-variogram-models" class="section level2">
-<h2><span class="header-section-number">10.4</span> 대표적인 모수 등방성 변동도 모형들(classical parametric isotropic variogram models)</h2>
-<p>여기서는 총 9가지의 변동도 모형을 소개한다. 그러나 실제로 널리 쓰이는 모델은 ‘exponential’과 ’matern’ 두 개이다.</p>
-<ol style="list-style-type: decimal">
-<li><strong>Linear</strong></li>
-</ol>
-<p><span class="math display">\[
-\gamma(\mathbf{h})= \left\{ \begin{array}{ll}
-0 &amp; \textrm{if $\mathbf{h}$=0}\\
-c_{0}+c_{1}\| \mathbf{h}\| &amp; \textrm{if $\mathbf{h}\neq 0$}\\
-\end{array} \right.
-\]</span></p>
-<p><span class="math inline">\(\lim_{\|\mathbf{h}\| \rightarrow \mathbf{0}}\gamma(\mathbf{h}) \rightarrow \infty\)</span>이므로 이것은 비정상과정의 변동도라는 것을 알 수 있다. (대신 내재정상과정이다)</p>
-<ol start="2" style="list-style-type: decimal">
-<li><strong>Spherical</strong></li>
-</ol>
-<p><span class="math display">\[
-\gamma(\mathbf{h})= \left\{ \begin{array}{ll}
-0 &amp; \textrm{if $\mathbf{h}$=0}\\
-c_{0}+c_{1}[\frac{3}{2}(\frac{\| \mathbf{h}\|}{R})-\frac{1}{2}(\frac{\| \mathbf{h}\|}{R})^{3}] &amp; \textrm{if $0 \leq \|\mathbf{h}\|\leq R$}\\
-c_{0}+c_{1} &amp; \textrm{if $\|\mathbf{h}\|&gt;R$}\\
-\end{array} \right.
-\]</span> 이것은 지구통계학(geostatics)에서는 많이 쓰나 모형이 복잡해 분포 가정 후 우도 추정(likelihood estimation)을 할 때 어렵고 잘 안되므로 통계학자들은 잘 안 좋아하는 모형이라고 한다. 참고로 이 변동도는 <span class="math inline">\(\mathbf{h} \in \mathbb{R}^{d}, d=1,2,3\)</span>에서만 유효하다. 이것 이외에 나머지 변동도의 예들은 다 모든 양수 <span class="math inline">\(d\)</span>에서 유효한 변동도를 갖는다고 한다.</p>
-<ol start="3" style="list-style-type: decimal">
-<li><strong>Exponential</strong></li>
-</ol>
-<p><span class="math display">\[
-\gamma(\mathbf{h})= \left\{ \begin{array}{ll}
-0 &amp; \textrm{if $\mathbf{h}$=0}\\
-c_{0}+c_{1}(1-e^{-\frac{\|\mathbf{h}\|}{R}}) &amp; \textrm{if $\mathbf{h}\neq 0$}\\
-\end{array} \right.
-\]</span> 이것은 평균제곱연속이나 평균제곱 미분 가능하지는 않다고 한다. 그리고 다른 애들보다 독립적인 편이라고(공분산이 약함) 한다. 특히 뒤에 나오는 가우스 변동도(Gaussian variogram)와 비교했을 때 덜 부드럽다.</p>
-<ol start="4" style="list-style-type: decimal">
-<li><strong>Gaussian</strong></li>
-</ol>
-<p><span class="math display">\[
-\gamma(\mathbf{h})= \left\{ \begin{array}{ll}
-0 &amp; \textrm{if $\mathbf{h}$=0}\\
-c_{0}+c_{1}(1-e^{-(\frac{\|\mathbf{h}\|}{R})^{2}}) &amp; \textrm{if $\mathbf{h}\neq 0$}\\
-\end{array} \right.
-\]</span></p>
-<p>가우스분포랑은 관련이 없으며 2차항이 있기 때문에 이러한 이름이 붙은 것이다. 이것은 무한번 평균제곱 미분 가능(infinitely mean-square differentiable)하다. 그렇다는 얘기는 엄청 부드러운 데이터 모델링 시 사용할 수 있다는 것이다. 그러나 이런 경우는 드물므로 많이 보기는 힘들다.</p>
-<ol start="5" style="list-style-type: decimal">
-<li><strong>Exponential power</strong></li>
-</ol>
-<p><span class="math display">\[
-\gamma(\mathbf{h})= \left\{ \begin{array}{ll}
-0 &amp; \textrm{if $\mathbf{h}$=0}\\
-c_{0}+c_{1}(1-e^{-(\frac{\|\mathbf{h}\|}{R})^{p}}) &amp; \textrm{if $\mathbf{h}\neq 0$, $0 &lt; p \leq 2$}\\
-\end{array} \right.
-\]</span> 이것은 exponential과 Gaussian의 중간쯤 되는 변동도로 <span class="math inline">\(p\)</span>를 추정하는 것이 어려워 보통 미리 정하고 사용한다고 한다.</p>
-<ol start="6" style="list-style-type: decimal">
-<li><strong>Rational quadratic</strong></li>
-</ol>
-<p><span class="math display">\[
-\gamma(\mathbf{h})= \left\{ \begin{array}{ll}
-0 &amp; \textrm{if $\mathbf{h}$=0}\\
-c_{0}+c_{1}\| \mathbf{h}\|^{2}/(1+\frac{\|R\|^{2}}{R}) &amp; \textrm{if $\mathbf{h}\neq 0$}\\
-\end{array} \right.
-\]</span></p>
-<ol start="7" style="list-style-type: decimal">
-<li><strong>Wave</strong></li>
-</ol>
-<p><span class="math display">\[
-\gamma(\mathbf{h})= \left\{ \begin{array}{ll}
-0 &amp; \textrm{if $\mathbf{h}$=0}\\
-c_{0}+c_{1}(1-\frac{R}{\|\mathbf{h}\|}\sin(\frac{\|\mathbf{h}\|}{R})) &amp; \textrm{if $\mathbf{h}\neq 0$}\\
-\end{array} \right.
-\]</span></p>
-<ol start="8" style="list-style-type: decimal">
-<li><strong>Power-law</strong></li>
-</ol>
-<p><span class="math display">\[
-\gamma(\mathbf{h})= \left\{ \begin{array}{ll}
-0 &amp; \textrm{if $\mathbf{h}$=0}\\
-c_{0}+c_{1}\| \mathbf{h}\|^{\lambda} &amp; \textrm{if $\mathbf{h}\neq 0$, $0\leq \lambda &lt; 2$}\\
-\end{array} \right.
-\]</span></p>
-<p>이것은 선형모형(linear model)의 일반화(generalization)이며 <span class="math inline">\(\lambda=0\)</span>일 때에는 선형모형이다. 이것은 <strong>Local whittle model</strong>에서 <strong>감소율(decay rate)</strong> (<span class="math inline">\(\| \mathbf{h} \| \rightarrow \infty\)</span>, <span class="math inline">\(\| \mathbf{h} \| \rightarrow 0\)</span> 부근) 결정시 부분적으로 사용한다고 한다. (공분산을 일종의 준모수 모델링하는 것 같다)</p>
-<ol start="9" style="list-style-type: decimal">
-<li><strong>Matern</strong></li>
-</ol>
-<p>(변동도가 복잡하므로 공분산 형태로 썼다)</p>
-<p><span class="math display">\[C(\mathbf{h})=\sigma^{2}\frac{2^{1-\alpha}}{\Gamma(\alpha)}(\frac{\|\mathbf{h}\|}{\phi})^{\alpha}K_{\alpha}(\frac{\|\mathbf{h}\|}{\phi})\]</span></p>
-<p>참고로 <span class="math display">\[\lim_{\mathbf{h} \rightarrow 0}C(\mathbf{h}) = \sigma^{2}\]</span> 이다.</p>
-<p>이 때 <span class="math inline">\(K_{\alpha}\)</span>는 차수 <span class="math inline">\(\alpha\)</span>를 갖는 변형된 이형(second kind) <strong>베셀 함수(Bessel function)</strong>라고 한다. 그리고 <span class="math inline">\((\phi&gt;0,\alpha&gt;0)\)</span>는 각각 <strong>척도모수(scale parameter)</strong>, <strong>평활모수(smoothness parameter)</strong> (shape parameter, random process의 smootheness와 연결)라고 부르는데, 이름으로 그 역할들을 짐작할 수 있을 것이다. <strong>Matern 공분산함수(Matern covariance function)</strong>는 두 개의 모수가 있으므로 다양한 형태의 변동도 모델링이 가능하다. 이들은 때때로 정의가 바뀌기도 하므로 R-package를 쓸 때 체크가 필요하다.</p>
-<p>Matern 공분산함수를 갖는 <span class="math inline">\(Z(\mathbf{s})\)</span>는 <span class="math inline">\(\lceil \alpha \lceil -1\)</span>번 평균제곱 미분가능하다. (<span class="math inline">\(0&lt;\alpha \leq 1\)</span>인 경우에는 평균제곱연속) 이 말은 즉 <span class="math inline">\(\alpha\)</span>를 조절해 공분산 함수의 <strong>평활도(smoothness)</strong>를 조절할 수 있다는 뜻이다. <span class="math inline">\(\alpha=0.5\)</span>인 경우에는 <strong>지수모형(exponential model)</strong>, <span class="math inline">\(\alpha \rightarrow \infty\)</span>인 경우에는 <strong>가우스모형(Gaussian model)</strong>이 된다. (<span class="math inline">\(\alpha\)</span>가 커질수록 differentiability 또한 올라간다)</p>
-<p><span class="math inline">\(\alpha\)</span>가 half-integer인 경우 explicit form이 있다고 한다.</p>
-<div class="example">
-<p><span class="math inline">\(\phi=1\)</span>일 때 <span class="math display">\[
-\begin{array}{ll}
-\alpha=0.5: &amp; e^{-\|\mathbf{h}\|}\\
-\alpha=1.5: &amp; (1+\|\mathbf{h}\|)e^{-\|\mathbf{h}\|}\\
-\alpha=2.5: &amp; (1+\|\mathbf{h}\| + \frac{\|\mathbf{h}\|^{2}}{3})e^{-\|\mathbf{h}\|}\\
-\end{array}
-\]</span></p>
-</div>
-<div id="-----addtional-explanation-for-k_alpha" class="section level3">
-<h3><span class="header-section-number">10.4.1</span> 변형된 이형 베셀에 대한 보충 설명(addtional explanation for K_alpha)</h3>
-<p><strong>변형 베셀 함수(modified Bessel function)</strong>은 <strong>변형 베셀 방정식(modified Bessel equation)</strong>의 해이다. 변형 베셀 방정식(modified Bessel equation)은 다음의 <span class="math display">\[x^{2}y&#39;&#39;+xy&#39;-(x^{2}+\alpha^{2})y=0\]</span> 미분방정식의 해이다. (original은 <span class="math inline">\(x^{2}+\alpha^{2}\)</span> 부분이 다르다고 한다)</p>
-<p>이 해는 두 개가 존재한다. <span class="math display">\[\begin{array}{ll}
-I_{\alpha}(x): &amp; \text{exponentially growing}\\
-K_{\alpha}(x): &amp; \text{exponentially decaying}\\
-\end{array}
-\]</span> 우리는 감소하는 형태의 함수를 필요로 하므로 <span class="math inline">\(K_{\alpha}(x)\)</span>를 사용하는 것이다.</p>
-<p>추가적으로 <span class="math inline">\(x &gt;&gt; [\alpha^{2}-\frac{1}{4}]\)</span>이면 <span class="math display">\[K_{\alpha}(x) \sim \sqrt{\frac{\pi}{2x}}e^{-x}\]</span> 가 되고, <span class="math inline">\(0&lt;x&lt;&lt;1\)</span>이면</p>
-<p><span class="math display">\[
-K_{\alpha}(x) \sim \left\{ \begin{array}{ll}
--\log (\frac{x}{2}) - c &amp; \textrm{if $\alpha$=0}\\
-(\frac{\Gamma(\alpha)}{2})(\frac{2}{x})^{\alpha} &amp; \textrm{if $\alpha$&gt;0}\\
-\end{array} \right.
-\]</span></p>
-<p><span class="math inline">\(\alpha\)</span>를 추정하는 것은 쉽지 않다. 공간통계학에서는 보통 우도로 모수 추정을 하는데 이것을 하기 위해서는 공분산행렬의 역행렬 등을 계산해야 한다. 그런데 <span class="math inline">\(\alpha\)</span>가 클 경우 <strong>수치적 특이점(numerical singularity)</strong>이 많이 나와 <span class="math inline">\(\alpha\)</span> 추정이 어렵다. 그래서 보통 작은 숫자의 <span class="math inline">\(\alpha\)</span>를 고정한 후 많이 사용한다.</p>
-</div>
-</div>
-<div id="---variograms-in-other-situation" class="section level2">
-<h2><span class="header-section-number">10.5</span> 기타 다른 상황에서의 변동도들(variograms in other situation)</h2>
-<p>지금까지는 일변량(univariate)이고 정상성을 가지며 시간 구조(temporal structure)는 고려 안한 변동도만 살펴보았다. 그러나 그렇지 않은 경우에는 어떻게 할 것인가?</p>
-<ul>
-<li>다변량(multivariate)인 경우</li>
-</ul>
-<p>한 장소에서의 관측값이 여러 개 일 수도 있다. 즉 한 지점에서 미세먼지 농도만 관측한 것이 아니라 강수량도 같이 관측한 경우도 있을 수 있다. 이런 경우의 변동도는 상호의존성(interdependence)을 고려해야 한다. 같은 장소와 다른 장소 사이의 dependence와 관측값 사이의 dependence 등도 고려해야 한다. 이런 경우의 변동도들을 <strong>공변동도(covariogram)</strong>이라고 부른다.</p>
-<ul>
-<li>시공간자료(spatio-temporal data)인 경우</li>
-</ul>
-<p>가장 간단한 모델은 <strong>분리가능한(separable)</strong> 모델이다. 이 모델은 시간과 공간 공분산이 독립이라는 것이다. <span class="math display">\[C(h,t;\theta)=C_{s}(h)C_{t}(t).\]</span> 그러나 이 모델은 어느 위치에 있던지 시간 의존성이 같다는 매우 강한 가정을 갖는 것이다. 그렇지 않은 모형들을 <strong>분리 가능하지 않은(non-separable)</strong> 모델이라고 부른다.</p>
-<ul>
-<li>스케일(scale)이 커지는 경우</li>
-</ul>
-<p>전 지구적 수준의 데이터를 다룰 경우 구면좌표계를 사용할 필요가 있다. 구(sphere)나 다양체(manifold) 상에서 정의됨을 고려해야 하며 어떤 거리(distance)를 쓸 것인지에 대해서도 생각해 봐야 한다.</p>
+<p>Fold 수가 커지면 bias가 줄어드나(더 정밀함) estimator의 variance는 커지고 계산 시간도 길어진다. Fold 수가 작아지면 계산 시간도 작아지고 estimator의 variance는 작아지나 bias는 커진다. 보통 K-fold 방법이 K의 선택은 data-dependent하게 한다. 매우 큰 자료에서는 K=3이어도 정밀하며, 성긴 자료에서는 가능한 한 많은 자료를 training하기 위해 leave-one out cross-validation (LOCV)를 사용하게 된다. 일반적인 선택은 K=10이다.</p>
 
+</div>
+</div>
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-Nason1996">
+<p>Nason, G. P. 1996. “Wavelet Shrinkage Using Cross-Validation.” <em>Journal of the Royal Statistical Society. Series B (Methodological)</em> 58 (2): 463–79.</p>
 </div>
 </div>
             </section>
@@ -392,8 +268,8 @@ K_{\alpha}(x) \sim \left\{ \begin{array}{ll}
           </div>
         </div>
       </div>
-<a href="covfct.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="variogramest.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="waveletshrinkage.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="admultiscale.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -420,7 +296,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://seoncheolpark.github.io/book/_book/24-covmodel.Rmd",
+"link": "https://seoncheolpark.github.io/book/_book/14-advwaveletshrinkage.Rmd",
 "text": null
 },
 "download": null,

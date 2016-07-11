@@ -1,0 +1,47 @@
+# 웨이블릿 수축의 고등 논제들 {#advwaveletshrinkage}
+
+이 장의 내용은 앞 장의 내용과 이어진다.
+
+## 교차타당성(cross-validation)
+
+다음과 같은 일반적인 모델 $y_{i}=f(x_{i})+e_{i}$이 있고, $f$를 회귀적합 $f_{lambda}$를 통해 추정하려고 한다($\lambda$: smoothing parameter). 그렇다면 $\lambda$를 어떻게 선택할 것인가? 이를 해결하기 위해 등장한 방법이 **교차타당성(cross-validation)**이다. 교차타당성의 정의는 다음과 같다.
+$$\text{CV}(\lambda)=\frac{1}{n}\sum_{i=1}^{n}(y_{i}-\hat{f}_{\lambda}^{-i}(x_{i}))^{2}.$$
+여기서 $\hat{f}_{\lambda}^{-i}(x_{i})$는 i번째 자료를 제외하고 $f$를 적합한 다음 $x_{i}$의 예측값이다($x_{i}$값이 없으므로 추정값이 아니라 예측값이 된다). 그렇다면 왜 교차타당성이 쓰이게 되었는가? 이것을 이해하기 위해서는 **Mean squared error (MSE)**와 **Predicted squared error (PSE)**에 대해 알아야 한다.
+
+위와 같은 모형 하에서 MSE와 PSE는
+$$\text{MSE}(\lambda)=\frac{1}{n}\sum_{i=1}^{n}E(\hat{f}_{\lambda}(x_{i})-f(x_{i}))^{2}, \text{PSE}(\lambda)=\frac{1}{n}\sum_{i=1}^{n}E(y_{i}^{*}-\hat{f}_{\lambda}(x_{i}))^{2}$$
+이다. 여기서 $y_{i}^{*}$는 $x_{i}$에서의 새로운 관찰값이다. 즉, $y_{i}^{*}=f(x_{i})+\epsilon_{i}^{*}, (\epsilon_{i}^{*}$는 $\epsilon_{i}$와 독립)이다.
+
+위의 PSE를 약간 변형해 보면
+\begin{eqnarray*}
+\text{PSE}(\lambda)&=&\frac{1}{n}\sum_{i=1}^{n}E(y_{i}^{*}-\hat{f}_{\lambda}(x_{i}))^{2}\\
+&=&\frac{1}{n}\sum_{i=1}^{n}E(y_{i}^{*}-f(x_{i}))^{2}+\frac{1}{n}\sum_{i=1}^{n}E(f(x_{i})-\hat{f}_{\lambda}(x_{i}))^{2}\\
+&=&\sigma^{2}+\text{MSE}(\lambda).
+\end{eqnarray*}
+중간에 두 항은 독립이라고 보고 cross-product term을 생략하였다. 이 전개는 회귀분석에서 prediction interval이 커지는 것과 일맥상통한다. 한편, CV의 기댓값은
+\begin{eqnarray*}
+E(y_{i}-\hat{f}_{\lambda}^{-i}(x_{i}))^{2}&=&E(y_{i}-f(x_{i})+f(x_{i})-\hat{f}_{\lambda}^{-i}(x_{i}))^{2}\\
+&=&E(y_{i}-f(x_{i}))^{2}+E(f(x_{i})-\hat{f}_{\lambda}^{-i}(x_{i}))^{2}+2E(y_{i}-f(x_{i}))(f(x_{i})-\hat{f}_{\lambda}^{-i}(x_{i}))\\
+&=&\sigma^{2}+E(f(x_{i})-\hat{f}_{\lambda}^{-i}(x_{i}))^{2}.\\
+\end{eqnarray*}
+만약 $\hat{f}_{\lambda}^{-i}(x_{i}) \approx \hat{f}_{\lambda}(x_{i})$이면 $E(\text{CV})=\text{PSE}(\lambda)$이고 $\min_{\lambda}E(\text{CV}) \approx \min_{\lambda}\text{PSE}(\lambda) \approx \min_{\lambda}\text{MSE}(\lambda)$이다. 물론 $\min_{\lambda}E(\text{CV}) \neq \min_{\lambda}\text{CV}$이나 아주 틀린 생각은 아니다.
+
+[@Nason1996]에서는 웨이블렛에서 교차타당성을 하기 위한 몇 가지 방법을 제시했다. 첫 번째 방법은 하나의 자료 대신 절반의 자료($\frac{n}{2}$)를 제거하는 \textbf{two-fold CV}이다. 다음과 같은 $y_{1}, \cdots, y_{n}, y_{i}=g(x_{i})+\epsilon_{i}, n=2^{J}$이라는 자료가 있다고 가정하자. 그러면 two-fold CV를 하는 방법은 다음과 같다.\\
+\circled{1} $\lambda$의 후보군 $\lambda \in (\lambda_{L}, \lambda^{U})$를 설정한다.\\
+\circled{2} 먼저 모든 홀수번째 항의 $y_{i}$를 제거하고 남은 $y_{j}$에 대해 re-index를 한다($y_{j},j=1,\cdots,\frac{n}{2}$).\\
+\circled{3} 웨이블렛 축소를 이용해 $y_{j},j=1,\cdots,\frac{n}{2}$로부터 $\hat{g}^{E}$를 얻는다(이 때 bound problem이 생기므로 bound treatment를 해 줘야 한다).\\
+$$\mathbf{y} \xrightarrow{\text{DWT}} \mathbf{d} \text{ (thresholding $\lambda$) } \xrightarrow{\text{IDWT}}  \hat{g}^{E}$$
+\circled{4} Even-index 자료를 가지고 odd index의 함수값을 예측하기 위해 다음과 같은 예측값 $\bar{g}_{\lambda,j}^{E}=\frac{(\hat{g}_{\lambda,j+1}^{E}+\hat{g}_{\lambda,j}^{E})}{2}, j=1,2,\cdots,\frac{n}{2}$를 계산한다.\\
+\circled{5} 비슷한 방법으로 $\bar{g}_{\lambda,j}^{O}$를 계산한다.\\
+\circled{6} $\hat{M}(\lambda)=\sum_{j=1}^{\frac{n}{2}}\{(\bar{g}_{\lambda,j}^{E}-y_{2j+1})^{2}+(\bar{g}_{\lambda,j}^{O}-y_{2j})\}^{2}$를 계산한다. 여기서 앞 항은 even-index 자료를 가지고 odd 자료를 예측한 것이고, 뒤 항은 odd-index 자료를 가지고 even 자료를 예측한 것이다.\\
+\circled{7} $\hat{M}(\lambda)$가 제일 작은 $\lambda^{*}=\text{argmin}_{\lambda \in (\lambda_{L},\lambda^{U})} \hat{M}(\lambda)$를 최종적으로 선택한다.
+
+```{r, echo=F, fig.cap='Relation between the large number of folds and CV.', fig.align='center'}
+knitr::include_graphics("images/advwaveletshrinkage_foldlarge.png")
+```
+
+```{r, echo=F, fig.cap='Relation between the small number of folds and CV.', fig.align='center'}
+knitr::include_graphics("images/advwaveletshrinkage_fold.png")
+```
+
+Fold 수가 커지면 bias가 줄어드나(더 정밀함) estimator의 variance는 커지고 계산 시간도 길어진다. Fold 수가 작아지면 계산 시간도 작아지고 estimator의 variance는 작아지나 bias는 커진다. 보통 K-fold 방법이 K의 선택은 data-dependent하게 한다. 매우 큰 자료에서는 K=3이어도 정밀하며, 성긴 자료에서는 가능한 한 많은 자료를 training하기 위해 leave-one out cross-validation (LOCV)를 사용하게 된다. 일반적인 선택은 K=10이다.
