@@ -134,6 +134,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1" data-path="waveletshrinkage.html"><a href="waveletshrinkage.html#---main-concept-of-wavelet-shrinkage"><i class="fa fa-check"></i><b>4.1</b> 웨이블릿 수축의 주된 개념(main concept of wavelet shrinkage)</a></li>
 <li class="chapter" data-level="4.2" data-path="waveletshrinkage.html"><a href="waveletshrinkage.html#oracle"><i class="fa fa-check"></i><b>4.2</b> 오라클(oracle)</a></li>
 <li class="chapter" data-level="4.3" data-path="waveletshrinkage.html"><a href="waveletshrinkage.html#-universal-thresholding"><i class="fa fa-check"></i><b>4.3</b> 만능 임계화(universal thresholding)</a></li>
+<li class="chapter" data-level="4.4" data-path="waveletshrinkage.html"><a href="waveletshrinkage.html#stein---steins-unbiased-risk-estimator-sure"><i class="fa fa-check"></i><b>4.4</b> Stein의 불편 위험 추정량(Steins Unbiased Risk Estimator (SURE))</a></li>
+<li class="chapter" data-level="4.5" data-path="waveletshrinkage.html"><a href="waveletshrinkage.html#r-r-waveletshrinkage"><i class="fa fa-check"></i><b>4.5</b> R 예제(R-waveletshrinkage)</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="admultiscale.html"><a href="admultiscale.html"><i class="fa fa-check"></i><b>5</b> 고급 다중척도 방법론</a><ul>
 <li class="chapter" data-level="5.1" data-path="admultiscale.html"><a href="admultiscale.html#--second-generation-wavelet-transform"><i class="fa fa-check"></i><b>5.1</b> 2세대 웨이블릿 변환(second-generation wavelet transform)</a></li>
@@ -231,25 +233,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ol>
 <p>Davis (1972)는 <code>geoR</code>이라는 R 패키지를 만들었다.</p>
 <p>이 안에 있는 자료 <code>elevation</code>은 52개 지역의 표면 높이(surface elevation)를 측정한 자료이다. 기본 distance unit은 50 feet이며, 높이의 기본 distance unit은 10 feet이다.</p>
-<p><img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-20-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-22-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>이러한 자료를 <code>plot</code>하기 위해서는 <code>geodata</code>로 바꿔줘야 한다.</p>
 <ol start="2" style="list-style-type: decimal">
 <li>Rongelape Island data</li>
 </ol>
 <p>Diggle et al. (1998)이 만든 R <code>geoRglm</code> 패키지의 롱겔라프 환초 자료(Rongelape Island data, <code>rongelap</code>)은 1954년 미국이 수소탄 실험을 한 곳의 방사능을 측정한 자료이다. 이 자료는 공간 이산 자료(spatial discrete data)의 예이다.</p>
-<p><img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-22-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-24-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>이 자료는 다른 자료들과 달리 sampling design이 되어있는 자료이다. 즉 자료를 200m마다 하나씩 일정하게 뽑은 것이다. 추가로 4개의 지역에 대해서는 50m마다 subsampling을 하였다. 200m마다 측정한 자료로는 200m보다 작은 variation을 구할 수 없다. 그래서 microscale variation을 보기 위해 추가로 subsampling을 한 것이다.</p>
 <ol start="3" style="list-style-type: decimal">
 <li>Scottish lip cancer data</li>
 </ol>
 <p>다음 자료는 1975-1980 동안 스코틀랜드 지역 남성의 lip cancer case 숫자를 county별로 센 <code>scotland</code> 자료이다. 이 자료는 <code>SpatialEpi</code> 패키지에 있다. 이 자료는 spatial dependency가 clear해서 많이 쓰인다고 한다.</p>
-<p><img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-24-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-26-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>이 자료는 앞 자료들과 달리 point 자료가 아닌 지역별 자료이다. 이런 자료를 공간 집적 자료(areal aggregation data)라고 한다. 이런 경우의 자료 분석은 first neighbor, second neighbor에 어떤 자료가 있는지 살펴보는 것을 많이 한다.</p>
 <ol start="4" style="list-style-type: decimal">
 <li>Inventory data of the Zurichberg Forest, Switzerland</li>
 </ol>
 <p>이 자료는 <code>spBayes</code>에 있는 취리히 숲 자재 자료(Zurichberg forest inventory data, <code>Zurich.dat</code>)이다. 이 자료의 특징은 숲이 어디 생길지 모르기 때문에 위치 자체가 random이 된다는 것이다. 앞선 자료들의 위치가 고정되어 있었던 것과는 다른 상황이다. 나무의 size를 잴 때에는 사람 가슴 정도 높이의 trunk를 잰다고 한다.</p>
-<p><img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-26-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-28-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>산림학에서의 관심사는 나무와 나무 사이의 상호작용(interaction)이 있는지 보는 것이다. 나무의 종류에 따라 같이 자랄 수도 있고, 또는 한 나무만 살아남을 수도 있는데 이러한 현상에 관심을 갖는 것이다.</p>
 <p>Location 자체가 random인 자료들은 point process로 모델링한다. 여기서 <span class="math display">\[\mathbf{x}=(x_{1}, \cdots , x_{n})\]</span> 이라고 하면 <span class="math inline">\(\mathbf{x}\)</span>와 <span class="math inline">\(n\)</span>이 모두 random이다.</p>
 <p>또 mark라고 추가정보가 들어올 수도 있다고 한다. <span class="math display">\[M|\mathbf{x}=(m_{x_{1}}, \cdots , m_{x_{n}}).\]</span></p>

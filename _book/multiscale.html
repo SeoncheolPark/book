@@ -134,6 +134,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1" data-path="waveletshrinkage.html"><a href="waveletshrinkage.html#---main-concept-of-wavelet-shrinkage"><i class="fa fa-check"></i><b>4.1</b> 웨이블릿 수축의 주된 개념(main concept of wavelet shrinkage)</a></li>
 <li class="chapter" data-level="4.2" data-path="waveletshrinkage.html"><a href="waveletshrinkage.html#oracle"><i class="fa fa-check"></i><b>4.2</b> 오라클(oracle)</a></li>
 <li class="chapter" data-level="4.3" data-path="waveletshrinkage.html"><a href="waveletshrinkage.html#-universal-thresholding"><i class="fa fa-check"></i><b>4.3</b> 만능 임계화(universal thresholding)</a></li>
+<li class="chapter" data-level="4.4" data-path="waveletshrinkage.html"><a href="waveletshrinkage.html#stein---steins-unbiased-risk-estimator-sure"><i class="fa fa-check"></i><b>4.4</b> Stein의 불편 위험 추정량(Steins Unbiased Risk Estimator (SURE))</a></li>
+<li class="chapter" data-level="4.5" data-path="waveletshrinkage.html"><a href="waveletshrinkage.html#r-r-waveletshrinkage"><i class="fa fa-check"></i><b>4.5</b> R 예제(R-waveletshrinkage)</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="admultiscale.html"><a href="admultiscale.html"><i class="fa fa-check"></i><b>5</b> 고급 다중척도 방법론</a><ul>
 <li class="chapter" data-level="5.1" data-path="admultiscale.html"><a href="admultiscale.html#--second-generation-wavelet-transform"><i class="fa fa-check"></i><b>5.1</b> 2세대 웨이블릿 변환(second-generation wavelet transform)</a></li>
@@ -323,7 +325,7 @@ Figure 2.4: Various forms of linear filters.
 <div id="r-r-multiscale" class="section level2">
 <h2><span class="header-section-number">2.5</span> R 예제(R-multiscale)</h2>
 <p>웨이블릿과 관련된 R 예제를 담고 있는 책은 <span class="citation">(Nason <a href="#ref-Nason2010">2010</a>)</span>이 있다. 이 책의 저자는 <code>wavethresh</code>란 R 패키지를 만들기도 했다. 또 다른 R 패키지로 <code>waveslim</code>이라는 것도 있다. 여기서는 <span class="citation">(Nason <a href="#ref-Nason2010">2010</a>)</span>의 예제를 일부 다뤄보기로 한다.</p>
-<p><code>wavethresh</code> 라이브러리를 실행시킨 상황에서, 다음 벡터의 웨이블릿 변환을 실행해본다.</p>
+<p><code>wavethresh</code> 라이브러리를 실행시킨 상황에서, 다음 벡터의 웨이블릿 변환을 실행해본다. <code>wd</code>라는 함수가 이를 가능케 해 준다. <code>wr</code>이라는 함수는 reconstruction을 시킨다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">2</span>,<span class="dv">8</span>,<span class="dv">8</span>,<span class="dv">6</span>)
 ## wd: wavelet transform
 ywd &lt;-<span class="st"> </span><span class="kw">wd</span>(y, <span class="dt">filter.number=</span><span class="dv">1</span>, <span class="dt">family=</span><span class="st">&quot;DaubExPhase&quot;</span>)
@@ -358,6 +360,9 @@ Figure 2.5: Wavelet decomposition coefficients.
 </p>
 </div>
 <pre><code>&gt; [1] 7 7 7</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## wr: wavelet reconstruction
+<span class="kw">wr</span>(ywd)</code></pre></div>
+<pre><code>&gt; [1] 1 1 7 9 2 8 8 6</code></pre>
 
 </div>
 </div>

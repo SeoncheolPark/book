@@ -134,6 +134,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1" data-path="waveletshrinkage.html"><a href="waveletshrinkage.html#---main-concept-of-wavelet-shrinkage"><i class="fa fa-check"></i><b>4.1</b> 웨이블릿 수축의 주된 개념(main concept of wavelet shrinkage)</a></li>
 <li class="chapter" data-level="4.2" data-path="waveletshrinkage.html"><a href="waveletshrinkage.html#oracle"><i class="fa fa-check"></i><b>4.2</b> 오라클(oracle)</a></li>
 <li class="chapter" data-level="4.3" data-path="waveletshrinkage.html"><a href="waveletshrinkage.html#-universal-thresholding"><i class="fa fa-check"></i><b>4.3</b> 만능 임계화(universal thresholding)</a></li>
+<li class="chapter" data-level="4.4" data-path="waveletshrinkage.html"><a href="waveletshrinkage.html#stein---steins-unbiased-risk-estimator-sure"><i class="fa fa-check"></i><b>4.4</b> Stein의 불편 위험 추정량(Steins Unbiased Risk Estimator (SURE))</a></li>
+<li class="chapter" data-level="4.5" data-path="waveletshrinkage.html"><a href="waveletshrinkage.html#r-r-waveletshrinkage"><i class="fa fa-check"></i><b>4.5</b> R 예제(R-waveletshrinkage)</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="admultiscale.html"><a href="admultiscale.html"><i class="fa fa-check"></i><b>5</b> 고급 다중척도 방법론</a><ul>
 <li class="chapter" data-level="5.1" data-path="admultiscale.html"><a href="admultiscale.html#--second-generation-wavelet-transform"><i class="fa fa-check"></i><b>5.1</b> 2세대 웨이블릿 변환(second-generation wavelet transform)</a></li>
@@ -241,7 +243,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     s_{j,k}=s_{j+1,2k}+\frac{d_{j,k}}{2}.
 \end{equation}
 <p>웨이블릿 변환에서는 <span class="math inline">\(s_{j,k}\)</span>와 <span class="math inline">\(d_{j,k}\)</span>를 동시에 얻지만 리프팅 스킴에서는 <span class="math inline">\(d_{j,k}\)</span>를 얻은 후 순차적으로 <span class="math inline">\(s_{j,k}\)</span>를 얻는다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-16"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-18"></span>
 <img src="images/advmultiscale_lifting.png" alt="Forward lifting scheme using Haar transform." width="231" />
 <p class="caption">
 Figure 5.1: Forward lifting scheme using Haar transform.
@@ -255,14 +257,14 @@ Figure 5.1: Forward lifting scheme using Haar transform.
 <li><p><strong>갱신(update)</strong>: <span class="math inline">\(s_{j,k}=s_{j+1,2k}+\frac{d_{j,k}}{2}\)</span> (프라이멀 리프팅)</p></li>
 </ol>
 <p>일반적인 리프팅 스킴의 프라이멀 리프팅과 듀얼 리프팅의 <strong>정변환(forward transform)</strong>은 다음과 같다. <span class="math display">\[\text{차이(difference)=홀(odd)-p짝(even)} \qquad{\text{듀얼 리프팅(dual lifting)}}\]</span> <span class="math display">\[\text{평균(average)=짝(even)+u차이} \qquad{\text{프라이멀 리프팅(primal lifting)}}\]</span> 이 때 <span class="math inline">\(p=1\)</span>, <span class="math inline">\(u=0.5\)</span>인 경우를 특별히 Haar 웨이블릿 변환(Haar wavelet transformation)이라고 부르는 것이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-17"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-19"></span>
 <img src="images/advmultiscale_lifting02.png" alt="Standard lifting scheme using primal and dual lifting." width="235" />
 <p class="caption">
 Figure 5.2: Standard lifting scheme using primal and dual lifting.
 </p>
 </div>
 <p>리프팅의 <strong>역변환(backward transform)</strong>은 다음과 같다. <span class="math display">\[\text{짝(even)=평균(average)-u차이(difference)} \]</span> <span class="math display">\[\text{홀(odd)=차이(difference)+p짝} \]</span></p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-18"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-20"></span>
 <img src="images/advmultiscale_invlifting.png" alt="Backward lifting scheme." width="217" />
 <p class="caption">
 Figure 5.3: Backward lifting scheme.

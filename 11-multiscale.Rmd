@@ -182,7 +182,7 @@ library(waveslim)
 
 웨이블릿과 관련된 R 예제를 담고 있는 책은 [@Nason2010]이 있다. 이 책의 저자는 `wavethresh`란 R 패키지를 만들기도 했다. 또 다른 R 패키지로 `waveslim`이라는 것도 있다. 여기서는 [@Nason2010]의 예제를 일부 다뤄보기로 한다.
 
-`wavethresh` 라이브러리를 실행시킨 상황에서, 다음 벡터의 웨이블릿 변환을 실행해본다.
+`wavethresh` 라이브러리를 실행시킨 상황에서, 다음 벡터의 웨이블릿 변환을 실행해본다. `wd`라는 함수가 이를 가능케 해 준다. `wr`이라는 함수는 reconstruction을 시킨다.
 
 ```{r, fig.align='center', comment=">", fig.cap = 'Wavelet decomposition coefficients.'}
 y <- c(1,1,7,9,2,8,8,6)
@@ -195,4 +195,6 @@ ywd$filter
 accessD(ywd, level=2)
 ## plot wavelet decomposition coefficients
 plot(ywd)
+## wr: wavelet reconstruction
+wr(ywd)
 ```
