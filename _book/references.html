@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-07-12">
+<meta name="date" content="2016-07-13">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -148,7 +148,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.4" data-path="advwaveletshrinkage.html"><a href="advwaveletshrinkage.html#--linear-wavelet-smoothing"><i class="fa fa-check"></i><b>5.4</b> 선형 웨이블릿 평활화(linear wavelet smoothing)</a></li>
 <li class="chapter" data-level="5.5" data-path="advwaveletshrinkage.html"><a href="advwaveletshrinkage.html#-block-thresholding"><i class="fa fa-check"></i><b>5.5</b> 블록 임계화(block thresholding)</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="multiscalets.html"><a href="multiscalets.html"><i class="fa fa-check"></i><b>6</b> 다중척도 시계열분석</a></li>
+<li class="chapter" data-level="6" data-path="multiscalets.html"><a href="multiscalets.html"><i class="fa fa-check"></i><b>6</b> 다중척도 시계열분석</a><ul>
+<li class="chapter" data-level="6.1" data-path="multiscalets.html"><a href="multiscalets.html#--stationary-time-series"><i class="fa fa-check"></i><b>6.1</b> 시계열 자료의 정상성(stationary time series)</a></li>
+<li class="chapter" data-level="6.2" data-path="multiscalets.html"><a href="multiscalets.html#-whitening-of-stationary-process"><i class="fa fa-check"></i><b>6.2</b> 정상과정의 백색화(whitening of stationary process)</a></li>
+<li class="chapter" data-level="6.3" data-path="multiscalets.html"><a href="multiscalets.html#--spectral-representation-of-stationary-process"><i class="fa fa-check"></i><b>6.3</b> 정상과정의 스펙트럼 표현(spectral representation of stationary process)</a></li>
+<li class="chapter" data-level="6.4" data-path="multiscalets.html"><a href="multiscalets.html#----non-decimated-discrete-wavelets"><i class="fa fa-check"></i><b>6.4</b> 압축 표본화되지 않은 이산 웨이블릿(non-decimated discrete wavelets)</a></li>
+</ul></li>
 <li class="chapter" data-level="7" data-path="admultiscale.html"><a href="admultiscale.html"><i class="fa fa-check"></i><b>7</b> 고급 다중척도 방법론</a><ul>
 <li class="chapter" data-level="7.1" data-path="admultiscale.html"><a href="admultiscale.html#--second-generation-wavelet-transform"><i class="fa fa-check"></i><b>7.1</b> 2세대 웨이블릿 변환(second-generation wavelet transform)</a></li>
 <li class="chapter" data-level="7.2" data-path="admultiscale.html"><a href="admultiscale.html#-lifting-scheme"><i class="fa fa-check"></i><b>7.2</b> 리프팅 스킴(lifting scheme)</a></li>
@@ -234,13 +239,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <div id="refs" class="references">
 <div>
-<p>Abramovich, F., T. Sapatinas, and B. W. Silverman. 1998. “Wavelet Thresholding via a Bayesian Approach.” <em>Journal of the Royal Statistical Society. Series B (Methodological)</em> 60 (4): 725–49. doi:<a href="https://doi.org/10.1111/1467-9868.00151">10.1111/1467-9868.00151</a>.</p>
+<p>Abramovich, F., T. Sapatinas, and B. W. Silverman. 1998. “Wavelet Thresholding via a Bayesian Approach.” <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 60 (4): 725–49. doi:<a href="https://doi.org/10.1111/1467-9868.00151">10.1111/1467-9868.00151</a>.</p>
 </div>
 <div>
 <p>Coles, Stuart. 2001. <em>An Introduction to Statistical Modeling of Extreme Values</em>. Springer.</p>
 </div>
 <div>
 <p>Cressie, Noel A. C. 1993. <em>Statistics for Spatial Data</em>. J. Wiley.</p>
+</div>
+<div>
+<p>Dahlhaus, R. 1996. “On the Kullback-Leibler Information Divergence of Locally Stationary Processes.” <em>Stochastic Processes and Their Applications</em> 62 (1): 139–68. doi:<a href="https://doi.org/10.1016/0304-4149(95)00090-9">10.1016/0304-4149(95)00090-9</a>.</p>
 </div>
 <div>
 <p>Donoho, David L., and Iain M. Johnstone. 1994. “Ideal Spatial Adaptation by Wavelet Shrinkage.” <em>Biometrika</em> 81 (3): 425–55. doi:<a href="https://doi.org/10.1093/biomet/81.3.425">10.1093/biomet/81.3.425</a>.</p>
@@ -258,6 +266,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Jansen, Maarten H., and Patrick J. Oonincx. 2005. <em>Second Generation Wavelets and Applications</em>. Spring Street, New York: Springer Science &amp; Business Media.</p>
 </div>
 <div>
+<p>Johnstone, Iain M., and Bernard W. Silverman. 1997. “Wavelet Threshold Estimators for Data with Correlated Noise.” <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 59 (2): 319–51. doi:<a href="https://doi.org/10.1111/1467-9868.00071">10.1111/1467-9868.00071</a>.</p>
+</div>
+<div>
 <p>Johnstone, Iain, and Bernard Silverman. 2005. “EbayesThresh: R Programs for Empirical Bayes Thresholding.” <em>Journal of Statistical Software</em> 12 (1). doi:<a href="https://doi.org/10.18637/jss.v012.i08">10.18637/jss.v012.i08</a>.</p>
 </div>
 <div>
@@ -267,16 +278,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Kent, John T. 1989. “Continuity Properties for Random Fields.” <em>The Annals of Probability</em> 17 (4): 1432–40. doi:<a href="https://doi.org/10.1214/aop/1176991163">10.1214/aop/1176991163</a>.</p>
 </div>
 <div>
-<p>Nason, G. P. 1996. “Wavelet Shrinkage Using Cross-Validation.” <em>Journal of the Royal Statistical Society. Series B (Methodological)</em> 58 (2): 463–79.</p>
+<p>Montero, José-María, Gema Fernández-Avilés, and Jorge Mateu. 2015. <em>Spatial and Spatio-Temporal Geostatistical Modeling and Kriging</em>. John Wiley &amp; Sons.</p>
+</div>
+<div>
+<p>Nason, G. P. 1996. “Wavelet Shrinkage Using Cross-Validation.” <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 58 (2): 463–79.</p>
+</div>
+<div>
+<p>Nason, G. P., R. Von Sachs, and G. Kroisandt. 2000. “Wavelet Processes and Adaptive Estimation of the Evolutionary Wavelet Spectrum.” <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 62 (2): 271–92. doi:<a href="https://doi.org/10.1111/1467-9868.00231">10.1111/1467-9868.00231</a>.</p>
 </div>
 <div>
 <p>Nason, Guy. 2010. <em>Wavelet Methods in Statistics with R</em>. 2nd ed. Spring Street, New York: Springer Science &amp; Business Media.</p>
+</div>
+<div>
+<p>Priestley, Maurice Bertram. 1981. <em>Spectral Analysis and Time Series</em>. Academic Press.</p>
 </div>
 <div>
 <p>Smith, Richard L. 1985. “Maximum Likelihood Estimation in a Class of Nonregular Cases.” <em>Biometrika</em> 72 (1): 67–90. doi:<a href="https://doi.org/10.2307/2336336 ">10.2307/2336336</a>.</p>
 </div>
 <div>
 <p>Stein, Charles M. 1981. “Estimation of the Mean of a Multivariate Normal Distribution.” <em>The Annals of Statistics</em> 9 (6): 1135–51. doi:<a href="https://doi.org/10.1214/aos/1176345632">10.1214/aos/1176345632</a>.</p>
+</div>
+<div>
+<p>Zhang, Jun, and Gilbert Walter. 1994. “A Wavelet-Based KL-Like Expansion for Wide-Sense Stationary Random Processes.” <em>IEEE Transactions on Signal Processing</em> 42 (7): 1737–45. doi:<a href="https://doi.org/10.1109/78.298281">10.1109/78.298281</a>.</p>
 </div>
 </div>
 </div>

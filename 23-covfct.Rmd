@@ -2,7 +2,8 @@
 
 **공분산함수(covariance function)** $C(\mathbf{h})$는
 
-$C(\mathbf{h})=\text{Cov}(Z(\mathbf{s}+\mathbf{h}), (Z(\mathbf{s})$, $C(\cdot); \mathbb{R}^{d} \rightarrow \mathbb{R}$이다. 우리가 공분산함수를 고려할 때 생각해 볼 점은 공분산함수가 되기 위한 조건은 무엇이냐는 것이다.
+$$C(\mathbf{h})=\text{Cov}(Z(\mathbf{s}+\mathbf{h}), (Z(\mathbf{s})$, $C(\cdot); \mathbb{R}^{d} \rightarrow \mathbb{R}$$
+이다. 우리가 공분산함수를 고려할 때 생각해 볼 점은 공분산함수가 되기 위한 조건은 무엇이냐는 것이다.
 
 공분산함수가 되려면 그 함수가 **양정치함수(positive definite function)**이어야 한다. 이것은 대응되는 행렬이 **비음정치(non-negative definite)** 또는 **양반정치(positive semi-definite)**이어야 한다는 것이다.
 

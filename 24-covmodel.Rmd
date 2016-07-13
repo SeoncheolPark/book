@@ -1,6 +1,19 @@
 # 공분산모형 {#covmodel}
 
-이 장에서는 공분산모형에는 어떤 것들이 있는지 살펴볼 것이다.
+이 장에서는 공분산모형에는 어떤 것들이 있는지 살펴볼 것이다. 여기에 등장하는 그림은 주로 [@Montero2015] 책에 있는 그림들을 가져온 것이다.
+
+```{r, message=F, echo=F}
+library(geoR)
+library(fields)
+library(RandomFields)
+library(gstat)
+v.f.cov <- function(x, ...) {
+  cov.spatial(x, ...)
+}
+v.f.sem <- function(x, ...) {
+  1 - cov.spatial(x, ...)
+}
+```
 
 ## 덩어리 효과(nugget effect)
 
@@ -69,6 +82,22 @@ $\lim_{\|\mathbf{h}\| \rightarrow \mathbf{0}}\gamma(\mathbf{h}) \rightarrow \inf
 
 2. **Spherical**
 
+```{r, fig.align='center', echo=FALSE, warning=FALSE, message=FALSE, results='hide', fig.cap = 'Spherical model.'}
+par(mfrow = c(2, 2))
+curve(v.f.sem(x, cov.pars = c(1, 0.15), cov.model = "sph"), 0, 1, xlab = "distance", 
+      ylab = expression(gamma("|h|")), lwd = 2, lty = 1, col = "1")
+legend(0.4, 0.8, expression(paste("Spherical, \n R=0.15, C"[1],"=1")), lty = 1, lwd = 2, col = 1,box.col = "white")
+set.seed(120)
+sim1 <- grf(10000, grid = "reg", cov.pars = c(1, 0.15), cov.model = "sph")
+image(sim1, col = rainbow(128))
+curve(v.f.sem(x, cov.pars = c(1, 0.5), cov.model = "sph"), 0, 1, xlab = "distance", 
+      ylab = expression(gamma("|h|")), lwd = 2, lty = 1, col = "1")
+legend(0.4, 0.8, expression(paste("Spherical, \n R=0.5, C"[1],"=1")), lty = 1, lwd = 2, col = 1,box.col = "white")
+set.seed(120)
+sim1 <- grf(10000, grid = "reg", cov.pars = c(1, 0.5), cov.model = "sph")
+image(sim1, col = rainbow(128))
+```
+
 $$
 \gamma(\mathbf{h})= \left\{ \begin{array}{ll}
 0 & \textrm{if $\mathbf{h}$=0}\\
@@ -76,9 +105,42 @@ c_{0}+c_{1}[\frac{3}{2}(\frac{\| \mathbf{h}\|}{R})-\frac{1}{2}(\frac{\| \mathbf{
 c_{0}+c_{1} & \textrm{if $\|\mathbf{h}\|>R$}\\
 \end{array} \right.
 $$
-이것은 지구통계학(geostatics)에서는 많이 쓰나 모형이 복잡해 분포 가정 후 우도 추정(likelihood estimation)을 할 때 어렵고 잘 안되므로 통계학자들은 잘 안 좋아하는 모형이라고 한다. 참고로 이 변동도는 $\mathbf{h} \in \mathbb{R}^{d}, d=1,2,3$에서만 유효하다. 이것 이외에 나머지 변동도의 예들은 다 모든 양수 $d$에서 유효한 변동도를 갖는다고 한다.
+이것은 지구통계학(geostatstics)에서는 많이 쓰나 모형이 복잡해 분포 가정 후 우도 추정(likelihood estimation)을 할 때 어렵고 잘 안되므로 통계학자들은 잘 안 좋아하는 모형이라고 한다. 참고로 이 변동도는 $\mathbf{h} \in \mathbb{R}^{d}, d=1,2,3$에서만 유효하다. 이것 이외에 나머지 변동도의 예들은 다 모든 양수 $d$에서 유효한 변동도를 갖는다고 한다.
 
 3. **Exponential**
+
+```{r, fig.align='center', echo=FALSE, warning=FALSE, message=FALSE, results='hide', fig.cap = 'Exponential model.'}
+par(mfrow = c(2, 2))
+curve(v.f.sem(x, cov.pars = c(1, 0.1), cov.model = "exponential"), 0, 1, xlab = "distance", 
+      ylab = expression(gamma("|h|")), lwd = 2, lty = 1, col = "1")
+legend(0.3, 0.5, expression(paste("Exponential, \n R=0.1, C"[1],"=1")), lty = 1, lwd = 2, col = 1,box.col = "white")
+model <- "exponential"
+mean <- 0
+variance <- 1
+nugget <- 0
+scale <- 0.1
+step <- 0.01
+x <- seq(0, 1, step)
+y <- seq(0, 1, step)
+set.seed(99)
+f <- GaussRF(x = x, y = y, model = model, grid = TRUE, param = c(mean, variance, nugget, scale))
+image(x, y, f, col = rainbow(128))
+
+curve(v.f.sem(x, cov.pars = c(1, 0.25), cov.model = "exp"), 0, 1, xlab = "distance", 
+      ylab = expression(gamma("|h|")), lwd = 2, lty = 1, col = "1")
+legend(0.3, 0.5, expression(paste("Exponential, \n R=0.25, C"[1],"=1")), lty = 1, lwd = 2, col = 1,box.col = "white")
+model <- "exponential"
+mean <- 0
+variance <- 1
+nugget <- 0
+scale <- 0.25
+step <- 0.01
+x <- seq(0, 1, step)
+y <- seq(0, 1, step)
+set.seed(99)
+f <- GaussRF(x = x, y = y, model = model, grid = TRUE, param = c(mean, variance, nugget, scale))
+image(x, y, f, col = rainbow(128))
+```
 
 $$
 \gamma(\mathbf{h})= \left\{ \begin{array}{ll}
@@ -89,6 +151,39 @@ $$
 이것은 평균제곱연속이나 평균제곱 미분 가능하지는 않다고 한다. 그리고 다른 애들보다 독립적인 편이라고(공분산이 약함) 한다. 특히 뒤에 나오는 가우스 변동도(Gaussian variogram)와 비교했을 때 덜 부드럽다.
 
 4. **Gaussian**
+
+```{r, fig.align='center', echo=FALSE, warning=FALSE, message=FALSE, results='hide', fig.cap = 'Gaussian model.'}
+par(mfrow = c(2, 2))
+curve(v.f.sem(x, cov.pars = c(1, 0.1), cov.model = "gauss"), 0, 1, xlab = "distance", 
+      ylab = expression(gamma("|h|")), lwd = 2, lty = 1, col = "1")
+legend(0.3, 0.5, expression(paste("Gaussian, \n R=0.1, C"[1],"=1")), lty = 1, lwd = 2, col = 1,box.col = "white")
+model <- "gauss"
+mean <- 0
+variance <- 1
+nugget <- 0
+scale <- 0.1
+step <- 0.01
+x <- seq(0, 1, step)
+y <- seq(0, 1, step)
+set.seed(98)
+f <- GaussRF(x = x, y = y, model = model, grid = TRUE, param = c(mean, variance, nugget, scale))
+image(x, y, f, col = rainbow(256))
+
+curve(v.f.sem(x, cov.pars = c(1, 0.25), cov.model = "gauss"), 0, 1, xlab = "distance", 
+      ylab = expression(gamma("|h|")), lwd = 2, lty = 1, col = "1")
+legend(0.3, 0.5, expression(paste("Gaussian, \n R=0.25, C"[1],"=1")), lty = 1, lwd = 2, col = 1,box.col = "white")
+model <- "gauss"
+mean <- 0
+variance <- 1
+nugget <- 0
+scale <- 0.25
+step <- 0.01
+x <- seq(0, 1, step)
+y <- seq(0, 1, step)
+set.seed(98)
+f <- GaussRF(x = x, y = y, model = model, grid = TRUE, param = c(mean, variance, nugget, scale))
+image(x, y, f, col = rainbow(256))
+```
 
 $$
 \gamma(\mathbf{h})= \left\{ \begin{array}{ll}

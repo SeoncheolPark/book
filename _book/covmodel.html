@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-07-12">
+<meta name="date" content="2016-07-13">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -148,7 +148,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.4" data-path="advwaveletshrinkage.html"><a href="advwaveletshrinkage.html#--linear-wavelet-smoothing"><i class="fa fa-check"></i><b>5.4</b> 선형 웨이블릿 평활화(linear wavelet smoothing)</a></li>
 <li class="chapter" data-level="5.5" data-path="advwaveletshrinkage.html"><a href="advwaveletshrinkage.html#-block-thresholding"><i class="fa fa-check"></i><b>5.5</b> 블록 임계화(block thresholding)</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="multiscalets.html"><a href="multiscalets.html"><i class="fa fa-check"></i><b>6</b> 다중척도 시계열분석</a></li>
+<li class="chapter" data-level="6" data-path="multiscalets.html"><a href="multiscalets.html"><i class="fa fa-check"></i><b>6</b> 다중척도 시계열분석</a><ul>
+<li class="chapter" data-level="6.1" data-path="multiscalets.html"><a href="multiscalets.html#--stationary-time-series"><i class="fa fa-check"></i><b>6.1</b> 시계열 자료의 정상성(stationary time series)</a></li>
+<li class="chapter" data-level="6.2" data-path="multiscalets.html"><a href="multiscalets.html#-whitening-of-stationary-process"><i class="fa fa-check"></i><b>6.2</b> 정상과정의 백색화(whitening of stationary process)</a></li>
+<li class="chapter" data-level="6.3" data-path="multiscalets.html"><a href="multiscalets.html#--spectral-representation-of-stationary-process"><i class="fa fa-check"></i><b>6.3</b> 정상과정의 스펙트럼 표현(spectral representation of stationary process)</a></li>
+<li class="chapter" data-level="6.4" data-path="multiscalets.html"><a href="multiscalets.html#----non-decimated-discrete-wavelets"><i class="fa fa-check"></i><b>6.4</b> 압축 표본화되지 않은 이산 웨이블릿(non-decimated discrete wavelets)</a></li>
+</ul></li>
 <li class="chapter" data-level="7" data-path="admultiscale.html"><a href="admultiscale.html"><i class="fa fa-check"></i><b>7</b> 고급 다중척도 방법론</a><ul>
 <li class="chapter" data-level="7.1" data-path="admultiscale.html"><a href="admultiscale.html#--second-generation-wavelet-transform"><i class="fa fa-check"></i><b>7.1</b> 2세대 웨이블릿 변환(second-generation wavelet transform)</a></li>
 <li class="chapter" data-level="7.2" data-path="admultiscale.html"><a href="admultiscale.html#-lifting-scheme"><i class="fa fa-check"></i><b>7.2</b> 리프팅 스킴(lifting scheme)</a></li>
@@ -231,7 +236,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="covmodel" class="section level1">
 <h1><span class="header-section-number">Chapter 11</span> 공분산모형</h1>
-<p>이 장에서는 공분산모형에는 어떤 것들이 있는지 살펴볼 것이다.</p>
+<p>이 장에서는 공분산모형에는 어떤 것들이 있는지 살펴볼 것이다. 여기에 등장하는 그림은 주로 <span class="citation">(Montero, Fernández-Avilés, and Mateu <a href="#ref-Montero2015">2015</a>)</span> 책에 있는 그림들을 가져온 것이다.</p>
 <div id="-nugget-effect" class="section level2">
 <h2><span class="header-section-number">11.1</span> 덩어리 효과(nugget effect)</h2>
 <p><strong>덩어리 효과(nugget effect)</strong>란 공간자료분석에서 흔히 나타나는 특징 중 하나이다.</p>
@@ -251,7 +256,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="--idealized-shape-of-variogram-isotropic-case" class="section level2">
 <h2><span class="header-section-number">11.2</span> 이상적인 변동도의 모양(idealized Shape of Variogram (isotropic case))</h2>
 <p>그렇다면 일반적으로 생각하는 변동도의 모양은 어떠한가?</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-34"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-35"></span>
 <img src="images/sp_variogram.png" alt="Variogram example." width="196" />
 <p class="caption">
 Figure 11.1: Variogram example.
@@ -279,16 +284,28 @@ c_{0}+c_{1}\| \mathbf{h}\| &amp; \textrm{if $\mathbf{h}\neq 0$}\\
 <ol start="2" style="list-style-type: decimal">
 <li><strong>Spherical</strong></li>
 </ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-36"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-36-1.png" alt="Spherical model." width="672" />
+<p class="caption">
+Figure 11.2: Spherical model.
+</p>
+</div>
 <p><span class="math display">\[
 \gamma(\mathbf{h})= \left\{ \begin{array}{ll}
 0 &amp; \textrm{if $\mathbf{h}$=0}\\
 c_{0}+c_{1}[\frac{3}{2}(\frac{\| \mathbf{h}\|}{R})-\frac{1}{2}(\frac{\| \mathbf{h}\|}{R})^{3}] &amp; \textrm{if $0 \leq \|\mathbf{h}\|\leq R$}\\
 c_{0}+c_{1} &amp; \textrm{if $\|\mathbf{h}\|&gt;R$}\\
 \end{array} \right.
-\]</span> 이것은 지구통계학(geostatics)에서는 많이 쓰나 모형이 복잡해 분포 가정 후 우도 추정(likelihood estimation)을 할 때 어렵고 잘 안되므로 통계학자들은 잘 안 좋아하는 모형이라고 한다. 참고로 이 변동도는 <span class="math inline">\(\mathbf{h} \in \mathbb{R}^{d}, d=1,2,3\)</span>에서만 유효하다. 이것 이외에 나머지 변동도의 예들은 다 모든 양수 <span class="math inline">\(d\)</span>에서 유효한 변동도를 갖는다고 한다.</p>
+\]</span> 이것은 지구통계학(geostatstics)에서는 많이 쓰나 모형이 복잡해 분포 가정 후 우도 추정(likelihood estimation)을 할 때 어렵고 잘 안되므로 통계학자들은 잘 안 좋아하는 모형이라고 한다. 참고로 이 변동도는 <span class="math inline">\(\mathbf{h} \in \mathbb{R}^{d}, d=1,2,3\)</span>에서만 유효하다. 이것 이외에 나머지 변동도의 예들은 다 모든 양수 <span class="math inline">\(d\)</span>에서 유효한 변동도를 갖는다고 한다.</p>
 <ol start="3" style="list-style-type: decimal">
 <li><strong>Exponential</strong></li>
 </ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-37"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-37-1.png" alt="Exponential model." width="672" />
+<p class="caption">
+Figure 11.3: Exponential model.
+</p>
+</div>
 <p><span class="math display">\[
 \gamma(\mathbf{h})= \left\{ \begin{array}{ll}
 0 &amp; \textrm{if $\mathbf{h}$=0}\\
@@ -298,6 +315,12 @@ c_{0}+c_{1}(1-e^{-\frac{\|\mathbf{h}\|}{R}}) &amp; \textrm{if $\mathbf{h}\neq 0$
 <ol start="4" style="list-style-type: decimal">
 <li><strong>Gaussian</strong></li>
 </ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-38"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-38-1.png" alt="Gaussian model." width="672" />
+<p class="caption">
+Figure 11.4: Gaussian model.
+</p>
+</div>
 <p><span class="math display">\[
 \gamma(\mathbf{h})= \left\{ \begin{array}{ll}
 0 &amp; \textrm{if $\mathbf{h}$=0}\\
@@ -394,6 +417,12 @@ K_{\alpha}(x) \sim \left\{ \begin{array}{ll}
 </ul>
 <p>전 지구적 수준의 데이터를 다룰 경우 구면좌표계를 사용할 필요가 있다. 구(sphere)나 다양체(manifold) 상에서 정의됨을 고려해야 하며 어떤 거리(distance)를 쓸 것인지에 대해서도 생각해 봐야 한다.</p>
 
+</div>
+</div>
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-Montero2015">
+<p>Montero, José-María, Gema Fernández-Avilés, and Jorge Mateu. 2015. <em>Spatial and Spatio-Temporal Geostatistical Modeling and Kriging</em>. John Wiley &amp; Sons.</p>
 </div>
 </div>
             </section>

@@ -1,1 +1,145 @@
 # 다중척도 시계열분석 {#multiscalets}
+
+$y_{i}=g(x_{i})+e_{i}$라는 자료 분석을 할때, 지금까지는 error가 independent인 자료들만을 주로 다루었으나, 이제는 correlated 되어있는 자료들을 생각해보자. 가장 간단한 경우로 $\mathbf{e} \sim \mathcal{N}(\mathbf{0},\boldsymbol{\Gamma}), \boldsymbol{\Gamma}=[ \gamma_{|r-s|}]_{r,s} \neq \sigma^{2}I$ 가 **정상 과정(stationary process)** 이라고 가정하는 것이다. 이런 경우에 웨이블릿 임계화(thresholding)를 어떻게 될 것인가?
+
+그 전에 왜 **상관자료(correlated data)**에서 웨이블릿을 고려하는지에 대해 잠시 설명하자면 이는 웨이블릿의 "whitening" 성질과 관련이 있다. $\mathbf{y}$가 정상 과정일 경우 웨이블릿 계수 d가 독립에 가까워지는 $corr(d_{j},d_{j'})\approx 0$인 $|j-j'|>\delta$를 만족하는 $\delta$가 존재한다는 것이 "whitening"이다. 이로 인해 웨이블릿이 상관자료(correlated data)를 다룰 때 도움을 줄 수 있다.
+
+## 시계열 자료의 정상성(stationary time series)
+
+$\{ X_{t} \}$는 다음과 같은 **자기공분산 함수(autocovariance function)**
+$$\gamma_{X}(r,s)=Cov(X_{r},X_{s})=E(X_{r}-EX_{r})(X_{s}-EX_{s}) \text{ is finite for any } r,s.$$
+를 갖는 랜덤 프로세스라고 하자. 여기서 staionary보다 조금 더 약한 **약정상과정(weakly stationary process)**에 대해 생각해보자.
+
+<div class="definition">
+
+다음과 같은 세 가지 조건
+
+1. $E|X_{t}|^{2} < \infty$.
+
+2. $EX_{t}=m$(constant), $\forall t$.
+
+3. $Cov(X_{t+h},X_{t})=\gamma_{X}(h) (\text{ t에 독립})$
+
+을 만족하는 $\{ X_{t} \}$를 **약정상성(weakly stationary)**을 갖는다라고 한다. **순정상 시계열(strictly stationary time seres)**은 모든 $t_{i}, n$ 그리고 $\tau$에 대해 $(X_{t_{1}}, \ldots, X_{t_{n}})$의 결합분포가 $X_{t_{1}+\tau}, \ldots, X_{t_{n}+\tau})$의 결합 분포와 항상 같은 것을 의미한다. 그러나 이 정의는 너무 강해 **약정상 시계열(weakly stationary time seres)**을 많이 쓰게된다. 보통 정상과정(stationary process)을 말하면 약정상성을 의미한다.
+
+</div>
+
+<div class="example">
+
+백색 잡음 과정 $\{Z_{t}\}$는
+$$E(Z_{t})=0, \forall t,$$
+$$\gamma(h)=\sigma^{2}\delta_{h}=E(Z_{t+h},Z_{t})=\sigma^{2}I\{h=0\}$$
+이므로 정상 과정이다.
+
+</div>
+
+<div class="example">
+
+AR(1) 과정 $\{X_{t}\}$는
+$$X_{t}-\phi X_{t-1}=Z_{t}, Z_{t} \sim WN(0,\sigma^{2}), $$
+$$\gamma(h)=\sigma^{2}\frac{\phi^{|h|}}{1-\phi}$$
+이므로 정상 과정이다.
+
+</div>
+
+다시 상기하는 의미에서 $X(t)$의 이산 웨이블릿 변환은 $\{ d_{jk} \}=\int_{\mathbb{R}}X(t)\psi_{jk}(t)dt$이고, 
+$$E d_{jk}d_{j'k'}=\int \int_{\mathbb{R}^{2}}\gamma(t,s)\psi_{jk}(t)\psi_{j'k'}(s)dtds$$
+이다. 다음은 웨이블릿 변환과 정상성에 관련된 정리이다.
+
+<div class="theorem">
+
+$X(t)$가 약한 정상 과정이고 $\gamma(t,s)$가 $\mathbb{R}^{2}$에서 유계(bounded)이고 연속이면, $X(t)$가 약정상과정인 것과 $\{ d_{jk} \}$가 약정상과정인 것은 동치이다(만약 $\psi$가 compactly supported이면 당연히 유계이므로 유계 조건이 따로 필요 없다).
+
+</div>
+
+## 정상과정의 백색화(whitening of stationary process)
+
+$X(t)$를 정상 과정이라고 하자. 그러면
+$$X_{m}(t)=\sum c_{mk}\phi_{mk}(t)=\text{ projection on $V_{m}$}=\sum_{j}^{m}d_{jk}\psi_{jk}(t)$$
+와 같이 웨이블릿의 선형 결합으로 나타낼 수 있다($d_{jk}=\int X(t)\psi_{jk}(t)dt$). 그리고
+\begin{eqnarray*}
+E d_{jk}d_{j'k'}&=&\int \int_{\mathbb{R}^{2}}\gamma(t,s)\psi_{jk}(t)\psi_{j'k'}(s)dtds\\
+&=&\frac{1}{2 \pi}\int_{\mathbb{R}}\hat{\gamma}(\omega)\hat{\psi}(\frac{\omega}{2^{j}})\bar{\hat{\psi}}(\frac{\omega}{2^{j}})e^{-i\omega k 2^{-j}}e^{-i\omega k' 2^{-j'}}2^{-\frac{j}{2}}2^{-\frac{j'}{2}}d\omega.\\
+\end{eqnarray*}
+이다. 갑자기 notation들이 막 튀어나오는데 자세한 내용은 [@Zhang1994]를 참고하라.
+
+<div class="theorem">
+
+$d_{jk}$와 $d_{j'k'}$는
+
+1. $|j-j'|>1$일 경우 **무상관(uncorrelated)**이다(에를 들어 $d_{1}$과 **상관(correlated)**된 것은 $d_{0}, d_{2}$이다).
+
+2. $|j-j'|=1$일 경우 약간의 correlation을 갖는다.
+
+3. $j \neq j'$일 경우 $O(|j-j'|^{-p})$의 correlation을 갖는다.
+
+</div>
+
+[@Johnstone1997]에서는 위 정리의 결과를 그대로 웨이블릿 축소에 가져왔다. 즉 각 level끼리 독립이므로 level별로 따로 임계화(thresholding)를 하는 방법을 생각한 것이다. 이 때 레벨 $j$에서
+$$\hat{\lambda}_{j}=\sqrt{2\log n_{j}}\hat{\sigma}_{j} \text{ or } \hat{\lambda}_{j}=\min_{\lambda}\text{SURE}(\lambda_{j})$$
+를 이용한다. $n_{j}$는 레벨 $j$에서의 계수의 총 갯수이고, $\hat{\sigma}_{j}$는 MAD로 계산한다.
+
+그러나 자료가 정상성이 아닐 경우 방법이 없다. 왜냐하면 비정상 시계열(nonstationary time series)은 너무 광범위한 개념이기 때문이다. 따라서 사람들은 비정상 시계열들 중 다루기 쉬운 일부를 제한해 그것을 분석한다. Evolutionary stationary process가 그 예이다.
+
+## 정상과정의 스펙트럼 표현(spectral representation of stationary process)
+
+$\{ X(t) \}$를 평균이 0인 정상과정이라고 하자. 그러면 다음
+$$X(t)=\int_{-\infty}^{\infty} e^{it\omega}dZ(\omega)$$
+를 만족시키는 **직교과정(orthogonal process)** $\{Z(\omega)\}$가 존재한다.
+
+여기서 잠시 **직교증분과정(orthogonal increment process)**라는 것에 대해 소개하겠다.
+
+<div class="definition">
+
+두개의 다른 주파수 $\omega$, $\omega'$ $(\omega \neq \omega')$가 있다고 하자. 만약 두 개의 process
+$$dZ(\omega)=\{Z(\omega +d\omega)-Z(\omega)\} \text{ and } dZ(\omega')=\{Z(\omega' +d\omega')-Z(\omega')\}$$
+가 무상관$(\text{Cov}(dZ(\omega), dZ(\omega'))=0)$일 때 $dZ(\omega)$는 **직교증분과정**이라고 한다.
+
+</div>
+
+다시 직교과정으로 돌아가서, $\{Z(\omega)\}$는 다음 성질들을 만족시킨다.
+
+1. $E(dZ(\omega))=0, \forall \omega$.
+
+2. $E|dZ(\omega)|^{2}=d H(\omega)=h(\omega), \forall \omega, \text{ where } H(\omega)=\int h(\omega)=\text{integrated spectrum of } X(t)$.
+
+3. $Cov(dZ(\omega), dZ(\omega'))=0$. (직교증분과정)
+
+[@Nason2010]에 의하면, 어떤 시계열 $\{Z_{t} \}_{t\in \mathbb{Z}}$가 정상확률과정이라면 다음과 같이 표현할 수 있다고 한다. 즉 $\sin$, $\cos$ basis function으로 expansion할 수 있는 것이다.
+
+\begin{equation}
+X_{t}=\int_{-\pi}^{\pi}A(\omega)e^{it\omega}d\xi(\omega)
+\end{equation}
+
+이 때 $A(\omega)$, $d\xi(\omega)$가 $dZ(\omega)$ 역할을 하게 되는 것이며, 가장 영향력 있는 계수들의 제곱이 **스펙트럼(spectrum)**이 된다.
+
+$$|A(\omega)|^{2}=\hat{h}(\omega): \text{ periodogram (point estimator but not consistent)}$$
+$$|\tilde{A}(\omega)|^{2}: \text{ smoothing시 consistent 해짐}$$
+
+<div class="remark">
+
+$$Cov(X(t), X(t+\tau))=\int_{-\infty}^{\infty}e^{it\omega}dH(\omega)$$
+이며, 여기서 $Cov(X(t), X(t+\tau))$는 $X(t)$의 공분산함수이며, $dH(\omega)$는 $X(t)$의 스펙트럼이고, 이들은 $e^{it\omega}$ 라는 푸리에변환을 통해 일대일변환(one-to-one transform)된다.
+
+다음 내용은 [@Priestley1981] 및 [@Dahlhaus1996]에서 발췌한 내용이다. 비정상과정 $X(t)$는 다음과 같이 간주할 수 있다.
+$$\phi_{t}(\omega) \text{ instead of } e^{it\omega}$$
+\begin{eqnarray*}
+X(t)&=&\int \phi_{t}(\omega)dZ(\omega)=\int A(\omega)e^{it\omega}d\xi(\omega)\\
+&=&\int A_{t}(\omega)e^{i\theta(\omega)t}dZ(\omega) \Longrightarrow \text{ "Oscillatory process"}\\
+\end{eqnarray*}
+
+여기서 $A_{t}(\omega)$는 일종의 가중치(weight)이며 시간에 따라 계속 바뀐다. 이 내용은 비정상과정의 시계열을 분할하여 **스펙트럴 표현(spectral representation)**이 되도록 제한할 수 있다는 것이다. 그러나 유일(unique)하게 정의되지 않는다는 것은 문제이다.
+
+</div>
+
+함수추정에서 웨이블릿은 희소(sparsity) 장점을 준다. 그러나 시계열에서의 웨이블릿 사용은 희소와는 큰 관련이 없다. 다만 다음과 같이 변환하였을 때,
+
+$$X(t) \stackrel{\omega}{\rightarrow}d_{jk}(t) \text{ j: scale, k: location}$$
+
+$d$는 $\omega$와 $t$의 성질을 동시에 갖으며 이를 통해 비정상 시계열을 다룰 수 있지 않을까 하는 기대감 때문이다. 이러한 분석 방법을 **time (k) - scale (j) analysis**라고 한다.
+
+## 압축 표본화되지 않은 이산 웨이블릿(non-decimated discrete wavelets)
+
+일반적인 웨이블릿은 시계열 자료를 다루기에는 information이 너무 작아지는 경향이 있는데, **압축 표본화되지 않은 웨이블릿(non-decimated wavelets)**은 그렇지 않아 temporal resolution에 좋다고 한다.
+
+[@Nason2000]은 **컴팩트 지지 웨이블릿(compactly supported wavelets)**이라는 것을 만들었다.
