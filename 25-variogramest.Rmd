@@ -68,11 +68,107 @@ $$
 $$
 Median을 쓸 경우 제곱근을 한 다음 네제곱을 하거나 그냥 제곱을 하거나 차이가 없다고 한다.
 
-
 ## 경험변동도를 이용한 모수적 모형 추정(fitting parametric models to empirical variogram)
 
-empirical variogram 자료들을 가지고 왜 또 parametric한 fitting을 하려고 할까? Geostatistics에서는 dependence structure $\boldsymbol{\sigma}$를 이용한 prediction에 관심이 있다. 그런데 prediction을 하려면 $\boldsymbol{\sigma}^{-1}$이 필요하다. 그런데 empirical variogram으로 하면 $\boldsymbol{\sigma}$가 non-negative definite가 아니거나 numerical singularity가 생긴다. 일반적으로 다음과 같은 모수 모델
+경험변동도(empirical variogram) 자료들을 가지고 왜 또 모수적(parametric)인 적합(fitting)을 하려고 할까? 지구통계학(geostatistics)에서는 종속구조(dependence structure) $\boldsymbol{\sigma}$를 이용한 **예측(prediction)**에 관심이 있다. 그런데 예측을 하려면 $\boldsymbol{\sigma}^{-1}$이 필요하다. 그런데 경험변동도로 하면 $\boldsymbol{\sigma}$가 비음정치(non-negative definite)가 아니거나 수치적 특이성(numerical singularity)이 생긴다. 일반적으로 다음과 같은 모수 모델
 $$\hat{\boldsymbol{\gamma}}(h;\hat{\boldsymbol{\theta}})$$
-는 positive definite function을 guarantee한다(물론 numerical singular한 경우도 있을 수는 있다). 이러한 이유로 공간통계학에서는 모수를 이용한 모델링을 선호하는 것이다.
+는 양정치함수(positive definite function)임을 보장한다(물론 numerical singular한 경우도 있을 수는 있다). 이러한 이유로 공간통계학에서는 모수를 이용한 모델링을 선호하는 것이다.
 
 다음과 같이 $\hat{\gamma}(\mathbf{h}_{1}), \cdots , \hat{\gamma}(h_{m})$이 available하다고 하자(이들을 새로운 자료로 생각해도 좋다). 여기서 $m$은 고정시킨다. 우리의 목표는 $\boldsymbol{\gamma}(h;\boldsymbol{\theta})$가 true model일 때 $\hat{\boldsymbol{\gamma}}(h;\hat{\boldsymbol{\theta}})$를 만들고자 한다. 추정 방법은 크게 세 가지가 있다.
+
+### LS method
+
+$$
+\begin{aligned}
+\hat{\boldsymbol{\theta}}_{LS}&=\text{argmin}_{\boldsymbol{\theta}}\sum_{j=1}^{m}\{ \hat{\gamma}(h_{j})-\gamma(h_{j};\boldsymbol{\theta})\}^{2}\\
+&=\text{argmin}_{\boldsymbol{\theta}}(\hat{\boldsymbol{\gamma}}-\boldsymbol{\gamma}(\boldsymbol{\theta}))^{T}(\hat{\boldsymbol{\gamma}}-\boldsymbol{\gamma}(\boldsymbol{\theta}))\\
+\end{aligned}
+$$
+이 방법은 $\hat{\gamma}(\mathbf{h}_{i})$들의 종속성(dependency)을 무시한다.
+
+### GLS method
+
+최소자승법의 약점을 보완하기 위한 방법이다.
+$$\hat{\boldsymbol{\theta}}_{GLS}=\text{argmin}_{\boldsymbol{\theta}}(\hat{\boldsymbol{\gamma}}-\boldsymbol{\gamma}(\boldsymbol{\theta}))^{T}V^{-1}(\boldsymbol{\theta})(\hat{\boldsymbol{\gamma}}-\boldsymbol{\gamma}(\boldsymbol{\theta}))$$
+여기서 $V^{-1}(\boldsymbol{\theta})=\text{Var}(\hat{\boldsymbol{\gamma}})$이다. 일반적인 GLS는 $(\hat{y}-X\beta)^{T}V^{-1}(\theta)(\hat{y}-X\beta)$꼴처럼 $\beta$와 $\theta$가 다르지만, 이 경우는 두 개가 $\theta$로 같다. 
+
+### WLS method
+
+$$\hat{\boldsymbol{\theta}}_{GLS}=\text{argmin}_{\boldsymbol{\theta}}(\hat{\boldsymbol{\gamma}}-\boldsymbol{\gamma}(\boldsymbol{\theta}))^{T}W(\boldsymbol{\theta})(\boldsymbol{\theta})(\hat{\boldsymbol{\gamma}}-\boldsymbol{\gamma}(\boldsymbol{\theta}))$$
+여기서 $W(\boldsymbol{\theta})=\text{diag}(V(\boldsymbol{\theta}))$이다. 이것은 highly nonlinear한 object function이라 $\boldsymbol{\theta}$가 많을수록 적합이 어려워진다.
+
+GLS처럼 $\beta$와 $\theta$가 같으므로 two-stage iteration을 통해 적합한다. Iteration procedure는 다음과 같다.
+$$\hat{\boldsymbol{\theta}}^{(k+1)}=\text{argmin}_{\boldsymbol{\theta}}(\hat{\boldsymbol{\gamma}}-\boldsymbol{\gamma}(\boldsymbol{\theta}))^{T}V^{-1}(\hat{\boldsymbol{\theta}}^{(k)})(\hat{\boldsymbol{\gamma}}-\boldsymbol{\gamma}(\boldsymbol{\theta}))$$
+OLS로 $\boldsymbol{\gamma}(\boldsymbol{\theta})$ 부분을 먼저 고정시키고 iteration을 돌린다는 것 같다.
+
+### 근사 WLS (approximated WLS)
+
+[@Cressie1985]는 WLS의 계산의 어려움을 피하기 위해 다음과 같은 근사 WLS 방법을 쓰기도 한다.
+$$\hat{\boldsymbol{\theta}}=\text{argmin}_{\boldsymbol{\theta}}\sum_{j}\frac{|N(\mathbf{h}_{j})}{\gamma^{2}(\mathbf{h}_{j};\boldsymbol{\theta})}\{ \hat{\gamma}(\mathbf{h}_{j})-\gamma(\mathbf{h}_{j};\boldsymbol{\theta}) \}^{2}$$
+이 근사가 가능한 이유는 $\text{Var}(\hat{\gamma(\mathbf{h}_{j})}) \cong \frac{8 \gamma^{2}(\mathbf{h}_{j}l\boldsymbol{\theta})}{|N(\mathbf{h}_{j})|}$이기 때문이다(8은 상수라 무시해도 수렴함). 그러나 여전히 두 군데에 $\boldsymbol{\theta}$가 있어 two-stage iteration을 해야 한다.
+
+이렇게 계산한 AWLS 추정량이 (어떤 조건 하에) asymptotic normal이 됨을 보일 수 있다고 한다. 그런데 이런 경우에도 $\hat{\gamma}(\mathbf{h}_{j}) \stackrel{n \rightarrow}{\rightarrow} \gamma(\mathbf{h};\boldsymbol{\theta})$를 따로 보여야 한다고 한다.
+
+몇 가지 기본 가정들은 다음과 같다.
+
+-$\mathbf{\gamma}(\mathbf{h}_{1}), \cdots , \mathbf{\gamma}(\mathbf{h}_{m})$ 이 $\mathbf{h}_{1}, \cdots , \mathbf{h}_{m}$에서 계산되어있다. 여기서 $m$은 고정되어 있다고 가정한다.
+
+-$|N(\mathbf{h}_{j})|=O(n)$. 좀 더 자세하게는 $N(\mathbf{h}_{j})=n\cdot \phi_{j,n}$이고 $\lim_{n \rightarrow \infty}\phi_{j,n}=\phi_{j} < \infty$이다(그렇지 않으면 $O(n)$의 order가 올라갈 것이다). 말로 설명하자면 데이터가 커질 때마다 밀도가 일정해야 하므로 region도 커져야 한다는 것이다.
+
+참고로 [@Cressie1985]에서는 다음과 같이 적혀 있다. "$|N(\mathbf{h}_{j})| \rightarrow \infty$ for each $j=1, \cdots, k$ as $N \rightarrow \infty$ as $|D| \rightarrow \infty$ such that $N/|D|$, the sampling rate per unit area is constant." 그리고 data가 evenly spaced 되어야 이 방법이 잘 맞는다고 한다.
+
+- $\text{Cov}(\hat{\gamma}(\mathbf{h}_{j}), \hat{\gamma}(\mathbf{h}_{k}))=O(\frac{1}{n})$. 여기서 $\text{Cov}(\hat{\gamma}(\mathbf{h}_{j}), \hat{\gamma}(\mathbf{h}_{k})) \sim \frac{U_{jk}(\boldsymbol{\theta})}{n}$을 만족하는 $m \times m$  행렬 $U(\boldsymbol{\theta})$가 존재한다. Decay 속도가 충분히 빠른 variogram model들 (ex. exponential)이 이 조건을 만족한다고 한다.
+
+이 세 가지 조건을 만족할 경우
+$$\sqrt{n}(\hat{\boldsymbol{\gamma}}-\boldsymbol{\gamma}(\boldsymbol{\theta}))  \stackrel{\mathcal{D}}{\rightarrow} \mathcal{N}(\mathbf{0}, U(\boldsymbol{\theta}))$$
+$m$이 커지면 $(\hat{\boldsymbol{\gamma}}-\boldsymbol{\gamma}(\boldsymbol{\theta}))$의 dimension 또한 커져 복잡한 문제가 되므로 $m$을 고정하는 것이다.
+$$\sqrt{n}(\hat{\boldsymbol{\theta}}-\boldsymbol{\theta})  \stackrel{\mathcal{D}}{\rightarrow} \mathcal{N}(\mathbf{0}, H^{-1}R^{T}URH^{-1})$$
+여기서 $R$은 $m \times p$ (p: number of parameter) 행렬인데
+$$R_{ij}=\frac{2\phi_{i}}{\gamma^{2}(\mathbf{h}_{i};\boldsymbol{\theta})}\cdot \frac{2\gamma}{2\boldsymbol{\theta}_{j}}(\mathbf{h}_{j};\boldsymbol{\theta})$$
+가 성립한다.
+
+한편 $H$는 목적함수 $S_{n}(\boldsymbol{\theta}*)$의 헤시안의 확률수렴 값이다.
+$$H:\frac{\nabla^{2}S_{n}(\boldsymbol{\theta}*)}{n} \stackrel{P}{\rightarrow} H(\boldsymbol{\theta})$$
+이다. 
+
+참고로 목적함수의 asymptotic은 보통 다음과 같이 한다. Consistency는 따로 보이고 이것을 만족하면 그 다음 테일러 전개로
+$$S_{n}'(\boldsymbol{\theta})=S_{n}'(\hat{\boldsymbol{\theta}})+S_{n}''(\boldsymbol{\theta}*)(\hat{\boldsymbol{\theta}}-\boldsymbol{\theta})$$
+를 만든다 (mean value theorem에 의해 등호 성립). 이때 $S_{n}'(\hat{\boldsymbol{\theta}})$은 minimization 문제이므로 0이 된다. $S_{n}''(\boldsymbol{\theta}*)$는 $H$에 해당된다. 따라서 $S_{n}'(\boldsymbol{\theta})$의 분포만 알아내면 되는 것이다. 이러한 방법을 "Sandwich method"라고 한다. 자세한 내용은  [(Fuentes, 2007)](http://www.stat.ncsu.edu/people/fuentes/courses/st790m/) 강좌의 4장을 보면 된다.
+
+## R 예제(R-variogramest)
+
+이제 실제 R 예제에 대해 살펴보자.
+
+```{r, message=F, echo=F}
+library(geoR)
+```
+
+```{r, fig.align='center', comment=">", fig.cap = 'Various variogram estimation methods.'}
+data(s100)
+s100.v1 <- variog(s100, option="cloud")
+s100.v2 <- variog(s100, max.dist=1, estimator.type="classical")
+s100.v3 <- variog(s100, max.dist=1, estimator.type="modulus")
+
+par(mfrow=c(2,2))
+plot(s100$coords[,1], s100$coords[,2],
+     pch="x", xlab="", ylab="", main="locations")
+plot(s100.v1, main="Variogram cloud")
+plot(s100.v2, main="MoM estimator")
+plot(s100.v3, main="Robust estimator")
+
+true <- 1-matern(seq(0,1,0.1),0.3,0.5)
+ols <- variofit(s100.v2, ini=c(0.9,0.2), cov.model="mat",
+                fix.kappa=F, kap=1.5, nug=0.2, weights="equal")
+wls <- variofit(s100.v2, ini=c(0.9,0.2), cov.model="mat",
+                fix.kappa=F, kap=1.5, nug=0.2, weights="cressie")
+```
+
+```{r, fig.align='center', comment=">", fig.cap = 'Comparison of variogram estimation methods.'}
+par(mfrow=c(1,1))
+plot(s100.v2, main="",col="blue", lwd=2)
+lines(seq(0,1,0.1), true, col="red")
+lines(ols, lwd=1.5)
+lines(wls, lty=2, lwd=1.5)
+legend("bottomright", c("true", "ols", "wls"),
+       col=c("red", "black", "black"), lty=c(1,1))
+```

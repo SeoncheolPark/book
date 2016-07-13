@@ -203,7 +203,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="12" data-path="variogramest.html"><a href="variogramest.html"><i class="fa fa-check"></i><b>12</b> 변동도의 추정</a><ul>
 <li class="chapter" data-level="12.1" data-path="variogramest.html"><a href="variogramest.html#empirical-variogram"><i class="fa fa-check"></i><b>12.1</b> 경험변동도(empirical variogram)</a></li>
-<li class="chapter" data-level="12.2" data-path="variogramest.html"><a href="variogramest.html#----fitting-parametric-models-to-empirical-variogram"><i class="fa fa-check"></i><b>12.2</b> 경험변동도를 이용한 모수적 모형 추정(fitting parametric models to empirical variogram)</a></li>
+<li class="chapter" data-level="12.2" data-path="variogramest.html"><a href="variogramest.html#----fitting-parametric-models-to-empirical-variogram"><i class="fa fa-check"></i><b>12.2</b> 경험변동도를 이용한 모수적 모형 추정(fitting parametric models to empirical variogram)</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="variogramest.html"><a href="variogramest.html#ls-method"><i class="fa fa-check"></i><b>12.2.1</b> LS method</a></li>
+<li class="chapter" data-level="12.2.2" data-path="variogramest.html"><a href="variogramest.html#gls-method"><i class="fa fa-check"></i><b>12.2.2</b> GLS method</a></li>
+<li class="chapter" data-level="12.2.3" data-path="variogramest.html"><a href="variogramest.html#wls-method"><i class="fa fa-check"></i><b>12.2.3</b> WLS method</a></li>
+<li class="chapter" data-level="12.2.4" data-path="variogramest.html"><a href="variogramest.html#-wls-approximated-wls"><i class="fa fa-check"></i><b>12.2.4</b> 근사 WLS (approximated WLS)</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="variogramest.html"><a href="variogramest.html#r-r-variogramest"><i class="fa fa-check"></i><b>12.3</b> R 예제(R-variogramest)</a></li>
 </ul></li>
 <li class="part"><span><b>Extreme Value Statistics</b></span></li>
 <li class="chapter" data-level="13" data-path="extremevaluestat.html"><a href="extremevaluestat.html"><i class="fa fa-check"></i><b>13</b> 극단값 통계학</a></li>
@@ -241,7 +247,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><p>Empirical model (nonparametric)</p></li>
 <li><p>Parametric fit</p></li>
 </ul>
-<p>그리고 <span class="citation">(Gelfand et al. <a href="#ref-Gelfand2010">2010</a>)</span>의 33쪽부터, <span class="citation">(Cressie <a href="#ref-Cressie1993">1993</a>)</span>의 69쪽부터 참고했다.</p>
+<p>그리고 <span class="citation">(Gelfand et al. <a href="#ref-Gelfand2010">2010</a>)</span>의 33쪽부터, <span class="citation">(N. A. C. Cressie <a href="#ref-Cressie1993">1993</a>)</span>의 69쪽부터 참고했다.</p>
 <div id="empirical-variogram" class="section level2">
 <h2><span class="header-section-number">12.1</span> 경험변동도(empirical variogram)</h2>
 <p>이것은 변동도를 비모수 추정하는 것이다. 다시 한 번 변동도의 정의를 살펴보면 <span class="math display">\[2\gamma(\mathbf{h})=\text{Var}(Z(\mathbf{s}+\mathbf{h})-Z(\mathbf{s}))\]</span> 으로 lag <span class="math inline">\(\mathbf(h)\)</span>에만 의존하는 함수이다. 그런데 내재정상성(instinsic stationary)에서는 평균이 0이므로 <span class="math display">\[2\gamma(\mathbf{h})=E[Z(\mathbf{s}+\mathbf{h})-Z(\mathbf{s}))^{2}]\]</span> 이 된다.</p>
@@ -276,8 +282,84 @@ E(X_{n})^{4}&amp;\circeq f(\nu) + f&#39;(\nu)E(X_{n}-\nu) +\frac{1}{2}f&#39;&#39
 </div>
 <div id="----fitting-parametric-models-to-empirical-variogram" class="section level2">
 <h2><span class="header-section-number">12.2</span> 경험변동도를 이용한 모수적 모형 추정(fitting parametric models to empirical variogram)</h2>
-<p>empirical variogram 자료들을 가지고 왜 또 parametric한 fitting을 하려고 할까? Geostatistics에서는 dependence structure <span class="math inline">\(\boldsymbol{\sigma}\)</span>를 이용한 prediction에 관심이 있다. 그런데 prediction을 하려면 <span class="math inline">\(\boldsymbol{\sigma}^{-1}\)</span>이 필요하다. 그런데 empirical variogram으로 하면 <span class="math inline">\(\boldsymbol{\sigma}\)</span>가 non-negative definite가 아니거나 numerical singularity가 생긴다. 일반적으로 다음과 같은 모수 모델 <span class="math display">\[\hat{\boldsymbol{\gamma}}(h;\hat{\boldsymbol{\theta}})\]</span> 는 positive definite function을 guarantee한다(물론 numerical singular한 경우도 있을 수는 있다). 이러한 이유로 공간통계학에서는 모수를 이용한 모델링을 선호하는 것이다.</p>
+<p>경험변동도(empirical variogram) 자료들을 가지고 왜 또 모수적(parametric)인 적합(fitting)을 하려고 할까? 지구통계학(geostatistics)에서는 종속구조(dependence structure) <span class="math inline">\(\boldsymbol{\sigma}\)</span>를 이용한 <strong>예측(prediction)</strong>에 관심이 있다. 그런데 예측을 하려면 <span class="math inline">\(\boldsymbol{\sigma}^{-1}\)</span>이 필요하다. 그런데 경험변동도로 하면 <span class="math inline">\(\boldsymbol{\sigma}\)</span>가 비음정치(non-negative definite)가 아니거나 수치적 특이성(numerical singularity)이 생긴다. 일반적으로 다음과 같은 모수 모델 <span class="math display">\[\hat{\boldsymbol{\gamma}}(h;\hat{\boldsymbol{\theta}})\]</span> 는 양정치함수(positive definite function)임을 보장한다(물론 numerical singular한 경우도 있을 수는 있다). 이러한 이유로 공간통계학에서는 모수를 이용한 모델링을 선호하는 것이다.</p>
 <p>다음과 같이 <span class="math inline">\(\hat{\gamma}(\mathbf{h}_{1}), \cdots , \hat{\gamma}(h_{m})\)</span>이 available하다고 하자(이들을 새로운 자료로 생각해도 좋다). 여기서 <span class="math inline">\(m\)</span>은 고정시킨다. 우리의 목표는 <span class="math inline">\(\boldsymbol{\gamma}(h;\boldsymbol{\theta})\)</span>가 true model일 때 <span class="math inline">\(\hat{\boldsymbol{\gamma}}(h;\hat{\boldsymbol{\theta}})\)</span>를 만들고자 한다. 추정 방법은 크게 세 가지가 있다.</p>
+<div id="ls-method" class="section level3">
+<h3><span class="header-section-number">12.2.1</span> LS method</h3>
+<p><span class="math display">\[
+\begin{aligned}
+\hat{\boldsymbol{\theta}}_{LS}&amp;=\text{argmin}_{\boldsymbol{\theta}}\sum_{j=1}^{m}\{ \hat{\gamma}(h_{j})-\gamma(h_{j};\boldsymbol{\theta})\}^{2}\\
+&amp;=\text{argmin}_{\boldsymbol{\theta}}(\hat{\boldsymbol{\gamma}}-\boldsymbol{\gamma}(\boldsymbol{\theta}))^{T}(\hat{\boldsymbol{\gamma}}-\boldsymbol{\gamma}(\boldsymbol{\theta}))\\
+\end{aligned}
+\]</span> 이 방법은 <span class="math inline">\(\hat{\gamma}(\mathbf{h}_{i})\)</span>들의 종속성(dependency)을 무시한다.</p>
+</div>
+<div id="gls-method" class="section level3">
+<h3><span class="header-section-number">12.2.2</span> GLS method</h3>
+<p>최소자승법의 약점을 보완하기 위한 방법이다. <span class="math display">\[\hat{\boldsymbol{\theta}}_{GLS}=\text{argmin}_{\boldsymbol{\theta}}(\hat{\boldsymbol{\gamma}}-\boldsymbol{\gamma}(\boldsymbol{\theta}))^{T}V^{-1}(\boldsymbol{\theta})(\hat{\boldsymbol{\gamma}}-\boldsymbol{\gamma}(\boldsymbol{\theta}))\]</span> 여기서 <span class="math inline">\(V^{-1}(\boldsymbol{\theta})=\text{Var}(\hat{\boldsymbol{\gamma}})\)</span>이다. 일반적인 GLS는 <span class="math inline">\((\hat{y}-X\beta)^{T}V^{-1}(\theta)(\hat{y}-X\beta)\)</span>꼴처럼 <span class="math inline">\(\beta\)</span>와 <span class="math inline">\(\theta\)</span>가 다르지만, 이 경우는 두 개가 <span class="math inline">\(\theta\)</span>로 같다.</p>
+</div>
+<div id="wls-method" class="section level3">
+<h3><span class="header-section-number">12.2.3</span> WLS method</h3>
+<p><span class="math display">\[\hat{\boldsymbol{\theta}}_{GLS}=\text{argmin}_{\boldsymbol{\theta}}(\hat{\boldsymbol{\gamma}}-\boldsymbol{\gamma}(\boldsymbol{\theta}))^{T}W(\boldsymbol{\theta})(\boldsymbol{\theta})(\hat{\boldsymbol{\gamma}}-\boldsymbol{\gamma}(\boldsymbol{\theta}))\]</span> 여기서 <span class="math inline">\(W(\boldsymbol{\theta})=\text{diag}(V(\boldsymbol{\theta}))\)</span>이다. 이것은 highly nonlinear한 object function이라 <span class="math inline">\(\boldsymbol{\theta}\)</span>가 많을수록 적합이 어려워진다.</p>
+<p>GLS처럼 <span class="math inline">\(\beta\)</span>와 <span class="math inline">\(\theta\)</span>가 같으므로 two-stage iteration을 통해 적합한다. Iteration procedure는 다음과 같다. <span class="math display">\[\hat{\boldsymbol{\theta}}^{(k+1)}=\text{argmin}_{\boldsymbol{\theta}}(\hat{\boldsymbol{\gamma}}-\boldsymbol{\gamma}(\boldsymbol{\theta}))^{T}V^{-1}(\hat{\boldsymbol{\theta}}^{(k)})(\hat{\boldsymbol{\gamma}}-\boldsymbol{\gamma}(\boldsymbol{\theta}))\]</span> OLS로 <span class="math inline">\(\boldsymbol{\gamma}(\boldsymbol{\theta})\)</span> 부분을 먼저 고정시키고 iteration을 돌린다는 것 같다.</p>
+</div>
+<div id="-wls-approximated-wls" class="section level3">
+<h3><span class="header-section-number">12.2.4</span> 근사 WLS (approximated WLS)</h3>
+<p><span class="citation">(N. Cressie <a href="#ref-Cressie1985">1985</a>)</span>는 WLS의 계산의 어려움을 피하기 위해 다음과 같은 근사 WLS 방법을 쓰기도 한다. <span class="math display">\[\hat{\boldsymbol{\theta}}=\text{argmin}_{\boldsymbol{\theta}}\sum_{j}\frac{|N(\mathbf{h}_{j})}{\gamma^{2}(\mathbf{h}_{j};\boldsymbol{\theta})}\{ \hat{\gamma}(\mathbf{h}_{j})-\gamma(\mathbf{h}_{j};\boldsymbol{\theta}) \}^{2}\]</span> 이 근사가 가능한 이유는 <span class="math inline">\(\text{Var}(\hat{\gamma(\mathbf{h}_{j})}) \cong \frac{8 \gamma^{2}(\mathbf{h}_{j}l\boldsymbol{\theta})}{|N(\mathbf{h}_{j})|}\)</span>이기 때문이다(8은 상수라 무시해도 수렴함). 그러나 여전히 두 군데에 <span class="math inline">\(\boldsymbol{\theta}\)</span>가 있어 two-stage iteration을 해야 한다.</p>
+<p>이렇게 계산한 AWLS 추정량이 (어떤 조건 하에) asymptotic normal이 됨을 보일 수 있다고 한다. 그런데 이런 경우에도 <span class="math inline">\(\hat{\gamma}(\mathbf{h}_{j}) \stackrel{n \rightarrow}{\rightarrow} \gamma(\mathbf{h};\boldsymbol{\theta})\)</span>를 따로 보여야 한다고 한다.</p>
+<p>몇 가지 기본 가정들은 다음과 같다.</p>
+<p>-<span class="math inline">\(\mathbf{\gamma}(\mathbf{h}_{1}), \cdots , \mathbf{\gamma}(\mathbf{h}_{m})\)</span> 이 <span class="math inline">\(\mathbf{h}_{1}, \cdots , \mathbf{h}_{m}\)</span>에서 계산되어있다. 여기서 <span class="math inline">\(m\)</span>은 고정되어 있다고 가정한다.</p>
+<p>-<span class="math inline">\(|N(\mathbf{h}_{j})|=O(n)\)</span>. 좀 더 자세하게는 <span class="math inline">\(N(\mathbf{h}_{j})=n\cdot \phi_{j,n}\)</span>이고 <span class="math inline">\(\lim_{n \rightarrow \infty}\phi_{j,n}=\phi_{j} &lt; \infty\)</span>이다(그렇지 않으면 <span class="math inline">\(O(n)\)</span>의 order가 올라갈 것이다). 말로 설명하자면 데이터가 커질 때마다 밀도가 일정해야 하므로 region도 커져야 한다는 것이다.</p>
+<p>참고로 <span class="citation">(N. Cressie <a href="#ref-Cressie1985">1985</a>)</span>에서는 다음과 같이 적혀 있다. “<span class="math inline">\(|N(\mathbf{h}_{j})| \rightarrow \infty\)</span> for each <span class="math inline">\(j=1, \cdots, k\)</span> as <span class="math inline">\(N \rightarrow \infty\)</span> as <span class="math inline">\(|D| \rightarrow \infty\)</span> such that <span class="math inline">\(N/|D|\)</span>, the sampling rate per unit area is constant.” 그리고 data가 evenly spaced 되어야 이 방법이 잘 맞는다고 한다.</p>
+<ul>
+<li><span class="math inline">\(\text{Cov}(\hat{\gamma}(\mathbf{h}_{j}), \hat{\gamma}(\mathbf{h}_{k}))=O(\frac{1}{n})\)</span>. 여기서 <span class="math inline">\(\text{Cov}(\hat{\gamma}(\mathbf{h}_{j}), \hat{\gamma}(\mathbf{h}_{k})) \sim \frac{U_{jk}(\boldsymbol{\theta})}{n}\)</span>을 만족하는 <span class="math inline">\(m \times m\)</span> 행렬 <span class="math inline">\(U(\boldsymbol{\theta})\)</span>가 존재한다. Decay 속도가 충분히 빠른 variogram model들 (ex. exponential)이 이 조건을 만족한다고 한다.</li>
+</ul>
+<p>이 세 가지 조건을 만족할 경우 <span class="math display">\[\sqrt{n}(\hat{\boldsymbol{\gamma}}-\boldsymbol{\gamma}(\boldsymbol{\theta}))  \stackrel{\mathcal{D}}{\rightarrow} \mathcal{N}(\mathbf{0}, U(\boldsymbol{\theta}))\]</span> <span class="math inline">\(m\)</span>이 커지면 <span class="math inline">\((\hat{\boldsymbol{\gamma}}-\boldsymbol{\gamma}(\boldsymbol{\theta}))\)</span>의 dimension 또한 커져 복잡한 문제가 되므로 <span class="math inline">\(m\)</span>을 고정하는 것이다. <span class="math display">\[\sqrt{n}(\hat{\boldsymbol{\theta}}-\boldsymbol{\theta})  \stackrel{\mathcal{D}}{\rightarrow} \mathcal{N}(\mathbf{0}, H^{-1}R^{T}URH^{-1})\]</span> 여기서 <span class="math inline">\(R\)</span>은 <span class="math inline">\(m \times p\)</span> (p: number of parameter) 행렬인데 <span class="math display">\[R_{ij}=\frac{2\phi_{i}}{\gamma^{2}(\mathbf{h}_{i};\boldsymbol{\theta})}\cdot \frac{2\gamma}{2\boldsymbol{\theta}_{j}}(\mathbf{h}_{j};\boldsymbol{\theta})\]</span> 가 성립한다.</p>
+<p>한편 <span class="math inline">\(H\)</span>는 목적함수 <span class="math inline">\(S_{n}(\boldsymbol{\theta}*)\)</span>의 헤시안의 확률수렴 값이다. <span class="math display">\[H:\frac{\nabla^{2}S_{n}(\boldsymbol{\theta}*)}{n} \stackrel{P}{\rightarrow} H(\boldsymbol{\theta})\]</span> 이다.</p>
+<p>참고로 목적함수의 asymptotic은 보통 다음과 같이 한다. Consistency는 따로 보이고 이것을 만족하면 그 다음 테일러 전개로 <span class="math display">\[S_{n}&#39;(\boldsymbol{\theta})=S_{n}&#39;(\hat{\boldsymbol{\theta}})+S_{n}&#39;&#39;(\boldsymbol{\theta}*)(\hat{\boldsymbol{\theta}}-\boldsymbol{\theta})\]</span> 를 만든다 (mean value theorem에 의해 등호 성립). 이때 <span class="math inline">\(S_{n}&#39;(\hat{\boldsymbol{\theta}})\)</span>은 minimization 문제이므로 0이 된다. <span class="math inline">\(S_{n}&#39;&#39;(\boldsymbol{\theta}*)\)</span>는 <span class="math inline">\(H\)</span>에 해당된다. 따라서 <span class="math inline">\(S_{n}&#39;(\boldsymbol{\theta})\)</span>의 분포만 알아내면 되는 것이다. 이러한 방법을 “Sandwich method”라고 한다. 자세한 내용은 <a href="http://www.stat.ncsu.edu/people/fuentes/courses/st790m/">(Fuentes, 2007)</a> 강좌의 4장을 보면 된다.</p>
+</div>
+</div>
+<div id="r-r-variogramest" class="section level2">
+<h2><span class="header-section-number">12.3</span> R 예제(R-variogramest)</h2>
+<p>이제 실제 R 예제에 대해 살펴보자.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(s100)
+s100.v1 &lt;-<span class="st"> </span><span class="kw">variog</span>(s100, <span class="dt">option=</span><span class="st">&quot;cloud&quot;</span>)</code></pre></div>
+<pre><code>&gt; variog: computing omnidirectional variogram</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">s100.v2 &lt;-<span class="st"> </span><span class="kw">variog</span>(s100, <span class="dt">max.dist=</span><span class="dv">1</span>, <span class="dt">estimator.type=</span><span class="st">&quot;classical&quot;</span>)</code></pre></div>
+<pre><code>&gt; variog: computing omnidirectional variogram</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">s100.v3 &lt;-<span class="st"> </span><span class="kw">variog</span>(s100, <span class="dt">max.dist=</span><span class="dv">1</span>, <span class="dt">estimator.type=</span><span class="st">&quot;modulus&quot;</span>)</code></pre></div>
+<pre><code>&gt; variog: computing omnidirectional variogram</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))
+<span class="kw">plot</span>(s100$coords[,<span class="dv">1</span>], s100$coords[,<span class="dv">2</span>], <span class="dt">pch=</span><span class="st">&quot;x&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;&quot;</span>, <span class="dt">main=</span><span class="st">&quot;locations&quot;</span>)
+<span class="kw">plot</span>(s100.v1, <span class="dt">main=</span><span class="st">&quot;Variogram cloud&quot;</span>)
+<span class="kw">plot</span>(s100.v2, <span class="dt">main=</span><span class="st">&quot;MoM estimator&quot;</span>)
+<span class="kw">plot</span>(s100.v3, <span class="dt">main=</span><span class="st">&quot;Robust estimator&quot;</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-40"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-40-1.png" alt="Various variogram estimation methods." width="672" />
+<p class="caption">
+Figure 12.1: Various variogram estimation methods.
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">true &lt;-<span class="st"> </span><span class="dv">1</span>-<span class="kw">matern</span>(<span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.1</span>),<span class="fl">0.3</span>,<span class="fl">0.5</span>)
+ols &lt;-<span class="st"> </span><span class="kw">variofit</span>(s100.v2, <span class="dt">ini=</span><span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.2</span>), <span class="dt">cov.model=</span><span class="st">&quot;mat&quot;</span>, <span class="dt">fix.kappa=</span>F, <span class="dt">kap=</span><span class="fl">1.5</span>, <span class="dt">nug=</span><span class="fl">0.2</span>, <span class="dt">weights=</span><span class="st">&quot;equal&quot;</span>)</code></pre></div>
+<pre><code>&gt; variofit: covariance model used is matern 
+&gt; variofit: weights used: equal 
+&gt; variofit: minimisation function used: optim</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">wls &lt;-<span class="st"> </span><span class="kw">variofit</span>(s100.v2, <span class="dt">ini=</span><span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.2</span>), <span class="dt">cov.model=</span><span class="st">&quot;mat&quot;</span>, <span class="dt">fix.kappa=</span>F, <span class="dt">kap=</span><span class="fl">1.5</span>, <span class="dt">nug=</span><span class="fl">0.2</span>, <span class="dt">weights=</span><span class="st">&quot;cressie&quot;</span>)</code></pre></div>
+<pre><code>&gt; variofit: covariance model used is matern 
+&gt; variofit: weights used: cressie 
+&gt; variofit: minimisation function used: optim</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))
+<span class="kw">plot</span>(s100.v2, <span class="dt">main=</span><span class="st">&quot;&quot;</span>,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>)
+<span class="kw">lines</span>(<span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.1</span>), true, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
+<span class="kw">lines</span>(ols, <span class="dt">lwd=</span><span class="fl">1.5</span>)
+<span class="kw">lines</span>(wls, <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">lwd=</span><span class="fl">1.5</span>)
+<span class="kw">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;true&quot;</span>, <span class="st">&quot;ols&quot;</span>, <span class="st">&quot;wls&quot;</span>), <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;black&quot;</span>, <span class="st">&quot;black&quot;</span>), <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-41"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-41-1.png" alt="Comparison of variogram estimation methods." width="672" />
+<p class="caption">
+Figure 12.2: Comparison of variogram estimation methods.
+</p>
+</div>
 
 </div>
 </div>
@@ -294,6 +376,9 @@ E(X_{n})^{4}&amp;\circeq f(\nu) + f&#39;(\nu)E(X_{n}-\nu) +\frac{1}{2}f&#39;&#39
 </div>
 <div id="ref-Journel2003">
 <p>Journel, A. G., and Ch. J. Huijbregts. 2003. <em>Mining Geostatistics</em>. Blackburn Press.</p>
+</div>
+<div id="ref-Cressie1985">
+<p>Cressie, Noel. 1985. “Fitting Variogram Models by Weighted Least Squares.” <em>Journal of the International Association for Mathematical Geology</em> 17 (5): 563–86. doi:<a href="https://doi.org/10.1007/BF01032109">10.1007/BF01032109</a>.</p>
 </div>
 </div>
             </section>
