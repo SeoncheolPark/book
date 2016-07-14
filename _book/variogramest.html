@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-07-13">
+<meta name="date" content="2016-07-14">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -219,7 +219,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14.3" data-path="uGEVtheory.html"><a href="uGEVtheory.html#-return-level"><i class="fa fa-check"></i><b>14.3</b> 복귀 수준(return level)</a></li>
 <li class="chapter" data-level="14.4" data-path="uGEVtheory.html"><a href="uGEVtheory.html#--inference-in-extreme-value-statistics"><i class="fa fa-check"></i><b>14.4</b> 극단값 분포에서의 추론(inference in extreme value statistics)</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>15</b> References</a></li>
+<li class="chapter" data-level="15" data-path="spatextremes.html"><a href="spatextremes.html"><i class="fa fa-check"></i><b>15</b> 공간 극단값 이론과 최대안정과정</a><ul>
+<li class="chapter" data-level="15.1" data-path="spatextremes.html"><a href="spatextremes.html#max-stable-process"><i class="fa fa-check"></i><b>15.1</b> 최대안정과정(max-stable process)</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>16</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
 
@@ -329,7 +332,8 @@ s100.v1 &lt;-<span class="st"> </span><span class="kw">variog</span>(s100, <span
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">s100.v3 &lt;-<span class="st"> </span><span class="kw">variog</span>(s100, <span class="dt">max.dist=</span><span class="dv">1</span>, <span class="dt">estimator.type=</span><span class="st">&quot;modulus&quot;</span>)</code></pre></div>
 <pre><code>&gt; variog: computing omnidirectional variogram</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))
-<span class="kw">plot</span>(s100$coords[,<span class="dv">1</span>], s100$coords[,<span class="dv">2</span>], <span class="dt">pch=</span><span class="st">&quot;x&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;&quot;</span>, <span class="dt">main=</span><span class="st">&quot;locations&quot;</span>)
+<span class="kw">plot</span>(s100$coords[,<span class="dv">1</span>], s100$coords[,<span class="dv">2</span>],
+     <span class="dt">pch=</span><span class="st">&quot;x&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;&quot;</span>, <span class="dt">main=</span><span class="st">&quot;locations&quot;</span>)
 <span class="kw">plot</span>(s100.v1, <span class="dt">main=</span><span class="st">&quot;Variogram cloud&quot;</span>)
 <span class="kw">plot</span>(s100.v2, <span class="dt">main=</span><span class="st">&quot;MoM estimator&quot;</span>)
 <span class="kw">plot</span>(s100.v3, <span class="dt">main=</span><span class="st">&quot;Robust estimator&quot;</span>)</code></pre></div>
@@ -340,11 +344,13 @@ Figure 12.1: Various variogram estimation methods.
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">true &lt;-<span class="st"> </span><span class="dv">1</span>-<span class="kw">matern</span>(<span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.1</span>),<span class="fl">0.3</span>,<span class="fl">0.5</span>)
-ols &lt;-<span class="st"> </span><span class="kw">variofit</span>(s100.v2, <span class="dt">ini=</span><span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.2</span>), <span class="dt">cov.model=</span><span class="st">&quot;mat&quot;</span>, <span class="dt">fix.kappa=</span>F, <span class="dt">kap=</span><span class="fl">1.5</span>, <span class="dt">nug=</span><span class="fl">0.2</span>, <span class="dt">weights=</span><span class="st">&quot;equal&quot;</span>)</code></pre></div>
+ols &lt;-<span class="st"> </span><span class="kw">variofit</span>(s100.v2, <span class="dt">ini=</span><span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.2</span>), <span class="dt">cov.model=</span><span class="st">&quot;mat&quot;</span>,
+                <span class="dt">fix.kappa=</span>F, <span class="dt">kap=</span><span class="fl">1.5</span>, <span class="dt">nug=</span><span class="fl">0.2</span>, <span class="dt">weights=</span><span class="st">&quot;equal&quot;</span>)</code></pre></div>
 <pre><code>&gt; variofit: covariance model used is matern 
 &gt; variofit: weights used: equal 
 &gt; variofit: minimisation function used: optim</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">wls &lt;-<span class="st"> </span><span class="kw">variofit</span>(s100.v2, <span class="dt">ini=</span><span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.2</span>), <span class="dt">cov.model=</span><span class="st">&quot;mat&quot;</span>, <span class="dt">fix.kappa=</span>F, <span class="dt">kap=</span><span class="fl">1.5</span>, <span class="dt">nug=</span><span class="fl">0.2</span>, <span class="dt">weights=</span><span class="st">&quot;cressie&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">wls &lt;-<span class="st"> </span><span class="kw">variofit</span>(s100.v2, <span class="dt">ini=</span><span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.2</span>), <span class="dt">cov.model=</span><span class="st">&quot;mat&quot;</span>,
+                <span class="dt">fix.kappa=</span>F, <span class="dt">kap=</span><span class="fl">1.5</span>, <span class="dt">nug=</span><span class="fl">0.2</span>, <span class="dt">weights=</span><span class="st">&quot;cressie&quot;</span>)</code></pre></div>
 <pre><code>&gt; variofit: covariance model used is matern 
 &gt; variofit: weights used: cressie 
 &gt; variofit: minimisation function used: optim</code></pre>
@@ -353,7 +359,8 @@ ols &lt;-<span class="st"> </span><span class="kw">variofit</span>(s100.v2, <spa
 <span class="kw">lines</span>(<span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.1</span>), true, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
 <span class="kw">lines</span>(ols, <span class="dt">lwd=</span><span class="fl">1.5</span>)
 <span class="kw">lines</span>(wls, <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">lwd=</span><span class="fl">1.5</span>)
-<span class="kw">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;true&quot;</span>, <span class="st">&quot;ols&quot;</span>, <span class="st">&quot;wls&quot;</span>), <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;black&quot;</span>, <span class="st">&quot;black&quot;</span>), <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</code></pre></div>
+<span class="kw">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;true&quot;</span>, <span class="st">&quot;ols&quot;</span>, <span class="st">&quot;wls&quot;</span>),
+       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;black&quot;</span>, <span class="st">&quot;black&quot;</span>), <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-41"></span>
 <img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-41-1.png" alt="Comparison of variogram estimation methods." width="672" />
 <p class="caption">
