@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-07-14">
+<meta name="date" content="2016-07-15">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -248,7 +248,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>이 절은 <strong>최대안정과정(max-stable process)</strong> 및 이것의 <strong>공간 극단값(spatial extremes)</strong>이론으로의 응용에 초점을 맞춰 서술한다. 이 절의 서술 내용은 <span class="citation">(Coles <a href="#ref-Coles2001">2001</a>)</span>과 <span class="citation">(Dey and Yan <a href="#ref-Dey2015">2015</a>)</span>를 참고하였다.</p>
 <div id="max-stable-process" class="section level2">
 <h2><span class="header-section-number">15.1</span> 최대안정과정(max-stable process)</h2>
-<p>앞서 나왔던 <strong>최대안정(max-stable)</strong>의 정의를 다시 살펴보자. 이번엔 <span class="citation">(Dey and Yan <a href="#ref-Dey2015">2015</a>)</span> 버전이다.</p>
+<p>최대안정과정은 GEV 분포와 같은 극단값 분포를 공간 상황에서 설명할 수 있게끔 하는 역할을 한다. 앞서 나왔던 <strong>최대안정(max-stable)</strong>의 정의를 다시 살펴보자. 이번엔 <span class="citation">(Dey and Yan <a href="#ref-Dey2015">2015</a>)</span> 버전이다.</p>
 <div class="definition">
 <span class="math inline">\(Z_{1}, Z_{2},\ldots\)</span>를 확률과정 <span class="math inline">\(\{Z(x):x\in\mathcal{X} \}\)</span>의 독립인 copy들의 수열이라고 하자. 만약 각각의 <span class="math inline">\(n, (n\geq 1)\)</span>에 대해 다음과 같은 <span class="math inline">\(a_{n}&gt;0\)</span>, <span class="math inline">\(b_{n}\in\mathbb{R}\)</span>이 존재해 다음
 \begin{equation}
@@ -274,8 +274,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>일 경우 과정(process) <span class="math inline">\(\{Z(x)\}\)</span>를 <strong>최대안정과정(max-stable process)</strong>이라고 부른다.</p>
 </div>
 <p>이 때 놀랍게도 최대안정과정에서 <strong>spectral characterization</strong> (뜻 찾아보기)를 얻는 것이 가능하다고 한다.</p>
-<div class="definition">
-(<span class="citation">(De Haan <a href="#ref-DeHaan1984">1984</a>)</span>의 characterization) <span class="math inline">\(\{ (\xi_{i}, U_{i})\}_{i \geq 1}\)</span>을 <span class="math inline">\((0,\infty ] \times \mathbb{R}^{d}\)</span>에서 (intensity <span class="math inline">\(d\Gamma (\xi, u)=\xi^{-2}d\xi\nu(du), \nu\)</span>는 <span class="math inline">\(\mathbb{R}^{d}\)</span>에서 <span class="math inline">\(\sigma\)</span>-finite measure)의 <strong>Poisson point process</strong>의 점들이라고 하자. 그리고 <span class="math inline">\(\{Z(x) \}_{x\in\mathbb{R}^{d}}\)</span>는 unit Fréchet margin을 가지는 최대안정과정이라고 가정하고 continuous sample path에서
+<div class="theorem">
+(<span class="citation">(De Haan <a href="#ref-DeHaan1984">1984</a>)</span>의 characterization) <span class="math inline">\(\{ (\xi_{i}, U_{i})\}_{i \geq 1}\)</span>을 <span class="math inline">\((0,\infty ] \times \mathbb{R}^{d}\)</span>에서 (intensity <span class="math inline">\(d\Lambda (\xi, u)=\xi^{-2}d\xi\nu(du), \nu\)</span>는 <span class="math inline">\(\mathbb{R}^{d}\)</span>에서 <span class="math inline">\(\sigma\)</span>-finite measure)의 <strong>Poisson point process</strong>의 점들이라고 하자. 그리고 <span class="math inline">\(\{Z(x) \}_{x\in\mathbb{R}^{d}}\)</span>는 unit Fréchet margin을 가지는 최대안정과정이라고 가정하고 continuous sample path에서
 \begin{equation}
 \{Z(x)\}_{x\in\mathbb{R}^{d}}\stackrel{d}{=}\{\max_{i\geq 1}\xi_{i}f_{x}(U_{i})\}_{x\in\mathbb{R}^{d}}
 \end{equation}
@@ -285,6 +285,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 \end{equation}
 <p>를 만족한다.</p>
 </div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-44"></span>
+<img src="images/spatextremes_002.png" alt="de Haans characterization." width="166" />
+<p class="caption">
+Figure 15.1: de Haans characterization.
+</p>
+</div>
+<p>이 그림은 de Haan’s characterization을 묘사한 것인데 <span class="math inline">\(\{\xi_{i}\}_{i\geq 1}\)</span>이 storm ferocities (아마도 발생 유무를 표시하는 Poisson point process인 듯 하다), <span class="math inline">\(\{\xi_{i}\}_{i\geq 1}\)</span>는 storm centers, 그리고 <span class="math inline">\(\xi_{i}f_{x}(U_{i})\)</span>은 <span class="math inline">\(i\)</span>번째 storm의 <span class="math inline">\(x\)</span>지점에서 강수량을 나타낸다고 볼 수 있다. 각각의 함수가 storm event를 묘사한 것일 때, 최대값들을 이은 검은 곡선이 최대안정과정이 되는 것이다.</p>
+<div class="theorem">
+<p>(<span class="citation">(Schlather <a href="#ref-Schlather2002">2002</a>)</span>의 characterization) <span class="math inline">\(\{ (\xi_{i}, U_{i})\}_{i \geq 1}\)</span>이 <span class="math inline">\((0,\infty ]\)</span>에서 intensity <span class="math inline">\(d \Lambda (\xi)=\xi^{-2}d\xi\)</span>를 갖는 <strong>Poisson point process</strong>의 점들이고 <span class="math inline">\(Y_{1},Y_{2},\ldots\)</span>를 <span class="math inline">\(E[Y(x)]=1, \forall x \in \mathbb{R}^{d}\)</span> 이고 non-negative continous sample path stochastic process <span class="math inline">\(\{ Y(x)\}\)</span>의 independent copy들이라고 하자. 이때 <span class="math inline">\(Y_{i}\)</span>들은 <span class="math inline">\(\{ \xi_{i}\}_{i \geq 1}\)</span>와 독립이다. 그러면 <span class="math display">\[ \{ Z(x)\}_{x\in\mathbb{R}^{d}}:=\{\max_{i\geq 1} \xi_{i}Y_{i}(x) \}_{x\in \mathbb{R}^{d}}\]</span> 는 unit Fréchet margin을 가지는 최대안정과정이다.</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-45"></span>
+<img src="images/spatextremes_004.png" alt="Schlathers characterization" width="164" />
+<p class="caption">
+Figure 15.2: Schlathers characterization
+</p>
+</div>
+<p>이 그림은 Schlather’s characterization을 묘사하고 있는데 앞서 de Haan’s characterization과는 달리 storm center <span class="math inline">\(U_{i}\)</span>가 존재하지 않는다. 그렇지만 이 방법은 <span class="math inline">\(f_{x}\)</span>라는 함수가 stochastic process로 대채되었으므로 좀 더 다양한 형태의 storm을 모델링 할 수 있다.</p>
 
 </div>
 </div>
@@ -298,6 +315,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="ref-DeHaan1984">
 <p>De Haan, L. 1984. “A Spectral Representation for Max-Stable Processes.” <em>The Annals of Probability</em> 12 (4): 1194–1204. doi:<a href="https://doi.org/10.1214/aop/1176993148">10.1214/aop/1176993148</a>.</p>
+</div>
+<div id="ref-Schlather2002">
+<p>Schlather, Martin. 2002. “Models for Stationary Max-Stable Random Fields.” <em>Extremes</em> 5 (1): 33–44. doi:<a href="https://doi.org/10.1023/A:1020977924878">10.1023/A:1020977924878</a>.</p>
 </div>
 </div>
             </section>
