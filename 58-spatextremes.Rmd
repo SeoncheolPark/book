@@ -1,6 +1,10 @@
 # 공간 극단값 이론과 최대안정과정 {#spatextremes}
 
-이 절은 **최대안정과정(max-stable process)** 및 이것의 **공간 극단값(spatial extremes)**이론으로의 응용에 초점을 맞춰 서술한다. 이 절의 서술 내용은 [@Coles2001]과 [@Dey2015]를 참고하였다.
+이 절은 **최대안정과정(max-stable process)** 및 이것의 **공간 극단값(spatial extremes)**이론으로의 응용에 초점을 맞춰 서술한다. 이 절의 서술 내용은 [@Coles2001]과 [@Dey2015]를 참고하였다. 그림은 R 패키지 `SpatialExtremes`를 이용하였다.
+
+```{r, message=F, echo=F}
+library(SpatialExtremes)
+```
 
 ## 최대안정과정(max-stable process)
 
@@ -79,3 +83,67 @@ knitr::include_graphics("images/spatextremes_004.png")
 ```
 
 이 그림은 Schlather's characterization을 묘사하고 있는데 앞서 de Haan's characterization과는 달리 storm center $U_{i}$가 존재하지 않는다. 그렇지만 이 방법은 $f_{x}$라는 함수가 stochastic process로 대채되었으므로 좀 더 다양한 형태의 storm을 모델링 할 수 있다.
+
+### Smith 모형(Smith model)
+
+첫 번째 제안된 공간 극단값 모형은 [@Smith1990]의 모형이다. 이를 **Smith 과정(Smith process)**이라고 부르기도 한다. [@Schlather2002]에서는 **가우스 극단값 과정(Gaussian extreme value process)**로 언급되었다. 이 모형은
+\begin{equation}
+Z(x)=\max_{i\geq 1}\xi_{i}\phi(x-U_{i};\mathbf{0},\Sigma), x\in\mathcal{X},
+\end{equation}
+
+이때 $\phi(\cdot, \mathbf{0},\Sigma)$는 평균이 0이고 공분산이 $\Sigma$인 **다변량 정규 확률밀도함수(multivariate Normal density)**이다.
+
+```{r, fig.align='center', echo=FALSE, warning=FALSE, message=FALSE, results='hide', fig.cap = 'Smith model.'}
+## 1. Smith's model
+set.seed(8)
+x <- y <- seq(0, 10, length = 100)
+coord <- cbind(x, y)
+data <- rmaxstab(1, coord, "gauss", cov11 = 9/8, cov12 = 0, cov22 = 9/8,
+                 grid = TRUE)
+##We change to unit Gumbel margins for visibility
+filled.contour(x, y, log(data), color.palette = terrain.colors)
+```
+
+이 모형은 역사적으로는 중요하나 다변량 정규분포의 모양이 너무 제한적, 즉 모형의 유연성(felxibility)이 떨어져 잘 쓰이지는 않는다.
+
+### Schlather 모형(Schlather model)
+
+Smith 모형이 제안되고 10여년 후, [@Schlather2002]는 **Schlather 과정(Schlather process)**이라는 것을 제안했다. 이 모형은 **극단 가우스  과정(extremal Gaussian process)**으로 불리기도 한다. 이 모형은
+
+\begin{equation}
+Z(x)=\sqrt{2\pi}\max_{i\geq 1}\zeta_{i}\max\{0,W_{i}(x)\}
+\end{equation}
+
+로 이때 $\{W_{i}(x): x\in\mathcal{X}\}$는 상관함수(correlation function) $\rho$를 갖는 **정상 가우스과정(staionary Gaussian process)**의 독립된 copy들이다. 또한 척도요인(scaling factor) $\sqrt{2\pi}$는 모든 $x\in\mathcal{X}$에 대해 $\sqrt{2\pi}E[\max\{ 0,W(x)\}]=1$를 만족해야 한다.
+
+```{r, fig.align='center', echo=FALSE, warning=FALSE, message=FALSE, results='hide', fig.cap = 'Schlather model.'}
+## 2. Schlather's model
+data <- rmaxstab(1, coord, cov.mod = "powexp", nugget = 0, range = 3,
+                 smooth = 1, grid = TRUE)
+filled.contour(x, y, log(data), color.palette = terrain.colors)
+```
+
+이 모형은 후술할 모형들에 비해 큰 값이 나오는 지역이 더 많은데 그 이유는 **공간 독립(spatial independence)**이 요구되지 않는 모형이기 때문이라고 한다.
+
+### Brown-Resnick 모형(Brown-Resnick model)
+
+이 모형은 [@Brown1977]이 처음 제안하였고 [@Kabluchko2009]가 일반화하였다. **Brown-Resnick 과정(Brown-Resnick process)**는
+
+\begin{equation}
+Z(x)=\max_{i\geq 1}\xi_{i}\exp\{W_{i}(x)-\gamma(x)\},x\in\mathcal{X}\label{eq:Brown-Resnick}
+\end{equation}
+
+으로 정의된다. 이때 $\{W_{i}(x): x\in\mathcal{X}\}$는 평균이 0이며 정상증분(stationary increments)을 갖고 준변동도(semi-variogram)이 $\gamma(h)=\text{Var}\{W(x+h)-W(x)\}/2$인 가우스 과정(Gaussian process)의 독립된 cpoy들이다. 한편 Smith 모형은 (\@ref(eq:Brown-Resnick))의 특별한 케이스로,
+$$W(x)=x^{T}\Sigma^{-1}X, X\sim\mathcal{N}(0,\Sigma)$$
+이며 $2\gamma(x)=x^{T}\Sigma^{-1}\text{Var}(X)\Sigma^{-1}x=x^{T}\Sigma^{-1}x$인 경우라고 볼 수 있다.
+
+### 극단-t 모형(extremal-t model)
+
+**극단-t 과정(extremal-t process)**는 이것의 **스펠트럴 특성화(spectral representation)**이 최종적으로 [@Opitz2013]에 의해 유도되었다.
+
+\begin{equation}
+Z(x)=c_{\nu}\max_{i \geq 1}\zeta_{i}\max\{0,W_{i}(x)\}^{\nu}, x\in\mathcal{X}
+\end{equation}
+이며 $\nu \geq 1$, $\{W_{i}(x):x\in\mathcal{X}\}$는 상관함수가 $\rho$이며
+$$c\nu =\sqrt{\pi}2^{-(\nu-2)/2}\Gamma(\frac{\nu+1}{2})^{-1}$$
+인 정상 가우스 과정의 독립된 copy들이다.
