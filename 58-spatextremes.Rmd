@@ -147,3 +147,30 @@ Z(x)=c_{\nu}\max_{i \geq 1}\zeta_{i}\max\{0,W_{i}(x)\}^{\nu}, x\in\mathcal{X}
 이며 $\nu \geq 1$, $\{W_{i}(x):x\in\mathcal{X}\}$는 상관함수가 $\rho$이며
 $$c\nu =\sqrt{\pi}2^{-(\nu-2)/2}\Gamma(\frac{\nu+1}{2})^{-1}$$
 인 정상 가우스 과정의 독립된 copy들이다.
+
+## 극단값의 공간 종속성(spatial dependence of extremes)
+
+공간통계학에서 쓰이는 변동도(variogram)을 다시 정의해보면
+
+\begin{equation}
+\frac{1}{2}E[\{Z(x_{1})-Z(x_{2}) \}^{2}], x_{1}, x_{2} \in \mathcal{X}
+\end{equation}
+
+이다. 그러나 공간 극단값 이론에서는 분산 또는 평균조차도 존재하지 않을 수 있다. 다행히도 [@Cooley2006]이 **F-매도그램(F-madogram)**이라는 적절한 툴을 제공하였다. 이것의 정의는 다음과 같다.
+
+\begin{equation}
+\nu_{F}(h)=\frac{1}{2}E[|F\{Z(x+h)\}-F\{Z(x)\}], x,h\in \mathcal{X}.
+\end{equation}
+
+여기서 $F$는 $Z(x), x\in\mathcal{X}$의 cdf를 의미한다. (준)변동도와는 달리, F-매도그램은 $F\{Z(x)\} \sim U(0,1)$이므로 잘 정의가 되며 기댓값은 $1/2$을 갖는다. 또한 F-매도그램은 **극단계수함수(extremal coefficient function)**와 강한 연관성을 갖기 때문에 공간 극단값 분석시 유용하다. 극단계수함수는
+\begin{equation}
+\theta : h \rightarrow E[\max \{ Y(x),Y(x+h) \}]
+\end{equation}
+\begin{eqnarray}
+P\{Z(x+h)\leq z | Z(x)\leq z\}&=&P\{Z(x+h)\leq z\}^{\theta(h)-1}\nonumber\\
+&=&
+\begin{cases}
+1 & \text{perfect dependence}\\
+P\{Z(x+h)\leq z\} & \text{independence}
+\end{cases}
+\end{eqnarray}

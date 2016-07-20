@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-07-18">
+<meta name="date" content="2016-07-20">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -226,6 +226,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="15.1.3" data-path="spatextremes.html"><a href="spatextremes.html#brown-resnick-brown-resnick-model"><i class="fa fa-check"></i><b>15.1.3</b> Brown-Resnick 모형(Brown-Resnick model)</a></li>
 <li class="chapter" data-level="15.1.4" data-path="spatextremes.html"><a href="spatextremes.html#-t-extremal-t-model"><i class="fa fa-check"></i><b>15.1.4</b> 극단-t 모형(extremal-t model)</a></li>
 </ul></li>
+<li class="chapter" data-level="15.2" data-path="spatextremes.html"><a href="spatextremes.html#--spatial-dependence-of-extremes"><i class="fa fa-check"></i><b>15.2</b> 극단값의 공간 종속성(spatial dependence of extremes)</a></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>16</b> References</a></li>
 <li class="divider"></li>
@@ -352,8 +353,30 @@ Z(x)=\max_{i\geq 1}\xi_{i}\exp\{W_{i}(x)-\gamma(x)\},x\in\mathcal{X}\label{eq:Br
 Z(x)=c_{\nu}\max_{i \geq 1}\zeta_{i}\max\{0,W_{i}(x)\}^{\nu}, x\in\mathcal{X}
 \end{equation}
 <p>이며 <span class="math inline">\(\nu \geq 1\)</span>, <span class="math inline">\(\{W_{i}(x):x\in\mathcal{X}\}\)</span>는 상관함수가 <span class="math inline">\(\rho\)</span>이며 <span class="math display">\[c\nu =\sqrt{\pi}2^{-(\nu-2)/2}\Gamma(\frac{\nu+1}{2})^{-1}\]</span> 인 정상 가우스 과정의 독립된 copy들이다.</p>
-
 </div>
+</div>
+<div id="--spatial-dependence-of-extremes" class="section level2">
+<h2><span class="header-section-number">15.2</span> 극단값의 공간 종속성(spatial dependence of extremes)</h2>
+<p>공간통계학에서 쓰이는 변동도(variogram)을 다시 정의해보면</p>
+\begin{equation}
+\frac{1}{2}E[\{Z(x_{1})-Z(x_{2}) \}^{2}], x_{1}, x_{2} \in \mathcal{X}
+\end{equation}
+<p>이다. 그러나 공간 극단값 이론에서는 분산 또는 평균조차도 존재하지 않을 수 있다. 다행히도 <span class="citation">(Cooley, Naveau, and Poncet <a href="#ref-Cooley2006">2006</a>)</span>이 <strong>F-매도그램(F-madogram)</strong>이라는 적절한 툴을 제공하였다. 이것의 정의는 다음과 같다.</p>
+\begin{equation}
+\nu_{F}(h)=\frac{1}{2}E[|F\{Z(x+h)\}-F\{Z(x)\}], x,h\in \mathcal{X}.
+\end{equation}
+여기서 <span class="math inline">\(F\)</span>는 <span class="math inline">\(Z(x), x\in\mathcal{X}\)</span>의 cdf를 의미한다. (준)변동도와는 달리, F-매도그램은 <span class="math inline">\(F\{Z(x)\} \sim U(0,1)\)</span>이므로 잘 정의가 되며 기댓값은 <span class="math inline">\(1/2\)</span>을 갖는다. 또한 F-매도그램은 <strong>극단계수함수(extremal coefficient function)</strong>와 강한 연관성을 갖기 때문에 공간 극단값 분석시 유용하다. 극단계수함수는
+\begin{equation}
+\theta : h \rightarrow E[\max \{ Y(x),Y(x+h) \}]
+\end{equation}\begin{eqnarray}
+P\{Z(x+h)\leq z | Z(x)\leq z\}&amp;=&amp;P\{Z(x+h)\leq z\}^{\theta(h)-1}\nonumber\\
+&amp;=&amp;
+\begin{cases}
+1 &amp; \text{perfect dependence}\\
+P\{Z(x+h)\leq z\} &amp; \text{independence}
+\end{cases}
+\end{eqnarray}
+
 </div>
 </div>
 <h3> References</h3>
@@ -381,6 +404,9 @@ Z(x)=c_{\nu}\max_{i \geq 1}\zeta_{i}\max\{0,W_{i}(x)\}^{\nu}, x\in\mathcal{X}
 </div>
 <div id="ref-Opitz2013">
 <p>Opitz, T. 2013. “Extremal T Processes: Elliptical Domain of Attraction and a Spectral Representation.” <em>Journal of Multivariate Analysis</em> 122: 409–13. doi:<a href="https://doi.org/10.1016/j.jmva.2013.08.008">10.1016/j.jmva.2013.08.008</a>.</p>
+</div>
+<div id="ref-Cooley2006">
+<p>Cooley, Dan, Philippe Naveau, and Paul Poncet. 2006. “Dependence in Probability and Statistics.” In, edited by Patrice Bertail, Paul Doukhan, and Philippe Soulie, 187:373–90. Lecture Notes in Statistics. Springer Science; Business Media.</p>
 </div>
 </div>
             </section>
