@@ -8,7 +8,7 @@
   <title>통계공부와 관련된 글들</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
-  <meta name="generator" content="bookdown 0.0.73 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.74 and GitBook 2.6.7">
 
   <meta property="og:title" content="통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-07-20">
+<meta name="date" content="2016-07-23">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -256,7 +256,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><p>Empirical model (nonparametric)</p></li>
 <li><p>Parametric fit</p></li>
 </ul>
-<p>그리고 <span class="citation">(Gelfand et al. <a href="#ref-Gelfand2010">2010</a>)</span>의 33쪽부터, <span class="citation">(N. A. C. Cressie <a href="#ref-Cressie1993">1993</a>)</span>의 69쪽부터 참고했다.</p>
+<p>그리고 <span class="citation">(Gelfand et al. 2010)</span>의 33쪽부터, <span class="citation">(N. A. C. Cressie 1993)</span>의 69쪽부터 참고했다.</p>
 <div id="empirical-variogram" class="section level2">
 <h2><span class="header-section-number">12.1</span> 경험변동도(empirical variogram)</h2>
 <p>이것은 변동도를 비모수 추정하는 것이다. 다시 한 번 변동도의 정의를 살펴보면 <span class="math display">\[2\gamma(\mathbf{h})=\text{Var}(Z(\mathbf{s}+\mathbf{h})-Z(\mathbf{s}))\]</span> 으로 lag <span class="math inline">\(\mathbf(h)\)</span>에만 의존하는 함수이다. 그런데 내재정상성(instinsic stationary)에서는 평균이 0이므로 <span class="math display">\[2\gamma(\mathbf{h})=E[Z(\mathbf{s}+\mathbf{h})-Z(\mathbf{s}))^{2}]\]</span> 이 된다.</p>
@@ -265,7 +265,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>적률 추정(Metohd of moment (MoM) estimation (Matheron, 1962))</li>
 </ol>
 <p><span class="math inline">\(E(Z(\mathbf{s}))=\mu\)</span>라는 상수 평균(constant mean) 가정하에 적률추정량(MoM estimator)은 <span class="math display">\[2\hat{\gamma}(\mathbf{h})=\frac{1}{|N(\mathbf{h})|}\sum_{(s_{i},s_{j})\in N(\mathbf{h})}(Z(\mathbf{s}_{i})-Z(\mathbf{s}_{j}))^{2}, \mathbf{h}\in \mathbb{R}^{d}\]</span> 이다. 여기서 <span class="math inline">\(N(\mathbf{h})\)</span>는 거리가 <span class="math inline">\(\mathbf{h}\)</span>가 되는 <span class="math inline">\((\mathbf{s}_{i},\mathbf{s}_{j})\)</span>들의 집합이다. 즉 <span class="math display">\[N(\mathbf{h})=\{ (\mathbf{s}_{i},\mathbf{s}_{j}), \mathbf{s}_{i}-\mathbf{s}_{j}=\mathbf{h} \}\]</span> 이다. <span class="math inline">\(N(\mathbf{h}) \neq N(\mathbf{-h})\)</span>임에 주의하자. 이 추정량의 문제는 <strong>정규 격자(regular grid)</strong> 자료에만 잘 적용된다는 점이다. Irregular한 자료에서는 <span class="math inline">\(\mathbf{h}\)</span>에 대응되는 <span class="math inline">\(N(\mathbf{h})\)</span>가 공집합(empty set)일 수도 있다. 그런 상황을 해결하기 위해 <span class="math inline">\(\mathbf{h}\)</span>의 적당한 근방(neighborhood) <span class="math inline">\(T(\mathbf{h})\)</span>을 생각하여 <span class="math inline">\(N(\mathbf{h})\)</span>를 정의하기도 한다. <span class="math display">\[N(\mathbf{h})=\{ (\mathbf{s}_{i},\mathbf{s}_{j}), \mathbf{s}_{i}-\mathbf{s}_{j}=T(\mathbf{h}) \} .\]</span></p>
-<p>그렇다면 이 근방의 size는 어떻게 정해야 할 것인가라는 질문이 생길 수도 있다. 이것은 <strong>띠너비 선택(bandwidth selection)</strong> 문제와 유사하다. Practically하게 <span class="citation">(Journel and Huijbregts <a href="#ref-Journel2003">2003</a>)</span>는 <span class="math inline">\(| \cup \{N(\mathbf{h}): \mathbf{h} \in T(\mathbf{h}) \} |\)</span>에 들어가는 distinct pair들이 적어도 30개 이상이 되도록 잡는 것이 좋다고 하였다.</p>
+<p>그렇다면 이 근방의 size는 어떻게 정해야 할 것인가라는 질문이 생길 수도 있다. 이것은 <strong>띠너비 선택(bandwidth selection)</strong> 문제와 유사하다. Practically하게 <span class="citation">(Journel and Huijbregts 2003)</span>는 <span class="math inline">\(| \cup \{N(\mathbf{h}): \mathbf{h} \in T(\mathbf{h}) \} |\)</span>에 들어가는 distinct pair들이 적어도 30개 이상이 되도록 잡는 것이 좋다고 하였다.</p>
 <p>그러나 이 경우도 역시 데이터의 사이즈가 적을 경우 문제가 된다. 또한 <span class="math inline">\(\mathbf{h}\)</span>의 방향도 고려할 경우 자료가 더 부족해지고, <span class="math inline">\(\mathbf{h}\)</span>에 따라 pair 갯수 또한 차이가 난다. 그리고 자료로 인해 관측할 수 있는 <span class="math inline">\(\mathbf{h}\)</span>의 minimum과 maximum length가 존재한다. 역시 practically하게 <span class="math inline">\(\mathbf{h}\)</span>는 observation location들의 maximum length의 절반 정도를 고르도록 권장하고 있다.</p>
 <p>마지막으로 이 추정량의 성질에 대해 알아보자. 우선 unbiased하다(특히 grid 자료인 경우). 그러나 outlier에 로버스트하지는 않다. <span class="math inline">\(Z(\mathbf{s})\)</span>가 Gaussian distribution이면 <span class="math display">\[(Z(\mathbf{s}_{i})-Z(\mathbf{s}_{j}))^{2} \sim 2 \gamma(\mathbf{h})\chi_{1}^{2}\]</span> 이다. 그런데 카이제곱 분포는 매우 skewed된 분포인데 이 분포를 sample mean을 이용해 추정했으므로 finite sample 이용시 variation이 클 수 있다.</p>
 <ol start="2" style="list-style-type: decimal">
@@ -313,12 +313,12 @@ E(X_{n})^{4}&amp;\circeq f(\nu) + f&#39;(\nu)E(X_{n}-\nu) +\frac{1}{2}f&#39;&#39
 </div>
 <div id="-wls-approximated-wls" class="section level3">
 <h3><span class="header-section-number">12.2.4</span> 근사 WLS (approximated WLS)</h3>
-<p><span class="citation">(N. Cressie <a href="#ref-Cressie1985">1985</a>)</span>는 WLS의 계산의 어려움을 피하기 위해 다음과 같은 근사 WLS 방법을 쓰기도 한다. <span class="math display">\[\hat{\boldsymbol{\theta}}=\text{argmin}_{\boldsymbol{\theta}}\sum_{j}\frac{|N(\mathbf{h}_{j})}{\gamma^{2}(\mathbf{h}_{j};\boldsymbol{\theta})}\{ \hat{\gamma}(\mathbf{h}_{j})-\gamma(\mathbf{h}_{j};\boldsymbol{\theta}) \}^{2}\]</span> 이 근사가 가능한 이유는 <span class="math inline">\(\text{Var}(\hat{\gamma(\mathbf{h}_{j})}) \cong \frac{8 \gamma^{2}(\mathbf{h}_{j}l\boldsymbol{\theta})}{|N(\mathbf{h}_{j})|}\)</span>이기 때문이다(8은 상수라 무시해도 수렴함). 그러나 여전히 두 군데에 <span class="math inline">\(\boldsymbol{\theta}\)</span>가 있어 two-stage iteration을 해야 한다.</p>
+<p><span class="citation">(N. Cressie 1985)</span>는 WLS의 계산의 어려움을 피하기 위해 다음과 같은 근사 WLS 방법을 쓰기도 한다. <span class="math display">\[\hat{\boldsymbol{\theta}}=\text{argmin}_{\boldsymbol{\theta}}\sum_{j}\frac{|N(\mathbf{h}_{j})}{\gamma^{2}(\mathbf{h}_{j};\boldsymbol{\theta})}\{ \hat{\gamma}(\mathbf{h}_{j})-\gamma(\mathbf{h}_{j};\boldsymbol{\theta}) \}^{2}\]</span> 이 근사가 가능한 이유는 <span class="math inline">\(\text{Var}(\hat{\gamma(\mathbf{h}_{j})}) \cong \frac{8 \gamma^{2}(\mathbf{h}_{j}l\boldsymbol{\theta})}{|N(\mathbf{h}_{j})|}\)</span>이기 때문이다(8은 상수라 무시해도 수렴함). 그러나 여전히 두 군데에 <span class="math inline">\(\boldsymbol{\theta}\)</span>가 있어 two-stage iteration을 해야 한다.</p>
 <p>이렇게 계산한 AWLS 추정량이 (어떤 조건 하에) asymptotic normal이 됨을 보일 수 있다고 한다. 그런데 이런 경우에도 <span class="math inline">\(\hat{\gamma}(\mathbf{h}_{j}) \stackrel{n \rightarrow}{\rightarrow} \gamma(\mathbf{h};\boldsymbol{\theta})\)</span>를 따로 보여야 한다고 한다.</p>
 <p>몇 가지 기본 가정들은 다음과 같다.</p>
 <p>-<span class="math inline">\(\mathbf{\gamma}(\mathbf{h}_{1}), \cdots , \mathbf{\gamma}(\mathbf{h}_{m})\)</span> 이 <span class="math inline">\(\mathbf{h}_{1}, \cdots , \mathbf{h}_{m}\)</span>에서 계산되어있다. 여기서 <span class="math inline">\(m\)</span>은 고정되어 있다고 가정한다.</p>
 <p>-<span class="math inline">\(|N(\mathbf{h}_{j})|=O(n)\)</span>. 좀 더 자세하게는 <span class="math inline">\(N(\mathbf{h}_{j})=n\cdot \phi_{j,n}\)</span>이고 <span class="math inline">\(\lim_{n \rightarrow \infty}\phi_{j,n}=\phi_{j} &lt; \infty\)</span>이다(그렇지 않으면 <span class="math inline">\(O(n)\)</span>의 order가 올라갈 것이다). 말로 설명하자면 데이터가 커질 때마다 밀도가 일정해야 하므로 region도 커져야 한다는 것이다.</p>
-<p>참고로 <span class="citation">(N. Cressie <a href="#ref-Cressie1985">1985</a>)</span>에서는 다음과 같이 적혀 있다. “<span class="math inline">\(|N(\mathbf{h}_{j})| \rightarrow \infty\)</span> for each <span class="math inline">\(j=1, \cdots, k\)</span> as <span class="math inline">\(N \rightarrow \infty\)</span> as <span class="math inline">\(|D| \rightarrow \infty\)</span> such that <span class="math inline">\(N/|D|\)</span>, the sampling rate per unit area is constant.” 그리고 data가 evenly spaced 되어야 이 방법이 잘 맞는다고 한다.</p>
+<p>참고로 <span class="citation">(N. Cressie 1985)</span>에서는 다음과 같이 적혀 있다. “<span class="math inline">\(|N(\mathbf{h}_{j})| \rightarrow \infty\)</span> for each <span class="math inline">\(j=1, \cdots, k\)</span> as <span class="math inline">\(N \rightarrow \infty\)</span> as <span class="math inline">\(|D| \rightarrow \infty\)</span> such that <span class="math inline">\(N/|D|\)</span>, the sampling rate per unit area is constant.” 그리고 data가 evenly spaced 되어야 이 방법이 잘 맞는다고 한다.</p>
 <ul>
 <li><span class="math inline">\(\text{Cov}(\hat{\gamma}(\mathbf{h}_{j}), \hat{\gamma}(\mathbf{h}_{k}))=O(\frac{1}{n})\)</span>. 여기서 <span class="math inline">\(\text{Cov}(\hat{\gamma}(\mathbf{h}_{j}), \hat{\gamma}(\mathbf{h}_{k})) \sim \frac{U_{jk}(\boldsymbol{\theta})}{n}\)</span>을 만족하는 <span class="math inline">\(m \times m\)</span> 행렬 <span class="math inline">\(U(\boldsymbol{\theta})\)</span>가 존재한다. Decay 속도가 충분히 빠른 variogram model들 (ex. exponential)이 이 조건을 만족한다고 한다.</li>
 </ul>
@@ -379,21 +379,6 @@ Figure 12.2: Comparison of variogram estimation methods.
 
 
 
-<h3> References</h3>
-<div id="refs" class="references">
-<div id="ref-Gelfand2010">
-<p>Gelfand, Alan E., Peter Diggle, Peter Guttorp, and Montserrat Fuentes. 2010. <em>Handbook of Spatial Statistics</em>. CRC Press.</p>
-</div>
-<div id="ref-Cressie1993">
-<p>Cressie, Noel A. C. 1993. <em>Statistics for Spatial Data</em>. J. Wiley.</p>
-</div>
-<div id="ref-Journel2003">
-<p>Journel, A. G., and Ch. J. Huijbregts. 2003. <em>Mining Geostatistics</em>. Blackburn Press.</p>
-</div>
-<div id="ref-Cressie1985">
-<p>Cressie, Noel. 1985. “Fitting Variogram Models by Weighted Least Squares.” <em>Journal of the International Association for Mathematical Geology</em> 17 (5): 563–86. doi:<a href="https://doi.org/10.1007/BF01032109">10.1007/BF01032109</a>.</p>
-</div>
-</div>
             </section>
 
           </div>

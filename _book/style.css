@@ -45,6 +45,7 @@ pre code {
 .corollary:before
 .remark:before {
   margin-left: 0pt;
+  background-color: pink;
 }
 .theorem {
   font-style: italic;

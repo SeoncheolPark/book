@@ -8,7 +8,7 @@
   <title>통계공부와 관련된 글들</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
-  <meta name="generator" content="bookdown 0.0.73 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.74 and GitBook 2.6.7">
 
   <meta property="og:title" content="통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-07-20">
+<meta name="date" content="2016-07-23">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -251,7 +251,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="waveletshrinkage" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> 웨이블릿 수축</h1>
-<p>이 장의 주된 내용과 그림들은 <span class="citation">(G. Nason <a href="#ref-Nason2010">2010</a>)</span>를 참고하였다.</p>
+<p>이 장의 주된 내용과 그림들은 <span class="citation">(G. Nason 2010)</span>를 참고하였다.</p>
 <p>다음과 같이 자료를 관찰하는 도메인(domain)인 physical domain (physical model)에서의 모델 <span class="math inline">\(y_{i}=g(x_{i})+e_{i}, i=1,\cdots,n\)</span>에서 관측한 길이 <span class="math inline">\(n\)</span>의 자료 <span class="math inline">\(\mathbf{y}=(y_{1},\cdots,y_{n})^{T}\)</span>이 있다고 하자. 여기서 <span class="math inline">\(x_{i}=\frac{i}{n} \text{ (designed point)}\)</span>이라고 하자. 이 공간(space)은 equally-spaced이고 <span class="math inline">\(x \in (0, 1]\)</span>이다. 우리의 목표는 알려지지 않은 함수 <span class="math inline">\(g(x), x \in [0,1]\)</span>를 추정하는 것이다.</p>
 <p>일반적으로 <span class="math inline">\(e_{i} \stackrel{iid}{\sim} \mathcal{N}(0,\sigma^{2})\)</span>으로 가정한다. <strong>독립 동일 분포 가정(independent and identically distributed, iid)</strong>이 없으면 모형이 좀 더 복잡해진다. <strong>정규분포(normal distribution, Gaussian distribution)</strong> 가정도 중요한데, 정규분포처럼 대칭(symmetric)인 분포를 가정하지 않을 경우 평균 추정이 힘들어지므로 보통 <strong>분위수(quantile)</strong> 추정을 하게 된다.</p>
 <p>우리가 얻는 자료 <span class="math inline">\(\mathbf{y}\)</span>가 noise가 전혀 없는 순수한 signal이라고 하면, wavelet transform후 바로 wavelet reconstruction을 통해 원래 자료를 얻을 수 있다. <span class="math display">\[\mathbf{y} \xrightarrow{W} \boldsymbol{\delta} \xrightarrow{W^{-1}} \mathbf{y}\]</span> 그런데 자료에 <strong>잡음(noise)</strong>이 있는 경우 얘기가 좀 달라진다. <span class="math display">\[\mathbf{d}=\mathbf{Wy} =\mathbf{Wg}+\mathbf{We}=\boldsymbol{\theta}+\boldsymbol{\epsilon}\]</span> 이 경우에는 위와 같은 방법을 적용하면 잡음이 낀 신호가 그대로 나오게 된다. 우리는 적당한 방법을 통해 noise가 거의 없는 <span class="math inline">\(\hat{\mathbf{d}}\)</span>를 추정해 <span class="math inline">\(\mathbf{W}^{-1}\hat{\mathbf{d}} \rightarrow \hat{\mathbf{g}}\)</span>를 하고 싶다. 이럴 떄 쓰는 방법이 <strong>임계화(thresholding)</strong>이다.</p>
@@ -273,7 +273,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="definition">
 <p>주어진 (empirical) 웨이블릿 상수 d와 <strong>threshold</strong> <span class="math inline">\(\mathbf{\lambda}\)</span>가 있을 때, 그것의 <strong>하드 임계화(hard thresholding)</strong>는 <span class="math display">\[\hat{\theta}_{H}=\eta_{H}(d,\lambda)=d\mathbb{I}\{ |d| &gt; \lambda \}\]</span> 이다. 그리고 <strong>소프트 임계화(soft thresholding)</strong>는 <span class="math display">\[\hat{\theta}_{S}=\eta_{S}(d,\lambda)=\text{sgn}(d)(|d|-\lambda)\mathbb{I}\{ |d| &gt; \lambda \}\]</span> 이다.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-15"></span>
-<img src="images/waveletshrinkage_thresholding.png" alt="Hard thresholding (dotted line) and soft thresholding." width="263" />
+<img src="images/waveletshrinkage_thresholding.png" alt="Hard thresholding (dotted line) and soft thresholding."  />
 <p class="caption">
 Figure 4.1: Hard thresholding (dotted line) and soft thresholding.
 </p>
@@ -294,7 +294,7 @@ Figure 4.1: Hard thresholding (dotted line) and soft thresholding.
 \hat{\boldsymbol{\beta}}&amp;=&amp;(\hat{\beta}_{1},\cdots,\beta_{d})^{T}=(\mathbf{X}^{T}\mathbf{X})^{-1}\mathbf{X}^{T}\mathbf{y}=\mathbf{X}^{T}\mathbf{y}\\
 &amp;\Longrightarrow&amp; \hat{\beta}_{1}=\sum X_{i1}y_{i}, \hat{\beta}_{2}=\sum X_{i2}y_{i}, \cdots
 \end{eqnarray*}
-\]</span> 로 모든 <span class="math inline">\(\boldsymbol{\beta}\)</span>의 원소들이 separate(decoupled)되는 것을 볼 수 있다. 참고로 <span class="math inline">\((\mathbf{X}^{T}\mathbf{X})^{-1}\neq \mathbf{I}\)</span>인 경우 <span class="math inline">\(\hat{\beta}\)</span>가 다 연결되므로 이렇게 분석할 수 없다. 그리고 <span class="math display">\[\hat{\boldsymbol{\beta}}=\min \| \mathbf{y}-\mathbf{X}\boldsymbol{\beta} \|^{2} \Leftrightarrow \min \| \mathbf{X}^{T}\mathbf{y} - \mathbf{X}^{T}\boldsymbol{\beta} \|^{2}=\min \| \hat{\boldsymbol{\beta}}-\boldsymbol{\beta} \|^{2}\]</span> 가 된다. <span class="citation">(Donoho and Johnstone <a href="#ref-Donoho1994">1994</a>)</span> 논문에 갑자기 이 사실을 이용해 전개하는 내용이 있다.</p>
+\]</span> 로 모든 <span class="math inline">\(\boldsymbol{\beta}\)</span>의 원소들이 separate(decoupled)되는 것을 볼 수 있다. 참고로 <span class="math inline">\((\mathbf{X}^{T}\mathbf{X})^{-1}\neq \mathbf{I}\)</span>인 경우 <span class="math inline">\(\hat{\beta}\)</span>가 다 연결되므로 이렇게 분석할 수 없다. 그리고 <span class="math display">\[\hat{\boldsymbol{\beta}}=\min \| \mathbf{y}-\mathbf{X}\boldsymbol{\beta} \|^{2} \Leftrightarrow \min \| \mathbf{X}^{T}\mathbf{y} - \mathbf{X}^{T}\boldsymbol{\beta} \|^{2}=\min \| \hat{\boldsymbol{\beta}}-\boldsymbol{\beta} \|^{2}\]</span> 가 된다. <span class="citation">(Donoho and Johnstone 1994)</span> 논문에 갑자기 이 사실을 이용해 전개하는 내용이 있다.</p>
 더 나아가 벌점화 최소자승법(penalized least square) 문제를 생각해보자. <span class="math inline">\(\mathbf{z}=\mathbf{X}^{T}\mathbf{y}\)</span>, <span class="math inline">\(\hat{\mathbf{y}}=\mathbf{Xz}=\mathbf{XX}^{T}\mathbf{y}\)</span>를 정의하면
 \begin{eqnarray*}
 \| \mathbf{y}-\mathbf{X}\boldsymbol{\beta}\|^{2}+\lambda \sum_{j=1}^{d}P(| \beta_{j} |) &amp;=&amp; \| \mathbf{y}-\hat{\mathbf{y}}+\hat{\mathbf{y}}-\mathbf{X}\boldsymbol{\beta}\|^{2}+\lambda \sum_{j=1}^{d}P(|\beta_{j}|)\\
@@ -309,8 +309,8 @@ E(d-\theta)^{2}=E\epsilon^{2} &amp; \text{if $|d| &gt; \lambda$}\\
 E(\theta^{2})=\theta^{2} &amp; \text{o.w.}
 \end{cases}
 \]</span> 이 된다. 결론적으로 임계화(thresholding)를 위해서는 신호와 오차의 크기를 비교해 보면 되는데, 만약 신호가 오차보다 굉장히 큰 경우, <span class="math inline">\(\theta \gg \sigma\)</span>인 경우면 우리는 <span class="math inline">\(|d| &gt; \lambda\)</span>인 경우를 취하는게 유리하므로 <span class="math inline">\(\lambda\)</span>를 작게 선택하면 된다. 반대의 경우에는 <span class="math inline">\(\lambda\)</span>를 크게 취하는 것이 유리하다.</p>
-<p>통계학에서 오라클이라는 개념을 처음 사용한 사람은 Dave Donoho이다. 오라클이라는 개념이 처음 등장하는 논문은 <span class="citation">(Donoho and Johnstone <a href="#ref-Donoho1994">1994</a>)</span>인데, 오라클을“With ideal spatial adaptation, an oracle furnishes information about how best to adapt a spatially variable estimator, whether piecewise constant, piecewise polynomial, variable knot spline, or variable bandwidth kernel to the unknown function”이라고 소개하고 있다. 교수님의 요약은 다음과 같다. “The oracle is notional device that tells you which coefficients you should select.”</p>
-<p>오라클에 의한 ideal risk는(hard thresholding의 경우) <span class="math inline">\(M_{ideal}=\sum_{j,k}\min(\theta_{j,k}^{2},\sigma^{2})\)</span>이다. 그렇다면 <span class="math inline">\(\hat{\theta}\)</span>를 어떻게 구하는가? 이 문제는 결국 <span class="math inline">\(\eta_{H}, \eta_{S}, \lambda\)</span>를 선택하는 문제로 귀착된다. Donoho와 Johnstone은 <span class="math inline">\(M_{ideal}\approx M\)</span>이 되게 하는 <span class="math inline">\(\hat{\theta}\)</span>를 몇 가지 제시하였다. <span class="citation">(Donoho and Johnstone <a href="#ref-Donoho1994">1994</a>)</span>에서 <span class="math inline">\(\hat{\theta}=\eta_{x}(d,\lambda)\)</span>, <span class="math inline">\(\lambda=\sigma\sqrt{2\log n}\)</span>으로 할 시 <span class="math display">\[M_{\text{universal}}\leq(2\log n +1)(\sigma^{2}+M_{\text{ideal}})\]</span> 임을 증명하였다. 다시 말하면 이 <span class="math inline">\(\hat{\theta}\)</span>가 오라클 성질(oracle property)과 굉장히 유사하며 <span class="math inline">\(M_{\text{ideal}}\)</span>에 가깝게(대략<span class="math inline">\(2\log n\)</span>배 보다 작다) 행동한다는 것이다. 위 논문에 따르면 핵평활(kernel smoothing)이나 평활 스플라인(smoothing spline)도 <span class="math inline">\(2\log n\)</span>을 만족하지 못한다(n). 가장 이상적인 fitting은 정확한 knot point들을 모두 알고 있는 piecewise polynomial이다. 그러나 ideal한 knot을 모두 안다는 것은 true을 안다는 것이므로 이는 불가능하다. Bandwidth나 knot selection을 잘 한다는 것은 true의 분산을 안다는 것과 거의 같은 얘기다.</p>
+<p>통계학에서 오라클이라는 개념을 처음 사용한 사람은 Dave Donoho이다. 오라클이라는 개념이 처음 등장하는 논문은 <span class="citation">(Donoho and Johnstone 1994)</span>인데, 오라클을“With ideal spatial adaptation, an oracle furnishes information about how best to adapt a spatially variable estimator, whether piecewise constant, piecewise polynomial, variable knot spline, or variable bandwidth kernel to the unknown function”이라고 소개하고 있다. 교수님의 요약은 다음과 같다. “The oracle is notional device that tells you which coefficients you should select.”</p>
+<p>오라클에 의한 ideal risk는(hard thresholding의 경우) <span class="math inline">\(M_{ideal}=\sum_{j,k}\min(\theta_{j,k}^{2},\sigma^{2})\)</span>이다. 그렇다면 <span class="math inline">\(\hat{\theta}\)</span>를 어떻게 구하는가? 이 문제는 결국 <span class="math inline">\(\eta_{H}, \eta_{S}, \lambda\)</span>를 선택하는 문제로 귀착된다. Donoho와 Johnstone은 <span class="math inline">\(M_{ideal}\approx M\)</span>이 되게 하는 <span class="math inline">\(\hat{\theta}\)</span>를 몇 가지 제시하였다. <span class="citation">(Donoho and Johnstone 1994)</span>에서 <span class="math inline">\(\hat{\theta}=\eta_{x}(d,\lambda)\)</span>, <span class="math inline">\(\lambda=\sigma\sqrt{2\log n}\)</span>으로 할 시 <span class="math display">\[M_{\text{universal}}\leq(2\log n +1)(\sigma^{2}+M_{\text{ideal}})\]</span> 임을 증명하였다. 다시 말하면 이 <span class="math inline">\(\hat{\theta}\)</span>가 오라클 성질(oracle property)과 굉장히 유사하며 <span class="math inline">\(M_{\text{ideal}}\)</span>에 가깝게(대략<span class="math inline">\(2\log n\)</span>배 보다 작다) 행동한다는 것이다. 위 논문에 따르면 핵평활(kernel smoothing)이나 평활 스플라인(smoothing spline)도 <span class="math inline">\(2\log n\)</span>을 만족하지 못한다(n). 가장 이상적인 fitting은 정확한 knot point들을 모두 알고 있는 piecewise polynomial이다. 그러나 ideal한 knot을 모두 안다는 것은 true을 안다는 것이므로 이는 불가능하다. Bandwidth나 knot selection을 잘 한다는 것은 true의 분산을 안다는 것과 거의 같은 얘기다.</p>
 </div>
 <div id="-universal-thresholding" class="section level2">
 <h2><span class="header-section-number">4.3</span> 만능 임계화(universal thresholding)</h2>
@@ -324,15 +324,15 @@ E(\theta^{2})=\theta^{2} &amp; \text{o.w.}
 \hat{\sigma}=1.4826 \times \text{median}(|d_{J-1,1}-\tilde{d_{J-1}}|,\cdots,|d_{J-1,\frac{n}{2}}-\tilde{d_{J-1}}|\\
 \text{ where } \tilde{d}_{J-1}=\text{median}(\mathbf{d}_{J-1})
 \]</span> 이런 식으로 추정하기도 한다.</p>
-<p>지금까지 했던 방법은 universal threshold rule(<span class="math inline">\(\lambda^{u}\)</span>)에 soft thresholding function <span class="math inline">\(\eta_{s}\)</span>를 적용한 <span class="math inline">\(\hat{\theta}=\eta_{s}(d,\lambda^{u})\)</span>로 이것을 <strong>VisuShrink</strong>라고 부른다. 이 방법은 앞서 말한 대로 noise-free reconstrunction이나 oversmooth (underfit)하는 문제가 생긴다. 즉 noise-free하지만 signal도 너무 많이 죽일 가능성이 있다는 것이다. 한편 <span class="math inline">\(\lambda^{u}\)</span>는 noise-free reconstruction을 하는 최소의 <span class="math inline">\(\lambda\)</span>이므로, <span class="math inline">\(0&lt; \lambda^{*} \ll \lambda^{u}\)</span>인 <span class="math inline">\(\lambda^{*}\)</span>를 생각할 수 있을 것이다. 이런 <span class="math inline">\(\lambda^{*}\)</span> 중의 하나로 <span class="citation">(Donoho and Johnstone <a href="#ref-Donoho1994">1994</a>)</span>에서는 <strong>RiskShrink</strong>라는 것을 제시했다. 이 방법은 <span class="math inline">\(\Lambda_{n}^{*}(=2 \log n +1)\)</span>에 해당하는 <span class="math inline">\(\Lambda_{n}^{*}\)</span>과 이에 대응되는 <span class="math inline">\(\lambda^{*}\)</span>을 table 형태로 계산한 것이다. 예를 들어 <span class="math inline">\(n=1024\)</span> 일 때 <span class="math inline">\(\lambda^{u}=3.72, \lambda^{*}=2.23, \Lambda_{n}^{*}=5.976\)</span>이다.</p>
+<p>지금까지 했던 방법은 universal threshold rule(<span class="math inline">\(\lambda^{u}\)</span>)에 soft thresholding function <span class="math inline">\(\eta_{s}\)</span>를 적용한 <span class="math inline">\(\hat{\theta}=\eta_{s}(d,\lambda^{u})\)</span>로 이것을 <strong>VisuShrink</strong>라고 부른다. 이 방법은 앞서 말한 대로 noise-free reconstrunction이나 oversmooth (underfit)하는 문제가 생긴다. 즉 noise-free하지만 signal도 너무 많이 죽일 가능성이 있다는 것이다. 한편 <span class="math inline">\(\lambda^{u}\)</span>는 noise-free reconstruction을 하는 최소의 <span class="math inline">\(\lambda\)</span>이므로, <span class="math inline">\(0&lt; \lambda^{*} \ll \lambda^{u}\)</span>인 <span class="math inline">\(\lambda^{*}\)</span>를 생각할 수 있을 것이다. 이런 <span class="math inline">\(\lambda^{*}\)</span> 중의 하나로 <span class="citation">(Donoho and Johnstone 1994)</span>에서는 <strong>RiskShrink</strong>라는 것을 제시했다. 이 방법은 <span class="math inline">\(\Lambda_{n}^{*}(=2 \log n +1)\)</span>에 해당하는 <span class="math inline">\(\Lambda_{n}^{*}\)</span>과 이에 대응되는 <span class="math inline">\(\lambda^{*}\)</span>을 table 형태로 계산한 것이다. 예를 들어 <span class="math inline">\(n=1024\)</span> 일 때 <span class="math inline">\(\lambda^{u}=3.72, \lambda^{*}=2.23, \Lambda_{n}^{*}=5.976\)</span>이다.</p>
 <p>참고로 이 논문의 결과와 더불어 일반적으로 알려져 있는 사실은 함수가 부드럽(smooth)지 않을 때 웨이블릿이 다른 어떤 비모수 방법들보다 좋다는 것이다.</p>
 </div>
 <div id="stein---steins-unbiased-risk-estimator-sure" class="section level2">
 <h2><span class="header-section-number">4.4</span> Stein의 불편 위험 추정량(Steins Unbiased Risk Estimator (SURE))</h2>
 <p>앞서 얘기했던 VisuShirnk나 RiskShrink는 이론상으로는 완벽하나 실용성이 떨어져 실제로는 많이 쓰이지 않고 있다. 실제로 많이 쓰이는 shrinkage 방법 중 하나가 <strong>Steins Unbiased Risk Estimator (SURE)</strong>이다. Shrinkage 추정량들은 Bayesian과 밀접한 관련이 있다. Bayesian들이 주로 하는 것은 자료를 prior의 정보에 민감하게 반응하도록 수축(shrinkage)해 주는 것이다.</p>
-<p>SURE가 처음 등장한 논문은 <span class="citation">(Donoho and Johnstone <a href="#ref-Donoho1995">1995</a>)</span>로, <span class="citation">(Stein <a href="#ref-Stein1981">1981</a>)</span>의 내용을 웨이블릿 도메인으로 갖고 온 것이다. 다음과 같은 data domain에서의 모델 <span class="math inline">\(y_{i}=g(x_{i})+e_{i}, i=1,\cdots,n,e_{i} \stackrel{iid}{\sim} \mathcal{N}(0,\sigma^{2})\)</span>과 이를 웨이블릿 도메인(domain)으로 옮긴 <span class="math inline">\(\mathbf{d}=\boldsymbol{\theta}+\boldsymbol{\epsilon}, \boldsymbol{\epsilon} \sim \mathcal{N}(0,\sigma^{2}\mathbf{I})\)</span>를 생각하자. Stein의 논문에서는 이 notation을 다음과 같이 썼다. <span class="math display">\[\mathbf{x}=\boldsymbol{\mu}+\boldsymbol{\epsilon}.\]</span></p>
+<p>SURE가 처음 등장한 논문은 <span class="citation">(Donoho and Johnstone 1995)</span>로, <span class="citation">(Stein 1981)</span>의 내용을 웨이블릿 도메인으로 갖고 온 것이다. 다음과 같은 data domain에서의 모델 <span class="math inline">\(y_{i}=g(x_{i})+e_{i}, i=1,\cdots,n,e_{i} \stackrel{iid}{\sim} \mathcal{N}(0,\sigma^{2})\)</span>과 이를 웨이블릿 도메인(domain)으로 옮긴 <span class="math inline">\(\mathbf{d}=\boldsymbol{\theta}+\boldsymbol{\epsilon}, \boldsymbol{\epsilon} \sim \mathcal{N}(0,\sigma^{2}\mathbf{I})\)</span>를 생각하자. Stein의 논문에서는 이 notation을 다음과 같이 썼다. <span class="math display">\[\mathbf{x}=\boldsymbol{\mu}+\boldsymbol{\epsilon}.\]</span></p>
 <div class="theorem">
-<p><span class="citation">(Stein <a href="#ref-Stein1981">1981</a>)</span> 만약 <span class="math inline">\(\hat{\boldsymbol{\mu}}\mathbf{(x)}=\mathbf{x}+\mathbf{g(x)}\)</span>, <span class="math inline">\(g:\mathbb{R}^{n} \rightarrow \mathbb{R}^{n}\)</span> is weakly differentiable 조건이면 <span class="math display">\[E \| \hat{\boldsymbol{\mu}}\mathbf{(x)}-\boldsymbol{\mu} \|^{2} =n+ E\{ \|\mathbf{g(x)}\|^{2}+2\bigtriangledown \cdot \mathbf{g(x)} \}, \bigtriangledown\cdot \mathbf{g}=\sum_{i} \frac{\partial}{\partial x_{i}}g_{i}\]</span> 이다.</p>
+<p><span class="citation">(Stein 1981)</span> 만약 <span class="math inline">\(\hat{\boldsymbol{\mu}}\mathbf{(x)}=\mathbf{x}+\mathbf{g(x)}\)</span>, <span class="math inline">\(g:\mathbb{R}^{n} \rightarrow \mathbb{R}^{n}\)</span> is weakly differentiable 조건이면 <span class="math display">\[E \| \hat{\boldsymbol{\mu}}\mathbf{(x)}-\boldsymbol{\mu} \|^{2} =n+ E\{ \|\mathbf{g(x)}\|^{2}+2\bigtriangledown \cdot \mathbf{g(x)} \}, \bigtriangledown\cdot \mathbf{g}=\sum_{i} \frac{\partial}{\partial x_{i}}g_{i}\]</span> 이다.</p>
 </div>
 <p>그리고 <span class="math inline">\(\hat{\mu}_{i}(\lambda)=\eta_{s}(x_{i},\lambda) \Rightarrow \frac{\partial}{\partial x_{i}}\hat{\mu}_{i}(\lambda)=I( |x_{i}|&gt;\lambda)\)</span>과 <span class="math inline">\(\| \mathbf{g(x)} \|^{2}=\sum \hat{\mu}_{i}(\lambda, x)^{2}=\sum_{i=1}^{n}(|x_{i}|-\lambda)^{2}I(|x_{i}&gt;\lambda)\)</span> 사실을 이용해 SURE를 정의한다.</p>
 <div class="theorem">
@@ -360,21 +360,6 @@ Figure 4.2: Wavelet shrinkage example.
 </p>
 </div>
 
-</div>
-</div>
-<h3> References</h3>
-<div id="refs" class="references">
-<div id="ref-Nason2010">
-<p>Nason, Guy. 2010. <em>Wavelet Methods in Statistics with R</em>. 2nd ed. Spring Street, New York: Springer Science &amp; Business Media.</p>
-</div>
-<div id="ref-Donoho1994">
-<p>Donoho, David L., and Iain M. Johnstone. 1994. “Ideal Spatial Adaptation by Wavelet Shrinkage.” <em>Biometrika</em> 81 (3): 425–55. doi:<a href="https://doi.org/10.1093/biomet/81.3.425">10.1093/biomet/81.3.425</a>.</p>
-</div>
-<div id="ref-Donoho1995">
-<p>Donoho, David L., and Iain M. Johnstone. 1994. “Ideal Spatial Adaptation by Wavelet Shrinkage.” <em>Biometrika</em> 81 (3): 425–55. doi:<a href="https://doi.org/10.1093/biomet/81.3.425">10.1093/biomet/81.3.425</a>.</p> 1995. “Adapting to Unknown Smoothness via Wavelet Shrinkage.” <em>Journal of the American Statistical Association</em> 90 (4): 1200–1224. doi:<a href="https://doi.org/10.1080/01621459.1995.10476626">10.1080/01621459.1995.10476626</a>.</p>
-</div>
-<div id="ref-Stein1981">
-<p>Stein, Charles M. 1981. “Estimation of the Mean of a Multivariate Normal Distribution.” <em>The Annals of Statistics</em> 9 (6): 1135–51. doi:<a href="https://doi.org/10.1214/aos/1176345632">10.1214/aos/1176345632</a>.</p>
 </div>
 </div>
             </section>
