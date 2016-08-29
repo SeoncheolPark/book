@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-07-23">
+<meta name="date" content="2016-08-27">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -276,7 +276,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 \end{equation}
 <p>웨이블릿 변환에서는 <span class="math inline">\(s_{j,k}\)</span>와 <span class="math inline">\(d_{j,k}\)</span>를 동시에 얻지만 리프팅 스킴에서는 <span class="math inline">\(d_{j,k}\)</span>를 얻은 후 순차적으로 <span class="math inline">\(s_{j,k}\)</span>를 얻는다.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-23"></span>
-<img src="images/advmultiscale_lifting.png" alt="Forward lifting scheme using Haar transform."  />
+<img src="images/advmultiscale_lifting.png" alt="Forward lifting scheme using Haar transform." width="231" />
 <p class="caption">
 Figure 7.1: Forward lifting scheme using Haar transform.
 </p>
@@ -290,14 +290,14 @@ Figure 7.1: Forward lifting scheme using Haar transform.
 </ol>
 <p>일반적인 리프팅 스킴의 프라이멀 리프팅과 듀얼 리프팅의 <strong>정변환(forward transform)</strong>은 다음과 같다. <span class="math display">\[\text{차이(difference)=홀(odd)-p짝(even)} \qquad{\text{듀얼 리프팅(dual lifting)}}\]</span> <span class="math display">\[\text{평균(average)=짝(even)+u차이} \qquad{\text{프라이멀 리프팅(primal lifting)}}\]</span> 이 때 <span class="math inline">\(p=1\)</span>, <span class="math inline">\(u=0.5\)</span>인 경우를 특별히 Haar 웨이블릿 변환(Haar wavelet transformation)이라고 부르는 것이다.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-24"></span>
-<img src="images/advmultiscale_lifting02.png" alt="Standard lifting scheme using primal and dual lifting."  />
+<img src="images/advmultiscale_lifting02.png" alt="Standard lifting scheme using primal and dual lifting." width="235" />
 <p class="caption">
 Figure 7.2: Standard lifting scheme using primal and dual lifting.
 </p>
 </div>
 <p>리프팅의 <strong>역변환(backward transform)</strong>은 다음과 같다. <span class="math display">\[\text{짝(even)=평균(average)-u차이(difference)} \]</span> <span class="math display">\[\text{홀(odd)=차이(difference)+p짝} \]</span></p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-25"></span>
-<img src="images/advmultiscale_invlifting.png" alt="Backward lifting scheme."  />
+<img src="images/advmultiscale_invlifting.png" alt="Backward lifting scheme." width="217" />
 <p class="caption">
 Figure 7.3: Backward lifting scheme.
 </p>
@@ -340,7 +340,7 @@ Figure 7.3: Backward lifting scheme.
 <p>이 절의 내용은 <span class="citation">(Jang 2012)</span>의 서술을 참고하였다. 2차원 자료에서는 1차원 자료와 다르게 짝과 홀을 정할 수 없다는 문제점이 있다. 불규칙한 격자점에서, 이웃(neighborhood)은 삼각분할(triangulation)을 통해 정의된다.</p>
 <p>리프팅 스킴은 모든 해상도 수준(resolution level)에서 <strong>다중척도 들로네 삼각분할(multiscale Delaunay triangulation)</strong>이라 부르는 꼭지점들의 이웃 구조를 사용한다. 삼각형 격자 위에 있는 자료를 다중척도 표현으로 분해(decomposition)하는 것은 현재 수준 <span class="math inline">\(l\)</span>에서 <span class="math inline">\(l+1\)</span>로 넘어갈 때 빼길 원하는 점 주변의 국소적 재삼각분할(local retriangulation)을 필요로 한다. 이 알고리즘은 수준이 고정되었을 때 이웃은 변하지 않는다라는 가정 하에서 진행된다.</p>
 <div class="figure" style="text-align: center"><span id="fig:2dlifting"></span>
-<img src="images/advmultiscale_lifting2d.png" alt="2D lifting scheme example."  />
+<img src="images/advmultiscale_lifting2d.png" alt="2D lifting scheme example." width="228" />
 <p class="caption">
 Figure 7.4: 2D lifting scheme example.
 </p>
