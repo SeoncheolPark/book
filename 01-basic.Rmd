@@ -1,0 +1,108 @@
+# (PART) Basic Concepts {-}
+
+# 기본적인 개념들 {#basic}
+
+이 장에서는 앞으로 다룰 내용을 이해하기 위해 필요한 기본적인 수학, 확률 및 통계 개념을 정리하였다.
+
+## 확률변수의 수렴(convergence of random variables)
+
+### 거의 확실한 확률 수렴(Almost sure convergence)
+
+### 확률수렴(Convergence in probability)
+
+### Lp 수렴(Convergence in Lp)
+
+### 분포수렴(Convergence in distribution)
+
+### 수렴 사이들의 관계(Connections between modes of convergence)
+
+```{r, echo=F, fig.cap='Connections between modes of convergences.', fig.align='center'}
+knitr::include_graphics("images/basic_convergenceconnection.png")
+```
+
+### Convergence of moments: 일양적분가능성(uniform integrability)
+
+$X_{n}$이 점근적으로 $\mathcal{N}(\mu_{n}, \sigma_{n}^{2})$에 수렴한다는 문장을 생각해보자. 즉 이 얘기는 $(X_{n}-\mu_{n})/\sigma_{n} \stackrel{D}{\rightarrow} \mathcal{N}(0,1)$이라는 말이다. 그러나 이것이 $E(X_{n})=\mu_{n}$이고 $\text{var}(X_{n})=\sigma_{n}^{2}$임을 의미하지는 않는다. 일반적으로 $X_{n} \stackrel{D}{\rightarrow} X$는 $E(X_{n}) \rightarrow E(X)$임을 의미하지 않는다.
+
+<div class="definition">
+
+(추정량은 무한대의 평균을 갖으나 확률변수의 극한은 유한한 평균을 갖는 예.)
+
+$\hat{p}_{n}$이 iid 베르누이 확률변수 $X_{1}, \ldots, X_{n}$로부터 나온 표본비(sample proportion)라고 하자. 그러면 CLT에 의해 $\hat{p}_{n}$은 점근적으로 평균 $p=E(X_{1})$이고 분산 $p(1-p)/n$인 정규분포를 따른다. 델타 방법(delta method)에 의해 $\text{ln}(\hat{p})$는 점근적으로 평균 $\ln(p)$, 분산 $(1-p)/(np)$인 정규분포를 따름을 안다. 그러면
+$$Z_{n} = \frac{\text{ln}(\hat{p}_{n})-\text{ln}(p)}{\sqrt{(1-p)/(np)}} \stackrel{D}{\rightarrow} Z \sim \mathcal{N}(0,1)$$
+임을 안다. 그러나 모든 $n$에 대해 $E\{\text{ln}(\hat{p}_{n}) \}=-\infty$인데, 이는 $\hat{p}_{n}$은 0이 될 확률이 양수이기 때문이다. 그러므로 $E(Z_{n})=-\infty$이나, $E(Z)=0$이다.
+
+</div>
+
+(Skrohod 정리를 이용한 추가적 설명 필요, Essential of Probability Theory for Statisticians 193-194쪽)
+
+<div class="definition">
+
+만약 각 $\epsilon >0$에 대해
+$$E\{ |X_{n}| I(|X_{n}|>A)\}<\epsilon \forall n$$
+을 만족하는 $A$가 존재한다면 이 확률변수의 수열 $X_{n}$을 **일양적분가능(uniformly integrable, UI)**이라고 부른다.
+또는
+$$\lim_{A\rightarrow\infty}\sup_{n}E\{ |X_{n}| I(|X_{n}|>A)\}=0$$
+을 만족하는 것으로 정의하기도 한다.
+
+</div>
+
+그렇다면 일양적분가능이 말하고자 하는 것은 무엇인가? $|X_{n}| I(|X_{n}|>A)$항부터 살펴보자. 이것은 $A$보다 작은 $|X_{n}|$ 값은 0이 되도록 조절하는 것이다. 다음 그림을 참고하자.
+
+```{r, echo=F, fig.cap='Case when function values bigger than A exist.', fig.align='center'}
+knitr::include_graphics("images/basic_UI01.png")
+```
+
+다음은 $E\{|X_{n}| I(|X_{n}|>A)\}$에 초점을 맞춘다. 이것은 그림 \ref{fig:theoryUI01}의 그래프 아래 면적에 해당하는 것이다(물론 $\omega \in [0,M]$에서 균등한 확률 측도 $dP(\omega)=\frac{1}{M}$을 줬을 때의 이야기다). 이때 상한($\sup_{n}$)의 쓰임은 $A$가 고정되었을 때 가장 큰 면적을 반환하는 $n$을 찾는 것이다. 마지막으로 극한을 취함으로써($lim_{A\rightarrow\infty}\sup_{n}E\{ |X_{n}| I(|X_{n}|>A)\}$) $A$가 점점 커졌을 때 상한이 어떻게 변하는지 관찰할 수 있다.
+
+```{r, echo=F, fig.cap='An example of sequence of random variables that is not uniformly integrable.', fig.align='center'}
+knitr::include_graphics("images/basic_UI02.png")
+```
+
+위 확률변수의 수열은 일양적분가능하지 않다. $A$가 커짐에 따라 항상 $E\{|X_{n}| I(|X_{n}|>A)\}=1$을 만족하는 $n$이 존재한다. 즉 $|X_{n}| I(|X_{n}|>A)=|X_{n}|$인 $n$이 항상 존재하는 것이다. 따라서
+$$\sup_{n}E\{ |X_{n}| I(|X_{n}|>A)\}=\sup_{n}E\{ |X_{n}|\}=\sup_{n}1=1.$$
+이다.
+
+```{r, echo=F, fig.cap='An example of sequence of random variables that is uniformly integrable.', fig.align='center'}
+knitr::include_graphics("images/basic_UI03.png")
+```
+
+위 예들로부터 얻을 수 있는 직관적 사실들은 다음과 같다. 만약 $X_{n}$의 평균 면적이 $n$이 커짐에 따라 무한대로 발산하면 그 확률변수의 수열은 항상 일양적분가능하지 않을 것이다. 한편
+
+- 모든 유한한 수열을 항상 일양적분가능하다(왜냐하면 모든 고정된 $n$에 대해 $P(X_{n}>A)$는 $A$가 커짐에 따라 감소한다).
+
+- 모든 유계(bounded)인 확률변수의 수열(반대로 유계가 아닌 경우를 생각해보면 $n$이 커짐에 따라 $X_{n}$은 어떤 확률로 점점 큰 값을 갖게 될 것이다)일양적분가능하다. 그러나 그 역은 성립하지 않는다.
+
+마지막으로 유계가 아니나 일양적분가능한 확률변수의 수열의 예를 소개한다.
+
+```{r, echo=F, fig.cap='An example of sequence of random variables that is not bounded but uniformly integrable.', fig.align='center'}
+knitr::include_graphics("images/basic_UI04.png")
+```
+
+## Big O와 small o (big O and small o)
+
+$x_{n}$을 무작위 벡터, $a_{n}$을 실수라고 하자.
+
+\begin{eqnarray*}
+x_{n}\stackrel{n\rightarrow \infty}{=}o(a_{n}) &\Leftrightarrow& \lim_{n\rightarrow\infty}\frac{x_{n}}{a_{n}}=0 \\
+&\Leftrightarrow& \frac{x_{n}}{a_{n}}\stackrel{n\rightarrow \infty}{=}o(1)\\
+\end{eqnarray*}
+
+\begin{eqnarray*}
+x_{n}\stackrel{n\rightarrow \infty}{=}O(a_{n}) &\Leftrightarrow& \text{sup}_{n}|\frac{x_{n}}{a_{n}}| < \infty \\
+&\Leftrightarrow& \frac{x_{n}}{a_{n}}\stackrel{n\rightarrow \infty}{=}O(1)\\
+\end{eqnarray*}
+
+## Big Op와 small op (big Op and small op)
+
+이번엔 $X_{n}$을 무작위 벡터, $a_{n}$을 실수라고 하자.
+
+\begin{eqnarray*}
+X_{n}\stackrel{n\rightarrow \infty}{=}o_{p}(a_{n}) &\Leftrightarrow& |\frac{X_{n}}{a_{n}}|\stackrel{P}{\rightarrow}0 \\
+&\Leftrightarrow& \frac{X_{n}}{a_{n}}=o_{p}(1)\\
+\end{eqnarray*}
+
+\begin{eqnarray*}
+X_{n}\stackrel{n\rightarrow \infty}{=}O_{p}(a_{n}) &\Leftrightarrow& \text{sup}_{n} P\{ \frac{X_{n}}{a_{n}}>k\}\stackrel{k\rightarrow\infty}{\rightarrow}0 \\
+&\Leftrightarrow& \frac{X_{n}}{a_{n}}\stackrel{n\rightarrow \infty}{=}O_{p}(1)\\
+\end{eqnarray*}

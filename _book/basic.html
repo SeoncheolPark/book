@@ -38,8 +38,8 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="multiscale.html">
-<link rel="next" href="waveletshrinkage.html">
+<link rel="prev" href="index.html">
+<link rel="next" href="multiscale.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -262,223 +262,114 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="wavelettransform" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> 웨이블릿 변환</h1>
-<p>웨이블릿은 ’Wave’와 프랑스어 ’let’의 합성어로, ’let’은 ’small’이라는 뜻을 가지고 있다. 즉 웨이블릿은 ’small wave’라는 뜻으로, <strong>컴팩트 받침(compactly supported)</strong>인 함수들을 일컷는 말이다 . 사인(Sine), 코사인(cosine) 기저(basis)는 <span class="math inline">\((-\infty, \infty)\)</span>에서 정의되는 매우 큰 파동이므로 웨이블릿에 해당하지 않는다.</p>
-<p><strong>웨이블릿 변환(wavelet transform)</strong>이란 웨이블릿 기저함수를 이용해 데이터를 변환하는 것을 말한다. 여기서 웨이블릿 기저함수라는 건 적분하면 0이 되고, 진동하면서 진폭이 0으로 수렴하는 함수를 말한다.</p>
-<div id="-haar--discrete-haar-wavelet-transform" class="section level2">
-<h2><span class="header-section-number">4.1</span> 이산 Haar 웨이블릿 변환(discrete Haar wavelet transform)</h2>
-<p>가장 단순한 웨이블릿 변환으로 <strong>Haar 웨이블릿 변환(Haar wavelet transform)</strong>이 있다.</p>
-앞서 상세와 성김은 다음과 같이 구할 수 있었음을 상기하자. <span class="math display">\[d_{k}=y_{2k}-y_{2k-1}, c_{k}=y_{2k}+y_{2k-1}.\]</span> 에너지를 보존하기 위해 다음과 같이 <span class="math inline">\(\alpha\)</span>라는 상수를 고려하자. <span class="math display">\[d_{k}=\alpha(y_{2k}-y_{2k-1}), c_{k}=\alpha(y_{2k}+y_{2k-1}).\]</span> 그러면
-\begin{eqnarray*}
-d_{k}^{2}+c_{k}^{2}&amp;=&amp;\alpha^{2}(y_{2k}^{2}-2y_{2k}y_{2k-1}+y_{2k-1}^{2}+\alpha^{2}(y_{2k}^{2}+2y_{2k}y_{2k-1}+y_{2k-1}^{2})\\
-&amp;=&amp;2\alpha^{2}(y_{2k}^{2}+y_{2k-1}^{2})
-\end{eqnarray*}
-<p>즉 <span class="math inline">\(2\alpha^{2}=1 \Rightarrow \alpha=\frac{1}{\sqrt{2}}\)</span>이면 <span class="math inline">\(y\)</span>와 <span class="math inline">\(d\)</span>의 에너지가 보존(conserved)된다. 이렇게 <span class="math display">\[d_{k}=\frac{1}{\sqrt{2}}(y_{2k}-y_{2k-1}), c_{k}=\frac{1}{\sqrt{2}}(y_{2k}+y_{2k-1}).\]</span> 하는 것을 <strong>표준화(normalization)</strong>라고 말하기도 한다. 정리하면 <strong>Haar 웨이블릿 변환(Haar wavelet transform)</strong>의 <strong>이산 웨이블릿 계수(discrete wavelet coefficient)</strong> <span class="math inline">\(d_{k}\)</span>는 <span class="math display">\[d_{k}=g_{0}y_{2k}+g_{1}y_{2k-1}=\sum_{l=-\infty}^{\infty}g_{l}y_{2k-l}\]</span> 이며 여기서 <span class="math display">\[
-g_{l} = 
-\begin{cases}
-\frac{1}{\sqrt{2}} &amp; \text{if $l=0$} \\
--\frac{1}{\sqrt{2}} &amp; \text{if $l=1$}\\
-0 &amp; \text{o.w.}\\
-\end{cases}
-\]</span></p>
-<p>여기서 <span class="math inline">\(g_{l}\)</span>을 <strong>고역 필터(high-pass filter)</strong>라고 부른다. 마찬가지로 성김에 대해서도 <span class="math display">\[
-c_{k}=
-\sum_{l=-\infty}^{\infty}h_{l}y_{2k-l},
-h_{l} = 
-\begin{cases}
-\frac{1}{\sqrt{2}} &amp; \text{if $l=0$}\\
-\frac{1}{\sqrt{2}} &amp; \text{if $l=1$}\\
-0 &amp; \text{o.w.}
-\end{cases}
-\]</span> 로 나타낼 수 있고 <span class="math inline">\(h_{l}\)</span>을 <strong>저역 필터(low-pass filter)</strong>라 부른다.</p>
-<p>세부와 성김은 앞서 언급한 피라미드 알고리즘으로 구할 수도 있지만 여기서는 <span class="math inline">\(\mathbf{d}=\mathbf{Wy}\)</span>처럼 통계학자들에게 익숙한 행렬 꼴로 바꾸어 표현한다.</p>
-<div class="example">
-<p>행렬을 이용해 웨이블릿 계수를 계산해보자. 다음과 같은 자료 <span class="math inline">\(\mathbf{y}=(1,1,7,9,2,8,8,6)\)</span>에 행렬 <span class="math inline">\(W\)</span>을 다음과 같이 정의하면</p>
-<p><span class="math display">\[
-W =
-\begin{bmatrix}
-\frac{\sqrt{2}}{4} &amp; \frac{\sqrt{2}}{4} &amp; \frac{\sqrt{2}}{4} &amp; \frac{\sqrt{2}}{4} &amp; \frac{\sqrt{2}}{4} &amp; \frac{\sqrt{2}}{4} &amp; \frac{\sqrt{2}}{4} &amp; \frac{\sqrt{2}}{4}\\
-\frac{1}{\sqrt{2}} &amp; -\frac{1}{\sqrt{2}} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\
- 0 &amp; 0 &amp; \frac{1}{\sqrt{2}} &amp; -\frac{1}{\sqrt{2}} &amp; 0 &amp; 0 &amp; 0 &amp; 0\\
- 0 &amp; 0 &amp; 0 &amp; 0 &amp;  \frac{1}{\sqrt{2}} &amp; -\frac{1}{\sqrt{2}} &amp; 0 &amp; 0\\
- 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp;  \frac{1}{\sqrt{2}} &amp; -\frac{1}{\sqrt{2}}\\
- \frac{1}{2} &amp; \frac{1}{2} &amp; -\frac{1}{2} &amp; -\frac{1}{2} &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
- 0 &amp; 0 &amp; 0 &amp; 0 &amp;  \frac{1}{2} &amp; \frac{1}{2} &amp; -\frac{1}{2} &amp; -\frac{1}{2}\\
- \frac{\sqrt{2}}{4} &amp; \frac{\sqrt{2}}{4} &amp; \frac{\sqrt{2}}{4} &amp; \frac{\sqrt{2}}{4} &amp; -\frac{\sqrt{2}}{4} &amp; -\frac{\sqrt{2}}{4} &amp; -\frac{\sqrt{2}}{4} &amp; -\frac{\sqrt{2}}{4}\\
-\end{bmatrix}
-\]</span></p>
-<p><span class="math inline">\(\mathbf{d}=(\frac{21\sqrt{2}}{2},0,-\sqrt{2},-3\sqrt{2},\sqrt{2},-7,-2,\frac{3\sqrt{2}}{2})\)</span>를 얻을 수 있다. (이 예제에서는 <span class="citation">(G. Nason <a href="#ref-Nason2010">2010</a>)</span>의 정의를 따라갔다.)</p>
+<div id="basic" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> 기본적인 개념들</h1>
+<p>이 장에서는 앞으로 다룰 내용을 이해하기 위해 필요한 기본적인 수학, 확률 및 통계 개념을 정리하였다.</p>
+<div id="-convergence-of-random-variables" class="section level2">
+<h2><span class="header-section-number">2.1</span> 확률변수의 수렴(convergence of random variables)</h2>
+<div id="---almost-sure-convergence" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> 거의 확실한 확률 수렴(Almost sure convergence)</h3>
 </div>
-<p>위 예제의 <span class="math inline">\(W\)</span>처럼 Haar 웨이블릿의 <span class="math inline">\(W\)</span>는 <strong>정규직교(orthonormal)</strong>라는 성질을 갖는데, 정규직교의 의미는 <span class="math inline">\(W^{T}W=\mathbf{I}\)</span>이다. 그러나 모든 웨이블릿의 <span class="math inline">\(W\)</span>가 정규직교인 것은 아니다. 그리고 <span class="math display">\[\| \mathbf{d} \|^{2}=\mathbf{d}^{T}\mathbf{d}=(W\mathbf{y})^{T}(W\mathbf{y})=\mathbf{y}^{T}W^{T}W\mathbf{y}=\| \mathbf{y} \|^{2}\]</span> 이 식은 <strong>Parseval 등식(Parseval’s identity)</strong>에 대응된다.</p>
-<p>정규직교인 웨이블릿의 <span class="math inline">\(W\)</span>은 다음과 같은 장점을 갖는다. 다음과 같이 원래 자료와 추정량에 대한 공식이 다음과 같이 주어졌을 때, <span class="math display">\[y=f+\epsilon, \epsilon \sim (\cdot, \sigma^{2}I) \rightarrow d=\theta +e, Wy=d, Wf=\theta, W\epsilon=e\]</span> 정규직교인 <span class="math inline">\(W\)</span>이면 <span class="math display">\[Var(W\epsilon)=WVar(\epsilon)W^{T}=\sigma^{2}I=Var(\epsilon)\]</span> 이다. 즉 원래 자료와 추정량의 분산 구조가 같다.</p>
+<div id="convergence-in-probability" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> 확률수렴(Convergence in probability)</h3>
 </div>
-<div id="scaling-coefficient-translation-coefficient-" class="section level2">
-<h2><span class="header-section-number">4.2</span> 압축계수(scaling coefficient)와 전이계수(translation coefficient) 개념</h2>
-<p><span class="math inline">\(p(x)\)</span>라는 함수가 주어졌을 때, 이것의 <strong>압축 및 전이된 버전(scaled and translated version)</strong>은 다음과 같이 정의된다. <span class="math display">\[
-\| p_{j,k}(x) \|^{2}=\int_{\infty}^{\infty}p_{j,k}^{2}(x)dx=\int_{\infty}^{\infty}2^{j}p^{2}(2^{j}x-k)dx=\int_{\infty}^{\infty}p^{2}(y)dy=\| p(y) \|^{2}
-\]</span> <span class="math display">\[p_{j,k}(x)=2^{\frac{j}{2}}p(2^{j}x-k)\]</span></p>
+<div id="lp-convergence-in-lp" class="section level3">
+<h3><span class="header-section-number">2.1.3</span> Lp 수렴(Convergence in Lp)</h3>
 </div>
-<div id="--fine-scale-approximation" class="section level2">
-<h2><span class="header-section-number">4.3</span> 섬세한 척도 근사(fine-scale approximation)</h2>
-<p>다음과 같이 <strong>Haar 함수(Haar function)</strong>를 정의한다.</p>
-<p><span class="math display">\[
-\phi(x) = 
-\begin{cases}
-1 &amp; \text{if $x \in [0,1]$}\\
-0 &amp; \text{o.w.}
-\end{cases}
-\]</span></p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-12"></span>
-<img src="images/multiscale_004.png" alt="Plot of Haar function." width="54" />
+<div id="convergence-in-distribution" class="section level3">
+<h3><span class="header-section-number">2.1.4</span> 분포수렴(Convergence in distribution)</h3>
+</div>
+<div id="--connections-between-modes-of-convergence" class="section level3">
+<h3><span class="header-section-number">2.1.5</span> 수렴 사이들의 관계(Connections between modes of convergence)</h3>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
+<img src="images/basic_convergenceconnection.png" alt="Connections between modes of convergences." width="154" />
 <p class="caption">
-Figure 4.1: Plot of Haar function.
-</p>
-</div>
-<p>이 때 <span class="math inline">\(\phi(x)=\phi_{0,0}(x)\)</span>이다. 즉 척도도 바꾸지 않고 어떤 전이(translation)도 없을 때의 <span class="math inline">\(\phi\)</span>인 것이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-13"></span>
-<img src="images/multiscale_005.png" alt="Scaling and translation version of Haar function." width="256" />
-<p class="caption">
-Figure 4.2: Scaling and translation version of Haar function.
-</p>
-</div>
-<p>가장 성긴 레벨의 (Haar) <strong>척도 웨이블릿(scaling wavelet, father wavelet)</strong>은 <span class="math display">\[c_{J,k}=\int f(x) \phi_{J,k}(x)dx=\int f(x) 2^{\frac{J}{2}}\phi(2^{J}x-k)dx\]</span> 이다. 이것은 앞서 말한 <span class="math inline">\(p\)</span>를 <span class="math inline">\(\phi\)</span>로 바꾸면 되며 또한 데이터와 같음을 알고 있다. 그리고 앞의 정의들을 이용하면</p>
-<p><span class="math display">\[
-\phi_{J,k} =
-\begin{cases}
-2^{\frac{J}{2}} &amp; \text{if $x \in [2^{-J}k,2^{-J}(k+1)]$}\\
-0 &amp; \text{o.w.}
-\end{cases}
-\]</span></p>
-<p>이다. 여기서 정의하는 간격을 <span class="math inline">\(I_{J,k}\)</span>라 한다. 우리는 다양한 척도에서 <span class="math inline">\(f\)</span>를 근사할 수 있다. 가장 섬세한 척도로는 <span class="math display">\[f_{J}=\sum_{k=0}^{2^{J}-1}c_{J,k}\phi_{J,k}(x)\]</span> 가 있으며, 가장 성긴 척도로 근사하고 싶으면 <span class="math display">\[f_{0}=\sum_{k=0}^{2^{0}-1}c_{0,k}\phi_{J,k}(x)\]</span> 로 <span class="math inline">\(f\)</span>를 근사한다.</p>
-</div>
-<div id="-----computing-coarser-scale-coefficients-from-fine-scale" class="section level2">
-<h2><span class="header-section-number">4.4</span> 섬세한 척도로부터 성긴 척도 계수의 계산(computing coarser scale coefficients from fine scale)</h2>
-앞에서 말한대로, 우리는 섬세한 척도의 계수들로부터 좀 더 성긴 척도의 계수들을 구할 수 있다.
-\begin{eqnarray*}
-c_{J-1,k}&amp;=&amp;\int_{2^{-(J-1)}k}^{2^{-(J-1)}(k+1)}f(x)\phi_{J-1,k}(x)dx\\
-&amp;=&amp;\int_{2^{-J}(2k)}^{2^{-J}(2k+2)}f(x)2^{(\frac{J-1}{2})}\phi(2^{J-1}x-k)dx\\
-&amp;=&amp;2^{-\frac{1}{2}}\int_{2^{-J}(2k)}^{2^{-J}(2k+2)}f(x)2^{\frac{J}{2}}\phi(2^{J-1}x-k)dx\\
-&amp;=&amp;2^{-\frac{1}{2}}[\int_{2^{-J}(2k)}^{2^{-J}(2k+2)}f(x)2^{\frac{J}{2}}\phi(2^{J}x-2k)dx + \int_{2^{-J}(2k)}^{2^{-J}(2k+2)}f(x)2^{\frac{J}{2}}\phi(2^{J}x-2k-1)dx]\\
-&amp;=&amp;2^{-\frac{1}{2}}(c_{J,2k}+c_{J,2k+1}).\\
-\end{eqnarray*}
-<p>즉 <span class="math inline">\({J-1}\)</span>척도 계수는 <span class="math inline">\(J\)</span>척도 계수로부터 구할 수 있다. 여기서 중간에 <span class="math display">\[\phi(x)=\phi(2x)+\phi(2x-1)\]</span> 이라는 사실을 이용하였는데, 이것은 매우 중요하다. 이것을 <strong>척도방정식(two-scale relationship)</strong> 또는 <strong>팽창방정식(dilation relationship)</strong>이라고 한다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-14"></span>
-<img src="images/multiscale_006.png" alt="Relationship between Haar scale function." width="258" />
-<p class="caption">
-Figure 4.3: Relationship between Haar scale function.
+Figure 2.1: Connections between modes of convergences.
 </p>
 </div>
 </div>
-<div id="---defference-between-scale-approximations--" class="section level2">
-<h2><span class="header-section-number">4.5</span> 척도 근사들 사이의 차이(defference between scale approximations)(이를 웨이블릿이라 부름)</h2>
-척도 근사들의 차이에서 도출된 함수들이 작은 파도(small wave) 형태를 띄므로 이것을 웨이블릿이라 부른다. 앞서 근사식 <span class="math inline">\(f_{J}=\sum_{k=0}^{2^{J}-1}c_{J,k}\phi_{J,k}(x)\)</span>과 <span class="math inline">\(p_{j,k}(x)=2^{\frac{j}{2}}p(2^{j}x-k)\)</span>으로부터 <span class="math inline">\(J=1\)</span>일 때에는 <span class="math display">\[f_{1}(x)=c_{10}\phi_{10}(x)+c_{11}\phi_{11}(x)=c_{10}2^{\frac{1}{2}}\phi(2x)+c_{11}2^{\frac{1}{2}}\phi(2x-1)
-\]</span> 이다. 여기서 <span class="math inline">\(f_{0}(x)=c_{00}\phi_{00}(x)\)</span>라 하고 <span class="math inline">\(c_{J-1,k}=\frac{c_{J,2k}+c_{J,2k-1}}{\sqrt{2}}\)</span>를 이용하면
-\begin{eqnarray*}
-f_{1}(x)-f_{0}(x)&amp;=&amp;c_{10}\phi_{10}(x)+c_{11}\phi_{11}(x)-c_{00}\phi_{00}(x)\\
-&amp;=&amp;c_{10}2^{\frac{1}{2}}\phi(2x)+c_{11}2^{\frac{1}{2}}\phi(2x-1)-c_{00}(\phi(2x)+\phi(2x-1))\\
-&amp;=&amp;(c_{10}2^{\frac{1}{2}}-c_{00})\phi(2x)+(c_{11}2^{\frac{1}{2}}-c_{00})\phi(2x-1)\\
-&amp;=&amp;(\frac{c_{10}-c_{11}}{\sqrt{2}})\phi(2x)-(\frac{c_{10}-c_{11}}{\sqrt{2}})\phi(2x-1)\\
-&amp;=&amp;(\frac{c_{10}-c_{11}}{\sqrt{2}})(\phi(2x)-\phi(2x-1))\\
-&amp;=&amp;d_{00}\psi(x).\\
-\end{eqnarray*}
-<p>여기서 <span class="math inline">\((\frac{c_{10}-c_{11}}{\sqrt{2}})\)</span>은 웨이블릿 상수에 해당하고, <span class="math inline">\(\psi(x)=\phi(2x)-\phi(2x-1)\)</span>은 <strong>Haar 모웨이블릿(Haar mother wavelet)</strong>이라고 한다.</p>
-<p><span class="math display">\[
-\psi(x) = 
-\begin{cases}
-1 &amp; \text{if $x \in [0,\frac{1}{2})$}\\
--1 &amp; \text{if $x \in [\frac{1}{2},1)$}\\
-0 &amp; \textrm{o.w.}
-\end{cases}
-\]</span></p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-15"></span>
-<img src="images/multiscale_007.png" alt="Haar mother wavelet function." width="258" />
-<p class="caption">
-Figure 4.4: Haar mother wavelet function.
-</p>
-</div>
-<p>우리는 웨이블릿을 가지고 어떤 함수를 분해(decompose)할 수 있다. 앞의 결과는 <span class="math display">\[f_{1}(x)=f_{0}(x)+d_{00}\psi(x)=c_{00}\phi(x)+d_{00}\psi(x)\]</span> 로 쓸 수 있으며 <span class="math inline">\(f_{1}\)</span>을 좀 더 성긴 척도함수인 <span class="math inline">\(f_{0}\)</span>과 차이(difference)에 해당하는 <span class="math inline">\(\psi(x)\)</span>로 분해할 수 있음을 보여준다. 일반적으로 <span class="math inline">\(f_{j+1}(x)\)</span>는 다음과 같이 쓸 수 있다.</p>
-\begin{eqnarray*}
-f_{j+1}(x)&amp;=&amp;\sum_{k=0}^{2^{j}-1}c_{jk}\phi_{jk}(x)+\sum_{k=0}^{2^{j}-1}d_{jk}\psi_{jk}(x)\\
-&amp;=&amp;f_{j}(x)+g_{j}(x)\\
-&amp;=&amp;f_{j-1}(x)+g_{j-1}(x)+g_{j}(x)\\
-&amp;=&amp; \vdots \\
-&amp;=&amp;f_{0}(x)+\sum_{l=0}^{j}g_{l}(x).\\
-\end{eqnarray*}
-<p>즉 <span class="math inline">\(f_{j+1}(x)\)</span>은 가장 성긴 근사함수인 <span class="math inline">\(f_{0}\)</span>와 각 수준에서의 차이인 <span class="math inline">\(g_{l}\)</span>들의 합으로 표현할 수 있다.</p>
-</div>
-<div id="-types-of-wavelets" class="section level2">
-<h2><span class="header-section-number">4.6</span> 웨이블릿의 종류들(types of wavelets)</h2>
-<div id="haar-haar-wavelet" class="section level3">
-<h3><span class="header-section-number">4.6.1</span> Haar 웨이블릿(Haar wavelet)</h3>
-<p>다음과 같이 <strong>Haar 함수(Haar function)</strong>의 정의를 다시 상기하자. <span class="math display">\[
-\phi(x) =
-\begin{cases}
-1 &amp; \text{if $x \in [0,1]$}\\
-0 &amp; \text{o.w.}
-\end{cases}
-\]</span></p>
-<p><span class="math inline">\(x\)</span>를 <strong>물리적 영역(physical domain)</strong> 또는 <strong>시간 영역(time domain, t)</strong>이라 생각하면, 시간에 대해 컴팩트 받침(compactly supported)인 함수이다. 우리의 궁금점은 이 함수과 과연 <strong>주파수 영역(frequency domain)</strong>에서도 컴팩트 받침인가이다.</p>
+<div id="convergence-of-moments-uniform-integrability" class="section level3">
+<h3><span class="header-section-number">2.1.6</span> Convergence of moments: 일양적분가능성(uniform integrability)</h3>
+<p><span class="math inline">\(X_{n}\)</span>이 점근적으로 <span class="math inline">\(\mathcal{N}(\mu_{n}, \sigma_{n}^{2})\)</span>에 수렴한다는 문장을 생각해보자. 즉 이 얘기는 <span class="math inline">\((X_{n}-\mu_{n})/\sigma_{n} \stackrel{D}{\rightarrow} \mathcal{N}(0,1)\)</span>이라는 말이다. 그러나 이것이 <span class="math inline">\(E(X_{n})=\mu_{n}\)</span>이고 <span class="math inline">\(\text{var}(X_{n})=\sigma_{n}^{2}\)</span>임을 의미하지는 않는다. 일반적으로 <span class="math inline">\(X_{n} \stackrel{D}{\rightarrow} X\)</span>는 <span class="math inline">\(E(X_{n}) \rightarrow E(X)\)</span>임을 의미하지 않는다.</p>
 <div class="definition">
-<p>주어진 함수의 <strong>각진동수(angular frequency)를 이용한 유니터리 푸리에 변환(Fourier transform with unitary and angular frequency)</strong>은 다음과 같다. <span class="math display">\[\hat{f}(\omega)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(x)e^{-i\omega x}dx\]</span></p>
-<p>여기서 <span class="math inline">\(\frac{1}{\sqrt{2\pi}}\)</span>는 이 변환을 유니터리 푸리에 변환으로 만들기 위해 곱해지는 상수이다. 유니터리 변환과 푸리에 변환에 대한 보다 자세한 나용은 인터넷을 참조하기 바란다.</p>
+<p>(추정량은 무한대의 평균을 갖으나 확률변수의 극한은 유한한 평균을 갖는 예.)</p>
+<p><span class="math inline">\(\hat{p}_{n}\)</span>이 iid 베르누이 확률변수 <span class="math inline">\(X_{1}, \ldots, X_{n}\)</span>로부터 나온 표본비(sample proportion)라고 하자. 그러면 CLT에 의해 <span class="math inline">\(\hat{p}_{n}\)</span>은 점근적으로 평균 <span class="math inline">\(p=E(X_{1})\)</span>이고 분산 <span class="math inline">\(p(1-p)/n\)</span>인 정규분포를 따른다. 델타 방법(delta method)에 의해 <span class="math inline">\(\text{ln}(\hat{p})\)</span>는 점근적으로 평균 <span class="math inline">\(\ln(p)\)</span>, 분산 <span class="math inline">\((1-p)/(np)\)</span>인 정규분포를 따름을 안다. 그러면 <span class="math display">\[Z_{n} = \frac{\text{ln}(\hat{p}_{n})-\text{ln}(p)}{\sqrt{(1-p)/(np)}} \stackrel{D}{\rightarrow} Z \sim \mathcal{N}(0,1)\]</span> 임을 안다. 그러나 모든 <span class="math inline">\(n\)</span>에 대해 <span class="math inline">\(E\{\text{ln}(\hat{p}_{n}) \}=-\infty\)</span>인데, 이는 <span class="math inline">\(\hat{p}_{n}\)</span>은 0이 될 확률이 양수이기 때문이다. 그러므로 <span class="math inline">\(E(Z_{n})=-\infty\)</span>이나, <span class="math inline">\(E(Z)=0\)</span>이다.</p>
 </div>
-<p>앞서 나온 푸리에 변환을 이용해 Haar 함수를 푸리에 변환한 결과는 다음과 같다. <span class="math display">\[\hat{\phi}(\omega)=\frac{1}{\sqrt{2\pi}}e^{-\frac{i\omega}{2}}\text{sinc}(\frac{\omega}{2}).\]</span> 여기서 <span class="math display">\[
-\text{sinc}(\omega)=
-\begin{cases}
-\frac{\sin (\omega)}{\omega} &amp; \text{if $\omega \neq 0$}\\
-1 &amp;\text{if $\omega = 0$}
-\end{cases}
-\]</span> 이다. <span class="math inline">\(\hat{\phi}(\omega)\)</span>는 <span class="math inline">\(| \omega |^{-1}\)</span>만큼의 감쇠(decay)를 가지며 꼬리가 굉장히 긴 함수이다. 즉 주파수 영역에서 이 함수는 컴팩트 받침과 거리가 먼 함수가 된다. 시간 영역과 주파수 영역 사이에 불확정성 원리(uncertainty principle)이 있다는 것은 알려진 사실이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-16"></span>
-<img src="images/multiscale_008.png" alt="Haar function (left) and Haar function in frequency domain after Fourier transform (right)." width="250" />
+<p>(Skrohod 정리를 이용한 추가적 설명 필요, Essential of Probability Theory for Statisticians 193-194쪽)</p>
+<div class="definition">
+<p>만약 각 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math display">\[E\{ |X_{n}| I(|X_{n}|&gt;A)\}&lt;\epsilon \forall n\]</span> 을 만족하는 <span class="math inline">\(A\)</span>가 존재한다면 이 확률변수의 수열 <span class="math inline">\(X_{n}\)</span>을 <strong>일양적분가능(uniformly integrable, UI)</strong>이라고 부른다. 또는 <span class="math display">\[\lim_{A\rightarrow\infty}\sup_{n}E\{ |X_{n}| I(|X_{n}|&gt;A)\}=0\]</span> 을 만족하는 것으로 정의하기도 한다.</p>
+</div>
+<p>그렇다면 일양적분가능이 말하고자 하는 것은 무엇인가? <span class="math inline">\(|X_{n}| I(|X_{n}|&gt;A)\)</span>항부터 살펴보자. 이것은 <span class="math inline">\(A\)</span>보다 작은 <span class="math inline">\(|X_{n}|\)</span> 값은 0이 되도록 조절하는 것이다. 다음 그림을 참고하자.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<img src="images/basic_UI01.png" alt="Case when function values bigger than A exist." width="309" />
 <p class="caption">
-Figure 4.5: Haar function (left) and Haar function in frequency domain after Fourier transform (right).
+Figure 2.2: Case when function values bigger than A exist.
+</p>
+</div>
+<p>다음은 <span class="math inline">\(E\{|X_{n}| I(|X_{n}|&gt;A)\}\)</span>에 초점을 맞춘다. 이것은 그림 의 그래프 아래 면적에 해당하는 것이다(물론 <span class="math inline">\(\omega \in [0,M]\)</span>에서 균등한 확률 측도 <span class="math inline">\(dP(\omega)=\frac{1}{M}\)</span>을 줬을 때의 이야기다). 이때 상한(<span class="math inline">\(\sup_{n}\)</span>)의 쓰임은 <span class="math inline">\(A\)</span>가 고정되었을 때 가장 큰 면적을 반환하는 <span class="math inline">\(n\)</span>을 찾는 것이다. 마지막으로 극한을 취함으로써(<span class="math inline">\(lim_{A\rightarrow\infty}\sup_{n}E\{ |X_{n}| I(|X_{n}|&gt;A)\}\)</span>) <span class="math inline">\(A\)</span>가 점점 커졌을 때 상한이 어떻게 변하는지 관찰할 수 있다.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<img src="images/basic_UI02.png" alt="An example of sequence of random variables that is not uniformly integrable." width="113" />
+<p class="caption">
+Figure 2.3: An example of sequence of random variables that is not uniformly integrable.
+</p>
+</div>
+<p>위 확률변수의 수열은 일양적분가능하지 않다. <span class="math inline">\(A\)</span>가 커짐에 따라 항상 <span class="math inline">\(E\{|X_{n}| I(|X_{n}|&gt;A)\}=1\)</span>을 만족하는 <span class="math inline">\(n\)</span>이 존재한다. 즉 <span class="math inline">\(|X_{n}| I(|X_{n}|&gt;A)=|X_{n}|\)</span>인 <span class="math inline">\(n\)</span>이 항상 존재하는 것이다. 따라서 <span class="math display">\[\sup_{n}E\{ |X_{n}| I(|X_{n}|&gt;A)\}=\sup_{n}E\{ |X_{n}|\}=\sup_{n}1=1.\]</span> 이다.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
+<img src="images/basic_UI03.png" alt="An example of sequence of random variables that is uniformly integrable." width="123" />
+<p class="caption">
+Figure 2.4: An example of sequence of random variables that is uniformly integrable.
+</p>
+</div>
+<p>위 예들로부터 얻을 수 있는 직관적 사실들은 다음과 같다. 만약 <span class="math inline">\(X_{n}\)</span>의 평균 면적이 <span class="math inline">\(n\)</span>이 커짐에 따라 무한대로 발산하면 그 확률변수의 수열은 항상 일양적분가능하지 않을 것이다. 한편</p>
+<ul>
+<li><p>모든 유한한 수열을 항상 일양적분가능하다(왜냐하면 모든 고정된 <span class="math inline">\(n\)</span>에 대해 <span class="math inline">\(P(X_{n}&gt;A)\)</span>는 <span class="math inline">\(A\)</span>가 커짐에 따라 감소한다).</p></li>
+<li><p>모든 유계(bounded)인 확률변수의 수열(반대로 유계가 아닌 경우를 생각해보면 <span class="math inline">\(n\)</span>이 커짐에 따라 <span class="math inline">\(X_{n}\)</span>은 어떤 확률로 점점 큰 값을 갖게 될 것이다)일양적분가능하다. 그러나 그 역은 성립하지 않는다.</p></li>
+</ul>
+<p>마지막으로 유계가 아니나 일양적분가능한 확률변수의 수열의 예를 소개한다.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
+<img src="images/basic_UI04.png" alt="An example of sequence of random variables that is not bounded but uniformly integrable." width="181" />
+<p class="caption">
+Figure 2.5: An example of sequence of random variables that is not bounded but uniformly integrable.
 </p>
 </div>
 </div>
-<div id="shannon-shannon-wavelet" class="section level3">
-<h3><span class="header-section-number">4.6.2</span> Shannon 웨이블릿(Shannon wavelet)</h3>
-<p>Haar와 반대로 주파수 영역에서 컴팩트 받침인 웨이블릿을 생각할 수 있다. 이것의 대표적인 예가 <strong>Shannon 웨이블릿(Shannon wavelet)</strong>이다. 다음과 같은 모웨이블릿(mother wavelet)을 생각하자. 그리고 그것의 푸리에 변환은 <span class="math display">\[\psi(x)=\frac{\sin(2\pi x)-\cos(\pi x)}{\pi (x - \frac{1}{2})} \rightarrow \hat{\psi}(\omega)=-e^{-\frac{i\omega}{2}}I_{[-2\pi,-\pi]\cup[\pi,2\pi]}(\omega).\]</span> 따라서 주파수 영역에서는 컴팩트 받침이다. Shannon의 부웨이블릿(father wavelet)와 대응되는 푸리에 변환은 다음과 같다. <span class="math display">\[\phi(x)=\text{sinc}(\pi x) \rightarrow \hat{\phi}(\omega)=1.\]</span> 즉 주파수 영역에서는 컴팩트 받침이다. 한편 시간 영역에서 <span class="math inline">\(\phi(x)\)</span>의 그림은 다음과 같다고 한다(출처: 위키, 체크 필요)</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-17"></span>
-<img src="images/multiscale_Shannon.png" alt="Real Shannon wavelet function." width="255" />
-<p class="caption">
-Figure 4.6: Real Shannon wavelet function.
-</p>
 </div>
+<div id="big-o-small-o-big-o-and-small-o" class="section level2">
+<h2><span class="header-section-number">2.2</span> Big O와 small o (big O and small o)</h2>
+<p><span class="math inline">\(x_{n}\)</span>을 무작위 벡터, <span class="math inline">\(a_{n}\)</span>을 실수라고 하자.</p>
+\begin{eqnarray*}
+x_{n}\stackrel{n\rightarrow \infty}{=}o(a_{n}) &amp;\Leftrightarrow&amp; \lim_{n\rightarrow\infty}\frac{x_{n}}{a_{n}}=0 \\
+&amp;\Leftrightarrow&amp; \frac{x_{n}}{a_{n}}\stackrel{n\rightarrow \infty}{=}o(1)\\
+\end{eqnarray*}
+\begin{eqnarray*}
+x_{n}\stackrel{n\rightarrow \infty}{=}O(a_{n}) &amp;\Leftrightarrow&amp; \text{sup}_{n}|\frac{x_{n}}{a_{n}}| &lt; \infty \\
+&amp;\Leftrightarrow&amp; \frac{x_{n}}{a_{n}}\stackrel{n\rightarrow \infty}{=}O(1)\\
+\end{eqnarray*}
 </div>
-<div id="meyer-meyer-wavelet" class="section level3">
-<h3><span class="header-section-number">4.6.3</span> Meyer 웨이블릿(Meyer wavelet)</h3>
-<p>Shannon 웨이블릿과 유사하며, 주파수 영역에서 상자 함수(box function)를 약간 부드럽게 한 형태의 웨이블릿이 <strong>Meyer 웨이블릿(Meyer wavelet)</strong>이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-18"></span>
-<img src="images/multiscale_Meyer.png" alt="Scaling function and wavelet function of Meyer wavelet on time domain." width="128" />
-<p class="caption">
-Figure 4.7: Scaling function and wavelet function of Meyer wavelet on time domain.
-</p>
-</div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-19"></span>
-<img src="images/multiscale_Meyer02.png" alt="Meyer scaling function on frequency domain." width="212" />
-<p class="caption">
-Figure 4.8: Meyer scaling function on frequency domain.
-</p>
-</div>
+<div id="big-op-small-op-big-op-and-small-op" class="section level2">
+<h2><span class="header-section-number">2.3</span> Big Op와 small op (big Op and small op)</h2>
+<p>이번엔 <span class="math inline">\(X_{n}\)</span>을 무작위 벡터, <span class="math inline">\(a_{n}\)</span>을 실수라고 하자.</p>
+\begin{eqnarray*}
+X_{n}\stackrel{n\rightarrow \infty}{=}o_{p}(a_{n}) &amp;\Leftrightarrow&amp; |\frac{X_{n}}{a_{n}}|\stackrel{P}{\rightarrow}0 \\
+&amp;\Leftrightarrow&amp; \frac{X_{n}}{a_{n}}=o_{p}(1)\\
+\end{eqnarray*}
+\begin{eqnarray*}
+X_{n}\stackrel{n\rightarrow \infty}{=}O_{p}(a_{n}) &amp;\Leftrightarrow&amp; \text{sup}_{n} P\{ \frac{X_{n}}{a_{n}}&gt;k\}\stackrel{k\rightarrow\infty}{\rightarrow}0 \\
+&amp;\Leftrightarrow&amp; \frac{X_{n}}{a_{n}}\stackrel{n\rightarrow \infty}{=}O_{p}(1)\\
+\end{eqnarray*}
 
 </div>
 </div>
-</div>
-<h3> References</h3>
-<div id="refs" class="references">
-<div id="ref-Nason2010">
-<p>Nason, Guy. 2010. <em>Wavelet Methods in Statistics with R</em>. 2nd ed. Spring Street, New York: Springer Science &amp; Business Media.</p>
-</div>
-</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="multiscale.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="waveletshrinkage.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="multiscale.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -505,7 +396,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://seoncheolpark.github.io/book/_book/12-wavelettransform.Rmd",
+"link": "https://seoncheolpark.github.io/book/_book/01-basic.Rmd",
 "text": null
 },
 "download": null,
