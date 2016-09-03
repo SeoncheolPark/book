@@ -19,7 +19,7 @@
 Davis (1972)는 `geoR`이라는 R 패키지를 만들었다.
 
 ```{r, message=FALSE, echo=F, fig.align='center'}
-require("geoR")
+library("geoR")
 ```
 
 이 안에 있는 자료 `elevation`은 52개 지역의 표면 높이(surface elevation)를 측정한 자료이다. 기본 distance unit은 50 feet이며, 높이의 기본 distance unit은 10 feet이다.

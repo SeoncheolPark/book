@@ -1,0 +1,101 @@
+# (PART) Spatial Point Processes {-}
+
+# 공간점과정 {#pointpattern}
+
+이 절에서는 **공간점과정(spatial point process)**에 대한 소개를 한다. 공간점과정은 1차원(주로 시계열 상의 자료) 및 3차원(지구상의 태풍, 화산 자료)에서도 고려 가능하나 주로 다루는 차원은 2차원이다.
+
+## 공간점패턴 자료의 예(examples of spatial point patterns)
+
+**공간점패턴(spatial point patterns)** 자료란 어떤 관찰값 또는 사건의 관찰지역 내의 장소들을 모아놓은 자료라고 볼 수 있다. 주된 예로는 나무의 위치, 동물의 거주지역, 범죄 장소, 은하의 위치 등을 들 수 있다.
+
+다음은 공간점패턴 자료의 예들이다. 이 자료들은 R 패키지 `spatstat`에 있다.
+
+```{r, message=FALSE, echo=F, fig.align='center'}
+library(spatstat)
+```
+
+1. Japanese pine trees data
+
+일본소나무자료는 Numata (1961)가 모은 자료로 `spatstat`에서 `japanesepine`이라는 이름으로 들어있다. 공간점자료를 받았을 때 처음 할 일은 이 자료가 어떤 패턴을 가지고 있는지 확인해 보는 것이다. 그림을 그려 본 결과 이 자료는 특별한 패턴이 보이지 않으며 완비 무작위성을 띤다고 볼 수 있다.
+
+```{r, echo=F, fig.align='center'}
+plot(japanesepines)
+```
+
+2. Califonia Redwoods
+
+레드우드는 세계에서 제일 키가 큰 나무 종류 중 하나라고 한다. 이 자료는 Ripley (1977)이 62그루의 캘리포니아 레드우드 모종(seeding)과 묘목(sapling)의 위치를 모아놓은 자료이다. `redwood`라는 이름으로 들어있다. 묘목 사이에 군집(cluster)이 형성되어 있음을 확인할 수 있다.
+
+```{r, echo=F, fig.align='center'}
+plot(redwood)
+```
+
+3. Biological cells
+
+Crick and Ripley (1977)은 광학현미경으로 관찰한 42개의 생물학적 세포의 중심들을 자료로 만들었다. `cell`라는 이름에 들어있다. 이 자료의 특징은 세포의 크기 때문에 모든 점들이 일정 거리 이상 떨어져 분포하고 있다는 것이다.
+
+```{r, echo=F, fig.align='center'}
+plot(cells)
+```
+
+4. Amacrine cells
+
+Diggle (1986)은 토끼의 망막에 있는 94개의 무축삭 세포(Amacrine cell) 자료를 분석했다. 이 세포들 중 152개는 빛이 들어오면 뇌에 정보를 전송하고 나머지들은 정보를 전송하지 않는다고 한다. `amacrine`이라는 이름으로 들어있다.
+
+```{r, echo=F, fig.align='center'}
+plot(amacrine)
+```
+
+여기서는 각자의 특징이 있는지, 두 그룹 사이에 관련성이 있는지에 대해 분석하게 된다.
+
+마지막으로 marked point pocess라는 것도 있는데 이것은 점에 추가로 정보가 붙어있는 자료들을 의미한다. 무축삭 세포 자료가 이에 해당될 것이다.
+
+## 완전공간임의성 (complete spatial randomness)
+
+공간점패턴 자료를 받으면 제일 처음으로 이 자료가 **완전공간임의성(complete spatial randomness, CSR)**을 따르는지 체크하게 되는데, 그 이유는 이것을 따르면 모델링이 단순해지기 때문이다.
+
+<div class="definition">
+
+완전공간임의성 가정은 다음 두 조건
+
+1. 면적이 $|A|$인 관찰 지역 $A$ 안의 사건의 숫자가 $\text{Poisson}(\lambda |A|), \lambda >0, |A| >0$을 따른다.
+
+2. $n$개의 사건이 주어졌을 때, 각각의 사건들 $x_{i}, i=1,\ldots , n$은 $A$ 위에서 균등분포(uniform distribution)를 따르는 독립인 무작위 표본들이다.
+
+을 만족하는 것이다. 이를 만족하는 점과정을 특별히 **동질적 포아송 점과정(homogeneous Poisson point process)**이라고 부른다. $\lambda$는 강도(intensity)로 단위 면적 당 사건 발생의 기대값을 결정하는 값이다. $\lambda$가 위치에 관계 없는 상수값이라는 것은 사건의 발생횟수가 위치에 따라 변하지 않는다는 의미이다. 또한 CSR 가정은 사건들 사이에 어떤 상호작용도 존재하지 않음을 의미한다.
+
+</div>
+
+우리는 어떤 자료가 정규분포를 따르는지 알아보기 위해 평균, 분산, 왜도, 첨도 등을 체크하고 Q-Q plot 등을 그리기도 한다. 그렇다면 CSR의 특징은 무엇인가? 이를 알먄 어떤 자료가 CSR을 따르는지 체크 가능할 것이다.
+
+## 일반적인 몬테카를로 검정 (general Monte Carlo test)
+
+$u_{1}$을 통계량 $U$ (아마 확률번수인 듯)를 따르는 관찰값이라고 하자. 그리고 $u_{i}, i =2,\ldots, s$를 어떤 단순한 가정($H_{0}$) 하의 $U$의 분포에서 뽑힌 독립 표본들의 값이라고 하자. $u_{(j)}$를 $u_{i}, i=1,\ldots , s$ 중 $j$번째로 큰 순서통계량이라고 하자. 그러면
+$$P(u_{i}=u_{(j)})=\frac{1}{s} \qquad{\text{under } H_{0}},$$
+$$P(u_{i}\geq u_{(j)})=\frac{k}{s}=\text{(test의) size} \qquad{\text{(one-sided test)}}$$
+가 된다.
+
+이 때 $U$는 동률이 없는 연속인 경우를 일단 생각한다. 만약 $U$가 이산이라면 동률이 생겨 rank 계산에 문제가 생길 것이다. 이 때는 less extreme rank(?)를 하는게 보수적인 판단이라고 한다.
+
+갑자기 몬테카를로 검정을 이야기 한 이유는 어떤 자료가 CSR인지 테스트를 할 때 사용할 수 있기 때문이다.
+
+1. 관찰값들이 있으면 이들의 상호 떨어지 거리(inter-event distance)를 이용하는 것이다. $T$를 지역 $A$ 안에서 독립인 균등분포로 뽑힌 두 사건의 거리들이라고 하자. 관찰 지역이 원이나 정사각형인 경우 $T$의 분포의 명시적 형태가 존재한다. 이 때 명시적 형태는 다음과 같다.
+
+단위 정사각형의 경우,
+$$
+H(t)=P(T\leq t) =
+\begin{cases}
+\pi t^{2}-\frac{8}{3}t^{3}+\frac{1}{2}t^{4} & \text{if $0 \leq t \leq 1$}\\
+\frac{1}{3} -2t^{2} + \frac{1}{2}t^{4} + 4(t^{2}-1)^{\frac{1}{2}}(2t^{2}+1)/3\\
++ 2t^{2}\sin^{-1}(2t^{-2}-1) & \text{if $1\leq t \leq \sqrt{2}$}
+\end{cases}
+$$
+이다. 식이 복잡해 보이는데 $a_{1}=(x_{1},y_{1})$, $a_{2}=(x_{2},y_{2})$일 때 $x_{1}, x_{2}, y_{1}, y_{2}$가 모두 독립이고 이 때 $T=\sqrt{(x_{1}-x_{2})^{2}+(y_{1}-y_{2})^{2}}$의 CDF를 구한 듯 하다.
+
+단위 원 경우에는 극 좌표계로 변환하여 계산하며
+$$H(t)=1+\pi^{-1}\{2(t^{2}-1)\cos^{-1}(\frac{t}{2})-t(1+\frac{t^{2}}{2})\sqrt{1-t^{2}/4}\}, \qquad{0\leq t \leq 2}$$
+가 된다.
+
+위 사각형 예제에서,
+$$\hat{H}(t)=\frac{2}{n(n-1)}\sum_{i,j}^{i\neq j}I_{(t_{ij}\leq t)}$$
+이며 이 때 empirical distribution function (EDF) 그림은 q-q plot과 비슷하게 그려진다.
