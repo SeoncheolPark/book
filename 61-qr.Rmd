@@ -1,0 +1,59 @@
+# (PART) Quantile Regression {-}
+
+# 분위수 회귀분석 {#qr}
+
+모스텔러와 튜키는 다음과 같이 말했다.
+
+"회귀곡선은 $x$의 집합에 대응되는 분포의 평균에 대한 좋은 요약정보를 제공한다. 우리는 x의 집합에 대해 좀 더 정확한 정보를 제공하기 위해 평균 뿐 아니라 다양한 분위수에 대응되는 회귀곡선을 그려야 한다. 평균이 분포에 대해 불완전한 정보를 제공하는 것처럼, 회귀곡선 또한 분포들의 집합에 대해 불완전한 정보를 제공한다."
+
+분위수 회귀분석은 극단값 이론에 기반하는 것은 아니지만, 분위수를 조절함으로써 극단값 모델링을 할 수 있다. 이 장의 표기는 Roger Koenker의 강의노트를 따른다.
+
+## 분위수 (quantile)
+
+<div class="definition">
+
+실수값을 갖는 확률변수 $Y$가 분포함수 $F$를 따른다고 할 때, $Y$의 $\tau$번째 분위수는
+$$Q_{\tau}(Y)=F_{Y}^{-1}(\tau)=\inf\{y|F(y)\geq \tau\}$$
+로 정의된다.
+
+```{r , fig.align='center', comment=">", echo=F, fig.cap="Cummulative distribution function (left) and corresponding quantile plot (right)."}
+par(mfrow=c(1,2))
+x<- seq(0,3,length = 100)
+plot(x, plnorm(x,0, 0.25), type ="l", xlab="x", ylab="F(x)")
+segments(x0=qlnorm(0.4,0,0.25), y0=0, x1=qlnorm(0.4,0,0.25), y1=0.4, col="red")
+segments(x0=0, y0=0.4, x1=qlnorm(0.4,0,0.25), y1=0.4, col="red")
+tau <- c(0, 0.00000005, seq(0,1,length=100)[-c(1,100)], 0.99999995, 1)
+plot(tau, qlnorm(tau, 0, 0.25), type='l', ylim=c(0,3), xlab=expression(tau), ylab=expression(paste("Q(", tau, ")")))
+segments(x0=0.4, y0=0, x1=0.4, y1=qlnorm(0.4,0,0.25), col="red")
+segments(x0=0, y0=qlnorm(0.4,0,0.25), x1=0.4, y1=qlnorm(0.4,0,0.25), col="red")
+```
+
+참고로 $Q_{\tau}(Y)$는 감소하지 않는 함수이다. 즉
+$$Q_{\tau_{1}}(Y) \leq Q_{\tau_{2}}(Y) \qquad{ for }\tau_{1} < \tau_{2}$$
+이다.
+
+</div>
+
+<div class="definition">
+
+$Y$를 반응변수, $\mathbf{X}$를 $p$차원 예측변수라고 하자. 이 때 $\mathbf{X}=\mathbf{x}$로 주어졌을 때 $Y$의 조건부 누적분포함수는 $F_{Y}(y|\mathbf{X}=\mathbf{x})=P(Y\leq y|\mathbf{X}=\mathbf{x})$라고 하자. 이 때 $Y$의 $\tau$\textbf{번째 조건부 분위수 (}$\tau$\textbf{-th conditional quantile)}는
+$$Q_{\tau}(Y|\mathbf{X}=\mathbf{x})=\inf\{y:F_{Y}(y|\mathbf{x})\geq \tau\}$$
+로 정의된다.
+
+</div>
+
+## 선형 분위수 회귀분석(linear quantile regression)
+
+최소자승법으로 해를 구하는 일반적인 (평균에 관한) 회귀분석 모형을 생각해보자.
+$$Y=\mathbf{X}^{T}\boldsymbol{\beta}+U, E(U)=0.$$
+이 때
+$$E(Y|\mathbf{X}=\mathbf{x})=\mathbf{x}^{T}\boldsymbol{\beta}$$
+이며 $\boldsymbol{\beta}$는 $\mathbf{x}$의 주변 변화에 의한 $Y$의 평균의 주변 변화를 측정하는 역할을 한다.
+
+이와 비슷하게 **선형 분위수 회귀분석 모형(linear quantile regression model)**은
+$$Q_{\tau}(Y|\mathbf{x})=\mathbf{x}^{T}\boldsymbol{\beta}(\tau), 0<\tau <1$$
+이며 여기서 $\boldsymbol{\beta}(\tau)=(\beta_{1}(\tau),\ldots , \beta_{p}(\tau))^{T}$는  $\tau$에 관련있는 **분위수 계수(quantile coefficient)**이다.
+
+이 때 $\mathbf{x}$의 첫 번째 원소가 절편에 대응된다고 하면
+$$Q_{\tau}(Y|\mathbf{x})=\beta_{1}(\tau)+x_{2}\beta_{2}(\tau)+\ldots +x_{p}\beta_{p}(\tau)$$
+로 표현된다. $\boldsymbol{\beta}(\tau)$는 $\mathbf{x}$의 주변 변화에 의한 $\tau$-분위수의 주변 변화를 측정하는 역할을 한다. 참고로 $Q_{\tau}(Y|\mathbf{x})$는 $\mathbf{x}$가 주어졌을 때 $\tau$에 대해 감소하지 않는 함수다.

@@ -38,8 +38,8 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="qr.html">
-<link rel="next" href="uGEVtheory.html">
+<link rel="prev" href="pointpattern.html">
+<link rel="next" href="extremevaluestat.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -276,18 +276,45 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="extremevaluestat" class="section level1">
-<h1><span class="header-section-number">Chapter 16</span> 극단값 통계학</h1>
-<p>통계학자 존 튜키(John Tukey)는 이렇게 말했다. “나는 모든 지구물리학자들이 실제 오차나 변동성의 분포들이 가우스(Gauss)나 라플라스(Laplace)가 만든 매끄러운 종 모양의 분포보다 훨씬 더 극단값 분포에 가까운 모양을 갖고 있음을 알고 있다고 확신한다.”</p>
+<div id="qr" class="section level1">
+<h1><span class="header-section-number">Chapter 15</span> 분위수 회귀분석</h1>
+<p>모스텔러와 튜키는 다음과 같이 말했다.</p>
+<p>“회귀곡선은 <span class="math inline">\(x\)</span>의 집합에 대응되는 분포의 평균에 대한 좋은 요약정보를 제공한다. 우리는 x의 집합에 대해 좀 더 정확한 정보를 제공하기 위해 평균 뿐 아니라 다양한 분위수에 대응되는 회귀곡선을 그려야 한다. 평균이 분포에 대해 불완전한 정보를 제공하는 것처럼, 회귀곡선 또한 분포들의 집합에 대해 불완전한 정보를 제공한다.”</p>
+<p>분위수 회귀분석은 극단값 이론에 기반하는 것은 아니지만, 분위수를 조절함으로써 극단값 모델링을 할 수 있다. 이 장의 표기는 Roger Koenker의 강의노트를 따른다.</p>
+<div id="-quantile" class="section level2">
+<h2><span class="header-section-number">15.1</span> 분위수 (quantile)</h2>
+<div class="definition">
+<p>실수값을 갖는 확률변수 <span class="math inline">\(Y\)</span>가 분포함수 <span class="math inline">\(F\)</span>를 따른다고 할 때, <span class="math inline">\(Y\)</span>의 <span class="math inline">\(\tau\)</span>번째 분위수는 <span class="math display">\[Q_{\tau}(Y)=F_{Y}^{-1}(\tau)=\inf\{y|F(y)\geq \tau\}\]</span> 로 정의된다.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-52"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-52-1.png" alt="Cummulative distribution function (left) and corresponding quantile plot (right)." width="672" />
+<p class="caption">
+Figure 15.1: Cummulative distribution function (left) and corresponding quantile plot (right).
+</p>
+</div>
+<p>참고로 <span class="math inline">\(Q_{\tau}(Y)\)</span>는 감소하지 않는 함수이다. 즉 <span class="math display">\[Q_{\tau_{1}}(Y) \leq Q_{\tau_{2}}(Y) \qquad{ for }\tau_{1} &lt; \tau_{2}\]</span> 이다.</p>
+</div>
+<div class="definition">
+<p><span class="math inline">\(Y\)</span>를 반응변수, <span class="math inline">\(\mathbf{X}\)</span>를 <span class="math inline">\(p\)</span>차원 예측변수라고 하자. 이 때 <span class="math inline">\(\mathbf{X}=\mathbf{x}\)</span>로 주어졌을 때 <span class="math inline">\(Y\)</span>의 조건부 누적분포함수는 <span class="math inline">\(F_{Y}(y|\mathbf{X}=\mathbf{x})=P(Y\leq y|\mathbf{X}=\mathbf{x})\)</span>라고 하자. 이 때 <span class="math inline">\(Y\)</span>의 <span class="math inline">\(\tau\)</span><span class="math inline">\(\tau\)</span>는 <span class="math display">\[Q_{\tau}(Y|\mathbf{X}=\mathbf{x})=\inf\{y:F_{Y}(y|\mathbf{x})\geq \tau\}\]</span> 로 정의된다.</p>
+</div>
+</div>
+<div id="--linear-quantile-regression" class="section level2">
+<h2><span class="header-section-number">15.2</span> 선형 분위수 회귀분석(linear quantile regression)</h2>
+<p>최소자승법으로 해를 구하는 일반적인 (평균에 관한) 회귀분석 모형을 생각해보자. <span class="math display">\[Y=\mathbf{X}^{T}\boldsymbol{\beta}+U, E(U)=0.\]</span> 이 때 <span class="math display">\[E(Y|\mathbf{X}=\mathbf{x})=\mathbf{x}^{T}\boldsymbol{\beta}\]</span> 이며 <span class="math inline">\(\boldsymbol{\beta}\)</span>는 <span class="math inline">\(\mathbf{x}\)</span>의 주변 변화에 의한 <span class="math inline">\(Y\)</span>의 평균의 주변 변화를 측정하는 역할을 한다.</p>
+<p>이와 비슷하게 <strong>선형 분위수 회귀분석 모형(linear quantile regression model)</strong>은 <span class="math display">\[Q_{\tau}(Y|\mathbf{x})=\mathbf{x}^{T}\boldsymbol{\beta}(\tau), 0&lt;\tau &lt;1\]</span> 이며 여기서 <span class="math inline">\(\boldsymbol{\beta}(\tau)=(\beta_{1}(\tau),\ldots , \beta_{p}(\tau))^{T}\)</span>는 <span class="math inline">\(\tau\)</span>에 관련있는 <strong>분위수 계수(quantile coefficient)</strong>이다.</p>
+<p>이 때 <span class="math inline">\(\mathbf{x}\)</span>의 첫 번째 원소가 절편에 대응된다고 하면 <span class="math display">\[Q_{\tau}(Y|\mathbf{x})=\beta_{1}(\tau)+x_{2}\beta_{2}(\tau)+\ldots +x_{p}\beta_{p}(\tau)\]</span> 로 표현된다. <span class="math inline">\(\boldsymbol{\beta}(\tau)\)</span>는 <span class="math inline">\(\mathbf{x}\)</span>의 주변 변화에 의한 <span class="math inline">\(\tau\)</span>-분위수의 주변 변화를 측정하는 역할을 한다. 참고로 <span class="math inline">\(Q_{\tau}(Y|\mathbf{x})\)</span>는 <span class="math inline">\(\mathbf{x}\)</span>가 주어졌을 때 <span class="math inline">\(\tau\)</span>에 대해 감소하지 않는 함수다.</p>
 
 </div>
+</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="qr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="uGEVtheory.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="pointpattern.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="extremevaluestat.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -314,7 +341,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://seoncheolpark.github.io/book/_book/71-extremestat.Rmd",
+"link": "https://seoncheolpark.github.io/book/_book/61-qr.Rmd",
 "text": null
 },
 "download": null,
