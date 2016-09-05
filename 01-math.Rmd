@@ -1,3 +1,5 @@
+# (PART) Basic Concepts {-}
+
 # 기본적인 수학 개념들 {#math}
 
 ## 수열(sequence)과 수열의 극한(limit)
@@ -74,17 +76,17 @@ $$f_{n} \stackrel{u}{\rightarrow} f$$
 
 (두 수열의 차이점 설명)
 
-## 연산자들(operators)
+## 연산자들과 노름(operators and norms)
 
 ### 직합(direct sum)
 
 <div class="definition">
 
-크기 $m \times n$인 행렬 $\bm{A}$와 $p\times q$인 행렬 $\bm{B}$가 있을 때 이들의 **직합(direct sum)**은
-$$\bm{A}\oplus\bm{B}=
+크기 $m \times n$인 행렬 $\mathbf{A}$와 $p\times q$인 행렬 $\mathbf{B}$가 있을 때 이들의 **직합(direct sum)**은
+$$\mathbf{A}\oplus\mathbf{B}=
 \begin{bmatrix}
-\bm{A} & 0\\
-0 & \bm{B}\\
+\mathbf{A} & 0\\
+0 & \mathbf{B}\\
 \end{bmatrix}
 =
 \begin{bmatrix}
@@ -121,3 +123,97 @@ $$
 $$
 
 </div>
+
+### 크로네커 곱(Kronecker product)
+
+<div class="definition">
+
+크기 $m \times n$인 행렬 $\mathbf{A}$와 $p\times q$인 행렬 $\mathbf{B}$가 있을 때 이들의 **크로네커 곱(Kronecker product)**은
+$$\mathbf{A}\otimes\mathbf{B}
+=
+\begin{bmatrix}
+a_{11}\mathbf{B} & \cdots & a_{1n}\mathbf{B} \\
+\vdots & \ddots & \vdots \\
+a_{m1}\mathbf{B} & \cdots & a_{mn}\mathbf{B} \\
+\end{bmatrix}
+$$
+
+</div>
+
+<div class="example">
+
+다음은 크로네커 곱의 한 예이다.
+
+$$
+\begin{bmatrix}
+1 & 2\\
+3 & 4\\
+\end{bmatrix}
+\otimes
+\begin{bmatrix}
+0 & 5\\
+6 & 7\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+1\cdot 0 & 1\cdot 5 & 2\cdot 0 & 2\cdot 5\\
+1\cdot 6 & 1\cdot 7 & 2\cdot 6 & 2\cdot 7\\
+3\cdot 0 & 3\cdot 5 & 4\cdot 0 & 4\cdot 5\\
+3\cdot 6 & 3\cdot 7 & 4\cdot 6 & 4\cdot 7\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 & 5 & 0 & 10\\
+6 & 7 & 12 & 14\\
+0 & 5 & 0 & 20\\
+18 & 21 & 24 & 28\\
+\end{bmatrix}
+$$
+
+</div>
+
+### 텐서곱(tensor product)
+
+### 노름(norm)
+
+#### 벡터 노름(vector norm)
+
+#### 행렬 노름(matrix norm)
+
+## 공간(space)
+
+### 벡터공간(vector space)
+
+<div class="definition">
+
+같은 수의 성분을 가지는 벡터들로 이루어진 공집합이 아닌 집합 $V$가 있을 때,
+
+1. $V$에 속하는 임의의 두 벡터 $\mathbf{a}$와 $\mathbf{b}$의 일차결합이 $\alpha \mathbf{a} + \beta \mathbf{b}$ ($\alpha$, $\beta$는 임의의 실수)가 또한 $V$에 속하고
+
+2. 벡터에 대한 **덧셈**과 스칼라곱이 아래 연산법칙을 만족하면
+
+- $\mathbf{a} + \mathbf{b} = \mathbf{b} + \mathbf{a}$: 교환(commutative)법칙
+ 
+- $(\mathbf{a} + \mathbf{b}) + \mathbf{c} = \mathbf{a} + (\mathbf{b} + \mathbf{c})$: 결합(associative)법칙
+
+- $\mathbf{a} + \mathbf{0} = \mathbf{a}$: 다음 식을 만족하는 항등원(identity element)이 벡터공간 내에 존재($\mathbf{0} \in V$)
+ 
+- $\mathbf{a} - \mathbf{a} = \mathbf{0}$: 다음 식을 만족하는 역원(inverse element)이 벡터공간 내에 존재($-\mathbf{a} \in V$)
+
+(스칼라 곱에 대해)
+ 
+- $c(\mathbf{a} + \mathbf{b}) = c\mathbf{a}+c\mathbf{b}$: 분배법칙
+ 
+- $(c+k)\mathbf{a}=c\mathbf{a}+k\mathbf{a}$: 분배법칙
+ 
+- $c(k\mathbf{a})=(ck)\mathbf{a}$
+
+- $1\mathbf{a}=\mathbf{a}$: 곱셈에 대한 항등원($V$안에 있을 필요는 없는 듯)
+
+이 집합 $V$를 **벡터공간(vector space)** 또는 **선형공간(linear space)**이라고 하며, 그 원소를 **벡터(vector)**라고 부른다. 이때 $c$, $k$, $1$은 어떤 체(field)의 원소여야 한다($c,k,1 \in F$). 여기서는 편의상  $F=\mathbb{R}$로 놓도록 한다.
+
+</div>
+
+### Sobolev 공간(Sobolev space)
+
+### Besov 공간(Besov space)
