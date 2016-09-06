@@ -1,6 +1,39 @@
 # 기본적인 확률론 개념들 {#basicprob}
 
-이 장에서는 앞으로 다룰 내용을 이해하기 위해 필요한 기본적인 수학, 확률 및 통계 개념을 정리하였다.
+이 장에서는 앞으로 다룰 내용을 이해하기 위해 필요한 기본적인 확률 개념을 정리하였다.
+
+## 기초 확률론(basic probability theory)
+
+### 표본공간과 사건(sample space and events)
+
+통계학은 무작위(random) 또는 확률적(stochastic) 실험(experiment), 즉 어떤 결과가 나올지 미리 확실히 예측할 수 없는 실험들에 초점을 맞춘다.
+
+<div class="definition">
+
+어떤 무작위 실험의 **표본공간(sample space)** $\Omega$는 그 실험에서 나올 수 있는 모든 결과들의 집합이다.
+
+</div>
+
+<div class="example">
+
+동전을 두 번 던지는 실험에서 $\Omega=\{ HH, HT, TH, TT \}$이다.
+
+</div>
+
+<div class="definition">
+
+**사건(event)**란 표본공간 $\Omega$의 임의의 부분집합(subset)을 의미한다.
+
+</div>
+
+<div class="example">
+
+- 앞서 동전을 두 번 던지는 실험에서 앞면이 하나만 나올 사건을 $A$라고 하면 $A=\{ HT, TH \}$이다.
+- 앞서 동전을 두 번 던지는 실험에서 적어도 한 번 앞면이 나올 사건을 $B$라고 하면 $A=\{ HH, HT, TH \}$이다.
+
+</div>
+
+### 시그마 대수(sigma-algebra)
 
 ## 확률변수의 수렴(convergence of random variables)
 

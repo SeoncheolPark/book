@@ -38,8 +38,8 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="math.html">
-<link rel="next" href="multiscale.html">
+<link rel="prev" href="pointpattern.html">
+<link rel="next" href="qr.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -300,126 +300,68 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="basicprob" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> 기본적인 확률론 개념들</h1>
-<p>이 장에서는 앞으로 다룰 내용을 이해하기 위해 필요한 기본적인 확률 개념을 정리하였다.</p>
-<div id="-basic-probability-theory" class="section level2">
-<h2><span class="header-section-number">3.1</span> 기초 확률론(basic probability theory)</h2>
-<div id="-sample-space-and-events" class="section level3">
-<h3><span class="header-section-number">3.1.1</span> 표본공간과 사건(sample space and events)</h3>
-<p>통계학은 무작위(random) 또는 확률적(stochastic) 실험(experiment), 즉 어떤 결과가 나올지 미리 확실히 예측할 수 없는 실험들에 초점을 맞춘다.</p>
+<div id="-csr" class="section level1">
+<h1><span class="header-section-number">Chapter 16</span> 완전공간임의성 (#csr)</h1>
+<p>공간점패턴 자료를 받으면 제일 처음으로 이 자료가 <strong>완전공간임의성(complete spatial randomness, CSR)</strong>을 따르는지 체크하게 되는데, 그 이유는 이것을 따르면 모델링이 단순해지기 때문이다.</p>
 <div class="definition">
-<p>어떤 무작위 실험의 <strong>표본공간(sample space)</strong> <span class="math inline">\(\Omega\)</span>는 그 실험에서 나올 수 있는 모든 결과들의 집합이다.</p>
+<p>완전공간임의성 가정은 다음 두 조건</p>
+<ol style="list-style-type: decimal">
+<li><p>면적이 <span class="math inline">\(|A|\)</span>인 관찰 지역 <span class="math inline">\(A\)</span> 안의 사건의 숫자가 <span class="math inline">\(\text{Poisson}(\lambda |A|), \lambda &gt;0, |A| &gt;0\)</span>을 따른다.</p></li>
+<li><p><span class="math inline">\(n\)</span>개의 사건이 주어졌을 때, 각각의 사건들 <span class="math inline">\(x_{i}, i=1,\ldots , n\)</span>은 <span class="math inline">\(A\)</span> 위에서 균등분포(uniform distribution)를 따르는 독립인 무작위 표본들이다.</p></li>
+</ol>
+<p>을 만족하는 것이다. 이를 만족하는 점과정을 특별히 <strong>동질적 포아송 점과정(homogeneous Poisson point process)</strong>이라고 부른다. <span class="math inline">\(\lambda\)</span>는 강도(intensity)로 단위 면적 당 사건 발생의 기대값을 결정하는 값이다. <span class="math inline">\(\lambda\)</span>가 위치에 관계 없는 상수값이라는 것은 사건의 발생횟수가 위치에 따라 변하지 않는다는 의미이다. 또한 CSR 가정은 사건들 사이에 어떤 상호작용도 존재하지 않음을 의미한다.</p>
 </div>
-<div class="example">
-<p>동전을 두 번 던지는 실험에서 <span class="math inline">\(\Omega=\{ HH, HT, TH, TT \}\)</span>이다.</p>
+<p>우리는 어떤 자료가 정규분포를 따르는지 알아보기 위해 평균, 분산, 왜도, 첨도 등을 체크하고 Q-Q plot 등을 그리기도 한다. 그렇다면 CSR의 특징은 무엇인가? 이를 알먄 어떤 자료가 CSR을 따르는지 체크 가능할 것이다.</p>
+<div id="---general-monte-carlo-test" class="section level2">
+<h2><span class="header-section-number">16.1</span> 일반적인 몬테카를로 검정 (general Monte Carlo test)</h2>
+<p><span class="math inline">\(u_{1}\)</span>을 통계량 <span class="math inline">\(U\)</span> (아마 확률번수인 듯)를 따르는 관찰값이라고 하자. 그리고 <span class="math inline">\(u_{i}, i =2,\ldots, s\)</span>를 어떤 단순한 가정(<span class="math inline">\(H_{0}\)</span>) 하의 <span class="math inline">\(U\)</span>의 분포에서 뽑힌 독립 표본들의 값이라고 하자. <span class="math inline">\(u_{(j)}\)</span>를 <span class="math inline">\(u_{i}, i=1,\ldots , s\)</span> 중 <span class="math inline">\(j\)</span>번째로 큰 순서통계량이라고 하자. 그러면 <span class="math display">\[P(u_{i}=u_{(j)})=\frac{1}{s} \qquad{\text{under } H_{0}},\]</span> <span class="math display">\[P(u_{i}\geq u_{(j)})=\frac{k}{s}=\text{(test의) size} \qquad{\text{(one-sided test)}}\]</span> 가 된다.</p>
+<p>이 때 <span class="math inline">\(U\)</span>는 동률이 없는 연속인 경우를 일단 생각한다. 만약 <span class="math inline">\(U\)</span>가 이산이라면 동률이 생겨 rank 계산에 문제가 생길 것이다. 이 때는 less extreme rank(?)를 하는게 보수적인 판단이라고 한다.</p>
+<p>갑자기 몬테카를로 검정을 이야기 한 이유는 어떤 자료가 CSR인지 테스트를 할 때 사용할 수 있기 때문이다.</p>
+<ol style="list-style-type: decimal">
+<li>관찰값들이 있으면 이들의 상호 떨어지 거리(inter-event distance)를 이용하는 것이다. <span class="math inline">\(T\)</span>를 지역 <span class="math inline">\(A\)</span> 안에서 독립인 균등분포로 뽑힌 두 사건의 거리들이라고 하자. 관찰 지역이 원이나 정사각형인 경우 <span class="math inline">\(T\)</span>의 분포의 명시적 형태가 존재한다. 이 때 명시적 형태는 다음과 같다.</li>
+</ol>
+<p>단위 정사각형의 경우, 분포함수 <span class="math inline">\(H(t)\)</span>는 <span class="math display">\[
+H(t)=P(T\leq t) =
+\begin{cases}
+\pi t^{2}-\frac{8}{3}t^{3}+\frac{1}{2}t^{4} &amp; \text{if $0 \leq t \leq 1$}\\
+\frac{1}{3} -2t^{2} + \frac{1}{2}t^{4} + 4(t^{2}-1)^{\frac{1}{2}}(2t^{2}+1)/3\\
++ 2t^{2}\sin^{-1}(2t^{-2}-1) &amp; \text{if $1\leq t \leq \sqrt{2}$}
+\end{cases}
+\]</span> 이다. 식이 복잡해 보이는데 <span class="math inline">\(a_{1}=(x_{1},y_{1})\)</span>, <span class="math inline">\(a_{2}=(x_{2},y_{2})\)</span>일 때 <span class="math inline">\(x_{1}, x_{2}, y_{1}, y_{2}\)</span>가 모두 독립이고 이 때 <span class="math inline">\(T=\sqrt{(x_{1}-x_{2})^{2}+(y_{1}-y_{2})^{2}}\)</span>의 CDF를 구한 듯 하다.</p>
+<p>단위 원 경우에는 극 좌표계로 변환하여 계산하며 <span class="math display">\[H(t)=1+\pi^{-1}\{2(t^{2}-1)\cos^{-1}(\frac{t}{2})-t(1+\frac{t^{2}}{2})\sqrt{1-t^{2}/4}\}, \qquad{0\leq t \leq 2}\]</span> 가 된다.</p>
+<p>위 사각형 예제에서, H(t)의 경험적 분포함수(empirical distribution function) <span class="math inline">\(\hat{H}(t)\)</span>는 <span class="math display">\[\hat{H}(t)=\frac{2}{n(n-1)}\sum_{i,j}^{i\neq j}I_{(t_{ij}\leq t)}\]</span> 이며 이 때 empirical distribution function (EDF) 그림은 q-q plot과 비슷하게 그려진다.</p>
+<p>한편, EDF에 봉투(envelope)들(마치 함수의 상한, 하한과 같다) <span class="math inline">\(U(t)\)</span>, <span class="math inline">\(L(t)\)</span>을 다음과 같이 정의한다. <span class="math display">\[U(t)=\max_{2\leq i \leq s}\{\hat{H}_{i}(t)\} \text{ and } U(t)=\min_{2\leq i \leq s}\{\hat{H}_{i}(t)\}.\]</span></p>
+<p>이 ED 말고 통계량을 이용해 검정할 수는 없을까? 그러기 위해서는 우선 <span class="math inline">\(\hat{H}(t)\)</span>의 분포를 알아야 한다. 그러나 이를 구하는 것은 쉽지 않다. 따라서 공간점과정에서는 몬테칼로 방법(Monte Carlo method)을 많이 사용한다고 한다. 일반적인 절차는</p>
+<ol style="list-style-type: decimal">
+<li><p>CSR 가정 하에 지역 <span class="math inline">\(A\)</span> 안에서 <span class="math inline">\(n\)</span>개의 사건을 생성한다.</p></li>
+<li><p>간단히 하기 위해 먼저 <span class="math inline">\(t\)</span>를 고정시킨 다음, <span class="math inline">\(\hat{H}_{1}(t)\)</span> 는 데이터로부터 생성된</p></li>
+</ol>
 </div>
-<div class="definition">
-<p><strong>사건(event)</strong>란 표본공간 <span class="math inline">\(\Omega\)</span>의 임의의 부분집합(subset)을 의미한다.</p>
-</div>
-<div class="example">
-<ul>
-<li>앞서 동전을 두 번 던지는 실험에서 앞면이 하나만 나올 사건을 <span class="math inline">\(A\)</span>라고 하면 <span class="math inline">\(A=\{ HT, TH \}\)</span>이다.</li>
-<li>앞서 동전을 두 번 던지는 실험에서 적어도 한 번 앞면이 나올 사건을 <span class="math inline">\(B\)</span>라고 하면 <span class="math inline">\(A=\{ HH, HT, TH \}\)</span>이다.</li>
-</ul>
-</div>
-</div>
-<div id="-sigma-algebra" class="section level3">
-<h3><span class="header-section-number">3.1.2</span> 시그마 대수(sigma-algebra)</h3>
-</div>
-</div>
-<div id="-convergence-of-random-variables" class="section level2">
-<h2><span class="header-section-number">3.2</span> 확률변수의 수렴(convergence of random variables)</h2>
-<div id="---almost-sure-convergence" class="section level3">
-<h3><span class="header-section-number">3.2.1</span> 거의 확실한 확률 수렴(Almost sure convergence)</h3>
-</div>
-<div id="convergence-in-probability" class="section level3">
-<h3><span class="header-section-number">3.2.2</span> 확률수렴(Convergence in probability)</h3>
-</div>
-<div id="lp-convergence-in-lp" class="section level3">
-<h3><span class="header-section-number">3.2.3</span> Lp 수렴(Convergence in Lp)</h3>
-</div>
-<div id="convergence-in-distribution" class="section level3">
-<h3><span class="header-section-number">3.2.4</span> 분포수렴(Convergence in distribution)</h3>
-</div>
-<div id="--connections-between-modes-of-convergence" class="section level3">
-<h3><span class="header-section-number">3.2.5</span> 수렴 사이들의 관계(Connections between modes of convergence)</h3>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
-<img src="images/basic_convergenceconnection.png" alt="Connections between modes of convergences." width="154" />
+<div id="r-r-edf" class="section level2">
+<h2><span class="header-section-number">16.2</span> R 예제(R-edf)</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Define points</span>
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">3.4</span>, <span class="fl">7.3</span>, <span class="fl">6.3</span>, <span class="fl">7.7</span>, <span class="fl">5.2</span>, <span class="fl">0.3</span>, <span class="fl">6.8</span>, <span class="fl">7.5</span>, <span class="fl">5.4</span>, <span class="fl">6.1</span>, <span class="fl">5.9</span>, <span class="fl">3.1</span>, <span class="fl">5.2</span>, <span class="fl">1.4</span>, <span class="fl">5.6</span>, <span class="fl">0.3</span>)
+y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">2.2</span>, <span class="fl">0.4</span>, <span class="fl">0.8</span>, <span class="fl">6.6</span>, <span class="fl">5.6</span>, <span class="fl">2.5</span>, <span class="fl">7.6</span>, <span class="fl">0.3</span>, <span class="fl">3.5</span>, <span class="fl">3.1</span>, <span class="fl">6.1</span>, <span class="fl">6.4</span>, <span class="fl">1.5</span>, <span class="fl">3.9</span>, <span class="fl">3.6</span>, <span class="fl">5.2</span>)
+<span class="co"># Store the coordinates as a matrix</span>
+coords &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(<span class="kw">cbind</span>(x, y))
+<span class="co"># Store the points as two-dimensional point pattern (ppp) object (ranging from 0 to 8 on both axis)</span>
+coords.ppp &lt;-<span class="st"> </span><span class="kw">as.ppp</span>(coords, <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">8</span>, <span class="dv">0</span>, <span class="dv">8</span>))
+<span class="co">#  Number of points</span>
+n &lt;-<span class="st"> </span>coords.ppp$n
+<span class="co">#  We want to generate completely spatially random point patterns to compare against the observed</span>
+ex &lt;-<span class="st"> </span><span class="kw">expression</span>( <span class="kw">runifpoint</span>( n , <span class="dt">win =</span> <span class="kw">owin</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">8</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">8</span>))))
+<span class="co">#  Reproducible simulation</span>
+<span class="kw">set.seed</span>(<span class="dv">1</span>)
+<span class="co"># Compute a simulation envelope using Gest, which estimates the nearest neighbour distance distribution function G(r)</span>
+EDF &lt;-<span class="st"> </span><span class="kw">envelope</span>( coords.ppp , Gest , <span class="dt">nsim =</span> <span class="dv">99</span>, <span class="dt">simulate =</span> ex ,<span class="dt">verbose =</span> <span class="ot">FALSE</span>, <span class="dt">savefuns =</span> <span class="ot">TRUE</span> )
+<span class="co">#  Plot</span>
+<span class="kw">plot</span>(EDF)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-53"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-53-1.png" alt="EDF plot." width="672" />
 <p class="caption">
-Figure 3.1: Connections between modes of convergences.
+Figure 16.1: EDF plot.
 </p>
 </div>
-</div>
-<div id="convergence-of-moments-uniform-integrability" class="section level3">
-<h3><span class="header-section-number">3.2.6</span> Convergence of moments: 일양적분가능성(uniform integrability)</h3>
-<p><span class="math inline">\(X_{n}\)</span>이 점근적으로 <span class="math inline">\(\mathcal{N}(\mu_{n}, \sigma_{n}^{2})\)</span>에 수렴한다는 문장을 생각해보자. 즉 이 얘기는 <span class="math inline">\((X_{n}-\mu_{n})/\sigma_{n} \stackrel{D}{\rightarrow} \mathcal{N}(0,1)\)</span>이라는 말이다. 그러나 이것이 <span class="math inline">\(E(X_{n})=\mu_{n}\)</span>이고 <span class="math inline">\(\text{var}(X_{n})=\sigma_{n}^{2}\)</span>임을 의미하지는 않는다. 일반적으로 <span class="math inline">\(X_{n} \stackrel{D}{\rightarrow} X\)</span>는 <span class="math inline">\(E(X_{n}) \rightarrow E(X)\)</span>임을 의미하지 않는다.</p>
-<div class="definition">
-<p>(추정량은 무한대의 평균을 갖으나 확률변수의 극한은 유한한 평균을 갖는 예.)</p>
-<p><span class="math inline">\(\hat{p}_{n}\)</span>이 iid 베르누이 확률변수 <span class="math inline">\(X_{1}, \ldots, X_{n}\)</span>로부터 나온 표본비(sample proportion)라고 하자. 그러면 CLT에 의해 <span class="math inline">\(\hat{p}_{n}\)</span>은 점근적으로 평균 <span class="math inline">\(p=E(X_{1})\)</span>이고 분산 <span class="math inline">\(p(1-p)/n\)</span>인 정규분포를 따른다. 델타 방법(delta method)에 의해 <span class="math inline">\(\text{ln}(\hat{p})\)</span>는 점근적으로 평균 <span class="math inline">\(\ln(p)\)</span>, 분산 <span class="math inline">\((1-p)/(np)\)</span>인 정규분포를 따름을 안다. 그러면 <span class="math display">\[Z_{n} = \frac{\text{ln}(\hat{p}_{n})-\text{ln}(p)}{\sqrt{(1-p)/(np)}} \stackrel{D}{\rightarrow} Z \sim \mathcal{N}(0,1)\]</span> 임을 안다. 그러나 모든 <span class="math inline">\(n\)</span>에 대해 <span class="math inline">\(E\{\text{ln}(\hat{p}_{n}) \}=-\infty\)</span>인데, 이는 <span class="math inline">\(\hat{p}_{n}\)</span>은 0이 될 확률이 양수이기 때문이다. 그러므로 <span class="math inline">\(E(Z_{n})=-\infty\)</span>이나, <span class="math inline">\(E(Z)=0\)</span>이다.</p>
-</div>
-<p>(Skrohod 정리를 이용한 추가적 설명 필요, Essential of Probability Theory for Statisticians 193-194쪽)</p>
-<div class="definition">
-<p>만약 각 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math display">\[E\{ |X_{n}| I(|X_{n}|&gt;A)\}&lt;\epsilon \forall n\]</span> 을 만족하는 <span class="math inline">\(A\)</span>가 존재한다면 이 확률변수의 수열 <span class="math inline">\(X_{n}\)</span>을 <strong>일양적분가능(uniformly integrable, UI)</strong>이라고 부른다. 또는 <span class="math display">\[\lim_{A\rightarrow\infty}\sup_{n}E\{ |X_{n}| I(|X_{n}|&gt;A)\}=0\]</span> 을 만족하는 것으로 정의하기도 한다.</p>
-</div>
-<p>그렇다면 일양적분가능이 말하고자 하는 것은 무엇인가? <span class="math inline">\(|X_{n}| I(|X_{n}|&gt;A)\)</span>항부터 살펴보자. 이것은 <span class="math inline">\(A\)</span>보다 작은 <span class="math inline">\(|X_{n}|\)</span> 값은 0이 되도록 조절하는 것이다. 다음 그림을 참고하자.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
-<img src="images/basic_UI01.png" alt="Case when function values bigger than A exist." width="309" />
-<p class="caption">
-Figure 3.2: Case when function values bigger than A exist.
-</p>
-</div>
-<p>다음은 <span class="math inline">\(E\{|X_{n}| I(|X_{n}|&gt;A)\}\)</span>에 초점을 맞춘다. 이것은 그림 의 그래프 아래 면적에 해당하는 것이다(물론 <span class="math inline">\(\omega \in [0,M]\)</span>에서 균등한 확률 측도 <span class="math inline">\(dP(\omega)=\frac{1}{M}\)</span>을 줬을 때의 이야기다). 이때 상한(<span class="math inline">\(\sup_{n}\)</span>)의 쓰임은 <span class="math inline">\(A\)</span>가 고정되었을 때 가장 큰 면적을 반환하는 <span class="math inline">\(n\)</span>을 찾는 것이다. 마지막으로 극한을 취함으로써(<span class="math inline">\(lim_{A\rightarrow\infty}\sup_{n}E\{ |X_{n}| I(|X_{n}|&gt;A)\}\)</span>) <span class="math inline">\(A\)</span>가 점점 커졌을 때 상한이 어떻게 변하는지 관찰할 수 있다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
-<img src="images/basic_UI02.png" alt="An example of sequence of random variables that is not uniformly integrable." width="113" />
-<p class="caption">
-Figure 3.3: An example of sequence of random variables that is not uniformly integrable.
-</p>
-</div>
-<p>위 확률변수의 수열은 일양적분가능하지 않다. <span class="math inline">\(A\)</span>가 커짐에 따라 항상 <span class="math inline">\(E\{|X_{n}| I(|X_{n}|&gt;A)\}=1\)</span>을 만족하는 <span class="math inline">\(n\)</span>이 존재한다. 즉 <span class="math inline">\(|X_{n}| I(|X_{n}|&gt;A)=|X_{n}|\)</span>인 <span class="math inline">\(n\)</span>이 항상 존재하는 것이다. 따라서 <span class="math display">\[\sup_{n}E\{ |X_{n}| I(|X_{n}|&gt;A)\}=\sup_{n}E\{ |X_{n}|\}=\sup_{n}1=1.\]</span> 이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
-<img src="images/basic_UI03.png" alt="An example of sequence of random variables that is uniformly integrable." width="123" />
-<p class="caption">
-Figure 3.4: An example of sequence of random variables that is uniformly integrable.
-</p>
-</div>
-<p>위 예들로부터 얻을 수 있는 직관적 사실들은 다음과 같다. 만약 <span class="math inline">\(X_{n}\)</span>의 평균 면적이 <span class="math inline">\(n\)</span>이 커짐에 따라 무한대로 발산하면 그 확률변수의 수열은 항상 일양적분가능하지 않을 것이다. 한편</p>
-<ul>
-<li><p>모든 유한한 수열을 항상 일양적분가능하다(왜냐하면 모든 고정된 <span class="math inline">\(n\)</span>에 대해 <span class="math inline">\(P(X_{n}&gt;A)\)</span>는 <span class="math inline">\(A\)</span>가 커짐에 따라 감소한다).</p></li>
-<li><p>모든 유계(bounded)인 확률변수의 수열(반대로 유계가 아닌 경우를 생각해보면 <span class="math inline">\(n\)</span>이 커짐에 따라 <span class="math inline">\(X_{n}\)</span>은 어떤 확률로 점점 큰 값을 갖게 될 것이다)일양적분가능하다. 그러나 그 역은 성립하지 않는다.</p></li>
-</ul>
-<p>마지막으로 유계가 아니나 일양적분가능한 확률변수의 수열의 예를 소개한다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
-<img src="images/basic_UI04.png" alt="An example of sequence of random variables that is not bounded but uniformly integrable." width="181" />
-<p class="caption">
-Figure 3.5: An example of sequence of random variables that is not bounded but uniformly integrable.
-</p>
-</div>
-</div>
-</div>
-<div id="big-o-small-o-big-o-and-small-o" class="section level2">
-<h2><span class="header-section-number">3.3</span> Big O와 small o (big O and small o)</h2>
-<p><span class="math inline">\(x_{n}\)</span>을 무작위 벡터, <span class="math inline">\(a_{n}\)</span>을 실수라고 하자.</p>
-\begin{eqnarray*}
-x_{n}\stackrel{n\rightarrow \infty}{=}o(a_{n}) &amp;\Leftrightarrow&amp; \lim_{n\rightarrow\infty}\frac{x_{n}}{a_{n}}=0 \\
-&amp;\Leftrightarrow&amp; \frac{x_{n}}{a_{n}}\stackrel{n\rightarrow \infty}{=}o(1)\\
-\end{eqnarray*}
-\begin{eqnarray*}
-x_{n}\stackrel{n\rightarrow \infty}{=}O(a_{n}) &amp;\Leftrightarrow&amp; \text{sup}_{n}|\frac{x_{n}}{a_{n}}| &lt; \infty \\
-&amp;\Leftrightarrow&amp; \frac{x_{n}}{a_{n}}\stackrel{n\rightarrow \infty}{=}O(1)\\
-\end{eqnarray*}
-</div>
-<div id="big-op-small-op-big-op-and-small-op" class="section level2">
-<h2><span class="header-section-number">3.4</span> Big Op와 small op (big Op and small op)</h2>
-<p>이번엔 <span class="math inline">\(X_{n}\)</span>을 무작위 벡터, <span class="math inline">\(a_{n}\)</span>을 실수라고 하자.</p>
-\begin{eqnarray*}
-X_{n}\stackrel{n\rightarrow \infty}{=}o_{p}(a_{n}) &amp;\Leftrightarrow&amp; |\frac{X_{n}}{a_{n}}|\stackrel{P}{\rightarrow}0 \\
-&amp;\Leftrightarrow&amp; \frac{X_{n}}{a_{n}}=o_{p}(1)\\
-\end{eqnarray*}
-\begin{eqnarray*}
-X_{n}\stackrel{n\rightarrow \infty}{=}O_{p}(a_{n}) &amp;\Leftrightarrow&amp; \text{sup}_{n} P\{ \frac{X_{n}}{a_{n}}&gt;k\}\stackrel{k\rightarrow\infty}{\rightarrow}0 \\
-&amp;\Leftrightarrow&amp; \frac{X_{n}}{a_{n}}\stackrel{n\rightarrow \infty}{=}O_{p}(1)\\
-\end{eqnarray*}
 
 </div>
 </div>
@@ -431,8 +373,8 @@ X_{n}\stackrel{n\rightarrow \infty}{=}O_{p}(a_{n}) &amp;\Leftrightarrow&amp; \te
           </div>
         </div>
       </div>
-<a href="math.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="multiscale.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="pointpattern.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="qr.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -459,7 +401,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://seoncheolpark.github.io/book/_book/02-prob.Rmd",
+"link": "https://seoncheolpark.github.io/book/_book/52-CSR.Rmd",
 "text": null
 },
 "download": null,
