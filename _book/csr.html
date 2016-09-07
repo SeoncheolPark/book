@@ -38,8 +38,8 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="math.html">
+<link rel="prev" href="pointpattern.html">
+<link rel="next" href="qr.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -305,26 +305,120 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">통계공부와 관련된 글들</h1>
-<h4 class="author"><em>Seoncheol Park</em></h4>
-<h4 class="date"><em>2016-09-07</em></h4>
+<div id="csr" class="section level1">
+<h1><span class="header-section-number">Chapter 16</span> 완전공간임의성</h1>
+<p>공간점패턴 자료를 받으면 제일 처음으로 이 자료가 <strong>완전공간임의성(complete spatial randomness, CSR)</strong>을 따르는지 체크하게 되는데, 그 이유는 이것을 따르면 모델링이 단순해지기 때문이다.</p>
+<div class="definition">
+<p>완전공간임의성 가정은 다음 두 조건</p>
+<ol style="list-style-type: decimal">
+<li><p>면적이 <span class="math inline">\(|A|\)</span>인 관찰 지역 <span class="math inline">\(A\)</span> 안의 사건의 숫자가 <span class="math inline">\(\text{Poisson}(\lambda |A|), \lambda &gt;0, |A| &gt;0\)</span>을 따른다.</p></li>
+<li><p><span class="math inline">\(n\)</span>개의 사건이 주어졌을 때, 각각의 사건들 <span class="math inline">\(x_{i}, i=1,\ldots , n\)</span>은 <span class="math inline">\(A\)</span> 위에서 균등분포(uniform distribution)를 따르는 독립인 무작위 표본들이다.</p></li>
+</ol>
+<p>을 만족하는 것이다. 이를 만족하는 점과정을 특별히 <strong>동질적 포아송 점과정(homogeneous Poisson point process)</strong>이라고 부른다. <span class="math inline">\(\lambda\)</span>는 강도(intensity)로 단위 면적 당 사건 발생의 기대값을 결정하는 값이다. <span class="math inline">\(\lambda\)</span>가 위치에 관계 없는 상수값이라는 것은 사건의 발생횟수가 위치에 따라 변하지 않는다는 의미이다. 또한 CSR 가정은 사건들 사이에 어떤 상호작용도 존재하지 않음을 의미한다.</p>
 </div>
-<div id="section-1" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> 일러두기</h1>
-<p>각 장은 독립된 구성으로 되어 있으며, 한 권 이상의 책들을 참고문헌으로 하여 그들의 정의 및 표현을 따라가는 방식으로 구성되어 있다. 따라서 각 장마다 표현 및 한국어 용어 번역이 상이할 수 있다.</p>
+<p>우리는 어떤 자료가 정규분포를 따르는지 알아보기 위해 평균, 분산, 왜도, 첨도 등을 체크하고 Q-Q plot 등을 그리기도 한다. 그렇다면 CSR의 특징은 무엇인가? 이를 알먄 어떤 자료가 CSR을 따르는지 체크 가능할 것이다.</p>
+<div id="------general-monte-carlo-methods-for-csr-test" class="section level2">
+<h2><span class="header-section-number">16.1</span> 완전공간임의성 검정을 위한 일반적인 몬테카를로 방법 (general Monte Carlo methods for CSR test)</h2>
+<p><span class="math inline">\(u_{1}\)</span>을 통계량 <span class="math inline">\(U\)</span> (아마 확률번수인 듯)를 따르는 관찰값이라고 하자. 그리고 <span class="math inline">\(u_{i}, i =2,\ldots, s\)</span>를 어떤 단순한 가정(<span class="math inline">\(H_{0}\)</span>) 하의 <span class="math inline">\(U\)</span>의 분포에서 뽑힌 독립 표본들의 값이라고 하자. <span class="math inline">\(u_{(j)}\)</span>를 <span class="math inline">\(u_{i}, i=1,\ldots , s\)</span> 중 <span class="math inline">\(j\)</span>번째로 큰 순서통계량이라고 하자. 그러면 <span class="math display">\[P(u_{i}=u_{(j)})=\frac{1}{s} \qquad{\text{under } H_{0}},\]</span> <span class="math display">\[P(u_{i}\geq u_{(j)})=\frac{k}{s}=\text{(test의) size} \qquad{\text{(one-sided test)}}\]</span> 가 된다.</p>
+<p>이 때 <span class="math inline">\(U\)</span>는 동률이 없는 연속인 경우를 일단 생각한다. 만약 <span class="math inline">\(U\)</span>가 이산이라면 동률이 생겨 rank 계산에 문제가 생길 것이다. 이 때는 less extreme rank(?)를 하는게 보수적인 판단이라고 한다.</p>
+<p>갑자기 몬테카를로 검정을 이야기 한 이유는 어떤 자료가 CSR인지 테스트를 할 때 사용할 수 있기 때문이다.</p>
+<ol style="list-style-type: decimal">
+<li>관찰값들이 있으면 이들의 상호 떨어지 거리(inter-event distance)를 이용하는 것이다. <span class="math inline">\(T\)</span>를 지역 <span class="math inline">\(A\)</span> 안에서 독립인 균등분포로 뽑힌 두 사건의 거리들이라고 하자. 관찰 지역이 원이나 정사각형인 경우 <span class="math inline">\(T\)</span>의 분포의 명시적 형태가 존재한다. 이 때 명시적 형태는 다음과 같다.</li>
+</ol>
+<p>단위 정사각형의 경우, 분포함수 <span class="math inline">\(H(t)\)</span>는 <span class="math display">\[
+H(t)=P(T\leq t) =
+\begin{cases}
+\pi t^{2}-\frac{8}{3}t^{3}+\frac{1}{2}t^{4} &amp; \text{if $0 \leq t \leq 1$}\\
+\frac{1}{3} -2t^{2} + \frac{1}{2}t^{4} + 4(t^{2}-1)^{\frac{1}{2}}(2t^{2}+1)/3\\
++ 2t^{2}\sin^{-1}(2t^{-2}-1) &amp; \text{if $1\leq t \leq \sqrt{2}$}
+\end{cases}
+\]</span> 이다. 식이 복잡해 보이는데 <span class="math inline">\(a_{1}=(x_{1},y_{1})\)</span>, <span class="math inline">\(a_{2}=(x_{2},y_{2})\)</span>일 때 <span class="math inline">\(x_{1}, x_{2}, y_{1}, y_{2}\)</span>가 모두 독립이고 이 때 <span class="math inline">\(T=\sqrt{(x_{1}-x_{2})^{2}+(y_{1}-y_{2})^{2}}\)</span>의 CDF를 구한 듯 하다.</p>
+<p>단위 원 경우에는 극 좌표계로 변환하여 계산하며 <span class="math display">\[H(t)=1+\pi^{-1}\{2(t^{2}-1)\cos^{-1}(\frac{t}{2})-t(1+\frac{t^{2}}{2})\sqrt{1-t^{2}/4}\}, \qquad{0\leq t \leq 2}\]</span> 가 된다.</p>
+<p>위 사각형 예제에서, H(t)의 경험적 분포함수(empirical distribution function) <span class="math inline">\(\hat{H}(t)\)</span>는 <span class="math display">\[\hat{H}(t)=\frac{2}{n(n-1)}\sum_{i,j}^{i\neq j}I_{(t_{ij}\leq t)}\]</span> 이며 이 때 empirical distribution function (EDF) 그림은 q-q plot과 비슷하게 그려진다.</p>
+<p>한편, EDF에 봉투(envelope)들(마치 함수의 상한, 하한과 같다) <span class="math inline">\(U(t)\)</span>, <span class="math inline">\(L(t)\)</span>을 다음과 같이 정의한다. <span class="math display">\[U(t)=\max_{2\leq i \leq s}\{\hat{H}_{i}(t)\} \text{ and } U(t)=\min_{2\leq i \leq s}\{\hat{H}_{i}(t)\}.\]</span></p>
+<p>이 EDF 말고 통계량을 이용해 검정할 수는 없을까? 그러기 위해서는 우선 <span class="math inline">\(\hat{H}(t)\)</span>의 분포를 알아야 한다. 그러나 이를 구하는 것은 쉽지 않다. 따라서 공간점과정에서는 몬테칼로 방법(Monte Carlo method)을 많이 사용한다고 한다. 일반적인 절차는</p>
+<ol style="list-style-type: decimal">
+<li><p>CSR 가정 하에 지역 <span class="math inline">\(A\)</span> 안에서 <span class="math inline">\(n\)</span>개의 사건을 생성한다.</p></li>
+<li><p>간단히 하기 위해 먼저 <span class="math inline">\(t\)</span>를 고정시킨 다음, <span class="math inline">\(\hat{H}_{1}(t)\)</span> 는 데이터로부터 생성된 경험적 분포함수로, <span class="math inline">\(\hat{H}_{i}(t), i=2,\ldots, s\)</span> (<span class="math inline">\(s\)</span>: 몬테칼로 반복 횟수)는 몬테칼로 방법으로 생성된 경험적 분포함수라고 놓는다. 그러면 <span class="math inline">\(t\)</span>를 고정했을 때 CSR 하에서 다음이 성립한다. <span class="math display">\[P(\hat{H}_{1}(t)&gt;U(t))=P(\hat{H}_{1}(t)&lt;L(t))=\frac{1}{s}\]</span></p></li>
+</ol>
+<div id="-----mc-tests-using-edf" class="section level3">
+<h3><span class="header-section-number">16.1.1</span> 경험적 분포함수를 이용한 몬테칼로 검정 방법들(MC tests using EDF)</h3>
+<p>크게 두 가지 방법이 있다.</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(t_{0}\)</span>를 고른 다음, <span class="math inline">\(u_{1}=\hat{H}_{1}(t_{0})\)</span>를 검정통계량으로 쓰는 것이다. 그러면 CSR 가정 하에 <span class="math inline">\(P(U_{(j)}=u_{1})=\frac{1}{s}\)</span>가 된다.</p></li>
+<li><p><span class="math inline">\(t_{0}\)</span>가 너무 주관적인 선택이므로 이를 해결하기 위해 <span class="math inline">\(u_{i}=\int (\hat{H}_{i}(t)-H(t) )^{2}dt\)</span>를 사용하고 나머지는 앞의 방법과 동일하게 할 수도 있다.</p></li>
+</ol>
+<div class="remark">
+<ol style="list-style-type: decimal">
+<li><p>Aggregate pattern이 의심될 경우: 작은 <span class="math inline">\(t_{0}\)</span>를 선택하는 것이 좋다.</p></li>
+<li><p>두 번째 검정은 검정력(power)이 첫 번째 검정에 비해 약하다.</p></li>
+<li><p>실제 데이터의 분포 지역이 정사각형 또는 원이 아닌 경우 <span class="math inline">\(H(t)\)</span>의 명시적 형태를 모른다. 이처럼 <span class="math inline">\(H(t)\)</span>를 모르는 경우 <span class="math inline">\(\hat{H}_{i}, i=2,\ldots, s\)</span>를 이용해 <span class="math inline">\(H(t)\)</span>의 추정량 <span class="math inline">\(\bar{H}(t)\)</span>를 만들어 사용하는 것이다. <span class="math display">\[\bar{H}_{i}(t)=\frac{1}{s-1}\sum_{j\neq i}\hat{H}_{j}(t)\]</span> 이며 <span class="math inline">\(\bar{H}_{1}(t)\)</span>를 <span class="math inline">\(H(t)\)</span>의 추정량으로 주로 쓴다.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="--methods-based-on-nearest-neighbor-distance" class="section level2">
+<h2><span class="header-section-number">16.2</span> 최근접이웃거리 기반 방법들(methods based on nearest neighbor distance)</h2>
+<p><span class="math inline">\(Y\)</span>를 CSR 가정 하에 <span class="math inline">\(A\)</span> 안에 <span class="math inline">\(n\)</span> (<span class="math inline">\(n\)</span>은 고정)개의 사건이 있다고 할 때 <strong>최근접이웃거리(nearest neighbor distance)</strong>라고 하자. 그러면</p>
+\begin{eqnarray*}
+G(y)=P(Y\leq y)&amp;\approx &amp; 1-(1-\pi y^{2}|A|^{-1})^{n-1}\\
+&amp;\approx&amp; 1-e^{-\lambda \pi y^{2}}, \qquad{y \geq 0, \lambda =\frac{n}{|A|}}
+\end{eqnarray*}
+<p>가 된다. 이제 우리는 <span class="math inline">\(G(y)\)</span>와 비교할 empirical한 것을 데이터로부터 찾아야 한다. <span class="math inline">\(y_{i}\)</span>를 <span class="math inline">\(i\)</span>번째 사건과 그 사건으로부터 가장 가까운 다른 사건 사이의 거리라고 하자. 그러면 <span class="math inline">\(\hat{G}_{1}(y)=\frac{1}{n}\sum I(y_{i} \leq y)\)</span>가 되며 이를 이용해 EDF 그림을 그려보거나 몬테칼로 검정을 할 수 있다.</p>
+<div id="----mc-tests-based-on-nearest-neighbor-distance" class="section level3">
+<h3><span class="header-section-number">16.2.1</span> 최근접이웃거리 기반 몬테칼로 검정 방법들(MC tests based on nearest neighbor distance)</h3>
+<p>다음의 방법들이 있다.</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(u_{i}=\int (\hat{G}_{c}(y)-G(y))^{2}dy\)</span>를 이용하는 것이다. 이 때 <span class="math inline">\(G\)</span> 대신 <span class="math inline">\(\bar{G}\)</span>를 넣어도 된다.</p></li>
+<li><p><span class="citation">(Clark and Evans <a href="#ref-Clark1954">1954</a>)</span> <span class="math inline">\(\bar{y}=\frac{1}{n}\sum y_{i}\)</span>로 놓는다. 이 경우에 <span class="math inline">\(\bar{y}\)</span>는 근사적으로 정규분포를 따르며 <span class="math display">\[E(\bar{y})=0.5(n^{-1}|A|)^{\frac{1}{2}} + (0.051 + 0.042 n^{-\frac{1}{2}})n^{-1}P\]</span> <span class="math display">\[\text{Var}(\bar{y})=0.070n^{-2}|A| + 0.037(n^{-5}|A|)^{\frac{1}{2}}P\]</span> 이다. 이 때 <span class="math inline">\(P\)</span>는 <span class="math inline">\(A\)</span>의 둘레의 길이다.</p></li>
+<li><p>(Point-to-nearest event distance) <span class="math inline">\(X\)</span>를 <span class="math inline">\(A\)</span> 안에 있는 어떤 점에서 <span class="math inline">\(n\)</span>개의 사건들 중 가장 가까운 사건과의 거리라고 하자. 또 <span class="math inline">\(x_{i}, i=1,\ldots ,m\)</span>을 <span class="math inline">\(A\)</span>의 <span class="math inline">\(i\)</span>번째 점에서 <span class="math inline">\(n\)</span>개의 사건들 중 가장 가까운 사건과의 거리라고 하자. 그러면 <span class="math display">\[F(x)=P(X\leq x) \approx 1 - e^{-\lambda \pi x^{2}}, \qquad{x \geq 0, \lambda = \frac{n}{|A|}}\]</span> <span class="math display">\[\hat{F}_{1}(x)=\frac{1}{m}\sum I(x_{i}\leq x)\]</span> 그 다음에는 앞게 비슷하게 EDF 그림을 그려보거나 <span class="math inline">\(u_{1}=\int (\hat{F}_{1}(x)-\bar{F}_{1}(x))^{2}dx\)</span>등으로 검정 가능하다.</p></li>
+</ol>
+</div>
+</div>
+<div id="r-r-edf" class="section level2">
+<h2><span class="header-section-number">16.3</span> R 예제(R-edf)</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Define points</span>
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">3.4</span>, <span class="fl">7.3</span>, <span class="fl">6.3</span>, <span class="fl">7.7</span>, <span class="fl">5.2</span>, <span class="fl">0.3</span>, <span class="fl">6.8</span>, <span class="fl">7.5</span>, <span class="fl">5.4</span>, <span class="fl">6.1</span>, <span class="fl">5.9</span>, <span class="fl">3.1</span>, <span class="fl">5.2</span>, <span class="fl">1.4</span>, <span class="fl">5.6</span>, <span class="fl">0.3</span>)
+y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">2.2</span>, <span class="fl">0.4</span>, <span class="fl">0.8</span>, <span class="fl">6.6</span>, <span class="fl">5.6</span>, <span class="fl">2.5</span>, <span class="fl">7.6</span>, <span class="fl">0.3</span>, <span class="fl">3.5</span>, <span class="fl">3.1</span>, <span class="fl">6.1</span>, <span class="fl">6.4</span>, <span class="fl">1.5</span>, <span class="fl">3.9</span>, <span class="fl">3.6</span>, <span class="fl">5.2</span>)
+<span class="co"># Store the coordinates as a matrix</span>
+coords &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(<span class="kw">cbind</span>(x, y))
+<span class="co"># Store the points as two-dimensional point pattern (ppp) object (ranging from 0 to 8 on both axis)</span>
+coords.ppp &lt;-<span class="st"> </span><span class="kw">as.ppp</span>(coords, <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">8</span>, <span class="dv">0</span>, <span class="dv">8</span>))
+<span class="co">#  Number of points</span>
+n &lt;-<span class="st"> </span>coords.ppp$n
+<span class="co">#  We want to generate completely spatially random point patterns to compare against the observed</span>
+ex &lt;-<span class="st"> </span><span class="kw">expression</span>( <span class="kw">runifpoint</span>( n , <span class="dt">win =</span> <span class="kw">owin</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">8</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">8</span>))))
+<span class="co">#  Reproducible simulation</span>
+<span class="kw">set.seed</span>(<span class="dv">1</span>)
+<span class="co"># Compute a simulation envelope using Gest, which estimates the nearest neighbour distance distribution function G(r)</span>
+EDF &lt;-<span class="st"> </span><span class="kw">envelope</span>( coords.ppp , Gest , <span class="dt">nsim =</span> <span class="dv">99</span>, <span class="dt">simulate =</span> ex ,<span class="dt">verbose =</span> <span class="ot">FALSE</span>, <span class="dt">savefuns =</span> <span class="ot">TRUE</span> )
+<span class="co">#  Plot</span>
+<span class="kw">plot</span>(EDF)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-53"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-53-1.png" alt="EDF plot." width="672" />
+<p class="caption">
+Figure 16.1: EDF plot.
+</p>
+</div>
 
+</div>
 </div>
 
 
 
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-Clark1954">
+<p>Clark, Philip J., and Francis C. Evans. 1954. “Distance to Nearest Neighbor as a Measure of Spatial Relationships in Populations.” <em>Ecology</em> 35 (4): 445–53. doi:<a href="https://doi.org/10.2307/1931034">10.2307/1931034</a>.</p>
+</div>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="math.html" class="navigation navigation-next navigation-unique" aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="pointpattern.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="qr.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -351,7 +445,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://seoncheolpark.github.io/book/_book/index.Rmd",
+"link": "https://seoncheolpark.github.io/book/_book/52-CSR.Rmd",
 "text": null
 },
 "download": null,
