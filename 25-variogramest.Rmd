@@ -111,9 +111,9 @@ $$\hat{\boldsymbol{\theta}}=\text{argmin}_{\boldsymbol{\theta}}\sum_{j}\frac{|N(
 
 몇 가지 기본 가정들은 다음과 같다.
 
--$\mathbf{\gamma}(\mathbf{h}_{1}), \cdots , \mathbf{\gamma}(\mathbf{h}_{m})$ 이 $\mathbf{h}_{1}, \cdots , \mathbf{h}_{m}$에서 계산되어있다. 여기서 $m$은 고정되어 있다고 가정한다.
+- $\mathbf{\gamma}(\mathbf{h}_{1}), \cdots , \mathbf{\gamma}(\mathbf{h}_{m})$ 이 $\mathbf{h}_{1}, \cdots , \mathbf{h}_{m}$에서 계산되어있다. 여기서 $m$은 고정되어 있다고 가정한다.
 
--$|N(\mathbf{h}_{j})|=O(n)$. 좀 더 자세하게는 $N(\mathbf{h}_{j})=n\cdot \phi_{j,n}$이고 $\lim_{n \rightarrow \infty}\phi_{j,n}=\phi_{j} < \infty$이다(그렇지 않으면 $O(n)$의 order가 올라갈 것이다). 말로 설명하자면 데이터가 커질 때마다 밀도가 일정해야 하므로 region도 커져야 한다는 것이다.
+- $|N(\mathbf{h}_{j})|=O(n)$. 좀 더 자세하게는 $N(\mathbf{h}_{j})=n\cdot \phi_{j,n}$이고 $\lim_{n \rightarrow \infty}\phi_{j,n}=\phi_{j} < \infty$이다(그렇지 않으면 $O(n)$의 order가 올라갈 것이다). 말로 설명하자면 데이터가 커질 때마다 밀도가 일정해야 하므로 region도 커져야 한다는 것이다.
 
 참고로 [@Cressie1985]에서는 다음과 같이 적혀 있다. "$|N(\mathbf{h}_{j})| \rightarrow \infty$ for each $j=1, \cdots, k$ as $N \rightarrow \infty$ as $|D| \rightarrow \infty$ such that $N/|D|$, the sampling rate per unit area is constant." 그리고 data가 evenly spaced 되어야 이 방법이 잘 맞는다고 한다.
 
