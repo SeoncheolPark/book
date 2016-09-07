@@ -126,7 +126,7 @@ RMLE을 쓸 경우 $\sigma^{2}=\frac{1}{n-p}( \cdots )$가 되어 불편추정�
 
 이 방법은 앞 두 방법을 섞은 것이라고 생각하면 된다. Domain은 늘어나고 sample 사이의 distance는 줄어든다. 즉 observation의 갯수가 $n$일 때, sample size 사이의 거리는 $O(\frac{1}{n^{\alpha}}), 0 <\alpha <1$이라고 생각하는 것이다. 교수님께서는 MLE에서는 보지 못했으나 MLE말고 다른 asymptotic에서는 종종 쓰인다고 하였다.
 
-## 몇 가지 결과들(sum results about asymptotics of MLE of spatial data)
+### 몇 가지 결과들(sum results about asymptotics of MLE of spatial data)
 
 - **Increasing domain asymptotics**하의 결과들
 
@@ -168,7 +168,7 @@ MLE에서의 computational issue들은 다음과 같은 것들이 있다.
 
 최근에는 아예 MLE가 아닌 다른 inverse-free approach를 찾는 연구 또한 활발하다고 한다.
 
-## 공간통계에서의 계산 문제들의 해결책들(solutions about computational issues in spatial statistics)
+### 공간통계에서의 계산 문제들의 해결책들(solutions about computational issues in spatial statistics)
 
 - **Classical**
 

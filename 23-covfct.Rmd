@@ -59,25 +59,25 @@ $$
 
 - $C_{1}, C_{2}, \ldots$가 양정치함수의 수열이고 이것의 극한 $\lim_{n \rightarrow \infty}C_{n}$이 존재하면 이것 또한 양정치함수이다.
 
-## 등방성(isotropy)
+### 등방성(isotropy)
 
 $C(\mathbf{h})=C_{0}(\|\mathbf{h}\|)$인(or $\gamma(\mathbf{h})=\gamma_{0}(\|\mathbf{h}\|)$) $C_{0}$가 존재할 경우 이 공간과정이 $Z(\mathbf{s})$를 **등방성(isotropy)**을 갖는다라고 한다. 이것은 $d$차원에서 정의한 $\mathbf{h}$ 1차원인 거리에만 의존하는 공분산함수로 표현 가능하다는 것이다.
 
-## 동질성(homogeneous)
+### 동질성(homogeneous)
 
 (잘 쓰이지는 않지만) $Z(\mathbf{s})$가 내재적(intrinsic)이고 등방성(isotrophic)인 경우 $Z(\mathbf{s})$를 **동질성(homogeneous)**을 갖는다라고 한다.
 
-## 이등방성(anisotropy)
+### 이등방성(anisotropy)
 
 **이등방성(anisotropy)**란 말 그대로 등방성이 아닌 경우를 얘기하지만 이런 경우가 너무 많아 범위를 나누어 생각한다.
 
-### 기하학적 이등방성(Geometric anisotropy)
+###z3 기하학적 이등방성(Geometric anisotropy)
 
 이것은
 $$\gamma(\mathbf{h})=\gamma_{0}(\|A\mathbf{h}\|)$$
 즉 어떤 **선형변환행렬(linear transfomation matrix)** $A$를 통해 변환한 후 등방성인 경우를 얘기한다. 보통 $A$는 대칭인 양정치행렬(symmetric positive definite matrix)을 다루며 이 때 $\|A\mathbf{h}\|$는 타원형 등고선(ellipse contour)이 된다.
 
-### 띠모양 이등방성(zonal anisotropy)
+#### 띠모양 이등방성(zonal anisotropy)
 
 이것은 기하학적 이등방성의 일반화된 버전이라고 생각하면 된다.
 $$\gamma(\mathbf{h})=\sum_{i=1}^{K}\gamma_{0}(\|A_{i}\mathbf{h}\|)$$
@@ -132,7 +132,7 @@ $$C(\cdot)\text{이 } \mathbf{0}\text{에서 연속} \rightarrow Z(\mathbf{s})\t
 $$C(\cdot) \text{가 원점에서 연속이면} \rightarrow C(\cdot) \text{는 모든 지점에서 연속이다}.$$
 이것의 증명에 대해서는 각자 생각해보기로 한다.
 
-## Bartlett의 정리(Bartlett's theorem)
+### Bartlett의 정리(Bartlett's theorem)
 
 이 정리는 다음 두 가지를 일컫는 말이다.
 
@@ -158,7 +158,7 @@ $$C_{h}(\mathbf{t}) \stackrel{\|\mathbf{h}\| \rightarrow 0}{\rightarrow} -C^{''}
 
 한편 평균제곱 연속성은 프랙탈 분석(fractal analysis) (표면의 부드러움 체크 관련), first index estimation 등과도 관련된다고 한다.
 
-## Kent의 경로연속을 위한 충분조건(Kent's sufficient condition for path-continuity) (2-d ver)
+### Kent의 경로연속을 위한 충분조건(Kent's sufficient condition for path-continuity) (2-d ver)
 
 평균제곱연속이나 경로연속이지 않은 경우(path-continuous 조건이 mean-square continuous조건보다 strong하다)는 것을 보이는 [@Kent1989]의 정리를 소개하였다. 여기서는 간단하게 2-d version으로 정리한다.
 
