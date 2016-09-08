@@ -105,6 +105,38 @@ $$F(x)=P(X\leq x) \approx 1 - e^{-\lambda \pi x^{2}}, \qquad{x \geq 0, \lambda =
 $$\hat{F}_{1}(x)=\frac{1}{m}\sum I(x_{i}\leq x)$$
 그 다음에는 앞게 비슷하게 EDF 그림을 그려보거나 $u_{1}=\int (\hat{F}_{1}(x)-\bar{F}_{1}(x))^{2}dx$등으로 검정 가능하다.
 
+4. 정방구역 계산(quadrat count)
+
+```{r, message=F, echo=F}
+library(ggplot2)
+```
+
+```{r, echo=F, fig.align='center', comment=">", fig.cap = 'Examples of rectangle area.'}
+# Setup the data
+m <- matrix(c(1,4,7,2,5,8,3,6,9), nrow=3, ncol=3)
+df <- expand.grid(x=1:ncol(m),y=1:nrow(m))
+df$val <- m[as.matrix(df[c('y','x')])]
+
+ggplot(df, aes(x=x, y=y, label=val)) + 
+  geom_tile(fill='transparent', colour = 'black') + 
+  geom_text(size = 14) + 
+  scale_y_reverse() +
+  theme_classic() + 
+  theme(axis.text  = element_blank(),
+        panel.grid = element_blank(),
+        axis.line  = element_blank(),
+        axis.ticks = element_blank(),
+        axis.title = element_blank())
+```
+
+**정방구역(quadrat)**이란 어떤 관찰구역 $A$를 $m$개의 같은 크기의 소구역으로 나눴을 때 그 구역 하나 하나를 일컫는 말이다. 위 그림에서 셀 하나 하나를 정방구역이라고 부른다. CSR 가정 아래서는 같은 분포를 $m$번 반복하여 관찰하는 것으로 볼 수 있고 $n_{i}$는
+$$n_{i} \sim \text{Poisson}(\lambda |B|),\qquad{i=1,\ldots, m}$$
+을 따른다. 여기서 $B$는 어떤 지역이다.
+
+이 때의 검정통계량으로는 카이제공통계량을 쓴다. CSR 가정 아래서
+$$X^{2}=\sum_{n=1}^{m}\frac{(n_{i}-\bar{n})^{2}}{\bar{n}} \sim \chi_{m-1}^{2}$$
+이다. 이 때 $\bar{n}=\frac{n}{m}=\frac{\sum n_{i}}{m}$이다.
+
 ## R 예제(R-edf)
 
 ```{r, message=F, echo=F}

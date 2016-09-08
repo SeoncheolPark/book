@@ -1,0 +1,88 @@
+# 희박한 샘플링 분석 {#sparsesampling}
+
+지금까지는 사건의 point의 각각의 location을 미리 안다고 가정하고 또 사건의 갯수인 $n$ 또한 미리 안다고 가정한 상태에서 분석을 하였다. 한편, 지역이 엄청 크거나 사건의 point들이 너무 많을 경우 정보를 collect하는 데 시간이 오래 걸릴 것이다. 특히 기술이 발달하지 않은 옛날에는 특히 어려웠기 때문에 사람들은 관찰 지역 안에서 일부 정보를 뽑아 사용했다고 한다. 자료는
+
+1. 정방구역 계산(quadrat count) 및
+
+2. $m$개의 표본추출 점들(sampling points)의 최근접이웃거리 기반 방법
+
+으로 모은다. $m$을 조절할 수 있기 때문에 실제로 2의 방법으로 모으는 것이 더 쉽다고 한다.
+
+희박한 샘플링 분석에서의 관심사는 CSR도 있지만 알려지지 않은 전채 갯수 $n$에 더 관심을 갖는다고 한다. **강도(intensity)** $\lambda$를 알면 $n$을 알 수 있지 않을까? 결국 $n$ 또는 $\lambda$의 분포를 알아야 하므로 CSR인지 먼저 체크하게 된다.
+
+## 희박한 샘플링 자료를 위한 정방구역 계산(quadrat counts for sparse sampled data)
+
+$I$를 산포(dispersion)의 지수(index)라고 하자. 그러면 $I$는
+$$I=\frac{\sum_{i=1}^{m}(n_{i}-\bar{n})^{2}}{\bar{n}(m-1)},$$
+즉 표본분산($\frac{\sum_{i=1}^{m}(n_{i}-\bar{n})^{2}}{(m-1)}$)과 표본평균($\bar{n}=\frac{1}{m}\sum n_{i}$)의 비로 나타낸다. CSR하에서 $n_{1}, \ldots, n_{m}$은 포아송 분포를 따르고 표본분산과 표본평균은 같다, 즉 $I \approx 1$이길 기대하는 것이다.
+
+검정은 $(m-1)I \sim \chi_{m-1}^{2}$ 사실을 이용하며 $I >> 1$인 경우에는 **집적(aggregate)**된 자료($n_{1}, \ldots, n_{m}$의 variation이 크므로 표본분산이 커짐)이며 $I << 1$인 경우에는 **정칙(regular)**성을 띈 자료가 된다. [@Diggle1979]는 이 검정이 집적된 자료를 찾는데에는 강력(powerful)하나 정칙성을 띈 자료를 찾는 데에는 좋지 않다는 사실을 밝혔다.
+
+한편 강도 $\lambda$의 추정량 $\hat{\lambda}$는
+$$\hat{\lambda}=\sum_{i=1}^{m}\frac{n_{i}}{m|B|}$$
+와 같이 계산을 할 수 있다.
+
+## 희박한 샘플링 자료를 위한 거리 방법들(distance methods for sparsely sampled data)
+
+$X$를 임의의 점(point, 사건이 아님)으로부터 가장 가까운 사건(event)까지의 거리라고 하자. 그러면 CSR 가정 하에서
+$$F(x)=P(X\leq x)\approx 1-e^{-\pi\lambda x^{2}}, \qquad{x>0\text{ under CSR}}$$
+이다. 즉 $\pi X^{2} \sim \text{Exp}(\lambda)$이며 변수변환을 통해 $2\pi \lambda X^{2} \sim \chi_{2}^{2}$으로 바뀌며 $P(X>x)\sim e^{-\pi\lambda x^{2}}$이 된다.
+
+이 때 CSR 검정을 하는 방법으로는 두 가지 방법이 있다.
+
+1. [@Hopkins1954]는 뒤에 나올 $h$를 이용한 검정 방법을 제안했다. 임의로 $m$개의 점을 골랐을 때 각 점들마다 가장 가까운 사건 사이의 거리를 $\{X_{1}, \ldots, X_{m}\}$이라고 놓자. 그리고 임의로 사건을 하나 골랐을 때 그 사건과 가장 가까운 다른 사건 사이의 거리를 $\{Y_{1}, \ldots, Y_{m}\}$이라고 놓자. 그러면
+$$2\pi\lambda X_{i}^{2} \stackrel{ind}{\sim} \chi_{2}^{2} \bot \sum 2\pi\lambda Y_{i}^{2} \sim \chi_{2}^{2},$$
+$$\sum 2\pi X_{i}^{2} \stackrel{ind}{\sim} \chi_{2m}^{2} \bot \sum 2\pi Y_{i}^{2} \sim \chi_{2m}^{2}$$
+이며
+$$h=\frac{\sum X_{i}^{2}}{\sum Y_{i}^{2}} \sim F_{2m,2m} \qquad{\text{under CSR.}}$$
+이다. 즉 임의 점에서 계산한 nearest distance나 무작위로 선택된 사건들로부터 계산된 nearest distance들이나 같아야 한다는 아이디어에서 출발한 것이다.
+
+만약 CSR이 아닌 경우에는 $h$가 커지거나 작아지는데, $h$가 커진다는 것은 $\sum Y_{i}^{2}$들이 작아지므로 집적된 자료이고, $h$가 작아질 때에는 $\sum Y_{i}^{2}$ 일정한 값들을 갖기 때문에 정칙성을 갖는 자료라고 한다.
+
+2. Besag and Gleaves (1973)은 T-square sampling procedure라는 것을 제안했다.
+
+```{r, message=F, echo=F}
+library(splancs)
+```
+
+```{r, echo=F, fig.align='center', comment=">", fig.cap = 'Example of T-square sampling.'}
+xy<-c(0.13,0.21,0.36,0.49,0.49,0.86,0.9,0.50,0.72,0.05,1.72,
+      0.28,1.65,0.57,1.31,0.5,1.25,0.79,1.68,0.69,1.78,0.92)
+xy<-matrix(xy,11,2,byrow=TRUE)
+rad<-sqrt(sum((xy[4,]-xy[8,])^2))
+xc<-xy[4,1]+rad*cos(2*pi*(0:360)/360)
+yc<-xy[4,2]+rad*sin(2*pi*(0:360)/360)
+rad2<-sqrt(sum((xy[8,]-xy[9,])^2))
+xc2<-xy[8,1]+rad2*cos(2*pi*(0:360)/360)
+yc2<-xy[8,2]+rad2*sin(2*pi*(0:360)/360)
+rad3<-sqrt(sum((xy[7,]-xy[8,])^2))
+xc3<-xy[8,1]+rad3*cos(2*pi*((-90):90)/360)
+yc3<-xy[8,2]+rad3*sin(2*pi*((-90):90)/360)
+pointmap(cbind(xy[,1],xy[,2]),pch=19,cex=1.5,xaxt="n",yaxt="n",bty="n",xlab=" ",ylab=" ",
+   xlim=c(0,2),ylim=c(0,1))
+lines(xc,yc)
+lines(xc3,yc3)
+lines(c(xy[8,1],xy[8,1]),c(0,1),lwd=2,lty=2)
+lines(c(xy[4,1],xy[8,1]),c(xy[4,2],xy[8,2]),lwd=3)
+lines(c(xy[7,1],xy[8,1]),c(xy[7,2],xy[8,2]),lwd=3)
+text(0.9,0.45,"O")
+text(1.28,0.45,"P")
+text(1.1,0.45,"x")
+text(1.47,0.58,"z")
+lines(xy[8,1]-c(0.08,0.08,0),xy[8,2]+c(0,0.08,0.08))
+```
+
+그림에 대한 설명은 다음과 같다. 사건(event)가 아닌 점(point) $O$를 생각한다. $O$에서 가장 가까운 사건이 $P$이고 이들 사이의 거리가 $x$이다. 그 다음에는 $P$에서 $O$를 중심으로 하고 반지름의 길이가 $x$인 원에 대한 접선을 그어 접선 바깥쪽에서 $P$와 가장 가까운 사건을 찾고 이들 사이의 거리를 $z$라고 놓는 것이다. 이 때, CSR 가정 하에서
+$$X_{1}, \ldots, X_{m}: 2\pi\lambda X_{i}^{2} \sim \chi_{2}^{2},$$
+$$Z_{1}, \ldots Z_{m} \sim \text{Poisson}(\lambda \frac{\pi z^{2}}{2})$$
+이다. 이 때 $\frac{\pi z^{2}}{2}$는 반원의 면적이다. 이는
+
+\begin{eqnarray*}
+P(Z>z|X=x)&=& P(\text{number of events in half circle}=0)\\
+&=& 1-e^{-\lambda \frac{\pi z^{2}}{2}}, \qquad{X \text{ and } Z \text{ are independent}}
+\end{eqnarray*}
+로 부터 나온 것이다. 즉
+$$2\pi\lambda X_{i}^{2} \stackrel{ind}{\sim} \chi_{2}^{2} \bot \sum \pi\lambda Z_{i}^{2} \sim \chi_{2}^{2}$$
+이다.
+
+검정통계량은 $t_{N}$과 $t_{F}$를 쓴다.

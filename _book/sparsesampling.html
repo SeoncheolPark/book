@@ -38,8 +38,8 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="covfct.html">
-<link rel="next" href="variogramest.html">
+<link rel="prev" href="csr.html">
+<link rel="next" href="qr.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -321,195 +321,58 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="covmodel" class="section level1">
-<h1><span class="header-section-number">Chapter 13</span> 공분산모형</h1>
-<p>이 장에서는 공분산모형에는 어떤 것들이 있는지 살펴볼 것이다. 여기에 등장하는 그림은 주로 <span class="citation">(Montero, Fernández-Avilés, and Mateu <a href="#ref-Montero2015">2015</a>)</span> 책에 있는 그림들을 가져온 것이다.</p>
-<div id="-nugget-effect" class="section level2">
-<h2><span class="header-section-number">13.1</span> 덩어리 효과(nugget effect)</h2>
-<p><strong>덩어리 효과(nugget effect)</strong>란 공간자료분석에서 흔히 나타나는 특징 중 하나이다.</p>
-<p>일반적으로 공간자료 모델링은 다음과 같이 한다. <span class="math display">\[Y(\mathbf{s})=\mu(\mathbf{s})+Z(\mathbf{s})+\epsilon(\mathbf{s}).\]</span> 여기서 <span class="math inline">\(Y(\mathbf{s})\)</span>는 <strong>관측과정(observed process)</strong>, <span class="math inline">\(\mu(\mathbf{s})=E(Y(\mathbf{s}))\)</span>는 <strong>결정적 평균 함수(deterministic mean function)</strong>, <span class="math inline">\(Z(\mathbf{s})\)</span>는 <strong>순수 공간과정(spatial process)</strong>, 마지막으로 <span class="math inline">\(\epsilon(\mathbf{s})\)</span>는 <strong>나머지 설명되지 않은 항(remaining unexplained term)</strong>이다. 일종의 백색잡음(white noise)이라고 생각해도 좋다. 그리고 <span class="math inline">\(Z(\mathbf{s}) \bot \epsilon(\mathbf{s})\)</span>이다.</p>
-<p><span class="math inline">\(\epsilon(\mathbf{s})\)</span>에 대해 공분산을 생각해보면, <span class="math display">\[
-\text{COV}(\epsilon(\mathbf{s}),\epsilon(\mathbf{s}+\mathbf{h}))= \left\{ \begin{array}{ll}
-\sigma_{\epsilon}^{2} &amp; \textrm{if $\mathbf{h}$=0}\\
-0 &amp; \textrm{o.w.}
-\end{array} \right.
-\]</span> 인데 여기서 <span class="math inline">\(\sigma_{\epsilon}^{2}\)</span>을 <strong>덩어리(nugget)</strong>이라고 한다. 그리고 이러한 <span class="math inline">\(\epsilon(\mathbf{s})\)</span>가 있는게 <strong>덩어리 효과(nugget effect)</strong>가 있다고 한다.</p>
-<p>그렇다면 왜 이름이 덩어리인지 생각해 볼 필요가 있다. ‘Nugget’은 ’조그만 덩어리’ 라는 이름의 영어로, 금광 채굴 문제에서 유래했다고 한다. 유전 발굴과 같은 경우에는 변동성이 작아 어느 지점에서 유전이 발견되면 그 주변에서도 높은 확률로 유전이 발견되지만, 금광의 경우는 microscale variability가 있어 어느 지점에서 발견되었다 하더라도 주변에는 금광이 없을 수도 있다는 것이다.</p>
-<p>또 다른 관점으로도 덩어리 효과를 표현할 수 있다. 극한값에서 생각을 해 보면 <span class="math display">\[C(\mathbf{0})-C(\mathbf{h})=\gamma(\mathbf{h})=\frac{1}{2}\text{Var}(Z(\mathbf{s}+\mathbf{h})-Z(\mathbf{s}))\]</span> 로 표현할 수 있는데, 덩어리 효가 존재할 경우 <span class="math display">\[\lim_{\mathbf{h}\rightarrow \mathbf{0}}\gamma(\mathbf{h})=\gamma_{0} &gt;0\]</span> 일 수도 있다는 것이다. 이떄 이 <span class="math inline">\(\gamma_{0}\)</span>가 덩어리 효에 대응되는 것이다.</p>
-<p>평균제곱과정(mean square process)인 경우 공분산이 <span class="math inline">\(\mathbf{h}=\mathbf{0}\)</span>일 때 연속이어야 한다. 따라서 평균제곱이며 연속인 공간과정 <span class="math inline">\(Z(\mathbf{s})\)</span>의 경우 이러한 현상이 존재 할 수 없고 <span class="math inline">\(\epsilon(\mathbf{s})\)</span>는 <span class="math inline">\(\mathbf{h}=\mathbf{0}\)</span>일 때 불연속일 수 있고 <span class="math inline">\(Z(\mathbf{s}) \bot \epsilon(\mathbf{s})\)</span>이므로 덩어리 효과가 존재할 수 있는 것이다.</p>
-<p>그런데 앞서 또 다른 관점으로 설명할 때 <span class="math inline">\(\sigma_{\epsilon}^{2}\)</span> 대신 <span class="math inline">\(\gamma_{0}\)</span>이라는 표기를 썼는데 그 이유는 측정 오류(measurement error)가 존재할 수도 있기 때문이다. 엄밀히 얘기하면 <span class="math display">\[\sigma_{\epsilon}^{2}=\text{measurement error variance } + \text{ 순수한 microscale error variance}\]</span> 로 표현할 수 있는데 공간자료의 경우 반복관찰이 없어 집합이 1개이므로 이 둘을 따로 구분해서 측정하는 것이 불가능하다. 여러 번 측정할 수 있으면 둘을 구분해서 추정할 수 있다고 한다. (독립인 자료의 경우)</p>
-<p>그렇다면 언제 반복이 있느냐? 시공간 자료(spatio-temporal data)에서 시간(temporal) 정보를 다 빼냈을 경우 반복이 있는 자료라 생각할 수 있고 이 둘을 구분하여 추정할 수 있다고 한다.</p>
-</div>
-<div id="--idealized-shape-of-variogram-isotropic-case" class="section level2">
-<h2><span class="header-section-number">13.2</span> 이상적인 변동도의 모양(idealized Shape of Variogram (isotropic case))</h2>
-<p>그렇다면 일반적으로 생각하는 변동도의 모양은 어떠한가?</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-40"></span>
-<img src="images/sp_variogram.png" alt="Variogram example." width="196" />
-<p class="caption">
-Figure 13.1: Variogram example.
-</p>
-</div>
-<p>새로 등장하는 용어인 <strong>문턱(sill)</strong>과 <strong>범위(range)</strong> 그리고 <strong>덩어리(nugget)</strong>의 의미를 꼭 알아두자. 변동도의 모양은 공분산이 얼마나 빨리 줄어드는지, 그 때 형태(shape)는 어떠한지에 따라 달라진다. 정상과정인 경우 <span class="math display">\[\gamma(\mathbf{h})=C(\mathbf{0})-C(\mathbf{h})\]</span> 가 성립한다. 그런데 <span class="math inline">\(\mathbf{h}\)</span>를 키우면 <span class="math inline">\(C(\mathbf{h})\)</span>가 줄어드므로 종속성(dependency)이 감소할 것이다. 그리고 정상과정인 경우 <span class="math inline">\(C(\mathbf{0})\neq \infty\)</span>이므로 <span class="math inline">\(\mathbf{h} \rightarrow \infty\)</span>일 때 <span class="math inline">\(\gamma(\mathbf{h})\)</span>가 수렴할 것이다. (그렇지 않다면 비정상과정이다)</p>
-</div>
-<div id="-effective-range" class="section level2">
-<h2><span class="header-section-number">13.3</span> 유효 범위(effective range)</h2>
-<p>앞서 말한 성질들에 variogram은 <span class="math inline">\(\mathbf{h} \rightarrow \infty\)</span>어떤 값으로 수렴한다. 그런데 어느정도 지난 <span class="math inline">\(\mathbf{h}\)</span>이후에 수렴값과 맞닿으면 range를 정의할 수 있으나 점근해서 수렴하는 경우는 range가 <span class="math inline">\(\infty\)</span>가 되는 문제가 발생한다. 이럴 때 대신 쓰는 정의로 <strong>유효 범위(effective range)</strong>라는 것이 있다. 이 것의 정의는 다음과 같다. <span class="math display">\[\gamma(\mathbf{h}) \text{가 sill의 95% 접근하는 smallest } \|\mathbf{h}\| .\]</span></p>
-</div>
-<div id="----classical-parametric-isotropic-variogram-models" class="section level2">
-<h2><span class="header-section-number">13.4</span> 대표적인 모수 등방성 변동도 모형들(classical parametric isotropic variogram models)</h2>
-<p>여기서는 총 9가지의 변동도 모형을 소개한다. 그러나 실제로 널리 쓰이는 모델은 ‘exponential’과 ’matern’ 두 개이다.</p>
+<div id="sparsesampling" class="section level1">
+<h1><span class="header-section-number">Chapter 18</span> 희박한 샘플링 분석</h1>
+<p>지금까지는 사건의 point의 각각의 location을 미리 안다고 가정하고 또 사건의 갯수인 <span class="math inline">\(n\)</span> 또한 미리 안다고 가정한 상태에서 분석을 하였다. 한편, 지역이 엄청 크거나 사건의 point들이 너무 많을 경우 정보를 collect하는 데 시간이 오래 걸릴 것이다. 특히 기술이 발달하지 않은 옛날에는 특히 어려웠기 때문에 사람들은 관찰 지역 안에서 일부 정보를 뽑아 사용했다고 한다. 자료는</p>
 <ol style="list-style-type: decimal">
-<li><strong>Linear</strong></li>
+<li><p>정방구역 계산(quadrat count) 및</p></li>
+<li><p><span class="math inline">\(m\)</span>개의 표본추출 점들(sampling points)의 최근접이웃거리 기반 방법</p></li>
 </ol>
-<p><span class="math display">\[
-\gamma(\mathbf{h})= \left\{ \begin{array}{ll}
-0 &amp; \textrm{if $\mathbf{h}$=0}\\
-c_{0}+c_{1}\| \mathbf{h}\| &amp; \textrm{if $\mathbf{h}\neq 0$}\\
-\end{array} \right.
-\]</span></p>
-<p><span class="math inline">\(\lim_{\|\mathbf{h}\| \rightarrow \mathbf{0}}\gamma(\mathbf{h}) \rightarrow \infty\)</span>이므로 이것은 비정상과정의 변동도라는 것을 알 수 있다. (대신 내재정상과정이다)</p>
+<p>으로 모은다. <span class="math inline">\(m\)</span>을 조절할 수 있기 때문에 실제로 2의 방법으로 모으는 것이 더 쉽다고 한다.</p>
+<p>희박한 샘플링 분석에서의 관심사는 CSR도 있지만 알려지지 않은 전채 갯수 <span class="math inline">\(n\)</span>에 더 관심을 갖는다고 한다. <strong>강도(intensity)</strong> <span class="math inline">\(\lambda\)</span>를 알면 <span class="math inline">\(n\)</span>을 알 수 있지 않을까? 결국 <span class="math inline">\(n\)</span> 또는 <span class="math inline">\(\lambda\)</span>의 분포를 알아야 하므로 CSR인지 먼저 체크하게 된다.</p>
+<div id="-----quadrat-counts-for-sparse-sampled-data" class="section level2">
+<h2><span class="header-section-number">18.1</span> 희박한 샘플링 자료를 위한 정방구역 계산(quadrat counts for sparse sampled data)</h2>
+<p><span class="math inline">\(I\)</span>를 산포(dispersion)의 지수(index)라고 하자. 그러면 <span class="math inline">\(I\)</span>는 <span class="math display">\[I=\frac{\sum_{i=1}^{m}(n_{i}-\bar{n})^{2}}{\bar{n}(m-1)},\]</span> 즉 표본분산(<span class="math inline">\(\frac{\sum_{i=1}^{m}(n_{i}-\bar{n})^{2}}{(m-1)}\)</span>)과 표본평균(<span class="math inline">\(\bar{n}=\frac{1}{m}\sum n_{i}\)</span>)의 비로 나타낸다. CSR하에서 <span class="math inline">\(n_{1}, \ldots, n_{m}\)</span>은 포아송 분포를 따르고 표본분산과 표본평균은 같다, 즉 <span class="math inline">\(I \approx 1\)</span>이길 기대하는 것이다.</p>
+<p>검정은 <span class="math inline">\((m-1)I \sim \chi_{m-1}^{2}\)</span> 사실을 이용하며 <span class="math inline">\(I &gt;&gt; 1\)</span>인 경우에는 <strong>집적(aggregate)</strong>된 자료(<span class="math inline">\(n_{1}, \ldots, n_{m}\)</span>의 variation이 크므로 표본분산이 커짐)이며 <span class="math inline">\(I &lt;&lt; 1\)</span>인 경우에는 <strong>정칙(regular)</strong>성을 띈 자료가 된다. <span class="citation">(P. J. Diggle <a href="#ref-Diggle1979">1979</a>)</span>는 이 검정이 집적된 자료를 찾는데에는 강력(powerful)하나 정칙성을 띈 자료를 찾는 데에는 좋지 않다는 사실을 밝혔다.</p>
+<p>한편 강도 <span class="math inline">\(\lambda\)</span>의 추정량 <span class="math inline">\(\hat{\lambda}\)</span>는 <span class="math display">\[\hat{\lambda}=\sum_{i=1}^{m}\frac{n_{i}}{m|B|}\]</span> 와 같이 계산을 할 수 있다.</p>
+</div>
+<div id="-----distance-methods-for-sparsely-sampled-data" class="section level2">
+<h2><span class="header-section-number">18.2</span> 희박한 샘플링 자료를 위한 거리 방법들(distance methods for sparsely sampled data)</h2>
+<p><span class="math inline">\(X\)</span>를 임의의 점(point, 사건이 아님)으로부터 가장 가까운 사건(event)까지의 거리라고 하자. 그러면 CSR 가정 하에서 <span class="math display">\[F(x)=P(X\leq x)\approx 1-e^{-\pi\lambda x^{2}}, \qquad{x&gt;0\text{ under CSR}}\]</span> 이다. 즉 <span class="math inline">\(\pi X^{2} \sim \text{Exp}(\lambda)\)</span>이며 변수변환을 통해 <span class="math inline">\(2\pi \lambda X^{2} \sim \chi_{2}^{2}\)</span>으로 바뀌며 <span class="math inline">\(P(X&gt;x)\sim e^{-\pi\lambda x^{2}}\)</span>이 된다.</p>
+<p>이 때 CSR 검정을 하는 방법으로는 두 가지 방법이 있다.</p>
+<ol style="list-style-type: decimal">
+<li><span class="citation">(Hopkins and Skellam <a href="#ref-Hopkins1954">1954</a>)</span>는 뒤에 나올 <span class="math inline">\(h\)</span>를 이용한 검정 방법을 제안했다. 임의로 <span class="math inline">\(m\)</span>개의 점을 골랐을 때 각 점들마다 가장 가까운 사건 사이의 거리를 <span class="math inline">\(\{X_{1}, \ldots, X_{m}\}\)</span>이라고 놓자. 그리고 임의로 사건을 하나 골랐을 때 그 사건과 가장 가까운 다른 사건 사이의 거리를 <span class="math inline">\(\{Y_{1}, \ldots, Y_{m}\}\)</span>이라고 놓자. 그러면 <span class="math display">\[2\pi\lambda X_{i}^{2} \stackrel{ind}{\sim} \chi_{2}^{2} \bot \sum 2\pi\lambda Y_{i}^{2} \sim \chi_{2}^{2},\]</span> <span class="math display">\[\sum 2\pi X_{i}^{2} \stackrel{ind}{\sim} \chi_{2m}^{2} \bot \sum 2\pi Y_{i}^{2} \sim \chi_{2m}^{2}\]</span> 이며 <span class="math display">\[h=\frac{\sum X_{i}^{2}}{\sum Y_{i}^{2}} \sim F_{2m,2m} \qquad{\text{under CSR.}}\]</span> 이다. 즉 임의 점에서 계산한 nearest distance나 무작위로 선택된 사건들로부터 계산된 nearest distance들이나 같아야 한다는 아이디어에서 출발한 것이다.</li>
+</ol>
+<p>만약 CSR이 아닌 경우에는 <span class="math inline">\(h\)</span>가 커지거나 작아지는데, <span class="math inline">\(h\)</span>가 커진다는 것은 <span class="math inline">\(\sum Y_{i}^{2}\)</span>들이 작아지므로 집적된 자료이고, <span class="math inline">\(h\)</span>가 작아질 때에는 <span class="math inline">\(\sum Y_{i}^{2}\)</span> 일정한 값들을 갖기 때문에 정칙성을 갖는 자료라고 한다.</p>
 <ol start="2" style="list-style-type: decimal">
-<li><strong>Spherical</strong></li>
+<li>Besag and Gleaves (1973)은 T-square sampling procedure라는 것을 제안했다.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-41"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-41-1.png" alt="Spherical model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-57"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-57-1.png" alt="Example of T-square sampling." width="672" />
 <p class="caption">
-Figure 13.2: Spherical model.
+Figure 18.1: Example of T-square sampling.
 </p>
 </div>
-<p><span class="math display">\[
-\gamma(\mathbf{h})= \left\{ \begin{array}{ll}
-0 &amp; \textrm{if $\mathbf{h}$=0}\\
-c_{0}+c_{1}[\frac{3}{2}(\frac{\| \mathbf{h}\|}{R})-\frac{1}{2}(\frac{\| \mathbf{h}\|}{R})^{3}] &amp; \textrm{if $0 \leq \|\mathbf{h}\|\leq R$}\\
-c_{0}+c_{1} &amp; \textrm{if $\|\mathbf{h}\|&gt;R$}\\
-\end{array} \right.
-\]</span> 이것은 지구통계학(geostatstics)에서는 많이 쓰나 모형이 복잡해 분포 가정 후 우도 추정(likelihood estimation)을 할 때 어렵고 잘 안되므로 통계학자들은 잘 안 좋아하는 모형이라고 한다. 참고로 이 변동도는 <span class="math inline">\(\mathbf{h} \in \mathbb{R}^{d}, d=1,2,3\)</span>에서만 유효하다. 이것 이외에 나머지 변동도의 예들은 다 모든 양수 <span class="math inline">\(d\)</span>에서 유효한 변동도를 갖는다고 한다.</p>
-<ol start="3" style="list-style-type: decimal">
-<li><strong>Exponential</strong></li>
-</ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-42"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-42-1.png" alt="Exponential model." width="672" />
-<p class="caption">
-Figure 13.3: Exponential model.
-</p>
-</div>
-<p><span class="math display">\[
-\gamma(\mathbf{h})= \left\{ \begin{array}{ll}
-0 &amp; \textrm{if $\mathbf{h}$=0}\\
-c_{0}+c_{1}(1-e^{-\frac{\|\mathbf{h}\|}{R}}) &amp; \textrm{if $\mathbf{h}\neq 0$}\\
-\end{array} \right.
-\]</span> 이것은 평균제곱연속이나 평균제곱 미분 가능하지는 않다고 한다. 그리고 다른 애들보다 독립적인 편이라고(공분산이 약함) 한다. 특히 뒤에 나오는 가우스 변동도(Gaussian variogram)와 비교했을 때 덜 부드럽다.</p>
-<ol start="4" style="list-style-type: decimal">
-<li><strong>Gaussian</strong></li>
-</ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-43"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-43-1.png" alt="Gaussian model." width="672" />
-<p class="caption">
-Figure 13.4: Gaussian model.
-</p>
-</div>
-<p><span class="math display">\[
-\gamma(\mathbf{h})= \left\{ \begin{array}{ll}
-0 &amp; \textrm{if $\mathbf{h}$=0}\\
-c_{0}+c_{1}(1-e^{-(\frac{\|\mathbf{h}\|}{R})^{2}}) &amp; \textrm{if $\mathbf{h}\neq 0$}\\
-\end{array} \right.
-\]</span></p>
-<p>가우스분포랑은 관련이 없으며 2차항이 있기 때문에 이러한 이름이 붙은 것이다. 이것은 무한번 평균제곱 미분 가능(infinitely mean-square differentiable)하다. 그렇다는 얘기는 엄청 부드러운 데이터 모델링 시 사용할 수 있다는 것이다. 그러나 이런 경우는 드물므로 많이 보기는 힘들다.</p>
-<ol start="5" style="list-style-type: decimal">
-<li><strong>Exponential power</strong></li>
-</ol>
-<p><span class="math display">\[
-\gamma(\mathbf{h})= \left\{ \begin{array}{ll}
-0 &amp; \textrm{if $\mathbf{h}$=0}\\
-c_{0}+c_{1}(1-e^{-(\frac{\|\mathbf{h}\|}{R})^{p}}) &amp; \textrm{if $\mathbf{h}\neq 0$, $0 &lt; p \leq 2$}\\
-\end{array} \right.
-\]</span> 이것은 exponential과 Gaussian의 중간쯤 되는 변동도로 <span class="math inline">\(p\)</span>를 추정하는 것이 어려워 보통 미리 정하고 사용한다고 한다.</p>
-<ol start="6" style="list-style-type: decimal">
-<li><strong>Rational quadratic</strong></li>
-</ol>
-<p><span class="math display">\[
-\gamma(\mathbf{h})= \left\{ \begin{array}{ll}
-0 &amp; \textrm{if $\mathbf{h}$=0}\\
-c_{0}+c_{1}\| \mathbf{h}\|^{2}/(1+\frac{\|R\|^{2}}{R}) &amp; \textrm{if $\mathbf{h}\neq 0$}\\
-\end{array} \right.
-\]</span></p>
-<ol start="7" style="list-style-type: decimal">
-<li><strong>Wave</strong></li>
-</ol>
-<p><span class="math display">\[
-\gamma(\mathbf{h})= \left\{ \begin{array}{ll}
-0 &amp; \textrm{if $\mathbf{h}$=0}\\
-c_{0}+c_{1}(1-\frac{R}{\|\mathbf{h}\|}\sin(\frac{\|\mathbf{h}\|}{R})) &amp; \textrm{if $\mathbf{h}\neq 0$}\\
-\end{array} \right.
-\]</span></p>
-<ol start="8" style="list-style-type: decimal">
-<li><strong>Power-law</strong></li>
-</ol>
-<p><span class="math display">\[
-\gamma(\mathbf{h})= \left\{ \begin{array}{ll}
-0 &amp; \textrm{if $\mathbf{h}$=0}\\
-c_{0}+c_{1}\| \mathbf{h}\|^{\lambda} &amp; \textrm{if $\mathbf{h}\neq 0$, $0\leq \lambda &lt; 2$}\\
-\end{array} \right.
-\]</span></p>
-<p>이것은 선형모형(linear model)의 일반화(generalization)이며 <span class="math inline">\(\lambda=0\)</span>일 때에는 선형모형이다. 이것은 <strong>Local whittle model</strong>에서 <strong>감소율(decay rate)</strong> (<span class="math inline">\(\| \mathbf{h} \| \rightarrow \infty\)</span>, <span class="math inline">\(\| \mathbf{h} \| \rightarrow 0\)</span> 부근) 결정시 부분적으로 사용한다고 한다. (공분산을 일종의 준모수 모델링하는 것 같다)</p>
-<ol start="9" style="list-style-type: decimal">
-<li><strong>Matern</strong></li>
-</ol>
-<p>(변동도가 복잡하므로 공분산 형태로 썼다)</p>
-<p><span class="math display">\[C(\mathbf{h})=\sigma^{2}\frac{2^{1-\alpha}}{\Gamma(\alpha)}(\frac{\|\mathbf{h}\|}{\phi})^{\alpha}K_{\alpha}(\frac{\|\mathbf{h}\|}{\phi})\]</span></p>
-<p>참고로 <span class="math display">\[\lim_{\mathbf{h} \rightarrow 0}C(\mathbf{h}) = \sigma^{2}\]</span> 이다.</p>
-<p>이 때 <span class="math inline">\(K_{\alpha}\)</span>는 차수 <span class="math inline">\(\alpha\)</span>를 갖는 변형된 이형(second kind) <strong>베셀 함수(Bessel function)</strong>라고 한다. 그리고 <span class="math inline">\((\phi&gt;0,\alpha&gt;0)\)</span>는 각각 <strong>척도모수(scale parameter)</strong>, <strong>평활모수(smoothness parameter)</strong> (shape parameter, random process의 smootheness와 연결)라고 부르는데, 이름으로 그 역할들을 짐작할 수 있을 것이다. <strong>Matern 공분산함수(Matern covariance function)</strong>는 두 개의 모수가 있으므로 다양한 형태의 변동도 모델링이 가능하다. 이들은 때때로 정의가 바뀌기도 하므로 R-package를 쓸 때 체크가 필요하다.</p>
-<p>Matern 공분산함수를 갖는 <span class="math inline">\(Z(\mathbf{s})\)</span>는 <span class="math inline">\(\lceil \alpha \lceil -1\)</span>번 평균제곱 미분가능하다. (<span class="math inline">\(0&lt;\alpha \leq 1\)</span>인 경우에는 평균제곱연속) 이 말은 즉 <span class="math inline">\(\alpha\)</span>를 조절해 공분산 함수의 <strong>평활도(smoothness)</strong>를 조절할 수 있다는 뜻이다. <span class="math inline">\(\alpha=0.5\)</span>인 경우에는 <strong>지수모형(exponential model)</strong>, <span class="math inline">\(\alpha \rightarrow \infty\)</span>인 경우에는 <strong>가우스모형(Gaussian model)</strong>이 된다. (<span class="math inline">\(\alpha\)</span>가 커질수록 differentiability 또한 올라간다)</p>
-<p><span class="math inline">\(\alpha\)</span>가 half-integer인 경우 explicit form이 있다고 한다.</p>
-<div class="example">
-<p><span class="math inline">\(\phi=1\)</span>일 때 <span class="math display">\[
-\begin{array}{ll}
-\alpha=0.5: &amp; e^{-\|\mathbf{h}\|}\\
-\alpha=1.5: &amp; (1+\|\mathbf{h}\|)e^{-\|\mathbf{h}\|}\\
-\alpha=2.5: &amp; (1+\|\mathbf{h}\| + \frac{\|\mathbf{h}\|^{2}}{3})e^{-\|\mathbf{h}\|}\\
-\end{array}
-\]</span></p>
-</div>
-<div id="-----addtional-explanation-for-k_alpha" class="section level3">
-<h3><span class="header-section-number">13.4.1</span> 변형된 이형 베셀에 대한 보충 설명(addtional explanation for K_alpha)</h3>
-<p><strong>변형 베셀 함수(modified Bessel function)</strong>은 <strong>변형 베셀 방정식(modified Bessel equation)</strong>의 해이다. 변형 베셀 방정식(modified Bessel equation)은 다음의 <span class="math display">\[x^{2}y&#39;&#39;+xy&#39;-(x^{2}+\alpha^{2})y=0\]</span> 미분방정식의 해이다. (original은 <span class="math inline">\(x^{2}+\alpha^{2}\)</span> 부분이 다르다고 한다)</p>
-<p>이 해는 두 개가 존재한다. <span class="math display">\[\begin{array}{ll}
-I_{\alpha}(x): &amp; \text{exponentially growing}\\
-K_{\alpha}(x): &amp; \text{exponentially decaying}\\
-\end{array}
-\]</span> 우리는 감소하는 형태의 함수를 필요로 하므로 <span class="math inline">\(K_{\alpha}(x)\)</span>를 사용하는 것이다.</p>
-<p>추가적으로 <span class="math inline">\(x &gt;&gt; [\alpha^{2}-\frac{1}{4}]\)</span>이면 <span class="math display">\[K_{\alpha}(x) \sim \sqrt{\frac{\pi}{2x}}e^{-x}\]</span> 가 되고, <span class="math inline">\(0&lt;x&lt;&lt;1\)</span>이면</p>
-<p><span class="math display">\[
-K_{\alpha}(x) \sim \left\{ \begin{array}{ll}
--\log (\frac{x}{2}) - c &amp; \textrm{if $\alpha$=0}\\
-(\frac{\Gamma(\alpha)}{2})(\frac{2}{x})^{\alpha} &amp; \textrm{if $\alpha$&gt;0}\\
-\end{array} \right.
-\]</span></p>
-<p><span class="math inline">\(\alpha\)</span>를 추정하는 것은 쉽지 않다. 공간통계학에서는 보통 우도로 모수 추정을 하는데 이것을 하기 위해서는 공분산행렬의 역행렬 등을 계산해야 한다. 그런데 <span class="math inline">\(\alpha\)</span>가 클 경우 <strong>수치적 특이점(numerical singularity)</strong>이 많이 나와 <span class="math inline">\(\alpha\)</span> 추정이 어렵다. 그래서 보통 작은 숫자의 <span class="math inline">\(\alpha\)</span>를 고정한 후 많이 사용한다.</p>
-</div>
-</div>
-<div id="---variograms-in-other-situation" class="section level2">
-<h2><span class="header-section-number">13.5</span> 기타 다른 상황에서의 변동도들(variograms in other situation)</h2>
-<p>지금까지는 일변량(univariate)이고 정상성을 가지며 시간 구조(temporal structure)는 고려 안한 변동도만 살펴보았다. 그러나 그렇지 않은 경우에는 어떻게 할 것인가?</p>
-<ul>
-<li>다변량(multivariate)인 경우</li>
-</ul>
-<p>한 장소에서의 관측값이 여러 개 일 수도 있다. 즉 한 지점에서 미세먼지 농도만 관측한 것이 아니라 강수량도 같이 관측한 경우도 있을 수 있다. 이런 경우의 변동도는 상호의존성(interdependence)을 고려해야 한다. 같은 장소와 다른 장소 사이의 dependence와 관측값 사이의 dependence 등도 고려해야 한다. 이런 경우의 변동도들을 <strong>공변동도(covariogram)</strong>이라고 부른다.</p>
-<ul>
-<li>시공간자료(spatio-temporal data)인 경우</li>
-</ul>
-<p>가장 간단한 모델은 <strong>분리가능한(separable)</strong> 모델이다. 이 모델은 시간과 공간 공분산이 독립이라는 것이다. <span class="math display">\[C(h,t;\theta)=C_{s}(h)C_{t}(t).\]</span> 그러나 이 모델은 어느 위치에 있던지 시간 의존성이 같다는 매우 강한 가정을 갖는 것이다. 그렇지 않은 모형들을 <strong>분리 가능하지 않은(non-separable)</strong> 모델이라고 부른다.</p>
-<ul>
-<li>스케일(scale)이 커지는 경우</li>
-</ul>
-<p>전 지구적 수준의 데이터를 다룰 경우 구면좌표계를 사용할 필요가 있다. 구(sphere)나 다양체(manifold) 상에서 정의됨을 고려해야 하며 어떤 거리(distance)를 쓸 것인지에 대해서도 생각해 봐야 한다.</p>
+<p>그림에 대한 설명은 다음과 같다. 사건(event)가 아닌 점(point) <span class="math inline">\(O\)</span>를 생각한다. <span class="math inline">\(O\)</span>에서 가장 가까운 사건이 <span class="math inline">\(P\)</span>이고 이들 사이의 거리가 <span class="math inline">\(x\)</span>이다. 그 다음에는 <span class="math inline">\(P\)</span>에서 <span class="math inline">\(O\)</span>를 중심으로 하고 반지름의 길이가 <span class="math inline">\(x\)</span>인 원에 대한 접선을 그어 접선 바깥쪽에서 <span class="math inline">\(P\)</span>와 가장 가까운 사건을 찾고 이들 사이의 거리를 <span class="math inline">\(z\)</span>라고 놓는 것이다. 이 때, CSR 가정 하에서 <span class="math display">\[X_{1}, \ldots, X_{m}: 2\pi\lambda X_{i}^{2} \sim \chi_{2}^{2},\]</span> <span class="math display">\[Z_{1}, \ldots Z_{m} \sim \text{Poisson}(\lambda \frac{\pi z^{2}}{2})\]</span> 이다. 이 때 <span class="math inline">\(\frac{\pi z^{2}}{2}\)</span>는 반원의 면적이다. 이는</p>
+\begin{eqnarray*}
+P(Z&gt;z|X=x)&amp;=&amp; P(\text{number of events in half circle}=0)\\
+&amp;=&amp; 1-e^{-\lambda \frac{\pi z^{2}}{2}}, \qquad{X \text{ and } Z \text{ are independent}}
+\end{eqnarray*}
+<p>로 부터 나온 것이다. 즉 <span class="math display">\[2\pi\lambda X_{i}^{2} \stackrel{ind}{\sim} \chi_{2}^{2} \bot \sum \pi\lambda Z_{i}^{2} \sim \chi_{2}^{2}\]</span> 이다.</p>
+<p>검정통계량은 <span class="math inline">\(t_{N}\)</span>과 <span class="math inline">\(t_{F}\)</span>를 쓴다.</p>
 
 </div>
 </div>
+
+
+
 <h3> References</h3>
 <div id="refs" class="references">
-<div id="ref-Montero2015">
-<p>Montero, José-María, Gema Fernández-Avilés, and Jorge Mateu. 2015. <em>Spatial and Spatio-Temporal Geostatistical Modeling and Kriging</em>. John Wiley &amp; Sons.</p>
+<div id="ref-Diggle1979">
+<p>Diggle, Peter J. 1979. “On Parameter Estimation and Goodness-of-Fit Testing for Spatial Point Patterns.” <em>Biometrics</em> 35 (1): 87–101. doi:<a href="https://doi.org/10.2307/2529938">10.2307/2529938</a>.</p>
+</div>
+<div id="ref-Hopkins1954">
+<p>Hopkins, Brian, and J. G. Skellam. 1954. “A New Method for Determining the Type of Distribution of Plant Individuals.” <em>Annals of Botany</em> 18 (70): 213–27.</p>
 </div>
 </div>
             </section>
@@ -517,8 +380,8 @@ K_{\alpha}(x) \sim \left\{ \begin{array}{ll}
           </div>
         </div>
       </div>
-<a href="covfct.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="variogramest.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="csr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="qr.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -545,7 +408,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://seoncheolpark.github.io/book/_book/24-covmodel.Rmd",
+"link": "https://seoncheolpark.github.io/book/_book/53-sparsesampling.Rmd",
 "text": null
 },
 "download": null,
