@@ -142,4 +142,19 @@ $d$는 $\omega$와 $t$의 성질을 동시에 갖으며 이를 통해 비정상 
 
 일반적인 웨이블릿은 시계열 자료를 다루기에는 information이 너무 작아지는 경향이 있는데, **압축 표본화되지 않은 웨이블릿(non-decimated wavelets)**은 그렇지 않아 temporal resolution에 좋다고 한다.
 
-[@Nason2000]은 **컴팩트 지지 웨이블릿(compactly supported wavelets)**이라는 것을 만들었다.
+[@Nason2000]은 **컴팩트 지지 웨이블릿(compactly supported wavelets)**이라는 것을 만들었다. $\psi_{j}=(\psi_{j,0},\ldots,\psi_{j,N_{j}-1})$를 길이가 $N_{j}$ ($j$는 scale)인 웨이블릿의 수열 값이라고 하자. 그러면
+$$\psi_{-1,n}=\sum_{k}g_{n-2k}\delta_{0,k}=g_{n},\qquad{n=0,\ldots, N_{-1}-1},$$
+$$\psi_{j-1,n}=\sum_{k}h_{n-2k}\psi_{j,k},\qquad{n=0,\ldots, N_{-1}-1},$$
+$$N_{j}=(2^{-j}-1)(N_{h}-1)+1,$$
+여기서 $\delta_{0,k}$는 크로네커 델타(Kronecker delta)이며 $N_{h}$는 $\{h_{k}\}$의 0이 아닌 원소들의 수이다.
+
+<div class="example">
+
+이산 Haar 웨이블릿의 경우
+$$\psi_{-1}=(g_{0},g_{1})=(1,-1)/\sqrt{2},$$
+$$\psi_{-2}=(h_{0}g_{0},h_{1}g_{0},h_{0}g_{1},h_{1}g_{1})=(1,1,-1,-1)/2$$
+이다.
+
+</div>
+
+## 국소 정상 웨이블릿 과정(locally stationary wavelet process)
