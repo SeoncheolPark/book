@@ -38,8 +38,8 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="multiscalets.html">
-<link rel="next" href="spatial.html">
+<link rel="prev" href="spatlikelihood.html">
+<link rel="next" href="pointpattern.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -336,125 +336,195 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="admultiscale" class="section level1">
-<h1><span class="header-section-number">Chapter 9</span> 고급 다중척도 방법론</h1>
-<p>이 장에서는 앞 장에서 다룬 다중척도 방법론 중 심화된 웨이블릿 방법론 및 최신 동향에 대해 다룬다. 이 분야의 대표적인 참고문헌에는 <span class="citation">(Jansen and Oonincx <a href="#ref-Jansen2005">2005</a>)</span>가 있다.</p>
-<div id="--second-generation-wavelet-transform" class="section level2">
-<h2><span class="header-section-number">9.1</span> 2세대 웨이블릿 변환(second-generation wavelet transform)</h2>
-<p>푸리에 변환을 가지고 만들어진 웨이블릿을 <strong>1세대 웨이블릿(first-generation wavelet)</strong>이라고 부른다. 이와 다르게 푸리에 변환을 이용하지 않고 만들어진 웨이블릿을 <strong>2세대 웨이블릿 변환(second-generation wavelet)</strong>이라고 부른다. 이 2세대 웨이블릿 변환은 다음에 소개될 리프팅 스킴이라는 것에 의해 만들어진다.</p>
+<div id="kriging" class="section level1">
+<h1><span class="header-section-number">Chapter 16</span> 크리깅</h1>
+<p>이 문서에서는 지금까지 다뤘던 추정 방법들을 가지고 <strong>공간 예측(spatial prediction)</strong>을 하는 방법들에 대해 다루겠다. 공간 예측을 다른 말로 <strong>크리깅(Kriging)</strong>이라 부른다.</p>
+<div id="-spatial-prediction" class="section level2">
+<h2><span class="header-section-number">16.1</span> 공간 예측(spatial prediction)</h2>
+<p><span class="math inline">\(Z(\mathbf{s})\)</span>를 spatial process라고 하자. 목표는 <span class="math inline">\(n\)</span>개의 관측값(data) <span class="math inline">\(\{ Z(\mathbf{s}_{1}), \cdots Z(\mathbf{s}_{n}) \}\)</span>을 이용해 관측되어지지 않은 장소 <span class="math inline">\(\mathbf{s}_{0}\)</span>의 <span class="math inline">\(Z(\mathbf{s}_{0})\)</span>을 predict하는 것이다. 그런데 <strong>문제는 <span class="math inline">\(Z(\mathbf{s}_{0})\)</span>또한 확률변수라는 것이다</strong>(그래서 predict라는 말을 쓴다고 한다).</p>
+<p>그렇다면 어떤 기준을 가지고 prediction할 것인가? 가장 일반적인 기준으로는 <strong>mean-square prediction error (MSPE)</strong>를 계산하는 것이다. 우선 몇 가지 notation들을 정리해보자.</p>
+<p><span class="math display">\[\mathbf{Z}=(Z(\mathbf{s}_{1}), \cdots , Z(\mathbf{s}_{n}))^{T}: \text{ data vector}\]</span> <span class="math display">\[Z_{0}\equiv Z(\mathbf{s}_{0}) \text{ (간단히 쓰기 위함)}\]</span> <span class="math display">\[T=Z_{0}: \text{ predict하고싶은 것}\]</span> <span class="math display">\[\hat{T}=\hat{Z}_{0}: \text{ &quot;prediction&quot;}=t(\mathbf{Z}) \text{ ( 데이터들에 대한 함수)}\]</span></p>
+<p>Prediction error를 <span class="math inline">\((T-\hat{T})^{2}\)</span>이라고 하면 MSPE는 <span class="math inline">\(E(T-\hat{T})^{2}\)</span>라고 하며 <span class="math display">\[\hat{T}=\text{argmin}_{\tilde{T}\in t(\mathbf{Z})}E(T-\tilde{T})^{2}\]</span> 을 만족하는 <span class="math inline">\(\hat{T}\)</span>를 <strong>best predictior (BP)</strong>라 부른다.</p>
+<p>Restriction을 걸어 다른 predction을 할 수도 있다. 예를 들면 <strong>best linear predictor (BLP)</strong>, <strong>best linear unbiased predictor (BLUP)</strong>등이다. BLUP를 많이 쓴다고 한다. Random effect에서 등장하는 개념과 똑같으나 계산할 때만 spatial covariance로 넣어 계산하는 것이라고 생각할 수도 있다.</p>
+<p>여기서 말하는 <strong>결론: <span class="math inline">\(\hat{T}=E(Z_{0}|\mathbf{Z})\)</span></strong></p>
+<p>Geostatistics에서 spation prediction은 1950년대 남아공 마이닝 엔지니어 D.G. Krige의 이름을 따 <strong>크리깅(Kriging)</strong>이라 부른다. 이 크리깅의 종류는 여러가지가 있다.</p>
 </div>
-<div id="-lifting-scheme" class="section level2">
-<h2><span class="header-section-number">9.2</span> 리프팅 스킴(lifting scheme)</h2>
-<strong>리프팅 스킴(lifting scheme)</strong>은 확장(enhancement)이라는 개념이다. 지금 존재하는 웨이블릿에 우리가 원하는 성질들을 추가하는 것이다. Haar 웨이블릿을 새로운 관점에서 보도록 하자. <span class="math inline">\(s_{j+1}\)</span>을 <span class="math inline">\(j+1\)</span> 스케일에서의 투입값이라고 하자. 그러면 Haar 변환은 이것들을 <span class="math inline">\(j\)</span> 척도의 평균 <span class="math inline">\(s_{j,k}\)</span>과 차이(detail) <span class="math inline">\(d_{j,k}\)</span>로 바꿔준다.
-\begin{equation}
-    s_{j,k}=\frac{s_{j+1,2k}+s_{j+1,2k+1}}{2}
-\end{equation}\begin{equation}
-    d_{j,k}=s_{j+1,2k+1}+s_{j+1,2k}
-\end{equation}
-위 식들의 역변환(inverse transform)은 다음과 같다.
-\begin{equation}
-    s_{j+1,2k+1}=s_{j,k}+\frac{d_{j,k}}{2}
-\end{equation}\begin{equation}
-    s_{j+1,2k}=s_{j,k}-\frac{d_{j,k}}{2}\label{eq:four}
-\end{equation}
-식 (\ref{eq:four})를 이항하여 정리하면 다음과 같은 식을 얻는다.
-\begin{equation}
-    s_{j,k}=s_{j+1,2k}+\frac{d_{j,k}}{2}.
-\end{equation}
-<p>웨이블릿 변환에서는 <span class="math inline">\(s_{j,k}\)</span>와 <span class="math inline">\(d_{j,k}\)</span>를 동시에 얻지만 리프팅 스킴에서는 <span class="math inline">\(d_{j,k}\)</span>를 얻은 후 순차적으로 <span class="math inline">\(s_{j,k}\)</span>를 얻는다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-28"></span>
-<img src="images/advmultiscale_lifting.png" alt="Forward lifting scheme using Haar transform." width="231" />
-<p class="caption">
-Figure 9.1: Forward lifting scheme using Haar transform.
-</p>
+<div id="-universal-kriging" class="section level2">
+<h2><span class="header-section-number">16.2</span> 일반 크리깅(universal Kriging)</h2>
+<p><span class="math display">\[\text{Model: } \mathbf{Z}(\mathbf{s})=\mathbf{x}^{T}(\mathbf{s})\boldsymbol{\beta}+\boldsymbol{\epsilon}(\mathbf{s}) \text{ (spatial dependence는 } \boldsymbol{\epsilon}(\mathbf{s})\text{에서 나온다)}\]</span> <span class="math display">\[\text{Data: } \mathbf{Z}=(Z(\mathbf{s}_{1}), \cdots , Z(\mathbf{s}_{n}))^{T}\]</span> <span class="math display">\[\text{Want to predict } Z_{0}=Z(\mathbf{s}_{0})=\mathbf{x}^{T}(\mathbf{s}_{0})\boldsymbol{\beta}+\mathbf+\boldsymbol{\epsilon}(\mathbf{s}_{0})\stackrel{let}{=}\mathbf{x}_{0}\boldsymbol{\beta}+\boldsymbol{\epsilon}_{0}\]</span></p>
+<p>일단 covariance structure가 필요하다. <span class="math display">\[\text{Cov}\left[\begin{array}
+{r}
+\mathbf{Z}\\
+Z_{0}\\
+\end{array}\right]
+=
+\left[\begin{array}
+{rr}
+\boldsymbol{\Sigma}_{n\times n} &amp; \mathbf{T}_{n \times 1}\\
+\mathbf{T}_{1\times n}^{T} &amp; \sigma_{0}^{2}\\
+\end{array}\right]
+\]</span> 로 놓는다. 여기서 <span class="math inline">\(\boldsymbol{\Sigma}=\text{Cov}(\mathbf{Z})\)</span>, <span class="math inline">\(\mathbf{T}_{j}=\text{Cov}(Z(\mathbf{s}_{j}), Z_{0})\)</span>, <span class="math inline">\(\sigma_{0}^{2}=\text{Var}(Z_{0})\)</span>이다.</p>
+<p>지금부터 MSPE를 minimize하는 predictor들을 찾는 방법을 다룰 것이다. 이 방법들은 공간통계에 국한된 것이 아니고 mixed effect model 등에도 해당되는 것이다.</p>
+<div id="--lagrange-multiplier-approach" class="section level3">
+<h3><span class="header-section-number">16.2.1</span> 라그랑즈 승수 접근법(Lagrange multiplier approach)</h3>
+<p>Linear unbiased predictor <span class="math display">\[\hat{Z}_{0}=\sum_{i=1}^{n}\lambda_{i}z_{i}=\boldsymbol{\lambda}^{T}\mathbf{Z} \text{ and } E(\hat{Z}_{0}-Z_{0})\]</span> 를 가정하자. 여기서 주의하여야 할 점은 <span class="math inline">\(Z_{0}\)</span>자체도 random이므로 <span class="math inline">\(E(\hat{Z}_{0})=Z_{0}\)</span>라 할 수 없다는 것이다. <span class="math inline">\(\mathbf{Z}=\boldsymbol{X}^{T}\boldsymbol{\beta}+\boldsymbol{\epsilon}\)</span>을 이용하면 <span class="math display">\[
+\begin{eqnarray*}
+E(\hat{Z}_{0})&amp;=&amp;E(\boldsymbol{\lambda}^{T}\mathbf{Z})\\
+&amp;\Longrightarrow&amp; E(\boldsymbol{\lambda}^{T}(\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\epsilon}))=\mathbf{x}_{0}^{T}\boldsymbol{\beta}\\
+&amp;\Longleftrightarrow&amp; \boldsymbol{\lambda}^{T}\mathbf{X}\boldsymbol{\beta}=\mathbf{x}_{0}^{T}\boldsymbol{\beta}\\
+&amp;\Longleftrightarrow&amp; \boldsymbol{\lambda}^{T}\mathbf{X}\mathbf{x}_{0}^{T} \textbf{ (unbiasedness 조건)}\\
+\end{eqnarray*}
+\]</span> 마지막 줄이 성립하는 이유는 <span class="math inline">\(\boldsymbol{\lambda}^{T}\mathbf{X}\)</span>, <span class="math inline">\(\mathbf{x}_{0}^{T}\)</span>는 행렬이 아닌 벡터지만 임의의 <span class="math inline">\(\boldsymbol{\beta}\)</span>에 대해 세번째 줄 식이 모두 만족해야 하기 때문이다.</p>
+<p><span class="math inline">\(E(\hat{Z}_{0}-Z_{0})^{2}\)</span>을 minimize하기 위해 우선 <span class="math display">\[
+\begin{eqnarray*}
+\hat{Z}_{0}-Z_{0} &amp;=&amp; \boldsymbol{\lambda}^{T}(\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\epsilon}-(\mathbf{x}_{0}^{T}\boldsymbol{\beta}+\epsilon_{0}))\\
+&amp;=&amp;\boldsymbol{\lambda}^{T}\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\lambda}^{T}\boldsymbol{\epsilon}-\mathbf{x}_{0}^{T}\boldsymbol{\beta}-\epsilon_{0}\\
+&amp;=&amp;\mathbf{x}_{0}^{T}\boldsymbol{\beta}+\boldsymbol{\lambda}^{T}\boldsymbol{\epsilon}-\mathbf{x}_{0}^{T}\boldsymbol{\beta}-\epsilon_{0}\text{ (unbiased constraint를 쓴다)}\\
+&amp;=&amp;\boldsymbol{\lambda}^{T}\boldsymbol{\epsilon}-\epsilon_{0}
+\end{eqnarray*}
+\]</span> 마지막 식을 보면, unbiasedness 조건을 줬더니 놀랍게도 <span class="math inline">\(\boldsymbol{\beta}\)</span>가 없어졌음을 알 수 있다. 이는 <span class="math inline">\(\boldsymbol{\beta}\)</span>를 뭘 쓸지 고민할 필요 없이 prediction이 가능하다는 의미라고 한다.</p>
+<p>그러면 <span class="math inline">\(E(\hat{Z}_{0}-Z_{0})^{2}\)</span>의 계산은 <span class="math display">\[
+\begin{eqnarray*}
+E(\hat{Z}_{0}-Z_{0})^{2}&amp;=&amp;E(\boldsymbol{\lambda}^{T}\boldsymbol{\epsilon}-\epsilon_{0})^{2}\\
+&amp;=&amp;E((\boldsymbol{\lambda}^{T}\boldsymbol{\epsilon})^{2})+E(\epsilon_{0}^{2})-2E(\boldsymbol{\lambda}^{T}\boldsymbol{\epsilon}-\epsilon_{0})\\
+&amp;=&amp;\boldsymbol{\lambda}^{T}\boldsymbol{\Sigma}\boldsymbol{\lambda}+\sigma_{0}^{2}-2\boldsymbol{\lambda}^{T}\mathbf{T}\tag{$\star$}\\
+\end{eqnarray*}
+\]</span> <span class="math inline">\(E((\boldsymbol{\lambda}^{T}\boldsymbol{\epsilon})^{2})\)</span>를 계산하기 위해 <span class="math inline">\(\boldsymbol{\lambda}^{T}\boldsymbol{\epsilon}\)</span>이 스칼라라는 것을 이용, <span class="math inline">\((\boldsymbol{\lambda}^{T}\boldsymbol{\epsilon})(\boldsymbol{\lambda}^{T}\boldsymbol{\epsilon})^{T}=\boldsymbol{\lambda}^{T}\boldsymbol{\epsilon}\boldsymbol{\epsilon}^{T}\boldsymbol{\lambda}\)</span>임를 이용하였다.</p>
+<p>이제 <span class="math inline">\(\boldsymbol{\lambda}^{T}\mathbf{X}\mathbf{x}_{0}^{T}\)</span> 제한이 걸린 (<span class="math inline">\(\star\)</span>)를 최소화하는 문제 (constraint optimization problem)을 풀기 위해 <strong>Lagrange multiplier</strong>를 쓰도록 하자. 참고로 나중에 추정을 해야 하지만 지금은 <span class="math inline">\(\boldsymbol{\Sigma}, \sigma_{0}^{2}\)</span>을 안다고 가정한다. 다음 <span class="math display">\[
+L(\boldsymbol{\lambda},\boldsymbol{\nu})=\boldsymbol{\lambda}^{T}\boldsymbol{\Sigma}\boldsymbol{\lambda}-2\boldsymbol{\lambda}^{T}\mathbf{T}+\sigma_{0}^{2}-2(\boldsymbol{\lambda}^{T}\mathbf{X}-\mathbf{x}_{0}^{T})\boldsymbol{\nu} \text{ (계산을 편하게 하기 위해 constraint에 2를 곱합)}\\
+\]</span> 식을 미분하면 minimizer를 구할 수 있다. <span class="math display">\[\frac{\partial L(\boldsymbol{\lambda},\boldsymbol{\nu})}{\partial \boldsymbol{\lambda}}=2\boldsymbol{\lambda}^{T}\boldsymbol{\Sigma}-2\mathbf{T}-2\mathbf{X}\boldsymbol{\nu}=\mathbf{0}\tag{1}\]</span> <span class="math display">\[\frac{\partial L(\boldsymbol{\lambda},\boldsymbol{\nu})}{\partial \boldsymbol{\nu}}=-2(\mathbf{x}_{0}^{T}-\boldsymbol{\lambda}^{T}\mathbf{X})=0 \tag{2}\]</span></p>
+<p>우선 (1)식으로부터 <span class="math display">\[\hat{\boldsymbol{\lambda}}=\boldsymbol{\Sigma}^{-1}(\mathbf{T}+\mathbf{X}\boldsymbol{\nu})\]</span> 를 얻는다. 이것을 (2)식에 집어넣으면 <span class="math display">\[
+\mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}(\mathbf{T}+\mathbf{X}\boldsymbol{\nu})=\mathbf{x}_{0}\\
+\mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{T}+\mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{X}\boldsymbol{\nu}=\mathbf{x}_{0}\\
+\therefore \hat{\boldsymbol{\nu}}=(\mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{X})^{-1}(\mathbf{x}_{0}-\mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{T})\\
+\]</span> 가 된다. 이 식을 다시 (1)에 집어넣는다. 그러면 <span class="math display">\[\hat{\boldsymbol{\lambda}}=\boldsymbol{\Sigma}^{-1}(\mathbf{T}+\mathbf{X}(\mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{X})^{-1}(\mathbf{x}_{0}-\mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{T}))\]</span> 이고 <span class="math display">\[
+\begin{eqnarray*}
+\hat{Z_{0}}&amp;=&amp;\hat{\boldsymbol{\lambda}}^{T}\mathbf{Z}=(\mathbf{T}+\mathbf{X}(\mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{X})^{-1}(\mathbf{x}_{0}-\mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{T}))^{T}\boldsymbol{\Sigma}^{-1}\mathbf{Z}\\
+&amp;=&amp;\mathbf{T}^{2}\boldsymbol{\Sigma}^{-1}\mathbf{Z}+(\mathbf{x}_{0}-\mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{T})^{T}(\mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{X})^{-1}\mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{Z}\\
+&amp;=&amp;\mathbf{x}_{0}\hat{\boldsymbol{\beta}}_{\text{GLS}}+\mathbf{T}^{T}\boldsymbol{\Sigma}^{-1}(\mathbf{Z}-\mathbf{X}^{T}\hat{\boldsymbol{\beta}}_{\text{GLS}})\\
+\end{eqnarray*}
+\]</span> 이다. 마지막 식을 살펴보면 <span class="math inline">\((\mathbf{Z}-\mathbf{X}^{T}\hat{\boldsymbol{\beta}}_{\text{GLS}})\)</span>는 일종의 residual로 생각할 수 있고 <span class="math inline">\(\mathbf{T}^{T}\boldsymbol{\Sigma}^{-1}\)</span>은 대응되는 적당한 weight라고 생각할 수 있다. 여기서 <span class="math display">\[\hat{\boldsymbol{\beta}}_{\text{GLS}}=(\mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{X})^{-1}\mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{Z}\]</span> 이다.</p>
 </div>
-<p>정리하면 <span class="math display">\[\text{차이(difference)=홀(odd)-짝(even)} \qquad{\text{듀얼 리프팅(dual lifting)}}\]</span> <span class="math display">\[\text{평균(average)=짝(even)+0.5차이} \qquad{\text{프라이멀 리프팅(primal lifting)}}\]</span> 이며 여기서 짝과 홀을 어떻게 정하느냐에 따라 계산값이 달라진다.</p>
-<p>리프팅 스킴의 계산 절차를 다음과 같이 세 단계로 요약할 수 있다.</p>
-<ol style="list-style-type: decimal">
-<li><p><strong>분할(split)</strong>: 관찰값들을 짝과 홀 두 개의 분리 집합(disjoint set)으로 분할(partition)한다(꼭 짝과 홀로 나누지 않아도 된다).</p></li>
-<li><p><strong>에측(predict)</strong>: 홀로 색인(index)된 투입값을 이 값과 짝의 데이터만을 이용해 예측된 값으로 대체한다. (듀얼 리프팅)</p></li>
-<li><p><strong>갱신(update)</strong>: <span class="math inline">\(s_{j,k}=s_{j+1,2k}+\frac{d_{j,k}}{2}\)</span> (프라이멀 리프팅)</p></li>
-</ol>
-<p>일반적인 리프팅 스킴의 프라이멀 리프팅과 듀얼 리프팅의 <strong>정변환(forward transform)</strong>은 다음과 같다. <span class="math display">\[\text{차이(difference)=홀(odd)-p짝(even)} \qquad{\text{듀얼 리프팅(dual lifting)}}\]</span> <span class="math display">\[\text{평균(average)=짝(even)+u차이} \qquad{\text{프라이멀 리프팅(primal lifting)}}\]</span> 이 때 <span class="math inline">\(p=1\)</span>, <span class="math inline">\(u=0.5\)</span>인 경우를 특별히 Haar 웨이블릿 변환(Haar wavelet transformation)이라고 부르는 것이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-29"></span>
-<img src="images/advmultiscale_lifting02.png" alt="Standard lifting scheme using primal and dual lifting." width="235" />
-<p class="caption">
-Figure 9.2: Standard lifting scheme using primal and dual lifting.
-</p>
+<div id="-conditional-distribution-approach" class="section level3">
+<h3><span class="header-section-number">16.2.2</span> 조건부분포 방법(conditional distribution approach)</h3>
+<p>이 방법은 라그랑지 승수법을 이용한 방법과 달리 다변량 분포의 정규성 가정이 필요하다. 즉 <span class="math display">\[
+\begin{pmatrix}
+\mathbf{Z}\\
+Z_{0}\\
+\end{pmatrix}
+\sim \mathcal{N}
+\begin{bmatrix}
+\begin{pmatrix}
+\mathbf{X}\boldsymbol{\beta}\\
+\mathbf{x}_{0}^{T}\boldsymbol{\beta}\\
+\end{pmatrix},
+\begin{pmatrix}
+\boldsymbol{\Sigma} &amp; \mathbf{T}\\
+\mathbf{T}^{T} &amp; \sigma_{0}^{2}\\
+\end{pmatrix}
+\end{bmatrix}
+\]</span> 으로 가정한다. 그러면 <span class="math inline">\(Z_{0}|\mathbf{Z}\)</span>의 분포는 <span class="math display">\[Z_{0}|\mathbf{Z} \sim \mathcal{N}(\mathbf{x}_{0}^{T}\boldsymbol{\beta}+\mathbf{T}^{T}\boldsymbol{\Sigma}^{-1}(\mathbf{Z}-\mathbf{X}\boldsymbol{\beta}), \sigma_{0}^{2}-\mathbf{T}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{T})\]</span> 가 된다. 조건부 기댓값을 구하는 공식에 의해 <span class="math inline">\(\hat{Z}_{0}\)</span>을 정할 수 있다. <span class="math display">\[\hat{Z}_{0}=E(Z_{0}|\mathbf{Z})=\mathbf{x}_{0}^{T}\boldsymbol{\beta}+\mathbf{T}^{T}\Sigma^{-1}(\mathbf{Z}-\mathbf{X}\boldsymbol{\beta}).\]</span> 그런데 이 추정량은 알려지지 않은 <span class="math inline">\(\boldsymbol{\beta}\)</span>가 들어있어 문제가 된다. 그래서 실제 문제에서 이대로 쓰지 못한다. 따라서 <span class="math display">\[\hat{Z}_{0}\Longrightarrow \mathbf{x}_{0}^{T}\hat{\boldsymbol{\beta}}+\mathbf{T}^{T}\Sigma^{-1}(\mathbf{Z}-\mathbf{X}\hat{\boldsymbol{\beta}})\]</span> 로 바꿔 사용한다(참고로 normal 가정시 BP=BLP=BLUP라고 한다).</p>
 </div>
-<p>리프팅의 <strong>역변환(backward transform)</strong>은 다음과 같다. <span class="math display">\[\text{짝(even)=평균(average)-u차이(difference)} \]</span> <span class="math display">\[\text{홀(odd)=차이(difference)+p짝} \]</span></p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-30"></span>
-<img src="images/advmultiscale_invlifting.png" alt="Backward lifting scheme." width="217" />
-<p class="caption">
-Figure 9.3: Backward lifting scheme.
-</p>
+<div id="-bayesian-approach" class="section level3">
+<h3><span class="header-section-number">16.2.3</span> 베이지안 방법(Bayesian approach)</h3>
+<p>여기서도 조건부 분포 방법과 마찬가지로 다변량 분포의 정규성 가정이 필요하다. <span class="math display">\[
+\begin{pmatrix}
+\mathbf{Z}\\
+Z_{0}\\
+\end{pmatrix}
+\sim \mathcal{N}
+\begin{bmatrix}
+\begin{pmatrix}
+\mathbf{X}\boldsymbol{\beta}\\
+\mathbf{x}_{0}^{T}\boldsymbol{\beta}\\
+\end{pmatrix},
+\begin{pmatrix}
+\boldsymbol{\Sigma} &amp; \mathbf{T}\\
+\mathbf{T}^{T} &amp; \sigma_{0}^{2}\\
+\end{pmatrix}
+\end{bmatrix}
+\]</span> 이때 <span class="math display">\[\Sigma=\sigma^{2}V(\theta), \mathbf{T}=\sigma^{2}W(\theta), \sigma_{0}^{2}=\sigma^{2}\]</span> 으로 놓는다. 그 다음에는 <span class="math inline">\(\boldsymbol{\beta}, \sigma^{2}, \theta\)</span>(보통 1,2차원이라 가정한다)에 대한 사전분포를 만들어야 한다. 일반적으로 이 사전분포는 <span class="math display">\[\propto \pi(\theta)\cdot \frac{1}{\sigma^{2}}\]</span> 로 준다. <span class="math inline">\(\boldsymbol{\beta}\)</span>는 flat prior를 주며 <span class="math inline">\(\pi(\theta)\)</span>는 parameter에 따라 바뀐다. 가능하면 사전분포의 contribution을 없애고 싶기 때문에 이렇게 놓는다고 한다.</p>
+<p>Bayesian setting에서는 <span class="math inline">\(Z_{0}|\mathbf{Z}\)</span>에 <span class="math inline">\(Z_{0}|\mathbf{Z}, \boldsymbol{\beta}, \sigma^{2}, \theta\)</span>(이 분포는 알고 있는 분포이다)가 숨어있는 꼴이라고 한다. <span class="math inline">\(\pi(Z_{0}|\mathbf{Z})\)</span>를 만들려면 <span class="math inline">\(\boldsymbol{\beta}, \sigma^{2}, \theta\)</span>에 대해 적분해야 한다. 먼저 <span class="math inline">\(\boldsymbol{\beta}\)</span>에 대해 decompose를 이용해 적분하면 <span class="math display">\[
+\begin{eqnarray*}
+\pi(Z_{0}|\mathbf{Z},\sigma^{2},\theta)&amp;=&amp;\int \pi(Z_{0},\boldsymbol{\beta}|\mathbf{Z},\sigma^{2},\theta)d\mathbf{\beta}\\
+&amp;=&amp; \int \pi(Z_{0}|\mathbf{Z},\boldsymbol{\beta},\sigma^{2},\theta)\pi(\boldsymbol{\beta}|\mathbf{Z},\sigma^{2},\theta)d\mathbf{\beta}\\
+\end{eqnarray*}
+\]</span> 으로 구할 수 있다. 같은 방법으로 <span class="math inline">\(\sigma^{2}\)</span>에 대해서도 적분하면 <span class="math display">\[\pi(Z_{0}|\mathbf{Z},\theta)=\int \pi(Z_{0},\sigma^{2}|\mathbf{Z},\theta)d\sigma^{2}\]</span> 으로 구할 수 있다. 여기까지는 explicit form이 잘 나온다고 한다. 그리고 <span class="math inline">\(\theta\)</span>에 대해서도 마찬가지로 적분할 수 있는데 <span class="math display">\[
+\begin{eqnarray*}
+\pi(Z_{0}|\mathbf{Z})&amp;=&amp;\int\pi(Z_{0},\theta |\mathbf{Z})d\theta\\
+&amp;=&amp;\int\pi(Z_{0}|\mathbf{Z}, \theta )\cdot\pi(\theta)d\theta\\
+\end{eqnarray*}
+\]</span> 이다. 그런데 여기서는 explicit form이 잘 안나와 보통 numerical integration을 한다고 한다.</p>
+<p>이 방법의 장점은 앞선 두 방법들과 달리 <span class="math inline">\(\Sigma\)</span>, <span class="math inline">\(\sigma_{0}^{2}\)</span>을 알 필요가 없다는 것이다. 라그랑지 승수법과 조건부 분포를 이용한 방법은 <span class="math inline">\(\hat{\Sigma}\)</span>, <span class="math inline">\(\hat{\sigma}_{0}^{2}\)</span>를 통해 uncertainty가 늘어나는데 이 방법은 그렇지 않다.</p>
+<p>그리고 <span class="math inline">\(\hat{\phi}=(\hat{\boldsymbol{\beta}}, \hat{\sigma}^{2}, \hat{theta})\)</span>로 parameterization했을 때에도 unbiased한지 optimal한지 체크해야 하는데, 어떠한 조건이 주어질 경우 된다고 한다.</p>
 </div>
-<p>리프팅 스킴 방법은 데이터가 일정한 간격(equally space)으로 있어야 한다는 가정이 불필요하며 <span class="math inline">\(n=2^{J}\)</span>일 필요도 없다. 그러나 <span class="math inline">\(p\)</span>와 <span class="math inline">\(u\)</span>를 바꿀 경우 직교성(orthogonality)이 안되기 시작하며 2차원 자료인 경우에도 잘 작동하지 않는다. 만약 시공간 자료(spatio-temporal data)에 리프팅을 적용할 수 있다면 군집 분석(clustering analysis)을 할 때 군집의 크기(clustering size)를 고민할 필요가 없다는 장점이 생긴다.</p>
-<div class="example">
-<p>다음과 같은 벡터 <span class="math display">\[\mathbf{z}_{3}=(1,2,3,4,5,6,7,8), n=8, J=3.\]</span> 가 있다고 하자. 이 벡터에 리프팅 스킴을 적용하면 다음과 같다.</p>
-<ol style="list-style-type: decimal">
-<li><p><strong>Spilt</strong>: <span class="math inline">\(\mathbf{z}_{3}\)</span>을 <span class="math inline">\(\mathbf{y}=(1,3,5,7)\)</span> (홀에 해당)와 <span class="math inline">\(\mathbf{x}=(2,4,6,8)\)</span> (짝에 해당)로 나눈다.</p></li>
-<li><p><strong>Predict</strong>: <span class="math inline">\(\mathbf{x}\)</span>의 주변값의 평균을 이용해 <span class="math inline">\(\hat{\mathbf{y}}\)</span>를 만든다. 첫 번째 원소를 예측할 때에는 첫 번째 <span class="math inline">\(\mathbf{x}\)</span>값만 쓰기로 한다. 그러면 <span class="math inline">\(\hat{\mathbf{y}}=(2,3,5,7)\)</span>가 되고 <span class="math inline">\(\mathbf{e}_{2}=\mathbf{y}-\hat{\mathbf{y}}=(-1,0,0,0)\)</span>가 된다.</p></li>
-<li><p><strong>Update</strong>: 평균을 맞춰주는 작업을 진행해 <span class="math inline">\(\mathbf{z}_{2}=\bar{\mathbf{x}}=\mathbf{x}+\mathbf{e}_{2}/2 = (1.5,4,6,8)\)</span>를 만든다.</p></li>
-</ol>
-<p>이제 <span class="math inline">\(\mathbf{z}_{2}\)</span>를 가지고 같은 작업을 반복한다. 그러면</p>
-<ol style="list-style-type: decimal">
-<li><p><strong>Spilt</strong>: <span class="math inline">\(\mathbf{y}=(1.5,6)\)</span>, <span class="math inline">\(\mathbf{x}=(4, 8)\)</span>.</p></li>
-<li><p><strong>Predict</strong>: <span class="math inline">\(\hat{\mathbf{y}}=(4,6)\)</span>, <span class="math inline">\(\mathbf{e}_{1}=(-2.5,0)\)</span>.</p></li>
-<li><p><strong>Update</strong>: <span class="math inline">\(\mathbf{z}_{1}=\bar{\mathbf{x}}=(2.75,8)\)</span>.</p></li>
-</ol>
-<p>한 번 더 반복한다.</p>
-<ol style="list-style-type: decimal">
-<li><p><strong>Spilt</strong>: <span class="math inline">\(\mathbf{y}=(2.75)\)</span>, <span class="math inline">\(\mathbf{x}=8\)</span></p></li>
-<li><p><strong>Predict</strong>: <span class="math inline">\(\hat{\mathbf{y}}=(8)\)</span>, <span class="math inline">\(\mathbf{e}_{0}=(-5.25)\)</span></p></li>
-<li><p><strong>Update</strong>: <span class="math inline">\(\mathbf{z}_{0}=\bar{\mathbf{x}}=(5.375)\)</span>.</p></li>
-</ol>
-<p>최종적으로 남는 detail과 global은 다음과 같다. 0이 많아져 리프팅 스킴으로 좋은 결과를 얻었다고 말할 수 있다고 한다.</p>
-<p><span class="math display">\[\mathbf{e}_{2}=(-1,0,0,0), \mathbf{e}_{1}=(-2.5,0), \mathbf{e}_{0}=(-5.25), \mathbf{z}_{0}=(5.375).\]</span></p>
-</div>
-<div class="example">
-<p>다중척도 방법의 특징은 저장된 계수들을 가지고 원래 신호를 <strong>복원(reconstruction)</strong>할 수 있어야 한다는 것이다. 앞선 예제의 detail과 global 계수들을 가지고 신호복원을 해보자.</p>
-<ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(\mathbf{x}=\mathbf{z}_{0}-\mathbf{e}_{0}/2=8\)</span>, <span class="math inline">\(\mathbf{y}=\mathbf{e}_{0}+\hat{\mathbf{y}}=2.75\)</span>, <span class="math inline">\(\mathbf{z}_{1}=(2.75, 8)\)</span>.</p></li>
-<li><p><span class="math inline">\(\mathbf{x}=\mathbf{z}_{1}-\mathbf{e}_{1}/2=(4,8)\)</span>, <span class="math inline">\(\hat{\mathbf{y}}=(4,6)\)</span>, <span class="math inline">\(\mathbf{y}=\mathbf{e}_{1}+\hat{\mathbf{y}}=(1.5, 6)\)</span>, <span class="math inline">\(\mathbf{z}_{2}=(1.5, 5, 6, 8)\)</span>.</p></li>
-<li><p><span class="math inline">\(\mathbf{x}=\mathbf{z}_{2}-\mathbf{e}_{2}/2=(2,4,6,8)\)</span>, <span class="math inline">\(\hat{\mathbf{y}}=(2,3,5,7)\)</span>, <span class="math inline">\(\mathbf{y}=\mathbf{e}_{2}+\hat{\mathbf{y}}=(1,3,5,7)\)</span>.</p></li>
-</ol>
-<p>따라서 <span class="math inline">\(\mathbf{z}_{3}=(1,2,3,4,5,6,7,8)\)</span> 신호를 성공적으로 복원할 수 있다.</p>
+<div id="----kriging-for-the-model-with-a-nugget-effect" class="section level3">
+<h3><span class="header-section-number">16.2.4</span> 덩어리 효과가 있는 모형의 크리깅(Kriging for the model with a nugget effect)</h3>
+<p>지금까지 크리깅은 nugget 효과가 없다는 가정에서 진행하였다. 그렇다면 nugget이 있는 경우에는 어떻게 되는가? <span class="math inline">\(Z(\mathbf{s})\)</span>에 대해 다음과 같은 decomposition을 할 수 있다. <span class="math display">\[Z(\mathbf{s})=x(\mathbf{s})^{T}\boldsymbol{\beta}+\eta(\mathbf{s})+\epsilon(\mathbf{s}).\]</span> 이것에 대한 자세한 내용은 Cressie 책 112쪽을 참고하기 바란다. 그러면 <span class="math inline">\(\boldsymbol{\Sigma}\)</span>가 <span class="math inline">\(\boldsymbol{\Gamma}\)</span>로 대체된다. <span class="math display">\[\boldsymbol{\Gamma}=\boldsymbol{\Sigma}+C_{0}\mathbf{I}\]</span> 여기서 <span class="math inline">\(\boldsymbol{\Sigma}\)</span>는 <span class="math inline">\(\eta(\mathbf{s})\)</span>의 covariance structure, <span class="math inline">\(C_{0}\mathbf{I}\)</span>는 <span class="math inline">\(\epsilon(\mathbf{s})\)</span>에 대한 covariance structure이다.</p>
+<p>어쨌든 결론은 nugget이 커지면 prediction 결과도 spread out (퍼짐)한다는 것이다.</p>
 </div>
 </div>
-<div id="---lifting-in-two-dimensions" class="section level2">
-<h2><span class="header-section-number">9.3</span> 2차원 자료의 리프팅 스킴(lifting in two dimensions)</h2>
-<p>이 절의 내용은 <span class="citation">(Jang <a href="#ref-Jang2012">2012</a>)</span>의 서술을 참고하였다. 2차원 자료에서는 1차원 자료와 다르게 짝과 홀을 정할 수 없다는 문제점이 있다. 불규칙한 격자점에서, 이웃(neighborhood)은 삼각분할(triangulation)을 통해 정의된다.</p>
-<p>리프팅 스킴은 모든 해상도 수준(resolution level)에서 <strong>다중척도 들로네 삼각분할(multiscale Delaunay triangulation)</strong>이라 부르는 꼭지점들의 이웃 구조를 사용한다. 삼각형 격자 위에 있는 자료를 다중척도 표현으로 분해(decomposition)하는 것은 현재 수준 <span class="math inline">\(l\)</span>에서 <span class="math inline">\(l+1\)</span>로 넘어갈 때 빼길 원하는 점 주변의 국소적 재삼각분할(local retriangulation)을 필요로 한다. 이 알고리즘은 수준이 고정되었을 때 이웃은 변하지 않는다라는 가정 하에서 진행된다.</p>
-<div class="figure" style="text-align: center"><span id="fig:2dlifting"></span>
-<img src="images/advmultiscale_lifting2d.png" alt="2D lifting scheme example." width="228" />
-<p class="caption">
-Figure 9.4: 2D lifting scheme example.
-</p>
+<div id="-prediction-error-in-kriging" class="section level2">
+<h2><span class="header-section-number">16.3</span> 크리깅의 예측오차(prediction error in Kriging)</h2>
+<p>크리깅에 대해서 다시 살펴보면, 관측하지 않은 <span class="math inline">\(\mathbf{s}_{0}\)</span>지점을 <span class="math display">\[\hat{Z}_{0}\equiv \hat{Z}(S_{0})\]</span> 으로 예측하는 것이다. 그러나 실제로 <span class="math inline">\(\hat{Z}_{0}=\hat{Z}_{0}(\boldsymbol{\psi})\)</span>, <span class="math inline">\(\boldsymbol{\psi}\)</span>는 covariance parameter들의 set인데 이 parameter들을 모르므로 <span class="math inline">\(\hat{Z}_{0}(\hat{\boldsymbol{\psi}})\)</span> (이것을 추정하는 것, OLS, WLS, MLE, REML, empirically 하는 것이 저번시간에 했던 내용들)로 해야한다. 즉 <span class="math inline">\(\boldsymbol{\psi} \rightarrow \hat{\boldsymbol{\psi}}\)</span>로 할 때 추가 error가 발생하는 것이다. 다시 말하면 <span class="math inline">\(\hat{Z}_{0}(\hat{\boldsymbol{\psi}})\)</span>는 MSPE를 overestimate하는 것이다.</p>
+<p>그래서 다음과 같은 correction을 한다. <span class="math display">\[
+\begin{aligned}
+\hat{m}(\boldsymbol{\psi})=E(Z_{0}(\hat{\boldsymbol{\psi}})-Z_{0})^{2}&amp;=E(Z_{0}(\hat{\boldsymbol{\psi}})-Z_{0}(\boldsymbol{\psi})+Z_{0}(\boldsymbol{\psi})-Z_{0})^2\\
+&amp;=E(Z_{0}(\hat{\boldsymbol{\psi}})-Z_{0}(\boldsymbol{\psi}))^{2}+E(Z_{0}(\boldsymbol{\psi})-Z_{0})^2\\
+&amp;\geq E(Z_{0}(\boldsymbol{\psi})-Z_{0})^2
+\end{aligned}
+\]</span> 여기서 <span class="math inline">\(E(Z_{0}(\hat{\boldsymbol{\psi}})-Z_{0}(\boldsymbol{\psi}))^{2}=m&#39;(\boldsymbol{\psi})\)</span>라 하고 <span class="math inline">\(E(Z_{0}(\boldsymbol{\psi})-Z_{0})^2=m(\boldsymbol{\psi})\)</span>라 하면 <span class="math inline">\(\hat{m}(\boldsymbol{\psi})\)</span>에서 <span class="math inline">\(m&#39;(\boldsymbol{\psi})\)</span>를 빼내어 <span class="math inline">\(m(\boldsymbol{\psi})\)</span>에 가깝게 만든다고 한다(correction).</p>
+<p>사실 application이 굉장히 많고 공간통계학 뿐만 아니라 random effect prediction에서도 생기는 문제라고 한다. 그런데 공간통계학자들은 이 예측오차를 무시하고 그냥 할 때가 많고 random effect쪽은 자료가 독립이라 간단하게 된다고 한다. 이 문제를 깊게 다루는 분야는 <strong>small area estimation</strong>이니 관심있으면 찾아보는 것이 좋다.</p>
+<p>또한 Bayesian 입장에서는 <span class="math inline">\(\boldsymbol{\psi}\)</span>를 integrated out하므로 <span class="math inline">\(\pi(Z_{0]|\mathbf{Z}})\)</span>하는 것이 큰 문제가 되지 않는다. 그러나 numerical integration이 문제가 된다.</p>
 </div>
-<p>위 그림에서 빨간색 점들로 검은색 점을 포함하는 <strong>보로노이 다이어그램(Voronoi diagram)</strong>을 그린다. (a), (b), (c)는 각각 첫 번째, 두 번째 및 세 번째 리프팅 스킴에 대응된다. (d)는 투입된 자료를 네 가지 수준으로 구분한 그림이다. 빨간색 점들은 <span class="math inline">\(s_{t,2k+1}\)</span>에 대응되며 검은색 점들은 <span class="math inline">\(s_{t,2k}\)</span>에 대응된다. 갱신 단계에서, 우리는 검은색 지점의 상세 이미지(detail image) <span class="math inline">\(d_{t+1,k}\)</span>를 얻을 수 있고, 빨간색 지점의 갱신된 근사 이미지(approximation image) <span class="math inline">\(s_{t+1,k}\)</span>를 얻을 수 있다. 산재된 자료(scattered data)의 경우 척도(scale)은 ‘연속(continuous)’ 개념에 대응된다. 다시 말하면, 모든 자료는 각자 고유의 척도를 가지고 있고, 이 척도는 주변과의 거리에 관계되어 결정되는 것이다.</p>
+<div id="-other-krigings" class="section level2">
+<h2><span class="header-section-number">16.4</span> 다른 크리깅들(other Krigings)</h2>
+<p>Universal kriging 이외에 다른 방법들은 간단히 소개만 하고 넘어갈 것이다.</p>
+<ul>
+<li><p><strong>Simple kriging</strong>: <span class="math inline">\(\mathbf{x}_{0}^{T}\boldsymbol{\beta} \rightarrow \boldsymbol{\mu}\)</span> <span class="math display">\[\hat{Z}_{0}=\hat{\boldsymbol{\mu}}+\mathbf{T}^{T}\boldsymbol{\Sigma}^{-1}(\mathbf{Z}-\hat{\boldsymbol{\mu}}\cdot \mathbf{1}), \hat{\mathbf{\mu}}=\bar{\mathbf{Z}}.\]</span> 여전히 covariance parameter들은 안다고 가정한다.</p></li>
+<li><p><strong>Ordinary kriging</strong>: <span class="math inline">\(\mathbf{x}_{0}^{T}\boldsymbol{\beta} \rightarrow \boldsymbol{\mu}\)</span> <span class="math display">\[\hat{Z}_{0}=\tilde{\boldsymbol{\mu}}+\mathbf{T}^{T}\boldsymbol{\Sigma}^{-1}(\mathbf{Z}-\tilde{\boldsymbol{\mu}}\cdot \mathbf{1}), \tilde{\boldsymbol{\mu}}=(\mathbf{1}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{1})^{-1}\mathbf{1}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{Z}.\]</span> 여기서 <span class="math inline">\(\tilde{\boldsymbol{\mu}}\)</span>는 <span class="math inline">\(\boldsymbol{\mu}\)</span>의 GLS solution이며 ordinary kriging은 universal kriging의 special case이다.</p></li>
+</ul>
+<p>만약 <span class="math inline">\(\hat{Z}_{0}\)</span>를 prediction weight (<span class="math inline">\(\boldsymbol{\psi}\)</span>의 함수) <span class="math inline">\(\lambda_{i}\)</span>와 <span class="math inline">\(Z(\mathbf{s}_{i})\)</span>의 linaer combination으로 생각한다면 <span class="math inline">\(\hat{Z}_{0}=\sum_{i=1}^{n}\lambda_{i}Z(\mathbf{s}_{i})\)</span>로 쓸 수 있다. Simple kriging의 경우는 <span class="math display">\[
+\begin{eqnarray*}
+\hat{Z}_{0}&amp;=&amp;(1-\sigma_{i}\lambda_{i})\boldsymbol{\mu}+\boldsymbol{\lambda}^{T}\mathbf{Z} \qquad(\boldsymbol{\lambda}=\mathbf{T}^{T}\boldsymbol{\Sigma}^{-1})\\
+&amp;=&amp;(1-\sigma_{i}\lambda_{i})\boldsymbol{\mu}+\sum_{i}\lambda_{i}Z(\mathbf{s}_{i})\\
+&amp;=&amp;\text{global mean + data로부터 나오는 mean}\\
+\end{eqnarray*}
+\]</span> 으로 <span class="math inline">\(\hat{\boldsymbol{\mu}}=\bar{\mathbf{Z}}\)</span>로 했기 때문에 global mean이 없어지지 않고 남는다. 한편 ordinary kriging의 경우는 <span class="math inline">\(\sum_{i}\lambda_{i}=1\)</span>이라는 제약조건 하에 <span class="math inline">\(\hat{Z}_{0}=\sum_{i}\lambda_{i}Z(\mathbf{s}_{i})\)</span>로 표현 가능하다. 참고로 universal kriging인 경우에 constraint는 <span class="math inline">\(\boldsymbol{\lambda}^{T}\mathbf{x}=x_{0}\)</span>이라는 제약조건이 있다.</p>
+<p>참고로 <strong>크리깅 자체는 stationary 가정이 필요 없다.</strong> 다만 나중에 <span class="math inline">\(\Sigma\)</span> 추정시 문제가 될 수 있다고 한다.</p>
+</div>
+<div id="-more-krigings" class="section level2">
+<h2><span class="header-section-number">16.5</span> 추가적인 크리깅들(more Krigings)</h2>
+<ul>
+<li><strong>Co-kriging</strong> (kriging의 multivariate case)</li>
+</ul>
+<p>예를 들면 weather station에 있는 기온, 습도, 풍속 데이터 등을 크리깅할 경우가 이에 해당한다. 한 장소에 <span class="math inline">\(p\)</span>개의 데이터 <span class="math display">\[\mathbf{Z}(\mathbf{s})=(Z_{1}(\mathbf{s}), \ldots, Z_{p}(\mathbf{s}_{n}))\]</span> 이 있다고 하자. 여기서 <span class="math inline">\(Z_{1}(\mathbf{s}_{0})\)</span>을 예측하고 싶다고 하자. 추가로 <span class="math inline">\(E(\mathbf{Z}(\mathbf{s}))=\boldsymbol{\mu}=(\mu_{1}, \ldots , \mu_{n})^{T}\)</span>, <span class="math display">\[\text{Cov}(\mathbf{Z}(\mathbf{s}),\mathbf{Z}(\mathbf{t}))=C(\mathbf{s},\mathbf{t})=
+\begin{bmatrix}
+C_{11}(\mathbf{s},\mathbf{t}) &amp; \ldots &amp; C_{1p}(\mathbf{s},\mathbf{t}) \\
+\vdots &amp; \ddots &amp; \vdots\\
+C_{p1}(\mathbf{s},\mathbf{t}) &amp; \ldots &amp; C_{pp}(\mathbf{s},\mathbf{t})
+\end{bmatrix}
+\]</span> 이다<span class="math inline">\((p\times p\)</span> matrix). Cross-covariance에 대한 모델링이 추가로 필요하다.</p>
+<p>다음과 같은 linear unbiased predictior <span class="math inline">\(\hat{Z}_{1}(\mathbf{s}_{0})=\sum_{i}^{n}\sum_{j}^{p}\lambda_{ji}Z_{j}(\mathbf{s}_{i})\)</span>를 생각하보자. unbiasedness에 의해 constraint가 나온다. <span class="math display">\[E(\hat{Z}_{1}(\mathbf{s}_{0})-Z_{1}(\mathbf{s}_{0}))=0 \rightarrow \sum_{i}^{n}\lambda_{ji}=1, \sum_{i=1}^{n}\lambda_{ji}=0 \qquad \text{for } j=2,\ldots, p (unbiased constraints).\]</span></p>
+<p>그러면 <span class="math display">\[\text{MSPE}=E(Z_{1}(\mathbf{s}_{0})-\sum_{i=1}^{n}\sum_{j=1}^{p}\lambda_{ji}Z_{j}(\mathbf{s}_{i})) \qquad{\text{under some constraints.}}\]</span> 로 크리깅을 할 수 있다. 복잡하지만 라그랑지 승수법으로 계산 가능하다고 한다.</p>
+<ul>
+<li><strong>Trans-Gaussian Kriging</strong></li>
+</ul>
+<p>이 방법은 자료가 가우시안이 아닐 경우 어떡할 것인가로부터 시작했다. <span class="math inline">\(\mathbf{Z}(\mathbf{s})\)</span>가 가우시안이 아니라고 하자. 만약 변환을 통해 만들어진 <span class="math inline">\(\mathbf{Y}(\mathbf{s})\)</span> <span class="math display">\[\mathbf{Y}(\mathbf{s})=h(\mathbf{Z}(\mathbf{s}))\]</span> 가 가우시안일 경우 모델링 할 수 있다는 것이다.</p>
+<p>여기서 잠시 자료가 가우시안인지 아닌지 어떻게 검정할 것인가라는 문제가 있는데, 자료가 독립일 경우 Q-Q plot 또는 Kolmogorov-Sminov 검정 등을 한다고 한다. 공간통계학자들의 경우 검정보다는 그냥 모델링에 관심을 갖는다.</p>
 
 </div>
 </div>
 
 
 
-<h3> References</h3>
-<div id="refs" class="references">
-<div id="ref-Jansen2005">
-<p>Jansen, Maarten H., and Patrick J. Oonincx. 2005. <em>Second Generation Wavelets and Applications</em>. Spring Street, New York: Springer Science &amp; Business Media.</p>
-</div>
-<div id="ref-Jang2012">
-<p>Jang, Dongik. 2012. “Directional Wavelets for Scattered Data and Their Applications.” PhD thesis, Seoul National University.</p>
-</div>
-</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="multiscalets.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="spatial.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="spatlikelihood.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pointpattern.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -481,7 +551,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://seoncheolpark.github.io/book/_book/19-admultiscale.Rmd",
+"link": "https://seoncheolpark.github.io/book/_book/27-kriging.Rmd",
 "text": null
 },
 "download": null,

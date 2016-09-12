@@ -187,3 +187,46 @@ $$\tilde{C}(h)=C(h)\cdot C_{T}(h)$$
 로 정의된다. 여기서 곱은 elementwise product (Hadamard, Schur) 인 것 같다(전미경 교수님 노트 참고).
 
 Tapered covariance matrix는 block-diagonal 형태가 되며 이런 행렬의 경우 inverse나 determinant를 더 빨리 계산하는 알고리즘들이 이미 있다고 한다. 물론 $\tilde{C}(h)$ 또한 nonnegative definite covariance인지와 같은 thoery를 justify해야 한다. 그러나 거의 일반적으로 tapering해도 nonnegative definite covariance가 그대로 유지된다고 한다. 한편 tapering을 쓰면 surface가 original보다 좀 더 wiggle해짐이 알려져 있다(sol 찾을 시 조심해야).
+
+## 근사 가능도(approximate Likelihood)
+
+마지막으로 기타 다른 방법들에 대해서 소개한다.
+
+Vecchina (1988)은 approximate likelihood라는 것을 소개했다. $\beta$를 회귀모수, $\theta$를 covariance parameter, $\mathbf{z}=(z_{1}, \cdots , z_{n})$를 data라고 하자. 그러면 원래 likelihood를 conditional density argument를 통해 decompose할 수 있다는 아이디어에서 비롯되었다.
+$$
+\begin{eqnarray*}
+L(\beta, \sigma, \mathbf{z}) &=& f(\mathbf{z}, \beta, \sigma)\\
+&=&f(\mathbf{z}, \beta, \sigma) \prod_{i=2}^{n}f(z_{i}|z_{j}, 1 \leq j \leq i-1, \beta, \theta)\\
+\end{eqnarray*}
+$$
+
+그 후에 적당한 subset $z_{im}$을 잡는 것이다. 즉
+$$
+\begin{eqnarray*}
+P(X,Y)&=&P(X)P(Y|X)\\
+&\approx& f(\mathbf{z},\beta, \theta)\prod_{i=2}^{n}f(z_{i}|z_{j}; z_{im}\text{은 subset of }z_{1}, \cdots ,z_{i-1})\\
+\end{eqnarray*}
+$$
+그렇다면 얼마나 자를 것인가? 가까운 애들만 남기면 된다. Empirically, $n=100$일 때 $m \approx 10$ 정도를 쓴다고 한다. Vecchina는 theory를 안했다고 한다. 물론 80년대라서 이럴 수 있었다고 한다.
+
+Stein et al (2004)는 Vecchina의 접근을 REML에서 시도하였다. 특히 subset을 찾기 위한 몇 가지 시도들을 했고, 근사값을 계산하기 위한 방법을 제공했다. 또한 강한 spatial dependence가 있는 경우, 멀리 있는 observation 또한 고려할 필요가 있음을 보였다.
+
+## 유사가능도와 복합가능도(pseudo-Likelihood and composite Likelihood)
+
+**Pseudo-likelihood**의 기본적인 아이디어는 dependent data를 마치 independent data처럼 쪼개서 생각한다는 것이다. Lattice model의 conditional AR model에서도 다시 등장한다. Pseudo-likelihood는 Besag (1975)에 의해 처음 소개되었다. 그리고 Gurriero and Lele (1999)sms variogram에 대해 pseudo-likelihood를 사용하였다.
+
+$\gamma(h;\sigma)$를 semivariogram이라고 하자. 그리고
+$$v_{ij}\equiv Z(\mathbf{s}_{i})-Z(\mathbf{s}_{j})$$
+라고 하자. $Z$는 instrinsic stationary이며 normal로 assume한다. 여기서 $\mathbf{s}_{i}-\mathbf{s}_{j}=\mathbf{h}$이다. 그러면
+$$v_{ij} \sim \mathcal{N}(0, 2\gamma(\mathbf{h};\theta))$$
+이다. 만약 다른 index $k$가 존재해 $\mathbf{s}_{i}-\mathbf{s}_{k}=\mathbf{h}$를 만족한다면 $v_{ij}$와 $v_{ik}$는 dependent하다. 그러나 pseudo approach에서는 independent인 것처럼 모델링한다(Handbook of sptaial statistics 52쪽).
+$$f(v_{ij})=\frac{1}{2\pi\sqrt{2\gamma(\mathbf{h};\theta)}}\rho^{-\frac{1}{2}v_{ij}^{2}/2\gamma(\mathbf{h};\theta)]}$$
+이며 log-likelihood는
+$$\text{CL}(\theta)=-\frac{1}{2}\sum_{i=1}^{n}\sum_{j>i}\{ \frac{(Z(\mathbf{s}_{i})-Z(\mathbf{s}_{j}))^{2}}{2\gamma(\mathbf{s}_{i}-\mathbf{s}_{j};\theta)}+\log \gamma(\mathbf{s}_{i}-\mathbf{s}_{j};\theta) \}$$
+이다(수식 찾아서 확인해 볼 필요 있음).
+
+이것의 장점은 matrix inverse나 determinant 계산이 필요가 없고 consistent estimator를 준다는 것이다. 그리고 MLE는 원래 분포가정과 실제 분포가 다를 때 misspecification이 일어나는데 여기서는 joint/bivariate distribution assumption을 안했으므로 이것에 대해 robust하다는 것 또한 장점이다. 그러나 dependency를 고려하지 않기 때문에 efficiency가 떨어진다.
+
+비슷한 개념으로 quasi-likelihood가 있는데, GLM이나 GLMM에서 등장한다(찾아보기). Pseudo-likelihood는 generalized mixed effect model에 등장한다.
+
+이것으로 지금까지 geostatstics에서 nonparametric/parameteric/MLE 추정에 대해 간략히 살펴보았다.

@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-09-09">
+<meta name="date" content="2016-09-12">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -188,6 +188,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.2" data-path="multiscalets.html"><a href="multiscalets.html#-whitening-of-stationary-process"><i class="fa fa-check"></i><b>8.2</b> 정상과정의 백색화(whitening of stationary process)</a></li>
 <li class="chapter" data-level="8.3" data-path="multiscalets.html"><a href="multiscalets.html#--spectral-representation-of-stationary-process"><i class="fa fa-check"></i><b>8.3</b> 정상과정의 스펙트럼 표현(spectral representation of stationary process)</a></li>
 <li class="chapter" data-level="8.4" data-path="multiscalets.html"><a href="multiscalets.html#----non-decimated-discrete-wavelets"><i class="fa fa-check"></i><b>8.4</b> 압축 표본화되지 않은 이산 웨이블릿(non-decimated discrete wavelets)</a></li>
+<li class="chapter" data-level="8.5" data-path="multiscalets.html"><a href="multiscalets.html#---locally-stationary-wavelet-process"><i class="fa fa-check"></i><b>8.5</b> 국소 정상 웨이블릿 과정(locally stationary wavelet process)</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="admultiscale.html"><a href="admultiscale.html"><i class="fa fa-check"></i><b>9</b> 고급 다중척도 방법론</a><ul>
 <li class="chapter" data-level="9.1" data-path="admultiscale.html"><a href="admultiscale.html#--second-generation-wavelet-transform"><i class="fa fa-check"></i><b>9.1</b> 2세대 웨이블릿 변환(second-generation wavelet transform)</a></li>
@@ -257,50 +258,64 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="15.6" data-path="spatlikelihood.html"><a href="spatlikelihood.html#--computational-issues-in-spatial-statistics"><i class="fa fa-check"></i><b>15.6</b> 공간통계에서의 계산 문제들(computational issues in spatial statistics)</a><ul>
 <li class="chapter" data-level="15.6.1" data-path="spatlikelihood.html"><a href="spatlikelihood.html#---solutions-about-computational-issues-in-spatial-statistics"><i class="fa fa-check"></i><b>15.6.1</b> 공간통계에서의 계산 문제들의 해결책들(solutions about computational issues in spatial statistics)</a></li>
 </ul></li>
+<li class="chapter" data-level="15.7" data-path="spatlikelihood.html"><a href="spatlikelihood.html#-approximate-likelihood"><i class="fa fa-check"></i><b>15.7</b> 근사 가능도(approximate Likelihood)</a></li>
+<li class="chapter" data-level="15.8" data-path="spatlikelihood.html"><a href="spatlikelihood.html#-pseudo-likelihood-and-composite-likelihood"><i class="fa fa-check"></i><b>15.8</b> 유사가능도와 복합가능도(pseudo-Likelihood and composite Likelihood)</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="kriging.html"><a href="kriging.html"><i class="fa fa-check"></i><b>16</b> 크리깅</a><ul>
+<li class="chapter" data-level="16.1" data-path="kriging.html"><a href="kriging.html#-spatial-prediction"><i class="fa fa-check"></i><b>16.1</b> 공간 예측(spatial prediction)</a></li>
+<li class="chapter" data-level="16.2" data-path="kriging.html"><a href="kriging.html#-universal-kriging"><i class="fa fa-check"></i><b>16.2</b> 일반 크리깅(universal Kriging)</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="kriging.html"><a href="kriging.html#--lagrange-multiplier-approach"><i class="fa fa-check"></i><b>16.2.1</b> 라그랑즈 승수 접근법(Lagrange multiplier approach)</a></li>
+<li class="chapter" data-level="16.2.2" data-path="kriging.html"><a href="kriging.html#-conditional-distribution-approach"><i class="fa fa-check"></i><b>16.2.2</b> 조건부분포 방법(conditional distribution approach)</a></li>
+<li class="chapter" data-level="16.2.3" data-path="kriging.html"><a href="kriging.html#-bayesian-approach"><i class="fa fa-check"></i><b>16.2.3</b> 베이지안 방법(Bayesian approach)</a></li>
+<li class="chapter" data-level="16.2.4" data-path="kriging.html"><a href="kriging.html#----kriging-for-the-model-with-a-nugget-effect"><i class="fa fa-check"></i><b>16.2.4</b> 덩어리 효과가 있는 모형의 크리깅(Kriging for the model with a nugget effect)</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="kriging.html"><a href="kriging.html#-prediction-error-in-kriging"><i class="fa fa-check"></i><b>16.3</b> 크리깅의 예측오차(prediction error in Kriging)</a></li>
+<li class="chapter" data-level="16.4" data-path="kriging.html"><a href="kriging.html#-other-krigings"><i class="fa fa-check"></i><b>16.4</b> 다른 크리깅들(other Krigings)</a></li>
+<li class="chapter" data-level="16.5" data-path="kriging.html"><a href="kriging.html#-more-krigings"><i class="fa fa-check"></i><b>16.5</b> 추가적인 크리깅들(more Krigings)</a></li>
 </ul></li>
 <li class="part"><span><b>Spatial Point Processes</b></span></li>
-<li class="chapter" data-level="16" data-path="pointpattern.html"><a href="pointpattern.html"><i class="fa fa-check"></i><b>16</b> 공간점과정</a><ul>
-<li class="chapter" data-level="16.1" data-path="pointpattern.html"><a href="pointpattern.html#--examples-of-spatial-point-patterns"><i class="fa fa-check"></i><b>16.1</b> 공간점패턴 자료의 예(examples of spatial point patterns)</a></li>
+<li class="chapter" data-level="17" data-path="pointpattern.html"><a href="pointpattern.html"><i class="fa fa-check"></i><b>17</b> 공간점과정</a><ul>
+<li class="chapter" data-level="17.1" data-path="pointpattern.html"><a href="pointpattern.html#--examples-of-spatial-point-patterns"><i class="fa fa-check"></i><b>17.1</b> 공간점패턴 자료의 예(examples of spatial point patterns)</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="csr.html"><a href="csr.html"><i class="fa fa-check"></i><b>17</b> 완전공간임의성</a><ul>
-<li class="chapter" data-level="17.1" data-path="csr.html"><a href="csr.html#------general-monte-carlo-methods-for-csr-test"><i class="fa fa-check"></i><b>17.1</b> 완전공간임의성 검정을 위한 일반적인 몬테카를로 방법 (general Monte Carlo methods for CSR test)</a><ul>
-<li class="chapter" data-level="17.1.1" data-path="csr.html"><a href="csr.html#-----mc-tests-using-edf"><i class="fa fa-check"></i><b>17.1.1</b> 경험적 분포함수를 이용한 몬테칼로 검정 방법들(MC tests using EDF)</a></li>
+<li class="chapter" data-level="18" data-path="csr.html"><a href="csr.html"><i class="fa fa-check"></i><b>18</b> 완전공간임의성</a><ul>
+<li class="chapter" data-level="18.1" data-path="csr.html"><a href="csr.html#------general-monte-carlo-methods-for-csr-test"><i class="fa fa-check"></i><b>18.1</b> 완전공간임의성 검정을 위한 일반적인 몬테카를로 방법 (general Monte Carlo methods for CSR test)</a><ul>
+<li class="chapter" data-level="18.1.1" data-path="csr.html"><a href="csr.html#-----mc-tests-using-edf"><i class="fa fa-check"></i><b>18.1.1</b> 경험적 분포함수를 이용한 몬테칼로 검정 방법들(MC tests using EDF)</a></li>
 </ul></li>
-<li class="chapter" data-level="17.2" data-path="csr.html"><a href="csr.html#--methods-based-on-nearest-neighbor-distance"><i class="fa fa-check"></i><b>17.2</b> 최근접이웃거리 기반 방법들(methods based on nearest neighbor distance)</a><ul>
-<li class="chapter" data-level="17.2.1" data-path="csr.html"><a href="csr.html#----mc-tests-based-on-nearest-neighbor-distance"><i class="fa fa-check"></i><b>17.2.1</b> 최근접이웃거리 기반 몬테칼로 검정 방법들(MC tests based on nearest neighbor distance)</a></li>
+<li class="chapter" data-level="18.2" data-path="csr.html"><a href="csr.html#--methods-based-on-nearest-neighbor-distance"><i class="fa fa-check"></i><b>18.2</b> 최근접이웃거리 기반 방법들(methods based on nearest neighbor distance)</a><ul>
+<li class="chapter" data-level="18.2.1" data-path="csr.html"><a href="csr.html#----mc-tests-based-on-nearest-neighbor-distance"><i class="fa fa-check"></i><b>18.2.1</b> 최근접이웃거리 기반 몬테칼로 검정 방법들(MC tests based on nearest neighbor distance)</a></li>
 </ul></li>
-<li class="chapter" data-level="17.3" data-path="csr.html"><a href="csr.html#r-r-edf"><i class="fa fa-check"></i><b>17.3</b> R 예제(R-edf)</a></li>
+<li class="chapter" data-level="18.3" data-path="csr.html"><a href="csr.html#r-r-edf"><i class="fa fa-check"></i><b>18.3</b> R 예제(R-edf)</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="sparsesampling.html"><a href="sparsesampling.html"><i class="fa fa-check"></i><b>18</b> 희박한 샘플링 분석</a><ul>
-<li class="chapter" data-level="18.1" data-path="sparsesampling.html"><a href="sparsesampling.html#-----quadrat-counts-for-sparse-sampled-data"><i class="fa fa-check"></i><b>18.1</b> 희박한 샘플링 자료를 위한 정방구역 계산(quadrat counts for sparse sampled data)</a></li>
-<li class="chapter" data-level="18.2" data-path="sparsesampling.html"><a href="sparsesampling.html#-----distance-methods-for-sparsely-sampled-data"><i class="fa fa-check"></i><b>18.2</b> 희박한 샘플링 자료를 위한 거리 방법들(distance methods for sparsely sampled data)</a></li>
+<li class="chapter" data-level="19" data-path="sparsesampling.html"><a href="sparsesampling.html"><i class="fa fa-check"></i><b>19</b> 희박한 샘플링 분석</a><ul>
+<li class="chapter" data-level="19.1" data-path="sparsesampling.html"><a href="sparsesampling.html#-----quadrat-counts-for-sparse-sampled-data"><i class="fa fa-check"></i><b>19.1</b> 희박한 샘플링 자료를 위한 정방구역 계산(quadrat counts for sparse sampled data)</a></li>
+<li class="chapter" data-level="19.2" data-path="sparsesampling.html"><a href="sparsesampling.html#-----distance-methods-for-sparsely-sampled-data"><i class="fa fa-check"></i><b>19.2</b> 희박한 샘플링 자료를 위한 거리 방법들(distance methods for sparsely sampled data)</a></li>
 </ul></li>
 <li class="part"><span><b>Quantile Regression</b></span></li>
-<li class="chapter" data-level="19" data-path="qr.html"><a href="qr.html"><i class="fa fa-check"></i><b>19</b> 분위수 회귀분석</a><ul>
-<li class="chapter" data-level="19.1" data-path="qr.html"><a href="qr.html#-quantile"><i class="fa fa-check"></i><b>19.1</b> 분위수 (quantile)</a></li>
-<li class="chapter" data-level="19.2" data-path="qr.html"><a href="qr.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>19.2</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
+<li class="chapter" data-level="20" data-path="qr.html"><a href="qr.html"><i class="fa fa-check"></i><b>20</b> 분위수 회귀분석</a><ul>
+<li class="chapter" data-level="20.1" data-path="qr.html"><a href="qr.html#-quantile"><i class="fa fa-check"></i><b>20.1</b> 분위수 (quantile)</a></li>
+<li class="chapter" data-level="20.2" data-path="qr.html"><a href="qr.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>20.2</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
 </ul></li>
 <li class="part"><span><b>Extreme Value Statistics</b></span></li>
-<li class="chapter" data-level="20" data-path="extremevaluestat.html"><a href="extremevaluestat.html"><i class="fa fa-check"></i><b>20</b> 극단값 통계학</a></li>
-<li class="chapter" data-level="21" data-path="uGEVtheory.html"><a href="uGEVtheory.html"><i class="fa fa-check"></i><b>21</b> 일변량 극단값 이론</a><ul>
-<li class="chapter" data-level="21.1" data-path="uGEVtheory.html"><a href="uGEVtheory.html#--generalized-extreme-value-distribution"><i class="fa fa-check"></i><b>21.1</b> 일반화 극단값 분포(generalized extreme value distribution)</a></li>
-<li class="chapter" data-level="21.2" data-path="uGEVtheory.html"><a href="uGEVtheory.html#max-stablity"><i class="fa fa-check"></i><b>21.2</b> 최대안정성(max-stablity)</a></li>
-<li class="chapter" data-level="21.3" data-path="uGEVtheory.html"><a href="uGEVtheory.html#-return-level"><i class="fa fa-check"></i><b>21.3</b> 복귀 수준(return level)</a></li>
-<li class="chapter" data-level="21.4" data-path="uGEVtheory.html"><a href="uGEVtheory.html#--inference-in-extreme-value-statistics"><i class="fa fa-check"></i><b>21.4</b> 극단값 분포에서의 추론(inference in extreme value statistics)</a></li>
-<li class="chapter" data-level="21.5" data-path="uGEVtheory.html"><a href="uGEVtheory.html#--mle-in-extreme-value-statistics"><i class="fa fa-check"></i><b>21.5</b> 극단값 분포에서의 최대가능도추정(mle in extreme value statistics)</a></li>
-<li class="chapter" data-level="21.6" data-path="uGEVtheory.html"><a href="uGEVtheory.html#---profile-likelihood-in-extreme-value-statistics"><i class="fa fa-check"></i><b>21.6</b> 극단값 분포에서의 프로파일 가능도(profile likelihood in extreme value statistics)</a></li>
-<li class="chapter" data-level="21.7" data-path="uGEVtheory.html"><a href="uGEVtheory.html#gev----maximum-likelihood-estimation-application-to-gev-distribution"><i class="fa fa-check"></i><b>21.7</b> GEV 분포애서의 가능도 추정 (maximum likelihood estimation: application to GEV distribution)</a></li>
+<li class="chapter" data-level="21" data-path="extremevaluestat.html"><a href="extremevaluestat.html"><i class="fa fa-check"></i><b>21</b> 극단값 통계학</a></li>
+<li class="chapter" data-level="22" data-path="uGEVtheory.html"><a href="uGEVtheory.html"><i class="fa fa-check"></i><b>22</b> 일변량 극단값 이론</a><ul>
+<li class="chapter" data-level="22.1" data-path="uGEVtheory.html"><a href="uGEVtheory.html#--generalized-extreme-value-distribution"><i class="fa fa-check"></i><b>22.1</b> 일반화 극단값 분포(generalized extreme value distribution)</a></li>
+<li class="chapter" data-level="22.2" data-path="uGEVtheory.html"><a href="uGEVtheory.html#max-stablity"><i class="fa fa-check"></i><b>22.2</b> 최대안정성(max-stablity)</a></li>
+<li class="chapter" data-level="22.3" data-path="uGEVtheory.html"><a href="uGEVtheory.html#-return-level"><i class="fa fa-check"></i><b>22.3</b> 복귀 수준(return level)</a></li>
+<li class="chapter" data-level="22.4" data-path="uGEVtheory.html"><a href="uGEVtheory.html#--inference-in-extreme-value-statistics"><i class="fa fa-check"></i><b>22.4</b> 극단값 분포에서의 추론(inference in extreme value statistics)</a></li>
+<li class="chapter" data-level="22.5" data-path="uGEVtheory.html"><a href="uGEVtheory.html#--mle-in-extreme-value-statistics"><i class="fa fa-check"></i><b>22.5</b> 극단값 분포에서의 최대가능도추정(mle in extreme value statistics)</a></li>
+<li class="chapter" data-level="22.6" data-path="uGEVtheory.html"><a href="uGEVtheory.html#---profile-likelihood-in-extreme-value-statistics"><i class="fa fa-check"></i><b>22.6</b> 극단값 분포에서의 프로파일 가능도(profile likelihood in extreme value statistics)</a></li>
+<li class="chapter" data-level="22.7" data-path="uGEVtheory.html"><a href="uGEVtheory.html#gev----maximum-likelihood-estimation-application-to-gev-distribution"><i class="fa fa-check"></i><b>22.7</b> GEV 분포애서의 가능도 추정 (maximum likelihood estimation: application to GEV distribution)</a></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="spatextremes.html"><a href="spatextremes.html"><i class="fa fa-check"></i><b>22</b> 공간 극단값 이론과 최대안정과정</a><ul>
-<li class="chapter" data-level="22.1" data-path="spatextremes.html"><a href="spatextremes.html#max-stable-process"><i class="fa fa-check"></i><b>22.1</b> 최대안정과정(max-stable process)</a><ul>
-<li class="chapter" data-level="22.1.1" data-path="spatextremes.html"><a href="spatextremes.html#smith-smith-model"><i class="fa fa-check"></i><b>22.1.1</b> Smith 모형(Smith model)</a></li>
-<li class="chapter" data-level="22.1.2" data-path="spatextremes.html"><a href="spatextremes.html#schlather-schlather-model"><i class="fa fa-check"></i><b>22.1.2</b> Schlather 모형(Schlather model)</a></li>
-<li class="chapter" data-level="22.1.3" data-path="spatextremes.html"><a href="spatextremes.html#brown-resnick-brown-resnick-model"><i class="fa fa-check"></i><b>22.1.3</b> Brown-Resnick 모형(Brown-Resnick model)</a></li>
-<li class="chapter" data-level="22.1.4" data-path="spatextremes.html"><a href="spatextremes.html#-t-extremal-t-model"><i class="fa fa-check"></i><b>22.1.4</b> 극단-t 모형(extremal-t model)</a></li>
+<li class="chapter" data-level="23" data-path="spatextremes.html"><a href="spatextremes.html"><i class="fa fa-check"></i><b>23</b> 공간 극단값 이론과 최대안정과정</a><ul>
+<li class="chapter" data-level="23.1" data-path="spatextremes.html"><a href="spatextremes.html#max-stable-process"><i class="fa fa-check"></i><b>23.1</b> 최대안정과정(max-stable process)</a><ul>
+<li class="chapter" data-level="23.1.1" data-path="spatextremes.html"><a href="spatextremes.html#smith-smith-model"><i class="fa fa-check"></i><b>23.1.1</b> Smith 모형(Smith model)</a></li>
+<li class="chapter" data-level="23.1.2" data-path="spatextremes.html"><a href="spatextremes.html#schlather-schlather-model"><i class="fa fa-check"></i><b>23.1.2</b> Schlather 모형(Schlather model)</a></li>
+<li class="chapter" data-level="23.1.3" data-path="spatextremes.html"><a href="spatextremes.html#brown-resnick-brown-resnick-model"><i class="fa fa-check"></i><b>23.1.3</b> Brown-Resnick 모형(Brown-Resnick model)</a></li>
+<li class="chapter" data-level="23.1.4" data-path="spatextremes.html"><a href="spatextremes.html#-t-extremal-t-model"><i class="fa fa-check"></i><b>23.1.4</b> 극단-t 모형(extremal-t model)</a></li>
 </ul></li>
-<li class="chapter" data-level="22.2" data-path="spatextremes.html"><a href="spatextremes.html#--spatial-dependence-of-extremes"><i class="fa fa-check"></i><b>22.2</b> 극단값의 공간 종속성(spatial dependence of extremes)</a></li>
+<li class="chapter" data-level="23.2" data-path="spatextremes.html"><a href="spatextremes.html#--spatial-dependence-of-extremes"><i class="fa fa-check"></i><b>23.2</b> 극단값의 공간 종속성(spatial dependence of extremes)</a></li>
 </ul></li>
-<li class="chapter" data-level="23" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>23</b> References</a></li>
+<li class="chapter" data-level="24" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>24</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
 
