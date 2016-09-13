@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-09-12">
+<meta name="date" content="2016-09-13">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -132,7 +132,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3" data-path="basicprob.html"><a href="basicprob.html"><i class="fa fa-check"></i><b>3</b> 기본적인 확률론 개념들</a><ul>
 <li class="chapter" data-level="3.1" data-path="basicprob.html"><a href="basicprob.html#-basic-probability-theory"><i class="fa fa-check"></i><b>3.1</b> 기초 확률론(basic probability theory)</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="basicprob.html"><a href="basicprob.html#-sample-space-and-events"><i class="fa fa-check"></i><b>3.1.1</b> 표본공간과 사건(sample space and events)</a></li>
-<li class="chapter" data-level="3.1.2" data-path="basicprob.html"><a href="basicprob.html#-sigma-algebra"><i class="fa fa-check"></i><b>3.1.2</b> 시그마 대수(sigma-algebra)</a></li>
+<li class="chapter" data-level="3.1.2" data-path="basicprob.html"><a href="basicprob.html#-sigma-field"><i class="fa fa-check"></i><b>3.1.2</b> 시그마-체(sigma-field)</a></li>
+<li class="chapter" data-level="3.1.3" data-path="basicprob.html"><a href="basicprob.html#generators"><i class="fa fa-check"></i><b>3.1.3</b> 생성기들(generators)</a></li>
+<li class="chapter" data-level="3.1.4" data-path="basicprob.html"><a href="basicprob.html#--borel-sigma-field"><i class="fa fa-check"></i><b>3.1.4</b> 보렐 시그마-체(Borel sigma field)</a></li>
+<li class="chapter" data-level="3.1.5" data-path="basicprob.html"><a href="basicprob.html#measure"><i class="fa fa-check"></i><b>3.1.5</b> 측도(measure)</a></li>
+<li class="chapter" data-level="3.1.6" data-path="basicprob.html"><a href="basicprob.html#lebesgue-lebesgue-measure"><i class="fa fa-check"></i><b>3.1.6</b> Lebesgue 측도(Lebesgue measure)</a></li>
+<li class="chapter" data-level="3.1.7" data-path="basicprob.html"><a href="basicprob.html#probability-measure"><i class="fa fa-check"></i><b>3.1.7</b> 확률측도(probability measure)</a></li>
+<li class="chapter" data-level="3.1.8" data-path="basicprob.html"><a href="basicprob.html#random-variable"><i class="fa fa-check"></i><b>3.1.8</b> 확률변수(random variable)</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="basicprob.html"><a href="basicprob.html#-convergence-of-random-variables"><i class="fa fa-check"></i><b>3.2</b> 확률변수의 수렴(convergence of random variables)</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="basicprob.html"><a href="basicprob.html#---almost-sure-convergence"><i class="fa fa-check"></i><b>3.2.1</b> 거의 확실한 확률 수렴(Almost sure convergence)</a></li>
@@ -338,7 +344,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="basicprob" class="section level1">
 <h1><span class="header-section-number">Chapter 3</span> 기본적인 확률론 개념들</h1>
-<p>이 장에서는 앞으로 다룰 내용을 이해하기 위해 필요한 기본적인 확률 개념을 정리하였다.</p>
+<p>이 장에서는 앞으로 다룰 내용을 이해하기 위해 필요한 기본적인 확률 개념을 정리하였다. 대학원 과정의 확률론을 다룬 유명한 책들로는 <span class="citation">(Durrett <a href="#ref-Durrett2010">2010</a>)</span>, <span class="citation">(Billingsley <a href="#ref-Billingsley2012">2012</a>)</span> 그리고 <span class="citation">(Chung <a href="#ref-Chung2001">2001</a>)</span>이 있다. 그 밖에 본인이 추천하는 책들은 다음과 같다. <span class="citation">(Gut <a href="#ref-Gut2012">2012</a>)</span>는 최근에 나온 대학원 확률론 입문서 교재로써 비교적 내용이 자세하다. <span class="citation">(Schilling <a href="#ref-Schilling2005">2005</a>)</span>는 삽화가 많고 저자가 연습문제의 답을 웹에 올려놓았다. <span class="citation">(Shorack <a href="#ref-Shorack2006">2006</a>)</span>과 <span class="citation">(Proschan and Shaw <a href="#ref-Proschan2016">20016</a>)</span>는 통계학자의 입장에서 필요한 확률론 지식을 비교적 쉽게 서술하였다. 여기서는 앞서 언급한 모든 책들을 참고할 것이다.</p>
 <div id="-basic-probability-theory" class="section level2">
 <h2><span class="header-section-number">3.1</span> 기초 확률론(basic probability theory)</h2>
 <div id="-sample-space-and-events" class="section level3">
@@ -360,8 +366,77 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </div>
 </div>
-<div id="-sigma-algebra" class="section level3">
-<h3><span class="header-section-number">3.1.2</span> 시그마 대수(sigma-algebra)</h3>
+<div id="-sigma-field" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> 시그마-체(sigma-field)</h3>
+<p>앞서 표본공간 <span class="math inline">\(\Omega\)</span>의 임의의 부분집합인 사건을 생각했는데, 그러면 이 사건들의 집합 <span class="math inline">\(\mathcal{F}\)</span>에 대해서도 생각해 볼 수 있을 것이다. 그리고 사건들의 집합이 가져야 할 바람직한 성질들을 잘 정의하기 위해 시그마-체라는 개념을 도입한다.</p>
+<div class="definition">
+<p>어떤 집합(set) <span class="math inline">\(\Omega\)</span>의 non-empty collection (즉 <span class="math inline">\(\Omega\)</span>의 subset들의 모임)을 <span class="math inline">\(\mathcal{F}\)</span>라고 하자. 그러면 <span class="math inline">\(\mathcal{F}\)</span>가</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\Omega \in \mathcal{F}\)</span> (또는 <span class="math inline">\(\emptyset \in \mathcal{F}\)</span>)</p></li>
+<li><p><span class="math inline">\(A \in \mathcal{F}\)</span>이면 <span class="math inline">\(A^{C} \in \mathcal{F}\)</span>,</p></li>
+<li><p><span class="math inline">\(A, B \in \mathcal{F}\)</span> 이면 <span class="math inline">\(A\cup B \in \mathcal{F}\)</span></p></li>
+</ol>
+<p>를 만족할 때 <span class="math inline">\(\mathcal{F}\)</span>를 <strong>대수(algebra)</strong> 또는 <strong>체(field)</strong>라고 부른다.</p>
+</div>
+<p>시그마-체는 앞선 대수의 정의에서 두 번째 조건이 조금 바뀐 것이다.</p>
+<div class="definition">
+<p>어떤 집합(set) <span class="math inline">\(\Omega\)</span>의 non-empty collection을 <span class="math inline">\(\mathcal{F}\)</span>라고 할 때, <span class="math inline">\(\mathcal{F}\)</span>가</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\Omega \in \mathcal{F}\)</span> (또는 <span class="math inline">\(\emptyset \in \mathcal{F}\)</span>)</p></li>
+<li><p><span class="math inline">\(A \in \mathcal{F}\)</span>이면 <span class="math inline">\(A^{C} \in \mathcal{F}\)</span>,</p></li>
+<li><p><span class="math inline">\(A_{1}, A_{2}, \ldots \in \mathcal{F}\)</span> 이면 <span class="math inline">\(\bigcup_{i=1}^{\infty}A_{i} \in \mathcal{F}\)</span></p></li>
+</ol>
+<p>를 만족할 때 <span class="math inline">\(\mathcal{F}\)</span>를 <strong>시그마-대수(sigma-algebra)</strong> 또는 <strong>시그마-체(sigma-field)</strong>라고 부른다.</p>
+</div>
+<p>다음은 체와 시그마-체에 대한 간단한 사실들이다.</p>
+<div class="remark">
+<ol style="list-style-type: decimal">
+<li><p>모든 체는 finite union에 대해 닫혀있다. 또한 같은 논리를 적용해 finite intersection에 대해서도 닫혀있다.</p></li>
+<li><p>모든 시그마-체 <span class="math inline">\(\mathcal{F}\)</span>는 countable intersection에 대해서도 닫혀있다. 즉, <span class="math display">\[A_{1}, A_{2}, \ldots  \in \mathcal{F} \text{ 이면 }  \bigcap_{i=1}^{\infty}A_{i} = (\bigcap_{i=1}^{\infty}A_{i}^{C})^{C} \in \mathcal{F}.\]</span> 물론 모든 <span class="math inline">\(A_{1}^{C}, A_{2}^{C},\ldots\)</span> 또한 <span class="math inline">\(A_{1}^{C}, A_{2}^{C}, \ldots \in \mathcal{F}\)</span> 이다.</p></li>
+<li><p><span class="math inline">\(\mathcal{F}\)</span>가 non-void일 경우에는 모든 체 또는 시그마-체가 <span class="math inline">\(A\)</span>를 포함하고 있으면 <span class="math inline">\(A^{C}\)</span> 또한 포함하고 있기 때문에 <span class="math inline">\(\Omega=A \cup A^{C}\)</span>와 <span class="math inline">\(\emptyset=\Omega^{C}\)</span> 또한 <span class="math inline">\(\mathcal{F}\)</span>에 포함되어 있다. 따라서 첫 번째 조건을 생략해도 된다.</p></li>
+</ol>
+</div>
+<div class="example">
+<ul>
+<li><p>어떤 집합 <span class="math inline">\(\Omega\)</span>에 대해, <span class="math inline">\(\{\emptyset, \Omega\}\)</span>는 시그마-체가 된다. 이 시그마-체는 <span class="math inline">\(\Omega\)</span>의 부분집합으로 만들 수 있는 가장 작은 시그마-체이다.</p></li>
+<li><p><span class="math inline">\(\Omega\)</span>의 멱집합(power set, 어떤 집합의 모든 부분집합을 모은 집합) 또한 시그마-체이며 이는 <span class="math inline">\(\Omega\)</span>의 부분집합으로 만들 수 있는 가장 큰 시그마-체이다.</p></li>
+<li><p><span class="math inline">\(A\in\Omega\)</span>일 때 collection <span class="math inline">\(\{\emptyset, A, A^{C}, \Omega\}\)</span> 또한 간단히 만들 수 있는 시그마-체의 예다.</p></li>
+</ul>
+</div>
+<div class="example">
+<p>다음은 <span class="math inline">\(\mathcal{F}\)</span>가 체이나 시그마-체가 아닌 예이다. <span class="math inline">\(\Omega=(0,1]\)</span>이고, <span class="math inline">\(\mathcal{F}\)</span>는 <span class="math inline">\(\emptyset\)</span>과 모든 <span class="math display">\[(a,b], \qquad{a,b\in\mathbb{Q}, a,b\in [0,1], a&lt;b}\]</span> 와 <span class="math inline">\((a,b]\)</span>의 모든 finite union을 포함한다고 하자. 그리고 <span class="math inline">\([z]\)</span>를 z와 가장 가까운 정수로 반올림해주는 연산자라고 하자. 그러면 정의에 의해 <span class="math inline">\(\mathcal{F}\)</span>는 체가 된다. 그러나 <span class="math inline">\(A_{n}=(a_{n},1]\)</span>, <span class="math inline">\(a_{n}=\frac{10^{n}}{[10^{n}\pi]}\)</span>라고 하면 <span class="math display">\[A_{n}\in\mathcal{F} \text{이나 } \cup_{n=1}^{\infty}A_{n}=(\pi,1]\notin \mathcal{F}\]</span> 이다. 따라서 <span class="math inline">\(\mathcal{F}\)</span>는 시그마-체가 아니다.</p>
+</div>
+<div class="example">
+<p>표본공간 <span class="math inline">\(\Omega\)</span>가 셀 수 있는 집합, 예를 들면 <span class="math inline">\(\{0,1,2,\ldots, \}\)</span>라고 가정하자. 그리고 이 때 사건들의 집합 <span class="math inline">\(\mathcal{F}\)</span>가 모든 singleton <span class="math inline">\(\omega_{i}, i=1,2,\ldots\)</span>들을 포함하는 시그마-체가 되길 원한다고 가정하자. 그러면 <span class="math inline">\(\Omega\)</span>의 모든 부분집합 <span class="math inline">\(E\)</span>는 <span class="math inline">\(\cup_{i=1}^{\infty}\omega_{i}\)</span>로 만들 수 있다. 즉 singleton들의 countable union으로 만들 수 있다. 그리고 countable union에 대해 시그마-체가 닫혀있기 때문에, <span class="math inline">\(\mathcal{F}\)</span>가 <span class="math inline">\(\Omega\)</span>의 어떤 부분집합 <span class="math inline">\(E\)</span>들을 모두 포함한다는 결론에 이른다. 즉, <strong>표본공간이 셀 수 있는 집합이면, 우리는 항상 멱집합을 사건들의 집합으로 써야 한다.</strong></p>
+</div>
+</div>
+<div id="generators" class="section level3">
+<h3><span class="header-section-number">3.1.3</span> 생성기들(generators)</h3>
+<p>시그마-체에 대해 좀 더 자세히 살펴보기 위해, <strong>생성기(generator)</strong>에 대해 알아보자. 표본공간 <span class="math inline">\(\Omega\)</span>의 subset들의 collection <span class="math inline">\(\mathcal{A}\)</span>가 있다고 하자. 그러면 멱집합은 항상 시그마-체이기 때문에, <span class="math inline">\(\mathcal{A}\)</span>를 포함하는 시그마-체가 적어도 한 개 이상 있을 것이다. <span class="math inline">\(\mathcal{F}^{*}\)</span>를 <span class="math inline">\(\mathcal{A}\)</span>를 포함하는 모든 시그마-체의 모임, 즉 <span class="math display">\[\mathcal{F}^{*}=\{\sigma\text{-algebras } \supset \mathcal{A}\}\]</span> 라고 하자. 여기서 <span class="math inline">\(\mathcal{A}\)</span>를 포함하는 <strong>가장 작은</strong> 시그마-체를 생각해보자. 즉 <span class="math display">\[\mathcal{F}=\sigma(\mathcal{A})=\bigcap_{\{\mathcal{F}` \text{ $\sigma$-algebra }|\mathcal{A}\subset\mathcal{F}` \}}\mathcal{F}`=\bigcap_{\mathcal{G}\in\mathcal{F}^{*}}\mathcal{G}\]</span> 인 <span class="math inline">\(\mathcal{F}\)</span>가 존재하고 이를 <span class="math inline">\(\mathcal{A}\)</span><strong>로부터 생성된 시그마-체(sigma alegbra genearted by</strong> <span class="math inline">\(\mathcal{A}\)</span><strong>)</strong>라고 부른다.</p>
+<div class="example">
+<ul>
+<li><p>만약 <span class="math inline">\(\mathcal{A}=A\)</span>, 즉 <span class="math inline">\(\mathcal{A}\)</span>가 single set일 경우 <span class="math inline">\(\sigma(\mathcal{A})=\{ \emptyset, A, A^{C}, \Omega\}\)</span>이다.</p></li>
+<li><p>만약 <span class="math inline">\(\mathcal{A}\)</span>가 시그마-체일 경우, <span class="math inline">\(\sigma(\mathcal{A})=\mathcal{A}\)</span>다.</p></li>
+</ul>
+</div>
+</div>
+<div id="--borel-sigma-field" class="section level3">
+<h3><span class="header-section-number">3.1.4</span> 보렐 시그마-체(Borel sigma field)</h3>
+<p>이제 <span class="math inline">\(\Omega\)</span>가 비가산집합(uncountable set)일 때 시그마-체에 대해 살펴보자. 비가산집합의 대표적인 예로 <span class="math inline">\(\mathbb{R}\)</span>이 있으니 <span class="math inline">\(\Omega=\mathbb{R}\)</span>이라 놓고 전개하기로 한다. 앞서 얘기했듯이 시그마-체의 크기는 우리가 고려하고 싶은 모든 사건들과 그 사건들의 countable union, intersection을 적절히 잘 포함하는 정도여야 한다. 가장 쉽게 만들 수 있는 것은 <span class="math inline">\(\mathcal{F}\)</span>가 모든 countable subset <span class="math inline">\(E\)</span>를 포함하게끔 만드는 것이다. 그러나 이 시그마-체는 충분히 크지 않다. 예를 들어 <span class="math inline">\(\Omega=[0,1]\)</span>일 경우, 앞서 말한 대로 <span class="math inline">\(\mathcal{F}\)</span>를 만들면 <span class="math inline">\([0,0.5]\)</span>같은 사건은 countable이나 co-countable이 아니므로 <span class="math inline">\(\mathcal{F}\)</span>에 포함이 되지 않는 것이다.</p>
+<p>즉 우리는 <span class="math inline">\(\Omega\)</span>의 모든 interval들을 포함하는 시그마-체를 만들고 싶어한다.예를 들면, <span class="math inline">\(\Omega=[0,1]\)</span>일 때 <span class="math display">\[(a,b)\in\mathcal{F}, \qquad{(0\leq a &lt; b \leq 1),}\]</span> <span class="math display">\[P((a,b))=b-a, \qquad{(0\leq a &lt; b \leq 1)}\]</span> 이 되길 원하는 것이다. 가장 간단한 방법으로, 멱집합을 <span class="math inline">\(\mathcal{F}\)</span>로 나용할 수 있다. 그러나 이 <span class="math inline">\(\mathcal{F}\)</span>은 너무 크다. <span class="math inline">\(\mathcal{F}\)</span>가 너무 클 경우, 확률측도가 잘 construct되지 않는 경우가 생길 수 있다고 한다. 따라서, 모든 interval을 포함하는 시그마-체들 중 가장 <strong>작은</strong> 시그마-체 <span class="math inline">\(\mathcal{F}\)</span>를 찾는 것이 이상적일 것이다.</p>
+</div>
+<div id="measure" class="section level3">
+<h3><span class="header-section-number">3.1.5</span> 측도(measure)</h3>
+<p><strong>측도(measure)</strong>란 수학에서, <strong>양(quantity)</strong>이라 개념을 반영하기 위해 만들어진 장치다. <span class="math inline">\(X\)</span>를 어떤 집합이라고 하고, 이것의 부분집합 <span class="math inline">\(U \subset X\)</span>가 있을 때,</p>
+</div>
+<div id="lebesgue-lebesgue-measure" class="section level3">
+<h3><span class="header-section-number">3.1.6</span> Lebesgue 측도(Lebesgue measure)</h3>
+</div>
+<div id="probability-measure" class="section level3">
+<h3><span class="header-section-number">3.1.7</span> 확률측도(probability measure)</h3>
+</div>
+<div id="random-variable" class="section level3">
+<h3><span class="header-section-number">3.1.8</span> 확률변수(random variable)</h3>
 </div>
 </div>
 <div id="-convergence-of-random-variables" class="section level2">
@@ -462,6 +537,30 @@ X_{n}\stackrel{n\rightarrow \infty}{=}O_{p}(a_{n}) &amp;\Leftrightarrow&amp; \te
 
 
 
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-Durrett2010">
+<p>Durrett, Rick. 2010. <em>Probability: Theory and Examples</em>. Cambridge University Press.</p>
+</div>
+<div id="ref-Billingsley2012">
+<p>Billingsley, Patrick. 2012. <em>Probability and Measure</em>. John Wiley; Sons.</p>
+</div>
+<div id="ref-Chung2001">
+<p>Chung, Kai Lai. 2001. <em>A Course in Probability Theory</em>. Academic Press.</p>
+</div>
+<div id="ref-Gut2012">
+<p>Gut, Allan. 2012. <em>Probability: A Graduate Course</em>. Springer Science; Business Media.</p>
+</div>
+<div id="ref-Schilling2005">
+<p>Schilling, René L. 2005. <em>Measures, Integrals and Martingales</em>. Cambridge University Press.</p>
+</div>
+<div id="ref-Shorack2006">
+<p>Shorack, Galen R. 2006. <em>Probability for Statisticians</em>. Springer Science; Business Media.</p>
+</div>
+<div id="ref-Proschan2016">
+<p>Proschan, Micheal A., and Pamela A. Shaw. 20016. <em>Essentials of Probability Theory for Statisticians</em>. Chapman; Hall/CRC.</p>
+</div>
+</div>
             </section>
 
           </div>

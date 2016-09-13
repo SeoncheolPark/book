@@ -270,4 +270,14 @@ $$\text{MSPE}=E(Z_{1}(\mathbf{s}_{0})-\sum_{i=1}^{n}\sum_{j=1}^{p}\lambda_{ji}Z_
 $$\mathbf{Y}(\mathbf{s})=h(\mathbf{Z}(\mathbf{s}))$$
 가 가우시안일 경우 모델링 할 수 있다는 것이다.
 
-여기서 잠시 자료가 가우시안인지 아닌지 어떻게 검정할 것인가라는 문제가 있는데, 자료가 독립일 경우 Q-Q plot 또는 Kolmogorov-Sminov 검정 등을 한다고 한다. 공간통계학자들의 경우 검정보다는 그냥 모델링에 관심을 갖는다.
+여기서 잠시 자료가 가우시안인지 아닌지 어떻게 검정할 것인가라는 문제가 있는데, 자료가 독립일 경우 Q-Q plot 또는 Kolmogorov-Sminov 검정 등을 한다고 한다. 공간통계학자들의 경우 검정보다는 그냥 모델링에 관심을 갖는다. $\mathbf{Z}(\mathbf{s_{0}})$으로부터 $E(\mathbf{Z}(\mathbf{s_{0}})|\mathbf{Z})$를 예측하고 싶어한다. 이 때 가우시안 가정은 필요치 않으나 가우시안이 아닐 경우 이 predictor가 optimal이 아닐 수도 있다고 한다.
+
+실제로 $E(\mathbf{Z}(\mathbf{s_{0}})|\mathbf{Z})$의 추정량 $\hat{E}(\mathbf{Z}(\mathbf{s_{0}})|\mathbf{Y})$을 구할 수 있는 $h$는 몇 개 없다고 한다. 구할 수 있는 가장 대표적인 $h$는 log-normal로, 이 때의 $Z$를 log-normal process라고 부른다.
+
+- **Indicator Kriging**
+
+지금까지는 조건부 기댓값을 예측했지만, 이번에는 확률을 예측하고 싶어한다. 예를 들면, $Z(s_{1}), \ldots , Z(s_{n})$이라는 자료를 사용 가능할 때 $s_{0}$라는 장소의 비가 $c$ 이상 올 확률에 대해 알고 싶어한다고 하자. 즉,
+$$P(Z(s_{0})>c |\mathbf{Z})=E(I(Z(s_{0})>c)|\mathbf{Z})=P(Y(s_{0})|\mathbf{Z})$$
+에 대해 알고싶어한다.
+
+한 가지 방법은 indicator observation $(0,1)$로 크리깅하는 것이다.

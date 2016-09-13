@@ -1,6 +1,6 @@
 # 기본적인 확률론 개념들 {#basicprob}
 
-이 장에서는 앞으로 다룰 내용을 이해하기 위해 필요한 기본적인 확률 개념을 정리하였다.
+이 장에서는 앞으로 다룰 내용을 이해하기 위해 필요한 기본적인 확률 개념을 정리하였다. 대학원 과정의 확률론을 다룬 유명한 책들로는 [@Durrett2010], [@Billingsley2012] 그리고 [@Chung2001]이 있다. 그 밖에 본인이 추천하는 책들은 다음과 같다. [@Gut2012]는 최근에 나온 대학원 확률론 입문서 교재로써 비교적 내용이 자세하다. [@Schilling2005]는 삽화가 많고 저자가 연습문제의 답을 웹에 올려놓았다. [@Shorack2006]과 [@Proschan2016]는 통계학자의 입장에서 필요한 확률론 지식을 비교적 쉽게 서술하였다. 여기서는 앞서 언급한 모든 책들을 참고할 것이다.
 
 ## 기초 확률론(basic probability theory)
 
@@ -33,7 +33,113 @@
 
 </div>
 
-### 시그마 대수(sigma-algebra)
+### 시그마-체(sigma-field)
+
+앞서 표본공간 $\Omega$의 임의의 부분집합인 사건을 생각했는데, 그러면 이 사건들의 집합 $\mathcal{F}$에 대해서도 생각해 볼 수 있을 것이다. 그리고 사건들의 집합이 가져야 할 바람직한 성질들을 잘 정의하기 위해 시그마-체라는 개념을 도입한다.
+
+<div class="definition">
+
+어떤 집합(set) $\Omega$의 non-empty collection (즉 $\Omega$의 subset들의 모임)을 $\mathcal{F}$라고 하자. 그러면 $\mathcal{F}$가 
+
+1. $\Omega \in \mathcal{F}$ (또는 $\emptyset \in \mathcal{F}$)
+
+2. $A \in \mathcal{F}$이면 $A^{C} \in \mathcal{F}$,
+
+3. $A, B \in \mathcal{F}$ 이면 $A\cup B \in \mathcal{F}$
+
+를 만족할 때 $\mathcal{F}$를 **대수(algebra)** 또는 **체(field)**라고 부른다.
+
+</div>
+
+시그마-체는 앞선 대수의 정의에서 두 번째 조건이 조금 바뀐 것이다.
+
+<div class="definition">
+
+어떤 집합(set) $\Omega$의 non-empty collection을 $\mathcal{F}$라고 할 때, $\mathcal{F}$가 
+
+1. $\Omega \in \mathcal{F}$ (또는 $\emptyset \in \mathcal{F}$)
+
+2. $A \in \mathcal{F}$이면 $A^{C} \in \mathcal{F}$,
+
+3. $A_{1}, A_{2}, \ldots  \in \mathcal{F}$ 이면 $\bigcup_{i=1}^{\infty}A_{i} \in \mathcal{F}$
+
+를 만족할 때 $\mathcal{F}$를 **시그마-대수(sigma-algebra)** 또는 **시그마-체(sigma-field)**라고 부른다.
+
+</div>
+
+다음은 체와 시그마-체에 대한 간단한 사실들이다.
+
+<div class="remark">
+
+1. 모든 체는 finite union에 대해 닫혀있다. 또한 같은 논리를 적용해 finite intersection에 대해서도 닫혀있다.
+
+2. 모든 시그마-체 $\mathcal{F}$는 countable intersection에 대해서도 닫혀있다. 즉,
+$$A_{1}, A_{2}, \ldots  \in \mathcal{F} \text{ 이면 }  \bigcap_{i=1}^{\infty}A_{i} = (\bigcap_{i=1}^{\infty}A_{i}^{C})^{C} \in \mathcal{F}.$$
+물론 모든 $A_{1}^{C}, A_{2}^{C},\ldots$ 또한 $A_{1}^{C}, A_{2}^{C}, \ldots  \in \mathcal{F}$ 이다.
+
+3. $\mathcal{F}$가 non-void일 경우에는 모든 체 또는 시그마-체가 $A$를 포함하고 있으면 $A^{C}$ 또한 포함하고 있기 때문에 $\Omega=A \cup A^{C}$와 $\emptyset=\Omega^{C}$ 또한 $\mathcal{F}$에 포함되어 있다. 따라서 첫 번째 조건을 생략해도 된다.
+
+</div>
+
+<div class="example">
+
+- 어떤 집합 $\Omega$에 대해, $\{\emptyset, \Omega\}$는 시그마-체가 된다. 이 시그마-체는 $\Omega$의 부분집합으로 만들 수 있는 가장 작은 시그마-체이다.
+
+- $\Omega$의 멱집합(power set, 어떤 집합의 모든 부분집합을 모은 집합) 또한 시그마-체이며 이는 $\Omega$의 부분집합으로 만들 수 있는 가장 큰 시그마-체이다.
+
+- $A\in\Omega$일 때 collection $\{\emptyset, A, A^{C}, \Omega\}$ 또한 간단히 만들 수 있는 시그마-체의 예다.
+
+</div>
+
+<div class="example">
+
+다음은 $\mathcal{F}$가 체이나 시그마-체가 아닌 예이다. $\Omega=(0,1]$이고, $\mathcal{F}$는 $\emptyset$과 모든
+$$(a,b], \qquad{a,b\in\mathbb{Q}, a,b\in [0,1], a<b}$$
+와 $(a,b]$의 모든 finite union을 포함한다고 하자. 그리고 $[z]$를 z와 가장 가까운 정수로 반올림해주는 연산자라고 하자. 그러면 정의에 의해 $\mathcal{F}$는 체가 된다. 그러나 $A_{n}=(a_{n},1]$, $a_{n}=\frac{10^{n}}{[10^{n}\pi]}$라고 하면 $$A_{n}\in\mathcal{F} \text{이나 } \cup_{n=1}^{\infty}A_{n}=(\pi,1]\notin \mathcal{F}$$
+이다. 따라서 $\mathcal{F}$는 시그마-체가 아니다.
+
+</div>
+
+<div class="example">
+
+표본공간 $\Omega$가 셀 수 있는 집합, 예를 들면 $\{0,1,2,\ldots, \}$라고 가정하자. 그리고 이 때 사건들의 집합 $\mathcal{F}$가 모든 singleton $\omega_{i}, i=1,2,\ldots$들을 포함하는 시그마-체가 되길 원한다고 가정하자. 그러면 $\Omega$의 모든 부분집합 $E$는 $\cup_{i=1}^{\infty}\omega_{i}$로 만들 수 있다. 즉 singleton들의 countable union으로 만들 수 있다. 그리고 countable union에 대해 시그마-체가 닫혀있기 때문에, $\mathcal{F}$가 $\Omega$의 어떤 부분집합 $E$들을 모두 포함한다는 결론에 이른다. 즉, **표본공간이 셀 수 있는 집합이면, 우리는 항상 멱집합을 사건들의 집합으로 써야 한다.**
+
+</div>
+
+### 생성기들(generators)
+
+시그마-체에 대해 좀 더 자세히 살펴보기 위해, **생성기(generator)**에 대해 알아보자. 표본공간 $\Omega$의 subset들의 collection $\mathcal{A}$가 있다고 하자. 그러면 멱집합은 항상 시그마-체이기 때문에, $\mathcal{A}$를 포함하는 시그마-체가 적어도 한 개 이상 있을 것이다. $\mathcal{F}^{*}$를 $\mathcal{A}$를 포함하는 모든 시그마-체의 모임, 즉
+$$\mathcal{F}^{*}=\{\sigma\text{-algebras } \supset \mathcal{A}\}$$
+라고 하자. 여기서 $\mathcal{A}$를 포함하는 **가장 작은** 시그마-체를 생각해보자. 즉
+$$\mathcal{F}=\sigma(\mathcal{A})=\bigcap_{\{\mathcal{F}` \text{ $\sigma$-algebra }|\mathcal{A}\subset\mathcal{F}` \}}\mathcal{F}`=\bigcap_{\mathcal{G}\in\mathcal{F}^{*}}\mathcal{G}$$
+인 $\mathcal{F}$가 존재하고 이를 $\mathcal{A}$**로부터 생성된 시그마-체(sigma alegbra genearted by** $\mathcal{A}$**)**라고 부른다.
+
+<div class="example">
+
+- 만약 $\mathcal{A}=A$, 즉 $\mathcal{A}$가 single set일 경우 $\sigma(\mathcal{A})=\{ \emptyset, A, A^{C}, \Omega\}$이다.
+
+- 만약 $\mathcal{A}$가 시그마-체일 경우, $\sigma(\mathcal{A})=\mathcal{A}$다.
+
+</div>
+
+### 보렐 시그마-체(Borel sigma field)
+
+이제 $\Omega$가 비가산집합(uncountable set)일 때 시그마-체에 대해 살펴보자. 비가산집합의 대표적인 예로 $\mathbb{R}$이 있으니  $\Omega=\mathbb{R}$이라 놓고 전개하기로 한다. 앞서 얘기했듯이 시그마-체의 크기는 우리가 고려하고 싶은 모든 사건들과 그 사건들의 countable union, intersection을 적절히 잘 포함하는 정도여야 한다. 가장 쉽게 만들 수 있는 것은 $\mathcal{F}$가 모든 countable subset $E$를 포함하게끔 만드는 것이다. 그러나 이 시그마-체는 충분히 크지 않다. 예를 들어 $\Omega=[0,1]$일 경우, 앞서 말한 대로 $\mathcal{F}$를 만들면 $[0,0.5]$같은 사건은 countable이나 co-countable이 아니므로 $\mathcal{F}$에 포함이 되지 않는 것이다.
+
+즉 우리는 $\Omega$의 모든 interval들을 포함하는 시그마-체를 만들고 싶어한다.예를 들면, $\Omega=[0,1]$일 때
+$$(a,b)\in\mathcal{F}, \qquad{(0\leq a < b \leq 1),}$$
+$$P((a,b))=b-a, \qquad{(0\leq a < b \leq 1)}$$
+이 되길 원하는 것이다. 가장 간단한 방법으로, 멱집합을 $\mathcal{F}$로 나용할 수 있다. 그러나 이 $\mathcal{F}$은 너무 크다. $\mathcal{F}$가 너무 클 경우, 확률측도가 잘 construct되지 않는 경우가 생길 수 있다고 한다. 따라서, 모든 interval을 포함하는 시그마-체들 중 가장 **작은** 시그마-체 $\mathcal{F}$를 찾는 것이 이상적일 것이다. 즉 우리는 $\sigma(\text{intervals})$를 찾고자 하는 것이다.
+
+### 측도(measure)
+
+**측도(measure)**란 수학에서, **양(quantity)**이라 개념을 반영하기 위해 만들어진 장치다. $X$를 어떤 집합이라고 하고, 이것의 부분집합 $U \subset X$가 있을 때,
+
+### Lebesgue 측도(Lebesgue measure)
+
+### 확률측도(probability measure)
+
+### 확률변수(random variable)
 
 ## 확률변수의 수렴(convergence of random variables)
 
