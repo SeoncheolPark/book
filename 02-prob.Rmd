@@ -147,6 +147,22 @@ $$\mathcal{F}=\sigma(\mathcal{A})=\bigcap_{\{\mathcal{F}` \text{ $\sigma$-algebr
 
 </div>
 
+<div class="definition">
+
+가측공간 $(\Omega, \mathcal{A})$가 주어졌을 때 **확률측도(probability measure)** $P$는 $P:\mathcal{A}\rightarrow [0,1]$인 함수로
+
+1. $P(\emptyset)=0$ and $P(\Omega)=1$
+
+2. 어떤 $A\in\mathcal{A}$에 대해 $P(A)\geq 0$
+
+3. **(가산가법성(countable additivity))**: $\{A_{n}, n\geq 1\}$이 disjoint라고 하면 $P(\bigcup_{n=1}^{\infty}A_{n})=\sum_{n=1}^{\infty}P(A_{n}).$
+
+을 만족한다. 그리고 $(\Omega, \mathcal{A}, P)$를 묶어 **확률공간(probability space)**라고 한다.
+
+</div>
+
+이 확률측도는 $\mathcal{A}$가 시그마-체일 때 뿐 아니라 그냥 체 일때도 위 세 가지를 만족하면 정의할 수 있다.
+
 ## 보렐 시그마-체(Borel sigma field)
 
 이제 $\Omega$가 비가산집합(uncountable set)일 때 시그마-체에 대해 살펴보자. 비가산집합의 대표적인 예로 $\mathbb{R}$이 있으니  $\Omega=\mathbb{R}$이라 놓고 전개하기로 한다. 앞서 얘기했듯이 시그마-체의 크기는 우리가 고려하고 싶은 모든 사건들과 그 사건들의 countable union, intersection을 적절히 잘 포함하는 정도여야 한다. 가장 쉽게 만들 수 있는 것은 $\mathcal{F}$가 모든 countable subset $E$를 포함하게끔 만드는 것이다. 그러나 이 시그마-체는 충분히 크지 않다. 예를 들어 $\Omega=[0,1]$일 경우, 앞서 말한 대로 $\mathcal{F}$를 만들면 $[0,0.5]$같은 사건은 countable이나 co-countable이 아니므로 $\mathcal{F}$에 포함이 되지 않는 것이다.
@@ -228,11 +244,56 @@ $$1=P\{(0,1]\}=P\{ \bigcup_{r\in\mathbb{Q}_{1}, r\neq 1}\{ H \oplus r\} \}=\sum_
 
 <div class="definition">
 
-$\mathbb{R}$에서의 보렐 **시그마-체(Borel sigma-field, Borel sigma-algebra)** $\mathcal{B}$는 $\mathcal{B}=\sigma(\mathcal{O})$로 정의한다.
+$\mathbb{R}$에서의 **보렐 시그마-체(Borel sigma-field, Borel sigma-algebra)** $\mathcal{B}$는 $\mathcal{B}=\sigma(\mathcal{O})$로 정의한다.
 
 </div>
 
-결론은 $\mathbb{R}$
+결론은 $\mathbb{R}$에서의 보렐 시그마-체를 interval을 포함하는 시그마-체로 만들 수 있다는 것이다. 그 전에 증명을 위해 한 가지 정리를 언급하겠다.
+
+<div class="theorem">
+
+$E \subseteq \mathbb{R}$이 열린 집합이라고 하자. 그러면 기껏해야 셀 수 있는 정도로만 많은(at most countably many) 열린 구간들(open intervals) $I_{j}, j=1,2,\ldots,$가 존재해 다음을 만족한다.
+$$E=\bigcup_{j=1}^{\infty}I_{j}.$$
+
+</div>
+
+<div class="proof">
+
+이 정리의 증명은 $E=\bigcup_{j=1}^{\infty}I_{j}$를 만족하는 $I_{j}$들이 있음을 보이고 이것이 (1) at most countably many (2) disjoint (3) open (4) intervals 임을 보이면 된다. 증명 방법은 동치 관계를 이용하는 것이다. $a, b \in E, (a < b)$일 때 열린구간 $(a,b)\subseteq E$이면 $a \sim b$로 놓는다. 그러면 $E$의 disjoint union of classes는 equivalence relationship partitions $E$가 된다. 아직 이것들이 countably many한지 모르므로 이들을 $I_{j}, j\in J, J \text{ is an arbitrary index set}$이라고 높자. 임의의 $a_{j}<b_{j}\in I_{j}$에 대해 $a_{j} \sim b_{j}$이고 $(a_{j}, b_{j}) \in I_{j}$이므로 $I_{j}$는 interval이다. 또 $x\in I_{j}$를 임의로 뽑았을 때 $x\in E$이고 $E$가 open이므로, $(x-\epsilon, x+\epsilon)\subseteq E$를 만족하는 $\epsilon >0$이 모든 $x$에 대해 존재함을 알 수 있고 ahems $a\in (x-\epsilon, x+\epsilon)$에 대해 $a \sim x$이므로 $x$의 $\epsilon$-근방은 $I_{j}$에 포함됨을 알 수 있어 $I_{j}$는 open이다. 마지막으로 모든 $I_{j}$는 적어도 하나의 유리수를 포함하고 있어 이를 통해 $I_{j}$의 갯수는 countably many임을 알 수 있다.
+ 
+</div>
+
+
+<div class="theorem">
+
+$\mathbb{R}$에서의 보렐 시그마-체(Borel sigma-field, Borel sigma-algebra) $\mathcal{B}$는 $(-\infty, a], a\in\mathbb{Q}$로 생성할 수 있다.
+
+</div>
+
+<div class="proof">
+
+$\mathcal{O}_{0}$을 $\mathbb{R}$에서의 모든 열린 구간(open interval)들의 collection이라고 하자. 앞선 정리에 의해 $\mathbb{R}$에서의 모든 열린 집합은 기껏해야 셀 수 있을 정도의 열린 구간의 합집합으로 나타낼 수 있으므로 $\sigma(\mathcal{O}_{0})=\mathcal{B}$가 된다. $\mathcal{D}$를 $(-\infty, a], a\in \mathbb{Q}$인 구간들의 collection이라고 하자. 그리고 구간 $(a,b)$를 $(a,b)\in \mathcal{O}_{0}, a,b \in \mathbb{Q}, a<b$와 같이 정의하자. 여기서
+$$a_{n}=a+\frac{1}{n} \text{ and } b_{n}=b-\frac{1}{n}$$
+으로 놓으면
+$$(a,b)=\bigcup_{n=1}^{\infty}(a_{n},b_{n}]=\bigcup_{n=1}^{\infty}\{ (-\infty, b_{n}] \cap (-\infty, a_{n}]^{c}\}$$
+이다. 이것은 $(a,b)\in \sigma (\mathcal{D})$임을 의미한다. 즉 $\mathcal{O}_{0}\subseteq \sigma(\mathcal{D})$이고 $\sigma(\mathcal{O}_{0})\subseteq \sigma(\mathcal{D})$이다. 그러나 $\mathcal{D}$의 모든 원소는 닫힌 집합이고 이는 $\sigma(\mathcal{D})\subseteq \mathcal{B}$를 의미한다. 따라서
+$$\mathcal{B} = \sigma(\mathcal{O}_{0})\subseteq \sigma(\mathcal{D})\subseteq \mathcal{B}$$
+이므로 $\sigma(\mathcal{D})=\mathcal{B}$이다.
+
+</div>
+
+이제 $[0,1]\subset \mathbb{R}$에서의 보렐 시그마-체 $\mathcal{B}_{1}$을 생각해보자. 이는 $\mathcal{B}$와 마찬가지로 $[0,1]$의 열린 부분집합들의 collection으로부터 생성된 시그마-체라고 생각할 수 있다. 한 가지 주의해야 할 점은 $\mathcal{B}_{1}$은 $\mathcal{B}$의 부분 시그마-체는 아니라는 것이다. 시그마-체에서 포함 관계를 얘기하려면 두 시그마-체의 표본공간이 같아야 한다.
+
+### 실수공간에서 확률측도의 구성(construction of a probability measure on R)
+
+이제 앞서 언급한 보렐 시그마-체 $\mathcal{B}_{1}$을 이용해 균등한 확률을 만드는 작업을 진행할 것이다. 전략은 먼저 **단조족정리(monotone class theorem)**을 증명한 후 그것의 따름정리를 이용해 모든 $0\leq a \leq b \leq 1$에서 균등확률 $P\{[a,b]\}=b-a$를 정의한 후 이것을 $[0,1]$의 보렐집합으로 확장하는 것이다.
+
+$\mathcal{F}_{0}$를 표본공간 $\Omega$에서의 부분집합들의 collection이라고 하자. 그러면 $\mathcal{F}_{0}$에서 확률측도 $P:\mathcal{F}_{0} \rightarrow [0,1]$을 정의한다. 그리고 $\mathcal{F}=\sigma(\mathcal{F}_{0})$의 확률측도 $Q:\mathcal{F} \rightarrow [0,1]$가 $Q\{A\}=P\{A\} \forall A\in \mathcal{F}_{0}$인 성질을 가진체로 정의된다는 것을 보인다. 마지막으로 이 $Q$가 유일함을 보일 것이다.
+
+그 전에 몇 가지 개념들에 대해 정의하겠다.
+
+
+이에 대한 증명은 [@Durrett2010]의 Appendix 부분을 참고하자.
 
 ## 측도(measure)
 

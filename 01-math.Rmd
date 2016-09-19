@@ -183,6 +183,12 @@ $$
 
 ## 공간(space)
 
+### 실수공간(space R)
+
+실수공간 $\mathbb{R}$에서 집합 $E\subseteq \mathbb{R}$이 **열린(open)** 집합이라는 것은 모든 $x\in E$에 대해 $x$에 depend하는 $\epsilon > 0$이 존재해 $(x-\epsilon, x+\epsilon) \subseteq E$를 만족하는 것이다.
+
+실수공간 $\mathbb{R}$에서 집합 $F\subseteq \mathbb{R}$이 **닫힌(closed)** 집합이라는 것은 $F^{C}$가 열린집합일 때이다.
+
 ### 벡터공간(vector space)
 
 <div class="definition">
