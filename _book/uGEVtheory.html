@@ -8,7 +8,7 @@
   <title>통계공부와 관련된 글들</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
-  <meta name="generator" content="bookdown 0.1 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.74 and GitBook 2.6.7">
 
   <meta property="og:title" content="통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
@@ -378,8 +378,8 @@ P\{M_{n} \leq z \} &amp;=&amp; P\{X_{1}\leq z, \ldots, X_{n} \leq z\} \nonumber\
 1, &amp; \text{z $\geq$ b}
 \end{cases}\]</span> 이 때 <span class="math inline">\(a&gt;0\)</span>, <span class="math inline">\(b\)</span>는 모수들이고 <span class="math inline">\(\alpha &gt;0\)</span>이다.</p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-63"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-63-1.png" alt="Plot of three GEV distributions." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-65"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-65-1.png" alt="Plot of three GEV distributions." width="672" />
 <p class="caption">
 Figure 24.1: Plot of three GEV distributions.
 </p>
@@ -411,7 +411,7 @@ P\{(M_{n}-b_{n})/a_{n} \leq z \} &amp;=&amp; F^{n}(z+\log n) \nonumber\\
 </div>
 <p>최대안정성과 일반화 극단값 분포 사이에는 다음과 같은 정리가 있다.</p>
 <div class="remark">
-<p>어떤 분포가 최대안정한 것은 분포가 일반화 극단값 분포임과 동치이다. <span class="citation">(Coles <a href="#ref-Coles2001">2001</a>)</span></p>
+<p>어떤 분포가 최대안정한 것은 분포가 일반화 극단값 분포임과 동치이다. <span class="citation">(Coles 2001)</span></p>
 </div>
 </div>
 <div id="-return-level" class="section level2">
@@ -433,7 +433,7 @@ P\{(M_{n}-b_{n})/a_{n} \leq z \} &amp;=&amp; F^{n}(z+\log n) \nonumber\\
 <li><p><strong>확률 가중 적률</strong>: 수문학(hydrology)에서 많이 쓰이나 복잡한 자료로 확장하기 어렵다.</p></li>
 <li><p><strong>가능도(likelihood) 기반 방법</strong>: 통계학에서 가장 많이 이용하는 방법이다. 복잡한 자료에 적용할 수 있고 일반적인 점근적 추정과 검정이론을 적용할 수 있다. 또한 베이지안 방법을 적용할 수도 있다.</p></li>
 </ul>
-<p>일반화 극단값 분포를 가능도 기반 방법으로 분석할 때 정칙 조건(regularity condition)을 만족하는지 항상 확인해야 한다. 일반화 극단값 분포의 모수들로 표현된 값 <span class="math inline">\(\mu-\sigma/\xi\)</span>이 <span class="math inline">\(\xi\neq 0\)</span>일때 분포의 끝점(end point)이 되기 때문에 정칙 조건을 만족하지 않을 수도 있다.<span class="citation">(Smith <a href="#ref-Smith1985">1985</a>)</span></p>
+<p>일반화 극단값 분포를 가능도 기반 방법으로 분석할 때 정칙 조건(regularity condition)을 만족하는지 항상 확인해야 한다. 일반화 극단값 분포의 모수들로 표현된 값 <span class="math inline">\(\mu-\sigma/\xi\)</span>이 <span class="math inline">\(\xi\neq 0\)</span>일때 분포의 끝점(end point)이 되기 때문에 정칙 조건을 만족하지 않을 수도 있다.<span class="citation">(Smith 1985)</span></p>
 <p>한편 형태모수 값과 최대가능도추정량의 존재 사이의 관계에 대해 다음과 같은 사실이 알려져 있다.</p>
 <ul>
 <li><p><span class="math inline">\(\xi &gt; -0.5\)</span>인 경우 최대가능도추정량은 정칙조건을 만족하며 일반적인 점근적 성질을 갖는다.</p></li>
@@ -466,7 +466,7 @@ P\{(M_{n}-b_{n})/a_{n} \leq z \} &amp;=&amp; F^{n}(z+\log n) \nonumber\\
 <div class="definition">
 <p><span class="math inline">\(\theta\)</span>를 모수 벡터라 하고 이것을 <span class="math inline">\((\theta^{(1)}, \theta^{(2)})\)</span>로 분할할 수 있다고 하자. 여기서 <span class="math inline">\(\theta^{(1)}\)</span>은 <span class="math inline">\(k\)</span>차원 흥미있는 모수들의 벡터이며 <span class="math inline">\(\theta^{(2)}\)</span>는 나머지들의 <span class="math inline">\((d-k)\)</span>차원 벡터이다. 이때 <span class="math inline">\(\theta^{(1)}\)</span>에 대한 <strong>프로파일 로그 가능도(profile log-likelihood)</strong>는 <span class="math display">\[l_{p}(\theta^{1})=\max_{\theta^{(2)}}l(\theta^{(1)},\theta^{(2)})\]</span> 이다.</p>
 </div>
-<p>정칙 조건 하에서 프로파일 로그 가능도를 이용한 통계량은 다음과 같은 점근분포를 갖음이 알려져 있다.<span class="citation">(Coles <a href="#ref-Coles2001">2001</a>)</span></p>
+<p>정칙 조건 하에서 프로파일 로그 가능도를 이용한 통계량은 다음과 같은 점근분포를 갖음이 알려져 있다.<span class="citation">(Coles 2001)</span></p>
 <div class="theorem">
 <p><span class="math inline">\(x_{1}, \ldots , x_{n}\)</span>을 모수분포 <span class="math inline">\(\mathcal{F}\)</span> 안에 있는 어떤 분포의 독립적인 실현이라고 하자. <span class="math inline">\(\hat{\theta}_{0}\)</span>을 <span class="math inline">\(d\)</span>차원 모수벡터 <span class="math inline">\(\theta_{0}=(\theta^{(1)},\theta^{(2)})\)</span>의 최대가능도추정량이라고 하자. 이때 <span class="math inline">\(\theta^{(1)}\)</span>의 길이를 <span class="math inline">\(k\)</span>라고 하자. 그러면 정칙 조건 하에서 <span class="math inline">\(n\)</span>이 클 때 <span class="math display">\[D_{p}(\theta^{(1)})=2\{l(\hat{\theta}_{0})-l_{p}(\theta^{(1)}) \} \stackrel{\cdot}{\sim} \xi_{k}^{2}\]</span> 이다.</p>
 </div>
@@ -475,15 +475,6 @@ P\{(M_{n}-b_{n})/a_{n} \leq z \} &amp;=&amp; F^{n}(z+\log n) \nonumber\\
 <div id="gev----maximum-likelihood-estimation-application-to-gev-distribution" class="section level2">
 <h2><span class="header-section-number">24.7</span> GEV 분포애서의 가능도 추정 (maximum likelihood estimation: application to GEV distribution)</h2>
 
-</div>
-</div>
-<h3> References</h3>
-<div id="refs" class="references">
-<div id="ref-Coles2001">
-<p>Coles, Stuart. 2001. <em>An Introduction to Statistical Modeling of Extreme Values</em>. Springer.</p>
-</div>
-<div id="ref-Smith1985">
-<p>Smith, Richard L. 1985. “Maximum Likelihood Estimation in a Class of Nonregular Cases.” <em>Biometrika</em> 72 (1): 67–90. doi:<a href="https://doi.org/10.2307/2336336 ">10.2307/2336336</a>.</p>
 </div>
 </div>
             </section>

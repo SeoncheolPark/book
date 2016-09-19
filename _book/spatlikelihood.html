@@ -8,7 +8,7 @@
   <title>통계공부와 관련된 글들</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
-  <meta name="generator" content="bookdown 0.1 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.74 and GitBook 2.6.7">
 
   <meta property="og:title" content="통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
@@ -352,7 +352,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="spatlikelihood" class="section level1">
 <h1><span class="header-section-number">Chapter 16</span> 공간자료에서의 가능도 기반 방법들</h1>
-<p>앞 장에서는 지구통계 모형의 모수 추정을 적률 추정 또는 최소자승법에 기반한 추정으로 하는 방법들을 고려했다. 이러한 방법들을 흔히 <strong>고전 지구통계학(classical geostatistics)</strong>라고 부른다. 이 장에서는 가능도 기반 방법론들에 대해 살펴본다. <span class="citation">(Gelfand et al. <a href="#ref-Gelfand2010">2010</a>)</span>의 45쪽부터의 내용을 참고하였다.</p>
+<p>앞 장에서는 지구통계 모형의 모수 추정을 적률 추정 또는 최소자승법에 기반한 추정으로 하는 방법들을 고려했다. 이러한 방법들을 흔히 <strong>고전 지구통계학(classical geostatistics)</strong>라고 부른다. 이 장에서는 가능도 기반 방법론들에 대해 살펴본다. <span class="citation">(Gelfand et al. 2010)</span>의 45쪽부터의 내용을 참고하였다.</p>
 <p>보통 coordinate를 가지고 least square로 mean trend 제거 후(<span class="math inline">\(\hat{\beta}\)</span> 모델링) 잔차를 이용해 variogram을 fitting한다. 그리고 variogram 모델링을 통해 <span class="math inline">\(\hat{\Sigma}\)</span>를 구한 후 이것을 <span class="math inline">\(\hat{\beta}=(X^{T}\Sigma^{-1}X)^{-1}X^{T}\Sigma^{-1}Z\)</span>에 넣어 <span class="math inline">\(\hat{beta}\)</span>를 업데이트 한다. 이것을 가지고 다시 <span class="math inline">\(\hat{\Sigma}\)</span>를 업데이트 하는 등 iterative한 방법으로 업데이트를 많이 한다.</p>
 <p>그러나 가능도를 사용하면 first-order-structure와 second-order-structure를 동시에 업데이트 할 수 있다고 한다. 그렇지만 우도 방법을 쓰려면 데이터의 분포 가정을 해야 한다. Empirical variogram을 사용할 때에는 데이터에 대한 분포 가정이 필요치 않다.</p>
 <div id="--likelihood-based-methods" class="section level2">
@@ -395,7 +395,7 @@ l(\boldsymbol{\beta},\sigma^{2}, \boldsymbol{\rho})=&amp;\log f(\mathbf{Z};\bold
 \end{aligned}
 \]</span> 위 식에서 각 모수들에 대해 미분을 하자. <span class="math display">\[\frac{\partial l}{\partial \boldsymbol{\beta}}=0 \rightarrow \hat{\boldsymbol{\beta}}=(\mathbf{X}^{T}V^{-1}(\boldsymbol{\rho})\mathbf{X})^{-1}\mathbf{X}^{T}V^{-1}(\boldsymbol{\rho})\mathbf{Z}\]</span> <span class="math display">\[\frac{\partial l}{\partial \sigma^{2}}=0 \rightarrow \frac{1}{n}(\mathbf{Z}-\mathbf{X}^{T}\hat{\boldsymbol{\beta}})^{T}V^{-1}(\boldsymbol{\rho})(\mathbf{Z}-\mathbf{X}^{T}\hat{\boldsymbol{\beta}})\]</span> <span class="math display">\[\frac{\partial l}{\partial f}=0\]</span></p>
 <p>또는 <strong>profile likelihood</strong>를 정의하여 문제를 풀 수도 있다. Profile likelihood의 idea를 어떤 parameter를 다른 parameter의 함수로 표현하여 모수를 줄여 푸는 것이다. <span class="math display">\[l*(f)=f(\hat{\beta}(\boldsymbol{\rho}), \hat{\sigma}^{2}(\boldsymbol{\rho}),\boldsymbol{\rho}).\]</span> Profile likelihood와 그냥 likelihood의 차이는 무엇일까? Likelihood인 경우 joint density, joint probability로 나타낼 수 있지만, profile likelihood인 경우 true likelihood가 아닐 수도 있다. 그 얘기는 즉 joint density, joint probability로 표현하지 못할 수도 있다는 뜻이다. 이 경우 추정에는 문제가 없으나 inference, 특히 test시 문제가 된다.</p>
-<p>일반적으로 likelihood 사용시 쓰는 test는 LRT test이다. Profile likelihood를 사용할 경우 <span class="math display">\[2(l*(\hat{\boldsymbol{\theta}})-l*(\boldsymbol{\theta_{0}})) \sim \chi^{2}\]</span> 이 식에서 <span class="math inline">\(\chi^{2}\)</span>로 점근적으로 가는 속도가 그냥 likelihood를 쓸 때보다 느려진다고 한다. 또한 bias가 생기는 문제도 있다. 이를 해결하기 위해 <strong>Bartlett Correction</strong>이라는 것을 사용한다고 한다. <span class="citation">(BarndorfF-Nielsen <a href="#ref-BarndorfF-Nielsen1983">1983</a>)</span>이나 <span class="citation">(Cox and Reid <a href="#ref-Cox1987">1987</a>)</span> 등은 modified profile likelihood를 제안하기도 하였다. 더 자세한 내용을 알려면 mixed model thoery나 likelihood inference쪽 reference를 찾아보기 바란다.</p>
+<p>일반적으로 likelihood 사용시 쓰는 test는 LRT test이다. Profile likelihood를 사용할 경우 <span class="math display">\[2(l*(\hat{\boldsymbol{\theta}})-l*(\boldsymbol{\theta_{0}})) \sim \chi^{2}\]</span> 이 식에서 <span class="math inline">\(\chi^{2}\)</span>로 점근적으로 가는 속도가 그냥 likelihood를 쓸 때보다 느려진다고 한다. 또한 bias가 생기는 문제도 있다. 이를 해결하기 위해 <strong>Bartlett Correction</strong>이라는 것을 사용한다고 한다. <span class="citation">(BarndorfF-Nielsen 1983)</span>이나 <span class="citation">(Cox and Reid 1987)</span> 등은 modified profile likelihood를 제안하기도 하였다. 더 자세한 내용을 알려면 mixed model thoery나 likelihood inference쪽 reference를 찾아보기 바란다.</p>
 </div>
 <div id="-restricted-mle" class="section level2">
 <h2><span class="header-section-number">16.4</span> 제한된 최대가능도추정(restricted MLE)</h2>
@@ -501,18 +501,6 @@ P(X,Y)&amp;=&amp;P(X)P(Y|X)\\
 <p>비슷한 개념으로 quasi-likelihood가 있는데, GLM이나 GLMM에서 등장한다(찾아보기). Pseudo-likelihood는 generalized mixed effect model에 등장한다.</p>
 <p>이것으로 지금까지 geostatstics에서 nonparametric/parameteric/MLE 추정에 대해 간략히 살펴보았다.</p>
 
-</div>
-</div>
-<h3> References</h3>
-<div id="refs" class="references">
-<div id="ref-Gelfand2010">
-<p>Gelfand, Alan E., Peter Diggle, Peter Guttorp, and Montserrat Fuentes. 2010. <em>Handbook of Spatial Statistics</em>. CRC Press.</p>
-</div>
-<div id="ref-BarndorfF-Nielsen1983">
-<p>BarndorfF-Nielsen. 1983. “On a Formula For the Distribution of the Maximum Likelihood Estimator.” <em>Biometrika</em> 70 (2): 343–65. doi:<a href="https://doi.org/10.1093/biomet/70.2.343">10.1093/biomet/70.2.343</a>.</p>
-</div>
-<div id="ref-Cox1987">
-<p>Cox, D.R., and N. Reid. 1987. “Parameter Orthogonality and Approximate Conditional Inference.” <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 49 (1): 1–39.</p>
 </div>
 </div>
             </section>

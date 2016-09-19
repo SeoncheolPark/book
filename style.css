@@ -13,6 +13,10 @@ pre code {
   white-space: inherit;
 }
 
+body
+{
+  counter-reset: theorem definition equation example;
+}
 
 .equation {
   margin: 3pt 0;
@@ -33,16 +37,16 @@ pre code {
 .theorem,
 .proof,
 .definition,
-.example
-.corollary
+.example,
+.corollary,
 .remark {
   margin: 12pt 0;
 }
 .theorem:before,
 .proof:before,
 .definition:before,
-.example:before
-.corollary:before
+.example:before,
+.corollary:before,
 .remark:before {
   margin-left: 0pt;
 }
@@ -57,8 +61,7 @@ pre code {
   font-variant: small-caps;
 }
 .proof:before {
-  counter-increment: proof;
-  content: "Proof " counter(proof) ". ";
+  content: "Proof . ";
   font-style: italic;
   font-weight: bold;
   font-variant: small-caps;

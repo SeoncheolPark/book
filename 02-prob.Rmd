@@ -292,6 +292,45 @@ $\mathcal{F}_{0}$를 표본공간 $\Omega$에서의 부분집합들의 collectio
 
 그 전에 몇 가지 개념들에 대해 정의하겠다.
 
+<div class="definition">
+
+표본공간 $\Omega$의 부분집합들의 class $\mathcal{C}$가
+$$\bigcap_{i=1}^{n}A_{i}\in\mathcal{C}\qquad{\text{for every }n\infty \text{ and } A_{1},\ldots ,A_{n}\in\mathcal{C}}$$
+를 만족하면 **유한한 교집합에 대해 닫혀있다(closed under finite intersection)**라고 한다.
+
+</div>
+
+<div class="definition">
+
+표본공간 $\Omega$의 부분집합들의 class $\mathcal{C}$가
+$$\bigcup_{i=1}^{\infty}A_{i}\in\mathcal{C}\qquad{\text{for every collection } A_{1}, A_{2},\ldots \in \mathcal{C} \text{ with } A_{1}\subseteq A_{2}\subseteq \ldots}$$
+를 만족하면 **증가하는 극한에 대해 닫혀있다(closed under increasing limits)**라고 한다.
+
+```{r, echo=F, fig.cap='Closed under increasing limits.', fig.align='center'}
+knitr::include_graphics("images/basic_cuil.png")
+```
+
+</div>
+
+<div class="definition">
+
+표본공간 $\Omega$의 부분집합들의 class $\mathcal{C}$가 모든 $A,B\in\mathcal{C}, A\subseteq B$에 대해 $B\backslash A \in \mathcal{C}$를 만족하면 **유한한 차에 대해 닫혀있다(closed under finite differences)**라고 한다.
+
+```{r, echo=F, fig.cap='Closed under finite differences.', fig.align='center'}
+knitr::include_graphics("images/basic_cufd.png")
+```
+
+</div>
+
+다음은 단조족에 대한 정의다.
+
+<div class="definition">
+
+표본공간 $\Omega$의 부분집합들의 class $\mathcal{C}$가 closed under countable increasing set이거나 closed under countable decreasing set이면, 즉 $E_{1},E_{2},\ldots \in \mathcal{C}$일 때
+$$E_{i}\uparrow E \text{ or } E_{i}\downarrow E \Longrightarrow E \in \mathcal{C}$$
+이면 $\mathcal{C}$를 **단조족(monotone class)**이라고 한다.
+
+</div>
 
 이에 대한 증명은 [@Durrett2010]의 Appendix 부분을 참고하자.
 
