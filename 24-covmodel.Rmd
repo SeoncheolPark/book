@@ -69,6 +69,10 @@ $$\gamma(\mathbf{h}) \text{가 sill의 95% 접근하는 smallest } \|\mathbf{h}\
 
 여기서는 총 9가지의 변동도 모형을 소개한다. 그러나 실제로 널리 쓰이는 모델은 'exponential'과 'matern' 두 개이다.
 
+```{r, fig.align='center', echo=FALSE, warning=FALSE, message=FALSE, results='hide', fig.cap = 'Various variogram models.'}
+show.vgms() #in `gstat`
+```
+
 1. **Linear**
 
 $$

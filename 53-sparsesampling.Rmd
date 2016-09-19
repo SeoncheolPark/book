@@ -86,3 +86,5 @@ $$2\pi\lambda X_{i}^{2} \stackrel{ind}{\sim} \chi_{2}^{2} \bot \sum \pi\lambda Z
 이다.
 
 검정통계량은 $t_{N}$과 $t_{F}$를 쓴다.
+$$t_{N}=\frac{1}{m}\sum_{i=1}^{m}\frac{x_{i}^{2}}{x_{i}^{2} + z_{i}^{2}/2} \stackrel{\text{approx}}{\sim}\mathcal{N}(\frac{1}{2}, \frac{1}{12m})$$
+$$t_{F}=\frac{2\sum x_{i}^{2}}{\sum z_{i}^2} \stackrel{\text{approx}}{\sim} F_{2m,2m}$$
