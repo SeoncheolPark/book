@@ -8,7 +8,7 @@
   <title>통계공부와 관련된 글들</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
-  <meta name="generator" content="bookdown 0.0.74 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1 and GitBook 2.6.7">
 
   <meta property="og:title" content="통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-09-19">
+<meta name="date" content="2016-09-20">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -318,7 +318,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="24.4" data-path="uGEVtheory.html"><a href="uGEVtheory.html#--inference-in-extreme-value-statistics"><i class="fa fa-check"></i><b>24.4</b> 극단값 분포에서의 추론(inference in extreme value statistics)</a></li>
 <li class="chapter" data-level="24.5" data-path="uGEVtheory.html"><a href="uGEVtheory.html#--mle-in-extreme-value-statistics"><i class="fa fa-check"></i><b>24.5</b> 극단값 분포에서의 최대가능도추정(mle in extreme value statistics)</a></li>
 <li class="chapter" data-level="24.6" data-path="uGEVtheory.html"><a href="uGEVtheory.html#---profile-likelihood-in-extreme-value-statistics"><i class="fa fa-check"></i><b>24.6</b> 극단값 분포에서의 프로파일 가능도(profile likelihood in extreme value statistics)</a></li>
-<li class="chapter" data-level="24.7" data-path="uGEVtheory.html"><a href="uGEVtheory.html#gev----maximum-likelihood-estimation-application-to-gev-distribution"><i class="fa fa-check"></i><b>24.7</b> GEV 분포애서의 가능도 추정 (maximum likelihood estimation: application to GEV distribution)</a></li>
+<li class="chapter" data-level="24.7" data-path="uGEVtheory.html"><a href="uGEVtheory.html#r--r-uevtheory"><i class="fa fa-check"></i><b>24.7</b> R-예제 (r-uevtheory)</a></li>
 </ul></li>
 <li class="chapter" data-level="25" data-path="spatextremes.html"><a href="spatextremes.html"><i class="fa fa-check"></i><b>25</b> 공간 극단값 이론과 최대안정과정</a><ul>
 <li class="chapter" data-level="25.1" data-path="spatextremes.html"><a href="spatextremes.html#max-stable-process"><i class="fa fa-check"></i><b>25.1</b> 최대안정과정(max-stable process)</a><ul>
@@ -352,7 +352,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="basicprob" class="section level1">
 <h1><span class="header-section-number">Chapter 3</span> 기초 확률론</h1>
-<p>이 장에서는 앞으로 다룰 내용을 이해하기 위해 필요한 기본적인 확률 개념을 정리하였다. 대학원 과정의 확률론을 다룬 유명한 책들로는 <span class="citation">(Durrett 2010)</span>, <span class="citation">(Billingsley 2012)</span> 그리고 <span class="citation">(Chung 2001)</span>이 있다. 그 밖에 본인이 추천하는 책들은 다음과 같다. <span class="citation">(Gut 2012)</span>는 최근에 나온 대학원 확률론 입문서 교재로써 비교적 내용이 자세하다. <span class="citation">(Schilling 2005)</span>는 삽화가 많고 저자가 연습문제의 답을 웹에 올려놓았다. <span class="citation">(Shorack 2006)</span>과 <span class="citation">(Proschan and Shaw 20016)</span>는 통계학자의 입장에서 필요한 확률론 지식을 비교적 쉽게 서술하였다. 여기서는 앞서 언급한 모든 책들을 참고할 것이다.</p>
+<p>이 장에서는 앞으로 다룰 내용을 이해하기 위해 필요한 기본적인 확률 개념을 정리하였다. 대학원 과정의 확률론을 다룬 유명한 책들로는 <span class="citation">(Durrett <a href="#ref-Durrett2010">2010</a>)</span>, <span class="citation">(Billingsley <a href="#ref-Billingsley2012">2012</a>)</span> 그리고 <span class="citation">(Chung <a href="#ref-Chung2001">2001</a>)</span>이 있다. 그 밖에 본인이 추천하는 책들은 다음과 같다. <span class="citation">(Gut <a href="#ref-Gut2012">2012</a>)</span>는 최근에 나온 대학원 확률론 입문서 교재로써 비교적 내용이 자세하다. <span class="citation">(Schilling <a href="#ref-Schilling2005">2005</a>)</span>는 삽화가 많고 저자가 연습문제의 답을 웹에 올려놓았다. <span class="citation">(Shorack <a href="#ref-Shorack2006">2006</a>)</span>과 <span class="citation">(Proschan and Shaw <a href="#ref-Proschan2016">20016</a>)</span>는 통계학자의 입장에서 필요한 확률론 지식을 비교적 쉽게 서술하였다. 여기서는 앞서 언급한 모든 책들을 참고할 것이다.</p>
 <div id="-sample-space-and-events" class="section level2">
 <h2><span class="header-section-number">3.1</span> 표본공간과 사건(sample space and events)</h2>
 <p>통계학은 무작위(random) 또는 확률적(stochastic) 실험(experiment), 즉 어떤 결과가 나올지 미리 확실히 예측할 수 없는 실험들에 초점을 맞춘다.</p>
@@ -541,7 +541,7 @@ Figure 3.4: Closed under finite differences.
 <div class="definition">
 <p>표본공간 <span class="math inline">\(\Omega\)</span>의 부분집합들의 class <span class="math inline">\(\mathcal{C}\)</span>가 closed under countable increasing set이거나 closed under countable decreasing set이면, 즉 <span class="math inline">\(E_{1},E_{2},\ldots \in \mathcal{C}\)</span>일 때 <span class="math display">\[E_{i}\uparrow E \text{ or } E_{i}\downarrow E \Longrightarrow E \in \mathcal{C}\]</span> 이면 <span class="math inline">\(\mathcal{C}\)</span>를 <strong>단조족(monotone class)</strong>이라고 한다.</p>
 </div>
-<p>이에 대한 증명은 <span class="citation">(Durrett 2010)</span>의 Appendix 부분을 참고하자.</p>
+<p>이에 대한 증명은 <span class="citation">(Durrett <a href="#ref-Durrett2010">2010</a>)</span>의 Appendix 부분을 참고하자.</p>
 </div>
 </div>
 <div id="measure" class="section level2">
@@ -557,6 +557,30 @@ Figure 3.4: Closed under finite differences.
 <div id="random-variable" class="section level2">
 <h2><span class="header-section-number">3.7</span> 확률변수(random variable)</h2>
 
+</div>
+</div>
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-Durrett2010">
+<p>Durrett, Rick. 2010. <em>Probability: Theory and Examples</em>. Cambridge University Press.</p>
+</div>
+<div id="ref-Billingsley2012">
+<p>Billingsley, Patrick. 2012. <em>Probability and Measure</em>. John Wiley; Sons.</p>
+</div>
+<div id="ref-Chung2001">
+<p>Chung, Kai Lai. 2001. <em>A Course in Probability Theory</em>. Academic Press.</p>
+</div>
+<div id="ref-Gut2012">
+<p>Gut, Allan. 2012. <em>Probability: A Graduate Course</em>. Springer Science; Business Media.</p>
+</div>
+<div id="ref-Schilling2005">
+<p>Schilling, René L. 2005. <em>Measures, Integrals and Martingales</em>. Cambridge University Press.</p>
+</div>
+<div id="ref-Shorack2006">
+<p>Shorack, Galen R. 2006. <em>Probability for Statisticians</em>. Springer Science; Business Media.</p>
+</div>
+<div id="ref-Proschan2016">
+<p>Proschan, Micheal A., and Pamela A. Shaw. 20016. <em>Essentials of Probability Theory for Statisticians</em>. Chapman; Hall/CRC.</p>
 </div>
 </div>
             </section>

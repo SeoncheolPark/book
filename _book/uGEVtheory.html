@@ -8,7 +8,7 @@
   <title>통계공부와 관련된 글들</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
-  <meta name="generator" content="bookdown 0.0.74 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1 and GitBook 2.6.7">
 
   <meta property="og:title" content="통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-09-19">
+<meta name="date" content="2016-09-20">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -318,7 +318,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="24.4" data-path="uGEVtheory.html"><a href="uGEVtheory.html#--inference-in-extreme-value-statistics"><i class="fa fa-check"></i><b>24.4</b> 극단값 분포에서의 추론(inference in extreme value statistics)</a></li>
 <li class="chapter" data-level="24.5" data-path="uGEVtheory.html"><a href="uGEVtheory.html#--mle-in-extreme-value-statistics"><i class="fa fa-check"></i><b>24.5</b> 극단값 분포에서의 최대가능도추정(mle in extreme value statistics)</a></li>
 <li class="chapter" data-level="24.6" data-path="uGEVtheory.html"><a href="uGEVtheory.html#---profile-likelihood-in-extreme-value-statistics"><i class="fa fa-check"></i><b>24.6</b> 극단값 분포에서의 프로파일 가능도(profile likelihood in extreme value statistics)</a></li>
-<li class="chapter" data-level="24.7" data-path="uGEVtheory.html"><a href="uGEVtheory.html#gev----maximum-likelihood-estimation-application-to-gev-distribution"><i class="fa fa-check"></i><b>24.7</b> GEV 분포애서의 가능도 추정 (maximum likelihood estimation: application to GEV distribution)</a></li>
+<li class="chapter" data-level="24.7" data-path="uGEVtheory.html"><a href="uGEVtheory.html#r--r-uevtheory"><i class="fa fa-check"></i><b>24.7</b> R-예제 (r-uevtheory)</a></li>
 </ul></li>
 <li class="chapter" data-level="25" data-path="spatextremes.html"><a href="spatextremes.html"><i class="fa fa-check"></i><b>25</b> 공간 극단값 이론과 최대안정과정</a><ul>
 <li class="chapter" data-level="25.1" data-path="spatextremes.html"><a href="spatextremes.html#max-stable-process"><i class="fa fa-check"></i><b>25.1</b> 최대안정과정(max-stable process)</a><ul>
@@ -411,7 +411,7 @@ P\{(M_{n}-b_{n})/a_{n} \leq z \} &amp;=&amp; F^{n}(z+\log n) \nonumber\\
 </div>
 <p>최대안정성과 일반화 극단값 분포 사이에는 다음과 같은 정리가 있다.</p>
 <div class="remark">
-<p>어떤 분포가 최대안정한 것은 분포가 일반화 극단값 분포임과 동치이다. <span class="citation">(Coles 2001)</span></p>
+<p>어떤 분포가 최대안정한 것은 분포가 일반화 극단값 분포임과 동치이다. <span class="citation">(Coles <a href="#ref-Coles2001">2001</a>)</span></p>
 </div>
 </div>
 <div id="-return-level" class="section level2">
@@ -433,7 +433,7 @@ P\{(M_{n}-b_{n})/a_{n} \leq z \} &amp;=&amp; F^{n}(z+\log n) \nonumber\\
 <li><p><strong>확률 가중 적률</strong>: 수문학(hydrology)에서 많이 쓰이나 복잡한 자료로 확장하기 어렵다.</p></li>
 <li><p><strong>가능도(likelihood) 기반 방법</strong>: 통계학에서 가장 많이 이용하는 방법이다. 복잡한 자료에 적용할 수 있고 일반적인 점근적 추정과 검정이론을 적용할 수 있다. 또한 베이지안 방법을 적용할 수도 있다.</p></li>
 </ul>
-<p>일반화 극단값 분포를 가능도 기반 방법으로 분석할 때 정칙 조건(regularity condition)을 만족하는지 항상 확인해야 한다. 일반화 극단값 분포의 모수들로 표현된 값 <span class="math inline">\(\mu-\sigma/\xi\)</span>이 <span class="math inline">\(\xi\neq 0\)</span>일때 분포의 끝점(end point)이 되기 때문에 정칙 조건을 만족하지 않을 수도 있다.<span class="citation">(Smith 1985)</span></p>
+<p>일반화 극단값 분포를 가능도 기반 방법으로 분석할 때 정칙 조건(regularity condition)을 만족하는지 항상 확인해야 한다. 일반화 극단값 분포의 모수들로 표현된 값 <span class="math inline">\(\mu-\sigma/\xi\)</span>이 <span class="math inline">\(\xi\neq 0\)</span>일때 분포의 끝점(end point)이 되기 때문에 정칙 조건을 만족하지 않을 수도 있다.<span class="citation">(Smith <a href="#ref-Smith1985">1985</a>)</span></p>
 <p>한편 형태모수 값과 최대가능도추정량의 존재 사이의 관계에 대해 다음과 같은 사실이 알려져 있다.</p>
 <ul>
 <li><p><span class="math inline">\(\xi &gt; -0.5\)</span>인 경우 최대가능도추정량은 정칙조건을 만족하며 일반적인 점근적 성질을 갖는다.</p></li>
@@ -466,15 +466,179 @@ P\{(M_{n}-b_{n})/a_{n} \leq z \} &amp;=&amp; F^{n}(z+\log n) \nonumber\\
 <div class="definition">
 <p><span class="math inline">\(\theta\)</span>를 모수 벡터라 하고 이것을 <span class="math inline">\((\theta^{(1)}, \theta^{(2)})\)</span>로 분할할 수 있다고 하자. 여기서 <span class="math inline">\(\theta^{(1)}\)</span>은 <span class="math inline">\(k\)</span>차원 흥미있는 모수들의 벡터이며 <span class="math inline">\(\theta^{(2)}\)</span>는 나머지들의 <span class="math inline">\((d-k)\)</span>차원 벡터이다. 이때 <span class="math inline">\(\theta^{(1)}\)</span>에 대한 <strong>프로파일 로그 가능도(profile log-likelihood)</strong>는 <span class="math display">\[l_{p}(\theta^{1})=\max_{\theta^{(2)}}l(\theta^{(1)},\theta^{(2)})\]</span> 이다.</p>
 </div>
-<p>정칙 조건 하에서 프로파일 로그 가능도를 이용한 통계량은 다음과 같은 점근분포를 갖음이 알려져 있다.<span class="citation">(Coles 2001)</span></p>
+<p>정칙 조건 하에서 프로파일 로그 가능도를 이용한 통계량은 다음과 같은 점근분포를 갖음이 알려져 있다.<span class="citation">(Coles <a href="#ref-Coles2001">2001</a>)</span></p>
 <div class="theorem">
-<p><span class="math inline">\(x_{1}, \ldots , x_{n}\)</span>을 모수분포 <span class="math inline">\(\mathcal{F}\)</span> 안에 있는 어떤 분포의 독립적인 실현이라고 하자. <span class="math inline">\(\hat{\theta}_{0}\)</span>을 <span class="math inline">\(d\)</span>차원 모수벡터 <span class="math inline">\(\theta_{0}=(\theta^{(1)},\theta^{(2)})\)</span>의 최대가능도추정량이라고 하자. 이때 <span class="math inline">\(\theta^{(1)}\)</span>의 길이를 <span class="math inline">\(k\)</span>라고 하자. 그러면 정칙 조건 하에서 <span class="math inline">\(n\)</span>이 클 때 <span class="math display">\[D_{p}(\theta^{(1)})=2\{l(\hat{\theta}_{0})-l_{p}(\theta^{(1)}) \} \stackrel{\cdot}{\sim} \xi_{k}^{2}\]</span> 이다.</p>
+<p><span class="math inline">\(x_{1}, \ldots , x_{n}\)</span>을 모수분포 <span class="math inline">\(\mathcal{F}\)</span> 안에 있는 어떤 분포의 독립적인 실현이라고 하자. <span class="math inline">\(\hat{\theta}_{0}\)</span>을 <span class="math inline">\(d\)</span>차원 모수벡터 <span class="math inline">\(\theta_{0}=(\theta^{(1)},\theta^{(2)})\)</span>의 최대가능도추정량이라고 하자. 이때 <span class="math inline">\(\theta^{(1)}\)</span>의 길이를 <span class="math inline">\(k\)</span>라고 하자. 그러면 정칙 조건 하에서 <span class="math inline">\(n\)</span>이 클 때 <span class="math display">\[D_{p}(\theta^{(1)})=2\{l(\hat{\theta}_{0})-l_{p}(\theta^{(1)}) \} \stackrel{\cdot}{\sim} \chi_{k}^{2}\]</span> 이다.</p>
 </div>
 <p>위 정리는 크게 두 가지 상황에서 쓰인다. 첫째, 길이 1의 모수 <span class="math inline">\(\theta_{i}\)</span>에 대해 <span class="math inline">\((1-\alpha)\)</span> 신뢰구간 <span class="math inline">\(C_{\alpha}=\{\theta_{i}: D_{p}(\theta_{i})\leq c_{\alpha}\}\)</span>를 계산할 때 쓴다. 여기서 <span class="math inline">\(c_{\alpha}\)</span>는 <span class="math inline">\(\xi_{1}^{2}\)</span> 분포의 <span class="math inline">\((1-\alpha)\)</span> 분위수를 뜻한다. 두 번째 응용은 모형 선택이다.</p>
 </div>
-<div id="gev----maximum-likelihood-estimation-application-to-gev-distribution" class="section level2">
-<h2><span class="header-section-number">24.7</span> GEV 분포애서의 가능도 추정 (maximum likelihood estimation: application to GEV distribution)</h2>
+<div id="r--r-uevtheory" class="section level2">
+<h2><span class="header-section-number">24.7</span> R-예제 (r-uevtheory)</h2>
+<p>R 패키지 <code>extRemes</code>를 이용한 예제이다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(SEPTsp) <span class="co">#Annual max and min temp of North Atlantic Oscillation</span>
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))
+<span class="kw">plot</span>(TMX1~Year, <span class="dt">data=</span>SEPTsp, <span class="dt">type=</span><span class="st">&quot;h&quot;</span>)
+<span class="kw">plot</span>(TMX1~AOindex, <span class="dt">data=</span>SEPTsp, <span class="dt">pch=</span><span class="dv">21</span>)
+<span class="kw">plot</span>(TMX1~MDTR, <span class="dt">data=</span>SEPTsp, <span class="dt">pch=</span><span class="dv">21</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-67"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-67-1.png" alt="Plot maximum winter temperature." width="672" />
+<p class="caption">
+Figure 24.2: Plot maximum winter temperature.
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit0 &lt;-<span class="st"> </span><span class="kw">fevd</span>(TMX1, <span class="dt">data=</span>SEPTsp, <span class="dt">units=</span><span class="st">&quot;deg C&quot;</span>)
+fit0</code></pre></div>
+<pre><code>&gt; 
+&gt; fevd(x = TMX1, data = SEPTsp, units = &quot;deg C&quot;)
+&gt; 
+&gt; [1] &quot;Estimation Method used: MLE&quot;
+&gt; 
+&gt; 
+&gt;  Negative Log-Likelihood Value:  134.9045 
+&gt; 
+&gt; 
+&gt;  Estimated parameters:
+&gt;   location      scale      shape 
+&gt; 18.1978488  3.1266252 -0.1395647 
+&gt; 
+&gt;  Standard Error Estimates:
+&gt;  location     scale     shape 
+&gt; 0.4999587 0.3616231 0.1168080 
+&gt; 
+&gt;  Estimated parameter covariance matrix.
+&gt;             location       scale       shape
+&gt; location  0.24995872  0.04741458 -0.02468781
+&gt; scale     0.04741458  0.13077124 -0.02121723
+&gt; shape    -0.02468781 -0.02121723  0.01364411
+&gt; 
+&gt;  AIC = 275.8091 
+&gt; 
+&gt;  BIC = 281.6045</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(fit0)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-68"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-68-1.png" alt="Fit a GEV distribution." width="672" />
+<p class="caption">
+Figure 24.3: Fit a GEV distribution.
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ci</span>(fit0, <span class="dt">type=</span><span class="st">&quot;parameter&quot;</span>)</code></pre></div>
+<pre><code>&gt; fevd(x = TMX1, data = SEPTsp, units = &quot;deg C&quot;)
+&gt; 
+&gt; [1] &quot;Normal Approx.&quot;
+&gt; 
+&gt;          95% lower CI   Estimate 95% upper CI
+&gt; location   17.2179478 18.1978488  19.17774993
+&gt; scale       2.4178570  3.1266252   3.83539336
+&gt; shape      -0.3685042 -0.1395647   0.08937479</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ci</span>(fit0)</code></pre></div>
+<pre><code>&gt; fevd(x = TMX1, data = SEPTsp, units = &quot;deg C&quot;)
+&gt; 
+&gt; [1] &quot;Normal Approx.&quot;
+&gt; 
+&gt; [1] &quot;100-year return level: 28.812&quot;
+&gt; 
+&gt; [1] &quot;95% Confidence Interval: (24.7221, 32.9011)&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit1 &lt;-<span class="st"> </span><span class="kw">fevd</span>(TMX1, <span class="dt">data=</span>SEPTsp, <span class="dt">location.fun=</span>~AOindex, <span class="dt">units=</span><span class="st">&quot;deg C&quot;</span>)
+fit1</code></pre></div>
+<pre><code>&gt; 
+&gt; fevd(x = TMX1, data = SEPTsp, location.fun = ~AOindex, units = &quot;deg C&quot;)
+&gt; 
+&gt; [1] &quot;Estimation Method used: MLE&quot;
+&gt; 
+&gt; 
+&gt;  Negative Log-Likelihood Value:  134.4556 
+&gt; 
+&gt; 
+&gt;  Estimated parameters:
+&gt;        mu0        mu1      scale      shape 
+&gt; 18.1781844 -0.4220587  3.0397157 -0.1043810 
+&gt; 
+&gt;  Standard Error Estimates:
+&gt;       mu0       mu1     scale     shape 
+&gt; 0.4853334 0.4388729 0.3527318 0.1177925 
+&gt; 
+&gt;  Estimated parameter covariance matrix.
+&gt;                mu0          mu1       scale       shape
+&gt; mu0    0.235548485  0.007078761  0.05071613 -0.02329157
+&gt; mu1    0.007078761  0.192609441  0.01872612 -0.01143944
+&gt; scale  0.050716130  0.018726119  0.12441972 -0.01949016
+&gt; shape -0.023291573 -0.011439440 -0.01949016  0.01387507
+&gt; 
+&gt;  AIC = 276.9112 
+&gt; 
+&gt;  BIC = 284.6385</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(fit1)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-69"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-69-1.png" alt="Fit a GEV distribution with AOindex." width="672" />
+<p class="caption">
+Figure 24.4: Fit a GEV distribution with AOindex.
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lr.test</span>(fit0, fit1) <span class="co">#inclusion of AOindex in location parameter is not significant</span></code></pre></div>
+<pre><code>&gt; 
+&gt;   Likelihood-ratio Test
+&gt; 
+&gt; data:  TMX1TMX1
+&gt; Likelihood-ratio = 0.89789, chi-square critical value = 3.8415,
+&gt; alpha = 0.0500, Degrees of Freedom = 1.0000, p-value = 0.3433
+&gt; alternative hypothesis: greater</code></pre>
+<p><code>use.phi=TRUE</code>는 다음과 같은 효과를 준다.</p>
+<p><span class="math display">\[\log (\sigma (\text{STDTMAX})) = \phi_{0} +\phi_{1}\times \text{STDTMAX}\]</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit2 &lt;-<span class="st"> </span><span class="kw">fevd</span>(TMX1, <span class="dt">data=</span>SEPTsp, <span class="dt">scale.fun=</span>~STDTMAX, <span class="dt">use.phi=</span><span class="ot">TRUE</span>, <span class="dt">units=</span><span class="st">&quot;deg C&quot;</span>)
+fit2</code></pre></div>
+<pre><code>&gt; 
+&gt; fevd(x = TMX1, data = SEPTsp, scale.fun = ~STDTMAX, use.phi = TRUE, 
+&gt;     units = &quot;deg C&quot;)
+&gt; 
+&gt; [1] &quot;Estimation Method used: MLE&quot;
+&gt; 
+&gt; 
+&gt;  Negative Log-Likelihood Value:  134.2097 
+&gt; 
+&gt; 
+&gt;  Estimated parameters:
+&gt;   location       phi0       phi1      shape 
+&gt; 17.9456756  0.1571364  0.1642710 -0.2711867 
+&gt; 
+&gt;  Standard Error Estimates:
+&gt;  location      phi0      phi1     shape 
+&gt; 0.5550539 0.8065041 0.1364175 0.1449075 
+&gt; 
+&gt;  Estimated parameter covariance matrix.
+&gt;              location        phi0        phi1        shape
+&gt; location  0.308084780  0.18962312 -0.03166431  0.005770724
+&gt; phi0      0.189623117  0.65044887 -0.10889342  0.077211764
+&gt; phi1     -0.031664307 -0.10889342  0.01860975 -0.014410028
+&gt; shape     0.005770724  0.07721176 -0.01441003  0.020998181
+&gt; 
+&gt;  AIC = 276.4193 
+&gt; 
+&gt;  BIC = 284.1466</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(fit2)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-70"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-70-1.png" alt="Fit a GEV distribution with STDTMAX." width="672" />
+<p class="caption">
+Figure 24.5: Fit a GEV distribution with STDTMAX.
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lr.test</span>(fit0, fit2) <span class="co">#inclusion of STDTMAX in scale parameter is not significant</span></code></pre></div>
+<pre><code>&gt; 
+&gt;   Likelihood-ratio Test
+&gt; 
+&gt; data:  TMX1TMX1
+&gt; Likelihood-ratio = 1.3897, chi-square critical value = 3.8415,
+&gt; alpha = 0.0500, Degrees of Freedom = 1.0000, p-value = 0.2384
+&gt; alternative hypothesis: greater</code></pre>
 
+</div>
+</div>
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-Coles2001">
+<p>Coles, Stuart. 2001. <em>An Introduction to Statistical Modeling of Extreme Values</em>. Springer.</p>
+</div>
+<div id="ref-Smith1985">
+<p>Smith, Richard L. 1985. “Maximum Likelihood Estimation in a Class of Nonregular Cases.” <em>Biometrika</em> 72 (1): 67–90. doi:<a href="https://doi.org/10.2307/2336336 ">10.2307/2336336</a>.</p>
 </div>
 </div>
             </section>

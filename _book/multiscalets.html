@@ -8,7 +8,7 @@
   <title>통계공부와 관련된 글들</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
-  <meta name="generator" content="bookdown 0.0.74 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1 and GitBook 2.6.7">
 
   <meta property="og:title" content="통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-09-19">
+<meta name="date" content="2016-09-20">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -318,7 +318,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="24.4" data-path="uGEVtheory.html"><a href="uGEVtheory.html#--inference-in-extreme-value-statistics"><i class="fa fa-check"></i><b>24.4</b> 극단값 분포에서의 추론(inference in extreme value statistics)</a></li>
 <li class="chapter" data-level="24.5" data-path="uGEVtheory.html"><a href="uGEVtheory.html#--mle-in-extreme-value-statistics"><i class="fa fa-check"></i><b>24.5</b> 극단값 분포에서의 최대가능도추정(mle in extreme value statistics)</a></li>
 <li class="chapter" data-level="24.6" data-path="uGEVtheory.html"><a href="uGEVtheory.html#---profile-likelihood-in-extreme-value-statistics"><i class="fa fa-check"></i><b>24.6</b> 극단값 분포에서의 프로파일 가능도(profile likelihood in extreme value statistics)</a></li>
-<li class="chapter" data-level="24.7" data-path="uGEVtheory.html"><a href="uGEVtheory.html#gev----maximum-likelihood-estimation-application-to-gev-distribution"><i class="fa fa-check"></i><b>24.7</b> GEV 분포애서의 가능도 추정 (maximum likelihood estimation: application to GEV distribution)</a></li>
+<li class="chapter" data-level="24.7" data-path="uGEVtheory.html"><a href="uGEVtheory.html#r--r-uevtheory"><i class="fa fa-check"></i><b>24.7</b> R-예제 (r-uevtheory)</a></li>
 </ul></li>
 <li class="chapter" data-level="25" data-path="spatextremes.html"><a href="spatextremes.html"><i class="fa fa-check"></i><b>25</b> 공간 극단값 이론과 최대안정과정</a><ul>
 <li class="chapter" data-level="25.1" data-path="spatextremes.html"><a href="spatextremes.html#max-stable-process"><i class="fa fa-check"></i><b>25.1</b> 최대안정과정(max-stable process)</a><ul>
@@ -384,7 +384,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 E d_{jk}d_{j&#39;k&#39;}&amp;=&amp;\int \int_{\mathbb{R}^{2}}\gamma(t,s)\psi_{jk}(t)\psi_{j&#39;k&#39;}(s)dtds\\
 &amp;=&amp;\frac{1}{2 \pi}\int_{\mathbb{R}}\hat{\gamma}(\omega)\hat{\psi}(\frac{\omega}{2^{j}})\bar{\hat{\psi}}(\frac{\omega}{2^{j}})e^{-i\omega k 2^{-j}}e^{-i\omega k&#39; 2^{-j&#39;}}2^{-\frac{j}{2}}2^{-\frac{j&#39;}{2}}d\omega.\\
 \end{eqnarray*}
-<p>이다. 갑자기 notation들이 막 튀어나오는데 자세한 내용은 <span class="citation">(Zhang and Walter 1994)</span>를 참고하라.</p>
+<p>이다. 갑자기 notation들이 막 튀어나오는데 자세한 내용은 <span class="citation">(Zhang and Walter <a href="#ref-Zhang1994">1994</a>)</span>를 참고하라.</p>
 <div class="theorem">
 <p><span class="math inline">\(d_{jk}\)</span>와 <span class="math inline">\(d_{j&#39;k&#39;}\)</span>는</p>
 <ol style="list-style-type: decimal">
@@ -393,7 +393,7 @@ E d_{jk}d_{j&#39;k&#39;}&amp;=&amp;\int \int_{\mathbb{R}^{2}}\gamma(t,s)\psi_{jk
 <li><p><span class="math inline">\(j \neq j&#39;\)</span>일 경우 <span class="math inline">\(O(|j-j&#39;|^{-p})\)</span>의 correlation을 갖는다.</p></li>
 </ol>
 </div>
-<p><span class="citation">(Johnstone and Silverman 1997)</span>에서는 위 정리의 결과를 그대로 웨이블릿 축소에 가져왔다. 즉 각 level끼리 독립이므로 level별로 따로 임계화(thresholding)를 하는 방법을 생각한 것이다. 이 때 레벨 <span class="math inline">\(j\)</span>에서 <span class="math display">\[\hat{\lambda}_{j}=\sqrt{2\log n_{j}}\hat{\sigma}_{j} \text{ or } \hat{\lambda}_{j}=\min_{\lambda}\text{SURE}(\lambda_{j})\]</span> 를 이용한다. <span class="math inline">\(n_{j}\)</span>는 레벨 <span class="math inline">\(j\)</span>에서의 계수의 총 갯수이고, <span class="math inline">\(\hat{\sigma}_{j}\)</span>는 MAD로 계산한다.</p>
+<p><span class="citation">(Johnstone and Silverman <a href="#ref-Johnstone1997">1997</a>)</span>에서는 위 정리의 결과를 그대로 웨이블릿 축소에 가져왔다. 즉 각 level끼리 독립이므로 level별로 따로 임계화(thresholding)를 하는 방법을 생각한 것이다. 이 때 레벨 <span class="math inline">\(j\)</span>에서 <span class="math display">\[\hat{\lambda}_{j}=\sqrt{2\log n_{j}}\hat{\sigma}_{j} \text{ or } \hat{\lambda}_{j}=\min_{\lambda}\text{SURE}(\lambda_{j})\]</span> 를 이용한다. <span class="math inline">\(n_{j}\)</span>는 레벨 <span class="math inline">\(j\)</span>에서의 계수의 총 갯수이고, <span class="math inline">\(\hat{\sigma}_{j}\)</span>는 MAD로 계산한다.</p>
 <p>그러나 자료가 정상성이 아닐 경우 방법이 없다. 왜냐하면 비정상 시계열(nonstationary time series)은 너무 광범위한 개념이기 때문이다. 따라서 사람들은 비정상 시계열들 중 다루기 쉬운 일부를 제한해 그것을 분석한다. Evolutionary stationary process가 그 예이다.</p>
 </div>
 <div id="--spectral-representation-of-stationary-process" class="section level2">
@@ -409,7 +409,7 @@ E d_{jk}d_{j&#39;k&#39;}&amp;=&amp;\int \int_{\mathbb{R}^{2}}\gamma(t,s)\psi_{jk
 <li><p><span class="math inline">\(E|dZ(\omega)|^{2}=d H(\omega)=h(\omega), \forall \omega, \text{ where } H(\omega)=\int h(\omega)=\text{integrated spectrum of } X(t)\)</span>.</p></li>
 <li><p><span class="math inline">\(Cov(dZ(\omega), dZ(\omega&#39;))=0\)</span>. (직교증분과정)</p></li>
 </ol>
-<p><span class="citation">(G. Nason 2010)</span>에 의하면, 어떤 시계열 <span class="math inline">\(\{Z_{t} \}_{t\in \mathbb{Z}}\)</span>가 정상확률과정이라면 다음과 같이 표현할 수 있다고 한다. 즉 <span class="math inline">\(\sin\)</span>, <span class="math inline">\(\cos\)</span> basis function으로 expansion할 수 있는 것이다.</p>
+<p><span class="citation">(G. Nason <a href="#ref-Nason2010">2010</a>)</span>에 의하면, 어떤 시계열 <span class="math inline">\(\{Z_{t} \}_{t\in \mathbb{Z}}\)</span>가 정상확률과정이라면 다음과 같이 표현할 수 있다고 한다. 즉 <span class="math inline">\(\sin\)</span>, <span class="math inline">\(\cos\)</span> basis function으로 expansion할 수 있는 것이다.</p>
 \begin{equation}
 X_{t}=\int_{-\pi}^{\pi}A(\omega)e^{it\omega}d\xi(\omega)
 \end{equation}
@@ -417,7 +417,7 @@ X_{t}=\int_{-\pi}^{\pi}A(\omega)e^{it\omega}d\xi(\omega)
 <p><span class="math display">\[|A(\omega)|^{2}=\hat{h}(\omega): \text{ periodogram (point estimator but not consistent)}\]</span> <span class="math display">\[|\tilde{A}(\omega)|^{2}: \text{ smoothing시 consistent 해짐}\]</span></p>
 <div class="remark">
 <p><span class="math display">\[Cov(X(t), X(t+\tau))=\int_{-\infty}^{\infty}e^{it\omega}dH(\omega)\]</span> 이며, 여기서 <span class="math inline">\(Cov(X(t), X(t+\tau))\)</span>는 <span class="math inline">\(X(t)\)</span>의 공분산함수이며, <span class="math inline">\(dH(\omega)\)</span>는 <span class="math inline">\(X(t)\)</span>의 스펙트럼이고, 이들은 <span class="math inline">\(e^{it\omega}\)</span> 라는 푸리에변환을 통해 일대일변환(one-to-one transform)된다.</p>
-다음 내용은 <span class="citation">(Priestley 1981)</span> 및 <span class="citation">(Dahlhaus 1996)</span>에서 발췌한 내용이다. 비정상과정 <span class="math inline">\(X(t)\)</span>는 다음과 같이 간주할 수 있다. <span class="math display">\[\phi_{t}(\omega) \text{ instead of } e^{it\omega}\]</span>
+다음 내용은 <span class="citation">(Priestley <a href="#ref-Priestley1981">1981</a>)</span> 및 <span class="citation">(Dahlhaus <a href="#ref-Dahlhaus1996">1996</a>)</span>에서 발췌한 내용이다. 비정상과정 <span class="math inline">\(X(t)\)</span>는 다음과 같이 간주할 수 있다. <span class="math display">\[\phi_{t}(\omega) \text{ instead of } e^{it\omega}\]</span>
 \begin{eqnarray*}
 X(t)&amp;=&amp;\int \phi_{t}(\omega)dZ(\omega)=\int A(\omega)e^{it\omega}d\xi(\omega)\\
 &amp;=&amp;\int A_{t}(\omega)e^{i\theta(\omega)t}dZ(\omega) \Longrightarrow \text{ &quot;Oscillatory process&quot;}\\
@@ -431,7 +431,7 @@ X(t)&amp;=&amp;\int \phi_{t}(\omega)dZ(\omega)=\int A(\omega)e^{it\omega}d\xi(\o
 <div id="----non-decimated-discrete-wavelets" class="section level2">
 <h2><span class="header-section-number">9.4</span> 압축 표본화되지 않은 이산 웨이블릿(non-decimated discrete wavelets)</h2>
 <p>일반적인 웨이블릿은 시계열 자료를 다루기에는 information이 너무 작아지는 경향이 있는데, <strong>압축 표본화되지 않은 웨이블릿(non-decimated wavelets)</strong>은 그렇지 않아 temporal resolution에 좋다고 한다.</p>
-<p><span class="citation">(G. P. Nason, Sachs, and Kroisandt 2000)</span>은 <strong>컴팩트 지지 웨이블릿(compactly supported wavelets)</strong>이라는 것을 만들었다. <span class="math inline">\(\psi_{j}=(\psi_{j,0},\ldots,\psi_{j,N_{j}-1})\)</span>를 길이가 <span class="math inline">\(N_{j}\)</span> (<span class="math inline">\(j\)</span>는 scale)인 웨이블릿의 수열 값이라고 하자. 그러면 <span class="math display">\[\psi_{-1,n}=\sum_{k}g_{n-2k}\delta_{0,k}=g_{n},\qquad{n=0,\ldots, N_{-1}-1},\]</span> <span class="math display">\[\psi_{j-1,n}=\sum_{k}h_{n-2k}\psi_{j,k},\qquad{n=0,\ldots, N_{-1}-1},\]</span> <span class="math display">\[N_{j}=(2^{-j}-1)(N_{h}-1)+1,\]</span> 여기서 <span class="math inline">\(\delta_{0,k}\)</span>는 크로네커 델타(Kronecker delta)이며 <span class="math inline">\(N_{h}\)</span>는 <span class="math inline">\(\{h_{k}\}\)</span>의 0이 아닌 원소들의 수이다.</p>
+<p><span class="citation">(G. P. Nason, Sachs, and Kroisandt <a href="#ref-Nason2000">2000</a>)</span>은 <strong>컴팩트 지지 웨이블릿(compactly supported wavelets)</strong>이라는 것을 만들었다. <span class="math inline">\(\psi_{j}=(\psi_{j,0},\ldots,\psi_{j,N_{j}-1})\)</span>를 길이가 <span class="math inline">\(N_{j}\)</span> (<span class="math inline">\(j\)</span>는 scale)인 웨이블릿의 수열 값이라고 하자. 그러면 <span class="math display">\[\psi_{-1,n}=\sum_{k}g_{n-2k}\delta_{0,k}=g_{n},\qquad{n=0,\ldots, N_{-1}-1},\]</span> <span class="math display">\[\psi_{j-1,n}=\sum_{k}h_{n-2k}\psi_{j,k},\qquad{n=0,\ldots, N_{-1}-1},\]</span> <span class="math display">\[N_{j}=(2^{-j}-1)(N_{h}-1)+1,\]</span> 여기서 <span class="math inline">\(\delta_{0,k}\)</span>는 크로네커 델타(Kronecker delta)이며 <span class="math inline">\(N_{h}\)</span>는 <span class="math inline">\(\{h_{k}\}\)</span>의 0이 아닌 원소들의 수이다.</p>
 <div class="example">
 <p>이산 Haar 웨이블릿의 경우 <span class="math display">\[\psi_{-1}=(g_{0},g_{1})=(1,-1)/\sqrt{2},\]</span> <span class="math display">\[\psi_{-2}=(h_{0}g_{0},h_{1}g_{0},h_{0}g_{1},h_{1}g_{1})=(1,1,-1,-1)/2\]</span> 이다.</p>
 </div>
@@ -439,6 +439,27 @@ X(t)&amp;=&amp;\int \phi_{t}(\omega)dZ(\omega)=\int A(\omega)e^{it\omega}d\xi(\o
 <div id="---locally-stationary-wavelet-process" class="section level2">
 <h2><span class="header-section-number">9.5</span> 국소 정상 웨이블릿 과정(locally stationary wavelet process)</h2>
 
+</div>
+</div>
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-Zhang1994">
+<p>Zhang, Jun, and Gilbert Walter. 1994. “A Wavelet-Based KL-Like Expansion for Wide-Sense Stationary Random Processes.” <em>IEEE Transactions on Signal Processing</em> 42 (7): 1737–45. doi:<a href="https://doi.org/10.1109/78.298281">10.1109/78.298281</a>.</p>
+</div>
+<div id="ref-Johnstone1997">
+<p>Johnstone, Iain M., and Bernard W. Silverman. 1997. “Wavelet Threshold Estimators for Data with Correlated Noise.” <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 59 (2): 319–51. doi:<a href="https://doi.org/10.1111/1467-9868.00071">10.1111/1467-9868.00071</a>.</p>
+</div>
+<div id="ref-Nason2010">
+<p>Nason, Guy. 2010. <em>Wavelet Methods in Statistics with R</em>. 2nd ed. Spring Street, New York: Springer Science &amp; Business Media.</p>
+</div>
+<div id="ref-Priestley1981">
+<p>Priestley, Maurice Bertram. 1981. <em>Spectral Analysis and Time Series</em>. Academic Press.</p>
+</div>
+<div id="ref-Dahlhaus1996">
+<p>Dahlhaus, R. 1996. “On the Kullback-Leibler Information Divergence of Locally Stationary Processes.” <em>Stochastic Processes and Their Applications</em> 62 (1): 139–68. doi:<a href="https://doi.org/10.1016/0304-4149(95)00090-9">10.1016/0304-4149(95)00090-9</a>.</p>
+</div>
+<div id="ref-Nason2000">
+<p>Nason, G. P., R. Von Sachs, and G. Kroisandt. 2000. “Wavelet Processes and Adaptive Estimation of the Evolutionary Wavelet Spectrum.” <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 62 (2): 271–92. doi:<a href="https://doi.org/10.1111/1467-9868.00231">10.1111/1467-9868.00231</a>.</p>
 </div>
 </div>
             </section>

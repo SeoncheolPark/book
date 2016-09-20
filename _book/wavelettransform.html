@@ -8,7 +8,7 @@
   <title>통계공부와 관련된 글들</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
-  <meta name="generator" content="bookdown 0.0.74 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1 and GitBook 2.6.7">
 
   <meta property="og:title" content="통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-09-19">
+<meta name="date" content="2016-09-20">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -318,7 +318,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="24.4" data-path="uGEVtheory.html"><a href="uGEVtheory.html#--inference-in-extreme-value-statistics"><i class="fa fa-check"></i><b>24.4</b> 극단값 분포에서의 추론(inference in extreme value statistics)</a></li>
 <li class="chapter" data-level="24.5" data-path="uGEVtheory.html"><a href="uGEVtheory.html#--mle-in-extreme-value-statistics"><i class="fa fa-check"></i><b>24.5</b> 극단값 분포에서의 최대가능도추정(mle in extreme value statistics)</a></li>
 <li class="chapter" data-level="24.6" data-path="uGEVtheory.html"><a href="uGEVtheory.html#---profile-likelihood-in-extreme-value-statistics"><i class="fa fa-check"></i><b>24.6</b> 극단값 분포에서의 프로파일 가능도(profile likelihood in extreme value statistics)</a></li>
-<li class="chapter" data-level="24.7" data-path="uGEVtheory.html"><a href="uGEVtheory.html#gev----maximum-likelihood-estimation-application-to-gev-distribution"><i class="fa fa-check"></i><b>24.7</b> GEV 분포애서의 가능도 추정 (maximum likelihood estimation: application to GEV distribution)</a></li>
+<li class="chapter" data-level="24.7" data-path="uGEVtheory.html"><a href="uGEVtheory.html#r--r-uevtheory"><i class="fa fa-check"></i><b>24.7</b> R-예제 (r-uevtheory)</a></li>
 </ul></li>
 <li class="chapter" data-level="25" data-path="spatextremes.html"><a href="spatextremes.html"><i class="fa fa-check"></i><b>25</b> 공간 극단값 이론과 최대안정과정</a><ul>
 <li class="chapter" data-level="25.1" data-path="spatextremes.html"><a href="spatextremes.html#max-stable-process"><i class="fa fa-check"></i><b>25.1</b> 최대안정과정(max-stable process)</a><ul>
@@ -396,7 +396,7 @@ W =
  \frac{\sqrt{2}}{4} &amp; \frac{\sqrt{2}}{4} &amp; \frac{\sqrt{2}}{4} &amp; \frac{\sqrt{2}}{4} &amp; -\frac{\sqrt{2}}{4} &amp; -\frac{\sqrt{2}}{4} &amp; -\frac{\sqrt{2}}{4} &amp; -\frac{\sqrt{2}}{4}\\
 \end{bmatrix}
 \]</span></p>
-<p><span class="math inline">\(\mathbf{d}=(\frac{21\sqrt{2}}{2},0,-\sqrt{2},-3\sqrt{2},\sqrt{2},-7,-2,\frac{3\sqrt{2}}{2})\)</span>를 얻을 수 있다. (이 예제에서는 <span class="citation">(G. Nason 2010)</span>의 정의를 따라갔다.)</p>
+<p><span class="math inline">\(\mathbf{d}=(\frac{21\sqrt{2}}{2},0,-\sqrt{2},-3\sqrt{2},\sqrt{2},-7,-2,\frac{3\sqrt{2}}{2})\)</span>를 얻을 수 있다. (이 예제에서는 <span class="citation">(G. Nason <a href="#ref-Nason2010">2010</a>)</span>의 정의를 따라갔다.)</p>
 </div>
 <p>위 예제의 <span class="math inline">\(W\)</span>처럼 Haar 웨이블릿의 <span class="math inline">\(W\)</span>는 <strong>정규직교(orthonormal)</strong>라는 성질을 갖는데, 정규직교의 의미는 <span class="math inline">\(W^{T}W=\mathbf{I}\)</span>이다. 그러나 모든 웨이블릿의 <span class="math inline">\(W\)</span>가 정규직교인 것은 아니다. 그리고 <span class="math display">\[\| \mathbf{d} \|^{2}=\mathbf{d}^{T}\mathbf{d}=(W\mathbf{y})^{T}(W\mathbf{y})=\mathbf{y}^{T}W^{T}W\mathbf{y}=\| \mathbf{y} \|^{2}\]</span> 이 식은 <strong>Parseval 등식(Parseval’s identity)</strong>에 대응된다.</p>
 <p>정규직교인 웨이블릿의 <span class="math inline">\(W\)</span>은 다음과 같은 장점을 갖는다. 다음과 같이 원래 자료와 추정량에 대한 공식이 다음과 같이 주어졌을 때, <span class="math display">\[y=f+\epsilon, \epsilon \sim (\cdot, \sigma^{2}I) \rightarrow d=\theta +e, Wy=d, Wf=\theta, W\epsilon=e\]</span> 정규직교인 <span class="math inline">\(W\)</span>이면 <span class="math display">\[Var(W\epsilon)=WVar(\epsilon)W^{T}=\sigma^{2}I=Var(\epsilon)\]</span> 이다. 즉 원래 자료와 추정량의 분산 구조가 같다.</p>
@@ -552,6 +552,12 @@ Figure 6.8: Meyer scaling function on frequency domain.
 </div>
 
 </div>
+</div>
+</div>
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-Nason2010">
+<p>Nason, Guy. 2010. <em>Wavelet Methods in Statistics with R</em>. 2nd ed. Spring Street, New York: Springer Science &amp; Business Media.</p>
 </div>
 </div>
             </section>

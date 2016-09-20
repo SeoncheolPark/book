@@ -8,7 +8,7 @@
   <title>통계공부와 관련된 글들</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
-  <meta name="generator" content="bookdown 0.0.74 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1 and GitBook 2.6.7">
 
   <meta property="og:title" content="통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-09-19">
+<meta name="date" content="2016-09-20">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -318,7 +318,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="24.4" data-path="uGEVtheory.html"><a href="uGEVtheory.html#--inference-in-extreme-value-statistics"><i class="fa fa-check"></i><b>24.4</b> 극단값 분포에서의 추론(inference in extreme value statistics)</a></li>
 <li class="chapter" data-level="24.5" data-path="uGEVtheory.html"><a href="uGEVtheory.html#--mle-in-extreme-value-statistics"><i class="fa fa-check"></i><b>24.5</b> 극단값 분포에서의 최대가능도추정(mle in extreme value statistics)</a></li>
 <li class="chapter" data-level="24.6" data-path="uGEVtheory.html"><a href="uGEVtheory.html#---profile-likelihood-in-extreme-value-statistics"><i class="fa fa-check"></i><b>24.6</b> 극단값 분포에서의 프로파일 가능도(profile likelihood in extreme value statistics)</a></li>
-<li class="chapter" data-level="24.7" data-path="uGEVtheory.html"><a href="uGEVtheory.html#gev----maximum-likelihood-estimation-application-to-gev-distribution"><i class="fa fa-check"></i><b>24.7</b> GEV 분포애서의 가능도 추정 (maximum likelihood estimation: application to GEV distribution)</a></li>
+<li class="chapter" data-level="24.7" data-path="uGEVtheory.html"><a href="uGEVtheory.html#r--r-uevtheory"><i class="fa fa-check"></i><b>24.7</b> R-예제 (r-uevtheory)</a></li>
 </ul></li>
 <li class="chapter" data-level="25" data-path="spatextremes.html"><a href="spatextremes.html"><i class="fa fa-check"></i><b>25</b> 공간 극단값 이론과 최대안정과정</a><ul>
 <li class="chapter" data-level="25.1" data-path="spatextremes.html"><a href="spatextremes.html#max-stable-process"><i class="fa fa-check"></i><b>25.1</b> 최대안정과정(max-stable process)</a><ul>
@@ -415,7 +415,7 @@ G(y)=P(Y\leq y)&amp;\approx &amp; 1-(1-\pi y^{2}|A|^{-1})^{n-1}\\
 <p>다음의 방법들이 있다.</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(u_{i}=\int (\hat{G}_{c}(y)-G(y))^{2}dy\)</span>를 이용하는 것이다. 이 때 <span class="math inline">\(G\)</span> 대신 <span class="math inline">\(\bar{G}\)</span>를 넣어도 된다.</p></li>
-<li><p><span class="citation">(Clark and Evans 1954)</span> <span class="math inline">\(\bar{y}=\frac{1}{n}\sum y_{i}\)</span>로 놓는다. 이 경우에 <span class="math inline">\(\bar{y}\)</span>는 근사적으로 정규분포를 따르며 <span class="math display">\[E(\bar{y})=0.5(n^{-1}|A|)^{\frac{1}{2}} + (0.051 + 0.042 n^{-\frac{1}{2}})n^{-1}P\]</span> <span class="math display">\[\text{Var}(\bar{y})=0.070n^{-2}|A| + 0.037(n^{-5}|A|)^{\frac{1}{2}}P\]</span> 이다. 이 때 <span class="math inline">\(P\)</span>는 <span class="math inline">\(A\)</span>의 둘레의 길이다.</p></li>
+<li><p><span class="citation">(Clark and Evans <a href="#ref-Clark1954">1954</a>)</span> <span class="math inline">\(\bar{y}=\frac{1}{n}\sum y_{i}\)</span>로 놓는다. 이 경우에 <span class="math inline">\(\bar{y}\)</span>는 근사적으로 정규분포를 따르며 <span class="math display">\[E(\bar{y})=0.5(n^{-1}|A|)^{\frac{1}{2}} + (0.051 + 0.042 n^{-\frac{1}{2}})n^{-1}P\]</span> <span class="math display">\[\text{Var}(\bar{y})=0.070n^{-2}|A| + 0.037(n^{-5}|A|)^{\frac{1}{2}}P\]</span> 이다. 이 때 <span class="math inline">\(P\)</span>는 <span class="math inline">\(A\)</span>의 둘레의 길이다.</p></li>
 <li><p>(Point-to-nearest event distance) <span class="math inline">\(X\)</span>를 <span class="math inline">\(A\)</span> 안에 있는 어떤 점에서 <span class="math inline">\(n\)</span>개의 사건들 중 가장 가까운 사건과의 거리라고 하자. 또 <span class="math inline">\(x_{i}, i=1,\ldots ,m\)</span>을 <span class="math inline">\(A\)</span>의 <span class="math inline">\(i\)</span>번째 점에서 <span class="math inline">\(n\)</span>개의 사건들 중 가장 가까운 사건과의 거리라고 하자. 그러면 <span class="math display">\[F(x)=P(X\leq x) \approx 1 - e^{-\lambda \pi x^{2}}, \qquad{x \geq 0, \lambda = \frac{n}{|A|}}\]</span> <span class="math display">\[\hat{F}_{1}(x)=\frac{1}{m}\sum I(x_{i}\leq x)\]</span> 그 다음에는 앞게 비슷하게 EDF 그림을 그려보거나 <span class="math inline">\(u_{1}=\int (\hat{F}_{1}(x)-\bar{F}_{1}(x))^{2}dx\)</span>등으로 검정 가능하다.</p></li>
 <li><p>정방구역 계산(quadrat count)</p></li>
 </ol>
@@ -455,6 +455,12 @@ Figure 19.2: EDF plot.
 </p>
 </div>
 
+</div>
+</div>
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-Clark1954">
+<p>Clark, Philip J., and Francis C. Evans. 1954. “Distance to Nearest Neighbor as a Measure of Spatial Relationships in Populations.” <em>Ecology</em> 35 (4): 445–53. doi:<a href="https://doi.org/10.2307/1931034">10.2307/1931034</a>.</p>
 </div>
 </div>
             </section>
