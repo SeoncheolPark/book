@@ -1,0 +1,57 @@
+# 점과정 {#pointprocess}
+
+자료가 CSR에 해당되면 $\lambda$를 잘 묘사하는 것으로 끝나지만 만약 자료가 CSR이 아니라면 **점과정(point process)**으로 모델링하게 된다.
+
+## 점과정의 정의(definition of point processes)
+
+점과정을 정의하기 위해 몇 가지 개념들을 정리한다.
+
+- $X$를 공간(space) $S$ 안에 있는 점들의 점과정
+
+- $S$는 $d(\cdot, \cdot)$이라는 거리(metric)를 갖는 거리 공간(metric space). 일반적으로는 $S\subseteq \mathbb{R}^{d}$인 공간을 생각한다.
+
+- $x$: $X$의 실현(realization, finite), $x=\{\zeta, \eta, \delta, \ldots \}$.
+
+- $x_{B}=x\cap B, B\subseteq S \qquad{\text{B 안에 있는 점들만 보겠다}}$
+
+- $n(x_{B})=\sharp \text{ of } x, x\cap B$
+
+- $N(B)$: count 함수 = $n(X_{B})$ (확률변수임)
+
+- $x\cup \xi \Longleftarrow x \cup \{ \xi\}$ (괄호생략, $\xi$는 어떤 pt)
+
+- $x \backslash \xi \Longleftarrow x \backslash \{\xi\}$ (괄호생략)
+
+- $N_{lf}=\{ x\subseteq S: n(x_{B})<\infty, B \stackrel{\text{bdd}}{\subset}S\}$: locally finite point configuration
+
+점과정을 정의하기 전에 먼저 확률변수의 정의를 다시 생각해보자. 확률변수를 한 마디로 말하면 **가측함수(measurable function)**이다. $X$가 확률변수라면
+$$X: \Omega \longrightarrow \mathbb{R}$$
+이며 이때 $\Omega$는 $(\Omega, \mathcal{F}, P)$인 확률공간이며 $\mathbb{R}$ 또한 보렐 시그마-체 $\mathcal{B}$를 갖는다$(\mathbb{R}, \mathcal{B})$. $\mathbb{R}$의 가측 집합을 $X$를 통해 $\Omega$쪽으로 보내도 가측이어야 한다.
+
+그러면 이제 점과정 $X$를 정의해보자. $X$는
+$$X: \Omega \longrightarrow N_{lf}$$
+로 확률공간은 $(\Omega, \mathcal{F}, P)$이며 $N_{lf}$ 또한 보렐 시그마-체 $\mathcal{N}_{lf}$를 갖아 $(N_{lf}, \mathcal{N}_{lf})$가 된다. $\mathcal{N}_{lf}$은 $S$에서의 시그마-체이며
+$$\mathcal{N}_{lf}=\sigma (\{ \{ x \in N_{lf}, n(x_{B})=m \{ m \in \mathbb{N}_{0}, B\in\mathcal{B}_{0}\} \} \})$$
+로 정의되며 $\mathbb{N}_{0}$는 set of nonnegative integer, $\mathcal{B}_{0}$는 class of bounded Borel sets in $S$이다.
+
+마지막으로 $X$의 분포함수 $P_{X}$는
+$$P_{X}(F)=P(\{ \omega \in l : X(\omega) \in \mathcal{F}\}) \qquad{\text{where } \mathcal{F} \in \mathcal{N}_{lf}}$$
+이다.
+
+<div class="remark">
+
+1. $X$의 가측성(measurability) $\Longleftrightarrow$ $N(B)$가 모든 $B\in\mathcal{B}_{0}$에서 확률변수 인 것(확률론에 의해 $\mathcal{B}_{0}$을 $\mathcal{B}$로 확장할 수 있다)
+
+2. $X$의 분포는 **가산함수(count function)들의 유한한 분포** $(N(B_{1}), \ldots , N(B_{m}))$로 결정된다. 즉 가산함수들만 잘 알면 $X$의 정보를 모두 알 수 있다.
+
+3. $\mathcal{N}_{lf}^{0}\equiv\{ \{ x\in N_{lf}, n(x_{B})=0 \} ; B \in \mathcal{B}_{0}\}$
+
+4. **빈 확률(void probability)**: 빈 확률 $v(B)$는
+$$v(B)=P(N(B)=0), B\in\mathcal{B}_{0}$$
+으로 정의된다. 빈 확률과 관련된 가장 중요한 성질은 점과정은 그것의 빈 확률로 **유일하게 정의된다**(분포가 같다는 의미). 포아송 점과정일 경우 $N(B)$는 결국 포아송분포(Poisson distribution)가 된다.
+
+5. 생성범함수(generating functional) $G_{X}(u)$는
+$$G_{X}(u)=E[\prod_{\xi \in X}u(\xi)]$$
+로 정의되면 여기서 함수 $u$는 $u:S\longrightarrow [0,1]$이며 $\xi$는 $\{ \xi in S, u(xi)\leq 1 \}$로 유계(bounded)이다. 생성범함수는 $X$의 분포를 유일하게 결정한다. 예를 들어 $u(\xi)=t^{I_{\{\xi \in B\} }}$이고 $B\in \mathcal{B}_{0}, 0 \leq t \leq 1$이면 $G_{X}(u)=E t^{N(B)}$다.
+
+</div>
