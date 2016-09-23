@@ -332,7 +332,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="25.7" data-path="uGEVtheory.html"><a href="uGEVtheory.html#r--r-uevtheory"><i class="fa fa-check"></i><b>25.7</b> R-예제 (r-uevtheory)</a></li>
 </ul></li>
 <li class="chapter" data-level="26" data-path="pot.html"><a href="pot.html"><i class="fa fa-check"></i><b>26</b> 분계점 방법들</a><ul>
-<li class="chapter" data-level="26.1" data-path="pot.html"><a href="pot.html#asymptotic-model-specification-generalized-pareto-distribution"><i class="fa fa-check"></i><b>26.1</b> Asymptotic model specification: generalized pareto distribution</a></li>
+<li class="chapter" data-level="26.1" data-path="pot.html"><a href="pot.html#--generalized-pareto-distribution"><i class="fa fa-check"></i><b>26.1</b> 일반화 파레토 분포(generalized pareto distribution)</a></li>
+<li class="chapter" data-level="26.2" data-path="pot.html"><a href="pot.html#r-r-pot"><i class="fa fa-check"></i><b>26.2</b> R-예제(r-pot)</a></li>
 </ul></li>
 <li class="chapter" data-level="27" data-path="spatextremes.html"><a href="spatextremes.html"><i class="fa fa-check"></i><b>27</b> 공간 극단값 이론과 최대안정과정</a><ul>
 <li class="chapter" data-level="27.1" data-path="spatextremes.html"><a href="spatextremes.html#max-stable-process"><i class="fa fa-check"></i><b>27.1</b> 최대안정과정(max-stable process)</a><ul>
@@ -368,9 +369,94 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">Chapter 26</span> 분계점 방법들</h1>
 <p>지금까지는 블록 최대값으로 모델링하는 방법에 대해 생각해보았다. 그러나 이 방법은 데이터를 낭비한다고도 볼 수 있고, 모든 최대값이 진짜로 극단값인지에 대한 의문이 들게 된다. 즉 어떤 블록의 최대값이 아닌 값들이 다른 블록들의 최대값보다 훨씬 크지만 극단값으로 뽑히지 않는 상황이 발생하게 된다. 만약 시간별 또는 일별 관측값과 같은 상세한 시계열 자료를 얻을 수 있다면 블록화 하는 방법 이외에 다른 방법들 또한 고려해 볼 수 있을 것이다.</p>
 <p><span class="math inline">\(X_{1},X_{2},\ldots\)</span>를 독립적이며 같은 분포를 따르며 분포함수 <span class="math inline">\(F\)</span>를 갖는 확률변수들의 수열이라고 하자. 여기서 분계 <span class="math inline">\(u\)</span>를 초과하는 <span class="math inline">\(X_{i}\)</span>값들을 극단 사건(extreme event)라고 생각할 수 있다. <span class="math inline">\(F\)</span>가 알려져 있는 분포라고 한다면 <span class="math display">\[P\{X&gt;u+y|X&gt;u\}=\frac{1-F(x+y)}{1-F(u)}, y&gt;0\]</span> 이 성립한다.</p>
-<div id="asymptotic-model-specification-generalized-pareto-distribution" class="section level2">
-<h2><span class="header-section-number">26.1</span> Asymptotic model specification: generalized pareto distribution</h2>
-<p><span class="math inline">\(X_{1},X_{2},\ldots\)</span>이 분포함수 <span class="math inline">\(F\)</span>를 갖는 독립인 확률변수의 수열이라고 하자. 그리고 <span class="math display">\[M_{n}=\max\{X_{1},\ldots,X_{n}\}\]</span> 을 정의한다. <span class="math inline">\(F\)</span>가 극단 종류 정리를 만족한다면 충분히 큰 <span class="math inline">\(n\)</span>에 대해 <span class="math display">\[P\{M_{n}\leq z\}\approx G(z)\]</span> 이 성립한다. 이때 <span class="math display">\[G(z)=\exp\{-[1+\xi(\frac{z-\mu}{\sigma})]^{-1/\xi}\}\]</span> 이며 여기서 <span class="math inline">\(\mu, sigma&gt;0\)</span>이다. 그리고 충분히 큰 <span class="math inline">\(u\)</span>에 대해 <span class="math inline">\(X&gt;u\)</span>일 때 <span class="math inline">\((X-u)\)</span>의 분포함수는 <span class="math display">\[H(y)=1-(1+\frac{\xi y}{\tilde{sigma}})^{-1/\xi}\]</span></p>
+<div id="--generalized-pareto-distribution" class="section level2">
+<h2><span class="header-section-number">26.1</span> 일반화 파레토 분포(generalized pareto distribution)</h2>
+<p>주된 결과는 다음 정리에 포함되어 있다.</p>
+<div class="theorem">
+<span class="math inline">\(X_{1},X_{2},\ldots\)</span>이 분포함수 <span class="math inline">\(F\)</span>를 갖는 독립인 확률변수의 수열이라고 하자. 그리고 <span class="math display">\[M_{n}=\max\{X_{1},\ldots,X_{n}\}\]</span> 을 정의한다. <span class="math inline">\(F\)</span>가 극단 종류 정리를 만족한다면 충분히 큰 <span class="math inline">\(n\)</span>에 대해 <span class="math display">\[P\{M_{n}\leq z\}\approx G(z)\]</span> 이 성립한다. 이때 <span class="math display">\[G(z)=\exp\{-[1+\xi(\frac{z-\mu}{\sigma})]^{-1/\xi}\}\]</span> 이며 여기서 <span class="math inline">\(\mu, sigma&gt;0\)</span>이다. 그리고 충분히 큰 <span class="math inline">\(u\)</span>에 대해 <span class="math inline">\(X&gt;u\)</span>일 때 <span class="math inline">\((X-u)\)</span>의 분포함수는
+\begin{equation}
+H(y)=1-(1+\frac{\xi y}{\tilde{\sigma}})^{-1/\xi}
+\end{equation}
+로 근사할 수 있다. 이 때 <span class="math inline">\(\{ y: y &gt; 0 \text{ and } (1+\xi y / \tilde{\sigma}) &gt;0 \}\)</span>이며
+\begin{equation}
+\tilde{\sigma}=\sigma + \xi (x-\mu)
+\end{equation}
+<p>이다.</p>
+</div>
+</div>
+<div id="r-r-pot" class="section level2">
+<h2><span class="header-section-number">26.2</span> R-예제(r-pot)</h2>
+<p>R 패키지 <code>extRemes</code>의 vignette를 참고하였다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(damage)
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))
+<span class="kw">plot</span>(damage$Year, damage$Dam, <span class="dt">xlab =</span> <span class="st">&quot;Year&quot;</span>,<span class="dt">ylab =</span> <span class="st">&quot;U.S. Hurricane Damage (billion USD)&quot;</span>)
+<span class="kw">plot</span>(damage[,<span class="st">&quot;Year&quot;</span>], <span class="kw">log</span>(damage[,<span class="st">&quot;Dam&quot;</span>]), <span class="dt">xlab =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;ln(Damage)&quot;</span>)
+<span class="kw">qqnorm</span>(<span class="kw">log</span>(damage[,<span class="st">&quot;Dam&quot;</span>]), <span class="dt">ylim =</span> <span class="kw">c</span>(-<span class="dv">10</span>, <span class="dv">5</span>))</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-75"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-75-1.png" alt="Hurricane damage data." width="672" />
+<p class="caption">
+Figure 26.1: Hurricane damage data.
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">threshrange.plot</span>(damage$Dam, <span class="dt">r=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">15</span>), <span class="dt">nint=</span><span class="dv">20</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-76"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-76-1.png" alt="Thresh range plot of hurricane damage data." width="672" />
+<p class="caption">
+Figure 26.2: Thresh range plot of hurricane damage data.
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))
+<span class="kw">mrlplot</span>(damage$Dam, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">12</span>))</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-77"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-77-1.png" alt="Mean residual life plot of hurricane damage data." width="672" />
+<p class="caption">
+Figure 26.3: Mean residual life plot of hurricane damage data.
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">range</span>(damage$Year)</code></pre></div>
+<pre><code>&gt; [1] 1926 1995</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1995</span> -<span class="st"> </span><span class="dv">1926</span> +<span class="st"> </span><span class="dv">1</span></code></pre></div>
+<pre><code>&gt; [1] 70</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(damage)</code></pre></div>
+<pre><code>&gt; [1] 144   3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">144</span> /<span class="st"> </span><span class="dv">70</span></code></pre></div>
+<pre><code>&gt; [1] 2.057143</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fitD &lt;-<span class="st"> </span><span class="kw">fevd</span>(Dam, damage, <span class="dt">threshold =</span> <span class="dv">6</span>, <span class="dt">type =</span> <span class="st">&quot;GP&quot;</span>, <span class="dt">time.units =</span> <span class="st">&quot;2.06/year&quot;</span>)
+fitD</code></pre></div>
+<pre><code>&gt; 
+&gt; fevd(x = Dam, data = damage, threshold = 6, type = &quot;GP&quot;, time.units = &quot;2.06/year&quot;)
+&gt; 
+&gt; [1] &quot;Estimation Method used: MLE&quot;
+&gt; 
+&gt; 
+&gt;  Negative Log-Likelihood Value:  54.64843 
+&gt; 
+&gt; 
+&gt;  Estimated parameters:
+&gt;     scale     shape 
+&gt; 4.5889338 0.5123431 
+&gt; 
+&gt;  Standard Error Estimates:
+&gt;     scale     shape 
+&gt; 1.8173097 0.3403828 
+&gt; 
+&gt;  Estimated parameter covariance matrix.
+&gt;            scale      shape
+&gt; scale  3.3026145 -0.3341491
+&gt; shape -0.3341491  0.1158605
+&gt; 
+&gt;  AIC = 113.2969 
+&gt; 
+&gt;  BIC = 115.0776</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(fitD)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-78"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-78-1.png" alt="GPD estimation result." width="672" />
+<p class="caption">
+Figure 26.4: GPD estimation result.
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pextRemes</span>(fitD, <span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">40</span>, <span class="dv">60</span>, <span class="dv">100</span>), <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<pre><code>&gt; [1] 0.159285373 0.046886265 0.022234267 0.008513151</code></pre>
 
 </div>
 </div>

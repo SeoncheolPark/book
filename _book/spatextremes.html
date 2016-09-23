@@ -332,7 +332,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="25.7" data-path="uGEVtheory.html"><a href="uGEVtheory.html#r--r-uevtheory"><i class="fa fa-check"></i><b>25.7</b> R-예제 (r-uevtheory)</a></li>
 </ul></li>
 <li class="chapter" data-level="26" data-path="pot.html"><a href="pot.html"><i class="fa fa-check"></i><b>26</b> 분계점 방법들</a><ul>
-<li class="chapter" data-level="26.1" data-path="pot.html"><a href="pot.html#asymptotic-model-specification-generalized-pareto-distribution"><i class="fa fa-check"></i><b>26.1</b> Asymptotic model specification: generalized pareto distribution</a></li>
+<li class="chapter" data-level="26.1" data-path="pot.html"><a href="pot.html#--generalized-pareto-distribution"><i class="fa fa-check"></i><b>26.1</b> 일반화 파레토 분포(generalized pareto distribution)</a></li>
+<li class="chapter" data-level="26.2" data-path="pot.html"><a href="pot.html#r-r-pot"><i class="fa fa-check"></i><b>26.2</b> R-예제(r-pot)</a></li>
 </ul></li>
 <li class="chapter" data-level="27" data-path="spatextremes.html"><a href="spatextremes.html"><i class="fa fa-check"></i><b>27</b> 공간 극단값 이론과 최대안정과정</a><ul>
 <li class="chapter" data-level="27.1" data-path="spatextremes.html"><a href="spatextremes.html#max-stable-process"><i class="fa fa-check"></i><b>27.1</b> 최대안정과정(max-stable process)</a><ul>
@@ -406,7 +407,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 \end{equation}
 <p>를 만족한다.</p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-75"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-80"></span>
 <img src="images/spatextremes_002.png" alt="de Haans characterization." width="166" />
 <p class="caption">
 Figure 27.1: de Haans characterization.
@@ -416,7 +417,7 @@ Figure 27.1: de Haans characterization.
 <div class="theorem">
 <p>(<span class="citation">(Schlather <a href="#ref-Schlather2002">2002</a>)</span>의 characterization) <span class="math inline">\(\{ (\xi_{i}, U_{i})\}_{i \geq 1}\)</span>이 <span class="math inline">\((0,\infty ]\)</span>에서 intensity <span class="math inline">\(d \Lambda (\xi)=\xi^{-2}d\xi\)</span>를 갖는 <strong>Poisson point process</strong>의 점들이고 <span class="math inline">\(Y_{1},Y_{2},\ldots\)</span>를 <span class="math inline">\(E[Y(x)]=1, \forall x \in \mathbb{R}^{d}\)</span> 이고 non-negative continous sample path stochastic process <span class="math inline">\(\{ Y(x)\}\)</span>의 independent copy들이라고 하자. 이때 <span class="math inline">\(Y_{i}\)</span>들은 <span class="math inline">\(\{ \xi_{i}\}_{i \geq 1}\)</span>와 독립이다. 그러면 <span class="math display">\[ \{ Z(x)\}_{x\in\mathbb{R}^{d}}:=\{\max_{i\geq 1} \xi_{i}Y_{i}(x) \}_{x\in \mathbb{R}^{d}}\]</span> 는 unit Fréchet margin을 가지는 최대안정과정이다.</p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-76"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-81"></span>
 <img src="images/spatextremes_004.png" alt="Schlathers characterization" width="164" />
 <p class="caption">
 Figure 27.2: Schlathers characterization
@@ -430,8 +431,8 @@ Figure 27.2: Schlathers characterization
 Z(x)=\max_{i\geq 1}\xi_{i}\phi(x-U_{i};\mathbf{0},\Sigma), x\in\mathcal{X},
 \end{equation}
 <p>이때 <span class="math inline">\(\phi(\cdot, \mathbf{0},\Sigma)\)</span>는 평균이 0이고 공분산이 <span class="math inline">\(\Sigma\)</span>인 <strong>다변량 정규 확률밀도함수(multivariate Normal density)</strong>이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-77"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-77-1.png" alt="Smith model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-82"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-82-1.png" alt="Smith model." width="672" />
 <p class="caption">
 Figure 27.3: Smith model.
 </p>
@@ -445,8 +446,8 @@ Figure 27.3: Smith model.
 Z(x)=\sqrt{2\pi}\max_{i\geq 1}\zeta_{i}\max\{0,W_{i}(x)\}
 \end{equation}
 <p>로 이때 <span class="math inline">\(\{W_{i}(x): x\in\mathcal{X}\}\)</span>는 상관함수(correlation function) <span class="math inline">\(\rho\)</span>를 갖는 <strong>정상 가우스과정(staionary Gaussian process)</strong>의 독립된 copy들이다. 또한 척도요인(scaling factor) <span class="math inline">\(\sqrt{2\pi}\)</span>는 모든 <span class="math inline">\(x\in\mathcal{X}\)</span>에 대해 <span class="math inline">\(\sqrt{2\pi}E[\max\{ 0,W(x)\}]=1\)</span>를 만족해야 한다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-78"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-78-1.png" alt="Schlather model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-83"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-83-1.png" alt="Schlather model." width="672" />
 <p class="caption">
 Figure 27.4: Schlather model.
 </p>
