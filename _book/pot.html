@@ -38,8 +38,8 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="sparsesampling.html">
-<link rel="next" href="qr.html">
+<link rel="prev" href="uGEVtheory.html">
+<link rel="next" href="spatextremes.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -364,135 +364,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="pointprocess" class="section level1">
-<h1><span class="header-section-number">Chapter 22</span> 점과정</h1>
-<p>자료가 CSR에 해당되면 <span class="math inline">\(\lambda\)</span>를 잘 묘사하는 것으로 끝나지만 만약 자료가 CSR이 아니라면 <strong>점과정(point process)</strong>으로 모델링하게 된다.</p>
-<div id="-definition-of-point-processes" class="section level2">
-<h2><span class="header-section-number">22.1</span> 점과정의 정의(definition of point processes)</h2>
-<p>점과정을 정의하기 위해 몇 가지 개념들을 정리한다.</p>
-<ul>
-<li><p><span class="math inline">\(X\)</span>를 공간(space) <span class="math inline">\(S\)</span> 안에 있는 점들의 점과정</p></li>
-<li><p><span class="math inline">\(S\)</span>는 <span class="math inline">\(d(\cdot, \cdot)\)</span>이라는 거리(metric)를 갖는 거리 공간(metric space). 일반적으로는 <span class="math inline">\(S\subseteq \mathbb{R}^{d}\)</span>인 공간을 생각한다.</p></li>
-<li><p><span class="math inline">\(x\)</span>: <span class="math inline">\(X\)</span>의 실현(realization, finite), <span class="math inline">\(x=\{\zeta, \eta, \delta, \ldots \}\)</span>.</p></li>
-<li><p><span class="math inline">\(x_{B}=x\cap B, B\subseteq S \qquad{\text{B 안에 있는 점들만 보겠다}}\)</span></p></li>
-<li><p><span class="math inline">\(n(x_{B})=\sharp \text{ of } x, x\cap B\)</span></p></li>
-<li><p><span class="math inline">\(N(B)\)</span>: count 함수 = <span class="math inline">\(n(X_{B})\)</span> (확률변수임)</p></li>
-<li><p><span class="math inline">\(x\cup \xi \Longleftarrow x \cup \{ \xi\}\)</span> (괄호생략, <span class="math inline">\(\xi\)</span>는 어떤 pt)</p></li>
-<li><p><span class="math inline">\(x \backslash \xi \Longleftarrow x \backslash \{\xi\}\)</span> (괄호생략)</p></li>
-<li><p><span class="math inline">\(N_{lf}=\{ x\subseteq S: n(x_{B})&lt;\infty, B \stackrel{\text{bdd}}{\subset}S\}\)</span>: locally finite point configuration</p></li>
-</ul>
-<p>점과정을 정의하기 전에 먼저 확률변수의 정의를 다시 생각해보자. 확률변수를 한 마디로 말하면 <strong>가측함수(measurable function)</strong>이다. <span class="math inline">\(X\)</span>가 확률변수라면 <span class="math display">\[X: \Omega \longrightarrow \mathbb{R}\]</span> 이며 이때 <span class="math inline">\(\Omega\)</span>는 <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>인 확률공간이며 <span class="math inline">\(\mathbb{R}\)</span> 또한 보렐 시그마-체 <span class="math inline">\(\mathcal{B}\)</span>를 갖는다<span class="math inline">\((\mathbb{R}, \mathcal{B})\)</span>. <span class="math inline">\(\mathbb{R}\)</span>의 가측 집합을 <span class="math inline">\(X\)</span>를 통해 <span class="math inline">\(\Omega\)</span>쪽으로 보내도 가측이어야 한다.</p>
-<p>그러면 이제 점과정 <span class="math inline">\(X\)</span>를 정의해보자. <span class="math inline">\(X\)</span>는 <span class="math display">\[X: \Omega \longrightarrow N_{lf}\]</span> 로 확률공간은 <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>이며 <span class="math inline">\(N_{lf}\)</span> 또한 보렐 시그마-체 <span class="math inline">\(\mathcal{N}_{lf}\)</span>를 갖아 <span class="math inline">\((N_{lf}, \mathcal{N}_{lf})\)</span>가 된다. <span class="math inline">\(\mathcal{N}_{lf}\)</span>은 <span class="math inline">\(S\)</span>에서의 시그마-체이며 <span class="math display">\[\mathcal{N}_{lf}=\sigma (\{ \{ x \in N_{lf}, n(x_{B})=m \{ m \in \mathbb{N}_{0}, B\in\mathcal{B}_{0}\} \} \})\]</span> 로 정의되며 <span class="math inline">\(\mathbb{N}_{0}\)</span>는 set of nonnegative integer, <span class="math inline">\(\mathcal{B}_{0}\)</span>는 class of bounded Borel sets in <span class="math inline">\(S\)</span>이다.</p>
-<p>마지막으로 <span class="math inline">\(X\)</span>의 분포함수 <span class="math inline">\(P_{X}\)</span>는 <span class="math display">\[P_{X}(F)=P(\{ \omega \in l : X(\omega) \in \mathcal{F}\}) \qquad{\text{where } \mathcal{F} \in \mathcal{N}_{lf}}\]</span> 이다.</p>
-<div class="remark">
-<ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(X\)</span>의 가측성(measurability) <span class="math inline">\(\Longleftrightarrow\)</span> <span class="math inline">\(N(B)\)</span>가 모든 <span class="math inline">\(B\in\mathcal{B}_{0}\)</span>에서 확률변수 인 것(확률론에 의해 <span class="math inline">\(\mathcal{B}_{0}\)</span>을 <span class="math inline">\(\mathcal{B}\)</span>로 확장할 수 있다)</p></li>
-<li><p><span class="math inline">\(X\)</span>의 분포는 <strong>가산함수(count function)들의 유한한 분포</strong> <span class="math inline">\((N(B_{1}), \ldots , N(B_{m}))\)</span>로 결정된다. 즉 가산함수들만 잘 알면 <span class="math inline">\(X\)</span>의 정보를 모두 알 수 있다.</p></li>
-<li><p><span class="math inline">\(\mathcal{N}_{lf}^{0}\equiv\{ \{ x\in N_{lf}, n(x_{B})=0 \} ; B \in \mathcal{B}_{0}\}\)</span></p></li>
-<li><p><strong>빈 확률(void probability)</strong>: 빈 확률 <span class="math inline">\(v(B)\)</span>는 <span class="math display">\[v(B)=P(N(B)=0), B\in\mathcal{B}_{0}\]</span> 으로 정의된다. 빈 확률과 관련된 가장 중요한 성질은 점과정은 그것의 빈 확률로 <strong>유일하게 정의된다</strong>(분포가 같다는 의미). 포아송 점과정일 경우 <span class="math inline">\(N(B)\)</span>는 결국 포아송분포(Poisson distribution)가 된다.</p></li>
-<li><p>생성범함수(generating functional) <span class="math inline">\(G_{X}(u)\)</span>는 <span class="math display">\[G_{X}(u)=E[\prod_{\xi \in X}u(\xi)]\]</span> 로 정의되면 여기서 함수 <span class="math inline">\(u\)</span>는 <span class="math inline">\(u:S\longrightarrow [0,1]\)</span>이며 <span class="math inline">\(\xi\)</span>는 <span class="math inline">\(\{ \xi \in S, u(\xi)\leq 1 \}\)</span>로 유계(bounded)이다. 생성범함수는 <span class="math inline">\(X\)</span>의 분포를 유일하게 결정한다. 예를 들어 <span class="math inline">\(u(\xi)=t^{I_{\{\xi \in B\} }}\)</span>이고 <span class="math inline">\(B\in \mathcal{B}_{0}, 0 \leq t \leq 1\)</span>이면 <span class="math inline">\(G_{X}(u)=E t^{N(B)}\)</span>다.</p></li>
-</ol>
-</div>
-<div id="-marked-point-process" class="section level3">
-<h3><span class="header-section-number">22.1.1</span> 표시된 점과정(marked point process)</h3>
-<p>때로는 각 지점의 장소 정보 이외에 추가된 정보가 있는 자료들이 있다. 예를 들면 나무의 사이즈 등이 같이 첨부된 자료 등이 있다. 이러한 자료들을 나타내는 점과정을 <strong>표시된 점과정(marked point process)</strong>라고 한다. <span class="math display">\[X=\{ (\xi, m_{\xi}), \xi \in Y  \},\]</span> 여기서 <span class="math inline">\(Y\)</span>는 <span class="math inline">\(T\)</span>(보통 <span class="math inline">\(\mathbb{R}^{d}\)</span>)에 있는 점과정이다. <span class="math inline">\(m_{\xi}\)</span>는 표시(mark)로 <span class="math inline">\(m_{\xi}\in M\)</span>이다. <span class="math inline">\(M\)</span>은 표시된 공간(mark space)으로 보통 정수집합이지만 실수집합이 될 수도 있다.</p>
-<p>또는 <span class="math inline">\(T\times M=S\)</span>로 놓고 <span class="math inline">\(X=\{ (\xi, m_{\xi}\}\)</span>를 차원이 하나 늘어난 점과정으로 보기도 한다. 그러나 <span class="math inline">\(M\)</span>이 실수집합이 아닌 경우 구분하여 보는 것이 편리하다.</p>
-</div>
-</div>
-<div id="-poisson-point-process" class="section level2">
-<h2><span class="header-section-number">22.2</span> 포아송 점과정(Poisson point process)</h2>
-<p>가장 기본적인 점과정으로 <strong>포아송 점과정(Poisson point process)</strong>이 있으며, 이것의 특별한 경우가 CSR이다. 포아송 점과정을 정의하기 위해서는 먼저 <strong>이항 점과정(binomial point process)</strong>에 대해 알아야 한다.</p>
-<div class="definition">
-<p><span class="math inline">\(f\)</span>가 <span class="math inline">\(B\subseteq S\)</span> 위에서의 밀도함수(density function)라고 하자. B 위에서 밀도 <span class="math inline">\(f\)</span>를 갖는 <span class="math inline">\(n\)</span>개의 i.i.d. 점들로 구성된 점과정 <span class="math inline">\(X\)</span>를 <strong>이항 점과정(binomial point process)</strong>이라고 하며 <span class="math inline">\(X\sim \text{binomial}(B,n,f)\)</span>라고 쓴다. 포아송 점과정과는 달리 <span class="math inline">\(n\)</span>이 고정되어 있으며 이 <span class="math inline">\(n\)</span>는 균등(uniform)이 아닌 <span class="math inline">\(f\)</span>에 의해 i.i.d로 뽑인다. CSR은 <span class="math inline">\(f=\frac{1}{|B|}\)</span>인 경우다.</p>
-</div>
-<div class="definition">
-<p><span class="math inline">\(S\)</span> 위에서 강도함수(intensity function) <span class="math inline">\(\rho\)</span>를 갖는 점과정 <span class="math inline">\(X\)</span>가</p>
-<ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(\mu (B)=\int_{B} \rho (\xi) d\xi &lt;\infty\)</span>를 갖는 어떤 <span class="math inline">\(B\subset S\)</span>에 대해 <span class="math inline">\(N(B)=n(X_{B}) ~ \text{Poisson}(\mu(B))\)</span> (만약 <span class="math inline">\(\mu(B)=0\)</span>이면 <span class="math inline">\(N(B)=0\)</span>이다) 이고</p></li>
-<li><p><span class="math inline">\(0 &lt; \mu(B) &lt;\infty\)</span>인 어떤 <span class="math inline">\(n\in\mathbb{N}\)</span>, <span class="math inline">\(B\subseteq S\)</span>에 대해 <span class="math inline">\(N(B)=n\)</span>인 조건부에서 <span class="math inline">\(X_{B}\sim \text{binomial}(B,n,f)\)</span>이고 <span class="math inline">\(f(\xi)=\rho(\xi)/\mu(B)\)</span>를 따를 때</p></li>
-</ol>
-<p><span class="math inline">\(X \sim \text{Poisson}(S,\rho)\)</span>를 <strong>포아송 점과정(Poisson point process)</strong>이라 부른다.</p>
-</div>
-<div class="remark">
-<ul>
-<li><p><span class="math inline">\(E N(B)=\mu(B)\)</span> for <span class="math inline">\(\mu(B) &lt;\infty\)</span></p></li>
-<li><p><span class="math inline">\(\rho(\xi)d\xi\)</span>: heuristically probability of a point in a small neighborhood of <span class="math inline">\(\xi\)</span></p></li>
-<li><p><span class="math inline">\(P(X=\xi)=0\)</span></p></li>
-</ul>
-</div>
-<div class="definition">
-<p><span class="math inline">\(\rho(\cdot)=\rho\)</span>인 포아송 점과정을 <strong>동질적 포아송 점과정(homogeneous Poisson point process)</strong>, <span class="math inline">\(\rho(\cdot)\neq\rho\)</span>인 포아송 점과정을 <strong>비동질적 포아송 점과정(inhomogeneous Poisson point process)</strong>이라고 부른다. 한편, 점과정에서도 정상성을 정의할 수 있는데, 임의의 점 <span class="math inline">\(s\in \mathbb{R}^{d}\)</span>에 대해 이동불변성(translation invariant) <span class="math display">\[X+s =\{\xi + s xi\in X\} \stackrel{\mathcal{D}}{=} X\]</span> 을 갖는 <span class="math inline">\(X\)</span>를 <strong>정상 점과정(stationray point process)</strong>라고 한다. 등방성(isotropy)에 대해서도 정의할 수 있는데, <span class="math inline">\(\mathbb{R}^{d}\)</span>상의 원점에 대해 회전불변성(rortation invariant) <span class="math display">\[\mathcal{O}X=\{ \mathcal{O}\xi, \xi \in X\} \stackrel{\mathcal{D}}{=} X\]</span> 을 갖는 <span class="math inline">\(X\)</span>를 <strong>등방 점과정(isotropic point process)</strong>라고 한다. <span class="math inline">\(\mathcal{O}\)</span>은 일종의 회전연산자이다.</p>
-</div>
-</div>
-<div id="--properties-of-poisson-point-process" class="section level2">
-<h2><span class="header-section-number">22.3</span> 포아송 점과정의 성질들(properties of Poisson point process)</h2>
-<p>이 절의 내용은 <span class="citation">(Moller and Waagepetersen <a href="#ref-Moller2003">2003</a>)</span>의 3장에 있는 포아송 점과정의 성질들을 언급한다. 증명은 생략하니 참고문헌을 참조하길 바란다. <span class="math inline">\(S\)</span>는 기본적으로 유계일 필요는 없으며, <span class="math inline">\(\rho\)</span>는 기본적으로 국소 적분가능(locally integrable)이다.</p>
-<div class="proposition">
-<ol style="list-style-type: decimal">
-<li><span class="math inline">\(X \in \text{Poisson}(S, \rho)\)</span>인 것은</li>
-</ol>
-<p><span class="math inline">\(\mu(B)=\int_{S}\rho(\xi)d\xi &lt;\infty\)</span>인 모든 <span class="math inline">\(B \subseteq S\)</span>와 모든 <span class="math inline">\(F \subseteq N_{lf}\)</span>에 대해 <span class="math display">\[P(X_{B}\in F)=\sum_{n=0}^{\infty}\frac{e^{-\mu(B)}}{n!}\int_{B}\cdots\int_{B}I_{[\{x_{1},\ldots, x_{n}\}\in F]}\prod_{i=1}^{n}\rho(x_{i})dx_{1}\cdots dx_{n}\]</span> 과 동치이다.</p>
-<ol start="2" style="list-style-type: decimal">
-<li><span class="math inline">\(X \in \text{Poisson}(S, \rho)\)</span>이면 함수 <span class="math inline">\(h:N_{lf}\rightarrow [0,\infty )\)</span>와 <span class="math inline">\(\mu(B) &lt; \infty\)</span>인 <span class="math inline">\(B\subseteq S\)</span>에 대해 <span class="math display">\[E[h(X_{B})]=\sum_{n=0}^{\infty}\frac{e^{-\mu(B)}}{n!}\int_{B}\cdots\int_{B}h(\{x_{1},\ldots, x_{n}\})\prod_{i=1}^{n}\rho(x_{i})dx_{1}\cdots dx_{n}\]</span> 이다.</li>
-</ol>
-</div>
-<p>다음 정리는 포아송 점과정에 해당하는 빈 확률(void probability)은 무엇일까에 관한 것이다.</p>
-<div class="theorem">
-<p><span class="math inline">\(X \in \text{Poisson}(S, \rho)\)</span>는 빈 확률 <span class="math display">\[v(B)=e^{-\mu(B)}, \qquad{\text{bounded } B\subseteq S}\]</span> 에 의해 유일하게 결정된다.</p>
-</div>
-<p>다음 명제는 disjoint한 지역에서의 포아송 점과정들은 서로 독립이라는 것을 말하고 있다.</p>
-<div class="proposition">
-<p>점과정 <span class="math inline">\(X\)</span>가 포아송 점과정 <span class="math inline">\(X \in \text{Poisson}(S, \rho)\)</span>이면, <span class="math inline">\(X_{B_{1}}, X_{B_{2}}, \ldots\)</span>는 disjoint set들 <span class="math inline">\(B_{1},B_{2},\ldots \subseteq S\)</span>에 대해 독립이다.</p>
-</div>
-<p>다음 명제는 포아송 점과정의 생성범함수에 관한 것이다.</p>
-<div class="proposition">
-<p>점과정 <span class="math inline">\(X\)</span>가 포아송 점과정 <span class="math inline">\(X \in \text{Poisson}(S, \rho)\)</span>이면 <span class="math display">\[G_{X}(u)=E[ \prod_{\xi \in X}u(\xi)] \stackrel{\text{PPP}}{=}e^{-\int_{S}(1-u(\xi))\rho(\xi)d\xi}\]</span> 이다. 이 때 <span class="math inline">\(u:S\rightarrow [0,1]\)</span>이다.</p>
-</div>
-<p>다음 명제는 (정상) 포아송 점과정을 어떻게 생성할 것인가에 대한 것이다. 여기서는 극좌표(polar coordinate)를 응용한다.</p>
-<div class="proposition">
-<p><span class="math inline">\(S_{1}, U_{1}, S_{2}, U_{2}, \ldots\)</span>가 <span class="math inline">\(U_{i}\)</span>는 <span class="math inline">\(\{u \in \mathbb{R}^{d}: \| u\| =1 \}\)</span>에서 균등하게 분포되어 있고 <span class="math inline">\(S_{i} \sim \text{Exp}(\rho \omega_{d})\)</span>가 평균 <span class="math inline">\(1/(\rho \omega_{d})\)</span> <span class="math inline">\((\omega_{d}\text{: volume of d-dimension unit ball})\)</span>로 지수 분포되어있다고 하자. <span class="math inline">\(R_{0}=0, R_{i}^{d}=R_{i-1}^{d}+S_{i}, i=1,2,\ldots\)</span>로 정의되었다고 할 때 <span class="math display">\[X=\{R_{1}U_{1}, R_{2}U_{2},\ldots\}\sim \text{Poisson}(\mathbb{R}^{d},\rho)\]</span> 이다.</p>
-</div>
-<div class="theorem">
-<p><strong>(Slivnyak-Mecke’s theorem)</strong> <span class="math inline">\(X \in \text{Poisson}(S, \rho)\)</span>일 때 함수 <span class="math inline">\(h:S\times N_{lf} \rightarrow [0,\infty])\)</span>에 대해 <span class="math display">\[E[\sum_{\xi\in X}h(\xi,X\backslash \xi)]=\int_{S}[E[h(\xi,X)]]\rho(\xi)d\xi.\]</span></p>
-</div>
-<div class="theorem">
-<strong>(Extended Slivnyak-Mecke’s theorem)</strong> <span class="math inline">\(X \in \text{Poisson}(S, \rho)\)</span>일 때 함수 <span class="math inline">\(h:S^{n}\times N_{lf} \rightarrow [0,\infty])\)</span>에 대해
-\begin{eqnarray*}
-&amp; &amp;E[\sum_{\xi_{1},\ldots ,\xi_{n}\in X}^{\neq}h(\xi_{1},\ldots,\xi_{n},X\backslash \{\xi_{1},\ldots,\xi_{n}\})]\\
-&amp;=&amp;\int_{S}\cdots\int_{S}[E[h(\xi_{1},\ldots,\xi_{n},X)]]\prod_{i=1}^{n}\rho(\xi_{i})d\xi_{1}\cdots d\xi_{n}.\\
-\end{eqnarray*}
-</div>
-<div id="-superpositioning-and-thinning" class="section level3">
-<h3><span class="header-section-number">22.3.1</span> 중첩과 세선화(superpositioning and thinning)</h3>
-<p>중첩(superposition)과 세선화(thnning)는 점과정의 기본적인 연산자들이다.</p>
-<div class="definition">
-<p>포아송 점과정들 <span class="math inline">\(X_{1},X_{2},\ldots\)</span>의 배반 합집합 <span class="math inline">\(\cup_{i=1}^{\infty}X_{i}\)</span>를 <strong>중첩(superposition)</strong>이라고 한다.</p>
-</div>
-<div class="definition">
-<p><span class="math inline">\(p:S\rightarrow [0,1]\)</span>이 함수이고 <span class="math inline">\(X\)</span>가 <span class="math inline">\(S\)</span>에서의 점과정이라고 하자. 점과정 <span class="math inline">\(X_{thin}\subseteq X\)</span>는 <span class="math inline">\(\xi \in X\)</span>를 <span class="math inline">\(X_{thin}\)</span>에 확률 <span class="math inline">\(p(\xi)\)</span>로 포함하는 점과정으로 정의한다. 이때 각 점들은 독립적으로 포함될지 안될지를 결정한다고 하자. 그러면 <span class="math inline">\(X_{thin}\)</span>은 <strong>보유확률(retention probability)</strong> <span class="math inline">\(p(\xi)\)</span>를 갖는 <span class="math inline">\(X\)</span>의 <strong>독립 세선화(independent thinning)</strong>으로 정의한다. 보통 <span class="math inline">\(X_{thin}=\{ \xi \in X: R(\xi) \leq p(\xi) \}\)</span> 로 놓으며 이 때 <span class="math inline">\(R(\xi) \sim \text{Uniform}[0,1]\)</span>, <span class="math inline">\(\xi\in S\)</span>는 <span class="math inline">\(X\)</span>에서 뽑힌 상호독립 점들이다.</p>
-</div>
-<p><span class="math inline">\(X_{i}\)</span>들이 독립인 포아송 점과정일 때에는 중첩을 하거나, 세선화 한 것, 그리고 세선화하면서 버려진 점과정들 또한 포아송 점과정이 된다. 다음 명제들은 이 사실에 관한 것들이다.</p>
-<div class="proposition">
-<p><span class="math inline">\(X_{i}\sim \text{Poisson}(S,\rho_{i}), i=1,2,\ldots\)</span>가 상호 독립이고 <span class="math inline">\(\rho=\sum\rho_{i}\)</span>가 확률 1로 국소 적분가능하면, 배반 합집합 <span class="math inline">\(X=\cup_{i=1}^{\infty}X_{i}\sim\text{Poisson}(S,\rho)\)</span>이다.</p>
-</div>
-<div class="proposition">
-<p><span class="math inline">\(X \sim \text{Poisson}(S,\rho)\)</span>가 보유확률 <span class="math inline">\(p(\xi), xi\in S\)</span>를 갖는 독립 세선화 <span class="math inline">\(X_{thin}\)</span>을 갖는다고 하고 <span class="math display">\[\rho_{thin}(\xi)=p(\xi)\rho(\xi), \xi\in S\]</span> 일 때, <span class="math inline">\(X_{thin}\)</span>과 <span class="math inline">\(X\backslash X_{thin}\)</span>은 모두 독립 포아송 과정이며 이것의 강도함수는 각각 <span class="math inline">\(\rho_{thin}\)</span>과 <span class="math inline">\(\rho-\rho_{thin}\)</span>이다.</p>
-</div>
-<p>다음 따름정리를 이용하면 비동질적 포아송 점과정 또한 생성 가능하다고 한다.</p>
-<div class="corollary">
-<p><span class="math inline">\(X \sim \text{Poisson}(\mathbb{R}^{d}, \rho)\)</span>이며 강도함수 <span class="math inline">\(\rho\)</span>는 상수 <span class="math inline">\(c\)</span>에 의해 유계이다. 그러면 <span class="math inline">\(X\)</span>는 보유확률 <span class="math inline">\(p(\xi)=\frac{\rho(\xi)}{c}\)</span>를 갖는 <span class="math inline">\(\text{Poisson}(\mathbb{R}^{d},c)\)</span>의 독립 세선화로 간주할 수 있다.</p>
-</div>
+<div id="pot" class="section level1">
+<h1><span class="header-section-number">Chapter 26</span> 분계점 방법들</h1>
+<p>지금까지는 블록 최대값으로 모델링하는 방법에 대해 생각해보았다. 그러나 이 방법은 데이터를 낭비한다고도 볼 수 있고, 모든 최대값이 진짜로 극단값인지에 대한 의문이 들게 된다. 즉 어떤 블록의 최대값이 아닌 값들이 다른 블록들의 최대값보다 훨씬 크지만 극단값으로 뽑히지 않는 상황이 발생하게 된다. 만약 시간별 또는 일별 관측값과 같은 상세한 시계열 자료를 얻을 수 있다면 블록화 하는 방법 이외에 다른 방법들 또한 고려해 볼 수 있을 것이다.</p>
+<p><span class="math inline">\(X_{1},X_{2},\ldots\)</span>를 독립적이며 같은 분포를 따르며 분포함수 <span class="math inline">\(F\)</span>를 갖는 확률변수들의 수열이라고 하자. 여기서 분계 <span class="math inline">\(u\)</span>를 초과하는 <span class="math inline">\(X_{i}\)</span>값들을 극단 사건(extreme event)라고 생각할 수 있다. <span class="math inline">\(F\)</span>가 알려져 있는 분포라고 한다면 <span class="math display">\[P\{X&gt;u+y|X&gt;u\}=\frac{1-F(x+y)}{1-F(u)}, y&gt;0\]</span> 이 성립한다.</p>
+<div id="asymptotic-model-specification-generalized-pareto-distribution" class="section level2">
+<h2><span class="header-section-number">26.1</span> Asymptotic model specification: generalized pareto distribution</h2>
+<p><span class="math inline">\(X_{1},X_{2},\ldots\)</span>이 분포함수 <span class="math inline">\(F\)</span>를 갖는 독립인 확률변수의 수열이라고 하자. 그리고 <span class="math display">\[M_{n}=\max\{X_{1},\ldots,X_{n}\}\]</span> 을 정의한다. <span class="math inline">\(F\)</span>가 극단 종류 정리를 만족한다면 충분히 큰 <span class="math inline">\(n\)</span>에 대해 <span class="math display">\[P\{M_{n}\leq z\}\approx G(z)\]</span> 이 성립한다. 이때 <span class="math display">\[G(z)=\exp\{-[1+\xi(\frac{z-\mu}{\sigma})]^{-1/\xi}\}\]</span> 이며 여기서 <span class="math inline">\(\mu, sigma&gt;0\)</span>이다. 그리고 충분히 큰 <span class="math inline">\(u\)</span>에 대해 <span class="math inline">\(X&gt;u\)</span>일 때 <span class="math inline">\((X-u)\)</span>의 분포함수는 <span class="math display">\[H(y)=1-(1+\frac{\xi y}{\tilde{sigma}})^{-1/\xi}\]</span></p>
 
-</div>
-</div>
-</div>
-
-
-
-<h3> References</h3>
-<div id="refs" class="references">
-<div id="ref-Moller2003">
-<p>Moller, Jesper, and Rasmus Plenge Waagepetersen. 2003. <em>Statistical Inference and Simulation for Spatial Point Processes</em>. Chapman; Hall/CRC.</p>
 </div>
 </div>
             </section>
@@ -500,8 +379,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="sparsesampling.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="qr.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="uGEVtheory.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="spatextremes.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -528,7 +407,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://seoncheolpark.github.io/book/_book/64-pointprocess.Rmd",
+"link": "https://seoncheolpark.github.io/book/_book/83-pot.Rmd",
 "text": null
 },
 "download": null,

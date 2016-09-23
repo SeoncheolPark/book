@@ -15,7 +15,7 @@ pre code {
 
 body
 {
-  counter-reset: theorem definition equation example;
+  counter-reset: theorem definition equation proposition example;
 }
 
 .equation {
@@ -39,6 +39,7 @@ body
 .definition,
 .example,
 .corollary,
+.proposition,
 .remark {
   margin: 12pt 0;
 }
@@ -47,6 +48,7 @@ body
 .definition:before,
 .example:before,
 .corollary:before,
+.proposition:before,
 .remark:before {
   margin-left: 0pt;
 }
@@ -56,6 +58,16 @@ body
 .theorem:before {
   counter-increment: theorem;
   content: "Theorem " counter(theorem) ". ";
+  font-style: normal;
+  font-weight: bold;
+  font-variant: small-caps;
+}
+.proposition {
+  font-style: italic;
+}
+.proposition:before {
+  counter-increment: proposition;
+  content: "Proposition " counter(proposition) ". ";
   font-style: normal;
   font-weight: bold;
   font-variant: small-caps;
