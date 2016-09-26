@@ -1,0 +1,14 @@
+# 최대안정 임의장 {#maxstableRF}
+
+우리는 때때로 어떤과정의 극단적으로 높거나 낮은 수준을 모델링하는 데 관심을 갖을 수도 있다. 공간 또는 시공간 극단값의 무작위 행동을 분석하는 한 가지 방법이 **최대안정 임의장(max-stable random fields)**이다.
+
+우선 간단하게 spatial case만 살펴보자. $\{Y(\mathbf{s})\}_{\mathbf{s}\in\mathcal{S}}$가 continuous sample path를 갖는 정상 임의장이라고 하고 $Y_{1},\ldots, Y_{n}$을 그것의 $n$개의 복사본이라고 하자. 다음과 같은 pointwise maximum process
+$$M_{n}(\mathbf{s}):=\max_{i=1,\ldots,n}Y_{i}(\mathbf{s}), \mathbf{s}\in\mathcal{S}$$
+를 생각해보자. 만약 모든 $\mathbf{s}\in\mathcal{S}$에 대해 연속함수 $a_{n}(\mathbf{s})>0$, $b_{n}(\mathbf{s})\in\mathbb{R}$이 존재해
+$$\frac{M_{n}(\mathbf{s})-b_{n}(\mathbf{s})}{a_{n}(\mathbf{s})} \stackrel{\text{converge weakly}}{\rightarrow}Z(\mathbf{s})$$
+하고 이때 $Z(\mathbf{s})$가 모든 임의의 $\mathbf{s}\in\mathcal{S}$에 대해 non-degenerate marginal distribution을 갖는다면 이 때 $Z$는 **최대안정 임의장(max-stable random fields)**이 된다.
+
+어떤 $\mathbf{s}\in\mathcal{S}$에 대해 최대안정 임의장은 **일변량 주변 일반화 극단값 분포(univariate marginal generalized extreme value distribution)**을 갖으며 유한한 장소의 집합에 대한 결합분포는
+$$P\{Z(\mathbf{s}_{j})\leq z_{j}, j \in J\}=e^{-V(\mathbf{z})},$$
+$$V(\mathbf{z})=k\int_{\Delta_{k-1}}\max_{j\in J}(\frac{\omega_{j}}{y_{j}})\nu(d\mathbf{w}), \mathbf{z}\in\mathbb{R}_{+}^{k}$$
+로 정의된다. 여기서 $\nu$는 $(k-1)$ 차원 unit simplex $\Delta_{k-1}$에서 정의된 확률분포이며 $V$는 **지수종속함수(exponent dependece function)**이라고 불린다.

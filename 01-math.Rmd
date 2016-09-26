@@ -3,6 +3,18 @@
 # 기본적인 수학 개념들 {#math}
 이 장에서는 앞으로 다룰 내용을 이해하기 위해 필요한 기본적인 수학 개념을 정리하였다.
 
+## 집합론(set theory)
+
+### 카디널리티(cardinality)
+
+**카디널리티(cardinality)**는 집합의 원소의 갯수를 세기 위해 도입되었다. 유한집합에서는 원소의 갯수를 세는 것이 어렵지 않지만, 무한집합의 경우는 갯수를 세는 것이 문제가 될 수 있다. 집합 $A$가 주어졌을 때, 그것의 카디널리티를 $|A|$로 쓰도록 하자. 자연수 집합의 카디널리티는 특별히 $|\mathbb{N}|=\aleph_{0}$로 쓰며 **알레프-널(aleph-null)**로 부른다.
+
+<div class="definition">
+
+두 집합 $A$, $B$ 사이에 전단사(bijection, 일대일 대응) 관계가 성립할 때, 두 집합의 카디널리티가 같다고 정의하고, $|A|=|B|$로 표기한다.
+
+</div>
+
 ## 수열(sequence)과 수열의 극한(limit)
 
 ### 상한(supremum)과 하한(infimum)
@@ -174,6 +186,12 @@ $$
 </div>
 
 ### 텐서곱(tensor product)
+
+### 데카르트 곱(Cartesian product)
+
+두 개의 집합 $A$, $B$가 있을 때, 이들의 **데카르트 곱(Cartesian product)** $A\times B$는
+$$A\times B = \{ (a,b)| a\in A \text{ and } b \in B\}$$
+로 정의된다.
 
 ### 노름(norm)
 

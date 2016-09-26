@@ -1,0 +1,15 @@
+# 확률과정론 {#stoprocess}
+
+## 확률과정에서의 연속성(continuity of stochastic process)
+
+### 연속표본경로(continuous sample paths)
+
+<div class="definition">
+
+**(continuous sample paths)** 과정 $X$가 $t_{0}$에서 연속이라 함은
+$$\text{For almost all }\omega, t \rightarrow t_{0} \text{ implies } X(t,\omega) \rightarrow X(t_{0},\omega)$$
+를 의미한다. 과정 $X$가 연속이라 함은
+$$\text{For almost all }\omega, X(\cdot, \omega) \text{ is a continuous function}$$
+임을 의미한다.
+
+</div>
