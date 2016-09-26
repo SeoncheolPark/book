@@ -360,7 +360,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="29.2" data-path="spatextremes.html"><a href="spatextremes.html#--spatial-dependence-of-extremes"><i class="fa fa-check"></i><b>29.2</b> 극단값의 공간 종속성(spatial dependence of extremes)</a></li>
 </ul></li>
-<li class="chapter" data-level="30" data-path="maxstableRF.html"><a href="maxstableRF.html"><i class="fa fa-check"></i><b>30</b> 최대안정 임의장</a></li>
+<li class="chapter" data-level="30" data-path="maxstableRF.html"><a href="maxstableRF.html"><i class="fa fa-check"></i><b>30</b> 최대안정 임의장</a><ul>
+<li class="chapter" data-level="30.1" data-path="maxstableRF.html"><a href="maxstableRF.html#brown-resnick-brown-resnick-random-fields"><i class="fa fa-check"></i><b>30.1</b> Brown-Resnick 임의장(Brown-Resnick random fields)</a></li>
+<li class="chapter" data-level="30.2" data-path="maxstableRF.html"><a href="maxstableRF.html#extremal-gaussian-extremal-gaussian-random-fields"><i class="fa fa-check"></i><b>30.2</b> Extremal-Gaussian 임의장(extremal-Gaussian random fields)</a></li>
+<li class="chapter" data-level="30.3" data-path="maxstableRF.html"><a href="maxstableRF.html#extremal-t-extremal-t-random-fields"><i class="fa fa-check"></i><b>30.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
+</ul></li>
 <li class="chapter" data-level="31" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>31</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
@@ -387,7 +391,58 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>우리는 때때로 어떤과정의 극단적으로 높거나 낮은 수준을 모델링하는 데 관심을 갖을 수도 있다. 공간 또는 시공간 극단값의 무작위 행동을 분석하는 한 가지 방법이 <strong>최대안정 임의장(max-stable random fields)</strong>이다.</p>
 <p>우선 간단하게 spatial case만 살펴보자. <span class="math inline">\(\{Y(\mathbf{s})\}_{\mathbf{s}\in\mathcal{S}}\)</span>가 continuous sample path를 갖는 정상 임의장이라고 하고 <span class="math inline">\(Y_{1},\ldots, Y_{n}\)</span>을 그것의 <span class="math inline">\(n\)</span>개의 복사본이라고 하자. 다음과 같은 pointwise maximum process <span class="math display">\[M_{n}(\mathbf{s}):=\max_{i=1,\ldots,n}Y_{i}(\mathbf{s}), \mathbf{s}\in\mathcal{S}\]</span> 를 생각해보자. 만약 모든 <span class="math inline">\(\mathbf{s}\in\mathcal{S}\)</span>에 대해 연속함수 <span class="math inline">\(a_{n}(\mathbf{s})&gt;0\)</span>, <span class="math inline">\(b_{n}(\mathbf{s})\in\mathbb{R}\)</span>이 존재해 <span class="math display">\[\frac{M_{n}(\mathbf{s})-b_{n}(\mathbf{s})}{a_{n}(\mathbf{s})} \stackrel{\text{converge weakly}}{\rightarrow}Z(\mathbf{s})\]</span> 하고 이때 <span class="math inline">\(Z(\mathbf{s})\)</span>가 모든 임의의 <span class="math inline">\(\mathbf{s}\in\mathcal{S}\)</span>에 대해 non-degenerate marginal distribution을 갖는다면 이 때 <span class="math inline">\(Z\)</span>는 <strong>최대안정 임의장(max-stable random fields)</strong>이 된다.</p>
 <p>어떤 <span class="math inline">\(\mathbf{s}\in\mathcal{S}\)</span>에 대해 최대안정 임의장은 <strong>일변량 주변 일반화 극단값 분포(univariate marginal generalized extreme value distribution)</strong>을 갖으며 유한한 장소의 집합에 대한 결합분포는 <span class="math display">\[P\{Z(\mathbf{s}_{j})\leq z_{j}, j \in J\}=e^{-V(\mathbf{z})},\]</span> <span class="math display">\[V(\mathbf{z})=k\int_{\Delta_{k-1}}\max_{j\in J}(\frac{\omega_{j}}{y_{j}})\nu(d\mathbf{w}), \mathbf{z}\in\mathbb{R}_{+}^{k}\]</span> 로 정의된다. 여기서 <span class="math inline">\(\nu\)</span>는 <span class="math inline">\((k-1)\)</span> 차원 unit simplex <span class="math inline">\(\Delta_{k-1}\)</span>에서 정의된 확률분포이며 <span class="math inline">\(V\)</span>는 <strong>지수종속함수(exponent dependece function)</strong>이라고 불린다.</p>
+<p>다음은 최대안정 임의장들의 예이다. 이들의 차이는 지수종속함수의 차이로부터 발생한다.</p>
+<ul>
+<li><p>Brown-Resnick (<span class="citation">(Kabluchko, Schlather, and Haan <a href="#ref-Kabluchko2009a">2009</a>)</span>, <span class="citation">(Kabluchko <a href="#ref-Kabluchko2011">2011</a>)</span>)</p></li>
+<li><p>extremal-Gaussian (<span class="citation">(Schlather <a href="#ref-Schlather2002">2002</a>)</span>)</p></li>
+<li><p>extremal-t (<span class="citation">(Davison, Padoan, and Ribatet <a href="#ref-Davison2012">2012</a>)</span>)</p></li>
+</ul>
+<div id="brown-resnick-brown-resnick-random-fields" class="section level2">
+<h2><span class="header-section-number">30.1</span> Brown-Resnick 임의장(Brown-Resnick random fields)</h2>
+<p><strong>Brown-Resnick 임의장(Brown-Resnick random fields)</strong>의 이변량분포(bivariate distribution)의 지수종속함수는 <span class="math display">\[
+V_{1}(z_{1},z_{2};\mathbf{h})=\frac{1}{z_{1}}\Phi (\frac{\lambda(\mathbf{h})}{2}+\frac{\log z_{2}/z_{1}}{\lambda(\mathbf{h})}) + \frac{1}{z_{2}}\Phi (\frac{\lambda(\mathbf{h})}{2}+\frac{\log z_{1}/z_{2}}{\lambda(\mathbf{h})})
+\]</span> 이다. 여기서 <span class="math inline">\(\lambda(\mathbf{h})=\sqrt{2\gamma(\mathbf{h})}\)</span>이며 <span class="math inline">\(\gamma\)</span>는 가우스 임의장 하의 준변동도(semivariogram)이다. 위 식의 유도는 <span class="citation">(Hüsler and Reiss <a href="#ref-Husler1989">1989</a>)</span>와 <span class="citation">(Smith <a href="#ref-Smith1990">1990</a>)</span>에 있다. 지수종속함수의 시공간 버전은 <span class="citation">(Kabluchko <a href="#ref-Kabluchko2009b">2009</a>)</span> 및 <span class="citation">(Davis, Klüppelberg, and Steinkohl <a href="#ref-Davis2013">2013</a>)</span>을 참조하길 바란다.</p>
+</div>
+<div id="extremal-gaussian-extremal-gaussian-random-fields" class="section level2">
+<h2><span class="header-section-number">30.2</span> Extremal-Gaussian 임의장(extremal-Gaussian random fields)</h2>
+<p><strong>Extremal-Gaussian 임의장(extremal-Gaussian random fields)</strong>의 이변량분포(bivariate distribution)의 지수종속함수는 <span class="math display">\[
+V_{2}(z_{1},z_{2};\mathbf{h})=\frac{1}{2}(\frac{1}{z_{1}}+\frac{1}{z_{2}})(1+[1-\frac{2z_{1}z_{2}\{\rho(\mathbf{h})+1\}}{(z_{1}+z_{2})^{2}}]^{1/2})
+\]</span> 이며 <span class="math inline">\(\rho(\mathbf{h})\)</span>는 가우스 임의장(Gaussian random fields)에 있던 상관관계함수이다.</p>
+</div>
+<div id="extremal-t-extremal-t-random-fields" class="section level2">
+<h2><span class="header-section-number">30.3</span> Extremal-t 임의장(extremal-t random fields)</h2>
+<p><strong>Extremal-t 임의장(extremal-t random fields)</strong>의 이변량분포(bivariate distribution)의 지수종속함수는 <span class="math display">\[
+V_{3}(z_{1},z_{2};\mathbf{h})=\frac{1}{z_{1}}T_{\nu+1}\{\frac{(z_{2}/z_{1})^{1/\nu}-\rho(\mathbf{h})}{\sqrt{\{ 1-\rho(\mathbf{h})^{2} \}/(\nu+1) }}\} + \frac{1}{z_{2}}T_{\nu+1}\{\frac{(z_{1}/z_{2})^{1/\nu}-\rho(\mathbf{h})}{\sqrt{\{ 1-\rho(\mathbf{h})^{2} \}/(\nu+1) }}\}
+\]</span> 으로 여기서 <span class="math inline">\(T_{\nu+1}\)</span>는 자유도 <span class="math inline">\(\nu+1\)</span>을 같는 스튜던트-t 분포이며 <span class="math inline">\(\rho(\mathbf{h})\)</span>는 압축함수(scaling function)이고 <span class="math inline">\(\nu\)</span>는 Student-t random field의 자유도이다.</p>
 
+</div>
+</div>
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-Kabluchko2009a">
+<p>Kabluchko, Zakhar, Martin Schlather, and Laurens de Haan. 2009. “Stationary Max-Stable Fields Associated to Negative Definite Functions.” <em>The Annals of Probability</em> 37 (5): 2042–65. doi:<a href="https://doi.org/10.1214/09-AOP455">10.1214/09-AOP455</a>.</p>
+</div>
+<div id="ref-Kabluchko2011">
+<p>Kabluchko, Zakhar. 2011. “Extremes of Independent Gaussian Processes.” <em>Extremes</em> 14 (3): 285–310. doi:<a href="https://doi.org/10.1007/s10687-010-0110-x">10.1007/s10687-010-0110-x</a>.</p>
+</div>
+<div id="ref-Schlather2002">
+<p>Schlather, Martin. 2002. “Models for Stationary Max-Stable Random Fields.” <em>Extremes</em> 5 (1): 33–44. doi:<a href="https://doi.org/10.1023/A:1020977924878">10.1023/A:1020977924878</a>.</p>
+</div>
+<div id="ref-Davison2012">
+<p>Davison, A. C., S. A. Padoan, and M. Ribatet. 2012. “Statistical Modeling of Spatial Extremes.” <em>Statistical Science</em> 27 (2): 161–86. doi:<a href="https://doi.org/10.1214/11-STS376">10.1214/11-STS376</a>.</p>
+</div>
+<div id="ref-Husler1989">
+<p>Hüsler, Jürg, and Rolf-Dieter Reiss. 1989. “Maxima of Normal Random Vectors: Between Independence and Complete Dependence.” <em>Statistics and Probability Letters</em> 7 (4): 283–86. doi:<a href="https://doi.org/10.1016/0167-7152(89)90106-5">10.1016/0167-7152(89)90106-5</a>.</p>
+</div>
+<div id="ref-Smith1990">
+<p>Smith, Richard L. 1990. “Max-Stable Processes and Spatial Extremes.”</p>
+</div>
+<div id="ref-Kabluchko2009b">
+<p>Kabluchko, Zakhar. 2009. “Extremes of Space-Time Gaussian Processes.” <em>Stochastic Processes and Their Applications</em> 119 (11): 3962–80. doi:<a href="https://doi.org/10.1016/j.spa.2009.08.001">10.1016/j.spa.2009.08.001</a>.</p>
+</div>
+<div id="ref-Davis2013">
+<p>Davis, Richard A., Claudia Klüppelberg, and Christina Steinkohl. 2013. “Max-Stable Processes for Modeling Extremes Observed in Space and Time.” <em>Journal of the Korean Statistical Society</em> 42 (3): 399–414. doi:<a href="https://doi.org/10.1016/j.jkss.2013.01.002">10.1016/j.jkss.2013.01.002</a>.</p>
+</div>
 </div>
             </section>
 

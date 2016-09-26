@@ -12,3 +12,35 @@ $$\frac{M_{n}(\mathbf{s})-b_{n}(\mathbf{s})}{a_{n}(\mathbf{s})} \stackrel{\text{
 $$P\{Z(\mathbf{s}_{j})\leq z_{j}, j \in J\}=e^{-V(\mathbf{z})},$$
 $$V(\mathbf{z})=k\int_{\Delta_{k-1}}\max_{j\in J}(\frac{\omega_{j}}{y_{j}})\nu(d\mathbf{w}), \mathbf{z}\in\mathbb{R}_{+}^{k}$$
 로 정의된다. 여기서 $\nu$는 $(k-1)$ 차원 unit simplex $\Delta_{k-1}$에서 정의된 확률분포이며 $V$는 **지수종속함수(exponent dependece function)**이라고 불린다.
+
+다음은 최대안정 임의장들의 예이다. 이들의 차이는 지수종속함수의 차이로부터 발생한다.
+
+- Brown-Resnick ([@Kabluchko2009a], [@Kabluchko2011])
+
+- extremal-Gaussian ([@Schlather2002])
+
+- extremal-t ([@Davison2012])
+
+## Brown-Resnick 임의장(Brown-Resnick random fields)
+
+**Brown-Resnick 임의장(Brown-Resnick random fields)**의 이변량분포(bivariate distribution)의 지수종속함수는
+$$
+V_{1}(z_{1},z_{2};\mathbf{h})=\frac{1}{z_{1}}\Phi (\frac{\lambda(\mathbf{h})}{2}+\frac{\log z_{2}/z_{1}}{\lambda(\mathbf{h})}) + \frac{1}{z_{2}}\Phi (\frac{\lambda(\mathbf{h})}{2}+\frac{\log z_{1}/z_{2}}{\lambda(\mathbf{h})})
+$$
+이다. 여기서 $\lambda(\mathbf{h})=\sqrt{2\gamma(\mathbf{h})}$이며 $\gamma$는 가우스 임의장 하의 준변동도(semivariogram)이다. 위 식의 유도는 [@Husler1989]와 [@Smith1990]에 있다. 지수종속함수의 시공간 버전은 [@Kabluchko2009b] 및 [@Davis2013]을 참조하길 바란다.
+
+## Extremal-Gaussian 임의장(extremal-Gaussian random fields)
+
+**Extremal-Gaussian 임의장(extremal-Gaussian random fields)**의 이변량분포(bivariate distribution)의 지수종속함수는
+$$
+V_{2}(z_{1},z_{2};\mathbf{h})=\frac{1}{2}(\frac{1}{z_{1}}+\frac{1}{z_{2}})(1+[1-\frac{2z_{1}z_{2}\{\rho(\mathbf{h})+1\}}{(z_{1}+z_{2})^{2}}]^{1/2})
+$$
+이며 $\rho(\mathbf{h})$는 가우스 임의장(Gaussian random fields)에 있던 상관관계함수이다.
+
+## Extremal-t 임의장(extremal-t random fields)
+
+**Extremal-t 임의장(extremal-t random fields)**의 이변량분포(bivariate distribution)의 지수종속함수는
+$$
+V_{3}(z_{1},z_{2};\mathbf{h})=\frac{1}{z_{1}}T_{\nu+1}\{\frac{(z_{2}/z_{1})^{1/\nu}-\rho(\mathbf{h})}{\sqrt{\{ 1-\rho(\mathbf{h})^{2} \}/(\nu+1) }}\} + \frac{1}{z_{2}}T_{\nu+1}\{\frac{(z_{1}/z_{2})^{1/\nu}-\rho(\mathbf{h})}{\sqrt{\{ 1-\rho(\mathbf{h})^{2} \}/(\nu+1) }}\}
+$$
+으로 여기서 $T_{\nu+1}$는 자유도 $\nu+1$을 같는 스튜던트-t 분포이며 $\rho(\mathbf{h})$는 압축함수(scaling function)이고 $\nu$는 Student-t random field의 자유도이다.

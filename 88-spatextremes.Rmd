@@ -127,7 +127,7 @@ filled.contour(x, y, log(data), color.palette = terrain.colors)
 
 ### Brown-Resnick 모형(Brown-Resnick model)
 
-이 모형은 [@Brown1977]이 처음 제안하였고 [@Kabluchko2009]가 일반화하였다. **Brown-Resnick 과정(Brown-Resnick process)**는
+이 모형은 [@Brown1977]이 처음 제안하였고 [@Kabluchko2009a]가 일반화하였다. **Brown-Resnick 과정(Brown-Resnick process)**는
 
 \begin{equation}
 Z(x)=\max_{i\geq 1}\xi_{i}\exp\{W_{i}(x)-\gamma(x)\},x\in\mathcal{X}\label{eq:Brown-Resnick}
