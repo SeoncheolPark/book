@@ -106,7 +106,7 @@ $$\mathcal{O}X=\{ \mathcal{O}\xi, \xi \in X\} \stackrel{\mathcal{D}}{=} X$$
 
 </div>
 
-## 포아송 점과정의 성질들(properties of Poisson point process)
+### 포아송 점과정의 성질들(properties of Poisson point process)
 
 이 절의 내용은 [@Moller2003]의 3장에 있는 포아송 점과정의 성질들을 언급한다. 증명은 생략하니 참고문헌을 참조하길 바란다. $S$는 기본적으로 유계일 필요는 없으며, $\rho$는 기본적으로 국소 적분가능(locally integrable)이다.
 
@@ -220,3 +220,41 @@ $$\rho_{thin}(\xi)=p(\xi)\rho(\xi), \xi\in S$$
 $X \sim \text{Poisson}(\mathbb{R}^{d}, \rho)$이며 강도함수 $\rho$는 상수 $c$에 의해 유계이다. 그러면 $X$는 보유확률 $p(\xi)=\frac{\rho(\xi)}{c}$를 갖는 $\text{Poisson}(\mathbb{R}^{d},c)$의 독립 세선화로 간주할 수 있다.
 
 </div>
+
+### 포아송과정의 시뮬레이션(simulation of Poisson processes)
+
+$X \sim \text{Poisson}(\mathbb{R}^{d},\rho)$라고 하고 우리는 유계인 $B$에서 $X$를 생성하고 싶어 한다. (여기서 $\rho$는 homogeneous이다.)
+
+1. 만약 $B=b(0,r)$과 같은 ball 형태라면 앞선 명제를 이용하여,
+$$S_{1},\ldots , S_{m} \stackrel{\text{i.i.d}}{\sim} \text{Exp}(\rho\omega_{d}), U_{1},\ldots, U_{m-1} \sim \text{unif}(u, \| u||=1)$$
+을 만든다. 여기서 $m$은 $R_{m-1}<r<R_{m}$이고 $R_{i}^{d}=R_{i-1}^{d}+S_{i}$이다.마지막으로
+$$X_{B}=\{ R_{1}U_{1},\ldots , R_{m-1}U_{m-1} \}$$
+
+2. 만약 $B=[0,a_{1}]\times \cdots \times [0,a_{d}]$, 즉 사각형 형태라면 given $N(B)=n$ i.i.d. points uniformly on $B$일 때 $N(B) \sim \text{Poisson}(\rho\cdot\prod_{i=1}^{d}a_{i})$를 생성하고 이를 바탕으로 포아송과정을 만든다.
+
+3. 마지막으로 일반적인 모양일 경우 독립 세선화를 이용해 $B$을 포함하는 더 큰 ball이나 사각형 $B_{0}$를 만들어 여기서 포아송과정을 생성한 다음 $B_{0}\backslash B$인 점들을 버린다.
+
+$X$가 비동질적(inhomogeneous)인 경우, 즉 포아송 점과정의 밀도함수 $\rho$가 $\rho=\rho(\xi)$이고 $\rho_{0}>0$에 의해 유계인 경우, $Y\sim \text{Poisson}(B,\rho_{0})$을 만들고 $X_{B}$는 독립세선화를 이용해 보유확률을 $\rho(\xi)/\rho_{0}$으로 하여 만들 수 있다고 한다.
+
+### 포아송 점과정의 밀도(density of Poisson point processes)
+
+$X_{1}$, $X_{2}$가 $S$위에서의 두 개의 점과정이라고 하자. 그리고 $F\subset\mathcal{N}_{lf}$일 때 $X_{1}$, $X_{2}$가 절대연속(absolutely continuous)라고 하자. 그러면 라돈-니코딤 정리(Radon-Nykodim theorem)에 의해
+$$P(X_{1}\in F) = E[ I_{\{X_{2}\in F\}}f(X_{2}) ], F\subseteq \mathcal{N}_{lf}$$
+를 만족하는 함수 $f: \mathcal{N}_{lf} \rightarrow [0,\infty ]$가 존재한다. 이 때 $f$를 $X_{2}$와 관련한 $X_{1}$의 **밀도(density)**라고 한다.
+
+포아송과정은 일반적으로 절대연속은 아니나 $S$가 유계일 경우에는 항상 절대연속이 된다고 한다.
+
+<div class="proposition">
+
+1. 임의의 숫자 $\rho_{1}, \rho_{2} >0$에 대해 $\text{Poisson}(\mathbb{R}^{d},\rho_{1})$이 $\text{Poisson}(\mathbb{R}^{d},\rho_{2})$에 대해 절대연속이라는 것은 $\rho_{1}=\rho_{2}$라는 것과 동치다.
+
+2. $i=1,2$일 때 $\rho_{i}:S\rightarrow [0,\infty)$가 존재하여 $\mu_{i}=\int_{S}\rho_{i}(\xi)d\xi$가 유한하다고 하자. 그리고 $\rho_{1}>0$일 때 항상 $\rho_{2}>0$이라고 하자. 그러면 $\text{Poisson}(S,\rho_{1})$은 $\text{Poisson}(S,\rho_{2})$에 대해 절대연속이며 밀도는
+$$f(x)=e^{\mu_{2}(S)-\mu_{1}S}\prod_{\xi\in x}\frac{\rho_{1}(\xi)}{\rho_{2}(\xi)}$$
+가 된다. $(x\subset S)$
+
+</div>
+
+### 표시된 포아송과정(marked Poisson process)
+
+$X=\{ (\xi, m_{\xi}), \xi \in Y \}$라고 하자.
+

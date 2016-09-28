@@ -242,3 +242,22 @@ $$A\times B = \{ (a,b)| a\in A \text{ and } b \in B\}$$
 ### Sobolev 공간(Sobolev space)
 
 ### Besov 공간(Besov space)
+
+### Reproducing kernel Hilbert space
+
+## 거리(distance)
+
+군집분석 방법에서는 관측값들의 거리를 이용해 군집을 나눌 때 사용된다.
+
+- 유클리드 거리(Euclidean distance): $d(x,y)=(\sum_{i=1}^{p}(x_{i}-y_{i})^{2})^{1/2}$
+
+- 민콥스키 거리(Minkowski distance): $d(x,y)=(\sum_{i=1}^{p}(x_{i}-y_{i})^{m})^{1/m}$
+
+- 맨하탄 거리(Manhattan distance): $d(x,y)=\sum_{i=1}^{p}|x_{i}-y_{i}|$
+
+- 표준화 거리(standardized distance): $d(x,y)=(\sum_{i=1}^{p}(x_{i}-y_{i})^{2}/s_{i}^{2})^{1/2}$, 여기서 $s_{i}$는 $i$번째 변수에 대한 표준편차
+
+- 마할라노비스 거리(Mahalanobis distance): $d(x,y)=(x-y)^{T}\boldsymbol{\Sigma}^{-1}(x-y)$, 여기서 $\Sigma$는 공분산행렬
+
+- 체비셰프 거리(Chebychev distance): $d(x,y)=\max_{i=1,\ldots ,p}|x_{i}-y_{i}|$
+
