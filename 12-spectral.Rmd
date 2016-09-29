@@ -1,0 +1,39 @@
+# 스펙트럼 분석 {#spectral}
+
+이 절의 내용은 [@Shumway2010]를 참고하였다.
+
+## 순환 움직임과 주기성(cyclical behavior and periodicity)
+
+다음과 같은 주기과정(periodic process)을 생각해보자.
+$$x_{t}=A\cos(2\pi\omega t + \phi), \qquad{\text{for } t=0,\pm 1, \pm 2, \ldots,}$$
+여기서
+
+- $\omega$: **진동수 지수(frequency index)** (단위 시간 당 순환의 갯수)
+
+- $A$: **진폭(amplitude)** (신호의 높이 결정)
+
+- $\phi$: **위상(phase)** (코사인 함수의 시작 지점)
+
+이다. 다음과 같은 삼각함수 공식 $\cos (\alpha \pm \beta)= \cos (\alpha) \cos (\beta) \mp \sin(\alpha)\sin(\beta)$을 이용하면 위 식은
+$$x_{t}=U_{1}\cos(2\pi\omega t) + U_{2}\sin(2\pi\omega t)$$
+가 되며 $U_{1}=A\cos \phi$, $U_{2}=-\sin\phi$는 종종 정규분포를 따르는 확률변수로 취급한다. 그리고 이 때 $A=\sqrt{U_{1}^{2}+U_{2}^{2}}$, $\phi=\tan^{-1}(-\U_{2}/U_{1})$이다. 이 사실로부터, $A$와 $\phi$가 독립인 확률변수면, $A^{2}\sim \chi_{2}$, $\phi \sim \text{Unif}(-\pi, \pi)$이며 $U_{1}$과 $U_{2}$는 독립인 표준 정규분포를 따른다.
+
+앞선 랜덤과정(random process)는 진동수 $\omega$를 모수로 하여 표현할 수 있다.
+
+### 중첩 주파수(folding frequency)
+
+### 앨리어싱(aliasing)
+
+```{r, fig.align='center', echo=FALSE, warning=FALSE, message=FALSE, results='hide', fig.cap = 'Periodic components and their sums.'}
+x1 = 2*cos(2*pi*1:100*6/100) + 3*sin(2*pi*1:100*6/100)
+x2 = 4*cos(2*pi*1:100*10/100) + 5*sin(2*pi*1:100*10/100)
+x3 = 6*cos(2*pi*1:100*40/100) + 7*sin(2*pi*1:100*40/100)
+x = x1 + x2 + x3
+par(mfrow=c(2,2))
+plot.ts(x1, ylim=c(-10,10), main=expression(omega==6/100~~~A^2==13))
+plot.ts(x2, ylim=c(-10,10), main=expression(omega==10/100~~~A^2==41))
+plot.ts(x3, ylim=c(-10,10), main=expression(omega==40/100~~~A^2==85))
+plot.ts(x, ylim=c(-16,16), main="sum")
+```
+
+## 피리오도그램(periodogram)

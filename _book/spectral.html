@@ -38,8 +38,8 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="multiscalets.html">
-<link rel="next" href="clustering.html">
+<link rel="prev" href="stoprocess.html">
+<link rel="next" href="multiscale.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -401,103 +401,34 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="admultiscale" class="section level1">
-<h1><span class="header-section-number">Chapter 12</span> 고급 다중척도 방법론</h1>
-<p>이 장에서는 앞 장에서 다룬 다중척도 방법론 중 심화된 웨이블릿 방법론 및 최신 동향에 대해 다룬다. 이 분야의 대표적인 참고문헌에는 <span class="citation">(Jansen and Oonincx <a href="#ref-Jansen2005">2005</a>)</span>가 있다.</p>
-<div id="--second-generation-wavelet-transform" class="section level2">
-<h2><span class="header-section-number">12.1</span> 2세대 웨이블릿 변환(second-generation wavelet transform)</h2>
-<p>푸리에 변환을 가지고 만들어진 웨이블릿을 <strong>1세대 웨이블릿(first-generation wavelet)</strong>이라고 부른다. 이와 다르게 푸리에 변환을 이용하지 않고 만들어진 웨이블릿을 <strong>2세대 웨이블릿 변환(second-generation wavelet)</strong>이라고 부른다. 이 2세대 웨이블릿 변환은 다음에 소개될 리프팅 스킴이라는 것에 의해 만들어진다.</p>
+<div id="spectral" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> 스펙트럼 분석</h1>
+<p>이 절의 내용은 <span class="citation">(Shumway and Stoffer <a href="#ref-Shumway2010">2010</a>)</span>를 참고하였다.</p>
+<div id="--cyclical-behavior-and-periodicity" class="section level2">
+<h2><span class="header-section-number">6.1</span> 순환 움직임과 주기성(cyclical behavior and periodicity)</h2>
+<p>다음과 같은 주기과정(periodic process)을 생각해보자. <span class="math display">\[x_{t}=A\cos(2\pi\omega t + \phi), \qquad{\text{for } t=0,\pm 1, \pm 2, \ldots,}\]</span> 여기서</p>
+<ul>
+<li><p><span class="math inline">\(\omega\)</span>: <strong>진동수 지수(frequency index)</strong> (단위 시간 당 순환의 갯수)</p></li>
+<li><p><span class="math inline">\(A\)</span>: <strong>진폭(amplitude)</strong> (신호의 높이 결정)</p></li>
+<li><p><span class="math inline">\(\phi\)</span>: <strong>위상(phase)</strong> (코사인 함수의 시작 지점)</p></li>
+</ul>
+<p>이다. 다음과 같은 삼각함수 공식 <span class="math inline">\(\cos (\alpha \pm \beta)= \cos (\alpha) \cos (\beta) \mp \sin(\alpha)\sin(\beta)\)</span>을 이용하면 위 식은 <span class="math display">\[x_{t}=U_{1}\cos(2\pi\omega t) + U_{2}\sin(2\pi\omega t)\]</span> 가 되며 <span class="math inline">\(U_{1}=A\cos \phi\)</span>, <span class="math inline">\(U_{2}=-\sin\phi\)</span>는 종종 정규분포를 따르는 확률변수로 취급한다. 그리고 이 때 <span class="math inline">\(A=\sqrt{U_{1}^{2}+U_{2}^{2}}\)</span>, <span class="math inline">\(\phi=\tan^{-1}(-\U_{2}/U_{1})\)</span>이다. 이 사실로부터, <span class="math inline">\(A\)</span>와 <span class="math inline">\(\phi\)</span>가 독립인 확률변수면, <span class="math inline">\(A^{2}\sim \chi_{2}\)</span>, <span class="math inline">\(\phi \sim \text{Unif}(-\pi, \pi)\)</span>이며 <span class="math inline">\(U_{1}\)</span>과 <span class="math inline">\(U_{2}\)</span>는 독립인 표준 정규분포를 따른다.</p>
+<p>앞선 랜덤과정(random process)는 진동수 <span class="math inline">\(\omega\)</span>를 모수로 하여 표현할 수 있다.</p>
+<div id="-folding-frequency" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> 중첩 주파수(folding frequency)</h3>
 </div>
-<div id="-lifting-scheme" class="section level2">
-<h2><span class="header-section-number">12.2</span> 리프팅 스킴(lifting scheme)</h2>
-<strong>리프팅 스킴(lifting scheme)</strong>은 확장(enhancement)이라는 개념이다. 지금 존재하는 웨이블릿에 우리가 원하는 성질들을 추가하는 것이다. Haar 웨이블릿을 새로운 관점에서 보도록 하자. <span class="math inline">\(s_{j+1}\)</span>을 <span class="math inline">\(j+1\)</span> 스케일에서의 투입값이라고 하자. 그러면 Haar 변환은 이것들을 <span class="math inline">\(j\)</span> 척도의 평균 <span class="math inline">\(s_{j,k}\)</span>과 차이(detail) <span class="math inline">\(d_{j,k}\)</span>로 바꿔준다.
-\begin{equation}
-    s_{j,k}=\frac{s_{j+1,2k}+s_{j+1,2k+1}}{2}
-\end{equation}\begin{equation}
-    d_{j,k}=s_{j+1,2k+1}+s_{j+1,2k}
-\end{equation}
-위 식들의 역변환(inverse transform)은 다음과 같다.
-\begin{equation}
-    s_{j+1,2k+1}=s_{j,k}+\frac{d_{j,k}}{2}
-\end{equation}\begin{equation}
-    s_{j+1,2k}=s_{j,k}-\frac{d_{j,k}}{2}\label{eq:four}
-\end{equation}
-식 (\ref{eq:four})를 이항하여 정리하면 다음과 같은 식을 얻는다.
-\begin{equation}
-    s_{j,k}=s_{j+1,2k}+\frac{d_{j,k}}{2}.
-\end{equation}
-<p>웨이블릿 변환에서는 <span class="math inline">\(s_{j,k}\)</span>와 <span class="math inline">\(d_{j,k}\)</span>를 동시에 얻지만 리프팅 스킴에서는 <span class="math inline">\(d_{j,k}\)</span>를 얻은 후 순차적으로 <span class="math inline">\(s_{j,k}\)</span>를 얻는다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-33"></span>
-<img src="images/advmultiscale_lifting.png" alt="Forward lifting scheme using Haar transform." width="231" />
+<div id="aliasing" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> 앨리어싱(aliasing)</h3>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-10-1.png" alt="Periodic components and their sums." width="672" />
 <p class="caption">
-Figure 12.1: Forward lifting scheme using Haar transform.
+Figure 6.1: Periodic components and their sums.
 </p>
 </div>
-<p>정리하면 <span class="math display">\[\text{차이(difference)=홀(odd)-짝(even)} \qquad{\text{듀얼 리프팅(dual lifting)}}\]</span> <span class="math display">\[\text{평균(average)=짝(even)+0.5차이} \qquad{\text{프라이멀 리프팅(primal lifting)}}\]</span> 이며 여기서 짝과 홀을 어떻게 정하느냐에 따라 계산값이 달라진다.</p>
-<p>리프팅 스킴의 계산 절차를 다음과 같이 세 단계로 요약할 수 있다.</p>
-<ol style="list-style-type: decimal">
-<li><p><strong>분할(split)</strong>: 관찰값들을 짝과 홀 두 개의 분리 집합(disjoint set)으로 분할(partition)한다(꼭 짝과 홀로 나누지 않아도 된다).</p></li>
-<li><p><strong>에측(predict)</strong>: 홀로 색인(index)된 투입값을 이 값과 짝의 데이터만을 이용해 예측된 값으로 대체한다. (듀얼 리프팅)</p></li>
-<li><p><strong>갱신(update)</strong>: <span class="math inline">\(s_{j,k}=s_{j+1,2k}+\frac{d_{j,k}}{2}\)</span> (프라이멀 리프팅)</p></li>
-</ol>
-<p>일반적인 리프팅 스킴의 프라이멀 리프팅과 듀얼 리프팅의 <strong>정변환(forward transform)</strong>은 다음과 같다. <span class="math display">\[\text{차이(difference)=홀(odd)-p짝(even)} \qquad{\text{듀얼 리프팅(dual lifting)}}\]</span> <span class="math display">\[\text{평균(average)=짝(even)+u차이} \qquad{\text{프라이멀 리프팅(primal lifting)}}\]</span> 이 때 <span class="math inline">\(p=1\)</span>, <span class="math inline">\(u=0.5\)</span>인 경우를 특별히 Haar 웨이블릿 변환(Haar wavelet transformation)이라고 부르는 것이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-34"></span>
-<img src="images/advmultiscale_lifting02.png" alt="Standard lifting scheme using primal and dual lifting." width="235" />
-<p class="caption">
-Figure 12.2: Standard lifting scheme using primal and dual lifting.
-</p>
-</div>
-<p>리프팅의 <strong>역변환(backward transform)</strong>은 다음과 같다. <span class="math display">\[\text{짝(even)=평균(average)-u차이(difference)} \]</span> <span class="math display">\[\text{홀(odd)=차이(difference)+p짝} \]</span></p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-35"></span>
-<img src="images/advmultiscale_invlifting.png" alt="Backward lifting scheme." width="217" />
-<p class="caption">
-Figure 12.3: Backward lifting scheme.
-</p>
-</div>
-<p>리프팅 스킴 방법은 데이터가 일정한 간격(equally space)으로 있어야 한다는 가정이 불필요하며 <span class="math inline">\(n=2^{J}\)</span>일 필요도 없다. 그러나 <span class="math inline">\(p\)</span>와 <span class="math inline">\(u\)</span>를 바꿀 경우 직교성(orthogonality)이 안되기 시작하며 2차원 자료인 경우에도 잘 작동하지 않는다. 만약 시공간 자료(spatio-temporal data)에 리프팅을 적용할 수 있다면 군집 분석(clustering analysis)을 할 때 군집의 크기(clustering size)를 고민할 필요가 없다는 장점이 생긴다.</p>
-<div class="example">
-<p>다음과 같은 벡터 <span class="math display">\[\mathbf{z}_{3}=(1,2,3,4,5,6,7,8), n=8, J=3.\]</span> 가 있다고 하자. 이 벡터에 리프팅 스킴을 적용하면 다음과 같다.</p>
-<ol style="list-style-type: decimal">
-<li><p><strong>Spilt</strong>: <span class="math inline">\(\mathbf{z}_{3}\)</span>을 <span class="math inline">\(\mathbf{y}=(1,3,5,7)\)</span> (홀에 해당)와 <span class="math inline">\(\mathbf{x}=(2,4,6,8)\)</span> (짝에 해당)로 나눈다.</p></li>
-<li><p><strong>Predict</strong>: <span class="math inline">\(\mathbf{x}\)</span>의 주변값의 평균을 이용해 <span class="math inline">\(\hat{\mathbf{y}}\)</span>를 만든다. 첫 번째 원소를 예측할 때에는 첫 번째 <span class="math inline">\(\mathbf{x}\)</span>값만 쓰기로 한다. 그러면 <span class="math inline">\(\hat{\mathbf{y}}=(2,3,5,7)\)</span>가 되고 <span class="math inline">\(\mathbf{e}_{2}=\mathbf{y}-\hat{\mathbf{y}}=(-1,0,0,0)\)</span>가 된다.</p></li>
-<li><p><strong>Update</strong>: 평균을 맞춰주는 작업을 진행해 <span class="math inline">\(\mathbf{z}_{2}=\bar{\mathbf{x}}=\mathbf{x}+\mathbf{e}_{2}/2 = (1.5,4,6,8)\)</span>를 만든다.</p></li>
-</ol>
-<p>이제 <span class="math inline">\(\mathbf{z}_{2}\)</span>를 가지고 같은 작업을 반복한다. 그러면</p>
-<ol style="list-style-type: decimal">
-<li><p><strong>Spilt</strong>: <span class="math inline">\(\mathbf{y}=(1.5,6)\)</span>, <span class="math inline">\(\mathbf{x}=(4, 8)\)</span>.</p></li>
-<li><p><strong>Predict</strong>: <span class="math inline">\(\hat{\mathbf{y}}=(4,6)\)</span>, <span class="math inline">\(\mathbf{e}_{1}=(-2.5,0)\)</span>.</p></li>
-<li><p><strong>Update</strong>: <span class="math inline">\(\mathbf{z}_{1}=\bar{\mathbf{x}}=(2.75,8)\)</span>.</p></li>
-</ol>
-<p>한 번 더 반복한다.</p>
-<ol style="list-style-type: decimal">
-<li><p><strong>Spilt</strong>: <span class="math inline">\(\mathbf{y}=(2.75)\)</span>, <span class="math inline">\(\mathbf{x}=8\)</span></p></li>
-<li><p><strong>Predict</strong>: <span class="math inline">\(\hat{\mathbf{y}}=(8)\)</span>, <span class="math inline">\(\mathbf{e}_{0}=(-5.25)\)</span></p></li>
-<li><p><strong>Update</strong>: <span class="math inline">\(\mathbf{z}_{0}=\bar{\mathbf{x}}=(5.375)\)</span>.</p></li>
-</ol>
-<p>최종적으로 남는 detail과 global은 다음과 같다. 0이 많아져 리프팅 스킴으로 좋은 결과를 얻었다고 말할 수 있다고 한다.</p>
-<p><span class="math display">\[\mathbf{e}_{2}=(-1,0,0,0), \mathbf{e}_{1}=(-2.5,0), \mathbf{e}_{0}=(-5.25), \mathbf{z}_{0}=(5.375).\]</span></p>
-</div>
-<div class="example">
-<p>다중척도 방법의 특징은 저장된 계수들을 가지고 원래 신호를 <strong>복원(reconstruction)</strong>할 수 있어야 한다는 것이다. 앞선 예제의 detail과 global 계수들을 가지고 신호복원을 해보자.</p>
-<ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(\mathbf{x}=\mathbf{z}_{0}-\mathbf{e}_{0}/2=8\)</span>, <span class="math inline">\(\mathbf{y}=\mathbf{e}_{0}+\hat{\mathbf{y}}=2.75\)</span>, <span class="math inline">\(\mathbf{z}_{1}=(2.75, 8)\)</span>.</p></li>
-<li><p><span class="math inline">\(\mathbf{x}=\mathbf{z}_{1}-\mathbf{e}_{1}/2=(4,8)\)</span>, <span class="math inline">\(\hat{\mathbf{y}}=(4,6)\)</span>, <span class="math inline">\(\mathbf{y}=\mathbf{e}_{1}+\hat{\mathbf{y}}=(1.5, 6)\)</span>, <span class="math inline">\(\mathbf{z}_{2}=(1.5, 5, 6, 8)\)</span>.</p></li>
-<li><p><span class="math inline">\(\mathbf{x}=\mathbf{z}_{2}-\mathbf{e}_{2}/2=(2,4,6,8)\)</span>, <span class="math inline">\(\hat{\mathbf{y}}=(2,3,5,7)\)</span>, <span class="math inline">\(\mathbf{y}=\mathbf{e}_{2}+\hat{\mathbf{y}}=(1,3,5,7)\)</span>.</p></li>
-</ol>
-<p>따라서 <span class="math inline">\(\mathbf{z}_{3}=(1,2,3,4,5,6,7,8)\)</span> 신호를 성공적으로 복원할 수 있다.</p>
 </div>
 </div>
-<div id="---lifting-in-two-dimensions" class="section level2">
-<h2><span class="header-section-number">12.3</span> 2차원 자료의 리프팅 스킴(lifting in two dimensions)</h2>
-<p>이 절의 내용은 <span class="citation">(Jang <a href="#ref-Jang2012">2012</a>)</span>의 서술을 참고하였다. 2차원 자료에서는 1차원 자료와 다르게 짝과 홀을 정할 수 없다는 문제점이 있다. 불규칙한 격자점에서, 이웃(neighborhood)은 삼각분할(triangulation)을 통해 정의된다.</p>
-<p>리프팅 스킴은 모든 해상도 수준(resolution level)에서 <strong>다중척도 들로네 삼각분할(multiscale Delaunay triangulation)</strong>이라 부르는 꼭지점들의 이웃 구조를 사용한다. 삼각형 격자 위에 있는 자료를 다중척도 표현으로 분해(decomposition)하는 것은 현재 수준 <span class="math inline">\(l\)</span>에서 <span class="math inline">\(l+1\)</span>로 넘어갈 때 빼길 원하는 점 주변의 국소적 재삼각분할(local retriangulation)을 필요로 한다. 이 알고리즘은 수준이 고정되었을 때 이웃은 변하지 않는다라는 가정 하에서 진행된다.</p>
-<div class="figure" style="text-align: center"><span id="fig:2dlifting"></span>
-<img src="images/advmultiscale_lifting2d.png" alt="2D lifting scheme example." width="228" />
-<p class="caption">
-Figure 12.4: 2D lifting scheme example.
-</p>
-</div>
-<p>위 그림에서 빨간색 점들로 검은색 점을 포함하는 <strong>보로노이 다이어그램(Voronoi diagram)</strong>을 그린다. (a), (b), (c)는 각각 첫 번째, 두 번째 및 세 번째 리프팅 스킴에 대응된다. (d)는 투입된 자료를 네 가지 수준으로 구분한 그림이다. 빨간색 점들은 <span class="math inline">\(s_{t,2k+1}\)</span>에 대응되며 검은색 점들은 <span class="math inline">\(s_{t,2k}\)</span>에 대응된다. 갱신 단계에서, 우리는 검은색 지점의 상세 이미지(detail image) <span class="math inline">\(d_{t+1,k}\)</span>를 얻을 수 있고, 빨간색 지점의 갱신된 근사 이미지(approximation image) <span class="math inline">\(s_{t+1,k}\)</span>를 얻을 수 있다. 산재된 자료(scattered data)의 경우 척도(scale)은 ‘연속(continuous)’ 개념에 대응된다. 다시 말하면, 모든 자료는 각자 고유의 척도를 가지고 있고, 이 척도는 주변과의 거리에 관계되어 결정되는 것이다.</p>
+<div id="periodogram" class="section level2">
+<h2><span class="header-section-number">6.2</span> 피리오도그램(periodogram)</h2>
 
 </div>
 </div>
@@ -506,11 +437,8 @@ Figure 12.4: 2D lifting scheme example.
 
 <h3> References</h3>
 <div id="refs" class="references">
-<div id="ref-Jansen2005">
-<p>Jansen, Maarten H., and Patrick J. Oonincx. 2005. <em>Second Generation Wavelets and Applications</em>. Spring Street, New York: Springer Science &amp; Business Media.</p>
-</div>
-<div id="ref-Jang2012">
-<p>Jang, Dongik. 2012. “Directional Wavelets for Scattered Data and Their Applications.” PhD thesis, Seoul National University.</p>
+<div id="ref-Shumway2010">
+<p>Shumway, Robert H., and David S. Stoffer. 2010. <em>Time Series Analysis and Its Applications: With R Examples</em>. Springer Science; Business Media.</p>
 </div>
 </div>
             </section>
@@ -518,8 +446,8 @@ Figure 12.4: 2D lifting scheme example.
           </div>
         </div>
       </div>
-<a href="multiscalets.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="clustering.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="stoprocess.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="multiscale.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -546,7 +474,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://seoncheolpark.github.io/book/_book/19-admultiscale.Rmd",
+"link": "https://seoncheolpark.github.io/book/_book/12-spectral.Rmd",
 "text": null
 },
 "download": null,
