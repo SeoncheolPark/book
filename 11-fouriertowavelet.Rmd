@@ -1,0 +1,31 @@
+# (PART) Multiscale Methods in Statistics {-}
+
+# 푸리에로부터 웨이블릿으로 {#fouriertowavelet}
+
+이 절의 초반부 내용은 [@Ogden2012]를 참고하였다.
+
+## 이산 푸리에변환(discrete Fourier transform)
+
+<div class="definition">
+
+어떤 함수 $f$가 $L^{2}[a,b]$에 속한다는 것은
+$$\int_{a}^{b}f^{2}(x)dx <\infty$$
+를 만족할 때이다.
+
+</div>
+
+푸리에의 결과는 $f\in L^{2}[-\pi, \pi]$인 어떤 함수 $f$는 다음과 같이 사인함수와 코사인함수의 무합급수로 표현할 수 있다는 것이다.
+$$f(x)=\frac{1}{2}a_{0}+\sum_{j=1}^{\infty}(a_{j}\cos (jx) + b_{j}\sin (jx)),$$
+여기서 $\{ a_{0}, a_{1}, b_{1}, \ldots \}$들은 계수다.
+
+<div class="definition">
+
+두 함수 $f_{1},f_{2}\in L^{2}[a,b]$는 $<f_{1},f_{2}=0$일 때 **직교(orthogonal)**라고 부른다.
+
+</div>
+
+<div class="definition">
+
+함수들의 수열 $\{ f_{j} \}$는 모든 $f_{j}$들이 짝지은 직교(pairwise orthogonal)이며 $\| f_{j}\|=1$일 때 **직교정규(orthonormal)**이라고 한다.
+
+</div>

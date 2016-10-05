@@ -38,8 +38,8 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="csr.html">
-<link rel="next" href="pointprocess.html">
+<link rel="prev" href="basicprob.html">
+<link rel="next" href="convergencerv.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -407,64 +407,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="sparsesampling" class="section level1">
-<h1><span class="header-section-number">Chapter 28</span> 희박한 샘플링 분석</h1>
-<p>지금까지는 사건의 point의 각각의 location을 미리 안다고 가정하고 또 사건의 갯수인 <span class="math inline">\(n\)</span> 또한 미리 안다고 가정한 상태에서 분석을 하였다. 한편, 지역이 엄청 크거나 사건의 point들이 너무 많을 경우 정보를 collect하는 데 시간이 오래 걸릴 것이다. 특히 기술이 발달하지 않은 옛날에는 특히 어려웠기 때문에 사람들은 관찰 지역 안에서 일부 정보를 뽑아 사용했다고 한다. 자료는</p>
-<ol style="list-style-type: decimal">
-<li><p>정방구역 계산(quadrat count) 및</p></li>
-<li><p><span class="math inline">\(m\)</span>개의 표본추출 점들(sampling points)의 최근접이웃거리 기반 방법</p></li>
-</ol>
-<p>으로 모은다. <span class="math inline">\(m\)</span>을 조절할 수 있기 때문에 실제로 2의 방법으로 모으는 것이 더 쉽다고 한다.</p>
-<p>희박한 샘플링 분석에서의 관심사는 CSR도 있지만 알려지지 않은 전채 갯수 <span class="math inline">\(n\)</span>에 더 관심을 갖는다고 한다. <strong>강도(intensity)</strong> <span class="math inline">\(\lambda\)</span>를 알면 <span class="math inline">\(n\)</span>을 알 수 있지 않을까? 결국 <span class="math inline">\(n\)</span> 또는 <span class="math inline">\(\lambda\)</span>의 분포를 알아야 하므로 CSR인지 먼저 체크하게 된다.</p>
-<div id="-----quadrat-counts-for-sparse-sampled-data" class="section level2">
-<h2><span class="header-section-number">28.1</span> 희박한 샘플링 자료를 위한 정방구역 계산(quadrat counts for sparse sampled data)</h2>
-<p><span class="math inline">\(I\)</span>를 산포(dispersion)의 지수(index)라고 하자. 그러면 <span class="math inline">\(I\)</span>는 <span class="math display">\[I=\frac{\sum_{i=1}^{m}(n_{i}-\bar{n})^{2}}{\bar{n}(m-1)},\]</span> 즉 표본분산(<span class="math inline">\(\frac{\sum_{i=1}^{m}(n_{i}-\bar{n})^{2}}{(m-1)}\)</span>)과 표본평균(<span class="math inline">\(\bar{n}=\frac{1}{m}\sum n_{i}\)</span>)의 비로 나타낸다. CSR하에서 <span class="math inline">\(n_{1}, \ldots, n_{m}\)</span>은 포아송 분포를 따르고 표본분산과 표본평균은 같다, 즉 <span class="math inline">\(I \approx 1\)</span>이길 기대하는 것이다.</p>
-<p>검정은 <span class="math inline">\((m-1)I \sim \chi_{m-1}^{2}\)</span> 사실을 이용하며 <span class="math inline">\(I &gt;&gt; 1\)</span>인 경우에는 <strong>집적(aggregate)</strong>된 자료(<span class="math inline">\(n_{1}, \ldots, n_{m}\)</span>의 variation이 크므로 표본분산이 커짐)이며 <span class="math inline">\(I &lt;&lt; 1\)</span>인 경우에는 <strong>정칙(regular)</strong>성을 띈 자료가 된다. <span class="citation">(P. J. Diggle <a href="#ref-Diggle1979">1979</a>)</span>는 이 검정이 집적된 자료를 찾는데에는 강력(powerful)하나 정칙성을 띈 자료를 찾는 데에는 좋지 않다는 사실을 밝혔다.</p>
-<p>한편 강도 <span class="math inline">\(\lambda\)</span>의 추정량 <span class="math inline">\(\hat{\lambda}\)</span>는 <span class="math display">\[\hat{\lambda}=\sum_{i=1}^{m}\frac{n_{i}}{m|B|}\]</span> 와 같이 계산을 할 수 있다.</p>
+<div id="rv" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> 확률변수</h1>
+<div class="definition">
+<p><span class="math inline">\((\Omega_{1}, \mathcal{F}_{1})\)</span>, <span class="math inline">\((\Omega_{2}, \mathcal{F}_{2})\)</span>가 두 가측공간(measurable)이라고 할 때, 함수 <span class="math inline">\(X:\Omega_{1} \rightarrow \Omega_{2}\)</span>가 임의의 집합 <span class="math inline">\(E\in \mathcal{F}_{2}\)</span>에 대해 집합 <span class="math inline">\(X^{-1}(E)\)</span>이 <span class="math display">\[X^{-1}(E)=\{ \omega \in \Omega_{1}: X(\omega) \in E\} \mathcal{F}_{1}\]</span> (또는 위 조건을 <span class="math inline">\(X^{-1}(\mathcal{F}_{2})\in \mathcal{F}_{1})\)</span>) 일 때 <span class="math inline">\(X\)</span>가 <strong>가측(measurable)</strong>이라고 한다. (또는 <span class="math inline">\(\mathcal{F}_{1}\)</span>-가측 이라고도 부른다.)</p>
 </div>
-<div id="-----distance-methods-for-sparsely-sampled-data" class="section level2">
-<h2><span class="header-section-number">28.2</span> 희박한 샘플링 자료를 위한 거리 방법들(distance methods for sparsely sampled data)</h2>
-<p><span class="math inline">\(X\)</span>를 임의의 점(point, 사건이 아님)으로부터 가장 가까운 사건(event)까지의 거리라고 하자. 그러면 CSR 가정 하에서 <span class="math display">\[F(x)=P(X\leq x)\approx 1-e^{-\pi\lambda x^{2}}, \qquad{x&gt;0\text{ under CSR}}\]</span> 이다. 즉 <span class="math inline">\(\pi X^{2} \sim \text{Exp}(\lambda)\)</span>이며 변수변환을 통해 <span class="math inline">\(2\pi \lambda X^{2} \sim \chi_{2}^{2}\)</span>으로 바뀌며 <span class="math inline">\(P(X&gt;x)\sim e^{-\pi\lambda x^{2}}\)</span>이 된다.</p>
-<p>이 때 CSR 검정을 하는 방법으로는 두 가지 방법이 있다.</p>
-<ol style="list-style-type: decimal">
-<li><span class="citation">(Hopkins and Skellam <a href="#ref-Hopkins1954">1954</a>)</span>는 뒤에 나올 <span class="math inline">\(h\)</span>를 이용한 검정 방법을 제안했다. 임의로 <span class="math inline">\(m\)</span>개의 점을 골랐을 때 각 점들마다 가장 가까운 사건 사이의 거리를 <span class="math inline">\(\{X_{1}, \ldots, X_{m}\}\)</span>이라고 놓자. 그리고 임의로 사건을 하나 골랐을 때 그 사건과 가장 가까운 다른 사건 사이의 거리를 <span class="math inline">\(\{Y_{1}, \ldots, Y_{m}\}\)</span>이라고 놓자. 그러면 <span class="math display">\[2\pi\lambda X_{i}^{2} \stackrel{ind}{\sim} \chi_{2}^{2} \bot \sum 2\pi\lambda Y_{i}^{2} \sim \chi_{2}^{2},\]</span> <span class="math display">\[\sum 2\pi X_{i}^{2} \stackrel{ind}{\sim} \chi_{2m}^{2} \bot \sum 2\pi Y_{i}^{2} \sim \chi_{2m}^{2}\]</span> 이며 <span class="math display">\[h=\frac{\sum X_{i}^{2}}{\sum Y_{i}^{2}} \sim F_{2m,2m} \qquad{\text{under CSR.}}\]</span> 이다. 즉 임의 점에서 계산한 nearest distance나 무작위로 선택된 사건들로부터 계산된 nearest distance들이나 같아야 한다는 아이디어에서 출발한 것이다.</li>
-</ol>
-<p>만약 CSR이 아닌 경우에는 <span class="math inline">\(h\)</span>가 커지거나 작아지는데, <span class="math inline">\(h\)</span>가 커진다는 것은 <span class="math inline">\(\sum Y_{i}^{2}\)</span>들이 작아지므로 집적된 자료이고, <span class="math inline">\(h\)</span>가 작아질 때에는 <span class="math inline">\(\sum Y_{i}^{2}\)</span> 일정한 값들을 갖기 때문에 정칙성을 갖는 자료라고 한다.</p>
-<ol start="2" style="list-style-type: decimal">
-<li>Besag and Gleaves (1973)은 T-square sampling procedure라는 것을 제안했다.</li>
-</ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-64"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-64-1.png" alt="Example of T-square sampling." width="672" />
-<p class="caption">
-Figure 28.1: Example of T-square sampling.
-</p>
+<div class="definition">
+<p><span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>가 확률공간(probability space)이라고 하자. 그러면 어떤 실변수 함수 <span class="math display">\[X:\Omega \rightarrow \mathbb{R}\]</span> 가 <span class="math inline">\((\Omega, \mathcal{F})\)</span>에서 <span class="math inline">\((\mathbb{R}, \mathcal{B})\)</span>로 가는 가측함수(measurable function)일 때(여기서 <span class="math inline">\(\mathcal{B}\)</span>는 <span class="math inline">\(\mathbb{R}\)</span>에서의 보렐 시그마-체) 이 <span class="math inline">\(X\)</span>를 <strong>확률변수(random variable)</strong>라고 부른다.</p>
 </div>
-<p>그림에 대한 설명은 다음과 같다. 사건(event)가 아닌 점(point) <span class="math inline">\(O\)</span>를 생각한다. <span class="math inline">\(O\)</span>에서 가장 가까운 사건이 <span class="math inline">\(P\)</span>이고 이들 사이의 거리가 <span class="math inline">\(x\)</span>이다. 그 다음에는 <span class="math inline">\(P\)</span>에서 <span class="math inline">\(O\)</span>를 중심으로 하고 반지름의 길이가 <span class="math inline">\(x\)</span>인 원에 대한 접선을 그어 접선 바깥쪽에서 <span class="math inline">\(P\)</span>와 가장 가까운 사건을 찾고 이들 사이의 거리를 <span class="math inline">\(z\)</span>라고 놓는 것이다. 이 때, CSR 가정 하에서 <span class="math display">\[X_{1}, \ldots, X_{m}: 2\pi\lambda X_{i}^{2} \sim \chi_{2}^{2},\]</span> <span class="math display">\[Z_{1}, \ldots Z_{m} \sim \text{Poisson}(\lambda \frac{\pi z^{2}}{2})\]</span> 이다. 이 때 <span class="math inline">\(\frac{\pi z^{2}}{2}\)</span>는 반원의 면적이다. 이는</p>
-\begin{eqnarray*}
-P(Z&gt;z|X=x)&amp;=&amp; P(\text{number of events in half circle}=0)\\
-&amp;=&amp; 1-e^{-\lambda \frac{\pi z^{2}}{2}}, \qquad{X \text{ and } Z \text{ are independent}}
-\end{eqnarray*}
-<p>로 부터 나온 것이다. 즉 <span class="math display">\[2\pi\lambda X_{i}^{2} \stackrel{ind}{\sim} \chi_{2}^{2} \bot \sum \pi\lambda Z_{i}^{2} \sim \chi_{2}^{2}\]</span> 이다.</p>
-<p>검정통계량은 <span class="math inline">\(t_{N}\)</span>과 <span class="math inline">\(t_{F}\)</span>를 쓴다. <span class="math display">\[t_{N}=\frac{1}{m}\sum_{i=1}^{m}\frac{x_{i}^{2}}{x_{i}^{2} + z_{i}^{2}/2} \stackrel{\text{approx}}{\sim}\mathcal{N}(\frac{1}{2}, \frac{1}{12m})\]</span> <span class="math display">\[t_{F}=\frac{2\sum x_{i}^{2}}{\sum z_{i}^2} \stackrel{\text{approx}}{\sim} F_{2m,2m}\]</span></p>
+<p>(확률변수에 대한 설명 보충 필요)</p>
 
-</div>
-</div>
-<h3> References</h3>
-<div id="refs" class="references">
-<div id="ref-Diggle1979">
-<p>Diggle, Peter J. 1979. “On Parameter Estimation and Goodness-of-Fit Testing for Spatial Point Patterns.” <em>Biometrics</em> 35 (1): 87–101. doi:<a href="https://doi.org/10.2307/2529938">10.2307/2529938</a>.</p>
-</div>
-<div id="ref-Hopkins1954">
-<p>Hopkins, Brian, and J. G. Skellam. 1954. “A New Method for Determining the Type of Distribution of Plant Individuals.” <em>Annals of Botany</em> 18 (70): 213–27.</p>
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="csr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="pointprocess.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="basicprob.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="convergencerv.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -491,7 +451,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://seoncheolpark.github.io/book/_book/73-sparsesampling.Rmd",
+"link": "https://seoncheolpark.github.io/book/_book/03-rv.Rmd",
 "text": null
 },
 "download": null,

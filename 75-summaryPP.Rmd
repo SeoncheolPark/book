@@ -1,0 +1,31 @@
+# 점과정의 요약통계 {#summaryPP}
+
+이 절에서는 나중에 추정에 유용하게 쓰일 공간점과정의 요약통계량들에 대해 다룬다.
+
+## 점과정의 1차 및 2차 성질들(first and second order properties of a point process)
+
+$X$를 $S=\mathbb{R}^{d}$에서의 점과정이라고 하자. $N(B)$가 $B\subset S$에서 무작위 셀 수 있는 변수들의 1차 및 2차 성질들은 **강도측도(intensity measure)**와 **이차계승적률측도(second order moment factorial moment measure)**라고 부른다.
+
+<div class="definition">
+
+$\mathbb{R}^{d}$에서의 **강도측도(intensity measure)** $\mu$는
+$$\mu(B)=E[N(B)], B\subset \mathbb{R}^{d}$$
+로 정의하고 $\mathbb{R}^{d}\times \mathbb{R}^{d}$ **이차계승적률측도(second order moment factorial moment measure)** $\alpha^{(2)}$는
+$$\alpha^{(2)}(C)=E \sum_{\xi, \eta \in X}^{\neq} I_{[(\xi, \eta)\in C]}, C\subseteq \mathbb{R}^{d}\times \mathbb{R}^{d}$$
+로 정의한다.
+
+</div>
+
+일반적인 집합 $S$에 대해 측도는
+$$E(N(B_{1})N(B_{2}))=\alpha^{(2)}(B_{1}\times B_{2}) + \mu (B_{1} \int B_{2}), B_{1}, B_{2}\subseteq \matbb{R}^{d}$$
+와 같이 정의된다고 한다.
+
+<div class="definition">
+
+$\rho$가 존재하여 
+$$\mu(B)=\int_{B}\rho(\xi)d\xi$$
+를 만족한다면, $\rho$를 **강도함수(intensity function)**라고 한다.
+
+</div>
+
+
