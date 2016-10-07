@@ -1,0 +1,252 @@
+# (PART) Multiscale Methods in Statistics {-}
+
+# 푸리에로부터 웨이블릿으로 {#fouriertowavelet}
+
+이 절의 초반부 내용은 [@Ogden2012]를 참고하였다.
+
+## 이산 푸리에변환(discrete Fourier transform)
+
+<div class="definition">
+
+어떤 함수 $f$가 $L^{2}[a,b]$에 속한다는 것은
+$$\int_{a}^{b}f^{2}(x)dx <\infty$$
+를 만족할 때이다.
+
+</div>
+
+푸리에의 결과는 $f\in L^{2}[-\pi, \pi]$인 어떤 함수 $f$는 다음과 같이 사인함수와 코사인함수의 무합급수로 표현할 수 있다는 것이다.
+$$f(x)=\frac{1}{2}a_{0}+\sum_{j=1}^{\infty}(a_{j}\cos (jx) + b_{j}\sin (jx)),$$
+여기서 $\{ a_{0}, a_{1}, b_{1}, \ldots \}$들은 계수다.
+
+<div class="definition">
+
+두 함수 $f_{1},f_{2}\in L^{2}[a,b]$는 $<f_{1},f_{2}=0$일 때 **직교(orthogonal)**라고 부른다.
+
+</div>
+
+<div class="definition">
+
+함수들의 수열 $\{ f_{j} \}$는 모든 $f_{j}$들이 짝지은 직교(pairwise orthogonal)이며 $\| f_{j}\|=1$일 때 **직교정규(orthonormal)**이라고 한다.
+
+</div>
+
+## 웨이블릿(wavelet)
+
+웨이블릿은 뒷장에서도 다시 설명하겠지만, 여기서는 [@Shima2016]의 내용을 다룬다.
+
+앞서 보았듯이, 푸리에 변환은 시간 영역에서 진동이 있는 요소들을 추출해낸다는 점에서 효율적인 툴로 알려져있다. 그러나 푸리에 변환은 시간 영역과 주파수 영역을 동시에 보지 못한다는 한계가 있고, 이를 극복하고자 웨이블릿이 등장했다. 웨이블릿 분석의 큰 장점은 신호에 있는 복잡한 정보들을 **웨이블릿(wavelet)**이라고 하는 기본적인 함수들로 분해(decomposition)할 수 있다는 것이다. 웨이블릿은 localized waveform으로 시간 및 주파수 스케일의 다양한 범위를 컨트롤할 수 있게 해준다. 또 이 성질은 복구(reconstruction)을 가능하게 해 준다.
+
+<div class="definition">
+
+**(wavelet)** **웨이블릿(wavelet)** $\psi(t)$는 실변수함수로, localized waveform을 갖으며
+
+1. $\int_{-\infty}^{\infty}\psi(t)dt=0$
+
+2. $\int_{-\infty}^{\infty}\psi(t)^{2}dt=1$
+
+3. $\psi(t)$의 푸리에 변환 결과인 $\Psi(t)$가 **admissibility condition**이라 불리는 다음 성질
+$$C_{\Psi}\equiv\int_{0}^{\infty}\frac{|\Psi(\omega) |^{2}}{\omega}d\omega <\infty$$
+를 만족한다. 이 때 $C_{\Psi}$를 **admissibility constant**라고 부르며 이 값은 $\psi(t)$의 explicit t-dependence에 의존한다고 한다.
+
+</div>
+
+<div class="example">
+
+**Haar 웨이블릿(Haar wavelet)**은 
+
+\begin{equation} 
+\psi(t) \equiv
+  \begin{cases}
+    \frac{1}{\sqrt{2}}       & \quad t\in (0,1],\\
+    \frac{-1}{\sqrt{2}}  & \quad t\in (-1,0],\\
+    0   & \quad \text{otherwise} \\
+  \end{cases}
+\end{equation}
+
+으로 정의된다.
+
+```{r, echo=F, fig.cap='Haar wavelet function.', fig.align='center'}
+h_1_0 = function(t){
+    if ((t >= 0) & (t <= 1/2)){return(1/sqrt(2))}
+    else if ((t >= 1/2) & (t <= 1)){return(-1/sqrt(2))}
+    else{return(0)}
+}
+h = function(t,n,k){return(2^((n-1)/2) * h_1_0((2^(n-1)) * t - k))}
+Vh <- Vectorize(h, "t")
+curve( Vh(t = x, n = 1, k = 0), from = -0.5, to = 1.5, ylab=expression(paste(psi, "(x)")), xlab="t")
+```
+
+</div>
+
+<div class="example">
+
+**Mexican hat wavelet**은
+$$\psi(t) \equiv \frac{2}{\sqrt{3}\sigma\pi^{1/4}}(1-\frac{t^{2}}{\sigma^{2}})e^{-t^{2}/(2\sigma^{2})}$$
+으로 정의된다. 이 웨이블릿은 가우스 함수를 변형해서 얻을 수 있다고 한다.
+
+```{r, echo=F, fig.cap='Mexican hat wavelet function.', fig.align='center'}
+mexican <- function(t, sigma){
+  value <- 2/(sqrt(3)*sigma*pi^(0.25))*(1-(t^2)/(sigma^2))*exp(-(t^2)/(2*sigma^2))
+}
+t <- seq(from=-2, to=2, by=0.05)
+plot(t, mexican(t, sigma=1), xlab="t", ylab=expression(paste(psi, "(x)")), type="l")
+```
+
+</div>
+
+한 마디로 정리하자면 웨이블릿은 localized oscillating wave라고 볼 수 있다.
+
+## 웨이블릿 변환(wavelet transform)
+
+수학적 용어로 **웨이블릿 변환**은 웨이블릿의 **합성곱(convolution)**이다. 여기서 잠시 합성곱에 대해 살펴보면, $f$, $g$라는 두 함수의 $[0,t]$까지 범위에서 합성곱은
+$$\int_{0}^{\tau}f(\tau)g(t-\tau)d\tau$$
+이다.
+
+이 합성곲은 웨이블릿의 모양을 변화시키기 위해 두 모수를 갖는다. 하나는 $a$로 표시되는 **팽창모수(dilatation parameter)**이며, domain에서 웨이블릿의 팽창과 수축을 결정해준다. 다른 하나는 $b$로 표시되는 **이동모수(translation parameter)**로, 축을 따라 웨이블릿을 움직여준다.
+
+```{r, echo=F, fig.cap='(a) Dilatation and (b) translation of a wavelet.', fig.align='center'}
+knitr::include_graphics("images/multiscale_Transform.png")
+```
+
+일례로 이동하고 전이된 버전의 Mexican hat wavelet은
+$$\psi(\frac{t-b}{a})=[1-(\frac{t-b}{a})^{2}]e^{[-\frac{1}{2}\cdot (\frac{t-b}{a})^{2}]}$$
+이 된다. ($\sigma=1$인 경우)
+
+<div class="definition">
+
+**(wavelet transform)** 연속신호 $x(t)$의 웨이블릿 $\psi(t)$에 대한 **웨이블릿 변환(wavelet transform)** $T(a,b)$는
+$$T(a,b)=w(a)\int_{-\infty}^{\infty}x(t)\psi(\frac{t-b}{a})dt$$
+로 정의된다. 여기서 $w(a)$는 **가중치함수(weighted function)**이라고 부른다.
+
+여기서 좀 더 컴팩트한 표현으로
+$$\psi_{a,b}(t)=\frac{1}{\sqrt{a}}\psi(\frac{t-b}{a})$$
+를 정의해 앞선 식을
+$$T(a,b)=\int_{-\infty}^{\infty}x(t)\psi_{a,b}(t)dt$$
+로 쓸 수 있다. 앞으로 $\psi_{a,b}(t)$을 단순히 **웨이블릿**으로 부르기로 한다.
+
+</div>
+
+일반적으로 $w(a)=\frac{1}{\sqrt{a}}$로 정의하는데 그 이유는
+$$\int_{-\infty}^{\infty}[\frac{1}{\sqrt(a)}\psi(\frac{t-b}{a})]^{2}dt=\int_{-\infty}^{\infty}\psi(u)^{2}du = 1 \qquad{ \text{ with } u=\frac{t-b}{a}}$$
+이기 때문이다.
+
+정리하면 웨이블릿 변환은 time-varying signal에 대한 현미경 역할을 한다.
+
+## 웨이블릿 공간(wavelet space)
+
+### 다중해상도 분석(multiresolution analysis)
+
+다중해상도 분석은 사실 함수공간의 집합(a set of function space)이다. 혼란스럽게 용어가 정의되어 있어 주의를 필요로 한다.
+
+<div class="definition">
+
+**다중해상도 분석(multiresolution analysis)**란 $L^{2}(\mathbb{R})$의 닫힌 부분공간(closed subspace)의 함수공간의 집합 $\mathcal{V}_{j}:j\in\mathbb{Z}$으로 $\mathcal{V}_{j}$는 다음 조건을 만족한다.
+
+1. $\cdots \subset \mathcal{V}_{-2} \subset \mathcal{V}_{-1} \subset \mathcal{V}_{0} \subset \mathcal{V}_{1} \subset \mathcal{V}_{2} \ldots \subset L^{2}(\mathbb{R})$
+
+2. $\bigcap_{j=-\infty}^{\infty}\mathcal{V}_{j}=\{0\}$
+
+3. $f(t)\in\mathcal{V}_{j}$ if and only if $f(2t)\in\mathcal{V}_{j+1}$ for all integer $j$
+
+4. 집합 $\{ \phi (t-n), n \in \mathbb{Z}\}$가 $\mathcal{V}_{0}$의 직교정규기저(orthonormal basis)가 되도록 하는 함수 $\phi(t)\in\mathcal{V}_{0}$이 존재한다.
+
+</div>
+
+이 때 $\phi(t)$를 **척도함수(scaling function)** 또는 **부웨이블릿(father wavelet)**이라고 부른다. 참고할만한 사항으로 다중해상도 분석의 정의는 $\phi(t)$의 존재에 대한 어떤 정보도 주지 않는다. 그러나 우리가 만약 바람직한 함수 $\phi(t)$를 찾는다면 $\{ \phi(t-n), n\in\mathbb{Z}\}$가 span하는 함수공간 $\mathcal{V}_{0}$를 정의할 수 있고 앞선 정의의 3번을 이용해 $V_{j}$들을 계속해서 만들어내 다중해상도 분석 $\mathcal{V}_{j}$를 만들 수 있다. 즉 다시말하면 척도함수 $\phi(t)$가 다중해상도 분석 $\{ \mathcal{V}_{j}\}$를 생성한다.
+
+<div class="example">
+
+$L^{2}(\mathbb{R})$에서 어떤 구간 $[2^{-m}n, 2^{-m}(n+1)], \forall n\in\mathbb{Z}$에서만 상수값을 갖는 모든 함수들의 집합 $\mathcal{V}_{m}$을 생각해보자. 그러면 $\mathcal{V}_{m}$은 다중해상도 분석의 조건 1부터 3까지를 만족시킨다($\phi$들은 기저이다. 잘 생각해 볼 것)
+
+```{r, echo=F, fig.cap='(a) Dilatation and (b) translation of a wavelet.', fig.align='center'}
+knitr::include_graphics("images/multiscale_Multiscaleanalysis.png")
+```
+
+위 그림에 나오는 $\{\phi(t-n),n\in\mathbb{Z}\}$는
+
+\begin{equation} 
+\phi(t) \equiv
+  \begin{cases}
+    1    & \quad 0 \leq t \leq 1\\
+    0    & \quad \text{otherwise} \\
+  \end{cases}
+\end{equation}
+
+로 정의되며 다중해상도분석의 4번 조건을 만족한다. 즉, 어떤 함수 $f\in\mathcal{V}_{0}$은
+$$f(t)=\sum_{n=-\infty}^{\infty}c_{n}\phi(t-n)$$
+으로 표현가능하다. 여기서 $c_{n}$은 적절한 상수이다. 따라서 공간 $\mathcal{V}_{m}$은 $\phi(t)$로 생성되어지는 다중해상도 분석이다.
+
+</div>
+
+### 직교분해(orthogonal decomposition)
+
+다중해상도 분석이 중요한 것은 이것이 $L^{2}(\mathbb{R})$에서의 직교정규 기저(orthonormal basis, i.e. a complete orthonormal set of functions)를 구성할 수 있게 해준다는 것이다. 이 말을 입증하기 위해 우선 다중해상도 분석 $\{\mathcal{V}_{j}\}$가 다음 관계
+$$\mathcal{V}_{0}\subset\mathcal{V}_{1}\subset\mathcal{V}_{2}\subset\cdots \subset L^{2}$$
+를 만족한다는 것이다.
+
+이제 다음과 같이 $\mathcal{V}_{0}$와 $\mathcal{V}_{1}$의 **직교 여공간(orthogonal complement)** $\mathcal{W}_{0}$
+$$\mathcal{V}_{1}=\mathcal{V}_{0}\oplus\mathcal{W}_{0}$$
+을 정의한다. 여기서 $\oplus$는 주어진 벡터공간들의 **직합(direct sum)**이다. 공간 $\mathcal{W}_{0}$을 0차원에서의 **웨이블릿 공간(wavelet space)**이라고 부른다.
+
+```{r, echo=F, fig.cap='Hierarchical structure of the space V and W as subspace of L2.', fig.align='center'}
+knitr::include_graphics("images/multiscale_Orthogonalcomplement.png")
+```
+
+위 식은
+$$\mathcal{V}_{2}=\mathcal{V}_{1}\oplus\mathcal{W}_{1}=\mathcal{V}_{0}\oplus\mathcal{W}_{0}\oplus\mathcal{W}_{1}$$
+으로 확장할 수 있으며, 일반적으로 확장하면
+$$L^{2}=\mathcal{V}_{\infty}=\mathcal{V}_{0}\oplus \mathcal{W}_{0} \oplus \mathcal{W}_{1} \oplus \mathcal{W}_{2} \oplus \cdots$$
+로 쓸 수 있다. 여기서 $\mathcal{V}_{0}$은 함수들의 집합 $\{ \phi(t-n), n\in\mathbb{Z}\}$으로 span하는 initial space이다.
+
+최초 공간을 임의로 설정할 수 있기 때문에, 다음과 같이
+$$L^{2}=\mathcal{V}_{5}\oplus \mathcal{W}_{5} \oplus \mathcal{W}_{6}\cdots$$
+으로 높게 고르거나 또는
+$$L^{2}=\mathcal{V}_{-3}\oplus \mathcal{W}_{-3} \oplus \mathcal{W}_{-2}\cdots$$
+와 같이 낮은 해상도를 고를 수도 있다. 극단적으로는
+$$L^{2}=\cdots\oplus \mathcal{W}_{-1} \oplus \mathcal{W}_{0} \oplus \mathcal{W}_{1}\cdots$$
+로 $-\infty$를 취하기도 한다. 이와 같은 표현을 $L^{2}$에서의 **직교분해(orthogonal decomposition)**으로 부른다. 이것은 즉 어떤 함수 $x\in L^{2}(\mathbb{R})$은 다음과 같이
+$$x(t)=\cdots + g_{-1}(t)+g_{0}(t)+g_{1}(t)+\cdots .$$
+$g_{j}\in\mathcal{W}_{j}$의 무한합으로 분해할 수 있다.
+
+### 직교정규 기저 구성(orthonormal basis construction)
+
+웨이블릿 공간 $\{ W_{j} \}$들의 직교 성질에 대해 좀 더 자세히 살펴보자. 앞선 직합으로 표시된 식들에 의해
+$$\mathcal{W}_{0}\subset \mathcal{V}_{1} \text{ and } \mathcal{W}_{1} \subset \mathcal{V}_{2}$$
+관계를 갖는다. 다중해상도 분석 $\{\mathcal{V}_{j}\}$의 정의의 관점에서 봤을 때,
+$$f(t)\in \mathcal{V}_{1} \Longleftrightarrow f(2t)\in \mathcal{V}_{2}$$
+이고 그러므로
+$$f(t)\in \mathcal{W}_{0} \Longleftrightarrow f(2t)\in \mathcal{W}_{1}$$
+이다. 더 나아가서, 다중해상도 분석의 4번 조건은
+$$f(t)\in \mathcal{W}_{0} \Longleftrightarrow f(t-n)\in\mathcal{W}_{0} \text{ for any } n\in\mathbb{Z}$$
+가 되게 만든다.
+
+이제 위 사실들을 가지고 $L^{2}(\mathbb{R})$에서의 직교정규 기저들을 만들어보자. 우선 $\mathcal{W}_{0}$에서 직교정규 기저 $\{\psi(t-n),n\in\mathbb{Z}\}$를 만드는 함수$\psi(t)$가 있다고 하자. 그러면 다음과 같은 표기
+$$\phi_{0,n}(t)\equiv\psi(t-n)\in\mathcal{W}_{0]}$$
+를 이용해 이것의 scaled version을
+$$\phi_{1,n}(t)=\sqrt{2}\psi(2t-n)$$
+으로 정의하고 이것은 $\mathcal{W}_{1}$의 직교정규 기저가 된다. $\sqrt{2}$는 정규 조건을 유지하기 위해 들어간 상수다.
+$$\int_{-\infty}^{\infty}\psi_{0,n}(t)^{2}dt=\int_{-\infty}^{\infty}\psi_{1,n}(t)^{2}dt=1.$$
+
+같은 과정들을 반복하면
+$$\psi_{m,n}(t)=2^{m/2}\psi(2^{m}t-n)$$
+이라는 관계식을 얻을 수 있으며 이 때 $\psi_{m,n}$은 $\mathcal{W}_{m}$의 직교기저가 된다. 이러한 결과물들을 앞선 함수 $x\in L^{2}(\mathbb{R})$의 직교분해 식에 넣을 경우
+
+\begin{eqnarray*}
+x(t)&=& \cdots + g_{-1}(t)+g_{0}(t)+g_{1}(t)+\cdots\\
+&=&\cdots + \sum_{n=-\infty}^{\infty}c_{-1,n}\psi_{-1,n}(t)+\sum_{n=-\infty}^{\infty}c_{0,n}\psi_{0,n}(t) + \sum_{n=-\infty}^{\infty}c_{1,n}\psi_{1,n}(t)+\cdots \\
+&=&\sum_{m=-\infty}^{\infty}\sum_{n=-\infty}^{\infty}c_{m,n}\psi_{m,n}(t).
+\end{eqnarray*}
+
+결과적으로 family $\psi_{m,n}(t)$가 $L^{2}(\mathbb{R})$의 직교정규 기저가 된다. 위 결과를 다음 정리로 요약할 수 있다.
+
+<div class="theorem">
+
+$\{ \mathcal{V}_{j}\}$를 다중해상도 분석이라고 하고 공간 $\mathcal{W}_{0}$를 $\mathcal{W}_{0}=\mathcal{V}_{1}/\mathcal{V}_{0}$으로 정의한다. 만약 어떤 함수 $\psi(t)$가 $\mathcal{W}_{0}$의 정규직교 기저 $\{ \psi(t-n),n\in\mathbb{Z}\}$를 만들어 낸다면, 함수들의 집합 $\{\psi_{m,n},m,n\in\mathbb{Z}\}$는
+$$\psi_{m,n}(t)=2^{m/2}\psi(2^{m}t-n)$$
+$L^2{\mathbb{R}}$에서의 직교정규 기저를 구성한다.
+
+</div>
+
+여기서 소개된 $\psi(t)$는 웨이블릿을 결정하는 데, 즉 Haar wavelet이냐 mexican hat wavelet이냐 등을 결정하는 데 쓰이므로, $\mathcal{W}_{m}$을 **웨이블릿 공간(wavelet space)**이라고 부르며 함수 $\psi(t)$를 **모웨이블릿(mother wavelet)**이라고 부른다.
+
+### 두-스케일 관계(two-scale relation)

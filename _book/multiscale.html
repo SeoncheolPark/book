@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-10-05">
+<meta name="date" content="2016-10-07">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -130,9 +130,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.4" data-path="math.html"><a href="math.html#space"><i class="fa fa-check"></i><b>2.4</b> 공간(space)</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="math.html"><a href="math.html#space-r"><i class="fa fa-check"></i><b>2.4.1</b> 실수공간(space R)</a></li>
 <li class="chapter" data-level="2.4.2" data-path="math.html"><a href="math.html#vector-space"><i class="fa fa-check"></i><b>2.4.2</b> 벡터공간(vector space)</a></li>
-<li class="chapter" data-level="2.4.3" data-path="math.html"><a href="math.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.4.3</b> Sobolev 공간(Sobolev space)</a></li>
-<li class="chapter" data-level="2.4.4" data-path="math.html"><a href="math.html#besov-besov-space"><i class="fa fa-check"></i><b>2.4.4</b> Besov 공간(Besov space)</a></li>
-<li class="chapter" data-level="2.4.5" data-path="math.html"><a href="math.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.4.5</b> Reproducing kernel Hilbert space</a></li>
+<li class="chapter" data-level="2.4.3" data-path="math.html"><a href="math.html#l2-l2-space"><i class="fa fa-check"></i><b>2.4.3</b> L2 공간(L2 space)</a></li>
+<li class="chapter" data-level="2.4.4" data-path="math.html"><a href="math.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.4.4</b> Sobolev 공간(Sobolev space)</a></li>
+<li class="chapter" data-level="2.4.5" data-path="math.html"><a href="math.html#besov-besov-space"><i class="fa fa-check"></i><b>2.4.5</b> Besov 공간(Besov space)</a></li>
+<li class="chapter" data-level="2.4.6" data-path="math.html"><a href="math.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.4.6</b> Reproducing kernel Hilbert space</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="math.html"><a href="math.html#distance"><i class="fa fa-check"></i><b>2.5</b> 거리(distance)</a></li>
 </ul></li>
@@ -172,6 +173,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="part"><span><b>Multiscale Methods in Statistics</b></span></li>
 <li class="chapter" data-level="7" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html"><i class="fa fa-check"></i><b>7</b> 푸리에로부터 웨이블릿으로</a><ul>
 <li class="chapter" data-level="7.1" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-discrete-fourier-transform"><i class="fa fa-check"></i><b>7.1</b> 이산 푸리에변환(discrete Fourier transform)</a></li>
+<li class="chapter" data-level="7.2" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#wavelet"><i class="fa fa-check"></i><b>7.2</b> 웨이블릿(wavelet)</a></li>
+<li class="chapter" data-level="7.3" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-wavelet-transform"><i class="fa fa-check"></i><b>7.3</b> 웨이블릿 변환(wavelet transform)</a></li>
+<li class="chapter" data-level="7.4" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-wavelet-space"><i class="fa fa-check"></i><b>7.4</b> 웨이블릿 공간(wavelet space)</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-multiresolution-analysis"><i class="fa fa-check"></i><b>7.4.1</b> 다중해상도 분석(multiresolution analysis)</a></li>
+<li class="chapter" data-level="7.4.2" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#orthogonal-decomposition"><i class="fa fa-check"></i><b>7.4.2</b> 직교분해(orthogonal decomposition)</a></li>
+<li class="chapter" data-level="7.4.3" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#--orthonormal-basis-construction"><i class="fa fa-check"></i><b>7.4.3</b> 직교정규 기저 구성(orthonormal basis construction)</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="spectral.html"><a href="spectral.html"><i class="fa fa-check"></i><b>8</b> 스펙트럼 분석</a><ul>
 <li class="chapter" data-level="8.1" data-path="spectral.html"><a href="spectral.html#--cyclical-behavior-and-periodicity"><i class="fa fa-check"></i><b>8.1</b> 순환 움직임과 주기성(cyclical behavior and periodicity)</a><ul>
@@ -433,7 +441,7 @@ d_{J-2,l}&amp;=&amp;c_{J-1,2l}-c_{J-1,2l-1},l=1,2,\ldots,\frac{n}{4}\\
 <p>로 정의된다. 예를 들어, <span class="math inline">\(d_{J-2,1}=(y_{4}+y_{3})-(y_{2}+y_{1})\)</span>이다. 마찬가지로 <span class="math inline">\(J-2\)</span> 레벨에서의 성김은 <span class="math display">\[
 c_{J-2,l}=c_{J-1,2l}+c_{J-1,2l-1},l=1,2,\ldots,\frac{n}{4}
 \]</span> 이다. 앞서 말한 다중척도 과정을 그림으로 요약하면 다음과 같다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-11"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-16"></span>
 <img src="images/multiscale_001.png" alt="Generic step in multiscale transform." width="269" />
 <p class="caption">
 Figure 9.1: Generic step in multiscale transform.
@@ -441,7 +449,7 @@ Figure 9.1: Generic step in multiscale transform.
 </div>
 <div class="example">
 <p>다음과 같은 자료 <span class="math inline">\(\mathbf{y}=(1,1,7,9,2,8,8,6)\)</span>를 생각해보자. 그러면 <span class="math inline">\(J=0,1,2\)</span>에서의 상세와 성김은</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-12"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-17"></span>
 <img src="images/multiscale_002.png" alt="Graphical depiction of a multiscale transform." width="276" />
 <p class="caption">
 Figure 9.2: Graphical depiction of a multiscale transform.
@@ -461,7 +469,7 @@ Figure 9.2: Graphical depiction of a multiscale transform.
 </div>
 <div id="sparsity" class="section level2">
 <h2><span class="header-section-number">9.3</span> 희소성(sparsity)</h2>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-13"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-18"></span>
 <img src="images/multiscale_003.png" alt="Example of sparse function." width="412" />
 <p class="caption">
 Figure 9.3: Example of sparse function.
@@ -492,7 +500,7 @@ Figure 9.3: Example of sparse function.
 </ul>
 <p>등으로 구분할 수 있다.</p>
 <p>다음은 <strong>선형 필터(linear filter)</strong>에서 쓰이는 용어들이다. 여기서 원하지 않는 특징들은 주로 주파수를 의미하는 것이라 볼 수 있다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-14"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-19"></span>
 <img src="images/multiscale_Bandform.png" alt="Various forms of linear filters." width="960" />
 <p class="caption">
 Figure 9.4: Various forms of linear filters.
@@ -543,8 +551,8 @@ ywd$filter</code></pre></div>
 <pre><code>&gt; [1]  0.000000 -1.414214 -4.242641  1.414214</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## plot wavelet decomposition coefficients
 <span class="kw">plot</span>(ywd)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-16"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-16-1.png" alt="Wavelet decomposition coefficients." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-21"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-21-1.png" alt="Wavelet decomposition coefficients." width="672" />
 <p class="caption">
 Figure 9.5: Wavelet decomposition coefficients.
 </p>
@@ -598,7 +606,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://seoncheolpark.github.io/book/_book/13-multiscale.Rmd",
+"link": "https://seoncheolpark.github.io/book/_book/12-multiscale.Rmd",
 "text": null
 },
 "download": null,

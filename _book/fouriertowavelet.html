@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-10-05">
+<meta name="date" content="2016-10-07">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -130,9 +130,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.4" data-path="math.html"><a href="math.html#space"><i class="fa fa-check"></i><b>2.4</b> 공간(space)</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="math.html"><a href="math.html#space-r"><i class="fa fa-check"></i><b>2.4.1</b> 실수공간(space R)</a></li>
 <li class="chapter" data-level="2.4.2" data-path="math.html"><a href="math.html#vector-space"><i class="fa fa-check"></i><b>2.4.2</b> 벡터공간(vector space)</a></li>
-<li class="chapter" data-level="2.4.3" data-path="math.html"><a href="math.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.4.3</b> Sobolev 공간(Sobolev space)</a></li>
-<li class="chapter" data-level="2.4.4" data-path="math.html"><a href="math.html#besov-besov-space"><i class="fa fa-check"></i><b>2.4.4</b> Besov 공간(Besov space)</a></li>
-<li class="chapter" data-level="2.4.5" data-path="math.html"><a href="math.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.4.5</b> Reproducing kernel Hilbert space</a></li>
+<li class="chapter" data-level="2.4.3" data-path="math.html"><a href="math.html#l2-l2-space"><i class="fa fa-check"></i><b>2.4.3</b> L2 공간(L2 space)</a></li>
+<li class="chapter" data-level="2.4.4" data-path="math.html"><a href="math.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.4.4</b> Sobolev 공간(Sobolev space)</a></li>
+<li class="chapter" data-level="2.4.5" data-path="math.html"><a href="math.html#besov-besov-space"><i class="fa fa-check"></i><b>2.4.5</b> Besov 공간(Besov space)</a></li>
+<li class="chapter" data-level="2.4.6" data-path="math.html"><a href="math.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.4.6</b> Reproducing kernel Hilbert space</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="math.html"><a href="math.html#distance"><i class="fa fa-check"></i><b>2.5</b> 거리(distance)</a></li>
 </ul></li>
@@ -172,6 +173,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="part"><span><b>Multiscale Methods in Statistics</b></span></li>
 <li class="chapter" data-level="7" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html"><i class="fa fa-check"></i><b>7</b> 푸리에로부터 웨이블릿으로</a><ul>
 <li class="chapter" data-level="7.1" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-discrete-fourier-transform"><i class="fa fa-check"></i><b>7.1</b> 이산 푸리에변환(discrete Fourier transform)</a></li>
+<li class="chapter" data-level="7.2" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#wavelet"><i class="fa fa-check"></i><b>7.2</b> 웨이블릿(wavelet)</a></li>
+<li class="chapter" data-level="7.3" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-wavelet-transform"><i class="fa fa-check"></i><b>7.3</b> 웨이블릿 변환(wavelet transform)</a></li>
+<li class="chapter" data-level="7.4" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-wavelet-space"><i class="fa fa-check"></i><b>7.4</b> 웨이블릿 공간(wavelet space)</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-multiresolution-analysis"><i class="fa fa-check"></i><b>7.4.1</b> 다중해상도 분석(multiresolution analysis)</a></li>
+<li class="chapter" data-level="7.4.2" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#orthogonal-decomposition"><i class="fa fa-check"></i><b>7.4.2</b> 직교분해(orthogonal decomposition)</a></li>
+<li class="chapter" data-level="7.4.3" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#--orthonormal-basis-construction"><i class="fa fa-check"></i><b>7.4.3</b> 직교정규 기저 구성(orthonormal basis construction)</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="spectral.html"><a href="spectral.html"><i class="fa fa-check"></i><b>8</b> 스펙트럼 분석</a><ul>
 <li class="chapter" data-level="8.1" data-path="spectral.html"><a href="spectral.html#--cyclical-behavior-and-periodicity"><i class="fa fa-check"></i><b>8.1</b> 순환 움직임과 주기성(cyclical behavior and periodicity)</a><ul>
@@ -422,13 +430,139 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="definition">
 <p>함수들의 수열 <span class="math inline">\(\{ f_{j} \}\)</span>는 모든 <span class="math inline">\(f_{j}\)</span>들이 짝지은 직교(pairwise orthogonal)이며 <span class="math inline">\(\| f_{j}\|=1\)</span>일 때 <strong>직교정규(orthonormal)</strong>이라고 한다.</p>
 </div>
+</div>
+<div id="wavelet" class="section level2">
+<h2><span class="header-section-number">7.2</span> 웨이블릿(wavelet)</h2>
+<p>웨이블릿은 뒷장에서도 다시 설명하겠지만, 여기서는 <span class="citation">(Shima <a href="#ref-Shima2016">2016</a>)</span>의 내용을 다룬다.</p>
+<p>앞서 보았듯이, 푸리에 변환은 시간 영역에서 진동이 있는 요소들을 추출해낸다는 점에서 효율적인 툴로 알려져있다. 그러나 푸리에 변환은 시간 영역과 주파수 영역을 동시에 보지 못한다는 한계가 있고, 이를 극복하고자 웨이블릿이 등장했다. 웨이블릿 분석의 큰 장점은 신호에 있는 복잡한 정보들을 <strong>웨이블릿(wavelet)</strong>이라고 하는 기본적인 함수들로 분해(decomposition)할 수 있다는 것이다. 웨이블릿은 localized waveform으로 시간 및 주파수 스케일의 다양한 범위를 컨트롤할 수 있게 해준다. 또 이 성질은 복구(reconstruction)을 가능하게 해 준다.</p>
+<div class="definition">
+<p><strong>(wavelet)</strong> <strong>웨이블릿(wavelet)</strong> <span class="math inline">\(\psi(t)\)</span>는 실변수함수로, localized waveform을 갖으며</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\int_{-\infty}^{\infty}\psi(t)dt=0\)</span></p></li>
+<li><p><span class="math inline">\(\int_{-\infty}^{\infty}\psi(t)^{2}dt=1\)</span></p></li>
+<li><p><span class="math inline">\(\psi(t)\)</span>의 푸리에 변환 결과인 <span class="math inline">\(\Psi(t)\)</span>가 <strong>admissibility condition</strong>이라 불리는 다음 성질 <span class="math display">\[C_{\Psi}\equiv\int_{0}^{\infty}\frac{|\Psi(\omega) |^{2}}{\omega}d\omega &lt;\infty\]</span> 를 만족한다. 이 때 <span class="math inline">\(C_{\Psi}\)</span>를 <strong>admissibility constant</strong>라고 부르며 이 값은 <span class="math inline">\(\psi(t)\)</span>의 explicit t-dependence에 의존한다고 한다.</p></li>
+</ol>
+</div>
+<div class="example">
+<p><strong>Haar 웨이블릿(Haar wavelet)</strong>은</p>
+\begin{equation} 
+\psi(t) \equiv
+  \begin{cases}
+    \frac{1}{\sqrt{2}}       &amp; \quad t\in (0,1],\\
+    \frac{-1}{\sqrt{2}}  &amp; \quad t\in (-1,0],\\
+    0   &amp; \quad \text{otherwise} \\
+  \end{cases}
+\end{equation}
+<p>으로 정의된다.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-10-1.png" alt="Haar wavelet function." width="672" />
+<p class="caption">
+Figure 7.1: Haar wavelet function.
+</p>
+</div>
+</div>
+<div class="example">
+<p><strong>Mexican hat wavelet</strong>은 <span class="math display">\[\psi(t) \equiv \frac{2}{\sqrt{3}\sigma\pi^{1/4}}(1-\frac{t^{2}}{\sigma^{2}})e^{-t^{2}/(2\sigma^{2})}\]</span> 으로 정의된다. 이 웨이블릿은 가우스 함수를 변형해서 얻을 수 있다고 한다.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-11"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-11-1.png" alt="Mexican hat wavelet function." width="672" />
+<p class="caption">
+Figure 7.2: Mexican hat wavelet function.
+</p>
+</div>
+</div>
+<p>한 마디로 정리하자면 웨이블릿은 localized oscillating wave라고 볼 수 있다.</p>
+</div>
+<div id="-wavelet-transform" class="section level2">
+<h2><span class="header-section-number">7.3</span> 웨이블릿 변환(wavelet transform)</h2>
+<p>수학적 용어로 <strong>웨이블릿 변환</strong>은 웨이블릿의 <strong>합성곱(convolution)</strong>이다. 여기서 잠시 합성곱에 대해 살펴보면, <span class="math inline">\(f\)</span>, <span class="math inline">\(g\)</span>라는 두 함수의 <span class="math inline">\([0,t]\)</span>까지 범위에서 합성곱은 <span class="math display">\[\int_{0}^{\tau}f(\tau)g(t-\tau)d\tau\]</span> 이다.</p>
+<p>이 합성곲은 웨이블릿의 모양을 변화시키기 위해 두 모수를 갖는다. 하나는 <span class="math inline">\(a\)</span>로 표시되는 <strong>팽창모수(dilatation parameter)</strong>이며, domain에서 웨이블릿의 팽창과 수축을 결정해준다. 다른 하나는 <span class="math inline">\(b\)</span>로 표시되는 <strong>이동모수(translation parameter)</strong>로, 축을 따라 웨이블릿을 움직여준다.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-12"></span>
+<img src="images/multiscale_Transform.png" alt="(a) Dilatation and (b) translation of a wavelet." width="630" />
+<p class="caption">
+Figure 7.3: (a) Dilatation and (b) translation of a wavelet.
+</p>
+</div>
+<p>일례로 이동하고 전이된 버전의 Mexican hat wavelet은 <span class="math display">\[\psi(\frac{t-b}{a})=[1-(\frac{t-b}{a})^{2}]e^{[-\frac{1}{2}\cdot (\frac{t-b}{a})^{2}]}\]</span> 이 된다. (<span class="math inline">\(\sigma=1\)</span>인 경우)</p>
+<div class="definition">
+<p><strong>(wavelet transform)</strong> 연속신호 <span class="math inline">\(x(t)\)</span>의 웨이블릿 <span class="math inline">\(\psi(t)\)</span>에 대한 <strong>웨이블릿 변환(wavelet transform)</strong> <span class="math inline">\(T(a,b)\)</span>는 <span class="math display">\[T(a,b)=w(a)\int_{-\infty}^{\infty}x(t)\psi(\frac{t-b}{a})dt\]</span> 로 정의된다. 여기서 <span class="math inline">\(w(a)\)</span>는 <strong>가중치함수(weighted function)</strong>이라고 부른다.</p>
+<p>여기서 좀 더 컴팩트한 표현으로 <span class="math display">\[\psi_{a,b}(t)=\frac{1}{\sqrt{a}}\psi(\frac{t-b}{a})\]</span> 를 정의해 앞선 식을 <span class="math display">\[T(a,b)=\int_{-\infty}^{\infty}x(t)\psi_{a,b}(t)dt\]</span> 로 쓸 수 있다. 앞으로 <span class="math inline">\(\psi_{a,b}(t)\)</span>을 단순히 <strong>웨이블릿</strong>으로 부르기로 한다.</p>
+</div>
+<p>일반적으로 <span class="math inline">\(w(a)=\frac{1}{\sqrt{a}}\)</span>로 정의하는데 그 이유는 <span class="math display">\[\int_{-\infty}^{\infty}[\frac{1}{\sqrt(a)}\psi(\frac{t-b}{a})]^{2}dt=\int_{-\infty}^{\infty}\psi(u)^{2}du = 1 \qquad{ \text{ with } u=\frac{t-b}{a}}\]</span> 이기 때문이다.</p>
+<p>정리하면 웨이블릿 변환은 time-varying signal에 대한 현미경 역할을 한다.</p>
+</div>
+<div id="-wavelet-space" class="section level2">
+<h2><span class="header-section-number">7.4</span> 웨이블릿 공간(wavelet space)</h2>
+<div id="-multiresolution-analysis" class="section level3">
+<h3><span class="header-section-number">7.4.1</span> 다중해상도 분석(multiresolution analysis)</h3>
+<p>다중해상도 분석은 사실 함수공간의 집합(a set of function space)이다. 혼란스럽게 용어가 정의되어 있어 주의를 필요로 한다.</p>
+<div class="definition">
+<p><strong>다중해상도 분석(multiresolution analysis)</strong>란 <span class="math inline">\(L^{2}(\mathbb{R})\)</span>의 닫힌 부분공간(closed subspace)의 함수공간의 집합 <span class="math inline">\(\mathcal{V}_{j}:j\in\mathbb{Z}\)</span>으로 <span class="math inline">\(\mathcal{V}_{j}\)</span>는 다음 조건을 만족한다.</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\cdots \subset \mathcal{V}_{-2} \subset \mathcal{V}_{-1} \subset \mathcal{V}_{0} \subset \mathcal{V}_{1} \subset \mathcal{V}_{2} \ldots \subset L^{2}(\mathbb{R})\)</span></p></li>
+<li><p><span class="math inline">\(\bigcap_{j=-\infty}^{\infty}\mathcal{V}_{j}=\{0\}\)</span></p></li>
+<li><p><span class="math inline">\(f(t)\in\mathcal{V}_{j}\)</span> if and only if <span class="math inline">\(f(2t)\in\mathcal{V}_{j+1}\)</span> for all integer <span class="math inline">\(j\)</span></p></li>
+<li><p>집합 <span class="math inline">\(\{ \phi (t-n), n \in \mathbb{Z}\}\)</span>가 <span class="math inline">\(\mathcal{V}_{0}\)</span>의 직교정규기저(orthonormal basis)가 되도록 하는 함수 <span class="math inline">\(\phi(t)\in\mathcal{V}_{0}\)</span>이 존재한다.</p></li>
+</ol>
+</div>
+<p>이 때 <span class="math inline">\(\phi(t)\)</span>를 <strong>척도함수(scaling function)</strong> 또는 <strong>부웨이블릿(father wavelet)</strong>이라고 부른다. 참고할만한 사항으로 다중해상도 분석의 정의는 <span class="math inline">\(\phi(t)\)</span>의 존재에 대한 어떤 정보도 주지 않는다. 그러나 우리가 만약 바람직한 함수 <span class="math inline">\(\phi(t)\)</span>를 찾는다면 <span class="math inline">\(\{ \phi(t-n), n\in\mathbb{Z}\}\)</span>가 span하는 함수공간 <span class="math inline">\(\mathcal{V}_{0}\)</span>를 정의할 수 있고 앞선 정의의 3번을 이용해 <span class="math inline">\(V_{j}\)</span>들을 계속해서 만들어내 다중해상도 분석 <span class="math inline">\(\mathcal{V}_{j}\)</span>를 만들 수 있다. 즉 다시말하면 척도함수 <span class="math inline">\(\phi(t)\)</span>가 다중해상도 분석 <span class="math inline">\(\{ \mathcal{V}_{j}\}\)</span>를 생성한다.</p>
+<div class="example">
+<p><span class="math inline">\(L^{2}(\mathbb{R})\)</span>에서 어떤 구간 <span class="math inline">\([2^{-m}n, 2^{-m}(n+1)], \forall n\in\mathbb{Z}\)</span>에서만 상수값을 갖는 모든 함수들의 집합 <span class="math inline">\(\mathcal{V}_{m}\)</span>을 생각해보자. 그러면 <span class="math inline">\(\mathcal{V}_{m}\)</span>은 다중해상도 분석의 조건 1부터 3까지를 만족시킨다(<span class="math inline">\(\phi\)</span>들은 기저이다. 잘 생각해 볼 것)</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-13"></span>
+<img src="images/multiscale_Multiscaleanalysis.png" alt="(a) Dilatation and (b) translation of a wavelet." width="628" />
+<p class="caption">
+Figure 7.4: (a) Dilatation and (b) translation of a wavelet.
+</p>
+</div>
+<p>위 그림에 나오는 <span class="math inline">\(\{\phi(t-n),n\in\mathbb{Z}\}\)</span>는</p>
+\begin{equation} 
+\phi(t) \equiv
+  \begin{cases}
+    1    &amp; \quad 0 \leq t \leq 1\\
+    0    &amp; \quad \text{otherwise} \\
+  \end{cases}
+\end{equation}
+<p>로 정의되며 다중해상도분석의 4번 조건을 만족한다. 즉, 어떤 함수 <span class="math inline">\(f\in\mathcal{V}_{0}\)</span>은 <span class="math display">\[f(t)=\sum_{n=-\infty}^{\infty}c_{n}\phi(t-n)\]</span> 으로 표현가능하다. 여기서 <span class="math inline">\(c_{n}\)</span>은 적절한 상수이다. 따라서 공간 <span class="math inline">\(\mathcal{V}_{m}\)</span>은 <span class="math inline">\(\phi(t)\)</span>로 생성되어지는 다중해상도 분석이다.</p>
+</div>
+</div>
+<div id="orthogonal-decomposition" class="section level3">
+<h3><span class="header-section-number">7.4.2</span> 직교분해(orthogonal decomposition)</h3>
+<p>다중해상도 분석이 중요한 것은 이것이 <span class="math inline">\(L^{2}(\mathbb{R})\)</span>에서의 직교정규 기저(orthonormal basis, i.e. a complete orthonormal set of functions)를 구성할 수 있게 해준다는 것이다. 이 말을 입증하기 위해 우선 다중해상도 분석 <span class="math inline">\(\{\mathcal{V}_{j}\}\)</span>가 다음 관계 <span class="math display">\[\mathcal{V}_{0}\subset\mathcal{V}_{1}\subset\mathcal{V}_{2}\subset\cdots \subset L^{2}\]</span> 를 만족한다는 것이다.</p>
+<p>이제 다음과 같이 <span class="math inline">\(\mathcal{V}_{0}\)</span>와 <span class="math inline">\(\mathcal{V}_{1}\)</span>의 <strong>직교 여공간(orthogonal complement)</strong> <span class="math inline">\(\mathcal{W}_{0}\)</span> <span class="math display">\[\mathcal{V}_{1}=\mathcal{V}_{0}\oplus\mathcal{W}_{0}\]</span> 을 정의한다. 여기서 <span class="math inline">\(\oplus\)</span>는 주어진 벡터공간들의 <strong>직합(direct sum)</strong>이다. 공간 <span class="math inline">\(\mathcal{W}_{0}\)</span>을 0차원에서의 <strong>웨이블릿 공간(wavelet space)</strong>이라고 부른다.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-14"></span>
+<img src="images/multiscale_Orthogonalcomplement.png" alt="Hierarchical structure of the space V and W as subspace of L2." width="438" />
+<p class="caption">
+Figure 7.5: Hierarchical structure of the space V and W as subspace of L2.
+</p>
+</div>
+<p>위 식은 <span class="math display">\[\mathcal{V}_{2}=\mathcal{V}_{1}\oplus\mathcal{W}_{1}=\mathcal{V}_{0}\oplus\mathcal{W}_{0}\oplus\mathcal{W}_{1}\]</span> 으로 확장할 수 있으며, 일반적으로 확장하면 <span class="math display">\[L^{2}=\mathcal{V}_{\infty}=\mathcal{V}_{0}\oplus \mathcal{W}_{0} \oplus \mathcal{W}_{1} \oplus \mathcal{W}_{2} \oplus \cdots\]</span> 로 쓸 수 있다. 여기서 <span class="math inline">\(\mathcal{V}_{0}\)</span>은 함수들의 집합 <span class="math inline">\(\{ \phi(t-n), n\in\mathbb{Z}\}\)</span>으로 span하는 initial space이다.</p>
+<p>최초 공간을 임의로 설정할 수 있기 때문에, 다음과 같이 <span class="math display">\[L^{2}=\mathcal{V}_{5}\oplus \mathcal{W}_{5} \oplus \mathcal{W}_{6}\cdots\]</span> 으로 높게 고르거나 또는 <span class="math display">\[L^{2}=\mathcal{V}_{-3}\oplus \mathcal{W}_{-3} \oplus \mathcal{W}_{-2}\cdots\]</span> 와 같이 낮은 해상도를 고를 수도 있다. 극단적으로는 <span class="math display">\[L^{2}=\cdots\oplus \mathcal{W}_{-1} \oplus \mathcal{W}_{0} \oplus \mathcal{W}_{1}\cdots\]</span> 로 <span class="math inline">\(-\infty\)</span>를 취하기도 한다. 이와 같은 표현을 <span class="math inline">\(L^{2}\)</span>에서의 <strong>직교분해(orthogonal decomposition)</strong>으로 부른다. 이것은 즉 어떤 함수 <span class="math inline">\(x\in L^{2}(\mathbb{R})\)</span>은 다음과 같이 <span class="math display">\[x(t)=\cdots + g_{-1}(t)+g_{0}(t)+g_{1}(t)+\cdots .\]</span> <span class="math inline">\(g_{j}\in\mathcal{W}_{j}\)</span>의 무한합으로 분해할 수 있다.</p>
+</div>
+<div id="--orthonormal-basis-construction" class="section level3">
+<h3><span class="header-section-number">7.4.3</span> 직교정규 기저 구성(orthonormal basis construction)</h3>
+<p>웨이블릿 공간 <span class="math inline">\(\{ W_{j} \}\)</span>들의 직교 성질에 대해 좀 더 자세히 살펴보자. 앞선 직합으로 표시된 식들에 의해 <span class="math display">\[\mathcal{W}_{0}\subset \mathcal{V}_{1} \text{ and } \mathcal{W}_{1} \subset \mathcal{V}_{2}\]</span> 관계를 갖는다. 다중해상도 분석 <span class="math inline">\(\{\mathcal{V}_{j}\}\)</span>의 정의의 관점에서 봤을 때, <span class="math display">\[f(t)\in \mathcal{V}_{1} \Longleftrightarrow f(2t)\in \mathcal{V}_{2}\]</span> 이고 그러므로 <span class="math display">\[f(t)\in \mathcal{W}_{0} \Longleftrightarrow f(2t)\in \mathcal{W}_{1}\]</span> 이다. 더 나아가서, 다중해상도 분석의 4번 조건은 <span class="math display">\[f(t)\in \mathcal{W}_{0} \Longleftrightarrow f(t-n)\in\mathcal{W}_{0} \text{ for any } n\in\mathbb{Z}\]</span> 가 되게 만든다.</p>
+<p>이제 위 사실들을 가지고 <span class="math inline">\(L^{2}(\mathbb{R})\)</span>에서의 직교정규 기저들을 만들어보자. 우선 <span class="math inline">\(\mathcal{W}_{0}\)</span>에서 직교정규 기저 <span class="math inline">\(\{\psi(t-n),n\in\mathbb{Z}\}\)</span>를 만드는 함수<span class="math inline">\(\psi(t)\)</span>가 있다고 하자. 그러면 다음과 같은 표기 <span class="math display">\[\phi_{0,n}(t)\equiv\psi(t-n)\in\mathcal{W}_{0]}\]</span> 를 이용해 이것의 scaled version을 <span class="math display">\[\phi_{1,n}(t)=\sqrt{2}\psi(2t-n)\]</span> 으로 정의하고 이것은 <span class="math inline">\(\mathcal{W}_{1}\)</span>의 직교정규 기저가 된다. <span class="math inline">\(\sqrt{2}\)</span>는 정규 조건을 유지하기 위해 들어간 상수다. <span class="math display">\[\int_{-\infty}^{\infty}\psi_{0,n}(t)^{2}dt=\int_{-\infty}^{\infty}\psi_{1,n}(t)^{2}dt=1.\]</span></p>
+<p>같은 과정들을 반복하면 <span class="math display">\[\psi_{m,n}(t)=2^{m/2}\psi(2^{m}t-n)\]</span> 이라는 관계식을 얻을 수 있으며 이 때 <span class="math inline">\(\psi_{m,n}\)</span>은 <span class="math inline">\(\mathcal{W}_{m}\)</span>의 직교기저가 된다. 이러한 결과물들을 앞선 함수 <span class="math inline">\(x\in L^{2}(\mathbb{R})\)</span>의 직교분해 식에 넣을 경우</p>
+\begin{eqnarray*}
+x(t)&amp;=&amp; \cdots + g_{-1}(t)+g_{0}(t)+g_{1}(t)+\cdots\\
+&amp;=&amp;\cdots + \sum_{n=-\infty}^{\infty}c_{-1,n}\psi_{-1,n}(t)+\sum_{n=-\infty}^{\infty}c_{0,n}\psi_{0,n}(t) + \sum_{n=-\infty}^{\infty}c_{1,n}\psi_{1,n}(t)+\cdots \\
+&amp;=&amp;\sum_{m=-\infty}^{\infty}\sum_{n=-\infty}^{\infty}c_{m,n}\psi_{m,n}(t).
+\end{eqnarray*}
+<p>결과적으로 family <span class="math inline">\(\psi_{m,n}(t)\)</span>가 <span class="math inline">\(L^{2}(\mathbb{R})\)</span>의 직교정규 기저가 된다. 위 결과를 다음 정리로 요약할 수 있다.</p>
+<div class="theorem">
+<p><span class="math inline">\(\{ \mathcal{V}_{j}\}\)</span>를 다중해상도 분석이라고 하고 공간 <span class="math inline">\(\mathcal{W}_{0}\)</span>를 <span class="math inline">\(\mathcal{W}_{0}=\mathcal{V}_{1}/\mathcal{V}_{0}\)</span>으로 정의한다. 만약 어떤 함수 <span class="math inline">\(\psi(t)\)</span>가 <span class="math inline">\(\mathcal{W}_{0}\)</span>의 정규직교 기저 <span class="math inline">\(\{ \psi(t-n),n\in\mathbb{Z}\}\)</span>를 만들어 낸다면, 함수들의 집합 <span class="math inline">\(\{\psi_{m,n},m,n\in\mathbb{Z}\}\)</span>는 <span class="math display">\[\psi_{m,n}(t)=2^{m/2}\psi(2^{m}t-n)\]</span> <span class="math inline">\(L^2{\mathbb{R}}\)</span>에서의 직교정규 기저를 구성한다.</p>
+</div>
+<p>여기서 소개된 <span class="math inline">\(\psi(t)\)</span>는 웨이블릿을 결정하는 데, 즉 Haar wavelet이냐 mexican hat wavelet이냐 등을 결정하는 데 쓰이므로, <span class="math inline">\(\mathcal{W}_{m}\)</span>을 <strong>웨이블릿 공간(wavelet space)</strong>이라고 부르며 함수 <span class="math inline">\(\psi(t)\)</span>를 <strong>모웨이블릿(mother wavelet)</strong>이라고 부른다.</p>
 
+</div>
 </div>
 </div>
 <h3> References</h3>
 <div id="refs" class="references">
 <div id="ref-Ogden2012">
 <p>Ogden, Todd. 2012. <em>Essential Wavelets for Statistical Applications and Data Analysis</em>. Springer Science &amp; Business Media.</p>
+</div>
+<div id="ref-Shima2016">
+<p>Shima, Hiroyuki. 2016. <em>Functional Analysis for Physics and Engineering: An Introduction</em>. CRC Press.</p>
 </div>
 </div>
             </section>
@@ -464,7 +598,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://seoncheolpark.github.io/book/_book/11-fouriertowavelet.Rmd",
+"link": "https://seoncheolpark.github.io/book/_book/10-fouriertowavelet.Rmd",
 "text": null
 },
 "download": null,

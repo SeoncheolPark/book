@@ -239,6 +239,10 @@ $$A\times B = \{ (a,b)| a\in A \text{ and } b \in B\}$$
 
 </div>
 
+### L2 공간(L2 space)
+
+$$\| f\|_{p}=(\int_{S}|f|^{p}d\mu)^{1/p}<\infty$$
+
 ### Sobolev 공간(Sobolev space)
 
 ### Besov 공간(Besov space)

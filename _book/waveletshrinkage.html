@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-10-05">
+<meta name="date" content="2016-10-07">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -130,9 +130,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.4" data-path="math.html"><a href="math.html#space"><i class="fa fa-check"></i><b>2.4</b> 공간(space)</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="math.html"><a href="math.html#space-r"><i class="fa fa-check"></i><b>2.4.1</b> 실수공간(space R)</a></li>
 <li class="chapter" data-level="2.4.2" data-path="math.html"><a href="math.html#vector-space"><i class="fa fa-check"></i><b>2.4.2</b> 벡터공간(vector space)</a></li>
-<li class="chapter" data-level="2.4.3" data-path="math.html"><a href="math.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.4.3</b> Sobolev 공간(Sobolev space)</a></li>
-<li class="chapter" data-level="2.4.4" data-path="math.html"><a href="math.html#besov-besov-space"><i class="fa fa-check"></i><b>2.4.4</b> Besov 공간(Besov space)</a></li>
-<li class="chapter" data-level="2.4.5" data-path="math.html"><a href="math.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.4.5</b> Reproducing kernel Hilbert space</a></li>
+<li class="chapter" data-level="2.4.3" data-path="math.html"><a href="math.html#l2-l2-space"><i class="fa fa-check"></i><b>2.4.3</b> L2 공간(L2 space)</a></li>
+<li class="chapter" data-level="2.4.4" data-path="math.html"><a href="math.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.4.4</b> Sobolev 공간(Sobolev space)</a></li>
+<li class="chapter" data-level="2.4.5" data-path="math.html"><a href="math.html#besov-besov-space"><i class="fa fa-check"></i><b>2.4.5</b> Besov 공간(Besov space)</a></li>
+<li class="chapter" data-level="2.4.6" data-path="math.html"><a href="math.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.4.6</b> Reproducing kernel Hilbert space</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="math.html"><a href="math.html#distance"><i class="fa fa-check"></i><b>2.5</b> 거리(distance)</a></li>
 </ul></li>
@@ -172,6 +173,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="part"><span><b>Multiscale Methods in Statistics</b></span></li>
 <li class="chapter" data-level="7" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html"><i class="fa fa-check"></i><b>7</b> 푸리에로부터 웨이블릿으로</a><ul>
 <li class="chapter" data-level="7.1" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-discrete-fourier-transform"><i class="fa fa-check"></i><b>7.1</b> 이산 푸리에변환(discrete Fourier transform)</a></li>
+<li class="chapter" data-level="7.2" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#wavelet"><i class="fa fa-check"></i><b>7.2</b> 웨이블릿(wavelet)</a></li>
+<li class="chapter" data-level="7.3" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-wavelet-transform"><i class="fa fa-check"></i><b>7.3</b> 웨이블릿 변환(wavelet transform)</a></li>
+<li class="chapter" data-level="7.4" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-wavelet-space"><i class="fa fa-check"></i><b>7.4</b> 웨이블릿 공간(wavelet space)</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-multiresolution-analysis"><i class="fa fa-check"></i><b>7.4.1</b> 다중해상도 분석(multiresolution analysis)</a></li>
+<li class="chapter" data-level="7.4.2" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#orthogonal-decomposition"><i class="fa fa-check"></i><b>7.4.2</b> 직교분해(orthogonal decomposition)</a></li>
+<li class="chapter" data-level="7.4.3" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#--orthonormal-basis-construction"><i class="fa fa-check"></i><b>7.4.3</b> 직교정규 기저 구성(orthonormal basis construction)</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="spectral.html"><a href="spectral.html"><i class="fa fa-check"></i><b>8</b> 스펙트럼 분석</a><ul>
 <li class="chapter" data-level="8.1" data-path="spectral.html"><a href="spectral.html#--cyclical-behavior-and-periodicity"><i class="fa fa-check"></i><b>8.1</b> 순환 움직임과 주기성(cyclical behavior and periodicity)</a><ul>
@@ -430,7 +438,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>수축 방법에는 두 가지가 있다. <strong>하드 임계화(hard thresholding)</strong>와 <strong>소프트 임계화(soft thresholding)</strong>가 그것이다. 두 임계화를 다음과 같이 정의한다.</p>
 <div class="definition">
 <p>주어진 (empirical) 웨이블릿 상수 d와 <strong>threshold</strong> <span class="math inline">\(\mathbf{\lambda}\)</span>가 있을 때, 그것의 <strong>하드 임계화(hard thresholding)</strong>는 <span class="math display">\[\hat{\theta}_{H}=\eta_{H}(d,\lambda)=d\mathbb{I}\{ |d| &gt; \lambda \}\]</span> 이다. 그리고 <strong>소프트 임계화(soft thresholding)</strong>는 <span class="math display">\[\hat{\theta}_{S}=\eta_{S}(d,\lambda)=\text{sgn}(d)(|d|-\lambda)\mathbb{I}\{ |d| &gt; \lambda \}\]</span> 이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-25"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-30"></span>
 <img src="images/waveletshrinkage_thresholding.png" alt="Hard thresholding (dotted line) and soft thresholding." width="263" />
 <p class="caption">
 Figure 11.1: Hard thresholding (dotted line) and soft thresholding.
@@ -511,8 +519,8 @@ y_noise_wd &lt;-<span class="st"> </span><span class="kw">wd</span>(y_noise)
 y_noise_threshold &lt;-<span class="st"> </span><span class="kw">threshold</span>(y_noise_wd, <span class="dt">type=</span><span class="st">&quot;soft&quot;</span>, <span class="dt">policy=</span><span class="st">&quot;sure&quot;</span>)
 y_sure &lt;-<span class="st"> </span><span class="kw">wr</span>(y_noise_threshold)
 <span class="kw">plot</span>(x,y_sure, <span class="dt">type=</span><span class="st">&#39;l&#39;</span>, <span class="dt">main=</span><span class="st">&quot;Soft Thresholding&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-27"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-27-1.png" alt="Wavelet shrinkage example." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-32"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-32-1.png" alt="Wavelet shrinkage example." width="672" />
 <p class="caption">
 Figure 11.2: Wavelet shrinkage example.
 </p>
