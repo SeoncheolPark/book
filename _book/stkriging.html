@@ -38,8 +38,8 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="math.html">
-<link rel="next" href="rv.html">
+<link rel="prev" href="spatiotemporal.html">
+<link rel="next" href="pointpattern.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -424,246 +424,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="basicprob" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> 기초 확률론</h1>
-<p>이 장에서는 앞으로 다룰 내용을 이해하기 위해 필요한 기본적인 확률 개념을 정리하였다. 대학원 과정의 확률론을 다룬 유명한 책들로는 <span class="citation">(Durrett <a href="#ref-Durrett2010">2010</a>)</span>, <span class="citation">(Billingsley <a href="#ref-Billingsley2012">2012</a>)</span> 그리고 <span class="citation">(Chung <a href="#ref-Chung2001">2001</a>)</span>이 있다. 그 밖에 본인이 추천하는 책들은 다음과 같다. <span class="citation">(Gut <a href="#ref-Gut2012">2012</a>)</span>는 최근에 나온 대학원 확률론 입문서 교재로써 비교적 내용이 자세하다. <span class="citation">(Schilling <a href="#ref-Schilling2005">2005</a>)</span>는 삽화가 많고 저자가 연습문제의 답을 웹에 올려놓았다. <span class="citation">(Shorack <a href="#ref-Shorack2006">2006</a>)</span>과 <span class="citation">(Proschan and Shaw <a href="#ref-Proschan2016">20016</a>)</span>는 통계학자의 입장에서 필요한 확률론 지식을 비교적 쉽게 서술하였다. 여기서는 앞서 언급한 모든 책들을 참고할 것이다.</p>
-<div id="-sample-space-and-events" class="section level2">
-<h2><span class="header-section-number">3.1</span> 표본공간과 사건(sample space and events)</h2>
-<p>통계학은 무작위(random) 또는 확률적(stochastic) 실험(experiment), 즉 어떤 결과가 나올지 미리 확실히 예측할 수 없는 실험들에 초점을 맞춘다.</p>
-<div class="definition">
-<p>어떤 무작위 실험의 <strong>표본공간(sample space)</strong> <span class="math inline">\(\Omega\)</span>는 그 실험에서 나올 수 있는 모든 결과들의 집합이다.</p>
-</div>
-<div class="example">
-<p>동전을 두 번 던지는 실험에서 <span class="math inline">\(\Omega=\{ HH, HT, TH, TT \}\)</span>이다. 이러한 표본공간을 <strong>(유한) 이산 표본공간(finite discrete sample space)</strong>이라고 한다.</p>
-</div>
-<div class="example">
-<p>이번에는 동전의 뒷 면이 나올때까지 동전을 계속해서 던지는 실험에 대해 살펴보자. 그러면 <span class="math display">\[\{ T, HT, HHT, HHHT, \ldots, \{ HHH\ldots\} \}\]</span> 와 같은 결과들의 수얼을 얻을 수 있다. 이를 만약 동전을 던진 횟수로 정리한다면 <span class="math display">\[\{ 1,2,3,\ldots, ,\infty\}\]</span> 로 볼 수 있다. 이러한 표본공간을 <strong>(무한) 이산 표본공간(infinite discrete sample space)</strong>라고 한다.</p>
-</div>
-<div class="example">
-<p>우리가 지하철을 기다리고 있다고 가정해보자. 지하철은 <span class="math inline">\(T\)</span> 시간마다 한 번씩 도착한다. 그러면 우리가 기다리는 시간에 대한 표본공간은 <span class="math display">\[[0,T]=\{t:0\leq y \leq T\}\]</span> 이다. 이러한 표본 공간은 <strong>연속 표본공간(continuous sample space)</strong>라고 한다.</p>
-</div>
-<div class="definition">
-<p><strong>사건(event)</strong>란 표본공간 <span class="math inline">\(\Omega\)</span>의 임의의 부분집합(subset)을 의미한다.</p>
-</div>
-<div class="example">
-<ul>
-<li><p>앞서 동전을 두 번 던지는 실험에서 앞면이 하나만 나올 사건을 <span class="math inline">\(A\)</span>라고 하면 <span class="math inline">\(A=\{ HT, TH \}\)</span>이다.</p></li>
-<li><p>앞서 동전을 두 번 던지는 실험에서 적어도 한 번 앞면이 나올 사건을 <span class="math inline">\(B\)</span>라고 하면 <span class="math inline">\(A=\{ HH, HT, TH \}\)</span>이다.</p></li>
-</ul>
-</div>
-</div>
-<div id="-sigma-field" class="section level2">
-<h2><span class="header-section-number">3.2</span> 시그마-체(sigma-field)</h2>
-<p>앞서 표본공간 <span class="math inline">\(\Omega\)</span>의 임의의 부분집합인 사건을 생각했는데, 그러면 이 사건들의 집합 <span class="math inline">\(\mathcal{F}\)</span>에 대해서도 생각해 볼 수 있을 것이다. 그리고 사건들의 집합이 가져야 할 바람직한 성질들을 잘 정의하기 위해 시그마-체라는 개념을 도입한다.</p>
-<div class="definition">
-<p>어떤 집합(set) <span class="math inline">\(\Omega\)</span>의 non-empty collection (즉 <span class="math inline">\(\Omega\)</span>의 subset들의 모임)을 <span class="math inline">\(\mathcal{F}\)</span>라고 하자. 그러면 <span class="math inline">\(\mathcal{F}\)</span>가</p>
-<ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(\Omega \in \mathcal{F}\)</span> (또는 <span class="math inline">\(\emptyset \in \mathcal{F}\)</span>)</p></li>
-<li><p><span class="math inline">\(A \in \mathcal{F}\)</span>이면 <span class="math inline">\(A^{C} \in \mathcal{F}\)</span>,</p></li>
-<li><p><span class="math inline">\(A, B \in \mathcal{F}\)</span> 이면 <span class="math inline">\(A\cup B \in \mathcal{F}\)</span></p></li>
-</ol>
-<p>를 만족할 때 <span class="math inline">\(\mathcal{F}\)</span>를 <strong>대수(algebra)</strong> 또는 <strong>체(field)</strong>라고 부른다.</p>
-</div>
-<p>시그마-체는 앞선 대수의 정의에서 두 번째 조건이 조금 바뀐 것이다.</p>
-<div class="definition">
-<p>어떤 집합(set) <span class="math inline">\(\Omega\)</span>의 non-empty collection을 <span class="math inline">\(\mathcal{F}\)</span>라고 할 때, <span class="math inline">\(\mathcal{F}\)</span>가</p>
-<ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(\Omega \in \mathcal{F}\)</span> (또는 <span class="math inline">\(\emptyset \in \mathcal{F}\)</span>)</p></li>
-<li><p><span class="math inline">\(A \in \mathcal{F}\)</span>이면 <span class="math inline">\(A^{C} \in \mathcal{F}\)</span>,</p></li>
-<li><p><span class="math inline">\(A_{1}, A_{2}, \ldots \in \mathcal{F}\)</span> 이면 <span class="math inline">\(\bigcup_{i=1}^{\infty}A_{i} \in \mathcal{F}\)</span></p></li>
-</ol>
-<p>를 만족할 때 <span class="math inline">\(\mathcal{F}\)</span>를 <strong>시그마-대수(sigma-algebra)</strong> 또는 <strong>시그마-체(sigma-field)</strong>라고 부른다.</p>
-</div>
-<p>다음은 체와 시그마-체에 대한 간단한 사실들이다.</p>
-<div class="remark">
-<ol style="list-style-type: decimal">
-<li><p>모든 체는 finite union에 대해 닫혀있다. 또한 같은 논리를 적용해 finite intersection에 대해서도 닫혀있다.</p></li>
-<li><p>모든 시그마-체 <span class="math inline">\(\mathcal{F}\)</span>는 countable intersection에 대해서도 닫혀있다. 즉, <span class="math display">\[A_{1}, A_{2}, \ldots  \in \mathcal{F} \text{ 이면 }  \bigcap_{i=1}^{\infty}A_{i} = (\bigcap_{i=1}^{\infty}A_{i}^{C})^{C} \in \mathcal{F}.\]</span> 물론 모든 <span class="math inline">\(A_{1}^{C}, A_{2}^{C},\ldots\)</span> 또한 <span class="math inline">\(A_{1}^{C}, A_{2}^{C}, \ldots \in \mathcal{F}\)</span> 이다.</p></li>
-<li><p><span class="math inline">\(\mathcal{F}\)</span>가 non-void일 경우에는 모든 체 또는 시그마-체가 <span class="math inline">\(A\)</span>를 포함하고 있으면 <span class="math inline">\(A^{C}\)</span> 또한 포함하고 있기 때문에 <span class="math inline">\(\Omega=A \cup A^{C}\)</span>와 <span class="math inline">\(\emptyset=\Omega^{C}\)</span> 또한 <span class="math inline">\(\mathcal{F}\)</span>에 포함되어 있다. 따라서 첫 번째 조건을 생략해도 된다.</p></li>
-</ol>
-</div>
-<div class="example">
-<ul>
-<li><p>어떤 집합 <span class="math inline">\(\Omega\)</span>에 대해, <span class="math inline">\(\{\emptyset, \Omega\}\)</span>는 시그마-체가 된다. 이 시그마-체는 <span class="math inline">\(\Omega\)</span>의 부분집합으로 만들 수 있는 가장 작은 시그마-체이다.</p></li>
-<li><p><span class="math inline">\(\Omega\)</span>의 멱집합(power set, 어떤 집합의 모든 부분집합을 모은 집합) 또한 시그마-체이며 이는 <span class="math inline">\(\Omega\)</span>의 부분집합으로 만들 수 있는 가장 큰 시그마-체이다.</p></li>
-<li><p><span class="math inline">\(A\in\Omega\)</span>일 때 collection <span class="math inline">\(\{\emptyset, A, A^{C}, \Omega\}\)</span> 또한 간단히 만들 수 있는 시그마-체의 예다.</p></li>
-</ul>
-</div>
-<div class="example">
-<p>다음은 <span class="math inline">\(\mathcal{F}\)</span>가 체이나 시그마-체가 아닌 예이다. <span class="math inline">\(\Omega=(0,1]\)</span>이고, <span class="math inline">\(\mathcal{F}\)</span>는 <span class="math inline">\(\emptyset\)</span>과 모든 <span class="math display">\[(a,b], \qquad{a,b\in\mathbb{Q}, a,b\in [0,1], a&lt;b}\]</span> 와 <span class="math inline">\((a,b]\)</span>의 모든 finite union을 포함한다고 하자. 그리고 <span class="math inline">\([z]\)</span>를 z와 가장 가까운 정수로 반올림해주는 연산자라고 하자. 그러면 정의에 의해 <span class="math inline">\(\mathcal{F}\)</span>는 체가 된다. 그러나 <span class="math inline">\(A_{n}=(a_{n},1]\)</span>, <span class="math inline">\(a_{n}=\frac{10^{n}}{[10^{n}\pi]}\)</span>라고 하면 <span class="math display">\[A_{n}\in\mathcal{F} \text{이나 } \cup_{n=1}^{\infty}A_{n}=(\pi,1]\notin \mathcal{F}\]</span> 이다. 따라서 <span class="math inline">\(\mathcal{F}\)</span>는 시그마-체가 아니다.</p>
-</div>
-<div class="example">
-<p>표본공간 <span class="math inline">\(\Omega\)</span>가 셀 수 있는 집합, 예를 들면 <span class="math inline">\(\{0,1,2,\ldots, \}\)</span>라고 가정하자. 그리고 이 때 사건들의 집합 <span class="math inline">\(\mathcal{F}\)</span>가 모든 singleton <span class="math inline">\(\omega_{i}, i=1,2,\ldots\)</span>들을 포함하는 시그마-체가 되길 원한다고 가정하자. 그러면 <span class="math inline">\(\Omega\)</span>의 모든 부분집합 <span class="math inline">\(E\)</span>는 <span class="math inline">\(\cup_{i=1}^{\infty}\omega_{i}\)</span>로 만들 수 있다. 즉 singleton들의 countable union으로 만들 수 있다. 그리고 countable union에 대해 시그마-체가 닫혀있기 때문에, <span class="math inline">\(\mathcal{F}\)</span>가 <span class="math inline">\(\Omega\)</span>의 어떤 부분집합 <span class="math inline">\(E\)</span>들을 모두 포함한다는 결론에 이른다. 즉, <strong>표본공간이 셀 수 있는 집합이면, 우리는 항상 멱집합을 사건들의 집합으로 써야 한다.</strong></p>
-</div>
-</div>
-<div id="generators" class="section level2">
-<h2><span class="header-section-number">3.3</span> 생성기들(generators)</h2>
-<p>시그마-체에 대해 좀 더 자세히 살펴보기 위해, <strong>생성기(generator)</strong>에 대해 알아보자. 표본공간 <span class="math inline">\(\Omega\)</span>의 subset들의 collection <span class="math inline">\(\mathcal{A}\)</span>가 있다고 하자. 그러면 멱집합은 항상 시그마-체이기 때문에, <span class="math inline">\(\mathcal{A}\)</span>를 포함하는 시그마-체가 적어도 한 개 이상 있을 것이다. <span class="math inline">\(\mathcal{F}^{*}\)</span>를 <span class="math inline">\(\mathcal{A}\)</span>를 포함하는 모든 시그마-체의 모임, 즉 <span class="math display">\[\mathcal{F}^{*}=\{\sigma\text{-algebras } \supset \mathcal{A}\}\]</span> 라고 하자. 여기서 <span class="math inline">\(\mathcal{A}\)</span>를 포함하는 <strong>가장 작은</strong> 시그마-체를 생각해보자. 즉 <span class="math display">\[\mathcal{F}=\sigma(\mathcal{A})=\bigcap_{\{\mathcal{F}` \text{ $\sigma$-algebra }|\mathcal{A}\subset\mathcal{F}` \}}\mathcal{F}`=\bigcap_{\mathcal{G}\in\mathcal{F}^{*}}\mathcal{G}\]</span> 인 <span class="math inline">\(\mathcal{F}\)</span>가 존재하고 이를 <span class="math inline">\(\mathcal{A}\)</span><strong>로부터 생성된 시그마-체(sigma alegbra genearted by</strong> <span class="math inline">\(\mathcal{A}\)</span><strong>)</strong>라고 부른다.</p>
-<div class="example">
-<ul>
-<li><p>만약 <span class="math inline">\(\mathcal{A}=A\)</span>, 즉 <span class="math inline">\(\mathcal{A}\)</span>가 single set일 경우 <span class="math inline">\(\sigma(\mathcal{A})=\{ \emptyset, A, A^{C}, \Omega\}\)</span>이다.</p></li>
-<li><p>만약 <span class="math inline">\(\mathcal{A}\)</span>가 시그마-체일 경우, <span class="math inline">\(\sigma(\mathcal{A})=\mathcal{A}\)</span>다.</p></li>
-</ul>
-</div>
-</div>
-<div id="probability-space" class="section level2">
-<h2><span class="header-section-number">3.4</span> 확률공간(probability space)</h2>
-<div class="definition">
-<p>표본공간 <span class="math inline">\(\Omega\)</span>와 이와 연관된 시그마-체 <span class="math inline">\(\mathcal{A}\)</span>를 묶어 <span class="math inline">\((\Omega, \mathcal{A})\)</span>를 <strong>가측공간(measurable space)</strong>이라고 한다.</p>
-</div>
-<div class="definition">
-<p>가측공간 <span class="math inline">\((\Omega, \mathcal{A})\)</span>가 주어졌을 때 <strong>확률측도(probability measure)</strong> <span class="math inline">\(P\)</span>는 <span class="math inline">\(P:\mathcal{A}\rightarrow [0,1]\)</span>인 함수로</p>
-<ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(P(\emptyset)=0\)</span> and <span class="math inline">\(P(\Omega)=1\)</span></p></li>
-<li><p>어떤 <span class="math inline">\(A\in\mathcal{A}\)</span>에 대해 <span class="math inline">\(P(A)\geq 0\)</span></p></li>
-<li><p><strong>(가산가법성(countable additivity))</strong>: <span class="math inline">\(\{A_{n}, n\geq 1\}\)</span>이 disjoint라고 하면 <span class="math inline">\(P(\bigcup_{n=1}^{\infty}A_{n})=\sum_{n=1}^{\infty}P(A_{n}).\)</span></p></li>
-</ol>
-<p>을 만족한다. 그리고 <span class="math inline">\((\Omega, \mathcal{A}, P)\)</span>를 묶어 <strong>확률공간(probability space)</strong>라고 한다.</p>
-</div>
-<p>이 확률측도는 <span class="math inline">\(\mathcal{A}\)</span>가 시그마-체일 때 뿐 아니라 그냥 체 일때도 위 세 가지를 만족하면 정의할 수 있다.</p>
-</div>
-<div id="--borel-sigma-field" class="section level2">
-<h2><span class="header-section-number">3.5</span> 보렐 시그마-체(Borel sigma field)</h2>
-<p>이제 <span class="math inline">\(\Omega\)</span>가 비가산집합(uncountable set)일 때 시그마-체에 대해 살펴보자. 비가산집합의 대표적인 예로 <span class="math inline">\(\mathbb{R}\)</span>이 있으니 <span class="math inline">\(\Omega=\mathbb{R}\)</span>이라 놓고 전개하기로 한다. 앞서 얘기했듯이 시그마-체의 크기는 우리가 고려하고 싶은 모든 사건들과 그 사건들의 countable union, intersection을 적절히 잘 포함하는 정도여야 한다. 가장 쉽게 만들 수 있는 것은 <span class="math inline">\(\mathcal{F}\)</span>가 모든 countable subset <span class="math inline">\(E\)</span>를 포함하게끔 만드는 것이다. 그러나 이 시그마-체는 충분히 크지 않다. 예를 들어 <span class="math inline">\(\Omega=[0,1]\)</span>일 경우, 앞서 말한 대로 <span class="math inline">\(\mathcal{F}\)</span>를 만들면 <span class="math inline">\([0,0.5]\)</span>같은 사건은 countable이나 co-countable이 아니므로 <span class="math inline">\(\mathcal{F}\)</span>에 포함이 되지 않는 것이다.</p>
-<p>즉 우리는 <span class="math inline">\(\Omega\)</span>의 모든 interval들을 포함하는 시그마-체를 만들고 싶어한다.예를 들면, <span class="math inline">\(\Omega=[0,1]\)</span>일 때 <span class="math display">\[(a,b)\in\mathcal{F}, \qquad{(0\leq a &lt; b \leq 1),}\]</span> <span class="math display">\[P((a,b))=b-a, \qquad{(0\leq a &lt; b \leq 1)}\]</span> 이 되길 원하는 것이다. 가장 간단한 방법으로, 멱집합을 <span class="math inline">\(\mathcal{F}\)</span>로 나용할 수 있다. 그러나 이 <span class="math inline">\(\mathcal{F}\)</span>은 너무 크다. <span class="math inline">\(\mathcal{F}\)</span>가 너무 클 경우, 확률측도가 잘 construct되지 않는 경우가 생길 수 있다고 한다.</p>
-<div id="-------no-uniform-probablity-of-power-set-on-continous-sample-space" class="section level3">
-<h3><span class="header-section-number">3.5.1</span> 연속 표본공간에서 시그마-체로 멱집합을 쓰지 않는 이유(no uniform probablity of power set on continous sample space)</h3>
-<p>멱집합이 시그마-체로 적합하지 않은 이유로 (<span class="math inline">\([0,1], 2^{[0,1]}\)</span>)에서 균등확률이 존재하지 않음을 보일 것이다. <span class="math inline">\(P\)</span>를 (<span class="math inline">\([0,1], 2^{[0,1]}\)</span>)에서 균등확률의 한 후보라고 놓자. 우리는 <span class="math inline">\(P\)</span>가 <span class="math display">\[P\{[a,b]\}=P\{(a,b)\}=P\{[a,b)\}=P\{(a,b]\}=b-a, \qquad{\text{for any }[a,b]\subseteq [0,1]}\]</span> 을 만족하길 원한다. 또한 특별히 <span class="math display">\[P\{a\}=0, \qquad{\text{for every }0\leq a \leq 1}\]</span> 이다. 그리고 <span class="math inline">\(P\)</span>는 확률의 공리(the axioms of probability) 중 하나인 가산가법성(countable additivity)을 만족시켜야 한다. 즉 <span class="math inline">\(0\leq a_{1}&lt;b_{1}&lt;\cdots &lt;a_{n}&lt;b_{n}&lt;\cdots \leq 1\)</span>이면 <span class="math inline">\(P\)</span>는 <span class="math display">\[P\{\bigcup_{i=1}^{\infty}[a_{i},b_{i}]\}=\sum_{i=1}^{\infty}P\{[a_{i},b_{i}]\}=\sum_{i=1}^{\infty}(b_{i}-a_{i})\]</span> 를 만족해야 한다.</p>
-<p>또한 <span class="math inline">\(P\)</span>는 이동불변(shift invariant) 성질을 가져야 한다. 즉, 확률은 interval의 length에만 영향을 받아야 한다. <span class="math display">\[P\{[r,1/4 +r]\}=\frac{1}{4}, \qquad{\text{for every } 0 &lt; r \leq 3/4.}\]</span> 그런데 한 가지 문제가 생기는데 <span class="math inline">\(3/4 &lt;r &lt; 1\)</span>이면 <span class="math inline">\([r,1/4+r]\)</span>이 <span class="math inline">\([0,1]\)</span>의 부분집합이 되지 않는다. 이를 해결하기 위해 “wrapping around”라는 방법을 이용한다. 만약 “wrapping around”를 <span class="math inline">\(\oplus\)</span>로 나타낸다면</p>
-<p><span class="math display">\[
-[0,1/4]\oplus r = 
-\begin{cases}
-[r, 1/4 + r] &amp; \text{if $0 &lt; r \leq 3/4$} \\
-[0,1/4+r-1]\cup [r,1] &amp; \text{if $3/4 &lt; r &lt; 1$}\\
-\end{cases}
-\]</span> 로 정의하는 것이다. 그러면 <span class="math inline">\(A\subseteq [0,1]\)</span>이라고 할 때 <span class="math inline">\(A\)</span>를 <span class="math inline">\(r (0&lt;r&lt;1)\)</span>만큼 이동하는 것을 <span class="math display">\[A\oplus r = \{ a+r : a \in A, a+r \leq 1 \} \cup \{ a+r-1: a\in A, a+r &gt; 1\}\]</span> 로 정의할 수 있다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
-<img src="images/basic_shift.png" alt="Shift invariance." width="434" />
-<p class="caption">
-Figure 3.1: Shift invariance.
-</p>
-</div>
-<p>“wrapping around”를 이용해 <span class="math inline">\(A\)</span>를 <span class="math inline">\(r\)</span>만큼 이동해도 길이가 보존되기 때문에, 확률 또한 <span class="math display">\[P\{ A \oplus r \}=P\{ A \}, \qquad{\text{for any } 0 &lt; r &lt; 1}\]</span> 이 될 것이라 추론할 수 있다.</p>
-<p>이제 모든 <span class="math inline">\(A \in 2^{[0,1]}\)</span>에 대해 균등확률이 존재하지 않음을 보이기 위해 동치관계(equivalence relation)라는 것에 대해 정의할 것이다. <span class="math inline">\(x\)</span>와 <span class="math inline">\(y\)</span> (<span class="math inline">\(x,y \in [0,1]\)</span>)는 <span class="math inline">\(y-x\in\mathbb{Q}\)</span>를 만족할 경우 동치관계라 정의하고 <span class="math inline">\(x \sim y\)</span>로 표시한다. 예를 들면 <span class="math display">\[\frac{1}{2} \sim \frac{1}{4}, \frac{1}{3} \sim \frac{1}{\pi}, \frac{1}{\pi}-\frac{1}{4} \sim \frac{1}{\pi}+\frac{1}{2} \]</span> 인 것이다.</p>
-<p>이 동치관계는 <span class="math inline">\([0,1]\)</span>을 다음과 같이 분리(disjoint) 합집합들로 표현할 수 있다. <span class="math display">\[[0,1]=\mathbb{Q}_{1} \cup \{ \bigcup_{x\in [0,1] \backslash \mathbb{Q}_{1}} \{ (\mathbb{Q}+x)\cap [0,1] \} \}=\mathbb{Q}_{1} \cup \{ \bigcup_{x\in [0,1] \backslash \mathbb{Q}_{1}} \{ (\mathbb{Q}+x)\oplus x \} \}.\]</span></p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
-<img src="images/basic_disjoint.png" alt="Collection of disjoint unions on [0,1]" width="596" />
-<p class="caption">
-Figure 3.2: Collection of disjoint unions on [0,1]
-</p>
-</div>
-<p><span class="math inline">\(H\)</span>를 선택공리(the Axiom of Choice)에 의해 <span class="math inline">\([0,1]\)</span>의 모든 동치관계에서 원소를 한 개씩 잘 뽑아서 만든 <span class="math inline">\([0,1]\)</span>의 부분집합이라고 하자. 편의상 <span class="math inline">\(0\notin H\)</span>라고 하자. 그러면 <span class="math inline">\((0,1]\)</span>을 <span class="math display">\[(0,1]=\bigcup_{r\in\mathbb{Q}_{1}, r\neq 1}\{ H \oplus r\} \qquad{\text{with }\{H\oplus r_{i}\} \cap \{H\oplus r_{j}=\emptyset \text{ for all } i\neq j\} } \]</span> 로 표현할 수 있다. 그러면 <span class="math display">\[1=P\{(0,1]\}=P\{ \bigcup_{r\in\mathbb{Q}_{1}, r\neq 1}\{ H \oplus r\} \}=\sum_{r\in \mathbb{Q}_{1},r\neq 1}P\{ H \oplus r\}=\sum_{r\in \mathbb{Q}_{1},r\neq 1}P\{ H\}\]</span> 가 된다. 만약 우리가 <span class="math inline">\(p=P\{H\}\)</span>로 확률을 부여하고자 한다면</p>
-<ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(p=0\)</span>일 때에는 <span class="math inline">\(1=\sum_{r\in \mathbb{Q}_{1},r\neq 1}P\{ H\}=\sum_{r\in \mathbb{Q}_{1},r\neq 1} p \sum_{r\in \mathbb{Q}_{1},r\neq 1} 0 = 0\)</span> 이므로 모순이다.</p></li>
-<li><p>마찬가지로 <span class="math inline">\(0&lt;p\leq 1\)</span>일 때에는 <span class="math inline">\(\sum_{r\in \mathbb{Q}_{1},r\neq 1} p =\infty\)</span>이므로 모순이다.</p></li>
-</ol>
-<p>즉 <span class="math inline">\(H\)</span>는 사건이 아닌 셈이 되고 <span class="math inline">\(P\{ H \}\)</span>가 존재하지 않는다. 이상의 결과를 다음 정리로 요약해본다.</p>
-<div class="definition">
-<p>셀 수 없는 표본공간 <span class="math inline">\([0,1]\)</span>에서 시그마-체 <span class="math inline">\(2^{[0,1]}\)</span>을 고려할 경우 <span class="math inline">\(P\{[a,b]\}=b-a, \text{ for all } 0\leq a \leq b \leq 1\)</span>과 <span class="math inline">\(P\{ A \oplus r\}=P\{A\}, \text{ for all } A\subseteq [0,1] \text{ and } 0 &lt; r &lt; 1\)</span>을 동시에 만족하는 <span class="math inline">\(P: 2^{[0,1]}\rightarrow [0,1]\)</span>은 존재하지 않는다.</p>
-</div>
-<p>다시말하면, 모든 <span class="math inline">\(A\subseteq [0,1]\)</span>에 대해 균등확률 <span class="math inline">\(P\{ A \}\)</span>를 정의할 수 없다는 것이다.</p>
-</div>
-<div id="---borel-sigma-field-on-r" class="section level3">
-<h3><span class="header-section-number">3.5.2</span> 실수공간에서 보렐 시그마-체(Borel sigma-field on R)</h3>
-<p>따라서, 모든 interval을 포함하는 시그마-체들 중 가장 <strong>작은</strong> 시그마-체 <span class="math inline">\(\mathcal{F}\)</span>를 찾는 것이 이상적일 것이다. 즉 우리는 <span class="math inline">\(\sigma(\text{intervals})\)</span>를 찾고자 하는 것이다.</p>
-<p>여기서 잠시 <span class="math inline">\(\mathbb{R}\)</span>에서의 <strong>보렐 시그마-체(Borel sigma-algebra)</strong>에 대해 살펴보자. <span class="math inline">\(\mathbb{R}\)</span>에서의 모든 열린 집합(open set)들의 모임을 <span class="math inline">\(\mathcal{O}\)</span>라고 하자. 그러면 <span class="math inline">\(\mathcal{O}\)</span>는 시그마-체가 아니다. (왜냐하면 <span class="math inline">\(A\in\mathcal{O}\)</span>이면 <span class="math inline">\(A^{C}\)</span>는 닫힌 집합이고 따라서 <span class="math inline">\(A^{C}\notin\mathcal{O}\)</span>이다.)</p>
-<div class="definition">
-<p><span class="math inline">\(\mathbb{R}\)</span>에서의 <strong>보렐 시그마-체(Borel sigma-field, Borel sigma-algebra)</strong> <span class="math inline">\(\mathcal{B}\)</span>는 <span class="math inline">\(\mathcal{B}=\sigma(\mathcal{O})\)</span>로 정의한다.</p>
-</div>
-<p>결론은 <span class="math inline">\(\mathbb{R}\)</span>에서의 보렐 시그마-체를 interval을 포함하는 시그마-체로 만들 수 있다는 것이다. 그 전에 증명을 위해 한 가지 정리를 언급하겠다.</p>
-<div class="theorem">
-<p><span class="math inline">\(E \subseteq \mathbb{R}\)</span>이 열린 집합이라고 하자. 그러면 기껏해야 셀 수 있는 정도로만 많은(at most countably many) 열린 구간들(open intervals) <span class="math inline">\(I_{j}, j=1,2,\ldots,\)</span>가 존재해 다음을 만족한다. <span class="math display">\[E=\bigcup_{j=1}^{\infty}I_{j}.\]</span></p>
-</div>
-<div class="proof">
-<p>이 정리의 증명은 <span class="math inline">\(E=\bigcup_{j=1}^{\infty}I_{j}\)</span>를 만족하는 <span class="math inline">\(I_{j}\)</span>들이 있음을 보이고 이것이 (1) at most countably many (2) disjoint (3) open (4) intervals 임을 보이면 된다. 증명 방법은 동치 관계를 이용하는 것이다. <span class="math inline">\(a, b \in E, (a &lt; b)\)</span>일 때 열린구간 <span class="math inline">\((a,b)\subseteq E\)</span>이면 <span class="math inline">\(a \sim b\)</span>로 놓는다. 그러면 <span class="math inline">\(E\)</span>의 disjoint union of classes는 equivalence relationship partitions <span class="math inline">\(E\)</span>가 된다. 아직 이것들이 countably many한지 모르므로 이들을 <span class="math inline">\(I_{j}, j\in J, J \text{ is an arbitrary index set}\)</span>이라고 높자. 임의의 <span class="math inline">\(a_{j}&lt;b_{j}\in I_{j}\)</span>에 대해 <span class="math inline">\(a_{j} \sim b_{j}\)</span>이고 <span class="math inline">\((a_{j}, b_{j}) \in I_{j}\)</span>이므로 <span class="math inline">\(I_{j}\)</span>는 interval이다. 또 <span class="math inline">\(x\in I_{j}\)</span>를 임의로 뽑았을 때 <span class="math inline">\(x\in E\)</span>이고 <span class="math inline">\(E\)</span>가 open이므로, <span class="math inline">\((x-\epsilon, x+\epsilon)\subseteq E\)</span>를 만족하는 <span class="math inline">\(\epsilon &gt;0\)</span>이 모든 <span class="math inline">\(x\)</span>에 대해 존재함을 알 수 있고 ahems <span class="math inline">\(a\in (x-\epsilon, x+\epsilon)\)</span>에 대해 <span class="math inline">\(a \sim x\)</span>이므로 <span class="math inline">\(x\)</span>의 <span class="math inline">\(\epsilon\)</span>-근방은 <span class="math inline">\(I_{j}\)</span>에 포함됨을 알 수 있어 <span class="math inline">\(I_{j}\)</span>는 open이다. 마지막으로 모든 <span class="math inline">\(I_{j}\)</span>는 적어도 하나의 유리수를 포함하고 있어 이를 통해 <span class="math inline">\(I_{j}\)</span>의 갯수는 countably many임을 알 수 있다.</p>
-</div>
-<div class="theorem">
-<p><span class="math inline">\(\mathbb{R}\)</span>에서의 보렐 시그마-체(Borel sigma-field, Borel sigma-algebra) <span class="math inline">\(\mathcal{B}\)</span>는 <span class="math inline">\((-\infty, a], a\in\mathbb{Q}\)</span>로 생성할 수 있다.</p>
-</div>
-<div class="proof">
-<p><span class="math inline">\(\mathcal{O}_{0}\)</span>을 <span class="math inline">\(\mathbb{R}\)</span>에서의 모든 열린 구간(open interval)들의 collection이라고 하자. 앞선 정리에 의해 <span class="math inline">\(\mathbb{R}\)</span>에서의 모든 열린 집합은 기껏해야 셀 수 있을 정도의 열린 구간의 합집합으로 나타낼 수 있으므로 <span class="math inline">\(\sigma(\mathcal{O}_{0})=\mathcal{B}\)</span>가 된다. <span class="math inline">\(\mathcal{D}\)</span>를 <span class="math inline">\((-\infty, a], a\in \mathbb{Q}\)</span>인 구간들의 collection이라고 하자. 그리고 구간 <span class="math inline">\((a,b)\)</span>를 <span class="math inline">\((a,b)\in \mathcal{O}_{0}, a,b \in \mathbb{Q}, a&lt;b\)</span>와 같이 정의하자. 여기서 <span class="math display">\[a_{n}=a+\frac{1}{n} \text{ and } b_{n}=b-\frac{1}{n}\]</span> 으로 놓으면 <span class="math display">\[(a,b)=\bigcup_{n=1}^{\infty}(a_{n},b_{n}]=\bigcup_{n=1}^{\infty}\{ (-\infty, b_{n}] \cap (-\infty, a_{n}]^{c}\}\]</span> 이다. 이것은 <span class="math inline">\((a,b)\in \sigma (\mathcal{D})\)</span>임을 의미한다. 즉 <span class="math inline">\(\mathcal{O}_{0}\subseteq \sigma(\mathcal{D})\)</span>이고 <span class="math inline">\(\sigma(\mathcal{O}_{0})\subseteq \sigma(\mathcal{D})\)</span>이다. 그러나 <span class="math inline">\(\mathcal{D}\)</span>의 모든 원소는 닫힌 집합이고 이는 <span class="math inline">\(\sigma(\mathcal{D})\subseteq \mathcal{B}\)</span>를 의미한다. 따라서 <span class="math display">\[\mathcal{B} = \sigma(\mathcal{O}_{0})\subseteq \sigma(\mathcal{D})\subseteq \mathcal{B}\]</span> 이므로 <span class="math inline">\(\sigma(\mathcal{D})=\mathcal{B}\)</span>이다.</p>
-</div>
-<p>이제 <span class="math inline">\([0,1]\subset \mathbb{R}\)</span>에서의 보렐 시그마-체 <span class="math inline">\(\mathcal{B}_{1}\)</span>을 생각해보자. 이는 <span class="math inline">\(\mathcal{B}\)</span>와 마찬가지로 <span class="math inline">\([0,1]\)</span>의 열린 부분집합들의 collection으로부터 생성된 시그마-체라고 생각할 수 있다. 한 가지 주의해야 할 점은 <span class="math inline">\(\mathcal{B}_{1}\)</span>은 <span class="math inline">\(\mathcal{B}\)</span>의 부분 시그마-체는 아니라는 것이다. 시그마-체에서 포함 관계를 얘기하려면 두 시그마-체의 표본공간이 같아야 한다.</p>
-</div>
-<div id="--construction-of-a-probability-measure-on-r" class="section level3">
-<h3><span class="header-section-number">3.5.3</span> 실수공간에서 확률측도의 구성(construction of a probability measure on R)</h3>
-<p>이제 앞서 언급한 보렐 시그마-체 <span class="math inline">\(\mathcal{B}_{1}\)</span>을 이용해 균등한 확률을 만드는 작업을 진행할 것이다. 전략은 먼저 <strong>단조족정리(monotone class theorem)</strong>을 증명한 후 그것의 따름정리를 이용해 모든 <span class="math inline">\(0\leq a \leq b \leq 1\)</span>에서 균등확률 <span class="math inline">\(P\{[a,b]\}=b-a\)</span>를 정의한 후 이것을 <span class="math inline">\([0,1]\)</span>의 보렐집합으로 확장하는 것이다.</p>
-<p><span class="math inline">\(\mathcal{F}_{0}\)</span>를 표본공간 <span class="math inline">\(\Omega\)</span>에서의 부분집합들의 collection이라고 하자. 그러면 <span class="math inline">\(\mathcal{F}_{0}\)</span>에서 확률측도 <span class="math inline">\(P:\mathcal{F}_{0} \rightarrow [0,1]\)</span>을 정의한다. 그리고 <span class="math inline">\(\mathcal{F}=\sigma(\mathcal{F}_{0})\)</span>의 확률측도 <span class="math inline">\(Q:\mathcal{F} \rightarrow [0,1]\)</span>가 <span class="math inline">\(Q\{A\}=P\{A\} \forall A\in \mathcal{F}_{0}\)</span>인 성질을 가진체로 정의된다는 것을 보인다. 마지막으로 이 <span class="math inline">\(Q\)</span>가 유일함을 보일 것이다.</p>
-<p>그 전에 몇 가지 개념들에 대해 정의하겠다.</p>
-<div class="definition">
-<p>표본공간 <span class="math inline">\(\Omega\)</span>의 부분집합들의 class <span class="math inline">\(\mathcal{C}\)</span>가 <span class="math display">\[\bigcap_{i=1}^{n}A_{i}\in\mathcal{C}\qquad{\text{for every }n\infty \text{ and } A_{1},\ldots ,A_{n}\in\mathcal{C}}\]</span> 를 만족하면 <strong>유한한 교집합에 대해 닫혀있다(closed under finite intersection)</strong>라고 한다.</p>
-</div>
-<div class="definition">
-<p>표본공간 <span class="math inline">\(\Omega\)</span>의 부분집합들의 class <span class="math inline">\(\mathcal{C}\)</span>가 <span class="math display">\[\bigcup_{i=1}^{\infty}A_{i}\in\mathcal{C}\qquad{\text{for every collection } A_{1}, A_{2},\ldots \in \mathcal{C} \text{ with } A_{1}\subseteq A_{2}\subseteq \ldots}\]</span> 를 만족하면 <strong>증가하는 극한에 대해 닫혀있다(closed under increasing limits)</strong>라고 한다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
-<img src="images/basic_cuil.png" alt="Closed under increasing limits." width="196" />
-<p class="caption">
-Figure 3.3: Closed under increasing limits.
-</p>
-</div>
-</div>
-<div class="definition">
-<p>표본공간 <span class="math inline">\(\Omega\)</span>의 부분집합들의 class <span class="math inline">\(\mathcal{C}\)</span>가 모든 <span class="math inline">\(A,B\in\mathcal{C}, A\subseteq B\)</span>에 대해 <span class="math inline">\(B\backslash A \in \mathcal{C}\)</span>를 만족하면 <strong>유한한 차에 대해 닫혀있다(closed under finite differences)</strong>라고 한다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
-<img src="images/basic_cufd.png" alt="Closed under finite differences." width="132" />
-<p class="caption">
-Figure 3.4: Closed under finite differences.
-</p>
-</div>
-</div>
-<p>다음은 단조족에 대한 정의다.</p>
-<div class="definition">
-<p>표본공간 <span class="math inline">\(\Omega\)</span>의 부분집합들의 class <span class="math inline">\(\mathcal{C}\)</span>가 closed under countable increasing set이거나 closed under countable decreasing set이면, 즉 <span class="math inline">\(E_{1},E_{2},\ldots \in \mathcal{C}\)</span>일 때 <span class="math display">\[E_{i}\uparrow E \text{ or } E_{i}\downarrow E \Longrightarrow E \in \mathcal{C}\]</span> 이면 <span class="math inline">\(\mathcal{C}\)</span>를 <strong>단조족(monotone class)</strong>이라고 한다.</p>
-</div>
-<p>이에 대한 증명은 <span class="citation">(Durrett <a href="#ref-Durrett2010">2010</a>)</span>의 Appendix 부분을 참고하자.</p>
-</div>
-</div>
-<div id="measure" class="section level2">
-<h2><span class="header-section-number">3.6</span> 측도(measure)</h2>
-<p><strong>측도(measure)</strong>란 수학에서, <strong>양(quantity)</strong>이라 개념을 반영하기 위해 만들어진 장치다. <span class="math inline">\(X\)</span>를 어떤 집합이라고 하고, 이것의 부분집합 <span class="math inline">\(U \subset X\)</span>가 있을 때,</p>
-<div id="lebesgue-lebesgue-measure" class="section level3">
-<h3><span class="header-section-number">3.6.1</span> Lebesgue 측도(Lebesgue measure)</h3>
-</div>
-<div id="probability-measure" class="section level3">
-<h3><span class="header-section-number">3.6.2</span> 확률측도(probability measure)</h3>
-</div>
-</div>
-<div id="--radon-nykodim-theorem" class="section level2">
-<h2><span class="header-section-number">3.7</span> 라돈-니코딤 정리(Radon-Nykodim theorem)</h2>
+<div id="stkriging" class="section level1">
+<h1><span class="header-section-number">Chapter 26</span> 시공간 크리깅</h1>
+<p>점 시공간 크리깅(spatio-temporal kriging)은 관측되지 않은 점 <span class="math inline">\((\mathcal{s}_{0},t_{0})\)</span>의 <span class="math inline">\(Z(\mathcal{s}_{0},t_{0})\)</span>을 예측하는 것을 목표로 한다.</p>
+<p><span class="math inline">\(\{ Z(\mathcal{s}, t): \mathcal{s}\in D, t\in T\}, D \subset \mathbb{R}^{2}, T\mathbb{R}\)</span>을 시공간 확률장(spatio-temporal random field)라 하고 이 장을 통틀어서 확률장에서 <span class="math inline">\(n\)</span>개의 시공간 확률장 관측값 <span class="math inline">\(\{ Z(\mathcal{s}_{1}, t_{1}), \ldots , Z(\mathcal{s}_{n}, t_{n}\}\)</span>을 관찰한다고 가정한다.</p>
+<p>관측되지 않은 점 <span class="math inline">\((\mathcal{s}_{0},t_{0})\)</span>의 값 예측을 하기 위해 다음과 같은 선형 에측변수(linear predictor) <span class="math display">\[Z^{*}(\mathcal{s}_{0},t_{0})=\sum+{i=1}^{n}\lambda_{i}Z(\mathcal{s}_{i}, t_{i})\]</span> 고려한다. 우리는 이것이 BLUP이 되길 원한다.</p>
+<div id="--spatio-temporal-kriging-equations" class="section level2">
+<h2><span class="header-section-number">26.1</span> 시공간 크리깅 공식들(spatio-temporal kriging equations)</h2>
 
 </div>
 </div>
-<h3> References</h3>
-<div id="refs" class="references">
-<div id="ref-Durrett2010">
-<p>Durrett, Rick. 2010. <em>Probability: Theory and Examples</em>. Cambridge University Press.</p>
-</div>
-<div id="ref-Billingsley2012">
-<p>Billingsley, Patrick. 2012. <em>Probability and Measure</em>. John Wiley; Sons.</p>
-</div>
-<div id="ref-Chung2001">
-<p>Chung, Kai Lai. 2001. <em>A Course in Probability Theory</em>. Academic Press.</p>
-</div>
-<div id="ref-Gut2012">
-<p>Gut, Allan. 2012. <em>Probability: A Graduate Course</em>. Springer Science; Business Media.</p>
-</div>
-<div id="ref-Schilling2005">
-<p>Schilling, René L. 2005. <em>Measures, Integrals and Martingales</em>. Cambridge University Press.</p>
-</div>
-<div id="ref-Shorack2006">
-<p>Shorack, Galen R. 2006. <em>Probability for Statisticians</em>. Springer Science; Business Media.</p>
-</div>
-<div id="ref-Proschan2016">
-<p>Proschan, Micheal A., and Pamela A. Shaw. 20016. <em>Essentials of Probability Theory for Statisticians</em>. Chapman; Hall/CRC.</p>
-</div>
-</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="math.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="rv.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="spatiotemporal.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pointpattern.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -690,7 +470,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://seoncheolpark.github.io/book/_book/02-prob.Rmd",
+"link": "https://seoncheolpark.github.io/book/_book/62-stkriging.Rmd",
 "text": null
 },
 "download": null,

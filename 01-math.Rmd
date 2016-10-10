@@ -199,6 +199,12 @@ $$A\times B = \{ (a,b)| a\in A \text{ and } b \in B\}$$
 
 #### 행렬 노름(matrix norm)
 
+## 기저(basis)
+
+### Radial basis function
+
+Radial funtion이란 거리에만 의존하는 함수를 의미한다. 어떤 함수에 대한 근사 모델을 radial function의 선형조합으로 표현할 수 있다.
+
 ## 공간(space)
 
 ### 실수공간(space R)

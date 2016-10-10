@@ -1,0 +1,11 @@
+# 시공간 크리깅 {#stkriging}
+
+점 시공간 크리깅(spatio-temporal kriging)은 관측되지 않은 점 $(\mathcal{s}_{0},t_{0})$의 $Z(\mathcal{s}_{0},t_{0})$을 예측하는 것을 목표로 한다.
+
+$\{ Z(\mathcal{s}, t): \mathcal{s}\in D, t\in T\}, D \subset \mathbb{R}^{2}, T\mathbb{R}$을 시공간 확률장(spatio-temporal random field)라 하고 이 장을 통틀어서 확률장에서 $n$개의 시공간 확률장 관측값 $\{ Z(\mathcal{s}_{1}, t_{1}), \ldots , Z(\mathcal{s}_{n}, t_{n}\}$을 관찰한다고 가정한다. 
+
+관측되지 않은 점 $(\mathcal{s}_{0},t_{0})$의 값 예측을 하기 위해 다음과 같은 선형 에측변수(linear predictor)
+$$Z^{*}(\mathcal{s}_{0},t_{0})=\sum+{i=1}^{n}\lambda_{i}Z(\mathcal{s}_{i}, t_{i})$$
+고려한다. 우리는 이것이 BLUP이 되길 원한다.
+
+## 시공간 크리깅 공식들(spatio-temporal kriging equations)
