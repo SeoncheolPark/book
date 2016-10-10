@@ -242,6 +242,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14.1" data-path="admultiscale.html"><a href="admultiscale.html#--second-generation-wavelet-transform"><i class="fa fa-check"></i><b>14.1</b> 2세대 웨이블릿 변환(second-generation wavelet transform)</a></li>
 <li class="chapter" data-level="14.2" data-path="admultiscale.html"><a href="admultiscale.html#-lifting-scheme"><i class="fa fa-check"></i><b>14.2</b> 리프팅 스킴(lifting scheme)</a></li>
 <li class="chapter" data-level="14.3" data-path="admultiscale.html"><a href="admultiscale.html#---lifting-in-two-dimensions"><i class="fa fa-check"></i><b>14.3</b> 2차원 자료의 리프팅 스킴(lifting in two dimensions)</a></li>
+<li class="chapter" data-level="14.4" data-path="admultiscale.html"><a href="admultiscale.html#-nonlinear-lifting"><i class="fa fa-check"></i><b>14.4</b> 비선형 리프팅(nonlinear lifting)</a><ul>
+<li class="chapter" data-level="14.4.1" data-path="admultiscale.html"><a href="admultiscale.html#--max-lifting-scheme"><i class="fa fa-check"></i><b>14.4.1</b> 최대-리프팅 스킴(max-lifting scheme)</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>Unsupervised Learning</b></span></li>
 <li class="chapter" data-level="15" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>15</b> 클러스터링(clustering)</a></li>
@@ -493,8 +496,8 @@ G(y)=P(Y\leq y)&amp;\approx &amp; 1-(1-\pi y^{2}|A|^{-1})^{n-1}\\
 <li><p>(Point-to-nearest event distance) <span class="math inline">\(X\)</span>를 <span class="math inline">\(A\)</span> 안에 있는 어떤 점에서 <span class="math inline">\(n\)</span>개의 사건들 중 가장 가까운 사건과의 거리라고 하자. 또 <span class="math inline">\(x_{i}, i=1,\ldots ,m\)</span>을 <span class="math inline">\(A\)</span>의 <span class="math inline">\(i\)</span>번째 점에서 <span class="math inline">\(n\)</span>개의 사건들 중 가장 가까운 사건과의 거리라고 하자. 그러면 <span class="math display">\[F(x)=P(X\leq x) \approx 1 - e^{-\lambda \pi x^{2}}, \qquad{x \geq 0, \lambda = \frac{n}{|A|}}\]</span> <span class="math display">\[\hat{F}_{1}(x)=\frac{1}{m}\sum I(x_{i}\leq x)\]</span> 그 다음에는 앞게 비슷하게 EDF 그림을 그려보거나 <span class="math inline">\(u_{1}=\int (\hat{F}_{1}(x)-\bar{F}_{1}(x))^{2}dx\)</span>등으로 검정 가능하다.</p></li>
 <li><p>정방구역 계산(quadrat count)</p></li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-66"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-66-1.png" alt="Examples of rectangle area." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-67"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-67-1.png" alt="Examples of rectangle area." width="672" />
 <p class="caption">
 Figure 28.1: Examples of rectangle area.
 </p>
@@ -522,8 +525,8 @@ ex &lt;-<span class="st"> </span><span class="kw">expression</span>( <span class
 EDF &lt;-<span class="st"> </span><span class="kw">envelope</span>( coords.ppp , Gest , <span class="dt">nsim =</span> <span class="dv">99</span>, <span class="dt">simulate =</span> ex ,<span class="dt">verbose =</span> <span class="ot">FALSE</span>, <span class="dt">savefuns =</span> <span class="ot">TRUE</span> )
 <span class="co">#  Plot</span>
 <span class="kw">plot</span>(EDF)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-68"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-68-1.png" alt="EDF plot." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-69"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-69-1.png" alt="EDF plot." width="672" />
 <p class="caption">
 Figure 28.2: EDF plot.
 </p>

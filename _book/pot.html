@@ -242,6 +242,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14.1" data-path="admultiscale.html"><a href="admultiscale.html#--second-generation-wavelet-transform"><i class="fa fa-check"></i><b>14.1</b> 2세대 웨이블릿 변환(second-generation wavelet transform)</a></li>
 <li class="chapter" data-level="14.2" data-path="admultiscale.html"><a href="admultiscale.html#-lifting-scheme"><i class="fa fa-check"></i><b>14.2</b> 리프팅 스킴(lifting scheme)</a></li>
 <li class="chapter" data-level="14.3" data-path="admultiscale.html"><a href="admultiscale.html#---lifting-in-two-dimensions"><i class="fa fa-check"></i><b>14.3</b> 2차원 자료의 리프팅 스킴(lifting in two dimensions)</a></li>
+<li class="chapter" data-level="14.4" data-path="admultiscale.html"><a href="admultiscale.html#-nonlinear-lifting"><i class="fa fa-check"></i><b>14.4</b> 비선형 리프팅(nonlinear lifting)</a><ul>
+<li class="chapter" data-level="14.4.1" data-path="admultiscale.html"><a href="admultiscale.html#--max-lifting-scheme"><i class="fa fa-check"></i><b>14.4.1</b> 최대-리프팅 스킴(max-lifting scheme)</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>Unsupervised Learning</b></span></li>
 <li class="chapter" data-level="15" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>15</b> 클러스터링(clustering)</a></li>
@@ -451,23 +454,23 @@ H(y)=1-(1+\frac{\xi y}{\tilde{\sigma}})^{-1/\xi}
 <span class="kw">plot</span>(damage$Year, damage$Dam, <span class="dt">xlab =</span> <span class="st">&quot;Year&quot;</span>,<span class="dt">ylab =</span> <span class="st">&quot;U.S. Hurricane Damage (billion USD)&quot;</span>)
 <span class="kw">plot</span>(damage[,<span class="st">&quot;Year&quot;</span>], <span class="kw">log</span>(damage[,<span class="st">&quot;Dam&quot;</span>]), <span class="dt">xlab =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;ln(Damage)&quot;</span>)
 <span class="kw">qqnorm</span>(<span class="kw">log</span>(damage[,<span class="st">&quot;Dam&quot;</span>]), <span class="dt">ylim =</span> <span class="kw">c</span>(-<span class="dv">10</span>, <span class="dv">5</span>))</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-82"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-82-1.png" alt="Hurricane damage data." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-83"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-83-1.png" alt="Hurricane damage data." width="672" />
 <p class="caption">
 Figure 34.1: Hurricane damage data.
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">threshrange.plot</span>(damage$Dam, <span class="dt">r=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">15</span>), <span class="dt">nint=</span><span class="dv">20</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-83"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-83-1.png" alt="Thresh range plot of hurricane damage data." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-84"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-84-1.png" alt="Thresh range plot of hurricane damage data." width="672" />
 <p class="caption">
 Figure 34.2: Thresh range plot of hurricane damage data.
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))
 <span class="kw">mrlplot</span>(damage$Dam, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">12</span>))</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-84"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-84-1.png" alt="Mean residual life plot of hurricane damage data." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-85"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-85-1.png" alt="Mean residual life plot of hurricane damage data." width="672" />
 <p class="caption">
 Figure 34.3: Mean residual life plot of hurricane damage data.
 </p>
@@ -508,8 +511,8 @@ fitD</code></pre></div>
 &gt; 
 &gt;  BIC = 115.0776</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(fitD)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-85"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-85-1.png" alt="GPD estimation result." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-86"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-86-1.png" alt="GPD estimation result." width="672" />
 <p class="caption">
 Figure 34.4: GPD estimation result.
 </p>

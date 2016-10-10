@@ -242,6 +242,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14.1" data-path="admultiscale.html"><a href="admultiscale.html#--second-generation-wavelet-transform"><i class="fa fa-check"></i><b>14.1</b> 2세대 웨이블릿 변환(second-generation wavelet transform)</a></li>
 <li class="chapter" data-level="14.2" data-path="admultiscale.html"><a href="admultiscale.html#-lifting-scheme"><i class="fa fa-check"></i><b>14.2</b> 리프팅 스킴(lifting scheme)</a></li>
 <li class="chapter" data-level="14.3" data-path="admultiscale.html"><a href="admultiscale.html#---lifting-in-two-dimensions"><i class="fa fa-check"></i><b>14.3</b> 2차원 자료의 리프팅 스킴(lifting in two dimensions)</a></li>
+<li class="chapter" data-level="14.4" data-path="admultiscale.html"><a href="admultiscale.html#-nonlinear-lifting"><i class="fa fa-check"></i><b>14.4</b> 비선형 리프팅(nonlinear lifting)</a><ul>
+<li class="chapter" data-level="14.4.1" data-path="admultiscale.html"><a href="admultiscale.html#--max-lifting-scheme"><i class="fa fa-check"></i><b>14.4.1</b> 최대-리프팅 스킴(max-lifting scheme)</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>Unsupervised Learning</b></span></li>
 <li class="chapter" data-level="15" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>15</b> 클러스터링(clustering)</a></li>
@@ -520,8 +523,8 @@ s100.v1 &lt;-<span class="st"> </span><span class="kw">variog</span>(s100, <span
 <span class="kw">plot</span>(s100.v1, <span class="dt">main=</span><span class="st">&quot;Variogram cloud&quot;</span>)
 <span class="kw">plot</span>(s100.v2, <span class="dt">main=</span><span class="st">&quot;MoM estimator&quot;</span>)
 <span class="kw">plot</span>(s100.v3, <span class="dt">main=</span><span class="st">&quot;Robust estimator&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-58"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-58-1.png" alt="Various variogram estimation methods." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-59"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-59-1.png" alt="Various variogram estimation methods." width="672" />
 <p class="caption">
 Figure 22.1: Various variogram estimation methods.
 </p>
@@ -544,8 +547,8 @@ ols &lt;-<span class="st"> </span><span class="kw">variofit</span>(s100.v2, <spa
 <span class="kw">lines</span>(wls, <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">lwd=</span><span class="fl">1.5</span>)
 <span class="kw">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;true&quot;</span>, <span class="st">&quot;ols&quot;</span>, <span class="st">&quot;wls&quot;</span>),
        <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;black&quot;</span>, <span class="st">&quot;black&quot;</span>), <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-59"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-59-1.png" alt="Comparison of variogram estimation methods." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-60"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-60-1.png" alt="Comparison of variogram estimation methods." width="672" />
 <p class="caption">
 Figure 22.2: Comparison of variogram estimation methods.
 </p>

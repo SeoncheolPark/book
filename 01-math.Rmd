@@ -205,6 +205,23 @@ $$A\times B = \{ (a,b)| a\in A \text{ and } b \in B\}$$
 
 Radial funtion이란 거리에만 의존하는 함수를 의미한다. 어떤 함수에 대한 근사 모델을 radial function의 선형조합으로 표현할 수 있다.
 
+- Gaussian
+
+$$\phi(r)=e^{-(\epsilon r)^{2}}$$
+
+- Multiquadric
+
+$$\phi(r)=\sqrt{1+(\epsilon r)^{2}}$$
+
+- Inverse quadratic
+
+$$\phi(r)=\frac{1}{1+(\epsilon r)^{2}}$$
+
+- Inverse multiquadric
+
+$$\phi(r)=\frac{1}{\sqrt{1+(\epsilon r)^{2}}}$$
+
+
 ## 공간(space)
 
 ### 실수공간(space R)

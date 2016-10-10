@@ -242,6 +242,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14.1" data-path="admultiscale.html"><a href="admultiscale.html#--second-generation-wavelet-transform"><i class="fa fa-check"></i><b>14.1</b> 2세대 웨이블릿 변환(second-generation wavelet transform)</a></li>
 <li class="chapter" data-level="14.2" data-path="admultiscale.html"><a href="admultiscale.html#-lifting-scheme"><i class="fa fa-check"></i><b>14.2</b> 리프팅 스킴(lifting scheme)</a></li>
 <li class="chapter" data-level="14.3" data-path="admultiscale.html"><a href="admultiscale.html#---lifting-in-two-dimensions"><i class="fa fa-check"></i><b>14.3</b> 2차원 자료의 리프팅 스킴(lifting in two dimensions)</a></li>
+<li class="chapter" data-level="14.4" data-path="admultiscale.html"><a href="admultiscale.html#-nonlinear-lifting"><i class="fa fa-check"></i><b>14.4</b> 비선형 리프팅(nonlinear lifting)</a><ul>
+<li class="chapter" data-level="14.4.1" data-path="admultiscale.html"><a href="admultiscale.html#--max-lifting-scheme"><i class="fa fa-check"></i><b>14.4.1</b> 최대-리프팅 스킴(max-lifting scheme)</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>Unsupervised Learning</b></span></li>
 <li class="chapter" data-level="15" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>15</b> 클러스터링(clustering)</a></li>
@@ -521,7 +524,33 @@ Figure 14.4: 2D lifting scheme example.
 </p>
 </div>
 <p>위 그림에서 빨간색 점들로 검은색 점을 포함하는 <strong>보로노이 다이어그램(Voronoi diagram)</strong>을 그린다. (a), (b), (c)는 각각 첫 번째, 두 번째 및 세 번째 리프팅 스킴에 대응된다. (d)는 투입된 자료를 네 가지 수준으로 구분한 그림이다. 빨간색 점들은 <span class="math inline">\(s_{t,2k+1}\)</span>에 대응되며 검은색 점들은 <span class="math inline">\(s_{t,2k}\)</span>에 대응된다. 갱신 단계에서, 우리는 검은색 지점의 상세 이미지(detail image) <span class="math inline">\(d_{t+1,k}\)</span>를 얻을 수 있고, 빨간색 지점의 갱신된 근사 이미지(approximation image) <span class="math inline">\(s_{t+1,k}\)</span>를 얻을 수 있다. 산재된 자료(scattered data)의 경우 척도(scale)은 ‘연속(continuous)’ 개념에 대응된다. 다시 말하면, 모든 자료는 각자 고유의 척도를 가지고 있고, 이 척도는 주변과의 거리에 관계되어 결정되는 것이다.</p>
+</div>
+<div id="-nonlinear-lifting" class="section level2">
+<h2><span class="header-section-number">14.4</span> 비선형 리프팅(nonlinear lifting)</h2>
+<div id="--max-lifting-scheme" class="section level3">
+<h3><span class="header-section-number">14.4.1</span> 최대-리프팅 스킴(max-lifting scheme)</h3>
+<p><strong>최대-리프팅 스킴(max-lifting scheme)</strong>은 Haar 변환을 좀 더 유연하게 만들고자 하는 필요로부터 출발하였다. <span class="math display">\[s_{j,k}=\frac{s_{j+1,2k}+s_{j+1,2k+1}}{2}\]</span> <span class="math display">\[d_{j,k}=s_{j+1,2k+1}-s_{j+1,2k}\]</span> Haar 변환은 data의 odd에서 even을 뺌으로써 detail signal을 generate하고 있다.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-42"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-42-1.png" alt="Haar transform is not robust." width="672" />
+<p class="caption">
+Figure 14.5: Haar transform is not robust.
+</p>
+</div>
+<p>그러나 위 그림처럼 Haar 변환을 쓸 경우에는 odd/even의 선택에 따라 로버스트하지 않은 결과를 주기도 한다.</p>
+<p>듀얼 리프팅의 가장 큰 상세계수(detail coefficient)들은 다음과 같이 주변 값들 중의 최대값을 이용해 얻을 수 있다. <span class="math display">\[d_{j,k}=s_{j+1,2k+1}-\max(s_{j+1,2k},s_{j+1,2k+2})\]</span> 프라이멀 리프팅으로는</p>
+\begin{eqnarray*}
+s_{j,k}&amp;=&amp; s_{j+1,2k}+\max (0,d_{j,k},d_{j,k-1})\\
+&amp;=&amp;s_{j+1,2k}+\max (0, s_{j+1,2k+1}-s_{j+1,2k}, \\
+&amp; &amp;s_{j+1,2k+1}-s_{j+1,2k+2}, s_{j+1,2k-1}-s_{j+1,2k-2}, s_{j+1,2k-1}-s_{j+1,2k})
+\end{eqnarray*}
+<p>다음은 최대-리프팅 스킴의 흥미로운 두 가지 성질들이다.</p>
+<ol style="list-style-type: decimal">
+<li>Local maxima of <span class="math inline">\(s_{j+1}\)</span> et even entries are conserved in <span class="math inline">\(s_{j}\)</span>. 2, Local maxima of <span class="math inline">\(s_{j+1}\)</span> et odd entries are conserved in <span class="math inline">\(s_{j}\)</span> if no other local maxima appear in a five-entry neighborhood.</li>
+</ol>
+<p>또한 max-lifting does not generate new maxima in <span class="math inline">\(s_{j}\)</span> compared with <span class="math inline">\(s_{j+1}\)</span>.</p>
+<p>Integer programming, image processing 등에 응용 가능</p>
 
+</div>
 </div>
 </div>
 

@@ -242,6 +242,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14.1" data-path="admultiscale.html"><a href="admultiscale.html#--second-generation-wavelet-transform"><i class="fa fa-check"></i><b>14.1</b> 2세대 웨이블릿 변환(second-generation wavelet transform)</a></li>
 <li class="chapter" data-level="14.2" data-path="admultiscale.html"><a href="admultiscale.html#-lifting-scheme"><i class="fa fa-check"></i><b>14.2</b> 리프팅 스킴(lifting scheme)</a></li>
 <li class="chapter" data-level="14.3" data-path="admultiscale.html"><a href="admultiscale.html#---lifting-in-two-dimensions"><i class="fa fa-check"></i><b>14.3</b> 2차원 자료의 리프팅 스킴(lifting in two dimensions)</a></li>
+<li class="chapter" data-level="14.4" data-path="admultiscale.html"><a href="admultiscale.html#-nonlinear-lifting"><i class="fa fa-check"></i><b>14.4</b> 비선형 리프팅(nonlinear lifting)</a><ul>
+<li class="chapter" data-level="14.4.1" data-path="admultiscale.html"><a href="admultiscale.html#--max-lifting-scheme"><i class="fa fa-check"></i><b>14.4.1</b> 최대-리프팅 스킴(max-lifting scheme)</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>Unsupervised Learning</b></span></li>
 <li class="chapter" data-level="15" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>15</b> 클러스터링(clustering)</a></li>
@@ -432,8 +435,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>포트피리(Port Pirie)는 호주 남부 애들레이드(Adelaide) 북쪽에 있는 지역이다. 다음 그림은 1923년부터 1987년까지 포트피리의 연 최대 해수면 높이 자료를 그린 것이다. R 패키지의 <code>portpirie</code>에 자료가 들어있다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(<span class="st">&quot;portpirie&quot;</span>)
 <span class="kw">plot</span>(portpirie, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">ylab=</span><span class="st">&quot;Sea-level (meters)&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-72"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-72-1.png" alt="Annual maximum sea levels at Port Pirie, South Australia." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-73"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-73-1.png" alt="Annual maximum sea levels at Port Pirie, South Australia." width="672" />
 <p class="caption">
 Figure 32.1: Annual maximum sea levels at Port Pirie, South Australia.
 </p>
@@ -457,8 +460,8 @@ danish.exc &lt;-<span class="st"> </span>danishuni[danishuni[,<span class="dv">2
 <span class="kw">plot</span>(danishuni,  <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Years&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Loss exceeance amount&quot;</span>)
 <span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">10</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
 <span class="kw">points</span>(danishuni[<span class="kw">which</span>(danishuni$Loss&gt;<span class="dv">10</span>),], <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">pch=</span><span class="dv">15</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-73"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-73-1.png" alt="Danish reinsurance claim data." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-74"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-74-1.png" alt="Danish reinsurance claim data." width="672" />
 <p class="caption">
 Figure 32.2: Danish reinsurance claim data.
 </p>
