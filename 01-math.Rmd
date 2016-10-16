@@ -201,6 +201,21 @@ $$A\times B = \{ (a,b)| a\in A \text{ and } b \in B\}$$
 
 ## 기저(basis)
 
+### Riesz basis
+
+In the Hilbert space $L_{2}[0,1]$, an unconditional basis is called a **Riesz basis** if it is "almost normalized". This means that there exist real, positive, non-zero consts $m$ and $M$ so that
+$$0 < m \leq \| \phi_{i}\|\leq M < \infty.$$
+A Riesz basis is characterized by two Riesz constants $A$ and $B$, so that for all $f=\sum_{i}s_{i}\phi_{i}\in L_{2}[0,1]$,
+$$A^{2}\| f \|^{2}\leq \sum_{i\in\mathbb{Z}}s_{i}^{2}\leq B^{2}\|f\|^{2}.$$
+
+(Jensen의 Noise reduction and wavelet thresholding으로부터)
+
+There exists $\phi_{0}(x)\in\mathcal{V}_{1}$ such that $\{ \phi_{0}(x-k) | k\in\mathcal{Z} \}$ forms a Riesz basis of $\mathcal{V}_{1}$, i.e, there exists $0< A \leq B <\infty$ such that
+$$A \| c_{k}\|^{2} \leq \| \sum_{k}c_{k}\phi_{0}(x-k)\|^{2} \leq B \| c_{k} \|^{2}$$
+for all $\{c_{k}\}\in l^{2}$, where $A$ and $B$ do not depend on the $c_{k}$
+
+(동익이형 박사논문 47쪽)
+
 ### Radial basis function
 
 Radial funtion이란 거리에만 의존하는 함수를 의미한다. 어떤 함수에 대한 근사 모델을 radial function의 선형조합으로 표현할 수 있다.

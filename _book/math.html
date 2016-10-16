@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-10-10">
+<meta name="date" content="2016-10-16">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -128,7 +128,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3.5" data-path="math.html"><a href="math.html#norm"><i class="fa fa-check"></i><b>2.3.5</b> 노름(norm)</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="math.html"><a href="math.html#basis"><i class="fa fa-check"></i><b>2.4</b> 기저(basis)</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="math.html"><a href="math.html#radial-basis-function"><i class="fa fa-check"></i><b>2.4.1</b> Radial basis function</a></li>
+<li class="chapter" data-level="2.4.1" data-path="math.html"><a href="math.html#riesz-basis"><i class="fa fa-check"></i><b>2.4.1</b> Riesz basis</a></li>
+<li class="chapter" data-level="2.4.2" data-path="math.html"><a href="math.html#radial-basis-function"><i class="fa fa-check"></i><b>2.4.2</b> Radial basis function</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="math.html"><a href="math.html#space"><i class="fa fa-check"></i><b>2.5</b> 공간(space)</a><ul>
 <li class="chapter" data-level="2.5.1" data-path="math.html"><a href="math.html#space-r"><i class="fa fa-check"></i><b>2.5.1</b> 실수공간(space R)</a></li>
@@ -241,10 +242,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14" data-path="admultiscale.html"><a href="admultiscale.html"><i class="fa fa-check"></i><b>14</b> 고급 다중척도 방법론</a><ul>
 <li class="chapter" data-level="14.1" data-path="admultiscale.html"><a href="admultiscale.html#--second-generation-wavelet-transform"><i class="fa fa-check"></i><b>14.1</b> 2세대 웨이블릿 변환(second-generation wavelet transform)</a></li>
 <li class="chapter" data-level="14.2" data-path="admultiscale.html"><a href="admultiscale.html#-lifting-scheme"><i class="fa fa-check"></i><b>14.2</b> 리프팅 스킴(lifting scheme)</a></li>
-<li class="chapter" data-level="14.3" data-path="admultiscale.html"><a href="admultiscale.html#---lifting-in-two-dimensions"><i class="fa fa-check"></i><b>14.3</b> 2차원 자료의 리프팅 스킴(lifting in two dimensions)</a></li>
-<li class="chapter" data-level="14.4" data-path="admultiscale.html"><a href="admultiscale.html#-nonlinear-lifting"><i class="fa fa-check"></i><b>14.4</b> 비선형 리프팅(nonlinear lifting)</a><ul>
-<li class="chapter" data-level="14.4.1" data-path="admultiscale.html"><a href="admultiscale.html#--max-lifting-scheme"><i class="fa fa-check"></i><b>14.4.1</b> 최대-리프팅 스킴(max-lifting scheme)</a></li>
+<li class="chapter" data-level="14.3" data-path="admultiscale.html"><a href="admultiscale.html#basis-functions"><i class="fa fa-check"></i><b>14.3</b> 기저함수들(basis functions)</a></li>
+<li class="chapter" data-level="14.4" data-path="admultiscale.html"><a href="admultiscale.html#---lifting-in-two-dimensions"><i class="fa fa-check"></i><b>14.4</b> 2차원 자료의 리프팅 스킴(lifting in two dimensions)</a></li>
+<li class="chapter" data-level="14.5" data-path="admultiscale.html"><a href="admultiscale.html#-nonlinear-lifting"><i class="fa fa-check"></i><b>14.5</b> 비선형 리프팅(nonlinear lifting)</a><ul>
+<li class="chapter" data-level="14.5.1" data-path="admultiscale.html"><a href="admultiscale.html#--max-lifting-scheme"><i class="fa fa-check"></i><b>14.5.1</b> 최대-리프팅 스킴(max-lifting scheme)</a></li>
 </ul></li>
+<li class="chapter" data-level="14.6" data-path="admultiscale.html"><a href="admultiscale.html#--adaptive-lifting-scheme"><i class="fa fa-check"></i><b>14.6</b> 적응적 리프팅 스킴(adaptive lifting scheme)</a></li>
 </ul></li>
 <li class="part"><span><b>Unsupervised Learning</b></span></li>
 <li class="chapter" data-level="15" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>15</b> 클러스터링(clustering)</a></li>
@@ -578,8 +581,15 @@ a_{m1}\mathbf{B} &amp; \cdots &amp; a_{mn}\mathbf{B} \\
 </div>
 <div id="basis" class="section level2">
 <h2><span class="header-section-number">2.4</span> 기저(basis)</h2>
+<div id="riesz-basis" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Riesz basis</h3>
+<p>In the Hilbert space <span class="math inline">\(L_{2}[0,1]\)</span>, an unconditional basis is called a <strong>Riesz basis</strong> if it is “almost normalized”. This means that there exist real, positive, non-zero consts <span class="math inline">\(m\)</span> and <span class="math inline">\(M\)</span> so that <span class="math display">\[0 &lt; m \leq \| \phi_{i}\|\leq M &lt; \infty.\]</span> A Riesz basis is characterized by two Riesz constants <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, so that for all <span class="math inline">\(f=\sum_{i}s_{i}\phi_{i}\in L_{2}[0,1]\)</span>, <span class="math display">\[A^{2}\| f \|^{2}\leq \sum_{i\in\mathbb{Z}}s_{i}^{2}\leq B^{2}\|f\|^{2}.\]</span></p>
+<p>(Jensen의 Noise reduction and wavelet thresholding으로부터)</p>
+<p>There exists <span class="math inline">\(\phi_{0}(x)\in\mathcal{V}_{1}\)</span> such that <span class="math inline">\(\{ \phi_{0}(x-k) | k\in\mathcal{Z} \}\)</span> forms a Riesz basis of <span class="math inline">\(\mathcal{V}_{1}\)</span>, i.e, there exists <span class="math inline">\(0&lt; A \leq B &lt;\infty\)</span> such that <span class="math display">\[A \| c_{k}\|^{2} \leq \| \sum_{k}c_{k}\phi_{0}(x-k)\|^{2} \leq B \| c_{k} \|^{2}\]</span> for all <span class="math inline">\(\{c_{k}\}\in l^{2}\)</span>, where <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> do not depend on the <span class="math inline">\(c_{k}\)</span></p>
+<p>(동익이형 박사논문 47쪽)</p>
+</div>
 <div id="radial-basis-function" class="section level3">
-<h3><span class="header-section-number">2.4.1</span> Radial basis function</h3>
+<h3><span class="header-section-number">2.4.2</span> Radial basis function</h3>
 <p>Radial funtion이란 거리에만 의존하는 함수를 의미한다. 어떤 함수에 대한 근사 모델을 radial function의 선형조합으로 표현할 수 있다.</p>
 <ul>
 <li>Gaussian</li>

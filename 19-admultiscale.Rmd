@@ -113,6 +113,8 @@ $$\mathbf{e}_{2}=(-1,0,0,0), \mathbf{e}_{1}=(-2.5,0), \mathbf{e}_{0}=(-5.25), \m
 
 </div>
 
+## 기저함수들(basis functions)
+
 ## 2차원 자료의 리프팅 스킴(lifting in two dimensions)
 
 이 절의 내용은 [@Jang2012]의 서술을 참고하였다. 2차원 자료에서는 1차원 자료와 다르게 짝과 홀을 정할 수 없다는 문제점이 있다. 불규칙한 격자점에서, 이웃(neighborhood)은 삼각분할(triangulation)을 통해 정의된다.
@@ -171,3 +173,38 @@ s_{j,k}&=& s_{j+1,2k}+\max (0,d_{j,k},d_{j,k-1})\\
 또한 max-lifting does not generate new maxima in $s_{j}$ compared with $s_{j+1}$.
 
 Integer programming, image processing 등에 응용 가능
+
+## 적응적 리프팅 스킴(adaptive lifting scheme)
+
+우선 두 개의 prediction operator를 먼저 소개한다.
+
+- **Left Haar predictor** or **identity operator**: $P_{1}(s_{j,2k})=s_{j,2k}$
+
+- **Right Haar operator** or **right shift operator**: $P_{2}(s_{j,2k})=S_{j,2k+2}$
+
+듀얼 리프팅이나 최대-리프팅 스킴은 적당한 prediction operator $P_{1}$ 또는 $P_{2}$ 고르는 과정이라고 볼 수 있다. 우리는 이것을 **결정 연산자(decision operator)** $D^{P}$를 도입함으로써 formalize 할 수 있다.
+$$D_{j}^{P}(k)=
+\begin{cases}
+1 & \text{if $s_{j+1,2}\leq s_{j+1,2k+2}$}\\
+2 & \text{if $s_{j+1,2} < s_{j+1,2k+2}$}
+\end{cases}$$
+모든 이웃들 $s_{j+1,2}$, $s_{j+1,2k+2}$에 대해 결정연산자는 이들이 왼쪽 (1) 또는 오른쪽(2)에 있는지 알려주는 역할을 한다.
+
+그러면 듀얼 리프팅은
+$$d_{j,k}=s_{j+1,2k+1}-P_{D_{j,k}^{P}}(s_{k+1,2k})$$
+로 쓰여진다.
+
+또한 프라이멀 리프팅을 위해 결정연산자를 또 도입한다.
+$$D_{j}^{U}(k)=
+\begin{cases}
+0 & \text{if $\max (d_{j,k},d_{j,k-1})\leq 0$}\\
+1 & \text{if $\max (0, d_{j,k-1}) \leq d_{j,k}$}\\
+2 & \text{if $\max (0, d_{j,k}) \leq d_{j,k-1}$}
+\end{cases}$$
+
+$U_{2}=R$ ($R$: shift operator)를 이용하면 프라이멀 리프팅은
+$$s_{j,k}=s_{j+1,2k}+U_{D_{j,k}^{U}}d_{j,k}$$
+가 된다.
+
+
+

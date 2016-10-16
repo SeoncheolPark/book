@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-10-10">
+<meta name="date" content="2016-10-16">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -128,7 +128,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3.5" data-path="math.html"><a href="math.html#norm"><i class="fa fa-check"></i><b>2.3.5</b> 노름(norm)</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="math.html"><a href="math.html#basis"><i class="fa fa-check"></i><b>2.4</b> 기저(basis)</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="math.html"><a href="math.html#radial-basis-function"><i class="fa fa-check"></i><b>2.4.1</b> Radial basis function</a></li>
+<li class="chapter" data-level="2.4.1" data-path="math.html"><a href="math.html#riesz-basis"><i class="fa fa-check"></i><b>2.4.1</b> Riesz basis</a></li>
+<li class="chapter" data-level="2.4.2" data-path="math.html"><a href="math.html#radial-basis-function"><i class="fa fa-check"></i><b>2.4.2</b> Radial basis function</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="math.html"><a href="math.html#space"><i class="fa fa-check"></i><b>2.5</b> 공간(space)</a><ul>
 <li class="chapter" data-level="2.5.1" data-path="math.html"><a href="math.html#space-r"><i class="fa fa-check"></i><b>2.5.1</b> 실수공간(space R)</a></li>
@@ -241,10 +242,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14" data-path="admultiscale.html"><a href="admultiscale.html"><i class="fa fa-check"></i><b>14</b> 고급 다중척도 방법론</a><ul>
 <li class="chapter" data-level="14.1" data-path="admultiscale.html"><a href="admultiscale.html#--second-generation-wavelet-transform"><i class="fa fa-check"></i><b>14.1</b> 2세대 웨이블릿 변환(second-generation wavelet transform)</a></li>
 <li class="chapter" data-level="14.2" data-path="admultiscale.html"><a href="admultiscale.html#-lifting-scheme"><i class="fa fa-check"></i><b>14.2</b> 리프팅 스킴(lifting scheme)</a></li>
-<li class="chapter" data-level="14.3" data-path="admultiscale.html"><a href="admultiscale.html#---lifting-in-two-dimensions"><i class="fa fa-check"></i><b>14.3</b> 2차원 자료의 리프팅 스킴(lifting in two dimensions)</a></li>
-<li class="chapter" data-level="14.4" data-path="admultiscale.html"><a href="admultiscale.html#-nonlinear-lifting"><i class="fa fa-check"></i><b>14.4</b> 비선형 리프팅(nonlinear lifting)</a><ul>
-<li class="chapter" data-level="14.4.1" data-path="admultiscale.html"><a href="admultiscale.html#--max-lifting-scheme"><i class="fa fa-check"></i><b>14.4.1</b> 최대-리프팅 스킴(max-lifting scheme)</a></li>
+<li class="chapter" data-level="14.3" data-path="admultiscale.html"><a href="admultiscale.html#basis-functions"><i class="fa fa-check"></i><b>14.3</b> 기저함수들(basis functions)</a></li>
+<li class="chapter" data-level="14.4" data-path="admultiscale.html"><a href="admultiscale.html#---lifting-in-two-dimensions"><i class="fa fa-check"></i><b>14.4</b> 2차원 자료의 리프팅 스킴(lifting in two dimensions)</a></li>
+<li class="chapter" data-level="14.5" data-path="admultiscale.html"><a href="admultiscale.html#-nonlinear-lifting"><i class="fa fa-check"></i><b>14.5</b> 비선형 리프팅(nonlinear lifting)</a><ul>
+<li class="chapter" data-level="14.5.1" data-path="admultiscale.html"><a href="admultiscale.html#--max-lifting-scheme"><i class="fa fa-check"></i><b>14.5.1</b> 최대-리프팅 스킴(max-lifting scheme)</a></li>
 </ul></li>
+<li class="chapter" data-level="14.6" data-path="admultiscale.html"><a href="admultiscale.html#--adaptive-lifting-scheme"><i class="fa fa-check"></i><b>14.6</b> 적응적 리프팅 스킴(adaptive lifting scheme)</a></li>
 </ul></li>
 <li class="part"><span><b>Unsupervised Learning</b></span></li>
 <li class="chapter" data-level="15" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>15</b> 클러스터링(clustering)</a></li>
@@ -513,8 +516,11 @@ Figure 14.3: Backward lifting scheme.
 <p>따라서 <span class="math inline">\(\mathbf{z}_{3}=(1,2,3,4,5,6,7,8)\)</span> 신호를 성공적으로 복원할 수 있다.</p>
 </div>
 </div>
+<div id="basis-functions" class="section level2">
+<h2><span class="header-section-number">14.3</span> 기저함수들(basis functions)</h2>
+</div>
 <div id="---lifting-in-two-dimensions" class="section level2">
-<h2><span class="header-section-number">14.3</span> 2차원 자료의 리프팅 스킴(lifting in two dimensions)</h2>
+<h2><span class="header-section-number">14.4</span> 2차원 자료의 리프팅 스킴(lifting in two dimensions)</h2>
 <p>이 절의 내용은 <span class="citation">(Jang <a href="#ref-Jang2012">2012</a>)</span>의 서술을 참고하였다. 2차원 자료에서는 1차원 자료와 다르게 짝과 홀을 정할 수 없다는 문제점이 있다. 불규칙한 격자점에서, 이웃(neighborhood)은 삼각분할(triangulation)을 통해 정의된다.</p>
 <p>리프팅 스킴은 모든 해상도 수준(resolution level)에서 <strong>다중척도 들로네 삼각분할(multiscale Delaunay triangulation)</strong>이라 부르는 꼭지점들의 이웃 구조를 사용한다. 삼각형 격자 위에 있는 자료를 다중척도 표현으로 분해(decomposition)하는 것은 현재 수준 <span class="math inline">\(l\)</span>에서 <span class="math inline">\(l+1\)</span>로 넘어갈 때 빼길 원하는 점 주변의 국소적 재삼각분할(local retriangulation)을 필요로 한다. 이 알고리즘은 수준이 고정되었을 때 이웃은 변하지 않는다라는 가정 하에서 진행된다.</p>
 <div class="figure" style="text-align: center"><span id="fig:2dlifting"></span>
@@ -526,9 +532,9 @@ Figure 14.4: 2D lifting scheme example.
 <p>위 그림에서 빨간색 점들로 검은색 점을 포함하는 <strong>보로노이 다이어그램(Voronoi diagram)</strong>을 그린다. (a), (b), (c)는 각각 첫 번째, 두 번째 및 세 번째 리프팅 스킴에 대응된다. (d)는 투입된 자료를 네 가지 수준으로 구분한 그림이다. 빨간색 점들은 <span class="math inline">\(s_{t,2k+1}\)</span>에 대응되며 검은색 점들은 <span class="math inline">\(s_{t,2k}\)</span>에 대응된다. 갱신 단계에서, 우리는 검은색 지점의 상세 이미지(detail image) <span class="math inline">\(d_{t+1,k}\)</span>를 얻을 수 있고, 빨간색 지점의 갱신된 근사 이미지(approximation image) <span class="math inline">\(s_{t+1,k}\)</span>를 얻을 수 있다. 산재된 자료(scattered data)의 경우 척도(scale)은 ‘연속(continuous)’ 개념에 대응된다. 다시 말하면, 모든 자료는 각자 고유의 척도를 가지고 있고, 이 척도는 주변과의 거리에 관계되어 결정되는 것이다.</p>
 </div>
 <div id="-nonlinear-lifting" class="section level2">
-<h2><span class="header-section-number">14.4</span> 비선형 리프팅(nonlinear lifting)</h2>
+<h2><span class="header-section-number">14.5</span> 비선형 리프팅(nonlinear lifting)</h2>
 <div id="--max-lifting-scheme" class="section level3">
-<h3><span class="header-section-number">14.4.1</span> 최대-리프팅 스킴(max-lifting scheme)</h3>
+<h3><span class="header-section-number">14.5.1</span> 최대-리프팅 스킴(max-lifting scheme)</h3>
 <p><strong>최대-리프팅 스킴(max-lifting scheme)</strong>은 Haar 변환을 좀 더 유연하게 만들고자 하는 필요로부터 출발하였다. <span class="math display">\[s_{j,k}=\frac{s_{j+1,2k}+s_{j+1,2k+1}}{2}\]</span> <span class="math display">\[d_{j,k}=s_{j+1,2k+1}-s_{j+1,2k}\]</span> Haar 변환은 data의 odd에서 even을 뺌으로써 detail signal을 generate하고 있다.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-42"></span>
 <img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-42-1.png" alt="Haar transform is not robust." width="672" />
@@ -549,8 +555,29 @@ s_{j,k}&amp;=&amp; s_{j+1,2k}+\max (0,d_{j,k},d_{j,k-1})\\
 </ol>
 <p>또한 max-lifting does not generate new maxima in <span class="math inline">\(s_{j}\)</span> compared with <span class="math inline">\(s_{j+1}\)</span>.</p>
 <p>Integer programming, image processing 등에 응용 가능</p>
-
 </div>
+</div>
+<div id="--adaptive-lifting-scheme" class="section level2">
+<h2><span class="header-section-number">14.6</span> 적응적 리프팅 스킴(adaptive lifting scheme)</h2>
+<p>우선 두 개의 prediction operator를 먼저 소개한다.</p>
+<ul>
+<li><p><strong>Left Haar predictor</strong> or <strong>identity operator</strong>: <span class="math inline">\(P_{1}(s_{j,2k})=s_{j,2k}\)</span></p></li>
+<li><p><strong>Right Haar operator</strong> or <strong>right shift operator</strong>: <span class="math inline">\(P_{2}(s_{j,2k})=S_{j,2k+2}\)</span></p></li>
+</ul>
+<p>듀얼 리프팅이나 최대-리프팅 스킴은 적당한 prediction operator <span class="math inline">\(P_{1}\)</span> 또는 <span class="math inline">\(P_{2}\)</span> 고르는 과정이라고 볼 수 있다. 우리는 이것을 <strong>결정 연산자(decision operator)</strong> <span class="math inline">\(D^{P}\)</span>를 도입함으로써 formalize 할 수 있다. <span class="math display">\[D_{j}^{P}(k)=
+\begin{cases}
+1 &amp; \text{if $s_{j+1,2}\leq s_{j+1,2k+2}$}\\
+2 &amp; \text{if $s_{j+1,2} &lt; s_{j+1,2k+2}$}
+\end{cases}\]</span> 모든 이웃들 <span class="math inline">\(s_{j+1,2}\)</span>, <span class="math inline">\(s_{j+1,2k+2}\)</span>에 대해 결정연산자는 이들이 왼쪽 (1) 또는 오른쪽(2)에 있는지 알려주는 역할을 한다.</p>
+<p>그러면 듀얼 리프팅은 <span class="math display">\[d_{j,k}=s_{j+1,2k+1}-P_{D_{j,k}^{P}}(s_{k+1,2k})\]</span> 로 쓰여진다.</p>
+<p>또한 프라이멀 리프팅을 위해 결정연산자를 또 도입한다. <span class="math display">\[D_{j}^{U}(k)=
+\begin{cases}
+0 &amp; \text{if $\max (d_{j,k},d_{j,k-1})\leq 0$}\\
+1 &amp; \text{if $\max (0, d_{j,k-1}) \leq d_{j,k}$}\\
+2 &amp; \text{if $\max (0, d_{j,k}) \leq d_{j,k-1}$}
+\end{cases}\]</span></p>
+<p><span class="math inline">\(U_{2}=R\)</span> (<span class="math inline">\(R\)</span>: shift operator)를 이용하면 프라이멀 리프팅은 <span class="math display">\[s_{j,k}=s_{j+1,2k}+U_{D_{j,k}^{U}}d_{j,k}\]</span> 가 된다.</p>
+
 </div>
 </div>
 
