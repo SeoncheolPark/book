@@ -37,3 +37,13 @@ plot.ts(x, ylim=c(-16,16), main="sum")
 ```
 
 ## 피리오도그램(periodogram)
+
+이 절의 서술은 [@Lim2013]을 참고하였다. 또 다른 참고자료로는 [@Shumway2010]이 있다.
+
+다음과 같은 시계열 자료의 수열 $\{Y_{1}, \ldots, Y_{n}\}$을 관측한다고 하자. 그러면 **피리오도그램(periodogram)** $I_{n}(\omega)$는
+$$I_{n}(\omega)=\frac{1}{n}| \sum_{i=1}^{n}Y_{i}e^{-it\omega}|^{2}$$
+로 정의된다. 이 때 $\omega\in (0,\pi)$는 **진동수모수(frequency parameter)**이다. $\omega$가 푸리에 진동수($\omega=\frac{2\pi k}{n}, k\in\mathbb{Z}$)일 때 이 피리오도그램은
+$$I_{n}(\omega)=\frac{n}{4}\| \tilde{\boldsymbol{\beta}}_{n}(\omega)\|^{2}$$
+으로 표현할 수 있다고 한다[@Li2008]. 여기서 $\| \cdot \|$은 벡터의 $l_{2}$ 노름이며 $\tilde{\boldsymbol{\beta}}_{n}(\omega)$은 최소자승법
+$$\tilde{\boldsymbol{\beta}}_{n}(\omega)=\text{arg}\min_{\boldsymbol{\beta}\in\mathbb{R}^{2}}\sum_{i=1}^{n}| Y_{i}-\mathbf{x}_{t}^{T}(\omega)\boldsymbol{\beta}^{2}$$
+의 해다. 그리고 이 때 $\mathbf{x}_{t}(\omega)=(\cos(\omega t), \sin (\omega t))^{T}$로 harmonic regressor다.
