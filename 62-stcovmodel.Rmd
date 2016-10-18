@@ -1,0 +1,33 @@
+# 시공간 공분산모형 {#stcovmodel}
+
+R package `CompRandFld`에 있는 시공간 공분산모형들을 정리하였다.
+
+## 시공간 상관관계 모형(Spatio-temporal correlation models)
+
+### Non-Separable models
+
+1. `geniting` (non-separable space-time model)
+
+2. `gneiting_GC` (non-separable space-time model with great circle distances)
+
+3. `iacocesare` (non-separable space-time model)
+
+4. `porcu` (non-separable space-time model)
+
+5. `porcu2` (non-separable space-time model)
+
+### Separable models
+
+분리가능한 시공간 상관관계 모형들은
+$$R(h,u)=R(h)R(u)$$
+꼴로 나타낼 수 있는 모형들이다.
+
+1. `exp-exp`: spatial exponential model and temporal exponential model
+
+2. `exp-cauchy`: spatial exponential model and temporal cauchy model
+
+3. `matern_cauchy`: spatial matern model and temporal cauchy model
+
+4. `stable_stable` spatial stabel model and temporal stable model
+
+(note that some models are nested)

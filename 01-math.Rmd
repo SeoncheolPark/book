@@ -303,3 +303,9 @@ $$\| f\|_{p}=(\int_{S}|f|^{p}d\mu)^{1/p}<\infty$$
 
 - 체비셰프 거리(Chebychev distance): $d(x,y)=\max_{i=1,\ldots ,p}|x_{i}-y_{i}|$
 
+다음 거리들은 유클리드 거리와 더불어 공간통계에서 많이 쓰이는 것들이다.
+
+- chordal distance (현 거리? 잘 모르겠음)
+
+- geodesic distance
+
