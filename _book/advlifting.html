@@ -38,8 +38,8 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="clustering.html">
-<link rel="next" href="qr.html">
+<link rel="prev" href="admultiscale.html">
+<link rel="next" href="clustering.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -445,26 +445,84 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="PCA" class="section level1">
-<h1><span class="header-section-number">Chapter 17</span> 주성분분석</h1>
-<p><strong>주성분분석(principal component analysis, PCA)</strong>란 <strong>차원 축소(dimension reduction)</strong>을 위해 많이 쓰이는 툴이다. 이 분야의 유명한 참고문헌으로는 <span class="citation">(Jolliffe <a href="#ref-Jolliffe2002">2002</a>)</span>가 있다.</p>
-<p>다음과 같이 <span class="math inline">\(\mathbf{x}_{i}\in\mathbb{R}^{d}, i=1,\ldots, n\)</span>이라는 training pattern이 있다고 하자. 주성분은 <span class="math inline">\(q &lt;d\)</span>의 직교정규 벡터의 집합이며 첫번째 주성분은 데이터를 한 개의 축으로 사상(projection)시켰을 때 그 분산이 가장 커지는 축이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-44"></span>
-<img src="images/unsupervised_PCA01.gif" alt="Principal component w1 points into the direction of maximum variance."  />
+<div id="advlifting" class="section level1">
+<h1><span class="header-section-number">Chapter 15</span> 리프팅 스킹의 최신동향</h1>
+<div id="--adaptive-lifting-scheme" class="section level2">
+<h2><span class="header-section-number">15.1</span> 적응적 리프팅 스킴(adaptive lifting scheme)</h2>
+<p>우선 두 개의 prediction operator를 먼저 소개한다.</p>
+<ul>
+<li><p><strong>Left Haar predictor</strong> or <strong>identity operator</strong>: <span class="math inline">\(P_{1}(s_{j,2k})=s_{j,2k}\)</span></p></li>
+<li><p><strong>Right Haar operator</strong> or <strong>right shift operator</strong>: <span class="math inline">\(P_{2}(s_{j,2k})=S_{j,2k+2}\)</span></p></li>
+</ul>
+<p>듀얼 리프팅이나 최대-리프팅 스킴은 적당한 prediction operator <span class="math inline">\(P_{1}\)</span> 또는 <span class="math inline">\(P_{2}\)</span> 고르는 과정이라고 볼 수 있다. 우리는 이것을 <strong>결정 연산자(decision operator)</strong> <span class="math inline">\(D^{P}\)</span>를 도입함으로써 formalize 할 수 있다. <span class="math display">\[D_{j}^{P}(k)=
+\begin{cases}
+1 &amp; \text{if $s_{j+1,2}\leq s_{j+1,2k+2}$}\\
+2 &amp; \text{if $s_{j+1,2} &lt; s_{j+1,2k+2}$}
+\end{cases}\]</span> 모든 이웃들 <span class="math inline">\(s_{j+1,2}\)</span>, <span class="math inline">\(s_{j+1,2k+2}\)</span>에 대해 결정연산자는 이들이 왼쪽 (1) 또는 오른쪽(2)에 있는지 알려주는 역할을 한다.</p>
+<p>그러면 듀얼 리프팅은 <span class="math display">\[d_{j,k}=s_{j+1,2k+1}-P_{D_{j,k}^{P}}(s_{k+1,2k})\]</span> 로 쓰여진다.</p>
+<p>또한 프라이멀 리프팅을 위해 결정연산자를 또 도입한다. <span class="math display">\[D_{j}^{U}(k)=
+\begin{cases}
+0 &amp; \text{if $\max (d_{j,k},d_{j,k-1})\leq 0$}\\
+1 &amp; \text{if $\max (0, d_{j,k-1}) \leq d_{j,k}$}\\
+2 &amp; \text{if $\max (0, d_{j,k}) \leq d_{j,k-1}$}
+\end{cases}\]</span></p>
+<p><span class="math inline">\(U_{2}=R\)</span> (<span class="math inline">\(R\)</span>: shift operator)를 이용하면 프라이멀 리프팅은 <span class="math display">\[s_{j,k}=s_{j+1,2k}+U_{D_{j,k}^{U}}d_{j,k}\]</span> 가 된다.</p>
+</div>
+<div id="locaat-" class="section level2">
+<h2><span class="header-section-number">15.2</span> LOCAAT 알고리즘</h2>
+<p>리프팅 스킴에 기초하여, <span class="citation">(M. Jansen, Nason, and Silverman <a href="#ref-Jansen2008">2008</a>)</span>은 <strong>lifting one coefficient at a time (LOCAAT)</strong>라는 산재된 자료를 다중해상도로 다룰 수 있는 새로운 패러다임을 제시했다. 이 방법은 말 그대로 한 step에 한 개의 상세계수만을 계산한다.</p>
+<p>우리는 <span class="math inline">\(n\)</span>개의 점 또는 장소에서도 <span class="math inline">\(f_{i}=f(\mathbf{t}_{i})\)</span>를 관찰한다. 이 함수는 <span class="math display">\[f(\mathbf{t})=\sum_{k=1}^{n}c_{nk}\phi_{nk}(\mathbf{t})\]</span> 로 근사할 수 있다. 여기서 <span class="math inline">\(\phi_{nk}\)</span>는 척도함수(scaling function)로 <span class="math display">\[\phi_{nk}(\mathbf{t}_{i})=\delta_{ik}\]</span> 이며 여기서 <span class="math inline">\(\delta_{ik}\)</span>는 크로네커 델타이다.</p>
+<p>LOCAAT는 <span class="math inline">\(n, n-1, n-2, \ldots\)</span>의 순서로 진행된다. <span class="math inline">\(r\)</span>번째 단계에서, <span class="math inline">\(\mathcal{S}_{r}\)</span>을 척도계수의 인덱스, <span class="math inline">\(\mathcal{D}_{r}\)</span>을 상세계수에서의 인덱스라고 하자. 그러면 LOCAAT는 처음에 <span class="math inline">\(\mathcal{S}_{n}=\{ 1,2,\ldots, n\}\)</span>, <span class="math inline">\(\mathcal{D}_{n}=\emptyset\)</span>이다. <span class="math inline">\(r\)</span>번째 단계에서, <span class="math inline">\(\mathcal{D}_{r}=\{ i_{r+1}, i_{r+2}, \ldots, i_{n}\}\)</span>을 이미 찾은 상세계수들의 인덱스라고 하자. 첫 번째 제게되는 점이 집합의 마지막 원소임에 유의하자.</p>
+<p><span class="math inline">\(r\)</span>번째 단계에서 함수 <span class="math inline">\(f\)</span>는 <span class="math display">\[f(\mathbf{t})=\sum_{l\in\mathcal{D}_{r}}d_{l}\psi_{l}(\mathcal{t})+\sum_{k\in\mathcal{S}_{r}}c_{rk}\phi_{rk}(\mathcal{t})\]</span> 이다. 계수들 <span class="math inline">\(d_{l}\)</span>과 <span class="math inline">\(c_{rk}\)</span>들이 어떻게 계산되는지는 나중에 설명하기로 하자. 다음 단계는 <span class="math inline">\(r-1\)</span>이며 제거되어야 하는 점을 <span class="math inline">\(i_{r}\)</span>이라고 했을 때, <span class="math inline">\(\mathcal{S}_{r-1}=\mathcal{S}_{r}\backslash i_{r}\)</span>, <span class="math inline">\(\mathcal{D}_{r-1}=\mathcal{D}_{r}\cup i_{r}\)</span>이다. 그러므로 웨이블릿 계수들이 얻어지는 순서는 <span class="math inline">\(i_{n},i_{n-1},\ldots, i_{r+1}\)</span>순이다. 제거되는 <span class="math inline">\(i_{r}\)</span> 각각은 척도함수의 적분값의 size, 즉 가장 작은 적분을 갖는 척도함수를 먼저 제거하게 된다고 한다.</p>
+<div id="locaat-forward-transform-in-locaat" class="section level3">
+<h3><span class="header-section-number">15.2.1</span> LOCAAT의 전방변환(forward transform in LOCAAT)</h3>
+<p>각 <span class="math inline">\(i_{r}\)</span>에 대해 <span class="math inline">\(n_{r}\)</span>개의 이웃이 존재하고 이들의 인덱스들은 <span class="math inline">\(J_{r}\)</span>에 저장되어 있다고 하자. <span class="math inline">\(c_{j}, j\in J_{r}\)</span>은 <span class="math inline">\(c_{i_{r}}\)</span>의 근사를 구성하기 위해 사용될 것이다. 제거될 점 <span class="math inline">\(i_{r}\)</span> 각각은 길이 <span class="math inline">\(|J_{r}|\)</span>인 두 벡터 <span class="math inline">\(\mathbf{a}^{i_{r}}, \mathbf{b}^{i_{r}}\)</span>의 정의를 필요로 한다. (여기서 잠시 혼동을 막기 위해 <span class="math inline">\(i_{r}\)</span>을 <span class="math inline">\(i\)</span>로, <span class="math inline">\(J_{r}\)</span>을 <span class="math inline">\(J\)</span>로 표기하자. 그리고 <span class="math inline">\(r\)</span>의 뜻은 다중해상도에서 <span class="math inline">\(r\)</span>번째 단계라는 뜻이다.)</p>
+<strong>Predict</strong> 상세계수 <span class="math inline">\(d_{i}\)</span>는 제거될 점 <span class="math inline">\(i\)</span>와 그 주변의 이웃들 <span class="math inline">\(j\in J\)</span>의 weighted sum과의 차이로 얻어진다.
+\begin{equation}\label{eq:LOCAATforwardpre}
+d_{i}=c_{ri}-\sum_{j\in J}a_{j}c_{rj}.
+\end{equation}
+<p><strong>이 때 weight vector <span class="math inline">\(\mathbf{a}^{i}\)</span>는 어떤 리프팅 전략을 쓰느냐에 따라 달라진다.</strong> 이 말은 <span class="math inline">\(i\)</span>와 <span class="math inline">\(\in J\)</span> 사이에 어떤 거리(ex. 유클리드 거리)를 정해놓고 이 거리가 클수록 weight를 적게 주는 것이다. <span class="math display">\[\mathbf{a}^{i}=\{ \frac{1/\text{dist}_{j}}{\sum_{j\in J}1/\text{dist}_{j}}\}, \forall j\in J.\]</span> 그리고(아마 당연하게도) <span class="math inline">\(\sum_{j\in J} a_{j}=1\)</span>이다.</p>
+<strong>Update</strong> 제거된 점 <span class="math inline">\(i\)</span>에서 상셰계수를 얻은 후에 이웃들의 값은 다음과 값이 업데이트된다.
+\begin{equation}\label{eq:LOCAATforwardup}
+c_{rj}:=c_{rj}+d_{i}b_{j},\forall j\in J.
+\end{equation}
+<p>(이 때 <span class="math inline">\(\mathbf{b}^{i}\)</span>를 어떻게 정의할 지에 대해서는 생각해야 한다.) LOCAAT에서는 다음 레벨의 척도함수 계수는 다음과 같이 <span class="math display">\[c_{r-1,j}=c_{r,j},\forall j \in \mathcal{S}_{r-1}\]</span> 로 쓸 수 있다.</p>
+<p>예측 및 업데이트 단계는 재귀적으로 실행되며 더이상 제거할 점이 없을 때까지 진행한다. 예제에 따르면 웨이블릿 변환에 비해 sparsity는 좋지 않지만 fine scale에서 detail wavelet 계수들이 coarser scale에서의 detail wavelet coefficient들에 비에 덜 significant한 것들이 많음을 알 수 있다고 한다.</p>
+</div>
+<div id="locaat-inverse-transform-in-locaat" class="section level3">
+<h3><span class="header-section-number">15.2.2</span> LOCAAT의 역변환(inverse transform in LOCAAT)</h3>
+<p>앞선 결과에 의해 <span class="math display">\[c_{rj}:=c_{rj}-d_{i}b_{j},\]</span> <span class="math display">\[c_{ri}:=d_{i}+\sum_{j\in J}a_{j}c_{rj}, j\in J\]</span> 를 얻는다. 이 단계들은 역시 모든 <span class="math inline">\(i\in\mathcal{D}_{r-1}\)</span>에 대해 재귀적으로 진행하여 완벽한 reconstruction을 얻는다.</p>
+</div>
+<div id="locaat-example-of-locaat" class="section level3">
+<h3><span class="header-section-number">15.2.3</span> LOCAAT의 예(example of LOCAAT)</h3>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-43"></span>
+<img src="images/advmultiscale_LOCAAT01.png" alt="Toy network on which we assume the data [1,1,-1,-1] is observed. We also assume the nodes are separated by distance of 1 unit." width="486" />
 <p class="caption">
-Figure 17.1: Principal component w1 points into the direction of maximum variance.
+Figure 15.1: Toy network on which we assume the data [1,1,-1,-1] is observed. We also assume the nodes are separated by distance of 1 unit.
 </p>
 </div>
-<p><span class="math inline">\(\mathbf{y}\)</span>를 subspace로의 projection이라고 하자. <span class="math inline">\(\mathbf{W}\)</span>를 column에 principal component를 포함하는 <span class="math inline">\(d\times q\)</span> 행렬이라고 하자. 그러면 <span class="math display">\[\mathbf{y}=\mathbf{W}^{T}\mathbf{x}\]</span> 가 된다. 즉 <span class="math inline">\(\mathbf{y}\)</span>는 <span class="math inline">\(\mathbf{x}\)</span>의 dimension-reduced 표현이 되는 것이다. <span class="math inline">\(\hat{\mathbf{x}}\)</span>를 <span class="math inline">\(\mathbf{y}\)</span>가 주어졌을 때 <span class="math inline">\(\mathbf{x}\)</span>의 reconstruction이라고 하자. <span class="math display">\[\hat{\mathbf{x}}=\mathbf{W}^{T}\mathbf{y}.\]</span> 그리면 PCA의 목표는 다음과 같은 <span class="math display">\[E_{rec}=\frac{1}{n}\sum_{i=1}^{n}\| \mathbf{x}_{i}-\hat{\mathbf{x}}_{i}\|^{2}\]</span> <span class="math inline">\(E_{rec}\)</span>을 minimize하도록 subspace를 set하는 것이다.</p>
+<p>위 그림과 같이 <span class="math inline">\(\{1,1,-1,-1\}\)</span>이라는 자료가 있다고 하자. LOCAAT 변환을 이 자료에 적용하려면 우선 네트워크를 디자인해야 한다. 1차원 자료기 때문에 위 그림과 같이 간단한 형태로 디자인하였다.</p>
+<p>첫 번째로 제거되어야 할 점을 1번 노드라고 하자(참고로 어떤 점을 먼저 제거해야 할 지에 대한 논의는 <span class="citation">(M. Jansen, Nason, and Silverman <a href="#ref-Jansen2008">2008</a>)</span>에 있다). 1번 노드의 이웃은 2번 노드밖에 없으며 inverse distance weight를 주었을 때 <span class="math inline">\(a_{2}=1\)</span>이 된다. 그러면 식 (\ref{eq:LOCAATforwardpre})에 넣어 <span class="math inline">\(d_{2}=0\)</span>을 얻는다.</p>
+<p>다음 단계는 척도계수를 업데이트 하는 것이다. 여기서는 2번 노드만 업데이트 하면 된다. LOCAAT 계수가 0이었기 때문에, (\ref{eq:LOCAATforwardup})에 의해 업데이트를 해도 2번 노드의 값은 변하지 않는다.</p>
+<p>그러므로 결과적으로 첫번째 scale 후 다음 척도계수는 <span class="math inline">\(c_{2}=\{1,-1,-1\}\)</span> 그리고 상세계수는 <span class="math inline">\(d={0}\)</span>이 되는 것이다.</p>
+<p>두 번째 scale에서는 <span class="math inline">\(c_{2}=\{1,-1,-1\}\)</span>으로 시작한다. 여기서는 두 번째 제거되어야 할 점으로 4번 노드를 지정한다. 4번의 이웃 노드는 3밖에 없으므로 inverse distance weight가 <span class="math inline">\(a_{3}=1\)</span>이 된다. 다시 (\ref{eq:LOCAATforwardpre})을 사용해 LOCAAT coefficient <span class="math inline">\(d_{4}=0\)</span>을 얻고, 3번 노드의 값을 (\ref{eq:LOCAATforwardup})을 이용해 업데이트한다.</p>
+<p>두 번째 scale 후에는 <span class="math inline">\(c_{1}=\{ 1,-1 \}\)</span>이 나오고 <span class="math inline">\(d={0,0}\)</span>이 된다.</p>
+<p>마지막 리프팅 스텝에서는 2번 노드를 제거하기로 하자. 여기서 주의해야 할 점은 2번 노드의 이웃은 3번 노드밖에 없다는 것이다. 왜냐하면 1번 노드는 앞선 스텝에 의해 제거되었기 때문이다. 그러면 (\ref{eq:LOCAATforwardpre})에 의해 <span class="math inline">\(d_{2}=2\)</span>이며 업데이트 스텝 (\ref{eq:LOCAATforwardup})을 거치고 나오는 척도계수는 <span class="math inline">\(c_{0}=\{0\}\)</span>이 된다.</p>
+<p>결과적으로 위 예제를 LOCAAT 분해하면 <span class="math inline">\(c_{0}=\{0\}\)</span>, <span class="math inline">\(d=\{ d_{2}, d_{4}, d_{1}\}=\{2,0,0\}\)</span>이 된다.</p>
+</div>
+</div>
+<div id="variance-approximation" class="section level2">
+<h2><span class="header-section-number">15.3</span> Variance approximation</h2>
 
+</div>
 </div>
 
 
 
 <h3> References</h3>
 <div id="refs" class="references">
-<div id="ref-Jolliffe2002">
-<p>Jolliffe, I.T. 2002. <em>Principal Component Analysis</em>. 2nd ed. Springer Science &amp; Business Media.</p>
+<div id="ref-Jansen2008">
+<p>Jansen, Maarten, Guy P. Nason, and B. W. Silverman. 2008. “Multiscale Methods for Data on Graphs and Irregular Multidimensional Situations.” <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 71 (1): 97–125. doi:<a href="https://doi.org/10.1111/j.1467-9868.2008.00672.x">10.1111/j.1467-9868.2008.00672.x</a>.</p>
 </div>
 </div>
             </section>
@@ -472,8 +530,8 @@ Figure 17.1: Principal component w1 points into the direction of maximum varianc
           </div>
         </div>
       </div>
-<a href="clustering.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="qr.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="admultiscale.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="clustering.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -500,7 +558,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://seoncheolpark.github.io/book/_book/29-PCA.Rmd",
+"link": "https://seoncheolpark.github.io/book/_book/19-advlifting.Rmd",
 "text": null
 },
 "download": null,
