@@ -256,6 +256,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="15.2.3" data-path="advlifting.html"><a href="advlifting.html#locaat-example-of-locaat"><i class="fa fa-check"></i><b>15.2.3</b> LOCAAT의 예(example of LOCAAT)</a></li>
 </ul></li>
 <li class="chapter" data-level="15.3" data-path="advlifting.html"><a href="advlifting.html#variance-approximation"><i class="fa fa-check"></i><b>15.3</b> Variance approximation</a></li>
+<li class="chapter" data-level="15.4" data-path="advlifting.html"><a href="advlifting.html#spatial-model"><i class="fa fa-check"></i><b>15.4</b> Spatial model</a></li>
+<li class="chapter" data-level="15.5" data-path="advlifting.html"><a href="advlifting.html#minimum-spanning-tree-mst-type-network"><i class="fa fa-check"></i><b>15.5</b> Minimum spanning tree (MST) type network</a></li>
+<li class="chapter" data-level="15.6" data-path="advlifting.html"><a href="advlifting.html#spatio-temporal-model"><i class="fa fa-check"></i><b>15.6</b> Spatio-temporal model</a><ul>
+<li class="chapter" data-level="15.6.1" data-path="advlifting.html"><a href="advlifting.html#case-1"><i class="fa fa-check"></i><b>15.6.1</b> Case 1</a></li>
+<li class="chapter" data-level="15.6.2" data-path="advlifting.html"><a href="advlifting.html#case-2"><i class="fa fa-check"></i><b>15.6.2</b> Case 2</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>Unsupervised Learning</b></span></li>
 <li class="chapter" data-level="16" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>16</b> 클러스터링(clustering)</a></li>
@@ -513,7 +519,51 @@ Figure 15.1: Toy network on which we assume the data [1,1,-1,-1] is observed. We
 </div>
 <div id="variance-approximation" class="section level2">
 <h2><span class="header-section-number">15.3</span> Variance approximation</h2>
+</div>
+<div id="spatial-model" class="section level2">
+<h2><span class="header-section-number">15.4</span> Spatial model</h2>
+<p><span class="math inline">\((k,j)\)</span>를 노드 <span class="math inline">\(k\)</span>와 <span class="math inline">\(j\)</span>의 엣지(edge)라고 하고 <span class="math inline">\(\delta_{kj}\)</span>를 노드 <span class="math inline">\(k\)</span>와 <span class="math inline">\(j\)</span>의 거리라고 하자. <span class="citation">(M. Jansen, Nason, and Silverman <a href="#ref-Jansen2008">2008</a>)</span>는 tree-based network structure를 이용해 알고리즘으 구현하였다. 리프팅을 통해 제거할 때마다 minimum spanning tree (MST) 방법을 통해 트리를 업데이트한다.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-44"></span>
+<img src="images/advmultiscale_LOCAAT02.png" alt="Simple network and its edge entries of spatial data." width="558" />
+<p class="caption">
+Figure 15.2: Simple network and its edge entries of spatial data.
+</p>
+</div>
+<p>위 그림은 일곱 개의 노드로 이루어진 공간 네트워크 예제이다. 각 노드 <span class="math inline">\(k\)</span>마다 이웃의 수를 <span class="math inline">\(n_{k}\)</span>로 놓는다. 각각의 노드는 다른 노드와 엣지를 통해 연결되어 있으며 점 <span class="math inline">\(k\)</span>가 없어지면 같이 사라질 엣지들의 집합을 <span class="math inline">\(J_{k}\)</span>라고 놓는다. (adjacency list)</p>
+<p>LOCAAT 알고리즘은 거리측도(distance measure)를 정해주어야 하는데, 여기서는 간단히 유클리드 거리 <span class="math inline">\(\delta_{kj}\)</span>, 즉 <span class="math display">\[\delta_{kj}=\sqrt{(x_{k}-x_{j})^{2}+(y_{k}-y_{j})^{2}}\]</span> 를 고려한다. 여기서 <span class="math inline">\((x_{k},y_{k})\)</span>는 노드 <span class="math inline">\(k\)</span>의 좌표값이다.</p>
+<p>여기서 관찰값에 대한 모델로는 <span class="math display">\[f_{k}=g_{k}+\epsilon_{k}, k=1,\ldots , n\]</span> 을 생각하며 <span class="math inline">\(e_{k}\)</span>는 i.i.d 가우스 <span class="math inline">\((0,\sigma_{k}^{2})\)</span>을 따른다고 가정한다. 이것은 temporal correlation은 고려되지 않는 모형이다.</p>
+</div>
+<div id="minimum-spanning-tree-mst-type-network" class="section level2">
+<h2><span class="header-section-number">15.5</span> Minimum spanning tree (MST) type network</h2>
+</div>
+<div id="spatio-temporal-model" class="section level2">
+<h2><span class="header-section-number">15.6</span> Spatio-temporal model</h2>
+<p>시공간 모형은 temporal correlation 또한 고려하는 모형이다. 즉, <span class="math display">\[f_{t,k}=g_{t,k}=e_{t,k}, t=1,\ldots, T, k=1,\ldots , n,\]</span> 여기서 <span class="math inline">\(f_{t,k}\)</span>는 노드 <span class="math inline">\(k\)</span>, 시간 <span class="math inline">\(t\)</span>에서의 관찰값, <span class="math inline">\(g_{t,k}\)</span>는 노드 <span class="math inline">\(k\)</span>, 시간 <span class="math inline">\(t\)</span>에서의 알려지지 않은 진짜 함수이며 <span class="math inline">\(e_{k}\)</span>는 i.i.d 가우스 <span class="math inline">\((0,\sigma^{2})\)</span>을 따른다고 가정한다. <span class="math inline">\(T\)</span> 시간동안 데이터를 관찰한 것이다. 우리의 목표는 <span class="math inline">\(g_{t,k}\)</span>를 (잘) 추정하는 것이다.</p>
+<p>여기서 네트워크의 인덱싱을 세로 한다면 <span class="math display">\[\mathcal{N}_{t}=\{((t-1)n+k)| k \in \mathcal{N}_{1}\}\]</span> 이라고 놓을 수 있다. 이와 같이 하면 전체 노드의 수는 <span class="math inline">\(Tn\)</span>개가 된다.</p>
+<p>We consider distance along spatial dimension as Euclidean distance and the distance in the time dimension as the minimum distance in the spatial dimension multiplied by some temporal scale factor -&gt; 이것을 <span class="math inline">\(l_{t}\)</span>라고 놓는다.</p>
+<p>이 척도 factor는 시간 domain의 어떠한 irregularity라도 유지하기 위해서라고 한다.</p>
+<p><span class="math inline">\(\delta^{min}\)</span>을 모든 노드에서의 최소 spatial edge distance, 즉 <span class="math display">\[\delta^{min}=\min \{ (\delta_{kj})_{j\in J_{k}, k\in \mathcal{N}_{1}}\}\]</span> 이라고 하자. 그리고 두 가지 경우의 시공간 네트워크를 고려하자.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-45"></span>
+<img src="images/advmultiscale_LOCAAT03.png" alt="Two spatio-temporal network examples." width="670" />
+<p class="caption">
+Figure 15.3: Two spatio-temporal network examples.
+</p>
+</div>
+<div id="case-1" class="section level3">
+<h3><span class="header-section-number">15.6.1</span> Case 1</h3>
+<p>첫번째 경우는 최초 시간에서의 엣지 구조가 시간이 지남에 따라 변하지 않고 계속 유지되는 경우다.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-46"></span>
+<img src="images/advmultiscale_LOCAAT03.png" alt="Extending the spatial network to the spatio-temporal network." width="670" />
+<p class="caption">
+Figure 15.4: Extending the spatial network to the spatio-temporal network.
+</p>
+</div>
+<p>이것은 위 그림과 같이 시간에 따라 순차적으로 계산함으로써 해결할 수 있다. 노드 <span class="math inline">\((t-1)n+k\)</span>와 <span class="math inline">\(tn+k\)</span>의 엣지 거리는 <span class="math display">\[\delta_{(t-1)n+k,tn+k}=l_{t}\delta^{min}\]</span> 으로 정의한다.</p>
+</div>
+<div id="case-2" class="section level3">
+<h3><span class="header-section-number">15.6.2</span> Case 2</h3>
 
+</div>
 </div>
 </div>
 

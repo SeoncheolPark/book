@@ -256,6 +256,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="15.2.3" data-path="advlifting.html"><a href="advlifting.html#locaat-example-of-locaat"><i class="fa fa-check"></i><b>15.2.3</b> LOCAAT의 예(example of LOCAAT)</a></li>
 </ul></li>
 <li class="chapter" data-level="15.3" data-path="advlifting.html"><a href="advlifting.html#variance-approximation"><i class="fa fa-check"></i><b>15.3</b> Variance approximation</a></li>
+<li class="chapter" data-level="15.4" data-path="advlifting.html"><a href="advlifting.html#spatial-model"><i class="fa fa-check"></i><b>15.4</b> Spatial model</a></li>
+<li class="chapter" data-level="15.5" data-path="advlifting.html"><a href="advlifting.html#minimum-spanning-tree-mst-type-network"><i class="fa fa-check"></i><b>15.5</b> Minimum spanning tree (MST) type network</a></li>
+<li class="chapter" data-level="15.6" data-path="advlifting.html"><a href="advlifting.html#spatio-temporal-model"><i class="fa fa-check"></i><b>15.6</b> Spatio-temporal model</a><ul>
+<li class="chapter" data-level="15.6.1" data-path="advlifting.html"><a href="advlifting.html#case-1"><i class="fa fa-check"></i><b>15.6.1</b> Case 1</a></li>
+<li class="chapter" data-level="15.6.2" data-path="advlifting.html"><a href="advlifting.html#case-2"><i class="fa fa-check"></i><b>15.6.2</b> Case 2</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>Unsupervised Learning</b></span></li>
 <li class="chapter" data-level="16" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>16</b> 클러스터링(clustering)</a></li>
@@ -467,7 +473,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="--idealized-shape-of-variogram-isotropic-case" class="section level2">
 <h2><span class="header-section-number">23.2</span> 이상적인 변동도의 모양(idealized Shape of Variogram (isotropic case))</h2>
 <p>그렇다면 일반적으로 생각하는 변동도의 모양은 어떠한가?</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-55"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-58"></span>
 <img src="images/sp_variogram.png" alt="Variogram example." width="196" />
 <p class="caption">
 Figure 23.1: Variogram example.
@@ -482,8 +488,8 @@ Figure 23.1: Variogram example.
 <div id="----classical-parametric-isotropic-variogram-models" class="section level2">
 <h2><span class="header-section-number">23.4</span> 대표적인 모수 등방성 변동도 모형들(classical parametric isotropic variogram models)</h2>
 <p>여기서는 총 9가지의 변동도 모형을 소개한다. 그러나 실제로 널리 쓰이는 모델은 ‘exponential’과 ’matern’ 두 개이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-56"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-56-1.png" alt="Various variogram models." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-59"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-59-1.png" alt="Various variogram models." width="672" />
 <p class="caption">
 Figure 23.2: Various variogram models.
 </p>
@@ -501,8 +507,8 @@ c_{0}+c_{1}\| \mathbf{h}\| &amp; \textrm{if $\mathbf{h}\neq 0$}\\
 <ol start="2" style="list-style-type: decimal">
 <li><strong>Spherical</strong></li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-57"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-57-1.png" alt="Spherical model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-60"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-60-1.png" alt="Spherical model." width="672" />
 <p class="caption">
 Figure 23.3: Spherical model.
 </p>
@@ -517,8 +523,8 @@ c_{0}+c_{1} &amp; \textrm{if $\|\mathbf{h}\|&gt;R$}\\
 <ol start="3" style="list-style-type: decimal">
 <li><strong>Exponential</strong></li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-58"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-58-1.png" alt="Exponential model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-61"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-61-1.png" alt="Exponential model." width="672" />
 <p class="caption">
 Figure 23.4: Exponential model.
 </p>
@@ -532,8 +538,8 @@ c_{0}+c_{1}(1-e^{-\frac{\|\mathbf{h}\|}{R}}) &amp; \textrm{if $\mathbf{h}\neq 0$
 <ol start="4" style="list-style-type: decimal">
 <li><strong>Gaussian</strong></li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-59"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-59-1.png" alt="Gaussian model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-62"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-62-1.png" alt="Gaussian model." width="672" />
 <p class="caption">
 Figure 23.5: Gaussian model.
 </p>

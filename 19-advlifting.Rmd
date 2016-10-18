@@ -101,3 +101,62 @@ knitr::include_graphics("images/advmultiscale_LOCAAT01.png")
 결과적으로 위 예제를 LOCAAT 분해하면 $c_{0}=\{0\}$, $d=\{ d_{2}, d_{4}, d_{1}\}=\{2,0,0\}$이 된다.
 
 ## Variance approximation
+
+
+## Spatial model
+
+$(k,j)$를 노드 $k$와 $j$의 엣지(edge)라고 하고 $\delta_{kj}$를 노드 $k$와 $j$의 거리라고 하자. [@Jansen2008]는 tree-based network structure를 이용해 알고리즘으 구현하였다. 리프팅을 통해 제거할 때마다 minimum spanning tree (MST) 방법을 통해 트리를 업데이트한다.
+
+```{r, echo=F, fig.cap='Simple network and its edge entries of spatial data.', fig.align='center'}
+knitr::include_graphics("images/advmultiscale_LOCAAT02.png")
+```
+
+위 그림은 일곱 개의 노드로 이루어진 공간 네트워크 예제이다. 각 노드 $k$마다 이웃의 수를 $n_{k}$로 놓는다. 각각의 노드는 다른 노드와 엣지를 통해 연결되어 있으며 점 $k$가 없어지면 같이 사라질 엣지들의 집합을 $J_{k}$라고 놓는다. (adjacency list)
+
+LOCAAT 알고리즘은 거리측도(distance measure)를 정해주어야 하는데, 여기서는 간단히 유클리드 거리 $\delta_{kj}$, 즉
+$$\delta_{kj}=\sqrt{(x_{k}-x_{j})^{2}+(y_{k}-y_{j})^{2}}$$
+를 고려한다. 여기서 $(x_{k},y_{k})$는 노드 $k$의 좌표값이다.
+
+여기서 관찰값에 대한 모델로는
+$$f_{k}=g_{k}+\epsilon_{k}, k=1,\ldots , n$$
+을 생각하며 $e_{k}$는 i.i.d 가우스 $(0,\sigma_{k}^{2})$을 따른다고 가정한다. 이것은 temporal correlation은 고려되지 않는 모형이다.
+
+## Minimum spanning tree (MST) type network
+
+## Spatio-temporal model
+
+시공간 모형은 temporal correlation 또한 고려하는 모형이다. 즉,
+$$f_{t,k}=g_{t,k}=e_{t,k}, t=1,\ldots, T, k=1,\ldots , n,$$
+여기서 $f_{t,k}$는 노드 $k$, 시간 $t$에서의 관찰값, $g_{t,k}$는 노드 $k$, 시간 $t$에서의 알려지지 않은 진짜 함수이며 $e_{k}$는 i.i.d 가우스 $(0,\sigma^{2})$을 따른다고 가정한다. $T$ 시간동안 데이터를 관찰한 것이다. 우리의 목표는 $g_{t,k}$를 (잘) 추정하는 것이다.
+
+여기서 네트워크의 인덱싱을 세로 한다면
+$$\mathcal{N}_{t}=\{((t-1)n+k)| k \in \mathcal{N}_{1}\}$$
+이라고 놓을 수 있다. 이와 같이 하면 전체 노드의 수는 $Tn$개가 된다. 
+
+We consider distance along spatial dimension as Euclidean distance and the distance in the time dimension as the minimum distance in the spatial dimension multiplied by some temporal scale factor -> 이것을 $l_{t}$라고 놓는다.
+
+이 척도 factor는 시간 domain의 어떠한 irregularity라도 유지하기 위해서라고 한다.
+
+$\delta^{min}$을 모든 노드에서의 최소 spatial edge distance, 즉
+$$\delta^{min}=\min \{ (\delta_{kj})_{j\in J_{k}, k\in \mathcal{N}_{1}}\}$$
+이라고 하자. 그리고 두 가지 경우의 시공간 네트워크를 고려하자.
+
+```{r, echo=F, fig.cap='Two spatio-temporal network examples.', fig.align='center'}
+knitr::include_graphics("images/advmultiscale_LOCAAT03.png")
+```
+
+### Case 1
+
+첫번째 경우는 최초 시간에서의 엣지 구조가 시간이 지남에 따라 변하지 않고 계속 유지되는 경우다.
+
+```{r, echo=F, fig.cap='Extending the spatial network to the spatio-temporal network.', fig.align='center'}
+knitr::include_graphics("images/advmultiscale_LOCAAT03.png")
+```
+
+이것은 위 그림과 같이 시간에 따라 순차적으로 계산함으로써 해결할 수 있다. 노드 $(t-1)n+k$와 $tn+k$의 엣지 거리는
+$$\delta_{(t-1)n+k,tn+k}=l_{t}\delta^{min}$$
+으로 정의한다.
+
+### Case 2
+
+
