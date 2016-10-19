@@ -174,7 +174,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.2" data-path="stoprocess.html"><a href="stoprocess.html#-continuity-of-stochastic-process"><i class="fa fa-check"></i><b>6.2</b> 확률과정에서의 연속성(continuity of stochastic process)</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="stoprocess.html"><a href="stoprocess.html#continuous-sample-paths"><i class="fa fa-check"></i><b>6.2.1</b> 연속표본경로(continuous sample paths)</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="stoprocess.html"><a href="stoprocess.html#brown-motion"><i class="fa fa-check"></i><b>6.3</b> 브라운운동(Brown motion)</a></li>
+<li class="chapter" data-level="6.3" data-path="stoprocess.html"><a href="stoprocess.html#brownian-motion"><i class="fa fa-check"></i><b>6.3</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="stoprocess.html"><a href="stoprocess.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>6.3.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="stoprocess.html"><a href="stoprocess.html#martingale"><i class="fa fa-check"></i><b>6.4</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="6.5" data-path="stoprocess.html"><a href="stoprocess.html#r-r-stoprocess"><i class="fa fa-check"></i><b>6.5</b> R 예제(R-stoprocess)</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="freqts.html"><a href="freqts.html"><i class="fa fa-check"></i><b>7</b> 주파수 영역에서의 시계열분석</a></li>
 <li class="part"><span><b>Multiscale Methods in Statistics</b></span></li>
@@ -476,8 +480,8 @@ Figure 6.1: Overview of the threee types of worlds in which our processes live.
 </div>
 </div>
 </div>
-<div id="brown-motion" class="section level2">
-<h2><span class="header-section-number">6.3</span> 브라운운동(Brown motion)</h2>
+<div id="brownian-motion" class="section level2">
+<h2><span class="header-section-number">6.3</span> 브라운운동(Brownian motion)</h2>
 <div class="definition">
 <p><strong>(Browninan motion in lower dimension case)</strong> 실수값을 갖는 확률과정 <span class="math inline">\(\{ B(t) : t\geq 0\}\)</span>이 다음 조건들을 만족할 때</p>
 <ol style="list-style-type: decimal">
@@ -489,6 +493,25 @@ Figure 6.1: Overview of the threee types of worlds in which our processes live.
 <p><span class="math inline">\(x\in\mathbb{R}\)</span>에서 시작하는 (선형) <strong>브라운운동(Brownian motion)</strong>이라고 한다. 특별히 <span class="math inline">\(x=0\)</span>일 때 <span class="math inline">\(\{ B(t): t\geq 0\}\)</span>을 정규 브라운운동(standard Brownian motion)이라고 부른다.</p>
 </div>
 <p>브라운운동의 정의는 나중에 공간과정에도 잠시 나올 것이다.</p>
+<div id="-fractional-brownian-motion" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> 분수 브라운운동(fractional Brownian motion)</h3>
+<p><strong>분수 브라운운동(fractional Brownian motion)</strong>이란 fractional derivative (또는 fractional integral) of Brownian motion을 일컫는 말이다.</p>
+</div>
+</div>
+<div id="martingale" class="section level2">
+<h2><span class="header-section-number">6.4</span> 마팅게일(martingale)</h2>
+<div class="definition">
+<p>확률과정 <span class="math inline">\(\{X_{n}\}\)</span>가</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(E |X_{n}| &lt; \infty\)</span></p></li>
+<li><p><span class="math inline">\(X_{n}\)</span> is adpated to <span class="math inline">\(\mathcal{F}_{n}\)</span>. (즉 모든 <span class="math inline">\(n\)</span>에 대해 <span class="math inline">\(\X_{n}\in\mathcal{F}_{n}\)</span>)</p></li>
+<li><p><span class="math inline">\(E(X_{n+1}|\mathcal{F}_{n})=X_{n}, \text{ for all } n\)</span></p></li>
+</ol>
+<p>을 만족할 때, 이 확률과정을 filtration <span class="math inline">\(\mathcal{F}_{n}\)</span>에 대한 <strong>마팅게일(martingale)</strong>이라 부른다.</p>
+</div>
+</div>
+<div id="r-r-stoprocess" class="section level2">
+<h2><span class="header-section-number">6.5</span> R 예제(R-stoprocess)</h2>
 
 </div>
 </div>
@@ -531,7 +554,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://seoncheolpark.github.io/book/_book/07-stoprocess.Rmd",
+"link": "https://seoncheolpark.github.io/book/_book/06-stoprocess.Rmd",
 "text": null
 },
 "download": null,
