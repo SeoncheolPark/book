@@ -170,9 +170,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.9" data-path="convergencerv.html"><a href="convergencerv.html#absolute-continuous"><i class="fa fa-check"></i><b>5.9</b> 절대연속(absolute continuous)</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="stoprocess.html"><a href="stoprocess.html"><i class="fa fa-check"></i><b>6</b> 확률과정론</a><ul>
-<li class="chapter" data-level="6.1" data-path="stoprocess.html"><a href="stoprocess.html#-continuity-of-stochastic-process"><i class="fa fa-check"></i><b>6.1</b> 확률과정에서의 연속성(continuity of stochastic process)</a><ul>
-<li class="chapter" data-level="6.1.1" data-path="stoprocess.html"><a href="stoprocess.html#continuous-sample-paths"><i class="fa fa-check"></i><b>6.1.1</b> 연속표본경로(continuous sample paths)</a></li>
+<li class="chapter" data-level="6.1" data-path="stoprocess.html"><a href="stoprocess.html#stochastic-process"><i class="fa fa-check"></i><b>6.1</b> 확률과정이란?(stochastic process)</a></li>
+<li class="chapter" data-level="6.2" data-path="stoprocess.html"><a href="stoprocess.html#-continuity-of-stochastic-process"><i class="fa fa-check"></i><b>6.2</b> 확률과정에서의 연속성(continuity of stochastic process)</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="stoprocess.html"><a href="stoprocess.html#continuous-sample-paths"><i class="fa fa-check"></i><b>6.2.1</b> 연속표본경로(continuous sample paths)</a></li>
 </ul></li>
+<li class="chapter" data-level="6.3" data-path="stoprocess.html"><a href="stoprocess.html#brown-motion"><i class="fa fa-check"></i><b>6.3</b> 브라운운동(Brown motion)</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="freqts.html"><a href="freqts.html"><i class="fa fa-check"></i><b>7</b> 주파수 영역에서의 시계열분석</a></li>
 <li class="part"><span><b>Multiscale Methods in Statistics</b></span></li>
@@ -195,6 +197,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.1.2" data-path="spectral.html"><a href="spectral.html#aliasing"><i class="fa fa-check"></i><b>9.1.2</b> 앨리어싱(aliasing)</a></li>
 </ul></li>
 <li class="chapter" data-level="9.2" data-path="spectral.html"><a href="spectral.html#periodogram"><i class="fa fa-check"></i><b>9.2</b> 피리오도그램(periodogram)</a></li>
+<li class="chapter" data-level="9.3" data-path="spectral.html"><a href="spectral.html#r-r-periodogram"><i class="fa fa-check"></i><b>9.3</b> R 예제(R-periodogram)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="multiscale.html"><a href="multiscale.html"><i class="fa fa-check"></i><b>10</b> 다중척도 방법론</a><ul>
 <li class="chapter" data-level="10.1" data-path="multiscale.html"><a href="multiscale.html#-multiscale-transform"><i class="fa fa-check"></i><b>10.1</b> 다중척도 변환(multiscale transform)</a></li>
@@ -478,7 +481,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     s_{j,k}=s_{j+1,2k}+\frac{d_{j,k}}{2}.
 \end{equation}
 <p>웨이블릿 변환에서는 <span class="math inline">\(s_{j,k}\)</span>와 <span class="math inline">\(d_{j,k}\)</span>를 동시에 얻지만 리프팅 스킴에서는 <span class="math inline">\(d_{j,k}\)</span>를 얻은 후 순차적으로 <span class="math inline">\(s_{j,k}\)</span>를 얻는다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-39"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-45"></span>
 <img src="images/advmultiscale_lifting.png" alt="Forward lifting scheme using Haar transform." width="231" />
 <p class="caption">
 Figure 15.1: Forward lifting scheme using Haar transform.
@@ -492,14 +495,14 @@ Figure 15.1: Forward lifting scheme using Haar transform.
 <li><p><strong>갱신(update)</strong>: <span class="math inline">\(s_{j,k}=s_{j+1,2k}+\frac{d_{j,k}}{2}\)</span> (프라이멀 리프팅)</p></li>
 </ol>
 <p>일반적인 리프팅 스킴의 프라이멀 리프팅과 듀얼 리프팅의 <strong>정변환(forward transform)</strong>은 다음과 같다. <span class="math display">\[\text{차이(difference)=홀(odd)-p짝(even)} \qquad{\text{듀얼 리프팅(dual lifting)}}\]</span> <span class="math display">\[\text{평균(average)=짝(even)+u차이} \qquad{\text{프라이멀 리프팅(primal lifting)}}\]</span> 이 때 <span class="math inline">\(p=1\)</span>, <span class="math inline">\(u=0.5\)</span>인 경우를 특별히 Haar 웨이블릿 변환(Haar wavelet transformation)이라고 부르는 것이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-40"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-46"></span>
 <img src="images/advmultiscale_lifting02.png" alt="Standard lifting scheme using primal and dual lifting." width="235" />
 <p class="caption">
 Figure 15.2: Standard lifting scheme using primal and dual lifting.
 </p>
 </div>
 <p>리프팅의 <strong>역변환(backward transform)</strong>은 다음과 같다. <span class="math display">\[\text{짝(even)=평균(average)-u차이(difference)} \]</span> <span class="math display">\[\text{홀(odd)=차이(difference)+p짝} \]</span></p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-41"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-47"></span>
 <img src="images/advmultiscale_invlifting.png" alt="Backward lifting scheme." width="217" />
 <p class="caption">
 Figure 15.3: Backward lifting scheme.
@@ -558,8 +561,8 @@ Figure 15.4: 2D lifting scheme example.
 <div id="--max-lifting-scheme" class="section level3">
 <h3><span class="header-section-number">15.5.1</span> 최대-리프팅 스킴(max-lifting scheme)</h3>
 <p><strong>최대-리프팅 스킴(max-lifting scheme)</strong>은 Haar 변환을 좀 더 유연하게 만들고자 하는 필요로부터 출발하였다. <span class="math display">\[s_{j,k}=\frac{s_{j+1,2k}+s_{j+1,2k+1}}{2}\]</span> <span class="math display">\[d_{j,k}=s_{j+1,2k+1}-s_{j+1,2k}\]</span> Haar 변환은 data의 odd에서 even을 뺌으로써 detail signal을 generate하고 있다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-42"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-42-1.png" alt="Haar transform is not robust." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-48"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-48-1.png" alt="Haar transform is not robust." width="672" />
 <p class="caption">
 Figure 15.5: Haar transform is not robust.
 </p>

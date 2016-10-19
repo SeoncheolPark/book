@@ -170,9 +170,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.9" data-path="convergencerv.html"><a href="convergencerv.html#absolute-continuous"><i class="fa fa-check"></i><b>5.9</b> 절대연속(absolute continuous)</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="stoprocess.html"><a href="stoprocess.html"><i class="fa fa-check"></i><b>6</b> 확률과정론</a><ul>
-<li class="chapter" data-level="6.1" data-path="stoprocess.html"><a href="stoprocess.html#-continuity-of-stochastic-process"><i class="fa fa-check"></i><b>6.1</b> 확률과정에서의 연속성(continuity of stochastic process)</a><ul>
-<li class="chapter" data-level="6.1.1" data-path="stoprocess.html"><a href="stoprocess.html#continuous-sample-paths"><i class="fa fa-check"></i><b>6.1.1</b> 연속표본경로(continuous sample paths)</a></li>
+<li class="chapter" data-level="6.1" data-path="stoprocess.html"><a href="stoprocess.html#stochastic-process"><i class="fa fa-check"></i><b>6.1</b> 확률과정이란?(stochastic process)</a></li>
+<li class="chapter" data-level="6.2" data-path="stoprocess.html"><a href="stoprocess.html#-continuity-of-stochastic-process"><i class="fa fa-check"></i><b>6.2</b> 확률과정에서의 연속성(continuity of stochastic process)</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="stoprocess.html"><a href="stoprocess.html#continuous-sample-paths"><i class="fa fa-check"></i><b>6.2.1</b> 연속표본경로(continuous sample paths)</a></li>
 </ul></li>
+<li class="chapter" data-level="6.3" data-path="stoprocess.html"><a href="stoprocess.html#brown-motion"><i class="fa fa-check"></i><b>6.3</b> 브라운운동(Brown motion)</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="freqts.html"><a href="freqts.html"><i class="fa fa-check"></i><b>7</b> 주파수 영역에서의 시계열분석</a></li>
 <li class="part"><span><b>Multiscale Methods in Statistics</b></span></li>
@@ -195,6 +197,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.1.2" data-path="spectral.html"><a href="spectral.html#aliasing"><i class="fa fa-check"></i><b>9.1.2</b> 앨리어싱(aliasing)</a></li>
 </ul></li>
 <li class="chapter" data-level="9.2" data-path="spectral.html"><a href="spectral.html#periodogram"><i class="fa fa-check"></i><b>9.2</b> 피리오도그램(periodogram)</a></li>
+<li class="chapter" data-level="9.3" data-path="spectral.html"><a href="spectral.html#r-r-periodogram"><i class="fa fa-check"></i><b>9.3</b> R 예제(R-periodogram)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="multiscale.html"><a href="multiscale.html"><i class="fa fa-check"></i><b>10</b> 다중척도 방법론</a><ul>
 <li class="chapter" data-level="10.1" data-path="multiscale.html"><a href="multiscale.html#-multiscale-transform"><i class="fa fa-check"></i><b>10.1</b> 다중척도 변환(multiscale transform)</a></li>
@@ -478,7 +481,7 @@ d_{J-2,l}&amp;=&amp;c_{J-1,2l}-c_{J-1,2l-1},l=1,2,\ldots,\frac{n}{4}\\
 <p>로 정의된다. 예를 들어, <span class="math inline">\(d_{J-2,1}=(y_{4}+y_{3})-(y_{2}+y_{1})\)</span>이다. 마찬가지로 <span class="math inline">\(J-2\)</span> 레벨에서의 성김은 <span class="math display">\[
 c_{J-2,l}=c_{J-1,2l}+c_{J-1,2l-1},l=1,2,\ldots,\frac{n}{4}
 \]</span> 이다. 앞서 말한 다중척도 과정을 그림으로 요약하면 다음과 같다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-17"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-23"></span>
 <img src="images/multiscale_001.png" alt="Generic step in multiscale transform." width="269" />
 <p class="caption">
 Figure 10.1: Generic step in multiscale transform.
@@ -486,7 +489,7 @@ Figure 10.1: Generic step in multiscale transform.
 </div>
 <div class="example">
 <p>다음과 같은 자료 <span class="math inline">\(\mathbf{y}=(1,1,7,9,2,8,8,6)\)</span>를 생각해보자. 그러면 <span class="math inline">\(J=0,1,2\)</span>에서의 상세와 성김은</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-18"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-24"></span>
 <img src="images/multiscale_002.png" alt="Graphical depiction of a multiscale transform." width="276" />
 <p class="caption">
 Figure 10.2: Graphical depiction of a multiscale transform.
@@ -506,7 +509,7 @@ Figure 10.2: Graphical depiction of a multiscale transform.
 </div>
 <div id="sparsity" class="section level2">
 <h2><span class="header-section-number">10.3</span> 희소성(sparsity)</h2>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-19"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-25"></span>
 <img src="images/multiscale_003.png" alt="Example of sparse function." width="412" />
 <p class="caption">
 Figure 10.3: Example of sparse function.
@@ -537,7 +540,7 @@ Figure 10.3: Example of sparse function.
 </ul>
 <p>등으로 구분할 수 있다.</p>
 <p>다음은 <strong>선형 필터(linear filter)</strong>에서 쓰이는 용어들이다. 여기서 원하지 않는 특징들은 주로 주파수를 의미하는 것이라 볼 수 있다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-20"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-26"></span>
 <img src="images/multiscale_Bandform.png" alt="Various forms of linear filters." width="960" />
 <p class="caption">
 Figure 10.4: Various forms of linear filters.
@@ -588,8 +591,8 @@ ywd$filter</code></pre></div>
 <pre><code>&gt; [1]  0.000000 -1.414214 -4.242641  1.414214</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## plot wavelet decomposition coefficients
 <span class="kw">plot</span>(ywd)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-22"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-22-1.png" alt="Wavelet decomposition coefficients." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-28"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-28-1.png" alt="Wavelet decomposition coefficients." width="672" />
 <p class="caption">
 Figure 10.5: Wavelet decomposition coefficients.
 </p>

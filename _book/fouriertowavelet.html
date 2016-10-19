@@ -170,9 +170,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.9" data-path="convergencerv.html"><a href="convergencerv.html#absolute-continuous"><i class="fa fa-check"></i><b>5.9</b> 절대연속(absolute continuous)</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="stoprocess.html"><a href="stoprocess.html"><i class="fa fa-check"></i><b>6</b> 확률과정론</a><ul>
-<li class="chapter" data-level="6.1" data-path="stoprocess.html"><a href="stoprocess.html#-continuity-of-stochastic-process"><i class="fa fa-check"></i><b>6.1</b> 확률과정에서의 연속성(continuity of stochastic process)</a><ul>
-<li class="chapter" data-level="6.1.1" data-path="stoprocess.html"><a href="stoprocess.html#continuous-sample-paths"><i class="fa fa-check"></i><b>6.1.1</b> 연속표본경로(continuous sample paths)</a></li>
+<li class="chapter" data-level="6.1" data-path="stoprocess.html"><a href="stoprocess.html#stochastic-process"><i class="fa fa-check"></i><b>6.1</b> 확률과정이란?(stochastic process)</a></li>
+<li class="chapter" data-level="6.2" data-path="stoprocess.html"><a href="stoprocess.html#-continuity-of-stochastic-process"><i class="fa fa-check"></i><b>6.2</b> 확률과정에서의 연속성(continuity of stochastic process)</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="stoprocess.html"><a href="stoprocess.html#continuous-sample-paths"><i class="fa fa-check"></i><b>6.2.1</b> 연속표본경로(continuous sample paths)</a></li>
 </ul></li>
+<li class="chapter" data-level="6.3" data-path="stoprocess.html"><a href="stoprocess.html#brown-motion"><i class="fa fa-check"></i><b>6.3</b> 브라운운동(Brown motion)</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="freqts.html"><a href="freqts.html"><i class="fa fa-check"></i><b>7</b> 주파수 영역에서의 시계열분석</a></li>
 <li class="part"><span><b>Multiscale Methods in Statistics</b></span></li>
@@ -195,6 +197,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.1.2" data-path="spectral.html"><a href="spectral.html#aliasing"><i class="fa fa-check"></i><b>9.1.2</b> 앨리어싱(aliasing)</a></li>
 </ul></li>
 <li class="chapter" data-level="9.2" data-path="spectral.html"><a href="spectral.html#periodogram"><i class="fa fa-check"></i><b>9.2</b> 피리오도그램(periodogram)</a></li>
+<li class="chapter" data-level="9.3" data-path="spectral.html"><a href="spectral.html#r-r-periodogram"><i class="fa fa-check"></i><b>9.3</b> R 예제(R-periodogram)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="multiscale.html"><a href="multiscale.html"><i class="fa fa-check"></i><b>10</b> 다중척도 방법론</a><ul>
 <li class="chapter" data-level="10.1" data-path="multiscale.html"><a href="multiscale.html#-multiscale-transform"><i class="fa fa-check"></i><b>10.1</b> 다중척도 변환(multiscale transform)</a></li>
@@ -491,8 +494,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   \end{cases}
 \end{equation}
 <p>으로 정의된다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-10-1.png" alt="Haar wavelet function." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-11"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-11-1.png" alt="Haar wavelet function." width="672" />
 <p class="caption">
 Figure 8.1: Haar wavelet function.
 </p>
@@ -500,8 +503,8 @@ Figure 8.1: Haar wavelet function.
 </div>
 <div class="example">
 <p><strong>Mexican hat wavelet</strong>은 <span class="math display">\[\psi(t) \equiv \frac{2}{\sqrt{3}\sigma\pi^{1/4}}(1-\frac{t^{2}}{\sigma^{2}})e^{-t^{2}/(2\sigma^{2})}\]</span> 으로 정의된다. 이 웨이블릿은 가우스 함수를 변형해서 얻을 수 있다고 한다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-11"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-11-1.png" alt="Mexican hat wavelet function." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-12"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-12-1.png" alt="Mexican hat wavelet function." width="672" />
 <p class="caption">
 Figure 8.2: Mexican hat wavelet function.
 </p>
@@ -513,7 +516,7 @@ Figure 8.2: Mexican hat wavelet function.
 <h2><span class="header-section-number">8.3</span> 웨이블릿 변환(wavelet transform)</h2>
 <p>수학적 용어로 <strong>웨이블릿 변환</strong>은 웨이블릿의 <strong>합성곱(convolution)</strong>이다. 여기서 잠시 합성곱에 대해 살펴보면, <span class="math inline">\(f\)</span>, <span class="math inline">\(g\)</span>라는 두 함수의 <span class="math inline">\([0,t]\)</span>까지 범위에서 합성곱은 <span class="math display">\[\int_{0}^{\tau}f(\tau)g(t-\tau)d\tau\]</span> 이다.</p>
 <p>이 합성곲은 웨이블릿의 모양을 변화시키기 위해 두 모수를 갖는다. 하나는 <span class="math inline">\(a\)</span>로 표시되는 <strong>팽창모수(dilatation parameter)</strong>이며, domain에서 웨이블릿의 팽창과 수축을 결정해준다. 다른 하나는 <span class="math inline">\(b\)</span>로 표시되는 <strong>이동모수(translation parameter)</strong>로, 축을 따라 웨이블릿을 움직여준다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-12"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-13"></span>
 <img src="images/multiscale_Transform.png" alt="(a) Dilatation and (b) translation of a wavelet." width="630" />
 <p class="caption">
 Figure 8.3: (a) Dilatation and (b) translation of a wavelet.
@@ -544,7 +547,7 @@ Figure 8.3: (a) Dilatation and (b) translation of a wavelet.
 <p>이 때 <span class="math inline">\(\phi(t)\)</span>를 <strong>척도함수(scaling function)</strong> 또는 <strong>부웨이블릿(father wavelet)</strong>이라고 부른다. 참고할만한 사항으로 다중해상도 분석의 정의는 <span class="math inline">\(\phi(t)\)</span>의 존재에 대한 어떤 정보도 주지 않는다. 그러나 우리가 만약 바람직한 함수 <span class="math inline">\(\phi(t)\)</span>를 찾는다면 <span class="math inline">\(\{ \phi(t-n), n\in\mathbb{Z}\}\)</span>가 span하는 함수공간 <span class="math inline">\(\mathcal{V}_{0}\)</span>를 정의할 수 있고 앞선 정의의 3번을 이용해 <span class="math inline">\(V_{j}\)</span>들을 계속해서 만들어내 다중해상도 분석 <span class="math inline">\(\mathcal{V}_{j}\)</span>를 만들 수 있다. 즉 다시말하면 척도함수 <span class="math inline">\(\phi(t)\)</span>가 다중해상도 분석 <span class="math inline">\(\{ \mathcal{V}_{j}\}\)</span>를 생성한다.</p>
 <div class="example">
 <p><span class="math inline">\(L^{2}(\mathbb{R})\)</span>에서 어떤 구간 <span class="math inline">\([2^{-m}n, 2^{-m}(n+1)], \forall n\in\mathbb{Z}\)</span>에서만 상수값을 갖는 모든 함수들의 집합 <span class="math inline">\(\mathcal{V}_{m}\)</span>을 생각해보자. 그러면 <span class="math inline">\(\mathcal{V}_{m}\)</span>은 다중해상도 분석의 조건 1부터 3까지를 만족시킨다(<span class="math inline">\(\phi\)</span>들은 기저이다. 잘 생각해 볼 것)</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-13"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-14"></span>
 <img src="images/multiscale_Multiscaleanalysis.png" alt="(a) Dilatation and (b) translation of a wavelet." width="628" />
 <p class="caption">
 Figure 8.4: (a) Dilatation and (b) translation of a wavelet.
@@ -565,7 +568,7 @@ Figure 8.4: (a) Dilatation and (b) translation of a wavelet.
 <h3><span class="header-section-number">8.4.2</span> 직교분해(orthogonal decomposition)</h3>
 <p>다중해상도 분석이 중요한 것은 이것이 <span class="math inline">\(L^{2}(\mathbb{R})\)</span>에서의 직교정규 기저(orthonormal basis, i.e. a complete orthonormal set of functions)를 구성할 수 있게 해준다는 것이다. 이 말을 입증하기 위해 우선 다중해상도 분석 <span class="math inline">\(\{\mathcal{V}_{j}\}\)</span>가 다음 관계 <span class="math display">\[\mathcal{V}_{0}\subset\mathcal{V}_{1}\subset\mathcal{V}_{2}\subset\cdots \subset L^{2}\]</span> 를 만족한다는 것이다.</p>
 <p>이제 다음과 같이 <span class="math inline">\(\mathcal{V}_{0}\)</span>와 <span class="math inline">\(\mathcal{V}_{1}\)</span>의 <strong>직교 여공간(orthogonal complement)</strong> <span class="math inline">\(\mathcal{W}_{0}\)</span> <span class="math display">\[\mathcal{V}_{1}=\mathcal{V}_{0}\oplus\mathcal{W}_{0}\]</span> 을 정의한다. 여기서 <span class="math inline">\(\oplus\)</span>는 주어진 벡터공간들의 <strong>직합(direct sum)</strong>이다. 공간 <span class="math inline">\(\mathcal{W}_{0}\)</span>을 0차원에서의 <strong>웨이블릿 공간(wavelet space)</strong>이라고 부른다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-14"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-15"></span>
 <img src="images/multiscale_Orthogonalcomplement.png" alt="Hierarchical structure of the space V and W as subspace of L2." width="438" />
 <p class="caption">
 Figure 8.5: Hierarchical structure of the space V and W as subspace of L2.
@@ -599,7 +602,7 @@ x(t)&amp;=&amp; \cdots + g_{-1}(t)+g_{0}(t)+g_{1}(t)+\cdots\\
 </div>
 <div class="example">
 <p>다음과 같이 <span class="math inline">\(L^{2}(\mathbb{R})\)</span>의 함수들을 모두 포함하고 구간 <span class="math inline">\([2^{-m}n, 2^{-m}(n+1)], n\in\mathbb{Z}\)</span>에서 상수값을 갖는 공간 <span class="math inline">\(\mathcal{V}_{m}\)</span>에 대해 생각해보자. 이 다중해상도 해석은 앞 예제에서 등장했던 척도함수 <span class="math inline">\(\phi(t)\)</span>에 의해 생성됨이 알려져있다. <span class="math display">\[p_{0}=p_{1}=\frac{1}{2} \text{ and } p_{n}=0 \text{ for }n\neq 0,1.\]</span> 따라서, 이 예의 두-스케일 관계식은 <span class="math display">\[phi(t)=\phi(2t)+\phi(2t-1)\]</span> 이 된다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-15"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-16"></span>
 <img src="images/multiscale_Twoscale.png" alt="Two-scale relation of phi(t)." width="264" />
 <p class="caption">
 Figure 8.6: Two-scale relation of phi(t).

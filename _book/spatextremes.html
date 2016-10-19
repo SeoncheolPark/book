@@ -170,9 +170,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.9" data-path="convergencerv.html"><a href="convergencerv.html#absolute-continuous"><i class="fa fa-check"></i><b>5.9</b> 절대연속(absolute continuous)</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="stoprocess.html"><a href="stoprocess.html"><i class="fa fa-check"></i><b>6</b> 확률과정론</a><ul>
-<li class="chapter" data-level="6.1" data-path="stoprocess.html"><a href="stoprocess.html#-continuity-of-stochastic-process"><i class="fa fa-check"></i><b>6.1</b> 확률과정에서의 연속성(continuity of stochastic process)</a><ul>
-<li class="chapter" data-level="6.1.1" data-path="stoprocess.html"><a href="stoprocess.html#continuous-sample-paths"><i class="fa fa-check"></i><b>6.1.1</b> 연속표본경로(continuous sample paths)</a></li>
+<li class="chapter" data-level="6.1" data-path="stoprocess.html"><a href="stoprocess.html#stochastic-process"><i class="fa fa-check"></i><b>6.1</b> 확률과정이란?(stochastic process)</a></li>
+<li class="chapter" data-level="6.2" data-path="stoprocess.html"><a href="stoprocess.html#-continuity-of-stochastic-process"><i class="fa fa-check"></i><b>6.2</b> 확률과정에서의 연속성(continuity of stochastic process)</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="stoprocess.html"><a href="stoprocess.html#continuous-sample-paths"><i class="fa fa-check"></i><b>6.2.1</b> 연속표본경로(continuous sample paths)</a></li>
 </ul></li>
+<li class="chapter" data-level="6.3" data-path="stoprocess.html"><a href="stoprocess.html#brown-motion"><i class="fa fa-check"></i><b>6.3</b> 브라운운동(Brown motion)</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="freqts.html"><a href="freqts.html"><i class="fa fa-check"></i><b>7</b> 주파수 영역에서의 시계열분석</a></li>
 <li class="part"><span><b>Multiscale Methods in Statistics</b></span></li>
@@ -195,6 +197,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.1.2" data-path="spectral.html"><a href="spectral.html#aliasing"><i class="fa fa-check"></i><b>9.1.2</b> 앨리어싱(aliasing)</a></li>
 </ul></li>
 <li class="chapter" data-level="9.2" data-path="spectral.html"><a href="spectral.html#periodogram"><i class="fa fa-check"></i><b>9.2</b> 피리오도그램(periodogram)</a></li>
+<li class="chapter" data-level="9.3" data-path="spectral.html"><a href="spectral.html#r-r-periodogram"><i class="fa fa-check"></i><b>9.3</b> R 예제(R-periodogram)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="multiscale.html"><a href="multiscale.html"><i class="fa fa-check"></i><b>10</b> 다중척도 방법론</a><ul>
 <li class="chapter" data-level="10.1" data-path="multiscale.html"><a href="multiscale.html#-multiscale-transform"><i class="fa fa-check"></i><b>10.1</b> 다중척도 변환(multiscale transform)</a></li>
@@ -494,7 +497,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 \end{equation}
 <p>를 만족한다.</p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-93"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-99"></span>
 <img src="images/spatextremes_002.png" alt="de Haans characterization." width="166" />
 <p class="caption">
 Figure 39.1: de Haans characterization.
@@ -504,7 +507,7 @@ Figure 39.1: de Haans characterization.
 <div class="theorem">
 <p>(<span class="citation">(Schlather <a href="#ref-Schlather2002">2002</a>)</span>의 characterization) <span class="math inline">\(\{ (\xi_{i}, U_{i})\}_{i \geq 1}\)</span>이 <span class="math inline">\((0,\infty ]\)</span>에서 intensity <span class="math inline">\(d \Lambda (\xi)=\xi^{-2}d\xi\)</span>를 갖는 <strong>Poisson point process</strong>의 점들이고 <span class="math inline">\(Y_{1},Y_{2},\ldots\)</span>를 <span class="math inline">\(E[Y(x)]=1, \forall x \in \mathbb{R}^{d}\)</span> 이고 non-negative continous sample path stochastic process <span class="math inline">\(\{ Y(x)\}\)</span>의 independent copy들이라고 하자. 이때 <span class="math inline">\(Y_{i}\)</span>들은 <span class="math inline">\(\{ \xi_{i}\}_{i \geq 1}\)</span>와 독립이다. 그러면 <span class="math display">\[ \{ Z(x)\}_{x\in\mathbb{R}^{d}}:=\{\max_{i\geq 1} \xi_{i}Y_{i}(x) \}_{x\in \mathbb{R}^{d}}\]</span> 는 unit Fréchet margin을 가지는 최대안정과정이다.</p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-94"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-100"></span>
 <img src="images/spatextremes_004.png" alt="Schlathers characterization" width="164" />
 <p class="caption">
 Figure 39.2: Schlathers characterization
@@ -518,8 +521,8 @@ Figure 39.2: Schlathers characterization
 Z(x)=\max_{i\geq 1}\xi_{i}\phi(x-U_{i};\mathbf{0},\Sigma), x\in\mathcal{X},
 \end{equation}
 <p>이때 <span class="math inline">\(\phi(\cdot, \mathbf{0},\Sigma)\)</span>는 평균이 0이고 공분산이 <span class="math inline">\(\Sigma\)</span>인 <strong>다변량 정규 확률밀도함수(multivariate Normal density)</strong>이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-95"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-95-1.png" alt="Smith model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-101"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-101-1.png" alt="Smith model." width="672" />
 <p class="caption">
 Figure 39.3: Smith model.
 </p>
@@ -533,8 +536,8 @@ Figure 39.3: Smith model.
 Z(x)=\sqrt{2\pi}\max_{i\geq 1}\zeta_{i}\max\{0,W_{i}(x)\}
 \end{equation}
 <p>로 이때 <span class="math inline">\(\{W_{i}(x): x\in\mathcal{X}\}\)</span>는 상관함수(correlation function) <span class="math inline">\(\rho\)</span>를 갖는 <strong>정상 가우스과정(staionary Gaussian process)</strong>의 독립된 copy들이다. 또한 척도요인(scaling factor) <span class="math inline">\(\sqrt{2\pi}\)</span>는 모든 <span class="math inline">\(x\in\mathcal{X}\)</span>에 대해 <span class="math inline">\(\sqrt{2\pi}E[\max\{ 0,W(x)\}]=1\)</span>를 만족해야 한다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-96"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-96-1.png" alt="Schlather model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-102"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-102-1.png" alt="Schlather model." width="672" />
 <p class="caption">
 Figure 39.4: Schlather model.
 </p>

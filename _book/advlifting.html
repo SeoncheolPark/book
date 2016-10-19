@@ -170,9 +170,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.9" data-path="convergencerv.html"><a href="convergencerv.html#absolute-continuous"><i class="fa fa-check"></i><b>5.9</b> 절대연속(absolute continuous)</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="stoprocess.html"><a href="stoprocess.html"><i class="fa fa-check"></i><b>6</b> 확률과정론</a><ul>
-<li class="chapter" data-level="6.1" data-path="stoprocess.html"><a href="stoprocess.html#-continuity-of-stochastic-process"><i class="fa fa-check"></i><b>6.1</b> 확률과정에서의 연속성(continuity of stochastic process)</a><ul>
-<li class="chapter" data-level="6.1.1" data-path="stoprocess.html"><a href="stoprocess.html#continuous-sample-paths"><i class="fa fa-check"></i><b>6.1.1</b> 연속표본경로(continuous sample paths)</a></li>
+<li class="chapter" data-level="6.1" data-path="stoprocess.html"><a href="stoprocess.html#stochastic-process"><i class="fa fa-check"></i><b>6.1</b> 확률과정이란?(stochastic process)</a></li>
+<li class="chapter" data-level="6.2" data-path="stoprocess.html"><a href="stoprocess.html#-continuity-of-stochastic-process"><i class="fa fa-check"></i><b>6.2</b> 확률과정에서의 연속성(continuity of stochastic process)</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="stoprocess.html"><a href="stoprocess.html#continuous-sample-paths"><i class="fa fa-check"></i><b>6.2.1</b> 연속표본경로(continuous sample paths)</a></li>
 </ul></li>
+<li class="chapter" data-level="6.3" data-path="stoprocess.html"><a href="stoprocess.html#brown-motion"><i class="fa fa-check"></i><b>6.3</b> 브라운운동(Brown motion)</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="freqts.html"><a href="freqts.html"><i class="fa fa-check"></i><b>7</b> 주파수 영역에서의 시계열분석</a></li>
 <li class="part"><span><b>Multiscale Methods in Statistics</b></span></li>
@@ -195,6 +197,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.1.2" data-path="spectral.html"><a href="spectral.html#aliasing"><i class="fa fa-check"></i><b>9.1.2</b> 앨리어싱(aliasing)</a></li>
 </ul></li>
 <li class="chapter" data-level="9.2" data-path="spectral.html"><a href="spectral.html#periodogram"><i class="fa fa-check"></i><b>9.2</b> 피리오도그램(periodogram)</a></li>
+<li class="chapter" data-level="9.3" data-path="spectral.html"><a href="spectral.html#r-r-periodogram"><i class="fa fa-check"></i><b>9.3</b> R 예제(R-periodogram)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="multiscale.html"><a href="multiscale.html"><i class="fa fa-check"></i><b>10</b> 다중척도 방법론</a><ul>
 <li class="chapter" data-level="10.1" data-path="multiscale.html"><a href="multiscale.html#-multiscale-transform"><i class="fa fa-check"></i><b>10.1</b> 다중척도 변환(multiscale transform)</a></li>
@@ -502,7 +505,7 @@ c_{rj}:=c_{rj}+d_{i}b_{j},\forall j\in J.
 </div>
 <div id="locaat-example-of-locaat" class="section level3">
 <h3><span class="header-section-number">16.2.3</span> LOCAAT의 예(example of LOCAAT)</h3>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-43"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-49"></span>
 <img src="images/advmultiscale_LOCAAT01.png" alt="Toy network on which we assume the data [1,1,-1,-1] is observed. We also assume the nodes are separated by distance of 1 unit." width="486" />
 <p class="caption">
 Figure 16.1: Toy network on which we assume the data [1,1,-1,-1] is observed. We also assume the nodes are separated by distance of 1 unit.
@@ -524,7 +527,7 @@ Figure 16.1: Toy network on which we assume the data [1,1,-1,-1] is observed. We
 <div id="spatial-model" class="section level2">
 <h2><span class="header-section-number">16.4</span> Spatial model</h2>
 <p><span class="math inline">\((k,j)\)</span>를 노드 <span class="math inline">\(k\)</span>와 <span class="math inline">\(j\)</span>의 엣지(edge)라고 하고 <span class="math inline">\(\delta_{kj}\)</span>를 노드 <span class="math inline">\(k\)</span>와 <span class="math inline">\(j\)</span>의 거리라고 하자. <span class="citation">(M. Jansen, Nason, and Silverman <a href="#ref-Jansen2008">2008</a>)</span>는 tree-based network structure를 이용해 알고리즘으 구현하였다. 리프팅을 통해 제거할 때마다 minimum spanning tree (MST) 방법을 통해 트리를 업데이트한다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-44"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-50"></span>
 <img src="images/advmultiscale_LOCAAT02.png" alt="Simple network and its edge entries of spatial data." width="558" />
 <p class="caption">
 Figure 16.2: Simple network and its edge entries of spatial data.
@@ -544,7 +547,7 @@ Figure 16.2: Simple network and its edge entries of spatial data.
 <p>We consider distance along spatial dimension as Euclidean distance and the distance in the time dimension as the minimum distance in the spatial dimension multiplied by some temporal scale factor -&gt; 이것을 <span class="math inline">\(l_{t}\)</span>라고 놓는다.</p>
 <p>이 척도 factor는 시간 domain의 어떠한 irregularity라도 유지하기 위해서라고 한다.</p>
 <p><span class="math inline">\(\delta^{min}\)</span>을 모든 노드에서의 최소 spatial edge distance, 즉 <span class="math display">\[\delta^{min}=\min \{ (\delta_{kj})_{j\in J_{k}, k\in \mathcal{N}_{1}}\}\]</span> 이라고 하자. 그리고 두 가지 경우의 시공간 네트워크를 고려하자.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-45"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-51"></span>
 <img src="images/advmultiscale_LOCAAT03.png" alt="Two spatio-temporal network examples." width="670" />
 <p class="caption">
 Figure 16.3: Two spatio-temporal network examples.
@@ -553,7 +556,7 @@ Figure 16.3: Two spatio-temporal network examples.
 <div id="case-1" class="section level3">
 <h3><span class="header-section-number">16.6.1</span> Case 1</h3>
 <p>첫번째 경우는 최초 시간에서의 엣지 구조가 시간이 지남에 따라 변하지 않고 계속 유지되는 경우다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-46"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-52"></span>
 <img src="images/advmultiscale_LOCAAT03.png" alt="Extending the spatial network to the spatio-temporal network." width="670" />
 <p class="caption">
 Figure 16.4: Extending the spatial network to the spatio-temporal network.

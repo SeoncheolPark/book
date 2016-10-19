@@ -170,9 +170,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.9" data-path="convergencerv.html"><a href="convergencerv.html#absolute-continuous"><i class="fa fa-check"></i><b>5.9</b> 절대연속(absolute continuous)</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="stoprocess.html"><a href="stoprocess.html"><i class="fa fa-check"></i><b>6</b> 확률과정론</a><ul>
-<li class="chapter" data-level="6.1" data-path="stoprocess.html"><a href="stoprocess.html#-continuity-of-stochastic-process"><i class="fa fa-check"></i><b>6.1</b> 확률과정에서의 연속성(continuity of stochastic process)</a><ul>
-<li class="chapter" data-level="6.1.1" data-path="stoprocess.html"><a href="stoprocess.html#continuous-sample-paths"><i class="fa fa-check"></i><b>6.1.1</b> 연속표본경로(continuous sample paths)</a></li>
+<li class="chapter" data-level="6.1" data-path="stoprocess.html"><a href="stoprocess.html#stochastic-process"><i class="fa fa-check"></i><b>6.1</b> 확률과정이란?(stochastic process)</a></li>
+<li class="chapter" data-level="6.2" data-path="stoprocess.html"><a href="stoprocess.html#-continuity-of-stochastic-process"><i class="fa fa-check"></i><b>6.2</b> 확률과정에서의 연속성(continuity of stochastic process)</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="stoprocess.html"><a href="stoprocess.html#continuous-sample-paths"><i class="fa fa-check"></i><b>6.2.1</b> 연속표본경로(continuous sample paths)</a></li>
 </ul></li>
+<li class="chapter" data-level="6.3" data-path="stoprocess.html"><a href="stoprocess.html#brown-motion"><i class="fa fa-check"></i><b>6.3</b> 브라운운동(Brown motion)</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="freqts.html"><a href="freqts.html"><i class="fa fa-check"></i><b>7</b> 주파수 영역에서의 시계열분석</a></li>
 <li class="part"><span><b>Multiscale Methods in Statistics</b></span></li>
@@ -195,6 +197,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.1.2" data-path="spectral.html"><a href="spectral.html#aliasing"><i class="fa fa-check"></i><b>9.1.2</b> 앨리어싱(aliasing)</a></li>
 </ul></li>
 <li class="chapter" data-level="9.2" data-path="spectral.html"><a href="spectral.html#periodogram"><i class="fa fa-check"></i><b>9.2</b> 피리오도그램(periodogram)</a></li>
+<li class="chapter" data-level="9.3" data-path="spectral.html"><a href="spectral.html#r-r-periodogram"><i class="fa fa-check"></i><b>9.3</b> R 예제(R-periodogram)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="multiscale.html"><a href="multiscale.html"><i class="fa fa-check"></i><b>10</b> 다중척도 방법론</a><ul>
 <li class="chapter" data-level="10.1" data-path="multiscale.html"><a href="multiscale.html#-multiscale-transform"><i class="fa fa-check"></i><b>10.1</b> 다중척도 변환(multiscale transform)</a></li>
@@ -480,8 +483,8 @@ P\{M_{n} \leq z \} &amp;=&amp; P\{X_{1}\leq z, \ldots, X_{n} \leq z\} \nonumber\
 1, &amp; \text{z $\geq$ b}
 \end{cases}\]</span> 이 때 <span class="math inline">\(a&gt;0\)</span>, <span class="math inline">\(b\)</span>는 모수들이고 <span class="math inline">\(\alpha &gt;0\)</span>이다.</p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-81"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-81-1.png" alt="Plot of three GEV distributions." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-87"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-87-1.png" alt="Plot of three GEV distributions." width="672" />
 <p class="caption">
 Figure 37.1: Plot of three GEV distributions.
 </p>
@@ -582,8 +585,8 @@ P\{(M_{n}-b_{n})/a_{n} \leq z \} &amp;=&amp; F^{n}(z+\log n) \nonumber\\
 <span class="kw">plot</span>(TMX1~Year, <span class="dt">data=</span>SEPTsp, <span class="dt">type=</span><span class="st">&quot;h&quot;</span>)
 <span class="kw">plot</span>(TMX1~AOindex, <span class="dt">data=</span>SEPTsp, <span class="dt">pch=</span><span class="dv">21</span>)
 <span class="kw">plot</span>(TMX1~MDTR, <span class="dt">data=</span>SEPTsp, <span class="dt">pch=</span><span class="dv">21</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-83"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-83-1.png" alt="Plot maximum winter temperature." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-89"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-89-1.png" alt="Plot maximum winter temperature." width="672" />
 <p class="caption">
 Figure 37.2: Plot maximum winter temperature.
 </p>
@@ -617,8 +620,8 @@ fit0</code></pre></div>
 &gt; 
 &gt;  BIC = 281.6045</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(fit0)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-84"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-84-1.png" alt="Fit a GEV distribution." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-90"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-90-1.png" alt="Fit a GEV distribution." width="672" />
 <p class="caption">
 Figure 37.3: Fit a GEV distribution.
 </p>
@@ -670,8 +673,8 @@ fit1</code></pre></div>
 &gt; 
 &gt;  BIC = 284.6385</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(fit1)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-85"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-85-1.png" alt="Fit a GEV distribution with AOindex." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-91"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-91-1.png" alt="Fit a GEV distribution with AOindex." width="672" />
 <p class="caption">
 Figure 37.4: Fit a GEV distribution with AOindex.
 </p>
@@ -717,8 +720,8 @@ fit2</code></pre></div>
 &gt; 
 &gt;  BIC = 284.1466</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(fit2)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-86"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-86-1.png" alt="Fit a GEV distribution with STDTMAX." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-92"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-92-1.png" alt="Fit a GEV distribution with STDTMAX." width="672" />
 <p class="caption">
 Figure 37.5: Fit a GEV distribution with STDTMAX.
 </p>

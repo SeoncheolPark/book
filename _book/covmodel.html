@@ -170,9 +170,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.9" data-path="convergencerv.html"><a href="convergencerv.html#absolute-continuous"><i class="fa fa-check"></i><b>5.9</b> 절대연속(absolute continuous)</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="stoprocess.html"><a href="stoprocess.html"><i class="fa fa-check"></i><b>6</b> 확률과정론</a><ul>
-<li class="chapter" data-level="6.1" data-path="stoprocess.html"><a href="stoprocess.html#-continuity-of-stochastic-process"><i class="fa fa-check"></i><b>6.1</b> 확률과정에서의 연속성(continuity of stochastic process)</a><ul>
-<li class="chapter" data-level="6.1.1" data-path="stoprocess.html"><a href="stoprocess.html#continuous-sample-paths"><i class="fa fa-check"></i><b>6.1.1</b> 연속표본경로(continuous sample paths)</a></li>
+<li class="chapter" data-level="6.1" data-path="stoprocess.html"><a href="stoprocess.html#stochastic-process"><i class="fa fa-check"></i><b>6.1</b> 확률과정이란?(stochastic process)</a></li>
+<li class="chapter" data-level="6.2" data-path="stoprocess.html"><a href="stoprocess.html#-continuity-of-stochastic-process"><i class="fa fa-check"></i><b>6.2</b> 확률과정에서의 연속성(continuity of stochastic process)</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="stoprocess.html"><a href="stoprocess.html#continuous-sample-paths"><i class="fa fa-check"></i><b>6.2.1</b> 연속표본경로(continuous sample paths)</a></li>
 </ul></li>
+<li class="chapter" data-level="6.3" data-path="stoprocess.html"><a href="stoprocess.html#brown-motion"><i class="fa fa-check"></i><b>6.3</b> 브라운운동(Brown motion)</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="freqts.html"><a href="freqts.html"><i class="fa fa-check"></i><b>7</b> 주파수 영역에서의 시계열분석</a></li>
 <li class="part"><span><b>Multiscale Methods in Statistics</b></span></li>
@@ -195,6 +197,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.1.2" data-path="spectral.html"><a href="spectral.html#aliasing"><i class="fa fa-check"></i><b>9.1.2</b> 앨리어싱(aliasing)</a></li>
 </ul></li>
 <li class="chapter" data-level="9.2" data-path="spectral.html"><a href="spectral.html#periodogram"><i class="fa fa-check"></i><b>9.2</b> 피리오도그램(periodogram)</a></li>
+<li class="chapter" data-level="9.3" data-path="spectral.html"><a href="spectral.html#r-r-periodogram"><i class="fa fa-check"></i><b>9.3</b> R 예제(R-periodogram)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="multiscale.html"><a href="multiscale.html"><i class="fa fa-check"></i><b>10</b> 다중척도 방법론</a><ul>
 <li class="chapter" data-level="10.1" data-path="multiscale.html"><a href="multiscale.html#-multiscale-transform"><i class="fa fa-check"></i><b>10.1</b> 다중척도 변환(multiscale transform)</a></li>
@@ -474,7 +477,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="--idealized-shape-of-variogram-isotropic-case" class="section level2">
 <h2><span class="header-section-number">24.2</span> 이상적인 변동도의 모양(idealized Shape of Variogram (isotropic case))</h2>
 <p>그렇다면 일반적으로 생각하는 변동도의 모양은 어떠한가?</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-58"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-64"></span>
 <img src="images/sp_variogram.png" alt="Variogram example." width="196" />
 <p class="caption">
 Figure 24.1: Variogram example.
@@ -489,8 +492,8 @@ Figure 24.1: Variogram example.
 <div id="----classical-parametric-isotropic-variogram-models" class="section level2">
 <h2><span class="header-section-number">24.4</span> 대표적인 모수 등방성 변동도 모형들(classical parametric isotropic variogram models)</h2>
 <p>여기서는 총 9가지의 변동도 모형을 소개한다. 그러나 실제로 널리 쓰이는 모델은 ‘exponential’과 ’matern’ 두 개이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-59"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-59-1.png" alt="Various variogram models." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-65"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-65-1.png" alt="Various variogram models." width="672" />
 <p class="caption">
 Figure 24.2: Various variogram models.
 </p>
@@ -508,8 +511,8 @@ c_{0}+c_{1}\| \mathbf{h}\| &amp; \textrm{if $\mathbf{h}\neq 0$}\\
 <ol start="2" style="list-style-type: decimal">
 <li><strong>Spherical</strong></li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-60"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-60-1.png" alt="Spherical model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-66"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-66-1.png" alt="Spherical model." width="672" />
 <p class="caption">
 Figure 24.3: Spherical model.
 </p>
@@ -524,8 +527,8 @@ c_{0}+c_{1} &amp; \textrm{if $\|\mathbf{h}\|&gt;R$}\\
 <ol start="3" style="list-style-type: decimal">
 <li><strong>Exponential</strong></li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-61"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-61-1.png" alt="Exponential model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-67"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-67-1.png" alt="Exponential model." width="672" />
 <p class="caption">
 Figure 24.4: Exponential model.
 </p>
@@ -539,8 +542,8 @@ c_{0}+c_{1}(1-e^{-\frac{\|\mathbf{h}\|}{R}}) &amp; \textrm{if $\mathbf{h}\neq 0$
 <ol start="4" style="list-style-type: decimal">
 <li><strong>Gaussian</strong></li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-62"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-62-1.png" alt="Gaussian model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-68"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-68-1.png" alt="Gaussian model." width="672" />
 <p class="caption">
 Figure 24.5: Gaussian model.
 </p>

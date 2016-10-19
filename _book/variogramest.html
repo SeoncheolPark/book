@@ -170,9 +170,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.9" data-path="convergencerv.html"><a href="convergencerv.html#absolute-continuous"><i class="fa fa-check"></i><b>5.9</b> 절대연속(absolute continuous)</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="stoprocess.html"><a href="stoprocess.html"><i class="fa fa-check"></i><b>6</b> 확률과정론</a><ul>
-<li class="chapter" data-level="6.1" data-path="stoprocess.html"><a href="stoprocess.html#-continuity-of-stochastic-process"><i class="fa fa-check"></i><b>6.1</b> 확률과정에서의 연속성(continuity of stochastic process)</a><ul>
-<li class="chapter" data-level="6.1.1" data-path="stoprocess.html"><a href="stoprocess.html#continuous-sample-paths"><i class="fa fa-check"></i><b>6.1.1</b> 연속표본경로(continuous sample paths)</a></li>
+<li class="chapter" data-level="6.1" data-path="stoprocess.html"><a href="stoprocess.html#stochastic-process"><i class="fa fa-check"></i><b>6.1</b> 확률과정이란?(stochastic process)</a></li>
+<li class="chapter" data-level="6.2" data-path="stoprocess.html"><a href="stoprocess.html#-continuity-of-stochastic-process"><i class="fa fa-check"></i><b>6.2</b> 확률과정에서의 연속성(continuity of stochastic process)</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="stoprocess.html"><a href="stoprocess.html#continuous-sample-paths"><i class="fa fa-check"></i><b>6.2.1</b> 연속표본경로(continuous sample paths)</a></li>
 </ul></li>
+<li class="chapter" data-level="6.3" data-path="stoprocess.html"><a href="stoprocess.html#brown-motion"><i class="fa fa-check"></i><b>6.3</b> 브라운운동(Brown motion)</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="freqts.html"><a href="freqts.html"><i class="fa fa-check"></i><b>7</b> 주파수 영역에서의 시계열분석</a></li>
 <li class="part"><span><b>Multiscale Methods in Statistics</b></span></li>
@@ -195,6 +197,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.1.2" data-path="spectral.html"><a href="spectral.html#aliasing"><i class="fa fa-check"></i><b>9.1.2</b> 앨리어싱(aliasing)</a></li>
 </ul></li>
 <li class="chapter" data-level="9.2" data-path="spectral.html"><a href="spectral.html#periodogram"><i class="fa fa-check"></i><b>9.2</b> 피리오도그램(periodogram)</a></li>
+<li class="chapter" data-level="9.3" data-path="spectral.html"><a href="spectral.html#r-r-periodogram"><i class="fa fa-check"></i><b>9.3</b> R 예제(R-periodogram)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="multiscale.html"><a href="multiscale.html"><i class="fa fa-check"></i><b>10</b> 다중척도 방법론</a><ul>
 <li class="chapter" data-level="10.1" data-path="multiscale.html"><a href="multiscale.html#-multiscale-transform"><i class="fa fa-check"></i><b>10.1</b> 다중척도 변환(multiscale transform)</a></li>
@@ -548,8 +551,8 @@ s100.v1 &lt;-<span class="st"> </span><span class="kw">variog</span>(s100, <span
 <span class="kw">plot</span>(s100.v1, <span class="dt">main=</span><span class="st">&quot;Variogram cloud&quot;</span>)
 <span class="kw">plot</span>(s100.v2, <span class="dt">main=</span><span class="st">&quot;MoM estimator&quot;</span>)
 <span class="kw">plot</span>(s100.v3, <span class="dt">main=</span><span class="st">&quot;Robust estimator&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-64"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-64-1.png" alt="Various variogram estimation methods." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-70"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-70-1.png" alt="Various variogram estimation methods." width="672" />
 <p class="caption">
 Figure 25.1: Various variogram estimation methods.
 </p>
@@ -572,8 +575,8 @@ ols &lt;-<span class="st"> </span><span class="kw">variofit</span>(s100.v2, <spa
 <span class="kw">lines</span>(wls, <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">lwd=</span><span class="fl">1.5</span>)
 <span class="kw">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;true&quot;</span>, <span class="st">&quot;ols&quot;</span>, <span class="st">&quot;wls&quot;</span>),
        <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;black&quot;</span>, <span class="st">&quot;black&quot;</span>), <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-65"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-65-1.png" alt="Comparison of variogram estimation methods." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-71"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-71-1.png" alt="Comparison of variogram estimation methods." width="672" />
 <p class="caption">
 Figure 25.2: Comparison of variogram estimation methods.
 </p>
