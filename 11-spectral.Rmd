@@ -2,13 +2,23 @@
 
 이 절의 내용은 [@Shumway2010]를 참고하였다.
 
+```{r, message=F, echo=F}
+library(astsa)
+library(xts)
+library(quantspec)
+library(TSA)
+library(kza)
+library(itsmr)
+source('~/Dropbox/R files/SeoulDataContest/Sources/Source.R', chdir = TRUE)
+```
+
 ## 순환 움직임과 주기성(cyclical behavior and periodicity)
 
 다음과 같은 주기과정(periodic process)을 생각해보자.
 $$x_{t}=A\cos(2\pi\omega t + \phi), \qquad{\text{for } t=0,\pm 1, \pm 2, \ldots,}$$
 여기서
 
-- $\omega$: **진동수 지수(frequency index)** (단위 시간 당 순환의 갯수)
+- $\omega$: **진동수 지수(frequency index)** (단위 시간 당 순환의 갯수, 일례로 $\omega=1/50$이면 50 포인트마다 한 번씩 주기가 돈다는 뜻이다)
 
 - $A$: **진폭(amplitude)** (신호의 높이 결정)
 
@@ -36,6 +46,27 @@ plot.ts(x3, ylim=c(-10,10), main=expression(omega==40/100~~~A^2==85))
 plot.ts(x, ylim=c(-16,16), main="sum")
 ```
 
+## 주기가 있는 시계열의 회귀분석(using regression to discover a periodic signal)
+
+다음과 같은 모형
+$$x_{t}=A\cos (2\pi\omega t + \phi) + w_{t}$$
+을 생각해보자. $\omega=1/50, A=2,\phi=0.6\pi, \sigma_{w}=5$일 때 모형은
+$$x_{t}=2\cos (2\pi t /50 + 0.6 \pi) + w_{t}$$
+가 되며 그림으로 출력하면 다음과 같다.
+
+```{r, fig.align='center', echo=FALSE, warning=FALSE, message=FALSE, results='hide', fig.cap = 'Cosine wave with period 50 points (top) with standard Gaussian noise (middle) and with heavy Gaussian noise (bottom).'}
+cs = 2*cos(2*pi*(1:500)/50 + .6*pi)
+w = rnorm(500,0,1)
+par(mfrow=c(3,1), mar=c(3,2,2,1), cex.main=1.5)   # help(par) for info
+plot.ts(cs, main = expression(x[t]==2*cos(2*pi*t/50+.6*pi)))
+plot.ts(cs + w, main = expression(x[t]==2*cos(2*pi*t/50+.6*pi)+N(0,1)))
+plot.ts(cs + 5*w, main = expression(x[t]==2*cos(2*pi*t/50+.6*pi)+N(0,25)))
+```
+
+진동수 $\omega=1/50$이 알려져 있다고 가정하자. 그러나 $A$와 $\phi$는 모르는 모수라고 가정하자. 삼각함수 공식에 의해
+$$A\cos (2\pi \omega t + \phi)=\beta_{1}\cos (2\pi \omega t) + \beta_{2}\sin (2\pi\omega t)$$
+이며 $\beta_{1}=A\cos(\phi), \beta_{2}=-A\sin(\phi)$이다. 따라서 이 모형은 intercept term을 넣지 않은 일반적인 회귀분석으로 적합할 수 있다.
+
 ## 피리오도그램(periodogram)
 
 이 절의 서술은 [@Lim2013]을 참고하였다. 또 다른 참고자료로는 [@Shumway2010]이 있다.
@@ -45,7 +76,7 @@ $$I_{n}(\omega)=\frac{1}{n}| \sum_{i=1}^{n}Y_{i}e^{-it\omega}|^{2}$$
 로 정의된다. 이 때 $\omega\in (0,\pi)$는 **진동수모수(frequency parameter)**이다. $\omega$가 푸리에 진동수($\omega=\frac{2\pi k}{n}, k\in\mathbb{Z}$)일 때 이 피리오도그램은
 $$I_{n}(\omega)=\frac{n}{4}\| \tilde{\boldsymbol{\beta}}_{n}(\omega)\|^{2}$$
 으로 표현할 수 있다고 한다[@Li2008]. 여기서 $\| \cdot \|$은 벡터의 $l_{2}$ 노름이며 $\tilde{\boldsymbol{\beta}}_{n}(\omega)$은 최소자승법
-$$\tilde{\boldsymbol{\beta}}_{n}(\omega)=\text{arg}\min_{\boldsymbol{\beta}\in\mathbb{R}^{2}}\sum_{i=1}^{n}| Y_{i}-\mathbf{x}_{t}^{T}(\omega)\boldsymbol{\beta}^{2}$$
+$$\tilde{\boldsymbol{\beta}}_{n}(\omega)=\text{arg}\min_{\boldsymbol{\beta}\in\mathbb{R}^{2}}\sum_{i=1}^{n}| Y_{i}-\mathbf{x}_{t}^{T}(\omega)\boldsymbol{\beta}|^{2}$$
 의 해다. 그리고 이 때 $\mathbf{x}_{t}(\omega)=(\cos(\omega t), \sin (\omega t))^{T}$로 harmonic regressor다.
 
 ## R 예제(R-periodogram)
@@ -54,16 +85,9 @@ $$\tilde{\boldsymbol{\beta}}_{n}(\omega)=\text{arg}\min_{\boldsymbol{\beta}\in\m
 
 1. 직접 구현
 
-2. 이미 구현된 패키지 안의 함수들을 이용하는 경우
+다음 예제는 [@Shumway2010]에 있는 scaled periodogram을 구하는 예제이다.
 
-```{r, message=F, echo=F}
-library(xts)
-library(quantspec)
-library(TSA)
-library(kza)
-library(itsmr)
-source('~/Dropbox/R files/SeoulDataContest/Sources/Source.R', chdir = TRUE)
-```
+2. 이미 구현된 패키지 안의 함수들을 이용하는 경우
 
 여기서는 서울특별시 PM10의 1998년 1월부터 2014년 12월까지의 월별 시계열 자료를 이용해 피리오도그램을 그려보겠다.
 
