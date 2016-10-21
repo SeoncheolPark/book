@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-10-19">
+<meta name="date" content="2016-10-21">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -178,7 +178,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.3.1" data-path="stoprocess.html"><a href="stoprocess.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>6.3.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="stoprocess.html"><a href="stoprocess.html#martingale"><i class="fa fa-check"></i><b>6.4</b> 마팅게일(martingale)</a></li>
-<li class="chapter" data-level="6.5" data-path="stoprocess.html"><a href="stoprocess.html#r-r-stoprocess"><i class="fa fa-check"></i><b>6.5</b> R 예제(R-stoprocess)</a></li>
+<li class="chapter" data-level="6.5" data-path="stoprocess.html"><a href="stoprocess.html#-markov-chain"><i class="fa fa-check"></i><b>6.5</b> 마르코프 체인(Markov chain)</a></li>
+<li class="chapter" data-level="6.6" data-path="stoprocess.html"><a href="stoprocess.html#r-r-stoprocess"><i class="fa fa-check"></i><b>6.6</b> R 예제(R-stoprocess)</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="freqts.html"><a href="freqts.html"><i class="fa fa-check"></i><b>7</b> 주파수 영역에서의 시계열분석</a></li>
 <li class="part"><span><b>Multiscale Methods in Statistics</b></span></li>
@@ -270,6 +271,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="16.6.1" data-path="advlifting.html"><a href="advlifting.html#case-1"><i class="fa fa-check"></i><b>16.6.1</b> Case 1</a></li>
 <li class="chapter" data-level="16.6.2" data-path="advlifting.html"><a href="advlifting.html#case-2"><i class="fa fa-check"></i><b>16.6.2</b> Case 2</a></li>
 </ul></li>
+<li class="chapter" data-level="16.7" data-path="advlifting.html"><a href="advlifting.html#window-based-approach"><i class="fa fa-check"></i><b>16.7</b> Window based approach</a></li>
 </ul></li>
 <li class="part"><span><b>Unsupervised Learning</b></span></li>
 <li class="chapter" data-level="17" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>17</b> 클러스터링(clustering)</a></li>
@@ -555,8 +557,8 @@ s100.v1 &lt;-<span class="st"> </span><span class="kw">variog</span>(s100, <span
 <span class="kw">plot</span>(s100.v1, <span class="dt">main=</span><span class="st">&quot;Variogram cloud&quot;</span>)
 <span class="kw">plot</span>(s100.v2, <span class="dt">main=</span><span class="st">&quot;MoM estimator&quot;</span>)
 <span class="kw">plot</span>(s100.v3, <span class="dt">main=</span><span class="st">&quot;Robust estimator&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-70"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-70-1.png" alt="Various variogram estimation methods." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-71"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-71-1.png" alt="Various variogram estimation methods." width="672" />
 <p class="caption">
 Figure 25.1: Various variogram estimation methods.
 </p>
@@ -579,8 +581,8 @@ ols &lt;-<span class="st"> </span><span class="kw">variofit</span>(s100.v2, <spa
 <span class="kw">lines</span>(wls, <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">lwd=</span><span class="fl">1.5</span>)
 <span class="kw">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;true&quot;</span>, <span class="st">&quot;ols&quot;</span>, <span class="st">&quot;wls&quot;</span>),
        <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;black&quot;</span>, <span class="st">&quot;black&quot;</span>), <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-71"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-71-1.png" alt="Comparison of variogram estimation methods." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-72"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-72-1.png" alt="Comparison of variogram estimation methods." width="672" />
 <p class="caption">
 Figure 25.2: Comparison of variogram estimation methods.
 </p>

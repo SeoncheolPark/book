@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-10-19">
+<meta name="date" content="2016-10-21">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -178,7 +178,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.3.1" data-path="stoprocess.html"><a href="stoprocess.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>6.3.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="stoprocess.html"><a href="stoprocess.html#martingale"><i class="fa fa-check"></i><b>6.4</b> 마팅게일(martingale)</a></li>
-<li class="chapter" data-level="6.5" data-path="stoprocess.html"><a href="stoprocess.html#r-r-stoprocess"><i class="fa fa-check"></i><b>6.5</b> R 예제(R-stoprocess)</a></li>
+<li class="chapter" data-level="6.5" data-path="stoprocess.html"><a href="stoprocess.html#-markov-chain"><i class="fa fa-check"></i><b>6.5</b> 마르코프 체인(Markov chain)</a></li>
+<li class="chapter" data-level="6.6" data-path="stoprocess.html"><a href="stoprocess.html#r-r-stoprocess"><i class="fa fa-check"></i><b>6.6</b> R 예제(R-stoprocess)</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="freqts.html"><a href="freqts.html"><i class="fa fa-check"></i><b>7</b> 주파수 영역에서의 시계열분석</a></li>
 <li class="part"><span><b>Multiscale Methods in Statistics</b></span></li>
@@ -270,6 +271,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="16.6.1" data-path="advlifting.html"><a href="advlifting.html#case-1"><i class="fa fa-check"></i><b>16.6.1</b> Case 1</a></li>
 <li class="chapter" data-level="16.6.2" data-path="advlifting.html"><a href="advlifting.html#case-2"><i class="fa fa-check"></i><b>16.6.2</b> Case 2</a></li>
 </ul></li>
+<li class="chapter" data-level="16.7" data-path="advlifting.html"><a href="advlifting.html#window-based-approach"><i class="fa fa-check"></i><b>16.7</b> Window based approach</a></li>
 </ul></li>
 <li class="part"><span><b>Unsupervised Learning</b></span></li>
 <li class="chapter" data-level="17" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>17</b> 클러스터링(clustering)</a></li>
@@ -487,8 +489,8 @@ P\{M_{n} \leq z \} &amp;=&amp; P\{X_{1}\leq z, \ldots, X_{n} \leq z\} \nonumber\
 1, &amp; \text{z $\geq$ b}
 \end{cases}\]</span> 이 때 <span class="math inline">\(a&gt;0\)</span>, <span class="math inline">\(b\)</span>는 모수들이고 <span class="math inline">\(\alpha &gt;0\)</span>이다.</p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-87"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-87-1.png" alt="Plot of three GEV distributions." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-88"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-88-1.png" alt="Plot of three GEV distributions." width="672" />
 <p class="caption">
 Figure 37.1: Plot of three GEV distributions.
 </p>
@@ -589,8 +591,8 @@ P\{(M_{n}-b_{n})/a_{n} \leq z \} &amp;=&amp; F^{n}(z+\log n) \nonumber\\
 <span class="kw">plot</span>(TMX1~Year, <span class="dt">data=</span>SEPTsp, <span class="dt">type=</span><span class="st">&quot;h&quot;</span>)
 <span class="kw">plot</span>(TMX1~AOindex, <span class="dt">data=</span>SEPTsp, <span class="dt">pch=</span><span class="dv">21</span>)
 <span class="kw">plot</span>(TMX1~MDTR, <span class="dt">data=</span>SEPTsp, <span class="dt">pch=</span><span class="dv">21</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-89"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-89-1.png" alt="Plot maximum winter temperature." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-90"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-90-1.png" alt="Plot maximum winter temperature." width="672" />
 <p class="caption">
 Figure 37.2: Plot maximum winter temperature.
 </p>
@@ -624,8 +626,8 @@ fit0</code></pre></div>
 &gt; 
 &gt;  BIC = 281.6045</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(fit0)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-90"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-90-1.png" alt="Fit a GEV distribution." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-91"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-91-1.png" alt="Fit a GEV distribution." width="672" />
 <p class="caption">
 Figure 37.3: Fit a GEV distribution.
 </p>
@@ -677,8 +679,8 @@ fit1</code></pre></div>
 &gt; 
 &gt;  BIC = 284.6385</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(fit1)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-91"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-91-1.png" alt="Fit a GEV distribution with AOindex." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-92"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-92-1.png" alt="Fit a GEV distribution with AOindex." width="672" />
 <p class="caption">
 Figure 37.4: Fit a GEV distribution with AOindex.
 </p>
@@ -724,8 +726,8 @@ fit2</code></pre></div>
 &gt; 
 &gt;  BIC = 284.1466</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(fit2)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-92"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-92-1.png" alt="Fit a GEV distribution with STDTMAX." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-93"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-93-1.png" alt="Fit a GEV distribution with STDTMAX." width="672" />
 <p class="caption">
 Figure 37.5: Fit a GEV distribution with STDTMAX.
 </p>

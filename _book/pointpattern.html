@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-10-19">
+<meta name="date" content="2016-10-21">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -178,7 +178,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.3.1" data-path="stoprocess.html"><a href="stoprocess.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>6.3.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="stoprocess.html"><a href="stoprocess.html#martingale"><i class="fa fa-check"></i><b>6.4</b> 마팅게일(martingale)</a></li>
-<li class="chapter" data-level="6.5" data-path="stoprocess.html"><a href="stoprocess.html#r-r-stoprocess"><i class="fa fa-check"></i><b>6.5</b> R 예제(R-stoprocess)</a></li>
+<li class="chapter" data-level="6.5" data-path="stoprocess.html"><a href="stoprocess.html#-markov-chain"><i class="fa fa-check"></i><b>6.5</b> 마르코프 체인(Markov chain)</a></li>
+<li class="chapter" data-level="6.6" data-path="stoprocess.html"><a href="stoprocess.html#r-r-stoprocess"><i class="fa fa-check"></i><b>6.6</b> R 예제(R-stoprocess)</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="freqts.html"><a href="freqts.html"><i class="fa fa-check"></i><b>7</b> 주파수 영역에서의 시계열분석</a></li>
 <li class="part"><span><b>Multiscale Methods in Statistics</b></span></li>
@@ -270,6 +271,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="16.6.1" data-path="advlifting.html"><a href="advlifting.html#case-1"><i class="fa fa-check"></i><b>16.6.1</b> Case 1</a></li>
 <li class="chapter" data-level="16.6.2" data-path="advlifting.html"><a href="advlifting.html#case-2"><i class="fa fa-check"></i><b>16.6.2</b> Case 2</a></li>
 </ul></li>
+<li class="chapter" data-level="16.7" data-path="advlifting.html"><a href="advlifting.html#window-based-approach"><i class="fa fa-check"></i><b>16.7</b> Window based approach</a></li>
 </ul></li>
 <li class="part"><span><b>Unsupervised Learning</b></span></li>
 <li class="chapter" data-level="17" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>17</b> 클러스터링(clustering)</a></li>
@@ -470,8 +472,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Japanese pine trees data</li>
 </ol>
 <p>일본소나무자료는 Numata (1961)가 모은 자료로 <code>spatstat</code>에서 <code>japanesepine</code>이라는 이름으로 들어있다. 공간점자료를 받았을 때 처음 할 일은 이 자료가 어떤 패턴을 가지고 있는지 확인해 보는 것이다. 그림을 그려 본 결과 이 자료는 특별한 패턴이 보이지 않으며 완비 무작위성을 띤다고 볼 수 있다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-73"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-73-1.png" alt="Japanese pine trees data." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-74"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-74-1.png" alt="Japanese pine trees data." width="672" />
 <p class="caption">
 Figure 31.1: Japanese pine trees data.
 </p>
@@ -480,8 +482,8 @@ Figure 31.1: Japanese pine trees data.
 <li>Califonia Redwoods</li>
 </ol>
 <p>레드우드는 세계에서 제일 키가 큰 나무 종류 중 하나라고 한다. 이 자료는 Ripley (1977)이 62그루의 캘리포니아 레드우드 모종(seeding)과 묘목(sapling)의 위치를 모아놓은 자료이다. <code>redwood</code>라는 이름으로 들어있다. 묘목 사이에 군집(cluster)이 형성되어 있음을 확인할 수 있다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-74"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-74-1.png" alt="Califonia Redwoods data." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-75"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-75-1.png" alt="Califonia Redwoods data." width="672" />
 <p class="caption">
 Figure 31.2: Califonia Redwoods data.
 </p>
@@ -490,8 +492,8 @@ Figure 31.2: Califonia Redwoods data.
 <li>Biological cells</li>
 </ol>
 <p>Crick and Ripley (1977)은 광학현미경으로 관찰한 42개의 생물학적 세포의 중심들을 자료로 만들었다. <code>cell</code>라는 이름에 들어있다. 이 자료의 특징은 세포의 크기 때문에 모든 점들이 일정 거리 이상 떨어져 분포하고 있다는 것이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-75"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-75-1.png" alt="Biological cells data." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-76"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-76-1.png" alt="Biological cells data." width="672" />
 <p class="caption">
 Figure 31.3: Biological cells data.
 </p>
@@ -500,8 +502,8 @@ Figure 31.3: Biological cells data.
 <li>Amacrine cells</li>
 </ol>
 <p>Diggle (1986)은 토끼의 망막에 있는 94개의 무축삭 세포(Amacrine cell) 자료를 분석했다. 이 세포들 중 152개는 빛이 들어오면 뇌에 정보를 전송하고 나머지들은 정보를 전송하지 않는다고 한다. <code>amacrine</code>이라는 이름으로 들어있다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-76"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-76-1.png" alt="Amacrine cells data." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-77"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-77-1.png" alt="Amacrine cells data." width="672" />
 <p class="caption">
 Figure 31.4: Amacrine cells data.
 </p>

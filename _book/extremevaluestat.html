@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-10-19">
+<meta name="date" content="2016-10-21">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -178,7 +178,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.3.1" data-path="stoprocess.html"><a href="stoprocess.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>6.3.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="stoprocess.html"><a href="stoprocess.html#martingale"><i class="fa fa-check"></i><b>6.4</b> 마팅게일(martingale)</a></li>
-<li class="chapter" data-level="6.5" data-path="stoprocess.html"><a href="stoprocess.html#r-r-stoprocess"><i class="fa fa-check"></i><b>6.5</b> R 예제(R-stoprocess)</a></li>
+<li class="chapter" data-level="6.5" data-path="stoprocess.html"><a href="stoprocess.html#-markov-chain"><i class="fa fa-check"></i><b>6.5</b> 마르코프 체인(Markov chain)</a></li>
+<li class="chapter" data-level="6.6" data-path="stoprocess.html"><a href="stoprocess.html#r-r-stoprocess"><i class="fa fa-check"></i><b>6.6</b> R 예제(R-stoprocess)</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="freqts.html"><a href="freqts.html"><i class="fa fa-check"></i><b>7</b> 주파수 영역에서의 시계열분석</a></li>
 <li class="part"><span><b>Multiscale Methods in Statistics</b></span></li>
@@ -270,6 +271,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="16.6.1" data-path="advlifting.html"><a href="advlifting.html#case-1"><i class="fa fa-check"></i><b>16.6.1</b> Case 1</a></li>
 <li class="chapter" data-level="16.6.2" data-path="advlifting.html"><a href="advlifting.html#case-2"><i class="fa fa-check"></i><b>16.6.2</b> Case 2</a></li>
 </ul></li>
+<li class="chapter" data-level="16.7" data-path="advlifting.html"><a href="advlifting.html#window-based-approach"><i class="fa fa-check"></i><b>16.7</b> Window based approach</a></li>
 </ul></li>
 <li class="part"><span><b>Unsupervised Learning</b></span></li>
 <li class="chapter" data-level="17" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>17</b> 클러스터링(clustering)</a></li>
@@ -467,8 +469,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>포트피리(Port Pirie)는 호주 남부 애들레이드(Adelaide) 북쪽에 있는 지역이다. 다음 그림은 1923년부터 1987년까지 포트피리의 연 최대 해수면 높이 자료를 그린 것이다. R 패키지의 <code>portpirie</code>에 자료가 들어있다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(<span class="st">&quot;portpirie&quot;</span>)
 <span class="kw">plot</span>(portpirie, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">ylab=</span><span class="st">&quot;Sea-level (meters)&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-84"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-84-1.png" alt="Annual maximum sea levels at Port Pirie, South Australia." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-85"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-85-1.png" alt="Annual maximum sea levels at Port Pirie, South Australia." width="672" />
 <p class="caption">
 Figure 36.1: Annual maximum sea levels at Port Pirie, South Australia.
 </p>
@@ -492,8 +494,8 @@ danish.exc &lt;-<span class="st"> </span>danishuni[danishuni[,<span class="dv">2
 <span class="kw">plot</span>(danishuni,  <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Years&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Loss exceeance amount&quot;</span>)
 <span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">10</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
 <span class="kw">points</span>(danishuni[<span class="kw">which</span>(danishuni$Loss&gt;<span class="dv">10</span>),], <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">pch=</span><span class="dv">15</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-85"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-85-1.png" alt="Danish reinsurance claim data." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-86"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-86-1.png" alt="Danish reinsurance claim data." width="672" />
 <p class="caption">
 Figure 36.2: Danish reinsurance claim data.
 </p>

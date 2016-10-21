@@ -150,13 +150,28 @@ knitr::include_graphics("images/advmultiscale_LOCAAT03.png")
 첫번째 경우는 최초 시간에서의 엣지 구조가 시간이 지남에 따라 변하지 않고 계속 유지되는 경우다.
 
 ```{r, echo=F, fig.cap='Extending the spatial network to the spatio-temporal network.', fig.align='center'}
-knitr::include_graphics("images/advmultiscale_LOCAAT03.png")
+knitr::include_graphics("images/advmultiscale_LOCAAT04.png")
 ```
 
 이것은 위 그림과 같이 시간에 따라 순차적으로 계산함으로써 해결할 수 있다. 노드 $(t-1)n+k$와 $tn+k$의 엣지 거리는
 $$\delta_{(t-1)n+k,tn+k}=l_{t}\delta^{min}$$
 으로 정의한다.
 
+이웃 노드들의 집합은 다음과 같이 정의한다.
+$$J_{(t-1)n+k}=
+\begin{cases}
+\{ \{ (j)_{j\in J_{k}}\} \cup \{ n+k \} \} & \text{if $t=1$}\\
+\{ \{ ((t-1)n+j)_{j\in J_{k}} \} \cup \{ ((t-2)n+k) \} \cup \{ (tn+k) \} \} & \text{if $1<t<T$}\\
+\{ \{ ((t-1)n+j)_{j\in J_{k}} \} \cup \{ ((t-2)n+k) \} \} & \text{if $t=T$}.
+\end{cases}
+$$
+
 ### Case 2
 
+## Window based approach
 
+시공간 자료를 위 방법으로 분석시 모든 시간 point들을 함께 고려해야 하는데, 이것은 spatial-only method에 비해 일반적으로 좋은 결과를 가져오지는 못한다. 여기서는 시간축에 대한 윈도우 크기를 $M_{t}=3$으로 하여 실험을 하도록 한다. 
+
+```{r, echo=F, fig.cap='Window based approach.', fig.align='center'}
+knitr::include_graphics("images/advmultiscale_LOCAAT05.png")
+```
