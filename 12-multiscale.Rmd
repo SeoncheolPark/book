@@ -171,6 +171,14 @@ knitr::include_graphics("images/multiscale_Bandform.png")
 
 - Ripple is the variation of the filter's insertion loss in the passband.
 
+## 선형 필터(linear filter)
+
+이 절의 내용은 [@Shumway2010]를 참고하였다. 여기서는 선형 필터가 시계열로부터 신호를 어떻게 뽑아내는지에 대해 설명한다. 선형 필터는 시계열 자료의 스펙트럼 특성을 변형시켜 예측 가능하게끔 한다고 한다.
+
+선형필터는 특정화한 계수들 $a_{j}, j=0,\pm 1, \pm 2, \ldots$를 사용한다. 이것은 투입된 시계열 $x_{t}$를 다음 관계를 통해
+$$y_{t}=\sum_{j=-\infty}^{\infty}a_{j}x_{t-j}, \sum_{j=-\infty}^{\infty}|a_{j}| <\infty$$
+$y_{t}$라는 시계열로 변화시킨다. 통계 용어로 이 식은 convolution에 해당한다. 이 계수들은 특별히 **임펄스 응답 함수(impulse response function)**이라고 부른다.
+
 ## R 예제(R-multiscale)
 
 ```{r, message=F, echo=F}

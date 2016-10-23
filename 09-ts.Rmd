@@ -2,6 +2,8 @@
 
 내용과 표기는 [@Shumway2010]를 따른다.
 
+시계열에서 다루는 대부분의 확률모형들은 확률과정을 설명하는 모형이라고 한다. 관측된 시계열은 표본공간의 각 원소에 대응하는 확률과정 $\{ Z_{t}(\omega), t=1,2,\ldots \}$의 관측값으로 시간의 함수이며, 이를 확률과정의 **실현값(realization)** 또는 **표본통로(sample path)**라고 부른다. 우리가 과거로 돌아갈 수 있어 반복 관측을 할 수 있다면 현재 관측된 시계열은 무한히 많은 관측 가능한 확률변수들의 모임 중에서 특별히 실현된 하나에 해당된다. 시계열 분석의 가장 큰 특징은 분석의 대상이 되는 자료가 반복 관측될 수 없다는 점이다.
+
 ## 정상시계열(stationary time series)
 
 다음 설명은 [DODOMIRA](http://www.dodomira.com/2016/04/21/r-시계열-분석-arima/?subscribe=success#blog_subscription-2)에서 따온 것이다.
@@ -100,3 +102,31 @@ acf(gtemp, 48, main="gtemp")
 acf(resid(fit), 48, main="detrended")
 acf(diff(gtemp), 48, main="first difference")
 ```
+
+## ARMIA 모델들(ARIMA models)
+
+### AR 모형(AR models)
+
+이 모형은 현재의 관측값을 과거의 관측값들의 함수형태로 나타내는 것이다.
+
+<div class="definition">
+
+**AR(p)** 차수 p를 갖는 **자기회귀모형(autoregressive model, AR model)**은
+$$x_{t}=\phi_{1}x_{t-1}+\phi_{2}x_{t-2} + \cdots + \phi_{p}x_{t-p}+w_{t}$$
+와 같은 형태를 갖는다. 여기서 $x_{t}$는 정상과정이며, $\phi_{1},\ldots , \phi_{p}$는 상수이다.
+
+</div>
+
+일반적으로 AR과정의 ACF는 지수적으로 감소하며, PACF는 AR과정의 차수에 해당되는 차수 이후에는 0이 되는 성질을 갖고 있다.
+
+### MA 모형(MA models)
+
+MA과정의 PACF는 AR과정의 ACF 형태와, MA과정의 ACF는 AR과정의 PACF 형태와 같다.
+
+### ARMA 모형(ARMA models)
+
+## Coherency (section 3.9)
+
+**결맞음(coherency)** 분석은 두 자료의 관계를 quantify하기 위해 많이들 사용한다. 신호 사이의 결맞음 추정은 중요햐며 대기과학, 통신 및 생명과학 자료에 응용된다.
+
+## 전이함수모형(transfer function model, section 5.7)

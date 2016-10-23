@@ -19,3 +19,18 @@ $$X:\Omega \rightarrow \mathbb{R}$$
 
 (확률변수에 대한 설명 보충 필요)
 
+## 보렐-칸텔리 따름정리
+
+<div class="theorem">
+
+**(Borel-Cantelli lemma)** 만약 $\sum_{n=1}^{\infty}P(A_{n}) < \infty$라면
+$$P(A_{n} i.o.)=0$$
+이다.
+
+</div>
+
+<div class="theorem">
+
+**(Second Borel-Cantelli lemma)** 만약 사건 $A_{n}$들이 독립이라면 $\sum P(A_{n})=\infty$는 $P(A_{n} i.o.)=1$임을 내포한다.
+
+</div>

@@ -8,6 +8,8 @@
 knitr::include_graphics("images/basic_stprocess.png")
 ```
 
+**확률과정(stochastic process)**란 확률공간에서 정의되는 확률변수들의 모임 $\{ Z, t \in T\}$라고 할 수 있다. 이 때 $T=(-\infty, \infty)$ 등과 같이 연속된 구간의 형태를 갖는 경우를 **연속형 확률과정(continuous stochastic process)**, $T=\{ 0, \pm 1, \pm 2 , \ldots\}$ 등과 같이 이산 구간일 경우는 **이산형 확률과정(discrete stochastic process)**라고 한다.
+
 ## 확률과정에서의 연속성(continuity of stochastic process)
 
 ### 연속표본경로(continuous sample paths)
