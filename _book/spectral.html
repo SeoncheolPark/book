@@ -216,9 +216,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="10.1.1" data-path="spectral.html"><a href="spectral.html#-folding-frequency"><i class="fa fa-check"></i><b>10.1.1</b> 중첩 주파수(folding frequency)</a></li>
 <li class="chapter" data-level="10.1.2" data-path="spectral.html"><a href="spectral.html#aliasing"><i class="fa fa-check"></i><b>10.1.2</b> 앨리어싱(aliasing)</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="spectral.html"><a href="spectral.html#---using-regression-to-discover-a-periodic-signal"><i class="fa fa-check"></i><b>10.2</b> 주기가 있는 시계열의 회귀분석(using regression to discover a periodic signal)</a></li>
-<li class="chapter" data-level="10.3" data-path="spectral.html"><a href="spectral.html#periodogram"><i class="fa fa-check"></i><b>10.3</b> 피리오도그램(periodogram)</a></li>
-<li class="chapter" data-level="10.4" data-path="spectral.html"><a href="spectral.html#r-r-periodogram"><i class="fa fa-check"></i><b>10.4</b> R 예제(R-periodogram)</a></li>
+<li class="chapter" data-level="10.2" data-path="spectral.html"><a href="spectral.html#spectrum"><i class="fa fa-check"></i><b>10.2</b> 스펙트럼이란(spectrum)</a></li>
+<li class="chapter" data-level="10.3" data-path="spectral.html"><a href="spectral.html#---using-regression-to-discover-a-periodic-signal"><i class="fa fa-check"></i><b>10.3</b> 주기가 있는 시계열의 회귀분석(using regression to discover a periodic signal)</a></li>
+<li class="chapter" data-level="10.4" data-path="spectral.html"><a href="spectral.html#-estimation-of-spectrum"><i class="fa fa-check"></i><b>10.4</b> 스펙트럼의 추정(estimation of spectrum)</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="spectral.html"><a href="spectral.html#fourier-analysis"><i class="fa fa-check"></i><b>10.4.1</b> 푸리에분석(Fourier analysis)</a></li>
+<li class="chapter" data-level="10.4.2" data-path="spectral.html"><a href="spectral.html#periodogram"><i class="fa fa-check"></i><b>10.4.2</b> 피리오도그램(periodogram)</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="spectral.html"><a href="spectral.html#-quantile-periodogram"><i class="fa fa-check"></i><b>10.5</b> 분위수 피리오도그램(quantile periodogram)</a></li>
+<li class="chapter" data-level="10.6" data-path="spectral.html"><a href="spectral.html#r-r-periodogram"><i class="fa fa-check"></i><b>10.6</b> R 예제(R-periodogram)</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="multiscale.html"><a href="multiscale.html"><i class="fa fa-check"></i><b>11</b> 다중척도 방법론</a><ul>
 <li class="chapter" data-level="11.1" data-path="multiscale.html"><a href="multiscale.html#-multiscale-transform"><i class="fa fa-check"></i><b>11.1</b> 다중척도 변환(multiscale transform)</a></li>
@@ -481,6 +486,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="spectral" class="section level1">
 <h1><span class="header-section-number">Chapter 10</span> 스펙트럼 분석</h1>
 <p>이 절의 내용은 <span class="citation">(Shumway and Stoffer <a href="#ref-Shumway2010">2010</a>)</span>를 참고하였다.</p>
+<p>시간영역의 분석 방법이 자기상관함수 등을 이용해 시간에 따른 상관 정도를 분석하고 변수들 사이의 관계를 가장 잘 설명해 주는 모형을 찾는 데 반해, 진동수영역의 분석 방법은 시계열이 다양한 주기를 갖는 성분들의 선형결합으로 표현될 수 있다는 성질을 이용해 어떤 주기성분이 중요한 역할을 하는지 알아보는 데 초점을 둔다.</p>
+<p>진동수영역의 분석에서는 자기공분산의 <strong>푸리에변환(Fourier transform)</strong>으로 정의되는 <strong>스펙트럼(spectrum)</strong>을 추정하여 각 진동수에 대응되는 주기성분들의 선형결합으로 시계열을 표현한다. 즉, 시계열이 긴 주기 또는 짧은 주기를 갖는지를 각 주기성분들의 기여도를 이용하여 설명 및 분석하는 데, 이 기여도를 자기공분산의 형태로 표현하는 것이 <strong>스펙트럼분석(spectral analysis)</strong>이다.</p>
 <div id="--cyclical-behavior-and-periodicity" class="section level2">
 <h2><span class="header-section-number">10.1</span> 순환 움직임과 주기성(cyclical behavior and periodicity)</h2>
 <p>다음과 같은 주기과정(periodic process)을 생각해보자. <span class="math display">\[x_{t}=A\cos(2\pi\omega t + \phi), \qquad{\text{for } t=0,\pm 1, \pm 2, \ldots,}\]</span> 여기서</p>
@@ -489,7 +496,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><p><span class="math inline">\(A\)</span>: <strong>진폭(amplitude)</strong> (신호의 높이 결정)</p></li>
 <li><p><span class="math inline">\(\phi\)</span>: <strong>위상(phase)</strong> (코사인 함수의 시작 지점)</p></li>
 </ul>
-<p>이다. 다음과 같은 삼각함수 공식 <span class="math inline">\(\cos (\alpha \pm \beta)= \cos (\alpha) \cos (\beta) \mp \sin(\alpha)\sin(\beta)\)</span>을 이용하면 위 식은 <span class="math display">\[x_{t}=U_{1}\cos(2\pi\omega t) + U_{2}\sin(2\pi\omega t)\]</span> 가 되며 <span class="math inline">\(U_{1}=A\cos \phi\)</span>, <span class="math inline">\(U_{2}=-\sin\phi\)</span>는 종종 정규분포를 따르는 확률변수로 취급한다. 그리고 이 때 <span class="math inline">\(A=\sqrt{U_{1}^{2}+U_{2}^{2}}\)</span>, <span class="math inline">\(\phi=\tan^{-1}(-U_{2}/U_{1})\)</span>이다. 이 사실로부터, <span class="math inline">\(A\)</span>와 <span class="math inline">\(\phi\)</span>가 독립인 확률변수면, <span class="math inline">\(A^{2}\sim \chi_{2}\)</span>, <span class="math inline">\(\phi \sim \text{Unif}(-\pi, \pi)\)</span>이며 <span class="math inline">\(U_{1}\)</span>과 <span class="math inline">\(U_{2}\)</span>는 독립인 표준 정규분포를 따른다.</p>
+이다. 다음과 같은 삼각함수 공식 <span class="math inline">\(\cos (\alpha \pm \beta)= \cos (\alpha) \cos (\beta) \mp \sin(\alpha)\sin(\beta)\)</span>을 이용하면 위 식은
+\begin{equation}\label{eq:periodrp}
+x_{t}=U_{1}\cos(2\pi\omega t) + U_{2}\sin(2\pi\omega t)
+\end{equation}
+<p>가 되며 <span class="math inline">\(U_{1}=A\cos \phi\)</span>, <span class="math inline">\(U_{2}=-\sin\phi\)</span>는 종종 정규분포를 따르는 확률변수로 취급한다. 그리고 이 때 <span class="math inline">\(A=\sqrt{U_{1}^{2}+U_{2}^{2}}\)</span>, <span class="math inline">\(\phi=\tan^{-1}(-U_{2}/U_{1})\)</span>이다. 이 사실로부터, <span class="math inline">\(A\)</span>와 <span class="math inline">\(\phi\)</span>가 독립인 확률변수면, <span class="math inline">\(A^{2}\sim \chi_{2}\)</span>, <span class="math inline">\(\phi \sim \text{Unif}(-\pi, \pi)\)</span>이며 <span class="math inline">\(U_{1}\)</span>과 <span class="math inline">\(U_{2}\)</span>는 독립인 표준 정규분포를 따른다.</p>
 <p>앞선 랜덤과정(random process)는 진동수 <span class="math inline">\(\omega\)</span>를 모수로 하여 표현할 수 있다.</p>
 <div id="-folding-frequency" class="section level3">
 <h3><span class="header-section-number">10.1.1</span> 중첩 주파수(folding frequency)</h3>
@@ -504,8 +515,36 @@ Figure 10.1: Periodic components and their sums.
 </div>
 </div>
 </div>
+<div id="spectrum" class="section level2">
+<h2><span class="header-section-number">10.2</span> 스펙트럼이란(spectrum)</h2>
+<div class="theorem">
+<p><strong>(정상과정의 스펙트럼 표현)</strong> 어던 정상 시계열이든 근사적으로라도 random superposition of sines and cosines oscillating at various frequencies로 생각할 수 있다. 즉 자기공분산은 각 주기성분들을 이용해 표현할 수 있으며, 역으로 각 주기성분들도 자기공분산을 이용하여 나타낼 수 있다.</p>
+</div>
+<p>식 (\ref{eq:periodrp})의 고정된 진동수 버전 <span class="math inline">\(\omega_{0}\)</span>를 생각해보자. <span class="math display">\[x_{t}=U_{1}\cos (2\pi\omega_{0}t) + U_{2}\sin(2\pi\omega_{0}t).\]</span> 그리고 <span class="math inline">\(U_{1}\)</span>과 <span class="math inline">\(U_{2}\)</span>를 평균이 0이고 분산이 <span class="math inline">\(\sigma^{2}\)</span>이며 독립인 확률변수들이라고 하자. 위 식에서 한 사이클을 이루기 위해 필요한 시간 길이는 <span class="math inline">\(1/\omega_{0}\)</span>다. 그러면 자기공분산 <span class="math inline">\(\gamma(h)\)</span>은 다음과 같이</p>
+\begin{eqnarray*}
+\gamma(h)&amp;=&amp;\sigma^{2}\cos (2\pi \omega_{0}h)=\frac{\sigma^{2}}{2}e^{-2\pi i \omega_{0}h}+\frac{\sigma^{2}}{2}e^{2\pi i \omega_{0}h}\\
+&amp;=&amp;\int_{-1/2}^{1/2}e^{2\pi i \omega h }dF(\omega)
+\end{eqnarray*}
+<p>리만-스틸체스 적분을 이용해 나타낼 수 있다고 한다. 여기서 <span class="math inline">\(F(\omega)\)</span>는</p>
+<p><span class="math display">\[
+F(\omega) 
+\begin{cases}
+0 &amp; \text{if $\omega &lt; -\omega_{0}$}\\
+\sigma^{2}/2 &amp; \text{if $-\omega_{0} \leq \omega &lt; \omega_{0}$}\\
+\sigma^{2} &amp; \text{if $\omega \geq \omega_{0}$}
+\end{cases}
+\]</span> 이다. 여기서 <span class="math inline">\(F(\omega)\)</span>는 이산확률변수의 누적분포함수처럼 행동하지만, <span class="math inline">\(F(\infty)=\sigma^{2}=var(x_{t})\neq 1\)</span>이라는 점이 다르다. 비슷한 점에 착안하여 이 <span class="math inline">\(F(\omega)\)</span>를 <strong>스펙트럼 분포함수(spectral distribution function)</strong>이라고 부른다.</p>
+<p>만약 <span class="math inline">\(x_{t}\)</span>가 자기공분산 <span class="math inline">\(\gamma(h)=E[(x_{t+h}-\mu)(x_{t}-\mu)]\)</span>를 갖는 정상과정이라면 단조증가함수 <span class="math inline">\(F(\omega)\)</span>가 유일하게 존재한다고 한다.</p>
+<p>이제 주기성분들의 시계열에 대한 기여도를 나타내는 <strong>스펙트럼(spectrum)</strong>을 정의해보자. 만약 자기공분산함수 <span class="math inline">\(\gamma(h)\)</span>가 다음과 같이 절대값의 합이 유한(absolutely summable) <span class="math display">\[\sum_{h=-\infty}^{\infty}|\gamma(h)|&lt;\infty\]</span> 한 확률과정이라고 한다면 다음과 같이 <span class="math display">\[\gamma(h)=\int_{-1/2}^{1/2}e^{2\pi i \omega h }f(\omega)d\omega, h=0,\pm 1, \pm 2,\ldots\]</span> 쓸 수 있고 <span class="math inline">\(\gamma(h)\)</span>의 푸리에 변환(Fourier transform)이 존재하여 (<span class="math inline">\(f(\omega)\)</span>의 역푸리에 변환) <span class="math display">\[f(\omega)=\sum_{h=-\infty}^{\infty}\gamma(h)e^{-2\pi i \omega h}\]</span> 로 쓸 수 있다. 이 때 <span class="math inline">\(f(\omega)\)</span>를 <strong>스펙트럼(spectrum)</strong>이라고 부른다. 이를 이용해 확률과정의 총분산(또는 total power)을 각 진동수별로 분해할 수 있다. 스펙트럼은 자기상관함수의 푸리에 변환이므로 자기상관함수와 일대일 관계에 있으며 다음의 성질을 가지고 있다.</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(f(\omega)\geq 0\)</span>: 음의 값을 갖지 않는 연속 실수함수</p></li>
+<li><p><span class="math inline">\(f(\omega)=f(\omega + 2\pi)\)</span>: 주기가 <span class="math inline">\(2\pi\)</span>인 주기함수 (<span class="math inline">\(f(\omega)=f(-\omega)\)</span>인 우함수이므로 일반적으로 <span class="math inline">\(0\leq \omega \leq \pi\)</span>일 때만 고려한다.)</p></li>
+<li><p><span class="math inline">\(f(\omega)\)</span>는 확률과정의 <strong>분산분해(variance decomposition)</strong>으로 해석할 수 있으며, <span class="math inline">\(f(\omega)d\omega\)</span>는 <span class="math inline">\((\omega, \omega+d\omega)\)</span>에 속하는 진동수들을 갖는 성분들의 분산에 대한 기여도를 의미한다. 다시 말해 스펙트럼이 어느 영역의 진동수에서 큰 값을 갖는다는 것은 해당 진동수들의 분산에 대한 기여도가 크다는 것을 의미하며, <strong>이 진동수에 해당되는 주기성분이 시계열의 구성하는 데 가장 중요한 역할을 한다는 것을 의미한다</strong>.</p></li>
+<li><p>스펙트럼과 자기공분산함수는 쌍을 이루어 존재하기 때문에 동일한 정보를 제공하는 것이며, 어느 통계량이 더 유용한지는 사용하고자 하는 상황에 따라 다르다고 할 수 있다.</p></li>
+</ol>
+</div>
 <div id="---using-regression-to-discover-a-periodic-signal" class="section level2">
-<h2><span class="header-section-number">10.2</span> 주기가 있는 시계열의 회귀분석(using regression to discover a periodic signal)</h2>
+<h2><span class="header-section-number">10.3</span> 주기가 있는 시계열의 회귀분석(using regression to discover a periodic signal)</h2>
 <p>다음과 같은 모형 <span class="math display">\[x_{t}=A\cos (2\pi\omega t + \phi) + w_{t}\]</span> 을 생각해보자. <span class="math inline">\(\omega=1/50, A=2,\phi=0.6\pi, \sigma_{w}=5\)</span>일 때 모형은 <span class="math display">\[x_{t}=2\cos (2\pi t /50 + 0.6 \pi) + w_{t}\]</span> 가 되며 그림으로 출력하면 다음과 같다.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-24"></span>
 <img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-24-1.png" alt="Cosine wave with period 50 points (top) with standard Gaussian noise (middle) and with heavy Gaussian noise (bottom)." width="672" />
@@ -515,13 +554,23 @@ Figure 10.2: Cosine wave with period 50 points (top) with standard Gaussian nois
 </div>
 <p>진동수 <span class="math inline">\(\omega=1/50\)</span>이 알려져 있다고 가정하자. 그러나 <span class="math inline">\(A\)</span>와 <span class="math inline">\(\phi\)</span>는 모르는 모수라고 가정하자. 삼각함수 공식에 의해 <span class="math display">\[A\cos (2\pi \omega t + \phi)=\beta_{1}\cos (2\pi \omega t) + \beta_{2}\sin (2\pi\omega t)\]</span> 이며 <span class="math inline">\(\beta_{1}=A\cos(\phi), \beta_{2}=-A\sin(\phi)\)</span>이다. 따라서 이 모형은 intercept term을 넣지 않은 일반적인 회귀분석으로 적합할 수 있다.</p>
 </div>
-<div id="periodogram" class="section level2">
-<h2><span class="header-section-number">10.3</span> 피리오도그램(periodogram)</h2>
-<p>이 절의 서술은 <span class="citation">(Lim <a href="#ref-Lim2013">2013</a>)</span>을 참고하였다. 또 다른 참고자료로는 <span class="citation">(Shumway and Stoffer <a href="#ref-Shumway2010">2010</a>)</span>이 있다.</p>
+<div id="-estimation-of-spectrum" class="section level2">
+<h2><span class="header-section-number">10.4</span> 스펙트럼의 추정(estimation of spectrum)</h2>
+<div id="fourier-analysis" class="section level3">
+<h3><span class="header-section-number">10.4.1</span> 푸리에분석(Fourier analysis)</h3>
+<p>시계열이 관측되었을 때 이들을 진동수에서 정의된 주기성분들로 분해하는 방법을 <strong>푸리에분석(Fourier analysis)</strong>이라고 한다. 이를 통해 어느 진동수가 중요한 성분이지 따라서 어떤 주기가 시계열에서 중요한 역할을 하는지를 알아낼 수 있다.</p>
+</div>
+<div id="periodogram" class="section level3">
+<h3><span class="header-section-number">10.4.2</span> 피리오도그램(periodogram)</h3>
+<p>스펙트럼을 추정하는 방법을 이해하기 위해서는 <strong>피리오도그램(periodogram)</strong>에 대한 이해가 필요하다. 이 절의 서술은 <span class="citation">(Lim <a href="#ref-Lim2013">2013</a>)</span>을 참고하였다. 또 다른 참고자료로는 <span class="citation">(Shumway and Stoffer <a href="#ref-Shumway2010">2010</a>)</span>이 있다.</p>
 <p>다음과 같은 시계열 자료의 수열 <span class="math inline">\(\{Y_{1}, \ldots, Y_{n}\}\)</span>을 관측한다고 하자. 그러면 <strong>피리오도그램(periodogram)</strong> <span class="math inline">\(I_{n}(\omega)\)</span>는 <span class="math display">\[I_{n}(\omega)=\frac{1}{n}| \sum_{i=1}^{n}Y_{i}e^{-it\omega}|^{2}\]</span> 로 정의된다. 이 때 <span class="math inline">\(\omega\in (0,\pi)\)</span>는 <strong>진동수모수(frequency parameter)</strong>이다. <span class="math inline">\(\omega\)</span>가 푸리에 진동수(<span class="math inline">\(\omega=\frac{2\pi k}{n}, k\in\mathbb{Z}\)</span>)일 때 이 피리오도그램은 <span class="math display">\[I_{n}(\omega)=\frac{n}{4}\| \tilde{\boldsymbol{\beta}}_{n}(\omega)\|^{2}\]</span> 으로 표현할 수 있다고 한다<span class="citation">(Li <a href="#ref-Li2008">2008</a>)</span>. 여기서 <span class="math inline">\(\| \cdot \|\)</span>은 벡터의 <span class="math inline">\(l_{2}\)</span> 노름이며 <span class="math inline">\(\tilde{\boldsymbol{\beta}}_{n}(\omega)\)</span>은 최소자승법 <span class="math display">\[\tilde{\boldsymbol{\beta}}_{n}(\omega)=\text{arg}\min_{\boldsymbol{\beta}\in\mathbb{R}^{2}}\sum_{i=1}^{n}| Y_{i}-\mathbf{x}_{t}^{T}(\omega)\boldsymbol{\beta}|^{2}\]</span> 의 해다. 그리고 이 때 <span class="math inline">\(\mathbf{x}_{t}(\omega)=(\cos(\omega t), \sin (\omega t))^{T}\)</span>로 harmonic regressor다.</p>
 </div>
+</div>
+<div id="-quantile-periodogram" class="section level2">
+<h2><span class="header-section-number">10.5</span> 분위수 피리오도그램(quantile periodogram)</h2>
+</div>
 <div id="r-r-periodogram" class="section level2">
-<h2><span class="header-section-number">10.4</span> R 예제(R-periodogram)</h2>
+<h2><span class="header-section-number">10.6</span> R 예제(R-periodogram)</h2>
 <p>여기서는 R에서 피리오도그램을 그리는 방법에 대해 다뤄보겠다.</p>
 <ol style="list-style-type: decimal">
 <li>직접 구현</li>

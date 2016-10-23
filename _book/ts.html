@@ -216,9 +216,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="10.1.1" data-path="spectral.html"><a href="spectral.html#-folding-frequency"><i class="fa fa-check"></i><b>10.1.1</b> 중첩 주파수(folding frequency)</a></li>
 <li class="chapter" data-level="10.1.2" data-path="spectral.html"><a href="spectral.html#aliasing"><i class="fa fa-check"></i><b>10.1.2</b> 앨리어싱(aliasing)</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="spectral.html"><a href="spectral.html#---using-regression-to-discover-a-periodic-signal"><i class="fa fa-check"></i><b>10.2</b> 주기가 있는 시계열의 회귀분석(using regression to discover a periodic signal)</a></li>
-<li class="chapter" data-level="10.3" data-path="spectral.html"><a href="spectral.html#periodogram"><i class="fa fa-check"></i><b>10.3</b> 피리오도그램(periodogram)</a></li>
-<li class="chapter" data-level="10.4" data-path="spectral.html"><a href="spectral.html#r-r-periodogram"><i class="fa fa-check"></i><b>10.4</b> R 예제(R-periodogram)</a></li>
+<li class="chapter" data-level="10.2" data-path="spectral.html"><a href="spectral.html#spectrum"><i class="fa fa-check"></i><b>10.2</b> 스펙트럼이란(spectrum)</a></li>
+<li class="chapter" data-level="10.3" data-path="spectral.html"><a href="spectral.html#---using-regression-to-discover-a-periodic-signal"><i class="fa fa-check"></i><b>10.3</b> 주기가 있는 시계열의 회귀분석(using regression to discover a periodic signal)</a></li>
+<li class="chapter" data-level="10.4" data-path="spectral.html"><a href="spectral.html#-estimation-of-spectrum"><i class="fa fa-check"></i><b>10.4</b> 스펙트럼의 추정(estimation of spectrum)</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="spectral.html"><a href="spectral.html#fourier-analysis"><i class="fa fa-check"></i><b>10.4.1</b> 푸리에분석(Fourier analysis)</a></li>
+<li class="chapter" data-level="10.4.2" data-path="spectral.html"><a href="spectral.html#periodogram"><i class="fa fa-check"></i><b>10.4.2</b> 피리오도그램(periodogram)</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="spectral.html"><a href="spectral.html#-quantile-periodogram"><i class="fa fa-check"></i><b>10.5</b> 분위수 피리오도그램(quantile periodogram)</a></li>
+<li class="chapter" data-level="10.6" data-path="spectral.html"><a href="spectral.html#r-r-periodogram"><i class="fa fa-check"></i><b>10.6</b> R 예제(R-periodogram)</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="multiscale.html"><a href="multiscale.html"><i class="fa fa-check"></i><b>11</b> 다중척도 방법론</a><ul>
 <li class="chapter" data-level="11.1" data-path="multiscale.html"><a href="multiscale.html#-multiscale-transform"><i class="fa fa-check"></i><b>11.1</b> 다중척도 변환(multiscale transform)</a></li>
@@ -605,6 +610,11 @@ Figure 8.5: Sample ACF (top) detrended sample ACF (middle) and differenced (bott
 </div>
 <div id="transfer-function-model-section-5.7" class="section level2">
 <h2><span class="header-section-number">8.7</span> 전이함수모형(transfer function model, section 5.7)</h2>
+<p>입력시계열과 출력시계열로 사용되는 시계열 사이의 관계를 회귀모형의 형태로 표현한 것을 <strong>전이함수(transfer function)</strong>라고 하며, 이 떄의 모형을 <strong>전이함수모형(transfer function model)</strong>이라고 한다. 일반적으로 전이함수 모형은 입력시계열이 출력시계열에는 영향을 미치나 반대의 영향은 없다는 가정 하에서 사용한다. 만약 출력시계열도 입력시계열에 영향을 미치는 경우에는 전이함수 모형 대신 벡터 ARIMA 모형을 이용한 분석을 한다.</p>
+<p><span class="math display">\[y_{t}=\sum_{j=0}^{\infty}\alpha_{j}x_{t-j}+\eta_{t}=\alpha(B)x_{t}+\eta_{t}\]</span></p>
+<p>라고 모형을 세우자. 이 때 <span class="math inline">\(x_{t-j}\)</span>는 입력시계열, <span class="math inline">\(\eta_{t}\)</span>는 잡음과정이 되며 <span class="math display">\[\alpha(B)=\sum_{j=0}^{\infty}\alpha_{j}B^{j}\]</span> 는 전이함수가 된다.</p>
+<p>전이함수의 형태를 식별하기 위해서는 두 개의 시계열 사이의 상관의 정도와 방향을 나타내는 교차상관함수를 이용한다.</p>
+<p>전이함수모형의 기본 가정은 입력시계열과 반응시계열이 모두 정상시계열이라는 것이다. 따라서 먼저 분석에 사용될 시계열들이 정상성을 갖는지 여부를 판단해야 한다.</p>
 
 </div>
 </div>
