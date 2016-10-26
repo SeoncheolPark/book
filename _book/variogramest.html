@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-10-26">
+<meta name="date" content="2016-10-27">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -325,6 +325,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="20.7" data-path="advlifting.html"><a href="advlifting.html#window-based-approach"><i class="fa fa-check"></i><b>20.7</b> Window based approach</a></li>
 </ul></li>
 <li class="chapter" data-level="21" data-path="packet.html"><a href="packet.html"><i class="fa fa-check"></i><b>21</b> 웨이블릿 패킷 변환</a><ul>
+<li class="chapter" data-level="21.0.1" data-path="packet.html"><a href="packet.html#best-basis-algorithm"><i class="fa fa-check"></i><b>21.0.1</b> Best basis algorithm</a></li>
 <li class="chapter" data-level="21.1" data-path="packet.html"><a href="packet.html#non-decimated-wavelet-packet-transform"><i class="fa fa-check"></i><b>21.1</b> Non-decimated wavelet packet transform</a></li>
 <li class="chapter" data-level="21.2" data-path="packet.html"><a href="packet.html#--time-series-with-wavelet-packets"><i class="fa fa-check"></i><b>21.2</b> 웨이블릿 패킷과 시계열(time series with wavelet packets)</a></li>
 <li class="chapter" data-level="21.3" data-path="packet.html"><a href="packet.html#matching-pursuit"><i class="fa fa-check"></i><b>21.3</b> Matching pursuit</a></li>
@@ -618,8 +619,8 @@ s100.v1 &lt;-<span class="st"> </span><span class="kw">variog</span>(s100, <span
 <span class="kw">plot</span>(s100.v1, <span class="dt">main=</span><span class="st">&quot;Variogram cloud&quot;</span>)
 <span class="kw">plot</span>(s100.v2, <span class="dt">main=</span><span class="st">&quot;MoM estimator&quot;</span>)
 <span class="kw">plot</span>(s100.v3, <span class="dt">main=</span><span class="st">&quot;Robust estimator&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-105"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-105-1.png" alt="Various variogram estimation methods." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-106"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-106-1.png" alt="Various variogram estimation methods." width="672" />
 <p class="caption">
 Figure 30.1: Various variogram estimation methods.
 </p>
@@ -642,8 +643,8 @@ ols &lt;-<span class="st"> </span><span class="kw">variofit</span>(s100.v2, <spa
 <span class="kw">lines</span>(wls, <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">lwd=</span><span class="fl">1.5</span>)
 <span class="kw">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;true&quot;</span>, <span class="st">&quot;ols&quot;</span>, <span class="st">&quot;wls&quot;</span>),
        <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;black&quot;</span>, <span class="st">&quot;black&quot;</span>), <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-106"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-106-1.png" alt="Comparison of variogram estimation methods." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-107"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-107-1.png" alt="Comparison of variogram estimation methods." width="672" />
 <p class="caption">
 Figure 30.2: Comparison of variogram estimation methods.
 </p>

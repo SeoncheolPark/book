@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-10-26">
+<meta name="date" content="2016-10-27">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -325,6 +325,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="20.7" data-path="advlifting.html"><a href="advlifting.html#window-based-approach"><i class="fa fa-check"></i><b>20.7</b> Window based approach</a></li>
 </ul></li>
 <li class="chapter" data-level="21" data-path="packet.html"><a href="packet.html"><i class="fa fa-check"></i><b>21</b> 웨이블릿 패킷 변환</a><ul>
+<li class="chapter" data-level="21.0.1" data-path="packet.html"><a href="packet.html#best-basis-algorithm"><i class="fa fa-check"></i><b>21.0.1</b> Best basis algorithm</a></li>
 <li class="chapter" data-level="21.1" data-path="packet.html"><a href="packet.html#non-decimated-wavelet-packet-transform"><i class="fa fa-check"></i><b>21.1</b> Non-decimated wavelet packet transform</a></li>
 <li class="chapter" data-level="21.2" data-path="packet.html"><a href="packet.html#--time-series-with-wavelet-packets"><i class="fa fa-check"></i><b>21.2</b> 웨이블릿 패킷과 시계열(time series with wavelet packets)</a></li>
 <li class="chapter" data-level="21.3" data-path="packet.html"><a href="packet.html#matching-pursuit"><i class="fa fa-check"></i><b>21.3</b> Matching pursuit</a></li>
@@ -533,8 +534,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Japanese pine trees data</li>
 </ol>
 <p>일본소나무자료는 Numata (1961)가 모은 자료로 <code>spatstat</code>에서 <code>japanesepine</code>이라는 이름으로 들어있다. 공간점자료를 받았을 때 처음 할 일은 이 자료가 어떤 패턴을 가지고 있는지 확인해 보는 것이다. 그림을 그려 본 결과 이 자료는 특별한 패턴이 보이지 않으며 완비 무작위성을 띤다고 볼 수 있다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-108"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-108-1.png" alt="Japanese pine trees data." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-109"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-109-1.png" alt="Japanese pine trees data." width="672" />
 <p class="caption">
 Figure 36.1: Japanese pine trees data.
 </p>
@@ -543,8 +544,8 @@ Figure 36.1: Japanese pine trees data.
 <li>Califonia Redwoods</li>
 </ol>
 <p>레드우드는 세계에서 제일 키가 큰 나무 종류 중 하나라고 한다. 이 자료는 Ripley (1977)이 62그루의 캘리포니아 레드우드 모종(seeding)과 묘목(sapling)의 위치를 모아놓은 자료이다. <code>redwood</code>라는 이름으로 들어있다. 묘목 사이에 군집(cluster)이 형성되어 있음을 확인할 수 있다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-109"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-109-1.png" alt="Califonia Redwoods data." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-110"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-110-1.png" alt="Califonia Redwoods data." width="672" />
 <p class="caption">
 Figure 36.2: Califonia Redwoods data.
 </p>
@@ -553,8 +554,8 @@ Figure 36.2: Califonia Redwoods data.
 <li>Biological cells</li>
 </ol>
 <p>Crick and Ripley (1977)은 광학현미경으로 관찰한 42개의 생물학적 세포의 중심들을 자료로 만들었다. <code>cell</code>라는 이름에 들어있다. 이 자료의 특징은 세포의 크기 때문에 모든 점들이 일정 거리 이상 떨어져 분포하고 있다는 것이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-110"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-110-1.png" alt="Biological cells data." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-111"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-111-1.png" alt="Biological cells data." width="672" />
 <p class="caption">
 Figure 36.3: Biological cells data.
 </p>
@@ -563,8 +564,8 @@ Figure 36.3: Biological cells data.
 <li>Amacrine cells</li>
 </ol>
 <p>Diggle (1986)은 토끼의 망막에 있는 94개의 무축삭 세포(Amacrine cell) 자료를 분석했다. 이 세포들 중 152개는 빛이 들어오면 뇌에 정보를 전송하고 나머지들은 정보를 전송하지 않는다고 한다. <code>amacrine</code>이라는 이름으로 들어있다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-111"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-111-1.png" alt="Amacrine cells data." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-112"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-112-1.png" alt="Amacrine cells data." width="672" />
 <p class="caption">
 Figure 36.4: Amacrine cells data.
 </p>

@@ -4,6 +4,40 @@ PCA의 경우 통계학자들은 차원축소를 위한 한다고 생각하고 �
 
 웨이블릿에서는 직교정규 웨이블릿 $\{\psi_{j,k}(x)\}$가 $L^{2}(\mathbb{R})$의 기저(basis)가 됨을 설명했다. 그러나 이것이 기저를 만드는 유일한 방법은 아니다. 기저를 만드는 방법은 여러 가지가 있어, 이들을 규합해 **basis libraries**를 구성하는 것을 생각해 볼 수 있다. 그 예 중 하나가 **웨이블릿 패킷(wavelet packet)**이다.
 
+우선 Daubechies의 모웨이블릿($\psi$)과 부웨이블릿($\phi$)을 생각해보자. $W_{0}(x)=\phi(x)$, $W_{1}(x)=\psi(x)$이다. 그러면 함수의 수열 $\{ W_{k}(x)\}_{k=0}^{\infty}$를
+$$W_{2n}(x)=\sqrt{2}\sum_{k}h_{k}W_{n}(2x-k)$$
+$$W_{2n+1}(x)=\sqrt{2}\sum_{k}g_{k}W_{n}(2x-k)$$
+로 정의할 수 있다. 
+
+교수님의 notation을 따라가면 다음과 같다. Translated (k; translation part) and scaled (j) wavelet packet function을
+$$W_{jbk}(t)=2^{j/2}W_{b}(2^{j}t-k)$$
+로 표현한다. 이 때 $W_{b}(t), b=0,1,2,\ldots$는 **웨이블릿 패킷 함수(wavelet packet function)**이라고 한다. 이 때 $b$는 index for oscillation of frequency이다. 교수님이 좋아하시는 말로는 $b= \text{number of zero-crossing}$이다.
+
+<div class="example">
+
+- Haar wavelet: time series에서 "Walsh function"
+
+</div>
+
+일반적인 웨이블은 $W_{j0k}, W_{j1k}(=\psi_{jk})$ 둘만 사용한다는 점에서 차이점이 있다고 한다. $W_{00k}=\phi_{0k}$이며
+$$f(t)=\sum_{k}c_{0k}\phi_{0k}(t) +\sum\sum d_{jk}\psi_{jk}(t)$$
+이다.
+
+<div class="theorem">
+
+**(Coifman and Wickerhauser (1992))** $[2^{j}n, 2^{j}(n+1)]$이 $[0,\infty)$의 disjoint countable covering을 만드는 인덱스들의 collection $(j,n,k)\subset \mathbb{N}\times \mathbb{N}\mathbb{Z}$ 있을 때 $\{W_{jnk}(t)\}$는 $L^{2}(\mathbb{R})$의 직교정규 기저가 된다. 즉, 어떤 $f(t)\in L^{2}(\mathbb{R})$에 대해
+$$f(t)\approx \sum_{j}\sum_{n}\sum_{k}\omega_{jnk}W_{jnk}$$
+로 표현할 수 있다고 한다. 이 때 $\omega_{jnk}=\int f(t)W_{jbk}(t)dt$이다.
+
+</div>
+
+```{r, echo=F, fig.cap='Illustration of wavelet packet transform applied to eight data points.', fig.align='center'}
+knitr::include_graphics("images/adwavelet_waveletpacket.png")
+```
+
+### Best basis algorithm
+
+Nason 책 70쪽
 
 ## Non-decimated wavelet packet transform
 

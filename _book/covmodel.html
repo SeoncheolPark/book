@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-10-26">
+<meta name="date" content="2016-10-27">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -325,6 +325,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="20.7" data-path="advlifting.html"><a href="advlifting.html#window-based-approach"><i class="fa fa-check"></i><b>20.7</b> Window based approach</a></li>
 </ul></li>
 <li class="chapter" data-level="21" data-path="packet.html"><a href="packet.html"><i class="fa fa-check"></i><b>21</b> 웨이블릿 패킷 변환</a><ul>
+<li class="chapter" data-level="21.0.1" data-path="packet.html"><a href="packet.html#best-basis-algorithm"><i class="fa fa-check"></i><b>21.0.1</b> Best basis algorithm</a></li>
 <li class="chapter" data-level="21.1" data-path="packet.html"><a href="packet.html#non-decimated-wavelet-packet-transform"><i class="fa fa-check"></i><b>21.1</b> Non-decimated wavelet packet transform</a></li>
 <li class="chapter" data-level="21.2" data-path="packet.html"><a href="packet.html#--time-series-with-wavelet-packets"><i class="fa fa-check"></i><b>21.2</b> 웨이블릿 패킷과 시계열(time series with wavelet packets)</a></li>
 <li class="chapter" data-level="21.3" data-path="packet.html"><a href="packet.html#matching-pursuit"><i class="fa fa-check"></i><b>21.3</b> Matching pursuit</a></li>
@@ -544,7 +545,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="--idealized-shape-of-variogram-isotropic-case" class="section level2">
 <h2><span class="header-section-number">29.2</span> 이상적인 변동도의 모양(idealized Shape of Variogram (isotropic case))</h2>
 <p>그렇다면 일반적으로 생각하는 변동도의 모양은 어떠한가?</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-99"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-100"></span>
 <img src="images/sp_variogram.png" alt="Variogram example." width="196" />
 <p class="caption">
 Figure 29.1: Variogram example.
@@ -559,8 +560,8 @@ Figure 29.1: Variogram example.
 <div id="----classical-parametric-isotropic-variogram-models" class="section level2">
 <h2><span class="header-section-number">29.4</span> 대표적인 모수 등방성 변동도 모형들(classical parametric isotropic variogram models)</h2>
 <p>여기서는 총 9가지의 변동도 모형을 소개한다. 그러나 실제로 널리 쓰이는 모델은 ‘exponential’과 ’matern’ 두 개이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-100"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-100-1.png" alt="Various variogram models." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-101"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-101-1.png" alt="Various variogram models." width="672" />
 <p class="caption">
 Figure 29.2: Various variogram models.
 </p>
@@ -578,8 +579,8 @@ c_{0}+c_{1}\| \mathbf{h}\| &amp; \textrm{if $\mathbf{h}\neq 0$}\\
 <ol start="2" style="list-style-type: decimal">
 <li><strong>Spherical</strong></li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-101"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-101-1.png" alt="Spherical model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-102"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-102-1.png" alt="Spherical model." width="672" />
 <p class="caption">
 Figure 29.3: Spherical model.
 </p>
@@ -594,8 +595,8 @@ c_{0}+c_{1} &amp; \textrm{if $\|\mathbf{h}\|&gt;R$}\\
 <ol start="3" style="list-style-type: decimal">
 <li><strong>Exponential</strong></li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-102"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-102-1.png" alt="Exponential model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-103"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-103-1.png" alt="Exponential model." width="672" />
 <p class="caption">
 Figure 29.4: Exponential model.
 </p>
@@ -609,8 +610,8 @@ c_{0}+c_{1}(1-e^{-\frac{\|\mathbf{h}\|}{R}}) &amp; \textrm{if $\mathbf{h}\neq 0$
 <ol start="4" style="list-style-type: decimal">
 <li><strong>Gaussian</strong></li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-103"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-103-1.png" alt="Gaussian model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-104"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-104-1.png" alt="Gaussian model." width="672" />
 <p class="caption">
 Figure 29.5: Gaussian model.
 </p>
