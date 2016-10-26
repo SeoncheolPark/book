@@ -1,0 +1,37 @@
+# 웨이블릿 패킷 변환 {#packet}
+
+PCA의 경우 통계학자들은 차원축소를 위한 한다고 생각하고 통계학자가 아닌 사람들은 해석이 쉽기 떄문에 한다.
+
+웨이블릿에서는 직교정규 웨이블릿 $\{\psi_{j,k}(x)\}$가 $L^{2}(\mathbb{R})$의 기저(basis)가 됨을 설명했다. 그러나 이것이 기저를 만드는 유일한 방법은 아니다. 기저를 만드는 방법은 여러 가지가 있어, 이들을 규합해 **basis libraries**를 구성하는 것을 생각해 볼 수 있다. 그 예 중 하나가 **웨이블릿 패킷(wavelet packet)**이다.
+
+
+## Non-decimated wavelet packet transform
+
+## 웨이블릿 패킷과 시계열(time series with wavelet packets)
+
+웨이블릿 패킷 변환은 시계열 문제에 적용할 수 있다고 한다. [@Nason2002]는 두 시계열 간의 전이함수모형을 개발하는 방법을 묘사했다.
+
+- $Y_{t}$: response series
+
+- $X_{t}$: explanatory series
+
+여기서 쓴 모형은 다음과 같다.
+
+1. $X_{t}$를 웨이블릿 패킷(이것으로 $X_{t}$를 different scales, frequencies and locations에서 분석할 수 있음)으로 표현한다.
+
+2. $Y_{t}$와 non-decimated wavelet packet transform (NWPT) of $X_{t}$ 사이에 일반적인 통계모델링 기법을 사용한다. (Appendix 1에 등장)
+
+(The selected model often reveals valuable information about which types of oscillatory behaviour in $X_{t}$ influence $Y_{t}$ and also supplies a method to predict future values of $Y_{t}$ from future values of $X_{t}$)
+
+ 
+## Matching pursuit
+
+- Mallat and Zhang (1993)
+
+- closely related to projection pursuit regression (Friedman and Stuezle(1981))
+
+- Matching pursuit, projection pursuit regression and PCA regression 간에 유사점이 있다.
+
+## 코싸인 패킷(cosine packet)
+
+### local cosine basis

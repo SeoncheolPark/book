@@ -252,3 +252,5 @@ knitr::include_graphics("images/multiscale_Meyer.png")
 ```{r, echo=F, fig.cap='Meyer scaling function on frequency domain.', fig.align='center'}
 knitr::include_graphics("images/multiscale_Meyer02.png")
 ```
+
+## 데시메이티드되지 않은 웨이블릿(non-decimated wavelets)
