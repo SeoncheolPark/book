@@ -325,10 +325,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="20.7" data-path="advlifting.html"><a href="advlifting.html#window-based-approach"><i class="fa fa-check"></i><b>20.7</b> Window based approach</a></li>
 </ul></li>
 <li class="chapter" data-level="21" data-path="packet.html"><a href="packet.html"><i class="fa fa-check"></i><b>21</b> 웨이블릿 패킷 변환</a><ul>
-<li class="chapter" data-level="21.1" data-path="packet.html"><a href="packet.html#--time-series-with-wavelet-packets"><i class="fa fa-check"></i><b>21.1</b> 웨이블릿 패킷과 시계열(time series with wavelet packets)</a></li>
-<li class="chapter" data-level="21.2" data-path="packet.html"><a href="packet.html#matching-pursuit"><i class="fa fa-check"></i><b>21.2</b> Matching pursuit</a></li>
-<li class="chapter" data-level="21.3" data-path="packet.html"><a href="packet.html#-cosine-packet"><i class="fa fa-check"></i><b>21.3</b> 코싸인 패킷(cosine packet)</a><ul>
-<li class="chapter" data-level="21.3.1" data-path="packet.html"><a href="packet.html#local-cosine-basis"><i class="fa fa-check"></i><b>21.3.1</b> local cosine basis</a></li>
+<li class="chapter" data-level="21.1" data-path="packet.html"><a href="packet.html#non-decimated-wavelet-packet-transform"><i class="fa fa-check"></i><b>21.1</b> Non-decimated wavelet packet transform</a></li>
+<li class="chapter" data-level="21.2" data-path="packet.html"><a href="packet.html#--time-series-with-wavelet-packets"><i class="fa fa-check"></i><b>21.2</b> 웨이블릿 패킷과 시계열(time series with wavelet packets)</a></li>
+<li class="chapter" data-level="21.3" data-path="packet.html"><a href="packet.html#matching-pursuit"><i class="fa fa-check"></i><b>21.3</b> Matching pursuit</a></li>
+<li class="chapter" data-level="21.4" data-path="packet.html"><a href="packet.html#-cosine-packet"><i class="fa fa-check"></i><b>21.4</b> 코싸인 패킷(cosine packet)</a><ul>
+<li class="chapter" data-level="21.4.1" data-path="packet.html"><a href="packet.html#local-cosine-basis"><i class="fa fa-check"></i><b>21.4.1</b> local cosine basis</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>Unsupervised Learning</b></span></li>
@@ -525,8 +526,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">Chapter 21</span> 웨이블릿 패킷 변환</h1>
 <p>PCA의 경우 통계학자들은 차원축소를 위한 한다고 생각하고 통계학자가 아닌 사람들은 해석이 쉽기 떄문에 한다.</p>
 <p>웨이블릿에서는 직교정규 웨이블릿 <span class="math inline">\(\{\psi_{j,k}(x)\}\)</span>가 <span class="math inline">\(L^{2}(\mathbb{R})\)</span>의 기저(basis)가 됨을 설명했다. 그러나 이것이 기저를 만드는 유일한 방법은 아니다. 기저를 만드는 방법은 여러 가지가 있어, 이들을 규합해 <strong>basis libraries</strong>를 구성하는 것을 생각해 볼 수 있다. 그 예 중 하나가 <strong>웨이블릿 패킷(wavelet packet)</strong>이다.</p>
+<div id="non-decimated-wavelet-packet-transform" class="section level2">
+<h2><span class="header-section-number">21.1</span> Non-decimated wavelet packet transform</h2>
+</div>
 <div id="--time-series-with-wavelet-packets" class="section level2">
-<h2><span class="header-section-number">21.1</span> 웨이블릿 패킷과 시계열(time series with wavelet packets)</h2>
+<h2><span class="header-section-number">21.2</span> 웨이블릿 패킷과 시계열(time series with wavelet packets)</h2>
 <p>웨이블릿 패킷 변환은 시계열 문제에 적용할 수 있다고 한다. <span class="citation">(G. P. Nason and Sapatinas <a href="#ref-Nason2002">2002</a>)</span>는 두 시계열 간의 전이함수모형을 개발하는 방법을 묘사했다.</p>
 <ul>
 <li><p><span class="math inline">\(Y_{t}\)</span>: response series</p></li>
@@ -540,7 +544,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>(The selected model often reveals valuable information about which types of oscillatory behaviour in <span class="math inline">\(X_{t}\)</span> influence <span class="math inline">\(Y_{t}\)</span> and also supplies a method to predict future values of <span class="math inline">\(Y_{t}\)</span> from future values of <span class="math inline">\(X_{t}\)</span>)</p>
 </div>
 <div id="matching-pursuit" class="section level2">
-<h2><span class="header-section-number">21.2</span> Matching pursuit</h2>
+<h2><span class="header-section-number">21.3</span> Matching pursuit</h2>
 <ul>
 <li><p>Mallat and Zhang (1993)</p></li>
 <li><p>closely related to projection pursuit regression (Friedman and Stuezle(1981))</p></li>
@@ -548,9 +552,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </div>
 <div id="-cosine-packet" class="section level2">
-<h2><span class="header-section-number">21.3</span> 코싸인 패킷(cosine packet)</h2>
+<h2><span class="header-section-number">21.4</span> 코싸인 패킷(cosine packet)</h2>
 <div id="local-cosine-basis" class="section level3">
-<h3><span class="header-section-number">21.3.1</span> local cosine basis</h3>
+<h3><span class="header-section-number">21.4.1</span> local cosine basis</h3>
 
 </div>
 </div>

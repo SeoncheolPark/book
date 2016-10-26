@@ -14,12 +14,12 @@ c_{J-1,k}=\int_{\mathbb{R}}f(x)\phi_{J-1,k}(x)dx
 
 왜냐하면 $\{ \phi_{J-1,k(x)}\}_{k}$가 $V_{j-1}$의 직교정규기저이기 때문이다. (?) ($\phi$: 척도함수 또는 부웨이블릿) 이제 $J-1$ 레벨의 $\phi_{J-1,k}(x)$를 $\phi_{J,l}(x)$와 dilation eqn $\phi(x)=\sum_{n\in\mathbb{Z}}h_{n}\phi_{1n}(x)$를 이용해 나타내보자.
 
-\begin{eqnarray}\label{eq:fatherj2}
+\begin{eqnarray}
 \phi_{J-1,k}(x)&=&s^{(J-1)/2}\phi(2^{J-1}x-k)\nonumber\\
 &=&2^{(J-1)/2}\sum_{n}h_{n}\phi_{1,n}(2^{J-1}x-k)\nonumber\\
 &=&2^{(J-1)/2}\sum_{n}h_{n}2^{1/2}\phi\{2(2^{J-1}x-k)-n\}\nonumber\\
-&=&2^{J/2}\sum_{n}h_{n}\phi(2^{J}x-2k-n)\nonumber\\
-&=&\sum_{n}h_{n}\phi_{J,n+2k}(x).
+&=&2^{J/2}\sum_{n}h_{n}\phi(2^{J}x-2k-n)\nonumber\\ 
+&=&\sum_{n}h_{n}\phi_{J,n+2k}(x).\label{eq:fatherj2}
 \end{eqnarray}
 
 이 때 식 (\@ref(eq:fatherj2))에 (\@ref(eq:fatherj1))을 넣으면
