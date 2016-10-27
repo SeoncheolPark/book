@@ -7,7 +7,7 @@ PCA의 경우 통계학자들은 차원축소를 위한 한다고 생각하고 �
 우선 Daubechies의 모웨이블릿($\psi$)과 부웨이블릿($\phi$)을 생각해보자. $W_{0}(x)=\phi(x)$, $W_{1}(x)=\psi(x)$이다. 그러면 함수의 수열 $\{ W_{k}(x)\}_{k=0}^{\infty}$를
 $$W_{2n}(x)=\sqrt{2}\sum_{k}h_{k}W_{n}(2x-k)$$
 $$W_{2n+1}(x)=\sqrt{2}\sum_{k}g_{k}W_{n}(2x-k)$$
-로 정의할 수 있다. 
+로 정의할 수 있다. 이를 **웨이블릿 패킷(wavelet packet)**이라 부른다.
 
 교수님의 notation을 따라가면 다음과 같다. Translated (k; translation part) and scaled (j) wavelet packet function을
 $$W_{jbk}(t)=2^{j/2}W_{b}(2^{j}t-k)$$
@@ -35,11 +35,21 @@ $$f(t)\approx \sum_{j}\sum_{n}\sum_{k}\omega_{jnk}W_{jnk}$$
 knitr::include_graphics("images/adwavelet_waveletpacket.png")
 ```
 
+위 그림은 필터 $\mathcal{H}$, $\mathcal{G}$를 이용해 어떻게 계수들과 기저함수들을 얻어내는지 묘사한 것이다. $\mathcal{D}_{0}\mathcal{H}$, $\mathcal{D}_{0}\mathcal{G}$ 필터가 smooth, detail operation을 수행한다. 이는 일반적인 웨이블릿과 똑같다. 그러나 달라진 점은 둘 다 recursively하게 applied하는 것이다.
+
 ### Best basis algorithm
 
-Nason 책 70쪽
+(Nason 책 70쪽)
+
+### Coifman-Wickerhauser best-basis method
+
+(Nason 책 72쪽)
+
+Shannon entroy는 vector의 sparsity를 재는 데 사용할 수 있으며, Coifman-Wickerhauser algorithm은 overall negative Shannon entropy를 minimize하는 기저를 찾는다.
 
 ## Non-decimated wavelet packet transform
+
+이 알고리즘은 $\mathcal{D}_{0}\mathcal{H}$, $\mathcal{D}_{0}\mathcal{G}$, $\mathcal{D}_{1}\mathcal{H}$, $\mathcal{D}_{1}\mathcal{G}$를 recursively하게 섞어서 실현 가능하다.
 
 ## 웨이블릿 패킷과 시계열(time series with wavelet packets)
 
@@ -57,7 +67,6 @@ Nason 책 70쪽
 
 (The selected model often reveals valuable information about which types of oscillatory behaviour in $X_{t}$ influence $Y_{t}$ and also supplies a method to predict future values of $Y_{t}$ from future values of $X_{t}$)
 
- 
 ## Matching pursuit
 
 - Mallat and Zhang (1993)
@@ -69,3 +78,48 @@ Nason 책 70쪽
 ## 코싸인 패킷(cosine packet)
 
 ### local cosine basis
+
+## R 예제(R-wp)
+
+```{r, message=F, echo=F}
+library(wavethresh)
+```
+
+다음은 R 패키지 `wavethresh`의 `wp`함수를 이용한 웨이블릿 패킷 예제이다. 그것은 dyadic-length vector를 transform하기 위해 사용하였고, underlying wavelet family를 특정화하고 number of vanishing moment를 결정하기 위해z <- rnorm(256) argument `filter.number`와 `family`의 입력을 필요로한다.
+
+```{r, fig.align='center', comment=">", fig.cap = 'Wavelet packet coefficients of the independent Gaussian sequence z.'}
+z <- rnorm(256)
+zwp <- wp(z, filter.number=2, family="DaubExPhase")
+plot(zwp, color.force=TRUE)
+```
+
+위 그림은 독립 가우스 수열 $\mathbf{z}$에 대해 웨이블릿 계수들을 구한 결과를 보여준다. 원 시계열은 맨 아래쪽에 있다. 이것의 scale은 8로 정했다. 그리고 한 줄씩 위로 올라가면서 scale(=resolution level)을 1씩 줄였을 때의 결과를 보여준다. 웨이블릿 패킷을 수직 점선으로 구분해 놓았다. 각 스케일 마다 첫 번째 웨이블릿은 scaling function coefficient들에 대응된다. 그래서 시계열로 표현했는데 이는 스케일 함수 계수들을 웟ㄴ 시계열의 연속적인 coarsening이라고 생각할 수 있기 때문이다. Regular wavelet coefficient들은 각 스케일마다 두 번째 패킷에 위치하도록 했다.
+
+여기서 스케일 6에 있는 네 번째 패킷 (packet 3임, 0, 1, 2 순서로 번호를 매기므로)을 100인 값이 하나가 있고 나머지는 모두 0인 패킷으로 교체해보자. 우선 현재 있는 패킷 값을 얻으려면 `getpacket` 함수를 이용한다.
+
+```{r, fig.align='center', comment=">"}
+getpacket(zwp, level=6, index=3)
+```
+
+100인 값이 하나가 있고 나머지는 모두 0인 벡터는 매우 sparse하다. `zwp2`에 앞서 말한 패킷을 넣어보자.
+
+```{r, fig.align='center', comment=">", fig.cap = 'Wavelet packet coefficients of zwp2.'}
+zwp2 <- putpacket(zwp, level=6, index=3, packet=c(rep(0,10), 100, rep(0,53)))
+plot(zwp2)
+```
+
+여기서 출력되는 그림은 패킷 $(6,3)$ 지역을 제외하고는 앞선 그림과 똑같지만, 계수들의 크기가 상대적으로 정해지기 때문에, 크기 100인 계수들에 의해 sparse한 것처럼 출력된다. Coifman-Wikerhauser best-basis algorithm은 Shannon entropy를 이용하며 `MaNoVe`함수를 이요해 얻을 수 있다.
+
+```{r, fig.align='center', comment=">"}
+zwp2.nv <- MaNoVe(zwp2)
+zwp2.nv
+```
+
+$(6,3)$이 basis element로 선택된 것을 확인할 수 있다. 왜냐면 이것이 extremely sparse하기 때문이다. 이 새로 선택된 `zwp2.nv`의 기저는 `InvBasis(zwp2, zwp2.nv)` 명령어를 통해 불러올 수 있다고 한다.
+
+```{r, fig.align='center', comment=">", fig.cap = 'Inversion plotting.'}
+head(InvBasis(zwp2, zwp2.nv))
+plot(InvBasis(zwp2, zwp2.nv), type="o")
+```
+
+이 그림이 super-sparse $(6,3)$의 결과다.

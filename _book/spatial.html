@@ -326,12 +326,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="21" data-path="packet.html"><a href="packet.html"><i class="fa fa-check"></i><b>21</b> 웨이블릿 패킷 변환</a><ul>
 <li class="chapter" data-level="21.0.1" data-path="packet.html"><a href="packet.html#best-basis-algorithm"><i class="fa fa-check"></i><b>21.0.1</b> Best basis algorithm</a></li>
+<li class="chapter" data-level="21.0.2" data-path="packet.html"><a href="packet.html#coifman-wickerhauser-best-basis-method"><i class="fa fa-check"></i><b>21.0.2</b> Coifman-Wickerhauser best-basis method</a></li>
 <li class="chapter" data-level="21.1" data-path="packet.html"><a href="packet.html#non-decimated-wavelet-packet-transform"><i class="fa fa-check"></i><b>21.1</b> Non-decimated wavelet packet transform</a></li>
 <li class="chapter" data-level="21.2" data-path="packet.html"><a href="packet.html#--time-series-with-wavelet-packets"><i class="fa fa-check"></i><b>21.2</b> 웨이블릿 패킷과 시계열(time series with wavelet packets)</a></li>
 <li class="chapter" data-level="21.3" data-path="packet.html"><a href="packet.html#matching-pursuit"><i class="fa fa-check"></i><b>21.3</b> Matching pursuit</a></li>
 <li class="chapter" data-level="21.4" data-path="packet.html"><a href="packet.html#-cosine-packet"><i class="fa fa-check"></i><b>21.4</b> 코싸인 패킷(cosine packet)</a><ul>
 <li class="chapter" data-level="21.4.1" data-path="packet.html"><a href="packet.html#local-cosine-basis"><i class="fa fa-check"></i><b>21.4.1</b> local cosine basis</a></li>
 </ul></li>
+<li class="chapter" data-level="21.5" data-path="packet.html"><a href="packet.html#r-r-wp"><i class="fa fa-check"></i><b>21.5</b> R 예제(R-wp)</a></li>
 </ul></li>
 <li class="part"><span><b>Unsupervised Learning</b></span></li>
 <li class="chapter" data-level="22" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>22</b> 클러스터링(clustering)</a><ul>
@@ -541,7 +543,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## Warning: 명령 &#39;&#39;/usr/bin/otool&#39; -L &#39;/Library/Frameworks/R.framework/
 ## Resources/library/tcltk/libs//tcltk.so&#39;&#39;의 실행으로 상태 69가 되었습니다</code></pre>
 <p>이 안에 있는 자료 <code>elevation</code>은 52개 지역의 표면 높이(surface elevation)를 측정한 자료이다. 기본 distance unit은 50 feet이며, 높이의 기본 distance unit은 10 feet이다.</p>
-<p><img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-92-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-98-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>이러한 자료를 <code>plot</code>하기 위해서는 <code>geodata</code>로 바꿔줘야 한다.</p>
 <ol start="2" style="list-style-type: decimal">
 <li>Rongelape Island data</li>
@@ -557,13 +559,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Scottish lip cancer data</li>
 </ol>
 <p>다음 자료는 1975-1980 동안 스코틀랜드 지역 남성의 lip cancer case 숫자를 county별로 센 <code>scotland</code> 자료이다. 이 자료는 <code>SpatialEpi</code> 패키지에 있다. 이 자료는 spatial dependency가 clear해서 많이 쓰인다고 한다.</p>
-<p><img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-96-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-102-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>이 자료는 앞 자료들과 달리 point 자료가 아닌 지역별 자료이다. 이런 자료를 공간 집적 자료(areal aggregation data)라고 한다. 이런 경우의 자료 분석은 first neighbor, second neighbor에 어떤 자료가 있는지 살펴보는 것을 많이 한다.</p>
 <ol start="4" style="list-style-type: decimal">
 <li>Inventory data of the Zurichberg Forest, Switzerland</li>
 </ol>
 <p>이 자료는 <code>spBayes</code>에 있는 취리히 숲 자재 자료(Zurichberg forest inventory data, <code>Zurich.dat</code>)이다. 이 자료의 특징은 숲이 어디 생길지 모르기 때문에 위치 자체가 random이 된다는 것이다. 앞선 자료들의 위치가 고정되어 있었던 것과는 다른 상황이다. 나무의 size를 잴 때에는 사람 가슴 정도 높이의 trunk를 잰다고 한다.</p>
-<p><img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-98-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-104-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>산림학에서의 관심사는 나무와 나무 사이의 상호작용(interaction)이 있는지 보는 것이다. 나무의 종류에 따라 같이 자랄 수도 있고, 또는 한 나무만 살아남을 수도 있는데 이러한 현상에 관심을 갖는 것이다.</p>
 <p>Location 자체가 random인 자료들은 point process로 모델링한다. 여기서 <span class="math display">\[\mathbf{x}=(x_{1}, \cdots , x_{n})\]</span> 이라고 하면 <span class="math inline">\(\mathbf{x}\)</span>와 <span class="math inline">\(n\)</span>이 모두 random이다.</p>
 <p>또 mark라고 추가정보가 들어올 수도 있다고 한다. <span class="math display">\[M|\mathbf{x}=(m_{x_{1}}, \cdots , m_{x_{n}}).\]</span></p>

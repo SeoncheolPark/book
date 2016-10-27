@@ -326,12 +326,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="21" data-path="packet.html"><a href="packet.html"><i class="fa fa-check"></i><b>21</b> 웨이블릿 패킷 변환</a><ul>
 <li class="chapter" data-level="21.0.1" data-path="packet.html"><a href="packet.html#best-basis-algorithm"><i class="fa fa-check"></i><b>21.0.1</b> Best basis algorithm</a></li>
+<li class="chapter" data-level="21.0.2" data-path="packet.html"><a href="packet.html#coifman-wickerhauser-best-basis-method"><i class="fa fa-check"></i><b>21.0.2</b> Coifman-Wickerhauser best-basis method</a></li>
 <li class="chapter" data-level="21.1" data-path="packet.html"><a href="packet.html#non-decimated-wavelet-packet-transform"><i class="fa fa-check"></i><b>21.1</b> Non-decimated wavelet packet transform</a></li>
 <li class="chapter" data-level="21.2" data-path="packet.html"><a href="packet.html#--time-series-with-wavelet-packets"><i class="fa fa-check"></i><b>21.2</b> 웨이블릿 패킷과 시계열(time series with wavelet packets)</a></li>
 <li class="chapter" data-level="21.3" data-path="packet.html"><a href="packet.html#matching-pursuit"><i class="fa fa-check"></i><b>21.3</b> Matching pursuit</a></li>
 <li class="chapter" data-level="21.4" data-path="packet.html"><a href="packet.html#-cosine-packet"><i class="fa fa-check"></i><b>21.4</b> 코싸인 패킷(cosine packet)</a><ul>
 <li class="chapter" data-level="21.4.1" data-path="packet.html"><a href="packet.html#local-cosine-basis"><i class="fa fa-check"></i><b>21.4.1</b> local cosine basis</a></li>
 </ul></li>
+<li class="chapter" data-level="21.5" data-path="packet.html"><a href="packet.html#r-r-wp"><i class="fa fa-check"></i><b>21.5</b> R 예제(R-wp)</a></li>
 </ul></li>
 <li class="part"><span><b>Unsupervised Learning</b></span></li>
 <li class="chapter" data-level="22" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>22</b> 클러스터링(clustering)</a><ul>
@@ -565,7 +567,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 \end{equation}
 <p>를 만족한다.</p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-135"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-141"></span>
 <img src="images/spatextremes_002.png" alt="de Haans characterization." width="166" />
 <p class="caption">
 Figure 44.1: de Haans characterization.
@@ -575,7 +577,7 @@ Figure 44.1: de Haans characterization.
 <div class="theorem">
 <p>(<span class="citation">(Schlather <a href="#ref-Schlather2002">2002</a>)</span>의 characterization) <span class="math inline">\(\{ (\xi_{i}, U_{i})\}_{i \geq 1}\)</span>이 <span class="math inline">\((0,\infty ]\)</span>에서 intensity <span class="math inline">\(d \Lambda (\xi)=\xi^{-2}d\xi\)</span>를 갖는 <strong>Poisson point process</strong>의 점들이고 <span class="math inline">\(Y_{1},Y_{2},\ldots\)</span>를 <span class="math inline">\(E[Y(x)]=1, \forall x \in \mathbb{R}^{d}\)</span> 이고 non-negative continous sample path stochastic process <span class="math inline">\(\{ Y(x)\}\)</span>의 independent copy들이라고 하자. 이때 <span class="math inline">\(Y_{i}\)</span>들은 <span class="math inline">\(\{ \xi_{i}\}_{i \geq 1}\)</span>와 독립이다. 그러면 <span class="math display">\[ \{ Z(x)\}_{x\in\mathbb{R}^{d}}:=\{\max_{i\geq 1} \xi_{i}Y_{i}(x) \}_{x\in \mathbb{R}^{d}}\]</span> 는 unit Fréchet margin을 가지는 최대안정과정이다.</p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-136"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-142"></span>
 <img src="images/spatextremes_004.png" alt="Schlathers characterization" width="164" />
 <p class="caption">
 Figure 44.2: Schlathers characterization
@@ -589,8 +591,8 @@ Figure 44.2: Schlathers characterization
 Z(x)=\max_{i\geq 1}\xi_{i}\phi(x-U_{i};\mathbf{0},\Sigma), x\in\mathcal{X},
 \end{equation}
 <p>이때 <span class="math inline">\(\phi(\cdot, \mathbf{0},\Sigma)\)</span>는 평균이 0이고 공분산이 <span class="math inline">\(\Sigma\)</span>인 <strong>다변량 정규 확률밀도함수(multivariate Normal density)</strong>이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-137"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-137-1.png" alt="Smith model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-143"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-143-1.png" alt="Smith model." width="672" />
 <p class="caption">
 Figure 44.3: Smith model.
 </p>
@@ -604,8 +606,8 @@ Figure 44.3: Smith model.
 Z(x)=\sqrt{2\pi}\max_{i\geq 1}\zeta_{i}\max\{0,W_{i}(x)\}
 \end{equation}
 <p>로 이때 <span class="math inline">\(\{W_{i}(x): x\in\mathcal{X}\}\)</span>는 상관함수(correlation function) <span class="math inline">\(\rho\)</span>를 갖는 <strong>정상 가우스과정(staionary Gaussian process)</strong>의 독립된 copy들이다. 또한 척도요인(scaling factor) <span class="math inline">\(\sqrt{2\pi}\)</span>는 모든 <span class="math inline">\(x\in\mathcal{X}\)</span>에 대해 <span class="math inline">\(\sqrt{2\pi}E[\max\{ 0,W(x)\}]=1\)</span>를 만족해야 한다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-138"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-138-1.png" alt="Schlather model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-144"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-144-1.png" alt="Schlather model." width="672" />
 <p class="caption">
 Figure 44.4: Schlather model.
 </p>

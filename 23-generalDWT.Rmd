@@ -215,7 +215,7 @@ ywd <- wd(y$y, filter.number=2, family="DaubExPhase", type="station")
 plot(ywd, scaling="by.level", main="")
 ```
 
-```{r, fig.align='center', comment=">", fig.cap = 'acket-ordered non-decimated wavelet coefficients of simulated chirp signal.'}
+```{r, fig.align='center', comment=">", fig.cap = 'Packet-ordered non-decimated wavelet coefficients of simulated chirp signal.'}
 ywst <- wst(y$y, filter.number=2, family="DaubExPhase")
 plot(ywst, scaling="by.level", main="")
 ```

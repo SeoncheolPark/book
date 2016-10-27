@@ -326,12 +326,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="21" data-path="packet.html"><a href="packet.html"><i class="fa fa-check"></i><b>21</b> 웨이블릿 패킷 변환</a><ul>
 <li class="chapter" data-level="21.0.1" data-path="packet.html"><a href="packet.html#best-basis-algorithm"><i class="fa fa-check"></i><b>21.0.1</b> Best basis algorithm</a></li>
+<li class="chapter" data-level="21.0.2" data-path="packet.html"><a href="packet.html#coifman-wickerhauser-best-basis-method"><i class="fa fa-check"></i><b>21.0.2</b> Coifman-Wickerhauser best-basis method</a></li>
 <li class="chapter" data-level="21.1" data-path="packet.html"><a href="packet.html#non-decimated-wavelet-packet-transform"><i class="fa fa-check"></i><b>21.1</b> Non-decimated wavelet packet transform</a></li>
 <li class="chapter" data-level="21.2" data-path="packet.html"><a href="packet.html#--time-series-with-wavelet-packets"><i class="fa fa-check"></i><b>21.2</b> 웨이블릿 패킷과 시계열(time series with wavelet packets)</a></li>
 <li class="chapter" data-level="21.3" data-path="packet.html"><a href="packet.html#matching-pursuit"><i class="fa fa-check"></i><b>21.3</b> Matching pursuit</a></li>
 <li class="chapter" data-level="21.4" data-path="packet.html"><a href="packet.html#-cosine-packet"><i class="fa fa-check"></i><b>21.4</b> 코싸인 패킷(cosine packet)</a><ul>
 <li class="chapter" data-level="21.4.1" data-path="packet.html"><a href="packet.html#local-cosine-basis"><i class="fa fa-check"></i><b>21.4.1</b> local cosine basis</a></li>
 </ul></li>
+<li class="chapter" data-level="21.5" data-path="packet.html"><a href="packet.html#r-r-wp"><i class="fa fa-check"></i><b>21.5</b> R 예제(R-wp)</a></li>
 </ul></li>
 <li class="part"><span><b>Unsupervised Learning</b></span></li>
 <li class="chapter" data-level="22" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>22</b> 클러스터링(clustering)</a><ul>
@@ -551,8 +553,8 @@ P\{M_{n} \leq z \} &amp;=&amp; P\{X_{1}\leq z, \ldots, X_{n} \leq z\} \nonumber\
 1, &amp; \text{z $\geq$ b}
 \end{cases}\]</span> 이 때 <span class="math inline">\(a&gt;0\)</span>, <span class="math inline">\(b\)</span>는 모수들이고 <span class="math inline">\(\alpha &gt;0\)</span>이다.</p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-123"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-123-1.png" alt="Plot of three GEV distributions." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-129"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-129-1.png" alt="Plot of three GEV distributions." width="672" />
 <p class="caption">
 Figure 42.1: Plot of three GEV distributions.
 </p>
@@ -653,8 +655,8 @@ P\{(M_{n}-b_{n})/a_{n} \leq z \} &amp;=&amp; F^{n}(z+\log n) \nonumber\\
 <span class="kw">plot</span>(TMX1~Year, <span class="dt">data=</span>SEPTsp, <span class="dt">type=</span><span class="st">&quot;h&quot;</span>)
 <span class="kw">plot</span>(TMX1~AOindex, <span class="dt">data=</span>SEPTsp, <span class="dt">pch=</span><span class="dv">21</span>)
 <span class="kw">plot</span>(TMX1~MDTR, <span class="dt">data=</span>SEPTsp, <span class="dt">pch=</span><span class="dv">21</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-125"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-125-1.png" alt="Plot maximum winter temperature." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-131"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-131-1.png" alt="Plot maximum winter temperature." width="672" />
 <p class="caption">
 Figure 42.2: Plot maximum winter temperature.
 </p>
@@ -688,8 +690,8 @@ fit0</code></pre></div>
 &gt; 
 &gt;  BIC = 281.6045</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(fit0)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-126"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-126-1.png" alt="Fit a GEV distribution." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-132"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-132-1.png" alt="Fit a GEV distribution." width="672" />
 <p class="caption">
 Figure 42.3: Fit a GEV distribution.
 </p>
@@ -741,8 +743,8 @@ fit1</code></pre></div>
 &gt; 
 &gt;  BIC = 284.6385</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(fit1)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-127"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-127-1.png" alt="Fit a GEV distribution with AOindex." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-133"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-133-1.png" alt="Fit a GEV distribution with AOindex." width="672" />
 <p class="caption">
 Figure 42.4: Fit a GEV distribution with AOindex.
 </p>
@@ -788,8 +790,8 @@ fit2</code></pre></div>
 &gt; 
 &gt;  BIC = 284.1466</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(fit2)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-128"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-128-1.png" alt="Fit a GEV distribution with STDTMAX." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-134"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-134-1.png" alt="Fit a GEV distribution with STDTMAX." width="672" />
 <p class="caption">
 Figure 42.5: Fit a GEV distribution with STDTMAX.
 </p>

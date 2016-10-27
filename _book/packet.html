@@ -326,12 +326,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="21" data-path="packet.html"><a href="packet.html"><i class="fa fa-check"></i><b>21</b> 웨이블릿 패킷 변환</a><ul>
 <li class="chapter" data-level="21.0.1" data-path="packet.html"><a href="packet.html#best-basis-algorithm"><i class="fa fa-check"></i><b>21.0.1</b> Best basis algorithm</a></li>
+<li class="chapter" data-level="21.0.2" data-path="packet.html"><a href="packet.html#coifman-wickerhauser-best-basis-method"><i class="fa fa-check"></i><b>21.0.2</b> Coifman-Wickerhauser best-basis method</a></li>
 <li class="chapter" data-level="21.1" data-path="packet.html"><a href="packet.html#non-decimated-wavelet-packet-transform"><i class="fa fa-check"></i><b>21.1</b> Non-decimated wavelet packet transform</a></li>
 <li class="chapter" data-level="21.2" data-path="packet.html"><a href="packet.html#--time-series-with-wavelet-packets"><i class="fa fa-check"></i><b>21.2</b> 웨이블릿 패킷과 시계열(time series with wavelet packets)</a></li>
 <li class="chapter" data-level="21.3" data-path="packet.html"><a href="packet.html#matching-pursuit"><i class="fa fa-check"></i><b>21.3</b> Matching pursuit</a></li>
 <li class="chapter" data-level="21.4" data-path="packet.html"><a href="packet.html#-cosine-packet"><i class="fa fa-check"></i><b>21.4</b> 코싸인 패킷(cosine packet)</a><ul>
 <li class="chapter" data-level="21.4.1" data-path="packet.html"><a href="packet.html#local-cosine-basis"><i class="fa fa-check"></i><b>21.4.1</b> local cosine basis</a></li>
 </ul></li>
+<li class="chapter" data-level="21.5" data-path="packet.html"><a href="packet.html#r-r-wp"><i class="fa fa-check"></i><b>21.5</b> R 예제(R-wp)</a></li>
 </ul></li>
 <li class="part"><span><b>Unsupervised Learning</b></span></li>
 <li class="chapter" data-level="22" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>22</b> 클러스터링(clustering)</a><ul>
@@ -527,7 +529,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">Chapter 21</span> 웨이블릿 패킷 변환</h1>
 <p>PCA의 경우 통계학자들은 차원축소를 위한 한다고 생각하고 통계학자가 아닌 사람들은 해석이 쉽기 떄문에 한다.</p>
 <p>웨이블릿에서는 직교정규 웨이블릿 <span class="math inline">\(\{\psi_{j,k}(x)\}\)</span>가 <span class="math inline">\(L^{2}(\mathbb{R})\)</span>의 기저(basis)가 됨을 설명했다. 그러나 이것이 기저를 만드는 유일한 방법은 아니다. 기저를 만드는 방법은 여러 가지가 있어, 이들을 규합해 <strong>basis libraries</strong>를 구성하는 것을 생각해 볼 수 있다. 그 예 중 하나가 <strong>웨이블릿 패킷(wavelet packet)</strong>이다.</p>
-<p>우선 Daubechies의 모웨이블릿(<span class="math inline">\(\psi\)</span>)과 부웨이블릿(<span class="math inline">\(\phi\)</span>)을 생각해보자. <span class="math inline">\(W_{0}(x)=\phi(x)\)</span>, <span class="math inline">\(W_{1}(x)=\psi(x)\)</span>이다. 그러면 함수의 수열 <span class="math inline">\(\{ W_{k}(x)\}_{k=0}^{\infty}\)</span>를 <span class="math display">\[W_{2n}(x)=\sqrt{2}\sum_{k}h_{k}W_{n}(2x-k)\]</span> <span class="math display">\[W_{2n+1}(x)=\sqrt{2}\sum_{k}g_{k}W_{n}(2x-k)\]</span> 로 정의할 수 있다.</p>
+<p>우선 Daubechies의 모웨이블릿(<span class="math inline">\(\psi\)</span>)과 부웨이블릿(<span class="math inline">\(\phi\)</span>)을 생각해보자. <span class="math inline">\(W_{0}(x)=\phi(x)\)</span>, <span class="math inline">\(W_{1}(x)=\psi(x)\)</span>이다. 그러면 함수의 수열 <span class="math inline">\(\{ W_{k}(x)\}_{k=0}^{\infty}\)</span>를 <span class="math display">\[W_{2n}(x)=\sqrt{2}\sum_{k}h_{k}W_{n}(2x-k)\]</span> <span class="math display">\[W_{2n+1}(x)=\sqrt{2}\sum_{k}g_{k}W_{n}(2x-k)\]</span> 로 정의할 수 있다. 이를 <strong>웨이블릿 패킷(wavelet packet)</strong>이라 부른다.</p>
 <p>교수님의 notation을 따라가면 다음과 같다. Translated (k; translation part) and scaled (j) wavelet packet function을 <span class="math display">\[W_{jbk}(t)=2^{j/2}W_{b}(2^{j}t-k)\]</span> 로 표현한다. 이 때 <span class="math inline">\(W_{b}(t), b=0,1,2,\ldots\)</span>는 <strong>웨이블릿 패킷 함수(wavelet packet function)</strong>이라고 한다. 이 때 <span class="math inline">\(b\)</span>는 index for oscillation of frequency이다. 교수님이 좋아하시는 말로는 <span class="math inline">\(b= \text{number of zero-crossing}\)</span>이다.</p>
 <div class="example">
 <ul>
@@ -544,12 +546,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 Figure 21.1: Illustration of wavelet packet transform applied to eight data points.
 </p>
 </div>
+<p>위 그림은 필터 <span class="math inline">\(\mathcal{H}\)</span>, <span class="math inline">\(\mathcal{G}\)</span>를 이용해 어떻게 계수들과 기저함수들을 얻어내는지 묘사한 것이다. <span class="math inline">\(\mathcal{D}_{0}\mathcal{H}\)</span>, <span class="math inline">\(\mathcal{D}_{0}\mathcal{G}\)</span> 필터가 smooth, detail operation을 수행한다. 이는 일반적인 웨이블릿과 똑같다. 그러나 달라진 점은 둘 다 recursively하게 applied하는 것이다.</p>
 <div id="best-basis-algorithm" class="section level3">
 <h3><span class="header-section-number">21.0.1</span> Best basis algorithm</h3>
-<p>Nason 책 70쪽</p>
+<p>(Nason 책 70쪽)</p>
+</div>
+<div id="coifman-wickerhauser-best-basis-method" class="section level3">
+<h3><span class="header-section-number">21.0.2</span> Coifman-Wickerhauser best-basis method</h3>
+<p>(Nason 책 72쪽)</p>
+<p>Shannon entroy는 vector의 sparsity를 재는 데 사용할 수 있으며, Coifman-Wickerhauser algorithm은 overall negative Shannon entropy를 minimize하는 기저를 찾는다.</p>
 </div>
 <div id="non-decimated-wavelet-packet-transform" class="section level2">
 <h2><span class="header-section-number">21.1</span> Non-decimated wavelet packet transform</h2>
+<p>이 알고리즘은 <span class="math inline">\(\mathcal{D}_{0}\mathcal{H}\)</span>, <span class="math inline">\(\mathcal{D}_{0}\mathcal{G}\)</span>, <span class="math inline">\(\mathcal{D}_{1}\mathcal{H}\)</span>, <span class="math inline">\(\mathcal{D}_{1}\mathcal{G}\)</span>를 recursively하게 섞어서 실현 가능하다.</p>
 </div>
 <div id="--time-series-with-wavelet-packets" class="section level2">
 <h2><span class="header-section-number">21.2</span> 웨이블릿 패킷과 시계열(time series with wavelet packets)</h2>
@@ -577,8 +586,152 @@ Figure 21.1: Illustration of wavelet packet transform applied to eight data poin
 <h2><span class="header-section-number">21.4</span> 코싸인 패킷(cosine packet)</h2>
 <div id="local-cosine-basis" class="section level3">
 <h3><span class="header-section-number">21.4.1</span> local cosine basis</h3>
-
 </div>
+</div>
+<div id="r-r-wp" class="section level2">
+<h2><span class="header-section-number">21.5</span> R 예제(R-wp)</h2>
+<p>다음은 R 패키지 <code>wavethresh</code>의 <code>wp</code>함수를 이용한 웨이블릿 패킷 예제이다. 그것은 dyadic-length vector를 transform하기 위해 사용하였고, underlying wavelet family를 특정화하고 number of vanishing moment를 결정하기 위해z &lt;- rnorm(256) argument <code>filter.number</code>와 <code>family</code>의 입력을 필요로한다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">256</span>)
+zwp &lt;-<span class="st"> </span><span class="kw">wp</span>(z, <span class="dt">filter.number=</span><span class="dv">2</span>, <span class="dt">family=</span><span class="st">&quot;DaubExPhase&quot;</span>)
+<span class="kw">plot</span>(zwp, <span class="dt">color.force=</span><span class="ot">TRUE</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-90"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-90-1.png" alt="Wavelet packet coefficients of the independent Gaussian sequence z." width="672" />
+<p class="caption">
+Figure 21.2: Wavelet packet coefficients of the independent Gaussian sequence z.
+</p>
+</div>
+<p>위 그림은 독립 가우스 수열 <span class="math inline">\(\mathbf{z}\)</span>에 대해 웨이블릿 계수들을 구한 결과를 보여준다. 원 시계열은 맨 아래쪽에 있다. 이것의 scale은 8로 정했다. 그리고 한 줄씩 위로 올라가면서 scale(=resolution level)을 1씩 줄였을 때의 결과를 보여준다. 웨이블릿 패킷을 수직 점선으로 구분해 놓았다. 각 스케일 마다 첫 번째 웨이블릿은 scaling function coefficient들에 대응된다. 그래서 시계열로 표현했는데 이는 스케일 함수 계수들을 웟ㄴ 시계열의 연속적인 coarsening이라고 생각할 수 있기 때문이다. Regular wavelet coefficient들은 각 스케일마다 두 번째 패킷에 위치하도록 했다.</p>
+<p>여기서 스케일 6에 있는 네 번째 패킷 (packet 3임, 0, 1, 2 순서로 번호를 매기므로)을 100인 값이 하나가 있고 나머지는 모두 0인 패킷으로 교체해보자. 우선 현재 있는 패킷 값을 얻으려면 <code>getpacket</code> 함수를 이용한다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getpacket</span>(zwp, <span class="dt">level=</span><span class="dv">6</span>, <span class="dt">index=</span><span class="dv">3</span>)</code></pre></div>
+<pre><code>&gt;  [1] -0.10979768 -1.79131973  0.64453510 -0.54289001  0.07035450
+&gt;  [6] -1.23698269  0.07829994  0.35199203  1.00295993  1.00543537
+&gt; [11] -0.09656249 -0.15666192 -0.63939276  0.59938156  1.28590208
+&gt; [16]  0.59360926  1.09902426 -1.15179011  1.67217340  0.44636696
+&gt; [21] -0.21627871 -0.22977532  1.35352826  0.40083721 -1.35914397
+&gt; [26]  1.24296871  1.75013378  1.22517303  0.40001104  0.97142815
+&gt; [31] -1.82933956  1.11480298  0.09966881  0.30043833 -0.54623637
+&gt; [36]  0.13065961  1.07250266 -1.28601759 -0.51581364  1.78010599
+&gt; [41] -0.94114974 -0.75692782  0.29873432 -1.84609504  0.63751217
+&gt; [46] -0.45287204  1.78350540 -0.81327605 -0.13866438  0.39671657
+&gt; [51] -1.35477745 -1.29532401 -1.55406231 -0.01667211 -0.07109030
+&gt; [56]  0.65563898  1.20665432 -0.78501499 -2.49322979 -0.50418557
+&gt; [61]  1.43026853 -0.50062715  1.21891144 -0.53381576</code></pre>
+<p>100인 값이 하나가 있고 나머지는 모두 0인 벡터는 매우 sparse하다. <code>zwp2</code>에 앞서 말한 패킷을 넣어보자.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">zwp2 &lt;-<span class="st"> </span><span class="kw">putpacket</span>(zwp, <span class="dt">level=</span><span class="dv">6</span>, <span class="dt">index=</span><span class="dv">3</span>, <span class="dt">packet=</span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dv">100</span>, <span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">53</span>)))
+<span class="kw">plot</span>(zwp2)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-92"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-92-1.png" alt="Wavelet packet coefficients of zwp2." width="672" />
+<p class="caption">
+Figure 21.3: Wavelet packet coefficients of zwp2.
+</p>
+</div>
+<p>여기서 출력되는 그림은 패킷 <span class="math inline">\((6,3)\)</span> 지역을 제외하고는 앞선 그림과 똑같지만, 계수들의 크기가 상대적으로 정해지기 때문에, 크기 100인 계수들에 의해 sparse한 것처럼 출력된다. Coifman-Wikerhauser best-basis algorithm은 Shannon entropy를 이용하며 <code>MaNoVe</code>함수를 이요해 얻을 수 있다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">zwp2.nv &lt;-<span class="st"> </span><span class="kw">MaNoVe</span>(zwp2)
+zwp2.nv</code></pre></div>
+<pre><code>&gt; Level:  6  Packet:  3 
+&gt; Level:  3  Packet:  0 
+&gt; Level:  3  Packet:  1 
+&gt; Level:  3  Packet:  3 
+&gt; Level:  3  Packet:  5 
+&gt; Level:  3  Packet:  7 
+&gt; Level:  2  Packet:  8 
+&gt; Level:  2  Packet:  13 
+&gt; Level:  2  Packet:  19 
+&gt; Level:  2  Packet:  20 
+&gt; Level:  2  Packet:  25 
+&gt; Level:  2  Packet:  29 
+&gt; Level:  2  Packet:  31 
+&gt; Level:  2  Packet:  32 
+&gt; Level:  2  Packet:  35 
+&gt; Level:  2  Packet:  45 
+&gt; Level:  2  Packet:  47 
+&gt; Level:  1  Packet:  10 
+&gt; Level:  1  Packet:  11 
+&gt; Level:  1  Packet:  18 
+&gt; Level:  1  Packet:  34 
+&gt; Level:  1  Packet:  35 
+&gt; Level:  1  Packet:  36 
+&gt; Level:  1  Packet:  37 
+&gt; Level:  1  Packet:  42 
+&gt; Level:  1  Packet:  43 
+&gt; Level:  1  Packet:  45 
+&gt; Level:  1  Packet:  48 
+&gt; Level:  1  Packet:  52 
+&gt; Level:  1  Packet:  53 
+&gt; Level:  1  Packet:  54 
+&gt; Level:  1  Packet:  55 
+&gt; Level:  1  Packet:  56 
+&gt; Level:  1  Packet:  60 
+&gt; Level:  1  Packet:  61 
+&gt; Level:  1  Packet:  66 
+&gt; Level:  1  Packet:  67 
+&gt; Level:  1  Packet:  68 
+&gt; Level:  1  Packet:  69 
+&gt; Level:  1  Packet:  75 
+&gt; Level:  1  Packet:  76 
+&gt; Level:  1  Packet:  77 
+&gt; Level:  1  Packet:  79 
+&gt; Level:  1  Packet:  80 
+&gt; Level:  1  Packet:  82 
+&gt; Level:  1  Packet:  83 
+&gt; Level:  1  Packet:  85 
+&gt; Level:  1  Packet:  87 
+&gt; Level:  1  Packet:  88 
+&gt; Level:  1  Packet:  93 
+&gt; Level:  0  Packet:  16 
+&gt; Level:  0  Packet:  17 
+&gt; Level:  0  Packet:  18 
+&gt; Level:  0  Packet:  19 
+&gt; Level:  0  Packet:  38 
+&gt; Level:  0  Packet:  39 
+&gt; Level:  0  Packet:  48 
+&gt; Level:  0  Packet:  49 
+&gt; Level:  0  Packet:  50 
+&gt; Level:  0  Packet:  51 
+&gt; Level:  0  Packet:  64 
+&gt; Level:  0  Packet:  65 
+&gt; Level:  0  Packet:  66 
+&gt; Level:  0  Packet:  67 
+&gt; Level:  0  Packet:  88 
+&gt; Level:  0  Packet:  89 
+&gt; Level:  0  Packet:  92 
+&gt; Level:  0  Packet:  93 
+&gt; Level:  0  Packet:  94 
+&gt; Level:  0  Packet:  95 
+&gt; Level:  0  Packet:  98 
+&gt; Level:  0  Packet:  99 
+&gt; Level:  0  Packet:  114 
+&gt; Level:  0  Packet:  115 
+&gt; Level:  0  Packet:  144 
+&gt; Level:  0  Packet:  145 
+&gt; Level:  0  Packet:  146 
+&gt; Level:  0  Packet:  147 
+&gt; Level:  0  Packet:  148 
+&gt; Level:  0  Packet:  149 
+&gt; Level:  0  Packet:  156 
+&gt; Level:  0  Packet:  157 
+&gt; Level:  0  Packet:  162 
+&gt; Level:  0  Packet:  163 
+&gt; Level:  0  Packet:  168 
+&gt; Level:  0  Packet:  169 
+&gt; Level:  0  Packet:  172 
+&gt; Level:  0  Packet:  173 
+&gt; Level:  0  Packet:  178 
+&gt; Level:  0  Packet:  179 
+&gt; Level:  0  Packet:  184 
+&gt; Level:  0  Packet:  185</code></pre>
+<p><span class="math inline">\((6,3)\)</span>이 basis element로 선택된 것을 확인할 수 있다. 왜냐면 이것이 extremely sparse하기 때문이다. 이 새로 선택된 <code>zwp2.nv</code>의 기저는 <code>InvBasis(zwp2, zwp2.nv)</code> 명령어를 통해 불러올 수 있다고 한다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">InvBasis</span>(zwp2, zwp2.nv))</code></pre></div>
+<pre><code>&gt; [1] -0.07088779  1.20759137 -0.94939909 -1.00649083 -1.28767514 -0.10820385</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">InvBasis</span>(zwp2, zwp2.nv), <span class="dt">type=</span><span class="st">&quot;o&quot;</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-94"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-94-1.png" alt="Inversion plotting." width="672" />
+<p class="caption">
+Figure 21.4: Inversion plotting.
+</p>
+</div>
+<p>이 그림이 super-sparse <span class="math inline">\((6,3)\)</span>의 결과다.</p>
+
 </div>
 </div>
 
