@@ -2,6 +2,16 @@
 
 **주성분분석(principal component analysis, PCA)**란 **차원 축소(dimension reduction)**을 위해 많이 쓰이는 툴이다. 이 분야의 유명한 참고문헌으로는 [@Jolliffe2002]가 있다.
 
+여러 다변량 데이터셋이 갖는 문제들 중 하나는 변수가 너무 많다는 것이다. 너무 많은 변수들이 가질 수 있는 문제로는 차원의 저주(curse of dimensionality)가 알려져 있다.
+
+## 차원의 저주(curse of dimensionality)
+
+
+
+이러한 문제로부터 데이터셋에 존재하는 원래의 변동(variation)을 가능한 한 많이 설명하면서 다변량 데이터의 차원을 줄이는 것을 주된 목적으로 하는 다변량 기법인 주성분분석이 만들어졌다. 이러한 목적은 원래 변수(original variable)들의 선형결합(linear combination) 형태로 새로운 변수 집합인 **주성분(principal component)**로 변환함으로써 얻을 수 있다. 주성분들은 서로 상관되지 않으며 순서화되어 처음 몇 개의 주성분이 원래 변수들의 변동(variation)을 대부분 설명하도록 한다. 주성분분석의 결과는 많은 원래 변수들의 대용(surrogate)으로서 사용될 수 있는 작은 개수의 새로운 변수를 만드는 것이다.
+
+## 주성분분석의 기본 목적(basic object of PCA)
+
 다음과 같이 $\mathbf{x}_{i}\in\mathbb{R}^{d}, i=1,\ldots, n$이라는 training pattern이 있다고 하자. 주성분은 $q <d$의 직교정규 벡터의 집합이며 첫번째 주성분은 데이터를 한 개의 축으로 사상(projection)시켰을 때 그 분산이 가장 커지는 축이다.
 
 ```{r, echo=F, fig.cap='Principal component w1 points into the direction of maximum variance.', fig.align='center'}
