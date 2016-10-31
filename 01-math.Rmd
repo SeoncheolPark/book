@@ -197,7 +197,39 @@ $$A\times B = \{ (a,b)| a\in A \text{ and } b \in B\}$$
 
 #### 벡터 노름(vector norm)
 
+<div class="example">
+
+벡터공간 $X$에서 다음 세 조건들이 만족되면 함수 $\|\cdot\|$을 **노름(norm)**이라 하고 또한 벡터공간 $X$를 **노름공간(normed space)**라 한다.
+
+1. 임의의 $\mathbf{x}\in X$, where $\|\mathbf{x}\| \geq 0$이며 $\|\mathbf{x}\|=0$이기 위한 필요충분조건은 $\mathbf{x}=\mathbf{0}$이다.
+
+2. 임의의 $\mathbf{x}, \mathbf{y}\in X$에 대해
+$$\| \mathbf{x}+\mathbf{y}\|\leq \|\mathbf{x}\| + \|\mathbf{y}\|$$
+가 성립한다.
+
+3. 임의의 스칼라 $\alpha$와 임의의 $\mathbf{x}\in X$에 대해
+$$\| \alpha \mathbf{x}\|=|\alpha| \|\mathbf{x}\|$$
+가 성립한다.
+
+</div>
+
 #### 행렬 노름(matrix norm)
+
+### 거리(metric)
+
+<div class="example">
+
+집합 $X$의 두 원소들 $x,y$에 대해 값 $d(x,y)$를 할당하는 함수 $d(\cdot, \cdot)$가 다음 세 조건들을
+
+1. 임의의 $x,y\in X$에 대해서 $d(x,y)\geq 0$이다. 여기서 $d(x,y)=0$이기 위한 필요충분조건은 $x=y$이다.
+
+2. 임의의 $x,y\in X$에 대해서 $d(x,y)=d(y,x)$이다.
+
+3. 임의의 $x,y,z\in X$에 대해서 $d(x,z)\leq d(x,y)+d(y,z)$가 성립한다.
+
+</div>
+
+만약 $d(\mathbf{x},\mathbf{y})=\| \mathbf{x}-\mathbf{y}\|$라 하면 노름공간이 거리공간이 된다. 그러나 모든 거리공간이 노름공간으로부터 유도되는 것은 이니다.
 
 ## 기저(basis)
 
@@ -280,6 +312,10 @@ $$\phi(r)=\frac{1}{\sqrt{1+(\epsilon r)^{2}}}$$
 ### L2 공간(L2 space)
 
 $$\| f\|_{p}=(\int_{S}|f|^{p}d\mu)^{1/p}<\infty$$
+
+### 바나흐공간(Banach space)
+
+### 힐버트공간(Hilbert space)
 
 ### Sobolev 공간(Sobolev space)
 

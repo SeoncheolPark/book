@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-10-27">
+<meta name="date" content="2016-10-31">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -126,6 +126,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3.3" data-path="math.html"><a href="math.html#tensor-product"><i class="fa fa-check"></i><b>2.3.3</b> 텐서곱(tensor product)</a></li>
 <li class="chapter" data-level="2.3.4" data-path="math.html"><a href="math.html#-cartesian-product"><i class="fa fa-check"></i><b>2.3.4</b> 데카르트 곱(Cartesian product)</a></li>
 <li class="chapter" data-level="2.3.5" data-path="math.html"><a href="math.html#norm"><i class="fa fa-check"></i><b>2.3.5</b> 노름(norm)</a></li>
+<li class="chapter" data-level="2.3.6" data-path="math.html"><a href="math.html#metric"><i class="fa fa-check"></i><b>2.3.6</b> 거리(metric)</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="math.html"><a href="math.html#basis"><i class="fa fa-check"></i><b>2.4</b> 기저(basis)</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="math.html"><a href="math.html#riesz-basis"><i class="fa fa-check"></i><b>2.4.1</b> Riesz basis</a></li>
@@ -135,9 +136,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.5.1" data-path="math.html"><a href="math.html#space-r"><i class="fa fa-check"></i><b>2.5.1</b> 실수공간(space R)</a></li>
 <li class="chapter" data-level="2.5.2" data-path="math.html"><a href="math.html#vector-space"><i class="fa fa-check"></i><b>2.5.2</b> 벡터공간(vector space)</a></li>
 <li class="chapter" data-level="2.5.3" data-path="math.html"><a href="math.html#l2-l2-space"><i class="fa fa-check"></i><b>2.5.3</b> L2 공간(L2 space)</a></li>
-<li class="chapter" data-level="2.5.4" data-path="math.html"><a href="math.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.5.4</b> Sobolev 공간(Sobolev space)</a></li>
-<li class="chapter" data-level="2.5.5" data-path="math.html"><a href="math.html#besov-besov-space"><i class="fa fa-check"></i><b>2.5.5</b> Besov 공간(Besov space)</a></li>
-<li class="chapter" data-level="2.5.6" data-path="math.html"><a href="math.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.5.6</b> Reproducing kernel Hilbert space</a></li>
+<li class="chapter" data-level="2.5.4" data-path="math.html"><a href="math.html#banach-space"><i class="fa fa-check"></i><b>2.5.4</b> 바나흐공간(Banach space)</a></li>
+<li class="chapter" data-level="2.5.5" data-path="math.html"><a href="math.html#hilbert-space"><i class="fa fa-check"></i><b>2.5.5</b> 힐버트공간(Hilbert space)</a></li>
+<li class="chapter" data-level="2.5.6" data-path="math.html"><a href="math.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.5.6</b> Sobolev 공간(Sobolev space)</a></li>
+<li class="chapter" data-level="2.5.7" data-path="math.html"><a href="math.html#besov-besov-space"><i class="fa fa-check"></i><b>2.5.7</b> Besov 공간(Besov space)</a></li>
+<li class="chapter" data-level="2.5.8" data-path="math.html"><a href="math.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.5.8</b> Reproducing kernel Hilbert space</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="math.html"><a href="math.html#distance"><i class="fa fa-check"></i><b>2.6</b> 거리(distance)</a></li>
 </ul></li>
@@ -209,7 +212,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.4.4" data-path="transfer.html"><a href="transfer.html#----gasoline-price-on-public-transportation"><i class="fa fa-check"></i><b>9.4.4</b> 가솔린 가격과 대중교통 이용 자료(gasoline price on public transportation)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="kalman.html"><a href="kalman.html"><i class="fa fa-check"></i><b>10</b> 칼만 필터</a></li>
+<li class="chapter" data-level="10" data-path="kalman.html"><a href="kalman.html"><i class="fa fa-check"></i><b>10</b> 칼만 필터</a><ul>
+<li class="chapter" data-level="10.1" data-path="kalman.html"><a href="kalman.html#--types-of-kalman-filter"><i class="fa fa-check"></i><b>10.1</b> 칼만필터 모형의 종류(types of Kalman filter)</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="kalman.html"><a href="kalman.html#--hidden-markov-model"><i class="fa fa-check"></i><b>10.1.1</b> 은닉 마르코프 모형(hidden Markov model)</a></li>
+<li class="chapter" data-level="10.1.2" data-path="kalman.html"><a href="kalman.html#--simple-kalman-filter-model"><i class="fa fa-check"></i><b>10.1.2</b> 일차 칼만필터 모형(simple Kalman filter model)</a></li>
+<li class="chapter" data-level="10.1.3" data-path="kalman.html"><a href="kalman.html#--regression-kalman-filter-model"><i class="fa fa-check"></i><b>10.1.3</b> 회귀 칼만필터 모형(regression Kalman filter model)</a></li>
+<li class="chapter" data-level="10.1.4" data-path="kalman.html"><a href="kalman.html#--general-kalman-filter-model"><i class="fa fa-check"></i><b>10.1.4</b> 일반적 칼만필터 모형(general Kalman filter model)</a></li>
+<li class="chapter" data-level="10.1.5" data-path="kalman.html"><a href="kalman.html#--extended-kalman-filter-model"><i class="fa fa-check"></i><b>10.1.5</b> 확장된 칼만필터 모형(extended Kalman filter model)</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="kalman.html"><a href="kalman.html#-updating-algorithm"><i class="fa fa-check"></i><b>10.2</b> 최신화 알고리즘(updating algorithm)</a></li>
+<li class="chapter" data-level="10.3" data-path="kalman.html"><a href="kalman.html#dynamic-linear-model"><i class="fa fa-check"></i><b>10.3</b> 동적선형모형(dynamic linear model)</a></li>
+<li class="chapter" data-level="10.4" data-path="kalman.html"><a href="kalman.html#r-r-dlm"><i class="fa fa-check"></i><b>10.4</b> R-예제(R-dlm)</a></li>
+</ul></li>
 <li class="chapter" data-level="11" data-path="spectral.html"><a href="spectral.html"><i class="fa fa-check"></i><b>11</b> 스펙트럼 분석</a><ul>
 <li class="chapter" data-level="11.1" data-path="spectral.html"><a href="spectral.html#--cyclical-behavior-and-periodicity"><i class="fa fa-check"></i><b>11.1</b> 순환 움직임과 주기성(cyclical behavior and periodicity)</a><ul>
 <li class="chapter" data-level="11.1.1" data-path="spectral.html"><a href="spectral.html#-folding-frequency"><i class="fa fa-check"></i><b>11.1.1</b> 중첩 주파수(folding frequency)</a></li>
@@ -227,15 +241,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="part"><span><b>Multiscale Methods in Statistics</b></span></li>
 <li class="chapter" data-level="12" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html"><i class="fa fa-check"></i><b>12</b> 푸리에로부터 웨이블릿으로</a><ul>
 <li class="chapter" data-level="12.1" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-discrete-fourier-transform"><i class="fa fa-check"></i><b>12.1</b> 이산 푸리에변환(discrete Fourier transform)</a></li>
-<li class="chapter" data-level="12.2" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#wavelet"><i class="fa fa-check"></i><b>12.2</b> 웨이블릿(wavelet)</a></li>
-<li class="chapter" data-level="12.3" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-wavelet-transform"><i class="fa fa-check"></i><b>12.3</b> 웨이블릿 변환(wavelet transform)</a></li>
-<li class="chapter" data-level="12.4" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-wavelet-space"><i class="fa fa-check"></i><b>12.4</b> 웨이블릿 공간(wavelet space)</a><ul>
-<li class="chapter" data-level="12.4.1" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-multiresolution-analysis"><i class="fa fa-check"></i><b>12.4.1</b> 다중해상도 분석(multiresolution analysis)</a></li>
-<li class="chapter" data-level="12.4.2" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#orthogonal-decomposition"><i class="fa fa-check"></i><b>12.4.2</b> 직교분해(orthogonal decomposition)</a></li>
-<li class="chapter" data-level="12.4.3" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#--orthonormal-basis-construction"><i class="fa fa-check"></i><b>12.4.3</b> 직교정규 기저 구성(orthonormal basis construction)</a></li>
-<li class="chapter" data-level="12.4.4" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#--two-scale-relation"><i class="fa fa-check"></i><b>12.4.4</b> 두-스케일 관계(two-scale relation)</a></li>
-<li class="chapter" data-level="12.4.5" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#mother-wavelet"><i class="fa fa-check"></i><b>12.4.5</b> 모웨이블릿(mother wavelet)</a></li>
-<li class="chapter" data-level="12.4.6" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-multiresolution-representation"><i class="fa fa-check"></i><b>12.4.6</b> 다중해상도 표현(multiresolution representation)</a></li>
+<li class="chapter" data-level="12.2" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#time-frequency-analysis"><i class="fa fa-check"></i><b>12.2</b> 시간주파수해석(time-frequency analysis)</a></li>
+<li class="chapter" data-level="12.3" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#wavelet"><i class="fa fa-check"></i><b>12.3</b> 웨이블릿(wavelet)</a></li>
+<li class="chapter" data-level="12.4" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-wavelet-transform"><i class="fa fa-check"></i><b>12.4</b> 웨이블릿 변환(wavelet transform)</a></li>
+<li class="chapter" data-level="12.5" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-wavelet-space"><i class="fa fa-check"></i><b>12.5</b> 웨이블릿 공간(wavelet space)</a><ul>
+<li class="chapter" data-level="12.5.1" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-multiresolution-analysis"><i class="fa fa-check"></i><b>12.5.1</b> 다중해상도 분석(multiresolution analysis)</a></li>
+<li class="chapter" data-level="12.5.2" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#orthogonal-decomposition"><i class="fa fa-check"></i><b>12.5.2</b> 직교분해(orthogonal decomposition)</a></li>
+<li class="chapter" data-level="12.5.3" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#--orthonormal-basis-construction"><i class="fa fa-check"></i><b>12.5.3</b> 직교정규 기저 구성(orthonormal basis construction)</a></li>
+<li class="chapter" data-level="12.5.4" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#--two-scale-relation"><i class="fa fa-check"></i><b>12.5.4</b> 두-스케일 관계(two-scale relation)</a></li>
+<li class="chapter" data-level="12.5.5" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#mother-wavelet"><i class="fa fa-check"></i><b>12.5.5</b> 모웨이블릿(mother wavelet)</a></li>
+<li class="chapter" data-level="12.5.6" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-multiresolution-representation"><i class="fa fa-check"></i><b>12.5.6</b> 다중해상도 표현(multiresolution representation)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="multiscale.html"><a href="multiscale.html"><i class="fa fa-check"></i><b>13</b> 다중척도 방법론</a><ul>
@@ -540,7 +555,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="theorem">
 <p><strong>(Coifman and Wickerhauser (1992))</strong> <span class="math inline">\([2^{j}n, 2^{j}(n+1)]\)</span>이 <span class="math inline">\([0,\infty)\)</span>의 disjoint countable covering을 만드는 인덱스들의 collection <span class="math inline">\((j,n,k)\subset \mathbb{N}\times \mathbb{N}\mathbb{Z}\)</span> 있을 때 <span class="math inline">\(\{W_{jnk}(t)\}\)</span>는 <span class="math inline">\(L^{2}(\mathbb{R})\)</span>의 직교정규 기저가 된다. 즉, 어떤 <span class="math inline">\(f(t)\in L^{2}(\mathbb{R})\)</span>에 대해 <span class="math display">\[f(t)\approx \sum_{j}\sum_{n}\sum_{k}\omega_{jnk}W_{jnk}\]</span> 로 표현할 수 있다고 한다. 이 때 <span class="math inline">\(\omega_{jnk}=\int f(t)W_{jbk}(t)dt\)</span>이다.</p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-88"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-90"></span>
 <img src="images/adwavelet_waveletpacket.png" alt="Illustration of wavelet packet transform applied to eight data points." width="276" />
 <p class="caption">
 Figure 21.1: Illustration of wavelet packet transform applied to eight data points.
@@ -550,6 +565,7 @@ Figure 21.1: Illustration of wavelet packet transform applied to eight data poin
 <div id="best-basis-algorithm" class="section level3">
 <h3><span class="header-section-number">21.0.1</span> Best basis algorithm</h3>
 <p>(Nason 책 70쪽)</p>
+<p><span class="citation">(Coifman and Wickerhauser <a href="#ref-Coifman1992">1992</a>)</span>는 엔트로피에 기반한 best-basis 알고리즘을 제시하였다. 교수님은 이를 likelihoo-based method와 동일한 아이디어라고 설명했다. 즉 <span class="math display">\[\text{minimize } \sum c(W_{j,n,k})=\sum_{k}W_{jnk}^{2}\log W_{jnk}^{2}\]</span> 하는 <span class="math inline">\(\{j,n\}\)</span>을 선택하는 것이다. 이 때 <span class="math inline">\(c\)</span>는 cost function이다. 교수님은 더 나아가 벌점함수를 붙인 <span class="math display">\[\sum c(W_{jbk})+\lambda P(\omega)\]</span> 또한 가능할 것이라고 했다.</p>
 </div>
 <div id="coifman-wickerhauser-best-basis-method" class="section level3">
 <h3><span class="header-section-number">21.0.2</span> Coifman-Wickerhauser best-basis method</h3>
@@ -558,7 +574,13 @@ Figure 21.1: Illustration of wavelet packet transform applied to eight data poin
 </div>
 <div id="non-decimated-wavelet-packet-transform" class="section level2">
 <h2><span class="header-section-number">21.1</span> Non-decimated wavelet packet transform</h2>
-<p>이 알고리즘은 <span class="math inline">\(\mathcal{D}_{0}\mathcal{H}\)</span>, <span class="math inline">\(\mathcal{D}_{0}\mathcal{G}\)</span>, <span class="math inline">\(\mathcal{D}_{1}\mathcal{H}\)</span>, <span class="math inline">\(\mathcal{D}_{1}\mathcal{G}\)</span>를 recursively하게 섞어서 실현 가능하다.</p>
+<p>이 알고리즘은 <span class="math inline">\(\mathcal{D}_{0}\mathcal{H}\)</span>, <span class="math inline">\(\mathcal{D}_{0}\mathcal{G}\)</span>, <span class="math inline">\(\mathcal{D}_{1}\mathcal{H}\)</span>, <span class="math inline">\(\mathcal{D}_{1}\mathcal{G}\)</span>를 recursively하게 섞어서 실현 가능하다. 자세한 내용은 <span class="citation">(G. P. Nason and Sapatinas <a href="#ref-Nason2002">2002</a>)</span>를 참고하자.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-91"></span>
+<img src="images/advmultiscale_NWPT.png" alt="Systematic NWPT for N=8 points (j=3)." width="654" />
+<p class="caption">
+Figure 21.2: Systematic NWPT for N=8 points (j=3).
+</p>
+</div>
 </div>
 <div id="--time-series-with-wavelet-packets" class="section level2">
 <h2><span class="header-section-number">21.2</span> 웨이블릿 패킷과 시계열(time series with wavelet packets)</h2>
@@ -594,10 +616,10 @@ Figure 21.1: Illustration of wavelet packet transform applied to eight data poin
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">256</span>)
 zwp &lt;-<span class="st"> </span><span class="kw">wp</span>(z, <span class="dt">filter.number=</span><span class="dv">2</span>, <span class="dt">family=</span><span class="st">&quot;DaubExPhase&quot;</span>)
 <span class="kw">plot</span>(zwp, <span class="dt">color.force=</span><span class="ot">TRUE</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-90"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-90-1.png" alt="Wavelet packet coefficients of the independent Gaussian sequence z." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-93"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-93-1.png" alt="Wavelet packet coefficients of the independent Gaussian sequence z." width="672" />
 <p class="caption">
-Figure 21.2: Wavelet packet coefficients of the independent Gaussian sequence z.
+Figure 21.3: Wavelet packet coefficients of the independent Gaussian sequence z.
 </p>
 </div>
 <p>위 그림은 독립 가우스 수열 <span class="math inline">\(\mathbf{z}\)</span>에 대해 웨이블릿 계수들을 구한 결과를 보여준다. 원 시계열은 맨 아래쪽에 있다. 이것의 scale은 8로 정했다. 그리고 한 줄씩 위로 올라가면서 scale(=resolution level)을 1씩 줄였을 때의 결과를 보여준다. 웨이블릿 패킷을 수직 점선으로 구분해 놓았다. 각 스케일 마다 첫 번째 웨이블릿은 scaling function coefficient들에 대응된다. 그래서 시계열로 표현했는데 이는 스케일 함수 계수들을 웟ㄴ 시계열의 연속적인 coarsening이라고 생각할 수 있기 때문이다. Regular wavelet coefficient들은 각 스케일마다 두 번째 패킷에 위치하도록 했다.</p>
@@ -619,10 +641,10 @@ Figure 21.2: Wavelet packet coefficients of the independent Gaussian sequence z.
 <p>100인 값이 하나가 있고 나머지는 모두 0인 벡터는 매우 sparse하다. <code>zwp2</code>에 앞서 말한 패킷을 넣어보자.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">zwp2 &lt;-<span class="st"> </span><span class="kw">putpacket</span>(zwp, <span class="dt">level=</span><span class="dv">6</span>, <span class="dt">index=</span><span class="dv">3</span>, <span class="dt">packet=</span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dv">100</span>, <span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">53</span>)))
 <span class="kw">plot</span>(zwp2)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-92"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-92-1.png" alt="Wavelet packet coefficients of zwp2." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-95"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-95-1.png" alt="Wavelet packet coefficients of zwp2." width="672" />
 <p class="caption">
-Figure 21.3: Wavelet packet coefficients of zwp2.
+Figure 21.4: Wavelet packet coefficients of zwp2.
 </p>
 </div>
 <p>여기서 출력되는 그림은 패킷 <span class="math inline">\((6,3)\)</span> 지역을 제외하고는 앞선 그림과 똑같지만, 계수들의 크기가 상대적으로 정해지기 때문에, 크기 100인 계수들에 의해 sparse한 것처럼 출력된다. Coifman-Wikerhauser best-basis algorithm은 Shannon entropy를 이용하며 <code>MaNoVe</code>함수를 이요해 얻을 수 있다.</p>
@@ -724,10 +746,10 @@ zwp2.nv</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">InvBasis</span>(zwp2, zwp2.nv))</code></pre></div>
 <pre><code>&gt; [1] -0.07088779  1.20759137 -0.94939909 -1.00649083 -1.28767514 -0.10820385</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">InvBasis</span>(zwp2, zwp2.nv), <span class="dt">type=</span><span class="st">&quot;o&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-94"></span>
-<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-94-1.png" alt="Inversion plotting." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-97"></span>
+<img src="SeoncheolPark-book_files/figure-html/unnamed-chunk-97-1.png" alt="Inversion plotting." width="672" />
 <p class="caption">
-Figure 21.4: Inversion plotting.
+Figure 21.5: Inversion plotting.
 </p>
 </div>
 <p>이 그림이 super-sparse <span class="math inline">\((6,3)\)</span>의 결과다.</p>
@@ -739,6 +761,9 @@ Figure 21.4: Inversion plotting.
 
 <h3> References</h3>
 <div id="refs" class="references">
+<div id="ref-Coifman1992">
+<p>Coifman, R. R., and M. V. Wickerhauser. 1992. “Entropy-Based Algorithms for Best Basis Selection.” <em>IEEE Transactions on Information Theory</em> 38 (2): 713–18. doi:<a href="https://doi.org/10.1109/18.119732">10.1109/18.119732</a>.</p>
+</div>
 <div id="ref-Nason2002">
 <p>Nason, G. P., and Theofanis Sapatinas. 2002. “Wavelet Packet Transfer Function Modelling of Nonstationary Time Series.” <em>Statistics and Computing</em> 12 (1): 45–56. doi:<a href="https://doi.org/10.1023/A:1013168221710">10.1023/A:1013168221710</a>.</p>
 </div>
@@ -779,7 +804,7 @@ gitbook.start({
 "link": "https://seoncheolpark.github.io/book/_book/30-packet.Rmd",
 "text": null
 },
-"download": null,
+"download": ["SeoncheolPark-book.pdf"],
 "toc": {
 "collapse": "subsection"
 }

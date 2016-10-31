@@ -8,7 +8,7 @@
 
 - **Right Haar operator** or **right shift operator**: $P_{2}(s_{j,2k})=S_{j,2k+2}$
 
-듀얼 리프팅이나 최대-리프팅 스킴은 적당한 prediction operator $P_{1}$ 또는 $P_{2}$ 고르는 과정이라고 볼 수 있다. 우리는 이것을 **결정 연산자(decision operator)** $D^{P}$를 도입함으로써 formalize 할 수 있다.
+듀얼 리프팅이나 최대-리프팅 스킴은 적당한 prediction operator $P_{1}$ 또는 $P_{2}$ 고르는 과정이라고 볼 수 있다. 우리는 이것을 **결정 연산자(decision operator, decision map)** $D^{P}$를 도입함으로써 formalize 할 수 있다.
 $$D_{j}^{P}(k)=
 \begin{cases}
 1 & \text{if $s_{j+1,2}\leq s_{j+1,2k+2}$}\\
@@ -31,6 +31,20 @@ $$D_{j}^{U}(k)=
 $U_{2}=R$ ($R$: shift operator)를 이용하면 프라이멀 리프팅은
 $$s_{j,k}=s_{j+1,2k}+U_{D_{j,k}^{U}}d_{j,k}$$
 가 된다.
+
+```{r, echo=F, fig.cap='A general adaptive lifting scheme. Data in both branches of the scheme contribute to the choices of prediction and update filters.', fig.align='center'}
+knitr::include_graphics("images/advmultiscale_adaplifting.png")
+```
+
+프라이멀과 듀얼 리프팅 스텝에 모두 결정연산자를 사용하는 컨셉이 적응적 리프틍 스킴의 핵심이며 위 그림에 잘 나타나 있다. 그리고 이 두 결정연산자들은 $\mathbf{s}_{j+1}$과 $\mathbf{d}_{j}$에 모두 dependent되어있다는 것이 특징이다.
+
+(그러나 아마 perfect reconstruction의 문제가 있는 듯)
+
+그렇다면 어떻게 결정연산자를 디자인하는가? Irregularities는 함수의 derivative의 갑작스런 변화로 감지될 수 있는데, 예측의 순서를 바꾸었을 때 $s_{j+1,2k+1}$과 근처 $s$의 차이가 도움이 될 수 있을 것이라고 한다.
+
+```{r, echo=F, fig.cap='Reconstruction with a general adaptive lifting scheme. Data in both branches of the scheme contribute to the choices of prediction and update filters.', fig.align='center'}
+knitr::include_graphics("images/advmultiscale_adaplifting2.png")
+```
 
 ## LOCAAT 알고리즘
 

@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-10-27">
+<meta name="date" content="2016-10-31">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -126,6 +126,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3.3" data-path="math.html"><a href="math.html#tensor-product"><i class="fa fa-check"></i><b>2.3.3</b> 텐서곱(tensor product)</a></li>
 <li class="chapter" data-level="2.3.4" data-path="math.html"><a href="math.html#-cartesian-product"><i class="fa fa-check"></i><b>2.3.4</b> 데카르트 곱(Cartesian product)</a></li>
 <li class="chapter" data-level="2.3.5" data-path="math.html"><a href="math.html#norm"><i class="fa fa-check"></i><b>2.3.5</b> 노름(norm)</a></li>
+<li class="chapter" data-level="2.3.6" data-path="math.html"><a href="math.html#metric"><i class="fa fa-check"></i><b>2.3.6</b> 거리(metric)</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="math.html"><a href="math.html#basis"><i class="fa fa-check"></i><b>2.4</b> 기저(basis)</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="math.html"><a href="math.html#riesz-basis"><i class="fa fa-check"></i><b>2.4.1</b> Riesz basis</a></li>
@@ -135,9 +136,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.5.1" data-path="math.html"><a href="math.html#space-r"><i class="fa fa-check"></i><b>2.5.1</b> 실수공간(space R)</a></li>
 <li class="chapter" data-level="2.5.2" data-path="math.html"><a href="math.html#vector-space"><i class="fa fa-check"></i><b>2.5.2</b> 벡터공간(vector space)</a></li>
 <li class="chapter" data-level="2.5.3" data-path="math.html"><a href="math.html#l2-l2-space"><i class="fa fa-check"></i><b>2.5.3</b> L2 공간(L2 space)</a></li>
-<li class="chapter" data-level="2.5.4" data-path="math.html"><a href="math.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.5.4</b> Sobolev 공간(Sobolev space)</a></li>
-<li class="chapter" data-level="2.5.5" data-path="math.html"><a href="math.html#besov-besov-space"><i class="fa fa-check"></i><b>2.5.5</b> Besov 공간(Besov space)</a></li>
-<li class="chapter" data-level="2.5.6" data-path="math.html"><a href="math.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.5.6</b> Reproducing kernel Hilbert space</a></li>
+<li class="chapter" data-level="2.5.4" data-path="math.html"><a href="math.html#banach-space"><i class="fa fa-check"></i><b>2.5.4</b> 바나흐공간(Banach space)</a></li>
+<li class="chapter" data-level="2.5.5" data-path="math.html"><a href="math.html#hilbert-space"><i class="fa fa-check"></i><b>2.5.5</b> 힐버트공간(Hilbert space)</a></li>
+<li class="chapter" data-level="2.5.6" data-path="math.html"><a href="math.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.5.6</b> Sobolev 공간(Sobolev space)</a></li>
+<li class="chapter" data-level="2.5.7" data-path="math.html"><a href="math.html#besov-besov-space"><i class="fa fa-check"></i><b>2.5.7</b> Besov 공간(Besov space)</a></li>
+<li class="chapter" data-level="2.5.8" data-path="math.html"><a href="math.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.5.8</b> Reproducing kernel Hilbert space</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="math.html"><a href="math.html#distance"><i class="fa fa-check"></i><b>2.6</b> 거리(distance)</a></li>
 </ul></li>
@@ -209,7 +212,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.4.4" data-path="transfer.html"><a href="transfer.html#----gasoline-price-on-public-transportation"><i class="fa fa-check"></i><b>9.4.4</b> 가솔린 가격과 대중교통 이용 자료(gasoline price on public transportation)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="kalman.html"><a href="kalman.html"><i class="fa fa-check"></i><b>10</b> 칼만 필터</a></li>
+<li class="chapter" data-level="10" data-path="kalman.html"><a href="kalman.html"><i class="fa fa-check"></i><b>10</b> 칼만 필터</a><ul>
+<li class="chapter" data-level="10.1" data-path="kalman.html"><a href="kalman.html#--types-of-kalman-filter"><i class="fa fa-check"></i><b>10.1</b> 칼만필터 모형의 종류(types of Kalman filter)</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="kalman.html"><a href="kalman.html#--hidden-markov-model"><i class="fa fa-check"></i><b>10.1.1</b> 은닉 마르코프 모형(hidden Markov model)</a></li>
+<li class="chapter" data-level="10.1.2" data-path="kalman.html"><a href="kalman.html#--simple-kalman-filter-model"><i class="fa fa-check"></i><b>10.1.2</b> 일차 칼만필터 모형(simple Kalman filter model)</a></li>
+<li class="chapter" data-level="10.1.3" data-path="kalman.html"><a href="kalman.html#--regression-kalman-filter-model"><i class="fa fa-check"></i><b>10.1.3</b> 회귀 칼만필터 모형(regression Kalman filter model)</a></li>
+<li class="chapter" data-level="10.1.4" data-path="kalman.html"><a href="kalman.html#--general-kalman-filter-model"><i class="fa fa-check"></i><b>10.1.4</b> 일반적 칼만필터 모형(general Kalman filter model)</a></li>
+<li class="chapter" data-level="10.1.5" data-path="kalman.html"><a href="kalman.html#--extended-kalman-filter-model"><i class="fa fa-check"></i><b>10.1.5</b> 확장된 칼만필터 모형(extended Kalman filter model)</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="kalman.html"><a href="kalman.html#-updating-algorithm"><i class="fa fa-check"></i><b>10.2</b> 최신화 알고리즘(updating algorithm)</a></li>
+<li class="chapter" data-level="10.3" data-path="kalman.html"><a href="kalman.html#dynamic-linear-model"><i class="fa fa-check"></i><b>10.3</b> 동적선형모형(dynamic linear model)</a></li>
+<li class="chapter" data-level="10.4" data-path="kalman.html"><a href="kalman.html#r-r-dlm"><i class="fa fa-check"></i><b>10.4</b> R-예제(R-dlm)</a></li>
+</ul></li>
 <li class="chapter" data-level="11" data-path="spectral.html"><a href="spectral.html"><i class="fa fa-check"></i><b>11</b> 스펙트럼 분석</a><ul>
 <li class="chapter" data-level="11.1" data-path="spectral.html"><a href="spectral.html#--cyclical-behavior-and-periodicity"><i class="fa fa-check"></i><b>11.1</b> 순환 움직임과 주기성(cyclical behavior and periodicity)</a><ul>
 <li class="chapter" data-level="11.1.1" data-path="spectral.html"><a href="spectral.html#-folding-frequency"><i class="fa fa-check"></i><b>11.1.1</b> 중첩 주파수(folding frequency)</a></li>
@@ -227,15 +241,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="part"><span><b>Multiscale Methods in Statistics</b></span></li>
 <li class="chapter" data-level="12" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html"><i class="fa fa-check"></i><b>12</b> 푸리에로부터 웨이블릿으로</a><ul>
 <li class="chapter" data-level="12.1" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-discrete-fourier-transform"><i class="fa fa-check"></i><b>12.1</b> 이산 푸리에변환(discrete Fourier transform)</a></li>
-<li class="chapter" data-level="12.2" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#wavelet"><i class="fa fa-check"></i><b>12.2</b> 웨이블릿(wavelet)</a></li>
-<li class="chapter" data-level="12.3" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-wavelet-transform"><i class="fa fa-check"></i><b>12.3</b> 웨이블릿 변환(wavelet transform)</a></li>
-<li class="chapter" data-level="12.4" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-wavelet-space"><i class="fa fa-check"></i><b>12.4</b> 웨이블릿 공간(wavelet space)</a><ul>
-<li class="chapter" data-level="12.4.1" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-multiresolution-analysis"><i class="fa fa-check"></i><b>12.4.1</b> 다중해상도 분석(multiresolution analysis)</a></li>
-<li class="chapter" data-level="12.4.2" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#orthogonal-decomposition"><i class="fa fa-check"></i><b>12.4.2</b> 직교분해(orthogonal decomposition)</a></li>
-<li class="chapter" data-level="12.4.3" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#--orthonormal-basis-construction"><i class="fa fa-check"></i><b>12.4.3</b> 직교정규 기저 구성(orthonormal basis construction)</a></li>
-<li class="chapter" data-level="12.4.4" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#--two-scale-relation"><i class="fa fa-check"></i><b>12.4.4</b> 두-스케일 관계(two-scale relation)</a></li>
-<li class="chapter" data-level="12.4.5" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#mother-wavelet"><i class="fa fa-check"></i><b>12.4.5</b> 모웨이블릿(mother wavelet)</a></li>
-<li class="chapter" data-level="12.4.6" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-multiresolution-representation"><i class="fa fa-check"></i><b>12.4.6</b> 다중해상도 표현(multiresolution representation)</a></li>
+<li class="chapter" data-level="12.2" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#time-frequency-analysis"><i class="fa fa-check"></i><b>12.2</b> 시간주파수해석(time-frequency analysis)</a></li>
+<li class="chapter" data-level="12.3" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#wavelet"><i class="fa fa-check"></i><b>12.3</b> 웨이블릿(wavelet)</a></li>
+<li class="chapter" data-level="12.4" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-wavelet-transform"><i class="fa fa-check"></i><b>12.4</b> 웨이블릿 변환(wavelet transform)</a></li>
+<li class="chapter" data-level="12.5" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-wavelet-space"><i class="fa fa-check"></i><b>12.5</b> 웨이블릿 공간(wavelet space)</a><ul>
+<li class="chapter" data-level="12.5.1" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-multiresolution-analysis"><i class="fa fa-check"></i><b>12.5.1</b> 다중해상도 분석(multiresolution analysis)</a></li>
+<li class="chapter" data-level="12.5.2" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#orthogonal-decomposition"><i class="fa fa-check"></i><b>12.5.2</b> 직교분해(orthogonal decomposition)</a></li>
+<li class="chapter" data-level="12.5.3" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#--orthonormal-basis-construction"><i class="fa fa-check"></i><b>12.5.3</b> 직교정규 기저 구성(orthonormal basis construction)</a></li>
+<li class="chapter" data-level="12.5.4" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#--two-scale-relation"><i class="fa fa-check"></i><b>12.5.4</b> 두-스케일 관계(two-scale relation)</a></li>
+<li class="chapter" data-level="12.5.5" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#mother-wavelet"><i class="fa fa-check"></i><b>12.5.5</b> 모웨이블릿(mother wavelet)</a></li>
+<li class="chapter" data-level="12.5.6" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-multiresolution-representation"><i class="fa fa-check"></i><b>12.5.6</b> 다중해상도 표현(multiresolution representation)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="multiscale.html"><a href="multiscale.html"><i class="fa fa-check"></i><b>13</b> 다중척도 방법론</a><ul>
@@ -534,7 +549,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><p><strong>Left Haar predictor</strong> or <strong>identity operator</strong>: <span class="math inline">\(P_{1}(s_{j,2k})=s_{j,2k}\)</span></p></li>
 <li><p><strong>Right Haar operator</strong> or <strong>right shift operator</strong>: <span class="math inline">\(P_{2}(s_{j,2k})=S_{j,2k+2}\)</span></p></li>
 </ul>
-<p>듀얼 리프팅이나 최대-리프팅 스킴은 적당한 prediction operator <span class="math inline">\(P_{1}\)</span> 또는 <span class="math inline">\(P_{2}\)</span> 고르는 과정이라고 볼 수 있다. 우리는 이것을 <strong>결정 연산자(decision operator)</strong> <span class="math inline">\(D^{P}\)</span>를 도입함으로써 formalize 할 수 있다. <span class="math display">\[D_{j}^{P}(k)=
+<p>듀얼 리프팅이나 최대-리프팅 스킴은 적당한 prediction operator <span class="math inline">\(P_{1}\)</span> 또는 <span class="math inline">\(P_{2}\)</span> 고르는 과정이라고 볼 수 있다. 우리는 이것을 <strong>결정 연산자(decision operator, decision map)</strong> <span class="math inline">\(D^{P}\)</span>를 도입함으로써 formalize 할 수 있다. <span class="math display">\[D_{j}^{P}(k)=
 \begin{cases}
 1 &amp; \text{if $s_{j+1,2}\leq s_{j+1,2k+2}$}\\
 2 &amp; \text{if $s_{j+1,2} &lt; s_{j+1,2k+2}$}
@@ -547,6 +562,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 2 &amp; \text{if $\max (0, d_{j,k}) \leq d_{j,k-1}$}
 \end{cases}\]</span></p>
 <p><span class="math inline">\(U_{2}=R\)</span> (<span class="math inline">\(R\)</span>: shift operator)를 이용하면 프라이멀 리프팅은 <span class="math display">\[s_{j,k}=s_{j+1,2k}+U_{D_{j,k}^{U}}d_{j,k}\]</span> 가 된다.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-83"></span>
+<img src="images/advmultiscale_adaplifting.png" alt="A general adaptive lifting scheme. Data in both branches of the scheme contribute to the choices of prediction and update filters." width="500" />
+<p class="caption">
+Figure 20.1: A general adaptive lifting scheme. Data in both branches of the scheme contribute to the choices of prediction and update filters.
+</p>
+</div>
+<p>프라이멀과 듀얼 리프팅 스텝에 모두 결정연산자를 사용하는 컨셉이 적응적 리프틍 스킴의 핵심이며 위 그림에 잘 나타나 있다. 그리고 이 두 결정연산자들은 <span class="math inline">\(\mathbf{s}_{j+1}\)</span>과 <span class="math inline">\(\mathbf{d}_{j}\)</span>에 모두 dependent되어있다는 것이 특징이다.</p>
+<p>(그러나 아마 perfect reconstruction의 문제가 있는 듯)</p>
+<p>그렇다면 어떻게 결정연산자를 디자인하는가? Irregularities는 함수의 derivative의 갑작스런 변화로 감지될 수 있는데, 예측의 순서를 바꾸었을 때 <span class="math inline">\(s_{j+1,2k+1}\)</span>과 근처 <span class="math inline">\(s\)</span>의 차이가 도움이 될 수 있을 것이라고 한다.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-84"></span>
+<img src="images/advmultiscale_adaplifting2.png" alt="Reconstruction with a general adaptive lifting scheme. Data in both branches of the scheme contribute to the choices of prediction and update filters." width="558" />
+<p class="caption">
+Figure 20.2: Reconstruction with a general adaptive lifting scheme. Data in both branches of the scheme contribute to the choices of prediction and update filters.
+</p>
+</div>
 </div>
 <div id="locaat-" class="section level2">
 <h2><span class="header-section-number">20.2</span> LOCAAT 알고리즘</h2>
@@ -575,10 +605,10 @@ c_{rj}:=c_{rj}+d_{i}b_{j},\forall j\in J.
 </div>
 <div id="locaat-example-of-locaat" class="section level3">
 <h3><span class="header-section-number">20.2.3</span> LOCAAT의 예(example of LOCAAT)</h3>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-83"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-85"></span>
 <img src="images/advmultiscale_LOCAAT01.png" alt="Toy network on which we assume the data [1,1,-1,-1] is observed. We also assume the nodes are separated by distance of 1 unit." width="486" />
 <p class="caption">
-Figure 20.1: Toy network on which we assume the data [1,1,-1,-1] is observed. We also assume the nodes are separated by distance of 1 unit.
+Figure 20.3: Toy network on which we assume the data [1,1,-1,-1] is observed. We also assume the nodes are separated by distance of 1 unit.
 </p>
 </div>
 <p>위 그림과 같이 <span class="math inline">\(\{1,1,-1,-1\}\)</span>이라는 자료가 있다고 하자. LOCAAT 변환을 이 자료에 적용하려면 우선 네트워크를 디자인해야 한다. 1차원 자료기 때문에 위 그림과 같이 간단한 형태로 디자인하였다.</p>
@@ -597,10 +627,10 @@ Figure 20.1: Toy network on which we assume the data [1,1,-1,-1] is observed. We
 <div id="spatial-model" class="section level2">
 <h2><span class="header-section-number">20.4</span> Spatial model</h2>
 <p><span class="math inline">\((k,j)\)</span>를 노드 <span class="math inline">\(k\)</span>와 <span class="math inline">\(j\)</span>의 엣지(edge)라고 하고 <span class="math inline">\(\delta_{kj}\)</span>를 노드 <span class="math inline">\(k\)</span>와 <span class="math inline">\(j\)</span>의 거리라고 하자. <span class="citation">(M. Jansen, Nason, and Silverman <a href="#ref-Jansen2008">2008</a>)</span>는 tree-based network structure를 이용해 알고리즘으 구현하였다. 리프팅을 통해 제거할 때마다 minimum spanning tree (MST) 방법을 통해 트리를 업데이트한다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-84"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-86"></span>
 <img src="images/advmultiscale_LOCAAT02.png" alt="Simple network and its edge entries of spatial data." width="558" />
 <p class="caption">
-Figure 20.2: Simple network and its edge entries of spatial data.
+Figure 20.4: Simple network and its edge entries of spatial data.
 </p>
 </div>
 <p>위 그림은 일곱 개의 노드로 이루어진 공간 네트워크 예제이다. 각 노드 <span class="math inline">\(k\)</span>마다 이웃의 수를 <span class="math inline">\(n_{k}\)</span>로 놓는다. 각각의 노드는 다른 노드와 엣지를 통해 연결되어 있으며 점 <span class="math inline">\(k\)</span>가 없어지면 같이 사라질 엣지들의 집합을 <span class="math inline">\(J_{k}\)</span>라고 놓는다. (adjacency list)</p>
@@ -617,19 +647,19 @@ Figure 20.2: Simple network and its edge entries of spatial data.
 <p>We consider distance along spatial dimension as Euclidean distance and the distance in the time dimension as the minimum distance in the spatial dimension multiplied by some temporal scale factor -&gt; 이것을 <span class="math inline">\(l_{t}\)</span>라고 놓는다.</p>
 <p>이 척도 factor는 시간 domain의 어떠한 irregularity라도 유지하기 위해서라고 한다.</p>
 <p><span class="math inline">\(\delta^{min}\)</span>을 모든 노드에서의 최소 spatial edge distance, 즉 <span class="math display">\[\delta^{min}=\min \{ (\delta_{kj})_{j\in J_{k}, k\in \mathcal{N}_{1}}\}\]</span> 이라고 하자. 그리고 두 가지 경우의 시공간 네트워크를 고려하자.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-85"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-87"></span>
 <img src="images/advmultiscale_LOCAAT03.png" alt="Two spatio-temporal network examples." width="670" />
 <p class="caption">
-Figure 20.3: Two spatio-temporal network examples.
+Figure 20.5: Two spatio-temporal network examples.
 </p>
 </div>
 <div id="case-1" class="section level3">
 <h3><span class="header-section-number">20.6.1</span> Case 1</h3>
 <p>첫번째 경우는 최초 시간에서의 엣지 구조가 시간이 지남에 따라 변하지 않고 계속 유지되는 경우다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-86"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-88"></span>
 <img src="images/advmultiscale_LOCAAT04.png" alt="Extending the spatial network to the spatio-temporal network." width="386" />
 <p class="caption">
-Figure 20.4: Extending the spatial network to the spatio-temporal network.
+Figure 20.6: Extending the spatial network to the spatio-temporal network.
 </p>
 </div>
 <p>이것은 위 그림과 같이 시간에 따라 순차적으로 계산함으로써 해결할 수 있다. 노드 <span class="math inline">\((t-1)n+k\)</span>와 <span class="math inline">\(tn+k\)</span>의 엣지 거리는 <span class="math display">\[\delta_{(t-1)n+k,tn+k}=l_{t}\delta^{min}\]</span> 으로 정의한다.</p>
@@ -648,10 +678,10 @@ Figure 20.4: Extending the spatial network to the spatio-temporal network.
 <div id="window-based-approach" class="section level2">
 <h2><span class="header-section-number">20.7</span> Window based approach</h2>
 <p>시공간 자료를 위 방법으로 분석시 모든 시간 point들을 함께 고려해야 하는데, 이것은 spatial-only method에 비해 일반적으로 좋은 결과를 가져오지는 못한다. 여기서는 시간축에 대한 윈도우 크기를 <span class="math inline">\(M_{t}=3\)</span>으로 하여 실험을 하도록 한다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-87"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-89"></span>
 <img src="images/advmultiscale_LOCAAT05.png" alt="Window based approach." width="664" />
 <p class="caption">
-Figure 20.5: Window based approach.
+Figure 20.7: Window based approach.
 </p>
 </div>
 
@@ -699,7 +729,7 @@ gitbook.start({
 "link": "https://seoncheolpark.github.io/book/_book/29-advlifting.Rmd",
 "text": null
 },
-"download": null,
+"download": ["SeoncheolPark-book.pdf"],
 "toc": {
 "collapse": "subsection"
 }

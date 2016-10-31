@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-10-27">
+<meta name="date" content="2016-10-31">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -126,6 +126,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3.3" data-path="math.html"><a href="math.html#tensor-product"><i class="fa fa-check"></i><b>2.3.3</b> 텐서곱(tensor product)</a></li>
 <li class="chapter" data-level="2.3.4" data-path="math.html"><a href="math.html#-cartesian-product"><i class="fa fa-check"></i><b>2.3.4</b> 데카르트 곱(Cartesian product)</a></li>
 <li class="chapter" data-level="2.3.5" data-path="math.html"><a href="math.html#norm"><i class="fa fa-check"></i><b>2.3.5</b> 노름(norm)</a></li>
+<li class="chapter" data-level="2.3.6" data-path="math.html"><a href="math.html#metric"><i class="fa fa-check"></i><b>2.3.6</b> 거리(metric)</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="math.html"><a href="math.html#basis"><i class="fa fa-check"></i><b>2.4</b> 기저(basis)</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="math.html"><a href="math.html#riesz-basis"><i class="fa fa-check"></i><b>2.4.1</b> Riesz basis</a></li>
@@ -135,9 +136,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.5.1" data-path="math.html"><a href="math.html#space-r"><i class="fa fa-check"></i><b>2.5.1</b> 실수공간(space R)</a></li>
 <li class="chapter" data-level="2.5.2" data-path="math.html"><a href="math.html#vector-space"><i class="fa fa-check"></i><b>2.5.2</b> 벡터공간(vector space)</a></li>
 <li class="chapter" data-level="2.5.3" data-path="math.html"><a href="math.html#l2-l2-space"><i class="fa fa-check"></i><b>2.5.3</b> L2 공간(L2 space)</a></li>
-<li class="chapter" data-level="2.5.4" data-path="math.html"><a href="math.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.5.4</b> Sobolev 공간(Sobolev space)</a></li>
-<li class="chapter" data-level="2.5.5" data-path="math.html"><a href="math.html#besov-besov-space"><i class="fa fa-check"></i><b>2.5.5</b> Besov 공간(Besov space)</a></li>
-<li class="chapter" data-level="2.5.6" data-path="math.html"><a href="math.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.5.6</b> Reproducing kernel Hilbert space</a></li>
+<li class="chapter" data-level="2.5.4" data-path="math.html"><a href="math.html#banach-space"><i class="fa fa-check"></i><b>2.5.4</b> 바나흐공간(Banach space)</a></li>
+<li class="chapter" data-level="2.5.5" data-path="math.html"><a href="math.html#hilbert-space"><i class="fa fa-check"></i><b>2.5.5</b> 힐버트공간(Hilbert space)</a></li>
+<li class="chapter" data-level="2.5.6" data-path="math.html"><a href="math.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.5.6</b> Sobolev 공간(Sobolev space)</a></li>
+<li class="chapter" data-level="2.5.7" data-path="math.html"><a href="math.html#besov-besov-space"><i class="fa fa-check"></i><b>2.5.7</b> Besov 공간(Besov space)</a></li>
+<li class="chapter" data-level="2.5.8" data-path="math.html"><a href="math.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.5.8</b> Reproducing kernel Hilbert space</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="math.html"><a href="math.html#distance"><i class="fa fa-check"></i><b>2.6</b> 거리(distance)</a></li>
 </ul></li>
@@ -209,7 +212,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.4.4" data-path="transfer.html"><a href="transfer.html#----gasoline-price-on-public-transportation"><i class="fa fa-check"></i><b>9.4.4</b> 가솔린 가격과 대중교통 이용 자료(gasoline price on public transportation)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="kalman.html"><a href="kalman.html"><i class="fa fa-check"></i><b>10</b> 칼만 필터</a></li>
+<li class="chapter" data-level="10" data-path="kalman.html"><a href="kalman.html"><i class="fa fa-check"></i><b>10</b> 칼만 필터</a><ul>
+<li class="chapter" data-level="10.1" data-path="kalman.html"><a href="kalman.html#--types-of-kalman-filter"><i class="fa fa-check"></i><b>10.1</b> 칼만필터 모형의 종류(types of Kalman filter)</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="kalman.html"><a href="kalman.html#--hidden-markov-model"><i class="fa fa-check"></i><b>10.1.1</b> 은닉 마르코프 모형(hidden Markov model)</a></li>
+<li class="chapter" data-level="10.1.2" data-path="kalman.html"><a href="kalman.html#--simple-kalman-filter-model"><i class="fa fa-check"></i><b>10.1.2</b> 일차 칼만필터 모형(simple Kalman filter model)</a></li>
+<li class="chapter" data-level="10.1.3" data-path="kalman.html"><a href="kalman.html#--regression-kalman-filter-model"><i class="fa fa-check"></i><b>10.1.3</b> 회귀 칼만필터 모형(regression Kalman filter model)</a></li>
+<li class="chapter" data-level="10.1.4" data-path="kalman.html"><a href="kalman.html#--general-kalman-filter-model"><i class="fa fa-check"></i><b>10.1.4</b> 일반적 칼만필터 모형(general Kalman filter model)</a></li>
+<li class="chapter" data-level="10.1.5" data-path="kalman.html"><a href="kalman.html#--extended-kalman-filter-model"><i class="fa fa-check"></i><b>10.1.5</b> 확장된 칼만필터 모형(extended Kalman filter model)</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="kalman.html"><a href="kalman.html#-updating-algorithm"><i class="fa fa-check"></i><b>10.2</b> 최신화 알고리즘(updating algorithm)</a></li>
+<li class="chapter" data-level="10.3" data-path="kalman.html"><a href="kalman.html#dynamic-linear-model"><i class="fa fa-check"></i><b>10.3</b> 동적선형모형(dynamic linear model)</a></li>
+<li class="chapter" data-level="10.4" data-path="kalman.html"><a href="kalman.html#r-r-dlm"><i class="fa fa-check"></i><b>10.4</b> R-예제(R-dlm)</a></li>
+</ul></li>
 <li class="chapter" data-level="11" data-path="spectral.html"><a href="spectral.html"><i class="fa fa-check"></i><b>11</b> 스펙트럼 분석</a><ul>
 <li class="chapter" data-level="11.1" data-path="spectral.html"><a href="spectral.html#--cyclical-behavior-and-periodicity"><i class="fa fa-check"></i><b>11.1</b> 순환 움직임과 주기성(cyclical behavior and periodicity)</a><ul>
 <li class="chapter" data-level="11.1.1" data-path="spectral.html"><a href="spectral.html#-folding-frequency"><i class="fa fa-check"></i><b>11.1.1</b> 중첩 주파수(folding frequency)</a></li>
@@ -227,15 +241,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="part"><span><b>Multiscale Methods in Statistics</b></span></li>
 <li class="chapter" data-level="12" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html"><i class="fa fa-check"></i><b>12</b> 푸리에로부터 웨이블릿으로</a><ul>
 <li class="chapter" data-level="12.1" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-discrete-fourier-transform"><i class="fa fa-check"></i><b>12.1</b> 이산 푸리에변환(discrete Fourier transform)</a></li>
-<li class="chapter" data-level="12.2" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#wavelet"><i class="fa fa-check"></i><b>12.2</b> 웨이블릿(wavelet)</a></li>
-<li class="chapter" data-level="12.3" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-wavelet-transform"><i class="fa fa-check"></i><b>12.3</b> 웨이블릿 변환(wavelet transform)</a></li>
-<li class="chapter" data-level="12.4" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-wavelet-space"><i class="fa fa-check"></i><b>12.4</b> 웨이블릿 공간(wavelet space)</a><ul>
-<li class="chapter" data-level="12.4.1" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-multiresolution-analysis"><i class="fa fa-check"></i><b>12.4.1</b> 다중해상도 분석(multiresolution analysis)</a></li>
-<li class="chapter" data-level="12.4.2" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#orthogonal-decomposition"><i class="fa fa-check"></i><b>12.4.2</b> 직교분해(orthogonal decomposition)</a></li>
-<li class="chapter" data-level="12.4.3" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#--orthonormal-basis-construction"><i class="fa fa-check"></i><b>12.4.3</b> 직교정규 기저 구성(orthonormal basis construction)</a></li>
-<li class="chapter" data-level="12.4.4" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#--two-scale-relation"><i class="fa fa-check"></i><b>12.4.4</b> 두-스케일 관계(two-scale relation)</a></li>
-<li class="chapter" data-level="12.4.5" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#mother-wavelet"><i class="fa fa-check"></i><b>12.4.5</b> 모웨이블릿(mother wavelet)</a></li>
-<li class="chapter" data-level="12.4.6" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-multiresolution-representation"><i class="fa fa-check"></i><b>12.4.6</b> 다중해상도 표현(multiresolution representation)</a></li>
+<li class="chapter" data-level="12.2" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#time-frequency-analysis"><i class="fa fa-check"></i><b>12.2</b> 시간주파수해석(time-frequency analysis)</a></li>
+<li class="chapter" data-level="12.3" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#wavelet"><i class="fa fa-check"></i><b>12.3</b> 웨이블릿(wavelet)</a></li>
+<li class="chapter" data-level="12.4" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-wavelet-transform"><i class="fa fa-check"></i><b>12.4</b> 웨이블릿 변환(wavelet transform)</a></li>
+<li class="chapter" data-level="12.5" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-wavelet-space"><i class="fa fa-check"></i><b>12.5</b> 웨이블릿 공간(wavelet space)</a><ul>
+<li class="chapter" data-level="12.5.1" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-multiresolution-analysis"><i class="fa fa-check"></i><b>12.5.1</b> 다중해상도 분석(multiresolution analysis)</a></li>
+<li class="chapter" data-level="12.5.2" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#orthogonal-decomposition"><i class="fa fa-check"></i><b>12.5.2</b> 직교분해(orthogonal decomposition)</a></li>
+<li class="chapter" data-level="12.5.3" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#--orthonormal-basis-construction"><i class="fa fa-check"></i><b>12.5.3</b> 직교정규 기저 구성(orthonormal basis construction)</a></li>
+<li class="chapter" data-level="12.5.4" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#--two-scale-relation"><i class="fa fa-check"></i><b>12.5.4</b> 두-스케일 관계(two-scale relation)</a></li>
+<li class="chapter" data-level="12.5.5" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#mother-wavelet"><i class="fa fa-check"></i><b>12.5.5</b> 모웨이블릿(mother wavelet)</a></li>
+<li class="chapter" data-level="12.5.6" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-multiresolution-representation"><i class="fa fa-check"></i><b>12.5.6</b> 다중해상도 표현(multiresolution representation)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="multiscale.html"><a href="multiscale.html"><i class="fa fa-check"></i><b>13</b> 다중척도 방법론</a><ul>
@@ -659,7 +674,7 @@ gitbook.start({
 "link": "https://seoncheolpark.github.io/book/_book/05-convergencerv.Rmd",
 "text": null
 },
-"download": null,
+"download": ["SeoncheolPark-book.pdf"],
 "toc": {
 "collapse": "subsection"
 }

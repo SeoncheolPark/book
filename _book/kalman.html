@@ -25,7 +25,7 @@
 
 <meta name="author" content="Seoncheol Park">
 
-<meta name="date" content="2016-10-27">
+<meta name="date" content="2016-10-31">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -126,6 +126,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3.3" data-path="math.html"><a href="math.html#tensor-product"><i class="fa fa-check"></i><b>2.3.3</b> 텐서곱(tensor product)</a></li>
 <li class="chapter" data-level="2.3.4" data-path="math.html"><a href="math.html#-cartesian-product"><i class="fa fa-check"></i><b>2.3.4</b> 데카르트 곱(Cartesian product)</a></li>
 <li class="chapter" data-level="2.3.5" data-path="math.html"><a href="math.html#norm"><i class="fa fa-check"></i><b>2.3.5</b> 노름(norm)</a></li>
+<li class="chapter" data-level="2.3.6" data-path="math.html"><a href="math.html#metric"><i class="fa fa-check"></i><b>2.3.6</b> 거리(metric)</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="math.html"><a href="math.html#basis"><i class="fa fa-check"></i><b>2.4</b> 기저(basis)</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="math.html"><a href="math.html#riesz-basis"><i class="fa fa-check"></i><b>2.4.1</b> Riesz basis</a></li>
@@ -135,9 +136,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.5.1" data-path="math.html"><a href="math.html#space-r"><i class="fa fa-check"></i><b>2.5.1</b> 실수공간(space R)</a></li>
 <li class="chapter" data-level="2.5.2" data-path="math.html"><a href="math.html#vector-space"><i class="fa fa-check"></i><b>2.5.2</b> 벡터공간(vector space)</a></li>
 <li class="chapter" data-level="2.5.3" data-path="math.html"><a href="math.html#l2-l2-space"><i class="fa fa-check"></i><b>2.5.3</b> L2 공간(L2 space)</a></li>
-<li class="chapter" data-level="2.5.4" data-path="math.html"><a href="math.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.5.4</b> Sobolev 공간(Sobolev space)</a></li>
-<li class="chapter" data-level="2.5.5" data-path="math.html"><a href="math.html#besov-besov-space"><i class="fa fa-check"></i><b>2.5.5</b> Besov 공간(Besov space)</a></li>
-<li class="chapter" data-level="2.5.6" data-path="math.html"><a href="math.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.5.6</b> Reproducing kernel Hilbert space</a></li>
+<li class="chapter" data-level="2.5.4" data-path="math.html"><a href="math.html#banach-space"><i class="fa fa-check"></i><b>2.5.4</b> 바나흐공간(Banach space)</a></li>
+<li class="chapter" data-level="2.5.5" data-path="math.html"><a href="math.html#hilbert-space"><i class="fa fa-check"></i><b>2.5.5</b> 힐버트공간(Hilbert space)</a></li>
+<li class="chapter" data-level="2.5.6" data-path="math.html"><a href="math.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.5.6</b> Sobolev 공간(Sobolev space)</a></li>
+<li class="chapter" data-level="2.5.7" data-path="math.html"><a href="math.html#besov-besov-space"><i class="fa fa-check"></i><b>2.5.7</b> Besov 공간(Besov space)</a></li>
+<li class="chapter" data-level="2.5.8" data-path="math.html"><a href="math.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.5.8</b> Reproducing kernel Hilbert space</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="math.html"><a href="math.html#distance"><i class="fa fa-check"></i><b>2.6</b> 거리(distance)</a></li>
 </ul></li>
@@ -209,7 +212,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.4.4" data-path="transfer.html"><a href="transfer.html#----gasoline-price-on-public-transportation"><i class="fa fa-check"></i><b>9.4.4</b> 가솔린 가격과 대중교통 이용 자료(gasoline price on public transportation)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="kalman.html"><a href="kalman.html"><i class="fa fa-check"></i><b>10</b> 칼만 필터</a></li>
+<li class="chapter" data-level="10" data-path="kalman.html"><a href="kalman.html"><i class="fa fa-check"></i><b>10</b> 칼만 필터</a><ul>
+<li class="chapter" data-level="10.1" data-path="kalman.html"><a href="kalman.html#--types-of-kalman-filter"><i class="fa fa-check"></i><b>10.1</b> 칼만필터 모형의 종류(types of Kalman filter)</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="kalman.html"><a href="kalman.html#--hidden-markov-model"><i class="fa fa-check"></i><b>10.1.1</b> 은닉 마르코프 모형(hidden Markov model)</a></li>
+<li class="chapter" data-level="10.1.2" data-path="kalman.html"><a href="kalman.html#--simple-kalman-filter-model"><i class="fa fa-check"></i><b>10.1.2</b> 일차 칼만필터 모형(simple Kalman filter model)</a></li>
+<li class="chapter" data-level="10.1.3" data-path="kalman.html"><a href="kalman.html#--regression-kalman-filter-model"><i class="fa fa-check"></i><b>10.1.3</b> 회귀 칼만필터 모형(regression Kalman filter model)</a></li>
+<li class="chapter" data-level="10.1.4" data-path="kalman.html"><a href="kalman.html#--general-kalman-filter-model"><i class="fa fa-check"></i><b>10.1.4</b> 일반적 칼만필터 모형(general Kalman filter model)</a></li>
+<li class="chapter" data-level="10.1.5" data-path="kalman.html"><a href="kalman.html#--extended-kalman-filter-model"><i class="fa fa-check"></i><b>10.1.5</b> 확장된 칼만필터 모형(extended Kalman filter model)</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="kalman.html"><a href="kalman.html#-updating-algorithm"><i class="fa fa-check"></i><b>10.2</b> 최신화 알고리즘(updating algorithm)</a></li>
+<li class="chapter" data-level="10.3" data-path="kalman.html"><a href="kalman.html#dynamic-linear-model"><i class="fa fa-check"></i><b>10.3</b> 동적선형모형(dynamic linear model)</a></li>
+<li class="chapter" data-level="10.4" data-path="kalman.html"><a href="kalman.html#r-r-dlm"><i class="fa fa-check"></i><b>10.4</b> R-예제(R-dlm)</a></li>
+</ul></li>
 <li class="chapter" data-level="11" data-path="spectral.html"><a href="spectral.html"><i class="fa fa-check"></i><b>11</b> 스펙트럼 분석</a><ul>
 <li class="chapter" data-level="11.1" data-path="spectral.html"><a href="spectral.html#--cyclical-behavior-and-periodicity"><i class="fa fa-check"></i><b>11.1</b> 순환 움직임과 주기성(cyclical behavior and periodicity)</a><ul>
 <li class="chapter" data-level="11.1.1" data-path="spectral.html"><a href="spectral.html#-folding-frequency"><i class="fa fa-check"></i><b>11.1.1</b> 중첩 주파수(folding frequency)</a></li>
@@ -227,15 +241,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="part"><span><b>Multiscale Methods in Statistics</b></span></li>
 <li class="chapter" data-level="12" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html"><i class="fa fa-check"></i><b>12</b> 푸리에로부터 웨이블릿으로</a><ul>
 <li class="chapter" data-level="12.1" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-discrete-fourier-transform"><i class="fa fa-check"></i><b>12.1</b> 이산 푸리에변환(discrete Fourier transform)</a></li>
-<li class="chapter" data-level="12.2" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#wavelet"><i class="fa fa-check"></i><b>12.2</b> 웨이블릿(wavelet)</a></li>
-<li class="chapter" data-level="12.3" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-wavelet-transform"><i class="fa fa-check"></i><b>12.3</b> 웨이블릿 변환(wavelet transform)</a></li>
-<li class="chapter" data-level="12.4" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-wavelet-space"><i class="fa fa-check"></i><b>12.4</b> 웨이블릿 공간(wavelet space)</a><ul>
-<li class="chapter" data-level="12.4.1" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-multiresolution-analysis"><i class="fa fa-check"></i><b>12.4.1</b> 다중해상도 분석(multiresolution analysis)</a></li>
-<li class="chapter" data-level="12.4.2" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#orthogonal-decomposition"><i class="fa fa-check"></i><b>12.4.2</b> 직교분해(orthogonal decomposition)</a></li>
-<li class="chapter" data-level="12.4.3" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#--orthonormal-basis-construction"><i class="fa fa-check"></i><b>12.4.3</b> 직교정규 기저 구성(orthonormal basis construction)</a></li>
-<li class="chapter" data-level="12.4.4" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#--two-scale-relation"><i class="fa fa-check"></i><b>12.4.4</b> 두-스케일 관계(two-scale relation)</a></li>
-<li class="chapter" data-level="12.4.5" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#mother-wavelet"><i class="fa fa-check"></i><b>12.4.5</b> 모웨이블릿(mother wavelet)</a></li>
-<li class="chapter" data-level="12.4.6" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-multiresolution-representation"><i class="fa fa-check"></i><b>12.4.6</b> 다중해상도 표현(multiresolution representation)</a></li>
+<li class="chapter" data-level="12.2" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#time-frequency-analysis"><i class="fa fa-check"></i><b>12.2</b> 시간주파수해석(time-frequency analysis)</a></li>
+<li class="chapter" data-level="12.3" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#wavelet"><i class="fa fa-check"></i><b>12.3</b> 웨이블릿(wavelet)</a></li>
+<li class="chapter" data-level="12.4" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-wavelet-transform"><i class="fa fa-check"></i><b>12.4</b> 웨이블릿 변환(wavelet transform)</a></li>
+<li class="chapter" data-level="12.5" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-wavelet-space"><i class="fa fa-check"></i><b>12.5</b> 웨이블릿 공간(wavelet space)</a><ul>
+<li class="chapter" data-level="12.5.1" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-multiresolution-analysis"><i class="fa fa-check"></i><b>12.5.1</b> 다중해상도 분석(multiresolution analysis)</a></li>
+<li class="chapter" data-level="12.5.2" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#orthogonal-decomposition"><i class="fa fa-check"></i><b>12.5.2</b> 직교분해(orthogonal decomposition)</a></li>
+<li class="chapter" data-level="12.5.3" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#--orthonormal-basis-construction"><i class="fa fa-check"></i><b>12.5.3</b> 직교정규 기저 구성(orthonormal basis construction)</a></li>
+<li class="chapter" data-level="12.5.4" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#--two-scale-relation"><i class="fa fa-check"></i><b>12.5.4</b> 두-스케일 관계(two-scale relation)</a></li>
+<li class="chapter" data-level="12.5.5" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#mother-wavelet"><i class="fa fa-check"></i><b>12.5.5</b> 모웨이블릿(mother wavelet)</a></li>
+<li class="chapter" data-level="12.5.6" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html#-multiresolution-representation"><i class="fa fa-check"></i><b>12.5.6</b> 다중해상도 표현(multiresolution representation)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="multiscale.html"><a href="multiscale.html"><i class="fa fa-check"></i><b>13</b> 다중척도 방법론</a><ul>
@@ -538,7 +553,127 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ol>
 <p><span class="math inline">\(F_{t}\)</span>, <span class="math inline">\(G_{t}\)</span>, <span class="math inline">\(W\)</span>, <span class="math inline">\(V\)</span>, <span class="math inline">\(m_{0}\)</span>, <span class="math inline">\(C_{0}\)</span>, <span class="math inline">\(t=1,2,\ldots,\)</span> 가 주어진 경우 다음의 생성식으로 이루어진 모형식을 칼만필터 모형이라고 한다.</p>
 <p><span class="math display">\[\text{(초기 분포) } \theta_{0} \sim \mathcal{N}(m_{0},C_{0})\]</span> <span class="math display">\[\text{(상태방정식) } \theta_{t}=G_{t}\theta_{t-1}+w_{t}, \qquad{w_{t} \sim \mathcal{N}(0,W)}\]</span> <span class="math display">\[\text{(출력방정식) } Y_{t}=F_{t}\theta_{t}+v_{t}, \qquad{v_{t}\sim \mathcal{N}(0,V)}\]</span></p>
+<p>여기에서</p>
+<ul>
+<li><p><span class="math inline">\(\theta_{t}\)</span>: <strong>상태벡터(state vector)</strong></p></li>
+<li><p><span class="math inline">\(G_{t}\)</span>: <strong>전이행렬(transition matrix)</strong></p></li>
+<li><p><span class="math inline">\(w_{t}\)</span>: <strong>내적오차벡터(innovational error vector)</strong></p></li>
+<li><p><span class="math inline">\(Y_{t}\)</span>: <strong>관측치(observation)</strong></p></li>
+<li><p><span class="math inline">\(F_{t}\)</span>: <strong>입력벡터(input vector)</strong>로 상태벡터가 관측치에 영향을 주는 설명변수들로 이루어져있음</p></li>
+<li><p><span class="math inline">\(v_{t}\)</span>: <strong>출력오차(output error)</strong></p></li>
+</ul>
+<p><span class="math inline">\(\theta_{t-1}\)</span>과 <span class="math inline">\(w_{t}\)</span>는 독립이며, <span class="math inline">\(\theta_{t}\)</span>는 <span class="math inline">\(v_{t}\)</span>와 독립이고, 두 오차는 서로 독립이다.</p>
+<p>칼만필터 모형은 두 개 이상의 선형식의 모임으로 연결되어 있으므로 전체적으로는 비선형적 특성을 지니고 있고, 각 식은 선형모형이므로 모형의 설명력과 예측력이 우수하며, 이론적 전개가 용이하다.</p>
+<div class="example">
+<p>시간에 따라 생성되는 종속변수가 하나이며 설명변수가 두 개인 선형모형을 생각해보자.</p>
+<ol style="list-style-type: decimal">
+<li><p>회귀모형은 회귀계수가 미지의 상수인 경우로 정적 모형이다. 즉 <span class="math display">\[Y_{t}=m_{0}+m_{1}X_{1t}+m_{2}X_{2t}+v_{t}\]</span> 인 형태가 된다.</p></li>
+<li><p>회귀동적모형은 회귀계수가 시간에 따라 변화하는 경우로 동적모형이다. 즉 <span class="math display">\[Y_{t}=m_{0t}+m_{1t}X_{1t}+m_{2t}X_{2t}+v_{t}\]</span> 인 형태가 되며 각 회귀계수들을 함수형태로 추정해 주어야 한다.</p></li>
+<li>회귀동적선형모형은 회귀계수가 전 시점의 회귀계수에 의하여 결정되는 경우로 회귀동적모형의 특수한 경우가 된다. 예를 들어, 전이행렬이 단위행렬인 경우(상태벡터가 임의보행인 경우) <span class="math display">\[Y_{t}=m_{0t}+m_{1t}X_{1t}+m_{2t}X_{2t}+v_{t}\]</span> $$ _{t} =
+\begin{pmatrix}
+  m_{0t} \\
+  m_{1t} \\
+  m_{2t} 
+ \end{pmatrix}
+=
+\begin{pmatrix}
+  1 &amp; 0 &amp; 0 \\
+  0 &amp; 1 &amp; 0 \\
+  0 &amp; 0 &amp; 1
+ \end{pmatrix}
+\begin{pmatrix}
+  m_{0,t-1} \\
+  m_{1,t-1} \\
+  m_{2,t-1} 
+ \end{pmatrix}</li>
+</ol>
+<ul>
+<li>\begin{pmatrix}
+  w_{0t} \\
+  w_{1t} \\
+  w_{2t} 
+ \end{pmatrix}
+$$ 이와 같은 형태를 지닌다.</li>
+</ul>
+</div>
+<div id="--types-of-kalman-filter" class="section level2">
+<h2><span class="header-section-number">10.1</span> 칼만필터 모형의 종류(types of Kalman filter)</h2>
+<div id="--hidden-markov-model" class="section level3">
+<h3><span class="header-section-number">10.1.1</span> 은닉 마르코프 모형(hidden Markov model)</h3>
+<p>오차항이 없는 칼만필터 모형으로 다음과 같다.</p>
+<p><span class="math display">\[
+\begin{cases}
+\mu_{t}=G\mu_{t-1} \\
+Y_{t}=F\mu_{t}.\\
+\end{cases}
+\]</span></p>
+<p>여기서 전이행렬 <span class="math inline">\(G\)</span>와 출력행렬 <span class="math inline">\(F\)</span>는 시간에 따라 변화하지 않으므로 상태방정식은 확률과정에서의 상태벡터 <span class="math inline">\(\mu_{t}\)</span>의 전이행렬이 <span class="math inline">\(G\)</span>인 마르코프 연쇄로 생각할 수 있다. 관측치 <span class="math inline">\(Y_{t}\)</span>만 주어져 있고 <span class="math inline">\(\mu_{t}\)</span>는 모르는 경우 모수 <span class="math inline">\(G\)</span>와 <span class="math inline">\(F\)</span>를 추정하여 생성구조를 완성하는 과정을 이룬다. 은닉 마르코프 모형은 범주형 자료에도 적용이 가능하며, 신호처리에 바탕을 두고 있는 음성인식, 영상인식, 문장인식에 널리 사용되고 있는 통계적 기법이다.</p>
+</div>
+<div id="--simple-kalman-filter-model" class="section level3">
+<h3><span class="header-section-number">10.1.2</span> 일차 칼만필터 모형(simple Kalman filter model)</h3>
+<p><strong>일차 칼만필터 모형(simple Kalman filter model)</strong>은 오차항을 포함한 칼만필터 모형 중 가장 간단한 형태로 <span class="math inline">\(t\)</span> 시점의 상태열이 임의보행과정(random walk)으로 직전 상태값 주위에서 흔들리며 변화할 때 사용한다.</p>
+<p><span class="math display">\[
+\begin{cases}
+\mu_{t}=\mu_{t-1}+w_{t} \\
+Y_{t}=\mu_{t}+v_{t}.\\
+\end{cases}
+\]</span></p>
+</div>
+<div id="--regression-kalman-filter-model" class="section level3">
+<h3><span class="header-section-number">10.1.3</span> 회귀 칼만필터 모형(regression Kalman filter model)</h3>
+<p><strong>회귀 칼만필터 모형(regression Kalman filter model)</strong>은 입력변수(설명변수)가 있는 경우에 사용하는 동적모형으로 계수(상태열)가 시간에 따라 변화하는 동적 계수가 된다.</p>
+<p><span class="math display">\[
+\begin{cases}
+\theta_{t}=\theta_{t-1}+w_{t} \\
+Y_{t}=F_{t}\theta_{t}+v_{t}.\\
+\end{cases}
+\]</span></p>
+</div>
+<div id="--general-kalman-filter-model" class="section level3">
+<h3><span class="header-section-number">10.1.4</span> 일반적 칼만필터 모형(general Kalman filter model)</h3>
+<p><strong>일반적 칼만필터 모형(general Kalman filter model)</strong>은 회귀 칼만필터 모형에서 동적 계수가 임의보행이 아닌 경우에 전이행렬을 고려하는 동적모형이다.</p>
+<p><span class="math display">\[
+\begin{cases}
+\theta_{t}=G_{t}\theta_{t-1}+w_{t} \\
+Y_{t}=F_{t}\theta_{t}+v_{t}.\\
+\end{cases}
+\]</span></p>
+</div>
+<div id="--extended-kalman-filter-model" class="section level3">
+<h3><span class="header-section-number">10.1.5</span> 확장된 칼만필터 모형(extended Kalman filter model)</h3>
+<p>칼만필터 모형에서 상태방정식과 출력방정식이 선형모형이 아닌 비선형모형인 경우를 <strong>확장된 칼만필터 모형(extended Kalman filter model)</strong>이라고 한다. 추정과 최시노하는 주어진 식을 선형화하여 해결하며, 시스템에 대한 물리적 이해가 필요하다.</p>
+<p><span class="math display">\[
+\begin{cases}
+\theta_{t}=f(\theta_{t-1},w_{t}) \\
+Y_{t}=h(\theta_{t},v_{t})\\
+\end{cases}
+\]</span></p>
+</div>
+</div>
+<div id="-updating-algorithm" class="section level2">
+<h2><span class="header-section-number">10.2</span> 최신화 알고리즘(updating algorithm)</h2>
+<p><strong>칼만필터링(Kalman filtering)</strong>은 칼만필터 모형의 상태열 <span class="math inline">\(\{ \theta_{t}\}\)</span>의 추정에 사용된다. 칼만필터링은 다음의 특징을 지니고 있어 이공계 분야 모델링에 많이 응용된다.</p>
+<ul>
+<li><p>미지의 상태열 <span class="math inline">\(\{\theta_{t}\}\)</span>를 추정하는 반복처리과정이다.</p></li>
+<li><p>동적처리기법이다. 즉 시간의 흐름에 따라 진행하면서 과거와 현재의 출력값들을 보고 현재의 상태를 추정해간다.</p></li>
+<li><p>평균제곱오차를 최소로 하는 최적 상태열을 추정하는 통계적 이론을 바탕으로 한다.</p></li>
+<li><p>체계적 기법(systematic method)이다. 즉 일단 칼만필터 모형이 만들어지면 칼만필터 알고리즘을 쉽게 사용할 수 있다.</p></li>
+<li><p>나쁜 초기치의 영향이 오래가지 않는다. 즉 로버스트하다.</p></li>
+<li><p>프로그래밍이 쉽다.</p></li>
+</ul>
+<p>칼만필터링은 다변량 정규분포이론에 근거하며 최적 상태값을 추정하는 아래와 같은 <strong>동적순환과정(dynamic recursive procedure)</strong>으로 이루어진다. 이를 <strong>최신화 알고리즘(updating algoritm)</strong>이라고 한다. <span class="math inline">\(t=1,2,\ldots\)</span>로 변화시키며</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(t-1\)</span>시점까지의 모든 정보 <span class="math inline">\(D_{t}\)</span>에 의한 <span class="math inline">\(\theta_{t-1}\)</span>의 분포 <span class="math display">\[\theta_{t-1}|Y_{t-1} \sim \mathcal{N}(m_{t-1},C_{t-1})\]</span></p></li>
+<li><p><span class="math inline">\(t\)</span>시점에서의 <span class="math inline">\(\theta_{t}\)</span>의 사전분포: 상태방정식</p></li>
+</ol>
+</div>
+<div id="dynamic-linear-model" class="section level2">
+<h2><span class="header-section-number">10.3</span> 동적선형모형(dynamic linear model)</h2>
+</div>
+<div id="r-r-dlm" class="section level2">
+<h2><span class="header-section-number">10.4</span> R-예제(R-dlm)</h2>
 
+</div>
 </div>
             </section>
 
@@ -576,7 +711,7 @@ gitbook.start({
 "link": "https://seoncheolpark.github.io/book/_book/12-kalman.Rmd",
 "text": null
 },
-"download": null,
+"download": ["SeoncheolPark-book.pdf"],
 "toc": {
 "collapse": "subsection"
 }
