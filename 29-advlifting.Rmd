@@ -36,14 +36,24 @@ $$s_{j,k}=s_{j+1,2k}+U_{D_{j,k}^{U}}d_{j,k}$$
 knitr::include_graphics("images/advmultiscale_adaplifting.png")
 ```
 
-프라이멀과 듀얼 리프팅 스텝에 모두 결정연산자를 사용하는 컨셉이 적응적 리프틍 스킴의 핵심이며 위 그림에 잘 나타나 있다. 그리고 이 두 결정연산자들은 $\mathbf{s}_{j+1}$과 $\mathbf{d}_{j}$에 모두 dependent되어있다는 것이 특징이다.
+프라이멀과 듀얼 리프팅 스텝에 모두 결정연산자를 사용하는 컨셉이 적응적 리프팅 스킴의 핵심이며 위 그림에 잘 나타나 있다. 그리고 이 두 결정연산자들은 $\mathbf{s}_{j+1}$과 $\mathbf{d}_{j}$에 모두 dependent되어있다는 것이 특징이다.
 
 (그러나 아마 perfect reconstruction의 문제가 있는 듯)
 
 그렇다면 어떻게 결정연산자를 디자인하는가? Irregularities는 함수의 derivative의 갑작스런 변화로 감지될 수 있는데, 예측의 순서를 바꾸었을 때 $s_{j+1,2k+1}$과 근처 $s$의 차이가 도움이 될 수 있을 것이라고 한다.
 
+## 적응적 리프팅 스킴의 재구성(reconstruction of adaptive lifting scheme)
+
 ```{r, echo=F, fig.cap='Reconstruction with a general adaptive lifting scheme. Data in both branches of the scheme contribute to the choices of prediction and update filters.', fig.align='center'}
 knitr::include_graphics("images/advmultiscale_adaplifting2.png")
+```
+
+적응적 리프팅 스킴에서 recounstruction하는 문제는 그렇게 간단하지는 않다. 스킴에서 자동적으로 역변환이 얻어지는 경우는 정말 특별한 경우이다. 역변환에서는 결정연산자 $\tilde{D}_{j}^{U}$와 $\tilde{D}_{j}^{P}$를 사용하는데 이는 일반적으로 $D_{j}^{U}$ 및 $D_{j}^{P}$와는 다른 것이다. 어떤 경우에 역반환은 keeping track of the choices made for prediction and/or update filters를 해야만 보자이 되는 경우도 있다. 이것은 한 가지 단점이다.
+
+### 자동 완전 재구성(automatic perfect reconstruction)
+
+```{r, echo=F, fig.cap='Perfect reconstruction without book-keeping is easily achived by letting the decision maps only depend on the input data of the corresponding prediction and update filters.', fig.align='center'}
+knitr::include_graphics("images/advmultiscale_adaplifting3.png")
 ```
 
 ## LOCAAT 알고리즘

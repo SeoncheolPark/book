@@ -180,8 +180,8 @@ x <- data_bump$x; y <- data_bump$y
 plot(x,y, type='l', main="Original")
 y_noise <- y + rnorm(length(y), sd=0.1)
 plot(x,y_noise, type='l', main="Noisy")
-y_noise_wd <- wd(y_noise)
-y_noise_threshold <- threshold(y_noise_wd, type="soft", policy="sure")
-y_sure <- wr(y_noise_threshold)
+y_noise_wd <- wavethresh::wd(y_noise)
+y_noise_threshold <- wavethresh::threshold(y_noise_wd, type="soft", policy="sure")
+y_sure <- wavethresh::wr(y_noise_threshold)
 plot(x,y_sure, type='l', main="Soft Thresholding")
 ```

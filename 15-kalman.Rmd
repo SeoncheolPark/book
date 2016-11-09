@@ -161,7 +161,9 @@ $$
 1. $t-1$시점까지의 모든 정보 $D_{t}$에 의한 $\theta_{t-1}$의 분포
 $$\theta_{t-1}|Y_{t-1} \sim \mathcal{N}(m_{t-1},C_{t-1})$$
 
-2. $t$시점에서의 $\theta_{t}$의 사전분포: 상태방정식 
+2. $t$시점에서의 $\theta_{t}$의 사전분포: 상태방정식 $\theta_{t}=G_{t}\theta_{t-1}+w_{t}, w_{t} \sim \mathcal{N}(0,W_{t})$에 의하여,
+$$\theta_{t}|D_{t-1} = (G_{t}\theta_{t-1}+w_{t})|D_{t-1}\sim \mathcal{N}(a_{t},R_{t})$$
+여기에서 $a_{t}=G_{t}m_{t-1}, R_{t}=G_{t}C_{t-1}G_{t}'+W_{t}$이다.
 
 ## 동적선형모형(dynamic linear model)
 

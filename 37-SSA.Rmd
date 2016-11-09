@@ -1,0 +1,15 @@
+# 시간 변화도 분석 {#SSA}
+
+시계열분석에서 **시간 변화도 분석(singular spectrum analysis, SSA)**는 비모수 스펙트럼 추정 방법이다. 이 방법은 기존의 시계열분석과 다변량분석, 다변량기하학, 동역학계 및 신호처리 방법을 혼합한 것이다. SSA는 시계열을 component들의 sum으로 분해하는데 그 목적을 두는데, 의미있는 설명으로 가능하도록 의도한다.
+
+## 시간 변화도 분석 알고리즘과 방법론(SSA algorithms and methodology)
+
+시간 변화도 분석의 목적을 다시 한 번 상기시키자면, 사전 정보 없이 관찰한 시계열 자료를 설명가능한 component들로 분해하는 것이다.
+
+### 시간 변화도 분석 알고리즘
+
+실수값을 갖는 길이 $N$인 시계열 $\mathbf{x}_{N}$을 생각해보자. $L, 1<L<N$은 **window length**라 부르는 정수이며 $K=N-L+1$이다.
+
+1. **(Decomposition step)**
+
+2. **(Reconstruction step)**
