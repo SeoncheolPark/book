@@ -1,6 +1,6 @@
 # 웨이블릿 변환 {#wavelettransform}
 
-웨이블릿은 'Wave'와 프랑스어 'let'의 합성어로, 'let'은 'small'이라는 뜻을 가지고 있다. 즉 웨이블릿은 'small wave'라는 뜻으로, **컴팩트 받침(compactly supported)**인 함수들을 일컷는 말이다 . 사인(Sine), 코사인(cosine) 기저(basis)는 $(-\infty, \infty)$에서 정의되는 매우 큰 파동이므로 웨이블릿에 해당하지 않는다.
+웨이블릿은 'Wave'와 프랑스어 'let'의 합성어로, 'let'은 'small'이라는 뜻을 가지고 있다. 즉 웨이블릿은 'small wave'라는 뜻으로, **컴팩트 받침(compactly supported)**인 함수들을 일컷는 말이다. 사인(Sine), 코사인(cosine) 기저(basis)는 $(-\infty, \infty)$에서 정의되는 매우 큰 파동이므로 웨이블릿에 해당하지 않는다.
 
 **웨이블릿 변환(wavelet transform)**이란 웨이블릿 기저함수를 이용해 데이터를 변환하는 것을 말한다. 여기서 웨이블릿 기저함수라는 건 적분하면 0이 되고, 진동하면서 진폭이 0으로 수렴하는 함수를 말한다.
 
@@ -68,8 +68,8 @@ $\mathbf{d}=(\frac{21\sqrt{2}}{2},0,-\sqrt{2},-3\sqrt{2},\sqrt{2},-7,-2,\frac{3\
 
 </div>
 
-위 예제의 $W$처럼 Haar 웨이블릿의 $W$는 **정규직교(orthonormal)**라는 성질을 갖는데, 정규직교의 의미는 $W^{T}W=\mathbf{I}$이다. 그러나 모든 웨이블릿의 $W$가 정규직교인 것은 아니다. 그리고
-$$\| \mathbf{d} \|^{2}=\mathbf{d}^{T}\mathbf{d}=(W\mathbf{y})^{T}(W\mathbf{y})=\mathbf{y}^{T}W^{T}W\mathbf{y}=\| \mathbf{y} \|^{2}$$
+위 예제의 $W$처럼 Haar 웨이블릿의 $W$는 **정규직교(orthonormal)**라는 성질을 갖는데, 정규직교의 의미는 $W^{T}W=I$이다. 그러나 모든 웨이블릿의 $W$가 정규직교인 것은 아니다. 그리고
+$$\| \mathbf{d} \|^{2}=\mathbf{d}^{T}\mathbf{d}=(W\mathbf{y})^{T}(W\mathbf{y})=\mathbf{y}^{T}W^{T}W\mathbf{y}=\| \mathbf{y} \|^{2}.$$
 이 식은 **Parseval 등식(Parseval's identity)**에 대응된다.
 
 정규직교인 웨이블릿의 $W$은 다음과 같은 장점을 갖는다. 다음과 같이 원래 자료와 추정량에 대한 공식이 다음과 같이 주어졌을 때,
@@ -81,10 +81,12 @@ $$Var(W\epsilon)=WVar(\epsilon)W^{T}=\sigma^{2}I=Var(\epsilon)$$
 ## 압축계수(scaling coefficient)와 전이계수(translation coefficient) 개념
 
 $p(x)$라는 함수가 주어졌을 때, 이것의 **압축 및 전이된 버전(scaled and translated version)**은 다음과 같이 정의된다.
+
+$$p_{j,k}(x)=2^{\frac{j}{2}}p(2^{j}x-k)$$
+
 $$
 \| p_{j,k}(x) \|^{2}=\int_{\infty}^{\infty}p_{j,k}^{2}(x)dx=\int_{\infty}^{\infty}2^{j}p^{2}(2^{j}x-k)dx=\int_{\infty}^{\infty}p^{2}(y)dy=\| p(y) \|^{2}
 $$
-$$p_{j,k}(x)=2^{\frac{j}{2}}p(2^{j}x-k)$$
 
 
 ## 섬세한 척도 근사(fine-scale approximation)
@@ -109,7 +111,7 @@ knitr::include_graphics("images/multiscale_004.png")
 knitr::include_graphics("images/multiscale_005.png")
 ```
 
-가장 성긴 레벨의 (Haar) **척도 웨이블릿(scaling wavelet, father wavelet)**은
+가장 섬세한 레벨의 (Haar) **척도 웨이블릿(scaling wavelet, father wavelet)**은
 $$c_{J,k}=\int f(x) \phi_{J,k}(x)dx=\int f(x) 2^{\frac{J}{2}}\phi(2^{J}x-k)dx$$
 이다. 이것은 앞서 말한 $p$를 $\phi$로 바꾸면 되며 또한 데이터와 같음을 알고 있다. 그리고 앞의 정의들을 이용하면
 

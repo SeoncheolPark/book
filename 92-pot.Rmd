@@ -38,7 +38,7 @@ R 패키지 `extRemes`의 vignette를 참고하였다.
 library(extRemes)
 ```
 
-```{r, fig.align='center', comment=">", fig.cap = 'Hurricane damage data.'}
+```{r, fig.align='center', comment=">", fig.cap = 'Hurricane damage data.', cache=TRUE}
 data(damage)
 par(mfrow=c(1,3))
 plot(damage$Year, damage$Dam, xlab = "Year",ylab = "U.S. Hurricane Damage (billion USD)")
@@ -46,16 +46,16 @@ plot(damage[,"Year"], log(damage[,"Dam"]), xlab = "Year", ylab = "ln(Damage)")
 qqnorm(log(damage[,"Dam"]), ylim = c(-10, 5))
 ```
 
-```{r, fig.align='center', comment=">", fig.cap = 'Thresh range plot of hurricane damage data.'}
+```{r, fig.align='center', comment=">", fig.cap = 'Thresh range plot of hurricane damage data.', cache=TRUE}
 threshrange.plot(damage$Dam, r=c(1, 15), nint=20)
 ```
 
-```{r, fig.align='center', comment=">", fig.cap = 'Mean residual life plot of hurricane damage data.'}
+```{r, fig.align='center', comment=">", fig.cap = 'Mean residual life plot of hurricane damage data.', cache=TRUE}
 par(mfrow=c(1,1))
 mrlplot(damage$Dam, xlim = c(0, 12))
 ```
 
-```{r, fig.align='center', comment=">", fig.cap = 'GPD estimation result.'}
+```{r, fig.align='center', comment=">", fig.cap = 'GPD estimation result.', cache=TRUE}
 range(damage$Year)
 1995 - 1926 + 1
 dim(damage)

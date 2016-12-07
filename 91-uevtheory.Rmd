@@ -240,7 +240,7 @@ R 패키지 `extRemes`를 이용한 예제이다.
 library(extRemes)
 ```
 
-```{r, fig.align='center', comment=">", fig.cap = 'Plot maximum winter temperature.'}
+```{r, fig.align='center', comment=">", fig.cap = 'Plot maximum winter temperature.', cache=TRUE}
 data(SEPTsp) #Annual max and min temp of North Atlantic Oscillation
 par(mfrow=c(1,3))
 plot(TMX1~Year, data=SEPTsp, type="h")
@@ -248,7 +248,7 @@ plot(TMX1~AOindex, data=SEPTsp, pch=21)
 plot(TMX1~MDTR, data=SEPTsp, pch=21)
 ```
 
-```{r, fig.align='center', comment=">", fig.cap = 'Fit a GEV distribution.'}
+```{r, fig.align='center', comment=">", fig.cap = 'Fit a GEV distribution.', cache=TRUE}
 fit0 <- fevd(TMX1, data=SEPTsp, units="deg C")
 fit0
 plot(fit0)
@@ -256,7 +256,7 @@ ci(fit0, type="parameter")
 ci(fit0)
 ```
 
-```{r, fig.align='center', comment=">", fig.cap = 'Fit a GEV distribution with AOindex.'}
+```{r, fig.align='center', comment=">", fig.cap = 'Fit a GEV distribution with AOindex.', cache=TRUE}
 fit1 <- fevd(TMX1, data=SEPTsp, location.fun=~AOindex, units="deg C")
 fit1
 plot(fit1)
@@ -267,7 +267,7 @@ lr.test(fit0, fit1) #inclusion of AOindex in location parameter is not significa
 
 $$\log (\sigma (\text{STDTMAX})) = \phi_{0} +\phi_{1}\times \text{STDTMAX}$$
 
-```{r, fig.align='center', comment=">", fig.cap = 'Fit a GEV distribution with STDTMAX.'}
+```{r, fig.align='center', comment=">", fig.cap = 'Fit a GEV distribution with STDTMAX.', cache=TRUE}
 fit2 <- fevd(TMX1, data=SEPTsp, scale.fun=~STDTMAX, use.phi=TRUE, units="deg C")
 fit2
 plot(fit2)

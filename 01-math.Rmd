@@ -3,6 +3,12 @@
 # 기본적인 수학 개념들 {#math}
 이 장에서는 앞으로 다룰 내용을 이해하기 위해 필요한 기본적인 수학 개념을 정리하였다.
 
+```{theorem, name="Pythagorean theorem"}
+For a right triangle, if $c$ denotes the length of the hypotenuse
+and $a$ and $b$ denote the lengths of the other two sides, we have
+$$a^2 + b^2 = c^2$$
+```
+
 ## 집합론(set theory)
 
 ### 카디널리티(cardinality)
@@ -230,6 +236,116 @@ $$\| \alpha \mathbf{x}\|=|\alpha| \|\mathbf{x}\|$$
 </div>
 
 만약 $d(\mathbf{x},\mathbf{y})=\| \mathbf{x}-\mathbf{y}\|$라 하면 노름공간이 거리공간이 된다. 그러나 모든 거리공간이 노름공간으로부터 유도되는 것은 이니다.
+
+## 행렬의 분해(matrix decomposition)
+
+### 고유값 분해(eigenvalue decomposition)
+
+고유값 분해는 행렬 $A$가 $n\times n$ 정방행렬일 때만 적용 가능하다.
+
+### 스펙트럼 분해(spectral decomposition)
+
+$p\times p$ 대칭행렬 $A$에 대한 **스펙트럼 분해(spectral decomposition)**는 다음과 같다. $p\times p$ 대칭행렬 $A$는 직교행렬 $P$에 의해 **대각화(diagonalization)**된다고 한다.
+
+$$A=P\Lambda P^{T}=\sum_{i=1}^{p}\lambda_{i}e_{i}e_{i}^{T}.$$
+
+이때 $PP^{T}=P^{T}P=I$를 만족하는 직교행렬 $P$는 $P=[e_{1},\ldots , e_{p}]$로 이루어지며, $\Lambda$는 $A$의 고유값(eigenvalue)들로만 이루어진 대각행렬(diagonal matrix)
+
+$$
+\Lambda=
+\begin{bmatrix}
+\lambda_{1} & \cdots & 0\\
+\vdots & \ddots & \vdots\\
+0 & \cdots & \lambda_{p}\\
+\end{bmatrix}
+$$
+
+이다. 대각행렬 $\Lambda$는 $P^{T}AP=\Lambda$이다.
+
+### 특이값분해(SVD)
+
+**특이값분해(singular value decomposition, SVD)**는 $m\times n$ 직사각형 행렬 $A$에 대해 스펙트럼 분해를 일반화한 것이다.
+$A$의 특이값 분해는 다음과 같다.
+
+$$A=U\Sigma V^{T}.$$
+
+이 때
+
+- $U$: $A$의 left singular vector로 이루어진 $m\times m$ 직교행렬(orthogonal matrix)
+
+- $\Sigma$: 주 대각성분이 $\sqrt{\lambda_{i}}$로 이루어진 $m\times n$ 직사각 대각행렬(diagonal matrix)
+
+- $V$: $A$의 right singular vector로 이루어진 $n\times n$ 직교행렬(orthogonal matrix)
+
+행렬 $A$의 계수(rank)가 $k$라고 할 때, 
+
+- $U=[u_{1},\ldots , u_{k}, \ldots u_{m}]$는 $AA^{T}$를 고유값분해(eigenvalue decomposition)로 직교대각화하여 얻은 $m\times m$ 직교행렬(orthogonal matrix)이며, 특히 $[u_{1},\ldots, u_{k}]$를 **좌특이벡터(left signular vector)**라고 한다.
+
+- $V=[v_{1},\ldots ,v_{k},\ldots , v_{n}]$는 $A^{T}A$를 고유값분해로 직교대각화하여 얻은 $n\times n$ 직교행렬이며, 특히 $[v_{1},v_{2},\ldots ,v_{k}]$를 **우특이벡터(right signular vector)**라고 한다.
+
+- $\Sigma$는 $A^{T}A$의 0이 아닌 고유값이 $\lambda_{1},\lambda_{2},\ldots , \lambda_{k}$일 때 $\sqrt{\lambda_{1}},\ldots, \sqrt{\lambda_{k}}$를 대각성분으로 가지고 나머지 성분을 0으로 갖는 $m\times n$ 직사각 **대각행렬(diagonal matrix)**이다.
+
+$$
+\Sigma=
+\begin{bmatrix}
+\sqrt{\lambda_{1}} & 0 & \cdots & 0 & 0 & \cdots & 0\\
+0 & \sqrt{\lambda_{2}} & \cdots & 0 & 0 & \cdots & 0\\
+\vdots & \vdots & \ddots & \vdots & \vdots & \cdots & 0\\
+0 & 0 & \cdots & \sqrt{\lambda_{k}} & 0 & \cdots & 0\\
+0 & 0 & 0 & 0 & 0 & \cdots & 0\\
+\vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots\\
+0 & 0 & 0 & 0 & 0 & \cdots & 0\\
+\end{bmatrix}.
+$$
+
+즉 $A$를 다시 쓰면
+
+$$
+A=
+\begin{bmatrix}
+u_{1} & \cdots & u_{k} & \cdots & u_{m}\\
+\end{bmatrix}
+\begin{bmatrix}
+\sqrt{\lambda_{1}} & 0 & \cdots & 0 & 0 & \cdots & 0\\
+0 & \sqrt{\lambda_{2}} & \cdots & 0 & 0 & \cdots & 0\\
+\vdots & \vdots & \ddots & \vdots & \vdots & \cdots & 0\\
+0 & 0 & \cdots & \sqrt{\lambda_{k}} & 0 & \cdots & 0\\
+0 & 0 & 0 & 0 & 0 & \cdots & 0\\
+\vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots\\
+0 & 0 & 0 & 0 & 0 & \cdots & 0\\
+\end{bmatrix}
+\begin{bmatrix}
+V_{1}^{T}\\
+\vdots \\
+V_{k}^{T}\\
+\vdots\\
+V_{n}^{T}\\
+\end{bmatrix}
+$$
+
+이다. 위 식에서 **특이값(singular value)**는 $\sigma_{i}^{2}=\lambda_{i}$로부터 $\sigma_{i}=\sqrt{\lambda_{i}}$가 된다. 참고로 $U, V$가 직교행렬이면 $UU^{T}=I$, $VV^{T}=I$가 성립한다.
+
+### 특이값분해와 고유값분해의 관계
+
+$m\times n$ 행렬 $A$의 특이값분해의 $U$는 $AA^{T}$의 고유벡터이고, $V$는 $A^{T}A$의 고유벡터이며, $A$의 0이 아닌 특이값들의 제곱 $\Sigma\Sigma^{T}, \Sigma^{T}\Sigma$는 $AA^{T}$, $A^{T}A$의 고유값과 같음을 알 수 있다. 참고로 $\sigma_{i}=\sqrt{\lambda_{i}}$ 이므로 $\Sigma\Sigma^{T}$ 또는 $\Sigma^{T}\Sigma=\lambda_{i}$이다.
+
+\begin{eqnarray*}
+U&=&AA^{T}\\
+&=&(U\Sigma V^{T})(U\Sigma V^{T})^{T}\\
+&=&(U\Sigma V^{T})(V\Sigma^{T} U^{T})\\
+&=&U(\Sigma\Simga^{T})U^{T}\\
+\end{eqnarray*}
+
+\begin{eqnarray*}
+V&=&A^{T}A\\
+&=&(U\Sigma V^{T})^{T}(U\Sigma V^{T})\\
+&=&(V\Sigma^{T} U^{T})(U\Sigma V^{T})\\
+&=&V(\Sigma^{T}\Simga)V^{T}\\
+\end{eqnarray*}
+
+### 특이값 분해의 기하학적 의미
+
+[위키피디아](https://en.wikipedia.org/wiki/Singular_value_decomposition)를 참고하자.
 
 ## 기저(basis)
 

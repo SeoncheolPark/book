@@ -93,7 +93,7 @@ Z(x)=\max_{i\geq 1}\xi_{i}\phi(x-U_{i};\mathbf{0},\Sigma), x\in\mathcal{X},
 
 이때 $\phi(\cdot, \mathbf{0},\Sigma)$는 평균이 0이고 공분산이 $\Sigma$인 **다변량 정규 확률밀도함수(multivariate Normal density)**이다.
 
-```{r, fig.align='center', echo=FALSE, warning=FALSE, message=FALSE, results='hide', fig.cap = 'Smith model.'}
+```{r, fig.align='center', echo=FALSE, warning=FALSE, message=FALSE, results='hide', fig.cap = 'Smith model.', cache=TRUE}
 ## 1. Smith's model
 set.seed(8)
 x <- y <- seq(0, 10, length = 100)
@@ -116,7 +116,7 @@ Z(x)=\sqrt{2\pi}\max_{i\geq 1}\zeta_{i}\max\{0,W_{i}(x)\}
 
 로 이때 $\{W_{i}(x): x\in\mathcal{X}\}$는 상관함수(correlation function) $\rho$를 갖는 **정상 가우스과정(staionary Gaussian process)**의 독립된 copy들이다. 또한 척도요인(scaling factor) $\sqrt{2\pi}$는 모든 $x\in\mathcal{X}$에 대해 $\sqrt{2\pi}E[\max\{ 0,W(x)\}]=1$를 만족해야 한다.
 
-```{r, fig.align='center', echo=FALSE, warning=FALSE, message=FALSE, results='hide', fig.cap = 'Schlather model.'}
+```{r, fig.align='center', echo=FALSE, warning=FALSE, message=FALSE, results='hide', fig.cap = 'Schlather model.', cache=TRUE}
 ## 2. Schlather's model
 data <- rmaxstab(1, coord, cov.mod = "powexp", nugget = 0, range = 3,
                  smooth = 1, grid = TRUE)
