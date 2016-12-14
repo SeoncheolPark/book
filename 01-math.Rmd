@@ -333,14 +333,14 @@ $m\times n$ 행렬 $A$의 특이값분해의 $U$는 $AA^{T}$의 고유벡터이�
 U&=&AA^{T}\\
 &=&(U\Sigma V^{T})(U\Sigma V^{T})^{T}\\
 &=&(U\Sigma V^{T})(V\Sigma^{T} U^{T})\\
-&=&U(\Sigma\Simga^{T})U^{T}\\
+&=&U(\Sigma\Sigma^{T})U^{T}\\
 \end{eqnarray*}
 
 \begin{eqnarray*}
 V&=&A^{T}A\\
 &=&(U\Sigma V^{T})^{T}(U\Sigma V^{T})\\
 &=&(V\Sigma^{T} U^{T})(U\Sigma V^{T})\\
-&=&V(\Sigma^{T}\Simga)V^{T}\\
+&=&V(\Sigma^{T}\Sigma)V^{T}\\
 \end{eqnarray*}
 
 ### 특이값 분해의 기하학적 의미
