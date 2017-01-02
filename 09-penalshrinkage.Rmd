@@ -1,4 +1,4 @@
-# 벌점화 및 축소방법 {#penalized and shrinkage methods in regression}
+# 벌점화 및 축소방법 {#penalshrink}
 
 때때로 설명변수들이 너무 많아져 특이 관찰값보다도 많아지는 경우가 존재한다. 이런 경우에는 전체 모형을 적합할 경우 prediction interval이 커지고 최소제곱 추정량이 유일하지 않을 수도 있는 등 문제점들이 생기게 된다. 이런 문제점들을 해결하는 방법들을 **벌점화(penalization)**라고 한다.
 

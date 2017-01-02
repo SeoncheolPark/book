@@ -33,8 +33,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="stoprocess.html">
-<link rel="next" href="penalshrink.html">
+<link rel="prev" href="reg.html">
+<link rel="next" href="glm.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -570,19 +570,48 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="reg" class="section level1">
-<h1><span class="header-section-number">Chapter 7</span> 회귀분석</h1>
-<p>AIC, AICc, BIC</p>
-<div id="linear-model" class="section level2">
-<h2><span class="header-section-number">7.1</span> 선형모형(linear model)</h2>
-<p>이 절의 내용은 <span class="citation">(Yee <a href="#ref-Yee2015">2015</a>)</span>를 따른다.</p>
+<div id="penalshrink" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> 벌점화 및 축소방법</h1>
+<p>때때로 설명변수들이 너무 많아져 특이 관찰값보다도 많아지는 경우가 존재한다. 이런 경우에는 전체 모형을 적합할 경우 prediction interval이 커지고 최소제곱 추정량이 유일하지 않을 수도 있는 등 문제점들이 생기게 된다. 이런 문제점들을 해결하는 방법들을 <strong>벌점화(penalization)</strong>라고 한다.</p>
+<p>최소제곱 추정량은 <span class="math inline">\((X^{T}X)^{-1}\)</span>에 depend하므로 만약 <span class="math inline">\((X^{T}X)^{-1}\)</span>이 비정칙(singular)이거나 거의 비정칙일 때 <span class="math inline">\(\beta_{LS}\)</span>를 계산하는 데 어려움을 겪을 수 있다. 이런 경우에 <span class="math inline">\(X\)</span>에 약간의 변화만 있어도 <span class="math inline">\((X^{T}X)^{-1}\)</span>은 크게 달라지게 된다. 이 때 최소제곱 추정량 <span class="math inline">\(\hat{beta}_{LS}\)</span>는 training data에 적합할 때에는 큰 문제가 되지 않으나 test data에 적합할 때에는 문제가 생길 수도 있다.</p>
+<div id="ridge-regression" class="section level2">
+<h2><span class="header-section-number">8.1</span> 능형회귀(ridge regression)</h2>
+<p>앞서 말한 문제점의 한 가지 해결방법으로 추정량의 불편성을 약간 깨는 방법이 있다. <span class="citation">(Hoerl and Kennard <a href="#ref-Hoerl1970">1970</a>)</span>은 <span class="math inline">\(X^{T}X\)</span>에 작은 상수값 <span class="math inline">\(\lambda\)</span>를 더해 역을 취해 추정량의 불안정성을 해결할 수 있다고 생각하고 다음과 같은 추정량을 제안하였다. <span class="math display">\[\hat{\beta}_{ridge}=(X^{T}X+\lambda I_{p})^{-1}X^{T}Y.\]</span> 이를 <strong>능형회귀(ridge regression)</strong> 추정량이라고 부른다. 참고로 수학에서는 이 방법을 <a href="https://en.wikipedia.org/wiki/Tikhonov_regularization">Tikhonov regularization</a>이라고 부른다.</p>
+<p><span class="math inline">\(\hat{\beta}_{ridge}\)</span>는 다음 벌점화제곱합 <span class="math display">\[\hat{\beta}^{rodge}=\text{arg}\min_{\beta}\{\sum_{i=1}^{n}(y_{i}-\beta_{0}-\sum_{j=1}^{p}x_{ij}\beta_{j})^{2}+\lambda\sum_{j=1}^{p}\beta_{j}^{2}\}\]</span> 을 최소화하여 얻을 수 있다. 또 다른 표현으로는 <span class="math display">\[\hat{\beta}^{rodge}=\text{arg}\min_{\beta}\sum_{i=1}^{n}(y_{i}-\beta_{0}-\sum_{j=1}^{p}x_{ij}\beta_{j})^{2}\text{ for some } t, \sum_{j=1}^{p}\beta_{j}^{2}&lt;t^{2}\]</span> 로도 쓸 수 있다.</p>
+<p>벌점화 항을 살펴보면, <span class="math inline">\(\lambda\)</span>는 미리 선택된 상수(constant)에 벡터 <span class="math inline">\(\beta\)</span>의 제곱합이 곱해진 형태이다. 이는 <span class="math inline">\(\beta_{j}\)</span>가 큰 값을 가지면 페널티를 주겠다는 뜻이다. <span class="math inline">\(\beta_{j}\)</span>가 0에 가까울수록 벌점화 항은 작을 것이다.</p>
+<div id="--geometrical-interpretation-of-ridge-regression" class="section level3">
+<h3><span class="header-section-number">8.1.1</span> 능형회귀의 기하학적 해석(geometrical interpretation of ridge regression)</h3>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-12"></span>
+<img src="images/basic_ridge.png" alt="Geometric interpretation of ridge regression." width="165" />
+<p class="caption">
+Figure 8.1: Geometric interpretation of ridge regression.
+</p>
+</div>
+<p><span class="math inline">\(p=2\)</span>인 경우를 생각해보자. 등고선이 있는 붉은색 타원이 residual sum of squares (RSS)에 해당하며 가장 안쪽에 있는 원이 작은 RSS를 가지고 그 중심에 <span class="math inline">\(\hat{\beta}_{OLS}\)</span>가 있다. <span class="math inline">\(p=2\)</span>일 때 능형회귀의 제약조건은 원에 대응된다. 능형회귀의 해는 타원과 원이 만나는 지점이 될 것이다.</p>
+<p>여기서 penalty term과 RSS 사이에는 trade-off가 있다고 한다.</p>
+</div>
+<div id="-properties-of-ridge-estimator" class="section level3">
+<h3><span class="header-section-number">8.1.2</span> 능형회귀추정량의 성질들(properties of ridge estimator)</h3>
+</div>
+<div id="svd----computing-the-ridge-solutions-via-the-svd" class="section level3">
+<h3><span class="header-section-number">8.1.3</span> SVD를 이용한 능형회귀 해의 계산(computing the ridge solutions via the SVD)</h3>
+<p>능형회귀의 해</p>
+<p><span class="math display">\[\hat{\beta}_{ridge}=(X^{T}X+\lambda I_{p})^{-1}X^{T}Y\]</span></p>
+<p>를 다시 상기해보자. <span class="math inline">\(\hat{\beta}_{ridge}\)</span>를 구할 때 피하고 싶은 역행렬의 계산이 있다. 수치적으로 불안정할 뿐더러 계산량이 대략 <span class="math inline">\(\mathcal{O}(p^{3})\)</span> 정도 된다. 역행렬의 계산을 피할 수 있는 방법으로 SVD를 이용하는 방법이 있다. 즉</p>
+<p><span class="math display">\[X=UDV^{T}\]</span></p>
+<p>임을 이용해 해를 계산하는 것이다.</p>
+</div>
+</div>
+<div id="lasso" class="section level2">
+<h2><span class="header-section-number">8.2</span> 라쏘(LASSO)</h2>
+<p>능형회귀는 축소 추정치를 주지만 변수선택은 하지 않는다. 따라서 고차원 자료의 경우 최종 모형에 대한 해석이 그리 용이하지 않다.</p>
 
 </div>
 </div>
 <h3> References</h3>
 <div id="refs" class="references">
-<div id="ref-Yee2015">
-<p>Yee, Thomas W. 2015. <em>Vector Generalized Linear and Additive Models: With an Implementation in R</em>. Springer.</p>
+<div id="ref-Hoerl1970">
+<p>Hoerl, Arthur E., and Robert W. Kennard. 1970. “Ridge Regression: Biased Estimation for Nonorthogonal Problems.” <em>Technometrics</em> 12 (1): 55–67.</p>
 </div>
 </div>
             </section>
@@ -590,8 +619,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="stoprocess.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="penalshrink.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="reg.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="glm.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -619,7 +648,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://seoncheolpark.github.io/book/_book/08-reg.Rmd",
+"link": "https://seoncheolpark.github.io/book/_book/09-penalshrinkage.Rmd",
 "text": "Edit"
 },
 "download": ["SeoncheolPark-book.pdf"],
