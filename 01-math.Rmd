@@ -21,53 +21,7 @@ $$a^2 + b^2 = c^2$$
 
 </div>
 
-## 수열(sequence)과 수열의 극한(limit)
-
-### 상한(supremum)과 하한(infimum)
-
-수열은 극한이 존재하는 경우와 존재하지 않는 경우로 나누어 생각할 수 있다. 극한이 존재하지 않는 수열에서, **상계(upper bound)**와 **하계(lower bound)**의 점근적인 움직임(asymptotic behavior)를 고려해 볼 수 있을 것이다.
-
-$\{x_{n}\}_{n=1}^{\infty}$를 실수로 구성된 수열(sequence)이라고 하자. 우선 상계와 하계를 다음과 같이 정의한다.
-
-<div class="definition">
-
-다음 조건을 만족하는
-$$x_{n} \leq u \text{ 모든 } n \in \mathbb{N}$$
-$u \in \mathbb{R}$을 수열 $\{x_{n}\}_{n=1}^{\infty}$의 **상계(upper bound)**라고 한다.
-
-</div>
-
-<div class="definition">
-
-다음 조건을 만족하는
-$$x_{n} \geq l \text{ 모든 } n \in \mathbb{N}$$
-$l \in \mathbb{R}$을 수열 $\{x_{n}\}_{n=1}^{\infty}$의 **하계(lower bound)**라고 한다.
-
-</div>
-
-이들을 이용해 상한과 하한을 정의할 수 있다.
-
-<div class="definition">
-
-다음 조건을 만족하는
-$$u_{l} \text{은 } \{x_{n}\}_{n=1}^{\infty} \text{의 상계이고 } \{x_{n}\}_{n=1}^{\infty} \text{의 다른 상계 } u \text{가 존재할 때 } u_{l} \leq u$$
-$u_{l} \in \mathbb{R}$을 $\{x_{n}\}_{n=1}^{\infty}$의 **상한(supremum)**이라고 하며, 다음과 같이 표현한다.
-$$u_{l}=\sup_{n\in\mathbb{N}}x_{n}$$
-
-</div>
-
-<div class="definition">
-
-다음 조건을 만족하는
-$$l_{u} \text{는 } \{x_{n}\}_{n=1}^{\infty} \text{의 하계이고 } \{x_{n}\}_{n=1}^{\infty} \text{의 다른 하계 } l \text{이 존재할 때 } l_{u} \leq l$$
-$l_{u} \in \mathbb{R}$을 $\{x_{n}\}_{n=1}^{\infty}$의 **하한(infimum)**이라고 하며, 다음과 같이 표현한다.
-$$l_{u}=\inf_{n\in\mathbb{N}}x_{n}$$
-
-</div>
-
-### 상극한(limit superior)과 하극한(limit infimum)
-
-### 실함수의 수열들(sequences of real functions)
+## 실함수의 수열들(sequences of real functions)
 
 확률변수(random variable)의 수열이 함수의 수열처럼 여겨질 수 있다는 사실에서 함수의 수열의 성질을 이해하는 것은 중요하다. 일반적인 수열의 수렴에 관한 성질들과 비교했을 때 함수의 수열들의 수렴에 관한 성질에서는 여러 개의 정의로 다뤄질 수 있다는 점에서 차이가 있다. 가장 널리 알려진 함수의 수렴은 **점별수렴(pointwise convergence)**과 **균등수렴(uniform convergence)**이 있다.
 
@@ -386,44 +340,6 @@ $$\phi(r)=\frac{1}{\sqrt{1+(\epsilon r)^{2}}}$$
 
 
 ## 공간(space)
-
-### 실수공간(space R)
-
-실수공간 $\mathbb{R}$에서 집합 $E\subseteq \mathbb{R}$이 **열린(open)** 집합이라는 것은 모든 $x\in E$에 대해 $x$에 depend하는 $\epsilon > 0$이 존재해 $(x-\epsilon, x+\epsilon) \subseteq E$를 만족하는 것이다.
-
-실수공간 $\mathbb{R}$에서 집합 $F\subseteq \mathbb{R}$이 **닫힌(closed)** 집합이라는 것은 $F^{C}$가 열린집합일 때이다.
-
-### 벡터공간(vector space)
-
-<div class="definition">
-
-같은 수의 성분을 가지는 벡터들로 이루어진 공집합이 아닌 집합 $V$가 있을 때,
-
-1. $V$에 속하는 임의의 두 벡터 $\mathbf{a}$와 $\mathbf{b}$의 일차결합이 $\alpha \mathbf{a} + \beta \mathbf{b}$ ($\alpha$, $\beta$는 임의의 실수)가 또한 $V$에 속하고
-
-2. 벡터에 대한 **덧셈**과 스칼라곱이 아래 연산법칙을 만족하면
-
-- $\mathbf{a} + \mathbf{b} = \mathbf{b} + \mathbf{a}$: 교환(commutative)법칙
- 
-- $(\mathbf{a} + \mathbf{b}) + \mathbf{c} = \mathbf{a} + (\mathbf{b} + \mathbf{c})$: 결합(associative)법칙
-
-- $\mathbf{a} + \mathbf{0} = \mathbf{a}$: 다음 식을 만족하는 항등원(identity element)이 벡터공간 내에 존재($\mathbf{0} \in V$)
- 
-- $\mathbf{a} - \mathbf{a} = \mathbf{0}$: 다음 식을 만족하는 역원(inverse element)이 벡터공간 내에 존재($-\mathbf{a} \in V$)
-
-(스칼라 곱에 대해)
- 
-- $c(\mathbf{a} + \mathbf{b}) = c\mathbf{a}+c\mathbf{b}$: 분배법칙
- 
-- $(c+k)\mathbf{a}=c\mathbf{a}+k\mathbf{a}$: 분배법칙
- 
-- $c(k\mathbf{a})=(ck)\mathbf{a}$
-
-- $1\mathbf{a}=\mathbf{a}$: 곱셈에 대한 항등원($V$안에 있을 필요는 없는 듯)
-
-이 집합 $V$를 **벡터공간(vector space)** 또는 **선형공간(linear space)**이라고 하며, 그 원소를 **벡터(vector)**라고 부른다. 이때 $c$, $k$, $1$은 어떤 체(field)의 원소여야 한다($c,k,1 \in F$). 여기서는 편의상  $F=\mathbb{R}$로 놓도록 한다.
-
-</div>
 
 ### L2 공간(L2 space)
 
