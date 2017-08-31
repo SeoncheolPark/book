@@ -46,8 +46,7 @@ $$
 
 세부와 성김은 앞서 언급한 피라미드 알고리즘으로 구할 수도 있지만 여기서는 $\mathbf{d}=\mathbf{Wy}$처럼 통계학자들에게 익숙한 행렬 꼴로 바꾸어 표현한다.
 
-<div class="example">
-
+```{example, name="행렬을 이용한 웨이블릿 계수의 계산"}
 행렬을 이용해 웨이블릿 계수를 계산해보자. 다음과 같은 자료 $\mathbf{y}=(1,1,7,9,2,8,8,6)$에 행렬 $W$을 다음과 같이 정의하면
 
 $$
@@ -65,8 +64,7 @@ W =
 $$
 
 $\mathbf{d}=(\frac{21\sqrt{2}}{2},0,-\sqrt{2},-3\sqrt{2},\sqrt{2},-7,-2,\frac{3\sqrt{2}}{2})$를 얻을 수 있다. (이 예제에서는 [@Nason2010]의 정의를 따라갔다.)
-
-</div>
+```
 
 위 예제의 $W$처럼 Haar 웨이블릿의 $W$는 **정규직교(orthonormal)**라는 성질을 갖는데, 정규직교의 의미는 $W^{T}W=I$이다. 그러나 모든 웨이블릿의 $W$가 정규직교인 것은 아니다. 그리고
 $$\| \mathbf{d} \|^{2}=\mathbf{d}^{T}\mathbf{d}=(W\mathbf{y})^{T}(W\mathbf{y})=\mathbf{y}^{T}W^{T}W\mathbf{y}=\| \mathbf{y} \|^{2}.$$
@@ -206,14 +204,13 @@ $$
 
 $x$를 **물리적 영역(physical domain)** 또는 **시간 영역(time domain, t)**이라 생각하면, 시간에 대해 컴팩트 받침(compactly supported)인 함수이다. 우리의 궁금점은 이 함수과 과연 **주파수 영역(frequency domain)**에서도 컴팩트 받침인가이다.
 
-<div class="definition">
+```{definition, name="유니터리 푸리에 변환"}
 
 주어진 함수의 **각진동수(angular frequency)를 이용한 유니터리 푸리에 변환(Fourier transform with unitary and angular frequency)**은 다음과 같다.
 $$\hat{f}(\omega)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(x)e^{-i\omega x}dx$$
 
 여기서 $\frac{1}{\sqrt{2\pi}}$는 이 변환을 유니터리 푸리에 변환으로 만들기 위해 곱해지는 상수이다. 유니터리 변환과 푸리에 변환에 대한 보다 자세한 나용은 인터넷을 참조하기 바란다.
-
-</div>
+```
 
 앞서 나온 푸리에 변환을 이용해 Haar 함수를 푸리에 변환한 결과는 다음과 같다.
 $$\hat{\phi}(\omega)=\frac{1}{\sqrt{2\pi}}e^{-\frac{i\omega}{2}}\text{sinc}(\frac{\omega}{2}).$$
@@ -229,30 +226,6 @@ $$
 
 ```{r, echo=F, fig.cap='Haar function (left) and Haar function in frequency domain after Fourier transform (right).', fig.align='center'}
 knitr::include_graphics("images/multiscale_008.png")
-```
-
-### Shannon 웨이블릿(Shannon wavelet)
-
-Haar와 반대로 주파수 영역에서 컴팩트 받침인 웨이블릿을 생각할 수 있다. 이것의 대표적인 예가 **Shannon 웨이블릿(Shannon wavelet)**이다. 다음과 같은 모웨이블릿(mother wavelet)을 생각하자. 그리고 그것의 푸리에 변환은 
-$$\psi(x)=\frac{\sin(2\pi x)-\cos(\pi x)}{\pi (x - \frac{1}{2})} \rightarrow \hat{\psi}(\omega)=-e^{-\frac{i\omega}{2}}I_{[-2\pi,-\pi]\cup[\pi,2\pi]}(\omega).$$
-따라서 주파수 영역에서는 컴팩트 받침이다. Shannon의 부웨이블릿(father wavelet)와 대응되는 푸리에 변환은 다음과 같다.
-$$\phi(x)=\text{sinc}(\pi x) \rightarrow \hat{\phi}(\omega)=1.$$
-즉 주파수 영역에서는 컴팩트 받침이다. 한편 시간 영역에서 $\phi(x)$의 그림은 다음과 같다고 한다(출처: 위키, 체크 필요)
-
-```{r, echo=F, fig.cap='Real Shannon wavelet function.', fig.align='center'}
-knitr::include_graphics("images/multiscale_Shannon.png")
-```
-
-### Meyer 웨이블릿(Meyer wavelet)
-
-Shannon 웨이블릿과 유사하며, 주파수 영역에서 상자 함수(box function)를 약간 부드럽게 한 형태의 웨이블릿이 **Meyer 웨이블릿(Meyer wavelet)**이다.
-
-```{r, echo=F, fig.cap='Scaling function and wavelet function of Meyer wavelet on time domain.', fig.align='center'}
-knitr::include_graphics("images/multiscale_Meyer.png")
-```
-
-```{r, echo=F, fig.cap='Meyer scaling function on frequency domain.', fig.align='center'}
-knitr::include_graphics("images/multiscale_Meyer02.png")
 ```
 
 ## 데시메이티드되지 않은 웨이블릿(non-decimated wavelets)

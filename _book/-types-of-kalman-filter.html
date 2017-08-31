@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>통계공부와 관련된 글들</title>
+  <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="통계공부와 관련된 글들" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다." />
+  <meta name="github-repo" content="SeoncheolPark/book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="통계공부와 관련된 글들" />
+  
+  <meta name="twitter:description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다." />
+  
+
+<meta name="author" content="Seoncheol Park">
+
+
+<meta name="date" content="2017-08-31">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="kalman.html">
+<link rel="next" href="-updating-algorithm.html">
+<script src="assets/jquery-2.2.3/jquery.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
+<li class="part"><span><b>I Basic Concepts</b></span></li>
+<li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
+<li class="chapter" data-level="2.1" data-path="set-theory.html"><a href="set-theory.html"><i class="fa fa-check"></i><b>2.1</b> 집합론(set theory)</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="set-theory.html"><a href="set-theory.html#cardinality"><i class="fa fa-check"></i><b>2.1.1</b> 카디널리티(cardinality)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="-sequences-of-real-functions.html"><a href="-sequences-of-real-functions.html"><i class="fa fa-check"></i><b>2.2</b> 실함수의 수열들(sequences of real functions)</a></li>
+<li class="chapter" data-level="2.3" data-path="-operators-and-norms.html"><a href="-operators-and-norms.html"><i class="fa fa-check"></i><b>2.3</b> 연산자들과 노름(operators and norms)</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="-operators-and-norms.html"><a href="-operators-and-norms.html#direct-sum"><i class="fa fa-check"></i><b>2.3.1</b> 직합(direct sum)</a></li>
+<li class="chapter" data-level="2.3.2" data-path="-operators-and-norms.html"><a href="-operators-and-norms.html#-kronecker-product"><i class="fa fa-check"></i><b>2.3.2</b> 크로네커 곱(Kronecker product)</a></li>
+<li class="chapter" data-level="2.3.3" data-path="-operators-and-norms.html"><a href="-operators-and-norms.html#tensor-product"><i class="fa fa-check"></i><b>2.3.3</b> 텐서곱(tensor product)</a></li>
+<li class="chapter" data-level="2.3.4" data-path="-operators-and-norms.html"><a href="-operators-and-norms.html#-cartesian-product"><i class="fa fa-check"></i><b>2.3.4</b> 데카르트 곱(Cartesian product)</a></li>
+<li class="chapter" data-level="2.3.5" data-path="-operators-and-norms.html"><a href="-operators-and-norms.html#norm"><i class="fa fa-check"></i><b>2.3.5</b> 노름(norm)</a></li>
+<li class="chapter" data-level="2.3.6" data-path="-operators-and-norms.html"><a href="-operators-and-norms.html#metric"><i class="fa fa-check"></i><b>2.3.6</b> 거리(metric)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="-matrix-decomposition.html"><a href="-matrix-decomposition.html"><i class="fa fa-check"></i><b>2.4</b> 행렬의 분해(matrix decomposition)</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="-matrix-decomposition.html"><a href="-matrix-decomposition.html#-eigenvalue-decomposition"><i class="fa fa-check"></i><b>2.4.1</b> 고유값 분해(eigenvalue decomposition)</a></li>
+<li class="chapter" data-level="2.4.2" data-path="-matrix-decomposition.html"><a href="-matrix-decomposition.html#-spectral-decomposition"><i class="fa fa-check"></i><b>2.4.2</b> 스펙트럼 분해(spectral decomposition)</a></li>
+<li class="chapter" data-level="2.4.3" data-path="-matrix-decomposition.html"><a href="-matrix-decomposition.html#svd"><i class="fa fa-check"></i><b>2.4.3</b> 특이값분해(SVD)</a></li>
+<li class="chapter" data-level="2.4.4" data-path="-matrix-decomposition.html"><a href="-matrix-decomposition.html#--"><i class="fa fa-check"></i><b>2.4.4</b> 특이값분해와 고유값분해의 관계</a></li>
+<li class="chapter" data-level="2.4.5" data-path="-matrix-decomposition.html"><a href="-matrix-decomposition.html#---"><i class="fa fa-check"></i><b>2.4.5</b> 특이값 분해의 기하학적 의미</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="basis.html"><a href="basis.html"><i class="fa fa-check"></i><b>2.5</b> 기저(basis)</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="basis.html"><a href="basis.html#riesz-basis"><i class="fa fa-check"></i><b>2.5.1</b> Riesz basis</a></li>
+<li class="chapter" data-level="2.5.2" data-path="basis.html"><a href="basis.html#radial-basis-function"><i class="fa fa-check"></i><b>2.5.2</b> Radial basis function</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="space.html"><a href="space.html"><i class="fa fa-check"></i><b>2.6</b> 공간(space)</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="space.html"><a href="space.html#l2-l2-space"><i class="fa fa-check"></i><b>2.6.1</b> L2 공간(L2 space)</a></li>
+<li class="chapter" data-level="2.6.2" data-path="space.html"><a href="space.html#banach-space"><i class="fa fa-check"></i><b>2.6.2</b> 바나흐공간(Banach space)</a></li>
+<li class="chapter" data-level="2.6.3" data-path="space.html"><a href="space.html#hilbert-space"><i class="fa fa-check"></i><b>2.6.3</b> 힐버트공간(Hilbert space)</a></li>
+<li class="chapter" data-level="2.6.4" data-path="space.html"><a href="space.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.6.4</b> Sobolev 공간(Sobolev space)</a></li>
+<li class="chapter" data-level="2.6.5" data-path="space.html"><a href="space.html#besov-besov-space"><i class="fa fa-check"></i><b>2.6.5</b> Besov 공간(Besov space)</a></li>
+<li class="chapter" data-level="2.6.6" data-path="space.html"><a href="space.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.6.6</b> Reproducing kernel Hilbert space</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="distance.html"><a href="distance.html"><i class="fa fa-check"></i><b>2.7</b> 거리(distance)</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basicprob.html"><a href="basicprob.html"><i class="fa fa-check"></i><b>3</b> 기초 확률론</a><ul>
+<li class="chapter" data-level="3.1" data-path="-sample-space-and-events.html"><a href="-sample-space-and-events.html"><i class="fa fa-check"></i><b>3.1</b> 표본공간과 사건(sample space and events)</a></li>
+<li class="chapter" data-level="3.2" data-path="-sigma-field.html"><a href="-sigma-field.html"><i class="fa fa-check"></i><b>3.2</b> 시그마-체(sigma-field)</a></li>
+<li class="chapter" data-level="3.3" data-path="generators.html"><a href="generators.html"><i class="fa fa-check"></i><b>3.3</b> 생성기들(generators)</a></li>
+<li class="chapter" data-level="3.4" data-path="probability-space.html"><a href="probability-space.html"><i class="fa fa-check"></i><b>3.4</b> 확률공간(probability space)</a></li>
+<li class="chapter" data-level="3.5" data-path="-borel-sigma-field.html"><a href="-borel-sigma-field.html"><i class="fa fa-check"></i><b>3.5</b> 보렐 시그마-체(Borel sigma field)</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="-borel-sigma-field.html"><a href="-borel-sigma-field.html#-------no-uniform-probablity-of-power-set-on-continous-sample-space"><i class="fa fa-check"></i><b>3.5.1</b> 연속 표본공간에서 시그마-체로 멱집합을 쓰지 않는 이유(no uniform probablity of power set on continous sample space)</a></li>
+<li class="chapter" data-level="3.5.2" data-path="-borel-sigma-field.html"><a href="-borel-sigma-field.html#---borel-sigma-field-on-r"><i class="fa fa-check"></i><b>3.5.2</b> 실수공간에서 보렐 시그마-체(Borel sigma-field on R)</a></li>
+<li class="chapter" data-level="3.5.3" data-path="-borel-sigma-field.html"><a href="-borel-sigma-field.html#--construction-of-a-probability-measure-on-r"><i class="fa fa-check"></i><b>3.5.3</b> 실수공간에서 확률측도의 구성(construction of a probability measure on R)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="measure.html"><a href="measure.html"><i class="fa fa-check"></i><b>3.6</b> 측도(measure)</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="measure.html"><a href="measure.html#lebesgue-lebesgue-measure"><i class="fa fa-check"></i><b>3.6.1</b> Lebesgue 측도(Lebesgue measure)</a></li>
+<li class="chapter" data-level="3.6.2" data-path="measure.html"><a href="measure.html#probability-measure"><i class="fa fa-check"></i><b>3.6.2</b> 확률측도(probability measure)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="-radon-nykodim-theorem.html"><a href="-radon-nykodim-theorem.html"><i class="fa fa-check"></i><b>3.7</b> 라돈-니코딤 정리(Radon-Nykodim theorem)</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="rv.html"><a href="rv.html"><i class="fa fa-check"></i><b>4</b> 확률변수</a><ul>
+<li class="chapter" data-level="4.1" data-path="-matrix-decomposition.html"><a href="-matrix-decomposition.html#--"><i class="fa fa-check"></i><b>4.1</b> 보렐-칸텔리 따름정리</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="convergencerv.html"><a href="convergencerv.html"><i class="fa fa-check"></i><b>5</b> 확률변수의 수렴</a><ul>
+<li class="chapter" data-level="5.1" data-path="-almost-sure-convergence.html"><a href="-almost-sure-convergence.html"><i class="fa fa-check"></i><b>5.1</b> 거의 확실한 확률 수렴(Almost sure convergence)</a></li>
+<li class="chapter" data-level="5.2" data-path="convergence-in-probability.html"><a href="convergence-in-probability.html"><i class="fa fa-check"></i><b>5.2</b> 확률수렴(Convergence in probability)</a></li>
+<li class="chapter" data-level="5.3" data-path="lp-convergence-in-lp.html"><a href="lp-convergence-in-lp.html"><i class="fa fa-check"></i><b>5.3</b> Lp 수렴(Convergence in Lp)</a></li>
+<li class="chapter" data-level="5.4" data-path="convergence-in-distribution.html"><a href="convergence-in-distribution.html"><i class="fa fa-check"></i><b>5.4</b> 분포수렴(Convergence in distribution)</a></li>
+<li class="chapter" data-level="5.5" data-path="-connections-between-modes-of-convergence.html"><a href="-connections-between-modes-of-convergence.html"><i class="fa fa-check"></i><b>5.5</b> 수렴 사이들의 관계(Connections between modes of convergence)</a></li>
+<li class="chapter" data-level="5.6" data-path="convergence-of-moments-uniform-integrability.html"><a href="convergence-of-moments-uniform-integrability.html"><i class="fa fa-check"></i><b>5.6</b> Convergence of moments: 일양적분가능성(uniform integrability)</a></li>
+<li class="chapter" data-level="5.7" data-path="big-o-small-o-big-o-and-small-o.html"><a href="big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>5.7</b> Big O와 small o (big O and small o)</a></li>
+<li class="chapter" data-level="5.8" data-path="big-op-small-op-big-op-and-small-op.html"><a href="big-op-small-op-big-op-and-small-op.html"><i class="fa fa-check"></i><b>5.8</b> Big Op와 small op (big Op and small op)</a></li>
+<li class="chapter" data-level="5.9" data-path="absolute-continuous.html"><a href="absolute-continuous.html"><i class="fa fa-check"></i><b>5.9</b> 절대연속(absolute continuous)</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="stoprocess.html"><a href="stoprocess.html"><i class="fa fa-check"></i><b>6</b> 확률과정론</a><ul>
+<li class="chapter" data-level="6.1" data-path="stochastic-process.html"><a href="stochastic-process.html"><i class="fa fa-check"></i><b>6.1</b> 확률과정이란?(stochastic process)</a></li>
+<li class="chapter" data-level="6.2" data-path="-continuity-of-stochastic-process.html"><a href="-continuity-of-stochastic-process.html"><i class="fa fa-check"></i><b>6.2</b> 확률과정에서의 연속성(continuity of stochastic process)</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="-continuity-of-stochastic-process.html"><a href="-continuity-of-stochastic-process.html#continuous-sample-paths"><i class="fa fa-check"></i><b>6.2.1</b> 연속표본경로(continuous sample paths)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="brownian-motion.html"><a href="brownian-motion.html"><i class="fa fa-check"></i><b>6.3</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="brownian-motion.html"><a href="brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>6.3.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="martingale.html"><a href="martingale.html"><i class="fa fa-check"></i><b>6.4</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="6.5" data-path="-markov-chain.html"><a href="-markov-chain.html"><i class="fa fa-check"></i><b>6.5</b> 마르코프 체인(Markov chain)</a></li>
+<li class="chapter" data-level="6.6" data-path="r-r-stoprocess.html"><a href="r-r-stoprocess.html"><i class="fa fa-check"></i><b>6.6</b> R 예제(R-stoprocess)</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="reg.html"><a href="reg.html"><i class="fa fa-check"></i><b>7</b> 회귀분석</a><ul>
+<li class="chapter" data-level="7.1" data-path="linear-model.html"><a href="linear-model.html"><i class="fa fa-check"></i><b>7.1</b> 선형모형(linear model)</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="penalshrink.html"><a href="penalshrink.html"><i class="fa fa-check"></i><b>8</b> 벌점화 및 축소방법</a><ul>
+<li class="chapter" data-level="8.1" data-path="ridge-regression.html"><a href="ridge-regression.html"><i class="fa fa-check"></i><b>8.1</b> 능형회귀(ridge regression)</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="ridge-regression.html"><a href="ridge-regression.html#--geometrical-interpretation-of-ridge-regression"><i class="fa fa-check"></i><b>8.1.1</b> 능형회귀의 기하학적 해석(geometrical interpretation of ridge regression)</a></li>
+<li class="chapter" data-level="8.1.2" data-path="ridge-regression.html"><a href="ridge-regression.html#-properties-of-ridge-estimator"><i class="fa fa-check"></i><b>8.1.2</b> 능형회귀추정량의 성질들(properties of ridge estimator)</a></li>
+<li class="chapter" data-level="8.1.3" data-path="ridge-regression.html"><a href="ridge-regression.html#svd----computing-the-ridge-solutions-via-the-svd"><i class="fa fa-check"></i><b>8.1.3</b> SVD를 이용한 능형회귀 해의 계산(computing the ridge solutions via the SVD)</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="lasso.html"><a href="lasso.html"><i class="fa fa-check"></i><b>8.2</b> 라쏘(LASSO)</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="glm.html"><a href="glm.html"><i class="fa fa-check"></i><b>9</b> 일반화선형모형</a><ul>
+<li class="chapter" data-level="9.1" data-path="-glm-basics.html"><a href="-glm-basics.html"><i class="fa fa-check"></i><b>9.1</b> 일반화선형모형의 기본(GLM basics)</a></li>
+<li class="chapter" data-level="9.2" data-path="-vector-generalized-linear-models.html"><a href="-vector-generalized-linear-models.html"><i class="fa fa-check"></i><b>9.2</b> 벡터 일반화선형모형(vector generalized linear models)</a></li>
+<li class="chapter" data-level="9.3" data-path="-limations-of-glm.html"><a href="-limations-of-glm.html"><i class="fa fa-check"></i><b>9.3</b> 일반화선형모형의 한계점(limations of glm)</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="gam.html"><a href="gam.html"><i class="fa fa-check"></i><b>10</b> 일반화가법모형</a><ul>
+<li class="chapter" data-level="10.1" data-path="additive-models.html"><a href="additive-models.html"><i class="fa fa-check"></i><b>10.1</b> 가법모형들(additive models)</a></li>
+<li class="chapter" data-level="10.2" data-path="-backfitting.html"><a href="-backfitting.html"><i class="fa fa-check"></i><b>10.2</b> 퇴각 적합화(backfitting)</a></li>
+<li class="chapter" data-level="10.3" data-path="r-r-gam.html"><a href="r-r-gam.html"><i class="fa fa-check"></i><b>10.3</b> R 예제(R-gam)</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="ts.html"><a href="ts.html"><i class="fa fa-check"></i><b>11</b> 시계열분석</a><ul>
+<li class="chapter" data-level="11.1" data-path="stationary-time-series.html"><a href="stationary-time-series.html"><i class="fa fa-check"></i><b>11.1</b> 정상시계열(stationary time series)</a></li>
+<li class="chapter" data-level="11.2" data-path="-characteristics-of-time-series.html"><a href="-characteristics-of-time-series.html"><i class="fa fa-check"></i><b>11.2</b> 시계열자료의 특성(characteristics of time series)</a></li>
+<li class="chapter" data-level="11.3" data-path="-time-series-regression.html"><a href="-time-series-regression.html"><i class="fa fa-check"></i><b>11.3</b> 시계열 회귀분석(time series regression)</a></li>
+<li class="chapter" data-level="11.4" data-path="differencing.html"><a href="differencing.html"><i class="fa fa-check"></i><b>11.4</b> 차분(differencing)</a></li>
+<li class="chapter" data-level="11.5" data-path="armia-arima-models.html"><a href="armia-arima-models.html"><i class="fa fa-check"></i><b>11.5</b> ARMIA 모델들(ARIMA models)</a><ul>
+<li class="chapter" data-level="11.5.1" data-path="armia-arima-models.html"><a href="armia-arima-models.html#ar-ar-models"><i class="fa fa-check"></i><b>11.5.1</b> AR 모형(AR models)</a></li>
+<li class="chapter" data-level="11.5.2" data-path="armia-arima-models.html"><a href="armia-arima-models.html#ma-ma-models"><i class="fa fa-check"></i><b>11.5.2</b> MA 모형(MA models)</a></li>
+<li class="chapter" data-level="11.5.3" data-path="armia-arima-models.html"><a href="armia-arima-models.html#arma-arma-models"><i class="fa fa-check"></i><b>11.5.3</b> ARMA 모형(ARMA models)</a></li>
+<li class="chapter" data-level="11.5.4" data-path="armia-arima-models.html"><a href="armia-arima-models.html#arima-arima-models"><i class="fa fa-check"></i><b>11.5.4</b> ARIMA 모형(ARIMA models)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="-arima-seasonal-arima-models.html"><a href="-arima-seasonal-arima-models.html"><i class="fa fa-check"></i><b>11.6</b> 계절성이 있는 ARIMA 모델링(seasonal ARIMA models)</a></li>
+<li class="chapter" data-level="11.7" data-path="coherency-section-3-9.html"><a href="coherency-section-3-9.html"><i class="fa fa-check"></i><b>11.7</b> Coherency (section 3.9)</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="transfer.html"><a href="transfer.html"><i class="fa fa-check"></i><b>12</b> 전이함수모형</a><ul>
+<li class="chapter" data-level="12.1" data-path="-stability-and-causality.html"><a href="-stability-and-causality.html"><i class="fa fa-check"></i><b>12.1</b> 안정성과 인과성(stability and causality)</a></li>
+<li class="chapter" data-level="12.2" data-path="cross-covariance-function.html"><a href="cross-covariance-function.html"><i class="fa fa-check"></i><b>12.2</b> 교차상관함수(cross-covariance function)</a></li>
+<li class="chapter" data-level="12.3" data-path="-fitting-transfer-function-model.html"><a href="-fitting-transfer-function-model.html"><i class="fa fa-check"></i><b>12.3</b> 전이함수모형의 적합(fitting transfer function model)</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="kalman.html"><a href="kalman.html"><i class="fa fa-check"></i><b>13</b> 칼만 필터</a><ul>
+<li class="chapter" data-level="13.1" data-path="-types-of-kalman-filter.html"><a href="-types-of-kalman-filter.html"><i class="fa fa-check"></i><b>13.1</b> 칼만필터 모형의 종류(types of Kalman filter)</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="-types-of-kalman-filter.html"><a href="-types-of-kalman-filter.html#--hidden-markov-model"><i class="fa fa-check"></i><b>13.1.1</b> 은닉 마르코프 모형(hidden Markov model)</a></li>
+<li class="chapter" data-level="13.1.2" data-path="-types-of-kalman-filter.html"><a href="-types-of-kalman-filter.html#--simple-kalman-filter-model"><i class="fa fa-check"></i><b>13.1.2</b> 일차 칼만필터 모형(simple Kalman filter model)</a></li>
+<li class="chapter" data-level="13.1.3" data-path="-types-of-kalman-filter.html"><a href="-types-of-kalman-filter.html#--regression-kalman-filter-model"><i class="fa fa-check"></i><b>13.1.3</b> 회귀 칼만필터 모형(regression Kalman filter model)</a></li>
+<li class="chapter" data-level="13.1.4" data-path="-types-of-kalman-filter.html"><a href="-types-of-kalman-filter.html#--general-kalman-filter-model"><i class="fa fa-check"></i><b>13.1.4</b> 일반적 칼만필터 모형(general Kalman filter model)</a></li>
+<li class="chapter" data-level="13.1.5" data-path="-types-of-kalman-filter.html"><a href="-types-of-kalman-filter.html#--extended-kalman-filter-model"><i class="fa fa-check"></i><b>13.1.5</b> 확장된 칼만필터 모형(extended Kalman filter model)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="-updating-algorithm.html"><a href="-updating-algorithm.html"><i class="fa fa-check"></i><b>13.2</b> 최신화 알고리즘(updating algorithm)</a></li>
+<li class="chapter" data-level="13.3" data-path="dynamic-linear-model.html"><a href="dynamic-linear-model.html"><i class="fa fa-check"></i><b>13.3</b> 동적선형모형(dynamic linear model)</a></li>
+<li class="chapter" data-level="13.4" data-path="r-r-dlm.html"><a href="r-r-dlm.html"><i class="fa fa-check"></i><b>13.4</b> R-예제(R-dlm)</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="spectral.html"><a href="spectral.html"><i class="fa fa-check"></i><b>14</b> 스펙트럼 분석</a><ul>
+<li class="chapter" data-level="14.1" data-path="-cyclical-behavior-and-periodicity.html"><a href="-cyclical-behavior-and-periodicity.html"><i class="fa fa-check"></i><b>14.1</b> 순환 움직임과 주기성(cyclical behavior and periodicity)</a><ul>
+<li class="chapter" data-level="14.1.1" data-path="-cyclical-behavior-and-periodicity.html"><a href="-cyclical-behavior-and-periodicity.html#-folding-frequency"><i class="fa fa-check"></i><b>14.1.1</b> 중첩 주파수(folding frequency)</a></li>
+<li class="chapter" data-level="14.1.2" data-path="-cyclical-behavior-and-periodicity.html"><a href="-cyclical-behavior-and-periodicity.html#aliasing"><i class="fa fa-check"></i><b>14.1.2</b> 앨리어싱(aliasing)</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="spectrum.html"><a href="spectrum.html"><i class="fa fa-check"></i><b>14.2</b> 스펙트럼이란(spectrum)</a></li>
+<li class="chapter" data-level="14.3" data-path="-using-regression-to-discover-a-periodic-signal.html"><a href="-using-regression-to-discover-a-periodic-signal.html"><i class="fa fa-check"></i><b>14.3</b> 주기가 있는 시계열의 회귀분석(using regression to discover a periodic signal)</a></li>
+<li class="chapter" data-level="14.4" data-path="-estimation-of-spectrum.html"><a href="-estimation-of-spectrum.html"><i class="fa fa-check"></i><b>14.4</b> 스펙트럼의 추정(estimation of spectrum)</a><ul>
+<li class="chapter" data-level="14.4.1" data-path="-estimation-of-spectrum.html"><a href="-estimation-of-spectrum.html#fourier-analysis"><i class="fa fa-check"></i><b>14.4.1</b> 푸리에분석(Fourier analysis)</a></li>
+<li class="chapter" data-level="14.4.2" data-path="-estimation-of-spectrum.html"><a href="-estimation-of-spectrum.html#periodogram"><i class="fa fa-check"></i><b>14.4.2</b> 피리오도그램(periodogram)</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="-quantile-periodogram.html"><a href="-quantile-periodogram.html"><i class="fa fa-check"></i><b>14.5</b> 분위수 피리오도그램(quantile periodogram)</a></li>
+<li class="chapter" data-level="14.6" data-path="r-r-periodogram.html"><a href="r-r-periodogram.html"><i class="fa fa-check"></i><b>14.6</b> R 예제(R-periodogram)</a></li>
+</ul></li>
+<li class="part"><span><b>II Multiscale Methods in Statistics</b></span></li>
+<li class="chapter" data-level="15" data-path="fouriertowavelet.html"><a href="fouriertowavelet.html"><i class="fa fa-check"></i><b>15</b> 푸리에로부터 웨이블릿으로</a><ul>
+<li class="chapter" data-level="15.1" data-path="-discrete-fourier-transform.html"><a href="-discrete-fourier-transform.html"><i class="fa fa-check"></i><b>15.1</b> 이산 푸리에변환(discrete Fourier transform)</a></li>
+<li class="chapter" data-level="15.2" data-path="time-frequency-analysis.html"><a href="time-frequency-analysis.html"><i class="fa fa-check"></i><b>15.2</b> 시간주파수해석(time-frequency analysis)</a></li>
+<li class="chapter" data-level="15.3" data-path="wavelet.html"><a href="wavelet.html"><i class="fa fa-check"></i><b>15.3</b> 웨이블릿(wavelet)</a></li>
+<li class="chapter" data-level="15.4" data-path="-wavelet-transform.html"><a href="-wavelet-transform.html"><i class="fa fa-check"></i><b>15.4</b> 웨이블릿 변환(wavelet transform)</a></li>
+<li class="chapter" data-level="15.5" data-path="-wavelet-space.html"><a href="-wavelet-space.html"><i class="fa fa-check"></i><b>15.5</b> 웨이블릿 공간(wavelet space)</a><ul>
+<li class="chapter" data-level="15.5.1" data-path="-wavelet-space.html"><a href="-wavelet-space.html#-multiresolution-analysis"><i class="fa fa-check"></i><b>15.5.1</b> 다중해상도 분석(multiresolution analysis)</a></li>
+<li class="chapter" data-level="15.5.2" data-path="-wavelet-space.html"><a href="-wavelet-space.html#orthogonal-decomposition"><i class="fa fa-check"></i><b>15.5.2</b> 직교분해(orthogonal decomposition)</a></li>
+<li class="chapter" data-level="15.5.3" data-path="-wavelet-space.html"><a href="-wavelet-space.html#--orthonormal-basis-construction"><i class="fa fa-check"></i><b>15.5.3</b> 직교정규 기저 구성(orthonormal basis construction)</a></li>
+<li class="chapter" data-level="15.5.4" data-path="-wavelet-space.html"><a href="-wavelet-space.html#--two-scale-relation"><i class="fa fa-check"></i><b>15.5.4</b> 두-스케일 관계(two-scale relation)</a></li>
+<li class="chapter" data-level="15.5.5" data-path="-wavelet-space.html"><a href="-wavelet-space.html#mother-wavelet"><i class="fa fa-check"></i><b>15.5.5</b> 모웨이블릿(mother wavelet)</a></li>
+<li class="chapter" data-level="15.5.6" data-path="-wavelet-space.html"><a href="-wavelet-space.html#-multiresolution-representation"><i class="fa fa-check"></i><b>15.5.6</b> 다중해상도 표현(multiresolution representation)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="multiscale.html"><a href="multiscale.html"><i class="fa fa-check"></i><b>16</b> 다중척도 방법론</a><ul>
+<li class="chapter" data-level="16.1" data-path="-multiscale-transform.html"><a href="-multiscale-transform.html"><i class="fa fa-check"></i><b>16.1</b> 다중척도 변환(multiscale transform)</a></li>
+<li class="chapter" data-level="16.2" data-path="inverse.html"><a href="inverse.html"><i class="fa fa-check"></i><b>16.2</b> 역(inverse)</a></li>
+<li class="chapter" data-level="16.3" data-path="sparsity.html"><a href="sparsity.html"><i class="fa fa-check"></i><b>16.3</b> 희소성(sparsity)</a></li>
+<li class="chapter" data-level="16.4" data-path="-filter-in-signal-processing.html"><a href="-filter-in-signal-processing.html"><i class="fa fa-check"></i><b>16.4</b> 신호처리에서의 필터(filter in signal processing)</a></li>
+<li class="chapter" data-level="16.5" data-path="-linear-filter.html"><a href="-linear-filter.html"><i class="fa fa-check"></i><b>16.5</b> 선형 필터(linear filter)</a></li>
+<li class="chapter" data-level="16.6" data-path="r-r-multiscale.html"><a href="r-r-multiscale.html"><i class="fa fa-check"></i><b>16.6</b> R 예제(R-multiscale)</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="wavelettransform.html"><a href="wavelettransform.html"><i class="fa fa-check"></i><b>17</b> 웨이블릿 변환</a><ul>
+<li class="chapter" data-level="17.1" data-path="-haar-discrete-haar-wavelet-transform.html"><a href="-haar-discrete-haar-wavelet-transform.html"><i class="fa fa-check"></i><b>17.1</b> 이산 Haar 웨이블릿 변환(discrete Haar wavelet transform)</a></li>
+<li class="chapter" data-level="17.2" data-path="scaling-coefficient-translation-coefficient-.html"><a href="scaling-coefficient-translation-coefficient-.html"><i class="fa fa-check"></i><b>17.2</b> 압축계수(scaling coefficient)와 전이계수(translation coefficient) 개념</a></li>
+<li class="chapter" data-level="17.3" data-path="-fine-scale-approximation.html"><a href="-fine-scale-approximation.html"><i class="fa fa-check"></i><b>17.3</b> 섬세한 척도 근사(fine-scale approximation)</a></li>
+<li class="chapter" data-level="17.4" data-path="-computing-coarser-scale-coefficients-from-fine-scale.html"><a href="-computing-coarser-scale-coefficients-from-fine-scale.html"><i class="fa fa-check"></i><b>17.4</b> 섬세한 척도로부터 성긴 척도 계수의 계산(computing coarser scale coefficients from fine scale)</a></li>
+<li class="chapter" data-level="17.5" data-path="-defference-between-scale-approximations-.html"><a href="-defference-between-scale-approximations-.html"><i class="fa fa-check"></i><b>17.5</b> 척도 근사들 사이의 차이(defference between scale approximations)(이를 웨이블릿이라 부름)</a></li>
+<li class="chapter" data-level="17.6" data-path="-types-of-wavelets.html"><a href="-types-of-wavelets.html"><i class="fa fa-check"></i><b>17.6</b> 웨이블릿의 종류들(types of wavelets)</a><ul>
+<li class="chapter" data-level="17.6.1" data-path="-types-of-wavelets.html"><a href="-types-of-wavelets.html#haar-haar-wavelet"><i class="fa fa-check"></i><b>17.6.1</b> Haar 웨이블릿(Haar wavelet)</a></li>
+</ul></li>
+<li class="chapter" data-level="17.7" data-path="-non-decimated-wavelets.html"><a href="-non-decimated-wavelets.html"><i class="fa fa-check"></i><b>17.7</b> 데시메이티드되지 않은 웨이블릿(non-decimated wavelets)</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="generalDWT.html"><a href="generalDWT.html"><i class="fa fa-check"></i><b>18</b> 일반적인 웨이블릿 변환</a><ul>
+<li class="chapter" data-level="18.1" data-path="-the-general-fast-dwt.html"><a href="-the-general-fast-dwt.html"><i class="fa fa-check"></i><b>18.1</b> 일반적인 이산 웨이블릿 변환(the general fast DWT)</a><ul>
+<li class="chapter" data-level="18.1.1" data-path="-the-general-fast-dwt.html"><a href="-the-general-fast-dwt.html#--the-forward-transform-in-dwt"><i class="fa fa-check"></i><b>18.1.1</b> 이산웨이블릿 변환에서의 전방변환(the forward transform in DWT)</a></li>
+<li class="chapter" data-level="18.1.2" data-path="-the-general-fast-dwt.html"><a href="-the-general-fast-dwt.html#filtering-dyadic-decimation-downscaling"><i class="fa fa-check"></i><b>18.1.2</b> Filtering, dyadic decimation, downscaling</a></li>
+<li class="chapter" data-level="18.1.3" data-path="-the-general-fast-dwt.html"><a href="-the-general-fast-dwt.html#---obtaining-the-initial-fine-scale-father-coefficients"><i class="fa fa-check"></i><b>18.1.3</b> 최초의 부웨이블릿 계수 얻어내기(obtaining the initial fine-scale father coefficients)</a></li>
+<li class="chapter" data-level="18.1.4" data-path="-the-general-fast-dwt.html"><a href="-the-general-fast-dwt.html#---inverse-discrete-wavelet-transform"><i class="fa fa-check"></i><b>18.1.4</b> 역 이산 웨이블릿 변환(inverse discrete wavelet transform)</a></li>
+</ul></li>
+<li class="chapter" data-level="18.2" data-path="-the-epsilon-decimated-wavelet-transform.html"><a href="-the-epsilon-decimated-wavelet-transform.html"><i class="fa fa-check"></i><b>18.2</b> 엡실론-데시메이티드 웨이블릿 변환(the epsilon-decimated wavelet transform)</a></li>
+<li class="chapter" data-level="18.3" data-path="-the-non-decimated-wavelet-transform-ndwt.html"><a href="-the-non-decimated-wavelet-transform-ndwt.html"><i class="fa fa-check"></i><b>18.3</b> 비-데시메이티드 웨이블릿 변환(the non-decimated wavelet transform, NDWT)</a><ul>
+<li class="chapter" data-level="18.3.1" data-path="-the-non-decimated-wavelet-transform-ndwt.html"><a href="-the-non-decimated-wavelet-transform-ndwt.html#-ndwt--ndwttime-and-packet-ndwt-orderings"><i class="fa fa-check"></i><b>18.3.1</b> 시간순서 NDWT와 패킷순서 NDWT(time and packet NDWT orderings)</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="r-r-ndwt.html"><a href="r-r-ndwt.html"><i class="fa fa-check"></i><b>18.4</b> R 예제(R-NDWT)</a><ul>
+<li class="chapter" data-level="18.4.1" data-path="r-r-ndwt.html"><a href="r-r-ndwt.html#chirp--"><i class="fa fa-check"></i><b>18.4.1</b> chirp 신호 예제</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="waveletshrinkage.html"><a href="waveletshrinkage.html"><i class="fa fa-check"></i><b>19</b> 웨이블릿 수축</a><ul>
+<li class="chapter" data-level="19.1" data-path="-main-concept-of-wavelet-shrinkage.html"><a href="-main-concept-of-wavelet-shrinkage.html"><i class="fa fa-check"></i><b>19.1</b> 웨이블릿 수축의 주된 개념(main concept of wavelet shrinkage)</a></li>
+<li class="chapter" data-level="19.2" data-path="oracle.html"><a href="oracle.html"><i class="fa fa-check"></i><b>19.2</b> 오라클(oracle)</a></li>
+<li class="chapter" data-level="19.3" data-path="-universal-thresholding.html"><a href="-universal-thresholding.html"><i class="fa fa-check"></i><b>19.3</b> 만능 임계화(universal thresholding)</a></li>
+<li class="chapter" data-level="19.4" data-path="stein-steins-unbiased-risk-estimator-sure.html"><a href="stein-steins-unbiased-risk-estimator-sure.html"><i class="fa fa-check"></i><b>19.4</b> Stein의 불편 위험 추정량(Steins Unbiased Risk Estimator (SURE))</a></li>
+<li class="chapter" data-level="19.5" data-path="r-r-waveletshrinkage.html"><a href="r-r-waveletshrinkage.html"><i class="fa fa-check"></i><b>19.5</b> R 예제(R-waveletshrinkage)</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="advwaveletshrinkage.html"><a href="advwaveletshrinkage.html"><i class="fa fa-check"></i><b>20</b> 웨이블릿 수축의 고등 논제들</a><ul>
+<li class="chapter" data-level="20.1" data-path="cross-validation.html"><a href="cross-validation.html"><i class="fa fa-check"></i><b>20.1</b> 교차타당성(cross-validation)</a></li>
+<li class="chapter" data-level="20.2" data-path="-multiple-testing.html"><a href="-multiple-testing.html"><i class="fa fa-check"></i><b>20.2</b> 다중 비교(multiple testing)</a></li>
+<li class="chapter" data-level="20.3" data-path="-bayesian-wavelet-shrinkage.html"><a href="-bayesian-wavelet-shrinkage.html"><i class="fa fa-check"></i><b>20.3</b> 베이지안 웨이블릿 축소(Bayesian wavelet shrinkage)</a><ul>
+<li class="chapter" data-level="20.3.1" data-path="-bayesian-wavelet-shrinkage.html"><a href="-bayesian-wavelet-shrinkage.html#prior-mixture-of-gaussian"><i class="fa fa-check"></i><b>20.3.1</b> Prior mixture of Gaussian</a></li>
+<li class="chapter" data-level="20.3.2" data-path="-bayesian-wavelet-shrinkage.html"><a href="-bayesian-wavelet-shrinkage.html#prior-mixture-of-point-mass-and-gaussian"><i class="fa fa-check"></i><b>20.3.2</b> Prior mixture of point mass and Gaussian</a></li>
+<li class="chapter" data-level="20.3.3" data-path="-bayesian-wavelet-shrinkage.html"><a href="-bayesian-wavelet-shrinkage.html#mixture-of-point-mass-and-heavy-tail-distribution"><i class="fa fa-check"></i><b>20.3.3</b> Mixture of point mass and heavy-tail distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="20.4" data-path="-linear-wavelet-smoothing.html"><a href="-linear-wavelet-smoothing.html"><i class="fa fa-check"></i><b>20.4</b> 선형 웨이블릿 평활화(linear wavelet smoothing)</a></li>
+<li class="chapter" data-level="20.5" data-path="-block-thresholding.html"><a href="-block-thresholding.html"><i class="fa fa-check"></i><b>20.5</b> 블록 임계화(block thresholding)</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="multiscalets.html"><a href="multiscalets.html"><i class="fa fa-check"></i><b>21</b> 다중척도 시계열분석</a><ul>
+<li class="chapter" data-level="21.1" data-path="-stationary-time-series.html"><a href="-stationary-time-series.html"><i class="fa fa-check"></i><b>21.1</b> 시계열 자료의 정상성(stationary time series)</a></li>
+<li class="chapter" data-level="21.2" data-path="-whitening-of-stationary-process.html"><a href="-whitening-of-stationary-process.html"><i class="fa fa-check"></i><b>21.2</b> 정상과정의 백색화(whitening of stationary process)</a></li>
+<li class="chapter" data-level="21.3" data-path="-spectral-representation-of-stationary-process.html"><a href="-spectral-representation-of-stationary-process.html"><i class="fa fa-check"></i><b>21.3</b> 정상과정의 스펙트럼 표현(spectral representation of stationary process)</a></li>
+<li class="chapter" data-level="21.4" data-path="-non-decimated-discrete-wavelets.html"><a href="-non-decimated-discrete-wavelets.html"><i class="fa fa-check"></i><b>21.4</b> 압축 표본화되지 않은 이산 웨이블릿(non-decimated discrete wavelets)</a></li>
+<li class="chapter" data-level="21.5" data-path="-locally-stationary-wavelet-process.html"><a href="-locally-stationary-wavelet-process.html"><i class="fa fa-check"></i><b>21.5</b> 국소 정상 웨이블릿 과정(locally stationary wavelet process)</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="admultiscale.html"><a href="admultiscale.html"><i class="fa fa-check"></i><b>22</b> 고급 다중척도 방법론</a><ul>
+<li class="chapter" data-level="22.1" data-path="-second-generation-wavelet-transform.html"><a href="-second-generation-wavelet-transform.html"><i class="fa fa-check"></i><b>22.1</b> 2세대 웨이블릿 변환(second-generation wavelet transform)</a></li>
+<li class="chapter" data-level="22.2" data-path="-lifting-scheme.html"><a href="-lifting-scheme.html"><i class="fa fa-check"></i><b>22.2</b> 리프팅 스킴(lifting scheme)</a></li>
+<li class="chapter" data-level="22.3" data-path="basis-functions.html"><a href="basis-functions.html"><i class="fa fa-check"></i><b>22.3</b> 기저함수들(basis functions)</a></li>
+<li class="chapter" data-level="22.4" data-path="-lifting-in-two-dimensions.html"><a href="-lifting-in-two-dimensions.html"><i class="fa fa-check"></i><b>22.4</b> 2차원 자료의 리프팅 스킴(lifting in two dimensions)</a></li>
+<li class="chapter" data-level="22.5" data-path="-nonlinear-lifting.html"><a href="-nonlinear-lifting.html"><i class="fa fa-check"></i><b>22.5</b> 비선형 리프팅(nonlinear lifting)</a><ul>
+<li class="chapter" data-level="22.5.1" data-path="-nonlinear-lifting.html"><a href="-nonlinear-lifting.html#--max-lifting-scheme"><i class="fa fa-check"></i><b>22.5.1</b> 최대-리프팅 스킴(max-lifting scheme)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="advlifting.html"><a href="advlifting.html"><i class="fa fa-check"></i><b>23</b> 고급 리프팅 스킴 방법론</a><ul>
+<li class="chapter" data-level="23.1" data-path="-adaptive-lifting-scheme.html"><a href="-adaptive-lifting-scheme.html"><i class="fa fa-check"></i><b>23.1</b> 적응적 리프팅 스킴(adaptive lifting scheme)</a></li>
+<li class="chapter" data-level="23.2" data-path="-reconstruction-of-adaptive-lifting-scheme.html"><a href="-reconstruction-of-adaptive-lifting-scheme.html"><i class="fa fa-check"></i><b>23.2</b> 적응적 리프팅 스킴의 재구성(reconstruction of adaptive lifting scheme)</a><ul>
+<li class="chapter" data-level="23.2.1" data-path="-reconstruction-of-adaptive-lifting-scheme.html"><a href="-reconstruction-of-adaptive-lifting-scheme.html#--automatic-perfect-reconstruction"><i class="fa fa-check"></i><b>23.2.1</b> 자동 완전 재구성(automatic perfect reconstruction)</a></li>
+</ul></li>
+<li class="chapter" data-level="23.3" data-path="locaat-.html"><a href="locaat-.html"><i class="fa fa-check"></i><b>23.3</b> LOCAAT 알고리즘</a><ul>
+<li class="chapter" data-level="23.3.1" data-path="locaat-.html"><a href="locaat-.html#locaat-forward-transform-in-locaat"><i class="fa fa-check"></i><b>23.3.1</b> LOCAAT의 전방변환(forward transform in LOCAAT)</a></li>
+<li class="chapter" data-level="23.3.2" data-path="locaat-.html"><a href="locaat-.html#locaat-inverse-transform-in-locaat"><i class="fa fa-check"></i><b>23.3.2</b> LOCAAT의 역변환(inverse transform in LOCAAT)</a></li>
+<li class="chapter" data-level="23.3.3" data-path="locaat-.html"><a href="locaat-.html#locaat-example-of-locaat"><i class="fa fa-check"></i><b>23.3.3</b> LOCAAT의 예(example of LOCAAT)</a></li>
+</ul></li>
+<li class="chapter" data-level="23.4" data-path="variance-approximation.html"><a href="variance-approximation.html"><i class="fa fa-check"></i><b>23.4</b> Variance approximation</a></li>
+<li class="chapter" data-level="23.5" data-path="spatial-model.html"><a href="spatial-model.html"><i class="fa fa-check"></i><b>23.5</b> Spatial model</a></li>
+<li class="chapter" data-level="23.6" data-path="minimum-spanning-tree-mst-type-network.html"><a href="minimum-spanning-tree-mst-type-network.html"><i class="fa fa-check"></i><b>23.6</b> Minimum spanning tree (MST) type network</a></li>
+<li class="chapter" data-level="23.7" data-path="spatio-temporal-model.html"><a href="spatio-temporal-model.html"><i class="fa fa-check"></i><b>23.7</b> Spatio-temporal model</a><ul>
+<li class="chapter" data-level="23.7.1" data-path="spatio-temporal-model.html"><a href="spatio-temporal-model.html#case-1"><i class="fa fa-check"></i><b>23.7.1</b> Case 1</a></li>
+<li class="chapter" data-level="23.7.2" data-path="spatio-temporal-model.html"><a href="spatio-temporal-model.html#case-2"><i class="fa fa-check"></i><b>23.7.2</b> Case 2</a></li>
+</ul></li>
+<li class="chapter" data-level="23.8" data-path="window-based-approach.html"><a href="window-based-approach.html"><i class="fa fa-check"></i><b>23.8</b> Window based approach</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="glifting.html"><a href="glifting.html"><i class="fa fa-check"></i><b>24</b> 일반화 리프팅 스킴</a></li>
+<li class="chapter" data-level="25" data-path="packet.html"><a href="packet.html"><i class="fa fa-check"></i><b>25</b> 웨이블릿 패킷 변환</a><ul>
+<li class="chapter" data-level="25.0.1" data-path="packet.html"><a href="packet.html#best-basis-algorithm"><i class="fa fa-check"></i><b>25.0.1</b> Best basis algorithm</a></li>
+<li class="chapter" data-level="25.0.2" data-path="packet.html"><a href="packet.html#coifman-wickerhauser-best-basis-method"><i class="fa fa-check"></i><b>25.0.2</b> Coifman-Wickerhauser best-basis method</a></li>
+<li class="chapter" data-level="25.1" data-path="non-decimated-wavelet-packet-transform.html"><a href="non-decimated-wavelet-packet-transform.html"><i class="fa fa-check"></i><b>25.1</b> Non-decimated wavelet packet transform</a></li>
+<li class="chapter" data-level="25.2" data-path="-time-series-with-wavelet-packets.html"><a href="-time-series-with-wavelet-packets.html"><i class="fa fa-check"></i><b>25.2</b> 웨이블릿 패킷과 시계열(time series with wavelet packets)</a></li>
+<li class="chapter" data-level="25.3" data-path="matching-pursuit.html"><a href="matching-pursuit.html"><i class="fa fa-check"></i><b>25.3</b> Matching pursuit</a></li>
+<li class="chapter" data-level="25.4" data-path="-cosine-packet.html"><a href="-cosine-packet.html"><i class="fa fa-check"></i><b>25.4</b> 코싸인 패킷(cosine packet)</a><ul>
+<li class="chapter" data-level="25.4.1" data-path="-cosine-packet.html"><a href="-cosine-packet.html#local-cosine-basis"><i class="fa fa-check"></i><b>25.4.1</b> local cosine basis</a></li>
+</ul></li>
+<li class="chapter" data-level="25.5" data-path="r-r-wp.html"><a href="r-r-wp.html"><i class="fa fa-check"></i><b>25.5</b> R 예제(R-wp)</a></li>
+</ul></li>
+<li class="part"><span><b>III Unsupervised Learning</b></span></li>
+<li class="chapter" data-level="26" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>26</b> 클러스터링(clustering)</a><ul>
+<li class="chapter" data-level="26.1" data-path="k-meodid-k-medoid-method.html"><a href="k-meodid-k-medoid-method.html"><i class="fa fa-check"></i><b>26.1</b> k-meodid 방법(k-medoid method)</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="PCA.html"><a href="PCA.html"><i class="fa fa-check"></i><b>27</b> 주성분분석</a><ul>
+<li class="chapter" data-level="27.1" data-path="-curse-of-dimensionality.html"><a href="-curse-of-dimensionality.html"><i class="fa fa-check"></i><b>27.1</b> 차원의 저주(curse of dimensionality)</a></li>
+<li class="chapter" data-level="27.2" data-path="-basic-object-of-pca.html"><a href="-basic-object-of-pca.html"><i class="fa fa-check"></i><b>27.2</b> 주성분분석의 기본 목적(basic object of PCA)</a></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="CCA.html"><a href="CCA.html"><i class="fa fa-check"></i><b>28</b> 정준상관분석</a></li>
+<li class="chapter" data-level="29" data-path="SSA.html"><a href="SSA.html"><i class="fa fa-check"></i><b>29</b> 시간 변화도 분석</a><ul>
+<li class="chapter" data-level="29.1" data-path="-ssa-algorithms-and-methodology.html"><a href="-ssa-algorithms-and-methodology.html"><i class="fa fa-check"></i><b>29.1</b> 시간 변화도 분석 알고리즘과 방법론(SSA algorithms and methodology)</a><ul>
+<li class="chapter" data-level="29.1.1" data-path="-matrix-decomposition.html"><a href="-matrix-decomposition.html#---"><i class="fa fa-check"></i><b>29.1.1</b> 시간 변화도 분석 알고리즘</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV Quantile Regression and FDA</b></span></li>
+<li class="chapter" data-level="30" data-path="qr.html"><a href="qr.html"><i class="fa fa-check"></i><b>30</b> 분위수 회귀분석</a><ul>
+<li class="chapter" data-level="30.1" data-path="-quantile.html"><a href="-quantile.html"><i class="fa fa-check"></i><b>30.1</b> 분위수 (quantile)</a></li>
+<li class="chapter" data-level="30.2" data-path="-linear-quantile-regression.html"><a href="-linear-quantile-regression.html"><i class="fa fa-check"></i><b>30.2</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
+</ul></li>
+<li class="chapter" data-level="31" data-path="functionestimation.html"><a href="functionestimation.html"><i class="fa fa-check"></i><b>31</b> 함수추정</a></li>
+<li class="part"><span><b>V Spatial Statistics</b></span></li>
+<li class="chapter" data-level="32" data-path="spatial.html"><a href="spatial.html"><i class="fa fa-check"></i><b>32</b> 공간통계학</a><ul>
+<li class="chapter" data-level="32.1" data-path="-classes-of-spatial-data.html"><a href="-classes-of-spatial-data.html"><i class="fa fa-check"></i><b>32.1</b> 공간자료의 종류(classes of spatial data)</a></li>
+</ul></li>
+<li class="chapter" data-level="33" data-path="spatialprocess.html"><a href="spatialprocess.html"><i class="fa fa-check"></i><b>33</b> 공간과정</a><ul>
+<li class="chapter" data-level="33.1" data-path="-stationary-in-spatial-data.html"><a href="-stationary-in-spatial-data.html"><i class="fa fa-check"></i><b>33.1</b> 공간자료의 정상성(stationary in spatial data)</a><ul>
+<li class="chapter" data-level="33.1.1" data-path="-stationary-in-spatial-data.html"><a href="-stationary-in-spatial-data.html#strictly-stationary"><i class="fa fa-check"></i><b>33.1.1</b> 순정상성(strictly stationary)</a></li>
+<li class="chapter" data-level="33.1.2" data-path="-stationary-in-spatial-data.html"><a href="-stationary-in-spatial-data.html#second-order-stationary-weakly-stationary"><i class="fa fa-check"></i><b>33.1.2</b> 약정상성(second order stationary, weakly stationary)</a></li>
+<li class="chapter" data-level="33.1.3" data-path="-stationary-in-spatial-data.html"><a href="-stationary-in-spatial-data.html#intrinsic-stationary"><i class="fa fa-check"></i><b>33.1.3</b> 내재정상성(intrinsic stationary)</a></li>
+</ul></li>
+<li class="chapter" data-level="33.2" data-path="-relationship-between-stationarity.html"><a href="-relationship-between-stationarity.html"><i class="fa fa-check"></i><b>33.2</b> 정상성들 사이의 관계(relationship between stationarity)</a><ul>
+<li class="chapter" data-level="33.2.1" data-path="-relationship-between-stationarity.html"><a href="-relationship-between-stationarity.html#--relationship-between-strong-and-weak-stationary"><i class="fa fa-check"></i><b>33.2.1</b> 순정상성과 약정상성간의 관계(relationship between strong and weak stationary)</a></li>
+<li class="chapter" data-level="33.2.2" data-path="-relationship-between-stationarity.html"><a href="-relationship-between-stationarity.html#--relationship-between-weak-and-intrinsic-stationary"><i class="fa fa-check"></i><b>33.2.2</b> 약정상성와 내재정상성간의 관계(relationship between weak and intrinsic stationary)</a></li>
+<li class="chapter" data-level="33.2.3" data-path="-relationship-between-stationarity.html"><a href="-relationship-between-stationarity.html#----counterexample-of-intrinsic-stationary-but-not-weak-stationary"><i class="fa fa-check"></i><b>33.2.3</b> 내재정상성이나 약정상성이 안 되는 예(counterexample of intrinsic stationary but not weak stationary)</a></li>
+</ul></li>
+<li class="chapter" data-level="33.3" data-path="-ergodic-process.html"><a href="-ergodic-process.html"><i class="fa fa-check"></i><b>33.3</b> 에르고딕 과정(ergodic process)</a></li>
+</ul></li>
+<li class="chapter" data-level="34" data-path="covfct.html"><a href="covfct.html"><i class="fa fa-check"></i><b>34</b> 공분산함수</a><ul>
+<li class="chapter" data-level="34.1" data-path="-spectral-representation-theorem.html"><a href="-spectral-representation-theorem.html"><i class="fa fa-check"></i><b>34.1</b> 스펙트럴 표현 정리(spectral representation theorem)</a></li>
+<li class="chapter" data-level="34.2" data-path="-kolmogorovs-existence-theorem.html"><a href="-kolmogorovs-existence-theorem.html"><i class="fa fa-check"></i><b>34.2</b> 콜모고로프 존재 정리(Kolmogorov’s existence theorem)</a></li>
+<li class="chapter" data-level="34.3" data-path="-properties-of-covariance-functions.html"><a href="-properties-of-covariance-functions.html"><i class="fa fa-check"></i><b>34.3</b> 공분산함수의 성질(properties of covariance functions)</a><ul>
+<li class="chapter" data-level="34.3.1" data-path="-properties-of-covariance-functions.html"><a href="-properties-of-covariance-functions.html#isotropy"><i class="fa fa-check"></i><b>34.3.1</b> 등방성(isotropy)</a></li>
+<li class="chapter" data-level="34.3.2" data-path="-properties-of-covariance-functions.html"><a href="-properties-of-covariance-functions.html#homogeneous"><i class="fa fa-check"></i><b>34.3.2</b> 동질성(homogeneous)</a></li>
+<li class="chapter" data-level="34.3.3" data-path="-properties-of-covariance-functions.html"><a href="-properties-of-covariance-functions.html#anisotropy"><i class="fa fa-check"></i><b>34.3.3</b> 이등방성(anisotropy)</a></li>
+<li class="chapter" data-level="34.3.4" data-path="-properties-of-covariance-functions.html"><a href="-properties-of-covariance-functions.html#z3--geometric-anisotropy"><i class="fa fa-check"></i><b>34.3.4</b> z3 기하학적 이등방성(Geometric anisotropy)</a></li>
+</ul></li>
+<li class="chapter" data-level="34.4" data-path="-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><i class="fa fa-check"></i><b>34.4</b> 공간 확률과정의 연속성과 미분가능성(continuity and differentiabiliy of spatial stochastic process</a><ul>
+<li class="chapter" data-level="34.4.1" data-path="-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="-continuity-and-differentiabiliy-of-spatial-stochastic-process.html#path-continuity---path-differentiability"><i class="fa fa-check"></i><b>34.4.1</b> 경로연속(path-continuity) 또는 경로 미분가능성(path-differentiability)</a></li>
+<li class="chapter" data-level="34.4.2" data-path="-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="-continuity-and-differentiabiliy-of-spatial-stochastic-process.html#mean-square-continuity---mean-square-differentiability"><i class="fa fa-check"></i><b>34.4.2</b> 평균제곱연속(mean-square continuity) 또는 평균제곱 미분가능성(mean-square differentiability)</a></li>
+<li class="chapter" data-level="34.4.3" data-path="-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="-continuity-and-differentiabiliy-of-spatial-stochastic-process.html#bartlett-bartletts-theorem"><i class="fa fa-check"></i><b>34.4.3</b> Bartlett의 정리(Bartlett’s theorem)</a></li>
+<li class="chapter" data-level="34.4.4" data-path="-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="-continuity-and-differentiabiliy-of-spatial-stochastic-process.html#kent---kents-sufficient-condition-for-path-continuity-2-d-ver"><i class="fa fa-check"></i><b>34.4.4</b> Kent의 경로연속을 위한 충분조건(Kent’s sufficient condition for path-continuity) (2-d ver)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="35" data-path="covmodel.html"><a href="covmodel.html"><i class="fa fa-check"></i><b>35</b> 공분산모형</a><ul>
+<li class="chapter" data-level="35.1" data-path="-nugget-effect.html"><a href="-nugget-effect.html"><i class="fa fa-check"></i><b>35.1</b> 덩어리 효과(nugget effect)</a></li>
+<li class="chapter" data-level="35.2" data-path="-idealized-shape-of-variogram-isotropic-case.html"><a href="-idealized-shape-of-variogram-isotropic-case.html"><i class="fa fa-check"></i><b>35.2</b> 이상적인 변동도의 모양(idealized Shape of Variogram (isotropic case))</a></li>
+<li class="chapter" data-level="35.3" data-path="-effective-range.html"><a href="-effective-range.html"><i class="fa fa-check"></i><b>35.3</b> 유효 범위(effective range)</a></li>
+<li class="chapter" data-level="35.4" data-path="-classical-parametric-isotropic-variogram-models.html"><a href="-classical-parametric-isotropic-variogram-models.html"><i class="fa fa-check"></i><b>35.4</b> 대표적인 모수 등방성 변동도 모형들(classical parametric isotropic variogram models)</a><ul>
+<li class="chapter" data-level="35.4.1" data-path="-classical-parametric-isotropic-variogram-models.html"><a href="-classical-parametric-isotropic-variogram-models.html#-----addtional-explanation-for-k_alpha"><i class="fa fa-check"></i><b>35.4.1</b> 변형된 이형 베셀에 대한 보충 설명(addtional explanation for K_alpha)</a></li>
+</ul></li>
+<li class="chapter" data-level="35.5" data-path="-variograms-in-other-situation.html"><a href="-variograms-in-other-situation.html"><i class="fa fa-check"></i><b>35.5</b> 기타 다른 상황에서의 변동도들(variograms in other situation)</a></li>
+</ul></li>
+<li class="chapter" data-level="36" data-path="variogramest.html"><a href="variogramest.html"><i class="fa fa-check"></i><b>36</b> 변동도의 추정</a><ul>
+<li class="chapter" data-level="36.1" data-path="empirical-variogram.html"><a href="empirical-variogram.html"><i class="fa fa-check"></i><b>36.1</b> 경험변동도(empirical variogram)</a></li>
+<li class="chapter" data-level="36.2" data-path="-fitting-parametric-models-to-empirical-variogram.html"><a href="-fitting-parametric-models-to-empirical-variogram.html"><i class="fa fa-check"></i><b>36.2</b> 경험변동도를 이용한 모수적 모형 추정(fitting parametric models to empirical variogram)</a><ul>
+<li class="chapter" data-level="36.2.1" data-path="-fitting-parametric-models-to-empirical-variogram.html"><a href="-fitting-parametric-models-to-empirical-variogram.html#ls-method"><i class="fa fa-check"></i><b>36.2.1</b> LS method</a></li>
+<li class="chapter" data-level="36.2.2" data-path="-fitting-parametric-models-to-empirical-variogram.html"><a href="-fitting-parametric-models-to-empirical-variogram.html#gls-method"><i class="fa fa-check"></i><b>36.2.2</b> GLS method</a></li>
+<li class="chapter" data-level="36.2.3" data-path="-fitting-parametric-models-to-empirical-variogram.html"><a href="-fitting-parametric-models-to-empirical-variogram.html#wls-method"><i class="fa fa-check"></i><b>36.2.3</b> WLS method</a></li>
+<li class="chapter" data-level="36.2.4" data-path="-fitting-parametric-models-to-empirical-variogram.html"><a href="-fitting-parametric-models-to-empirical-variogram.html#-wls-approximated-wls"><i class="fa fa-check"></i><b>36.2.4</b> 근사 WLS (approximated WLS)</a></li>
+</ul></li>
+<li class="chapter" data-level="36.3" data-path="r-r-variogramest.html"><a href="r-r-variogramest.html"><i class="fa fa-check"></i><b>36.3</b> R 예제(R-variogramest)</a></li>
+</ul></li>
+<li class="chapter" data-level="37" data-path="spatlikelihood.html"><a href="spatlikelihood.html"><i class="fa fa-check"></i><b>37</b> 공간자료에서의 가능도 기반 방법들</a><ul>
+<li class="chapter" data-level="37.1" data-path="-likelihood-based-methods.html"><a href="-likelihood-based-methods.html"><i class="fa fa-check"></i><b>37.1</b> 가능도 기반 방법론들(likelihood-based methods)</a></li>
+<li class="chapter" data-level="37.2" data-path="reparametrization.html"><a href="reparametrization.html"><i class="fa fa-check"></i><b>37.2</b> 재모수화(reparametrization)</a></li>
+<li class="chapter" data-level="37.3" data-path="-mle-in-spatial-data.html"><a href="-mle-in-spatial-data.html"><i class="fa fa-check"></i><b>37.3</b> 공간자료에서의 최대가능도추정(MLE in spatial data)</a></li>
+<li class="chapter" data-level="37.4" data-path="-restricted-mle.html"><a href="-restricted-mle.html"><i class="fa fa-check"></i><b>37.4</b> 제한된 최대가능도추정(restricted MLE)</a></li>
+<li class="chapter" data-level="37.5" data-path="-asymptotics-of-mle-of-spatial-data.html"><a href="-asymptotics-of-mle-of-spatial-data.html"><i class="fa fa-check"></i><b>37.5</b> 공간자료 최대우도추정의 점근성(asymptotics of MLE of spatial data)</a><ul>
+<li class="chapter" data-level="37.5.1" data-path="-asymptotics-of-mle-of-spatial-data.html"><a href="-asymptotics-of-mle-of-spatial-data.html#--sum-results-about-asymptotics-of-mle-of-spatial-data"><i class="fa fa-check"></i><b>37.5.1</b> 몇 가지 결과들(sum results about asymptotics of MLE of spatial data)</a></li>
+</ul></li>
+<li class="chapter" data-level="37.6" data-path="-computational-issues-in-spatial-statistics.html"><a href="-computational-issues-in-spatial-statistics.html"><i class="fa fa-check"></i><b>37.6</b> 공간통계에서의 계산 문제들(computational issues in spatial statistics)</a><ul>
+<li class="chapter" data-level="37.6.1" data-path="-computational-issues-in-spatial-statistics.html"><a href="-computational-issues-in-spatial-statistics.html#---solutions-about-computational-issues-in-spatial-statistics"><i class="fa fa-check"></i><b>37.6.1</b> 공간통계에서의 계산 문제들의 해결책들(solutions about computational issues in spatial statistics)</a></li>
+</ul></li>
+<li class="chapter" data-level="37.7" data-path="-approximate-likelihood.html"><a href="-approximate-likelihood.html"><i class="fa fa-check"></i><b>37.7</b> 근사 가능도(approximate Likelihood)</a></li>
+<li class="chapter" data-level="37.8" data-path="-pseudo-likelihood-and-composite-likelihood.html"><a href="-pseudo-likelihood-and-composite-likelihood.html"><i class="fa fa-check"></i><b>37.8</b> 유사가능도와 복합가능도(pseudo-Likelihood and composite Likelihood)</a></li>
+</ul></li>
+<li class="chapter" data-level="38" data-path="kriging.html"><a href="kriging.html"><i class="fa fa-check"></i><b>38</b> 크리깅</a><ul>
+<li class="chapter" data-level="38.1" data-path="-spatial-prediction.html"><a href="-spatial-prediction.html"><i class="fa fa-check"></i><b>38.1</b> 공간 예측(spatial prediction)</a></li>
+<li class="chapter" data-level="38.2" data-path="-universal-kriging.html"><a href="-universal-kriging.html"><i class="fa fa-check"></i><b>38.2</b> 일반 크리깅(universal Kriging)</a><ul>
+<li class="chapter" data-level="38.2.1" data-path="-universal-kriging.html"><a href="-universal-kriging.html#--lagrange-multiplier-approach"><i class="fa fa-check"></i><b>38.2.1</b> 라그랑즈 승수 접근법(Lagrange multiplier approach)</a></li>
+<li class="chapter" data-level="38.2.2" data-path="-universal-kriging.html"><a href="-universal-kriging.html#-conditional-distribution-approach"><i class="fa fa-check"></i><b>38.2.2</b> 조건부분포 방법(conditional distribution approach)</a></li>
+<li class="chapter" data-level="38.2.3" data-path="-universal-kriging.html"><a href="-universal-kriging.html#-bayesian-approach"><i class="fa fa-check"></i><b>38.2.3</b> 베이지안 방법(Bayesian approach)</a></li>
+<li class="chapter" data-level="38.2.4" data-path="-universal-kriging.html"><a href="-universal-kriging.html#----kriging-for-the-model-with-a-nugget-effect"><i class="fa fa-check"></i><b>38.2.4</b> 덩어리 효과가 있는 모형의 크리깅(Kriging for the model with a nugget effect)</a></li>
+</ul></li>
+<li class="chapter" data-level="38.3" data-path="-prediction-error-in-kriging.html"><a href="-prediction-error-in-kriging.html"><i class="fa fa-check"></i><b>38.3</b> 크리깅의 예측오차(prediction error in Kriging)</a></li>
+<li class="chapter" data-level="38.4" data-path="-other-krigings.html"><a href="-other-krigings.html"><i class="fa fa-check"></i><b>38.4</b> 다른 크리깅들(other Krigings)</a></li>
+<li class="chapter" data-level="38.5" data-path="-more-krigings.html"><a href="-more-krigings.html"><i class="fa fa-check"></i><b>38.5</b> 추가적인 크리깅들(more Krigings)</a></li>
+</ul></li>
+<li class="part"><span><b>VI Spatio-Tempral Statistics</b></span></li>
+<li class="chapter" data-level="39" data-path="spatiotemporal.html"><a href="spatiotemporal.html"><i class="fa fa-check"></i><b>39</b> 시공간 통계학</a><ul>
+<li class="chapter" data-level="39.1" data-path="-gaussian-random-fields.html"><a href="-gaussian-random-fields.html"><i class="fa fa-check"></i><b>39.1</b> 가우스 확률장(Gaussian random fields)</a><ul>
+<li class="chapter" data-level="39.1.1" data-path="-gaussian-random-fields.html"><a href="-gaussian-random-fields.html#-spatio-temporal-covariance"><i class="fa fa-check"></i><b>39.1.1</b> 시공간 공분산함수(spatio-temporal covariance)</a></li>
+<li class="chapter" data-level="39.1.2" data-path="-gaussian-random-fields.html"><a href="-gaussian-random-fields.html#---properties-of-the-spatio-temporal-covariance-and-semivariogram"><i class="fa fa-check"></i><b>39.1.2</b> 시공간 공분산함수와 준변동도의 성질(properties of the spatio-temporal covariance and semivariogram)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="40" data-path="stcovmodel.html"><a href="stcovmodel.html"><i class="fa fa-check"></i><b>40</b> 시공간 공분산모형</a><ul>
+<li class="chapter" data-level="40.1" data-path="-spatio-temporal-correlation-models.html"><a href="-spatio-temporal-correlation-models.html"><i class="fa fa-check"></i><b>40.1</b> 시공간 상관관계 모형(Spatio-temporal correlation models)</a><ul>
+<li class="chapter" data-level="40.1.1" data-path="-spatio-temporal-correlation-models.html"><a href="-spatio-temporal-correlation-models.html#non-separable-models"><i class="fa fa-check"></i><b>40.1.1</b> Non-Separable models</a></li>
+<li class="chapter" data-level="40.1.2" data-path="-spatio-temporal-correlation-models.html"><a href="-spatio-temporal-correlation-models.html#separable-models"><i class="fa fa-check"></i><b>40.1.2</b> Separable models</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="41" data-path="stkriging.html"><a href="stkriging.html"><i class="fa fa-check"></i><b>41</b> 시공간 크리깅</a><ul>
+<li class="chapter" data-level="41.1" data-path="-spatio-temporal-kriging-equations.html"><a href="-spatio-temporal-kriging-equations.html"><i class="fa fa-check"></i><b>41.1</b> 시공간 크리깅 공식들(spatio-temporal kriging equations)</a></li>
+</ul></li>
+<li class="part"><span><b>VII Spatial Point Processes</b></span></li>
+<li class="chapter" data-level="42" data-path="pointpattern.html"><a href="pointpattern.html"><i class="fa fa-check"></i><b>42</b> 공간점과정</a><ul>
+<li class="chapter" data-level="42.1" data-path="-examples-of-spatial-point-patterns.html"><a href="-examples-of-spatial-point-patterns.html"><i class="fa fa-check"></i><b>42.1</b> 공간점패턴 자료의 예(examples of spatial point patterns)</a></li>
+</ul></li>
+<li class="chapter" data-level="43" data-path="csr.html"><a href="csr.html"><i class="fa fa-check"></i><b>43</b> 완전공간임의성</a><ul>
+<li class="chapter" data-level="43.1" data-path="-general-monte-carlo-methods-for-csr-test.html"><a href="-general-monte-carlo-methods-for-csr-test.html"><i class="fa fa-check"></i><b>43.1</b> 완전공간임의성 검정을 위한 일반적인 몬테카를로 방법 (general Monte Carlo methods for CSR test)</a><ul>
+<li class="chapter" data-level="43.1.1" data-path="-general-monte-carlo-methods-for-csr-test.html"><a href="-general-monte-carlo-methods-for-csr-test.html#-----mc-tests-using-edf"><i class="fa fa-check"></i><b>43.1.1</b> 경험적 분포함수를 이용한 몬테칼로 검정 방법들(MC tests using EDF)</a></li>
+</ul></li>
+<li class="chapter" data-level="43.2" data-path="-methods-based-on-nearest-neighbor-distance.html"><a href="-methods-based-on-nearest-neighbor-distance.html"><i class="fa fa-check"></i><b>43.2</b> 최근접이웃거리 기반 방법들(methods based on nearest neighbor distance)</a><ul>
+<li class="chapter" data-level="43.2.1" data-path="-methods-based-on-nearest-neighbor-distance.html"><a href="-methods-based-on-nearest-neighbor-distance.html#----mc-tests-based-on-nearest-neighbor-distance"><i class="fa fa-check"></i><b>43.2.1</b> 최근접이웃거리 기반 몬테칼로 검정 방법들(MC tests based on nearest neighbor distance)</a></li>
+</ul></li>
+<li class="chapter" data-level="43.3" data-path="r-r-edf.html"><a href="r-r-edf.html"><i class="fa fa-check"></i><b>43.3</b> R 예제(R-edf)</a></li>
+</ul></li>
+<li class="chapter" data-level="44" data-path="sparsesampling.html"><a href="sparsesampling.html"><i class="fa fa-check"></i><b>44</b> 희박한 샘플링 분석</a><ul>
+<li class="chapter" data-level="44.1" data-path="-quadrat-counts-for-sparse-sampled-data.html"><a href="-quadrat-counts-for-sparse-sampled-data.html"><i class="fa fa-check"></i><b>44.1</b> 희박한 샘플링 자료를 위한 정방구역 계산(quadrat counts for sparse sampled data)</a></li>
+<li class="chapter" data-level="44.2" data-path="-distance-methods-for-sparsely-sampled-data.html"><a href="-distance-methods-for-sparsely-sampled-data.html"><i class="fa fa-check"></i><b>44.2</b> 희박한 샘플링 자료를 위한 거리 방법들(distance methods for sparsely sampled data)</a></li>
+</ul></li>
+<li class="chapter" data-level="45" data-path="pointprocess.html"><a href="pointprocess.html"><i class="fa fa-check"></i><b>45</b> 점과정</a><ul>
+<li class="chapter" data-level="45.1" data-path="-definition-of-point-processes.html"><a href="-definition-of-point-processes.html"><i class="fa fa-check"></i><b>45.1</b> 점과정의 정의(definition of point processes)</a><ul>
+<li class="chapter" data-level="45.1.1" data-path="-definition-of-point-processes.html"><a href="-definition-of-point-processes.html#-marked-point-process"><i class="fa fa-check"></i><b>45.1.1</b> 표시된 점과정(marked point process)</a></li>
+</ul></li>
+<li class="chapter" data-level="45.2" data-path="-poisson-point-process.html"><a href="-poisson-point-process.html"><i class="fa fa-check"></i><b>45.2</b> 포아송 점과정(Poisson point process)</a><ul>
+<li class="chapter" data-level="45.2.1" data-path="-poisson-point-process.html"><a href="-poisson-point-process.html#--properties-of-poisson-point-process"><i class="fa fa-check"></i><b>45.2.1</b> 포아송 점과정의 성질들(properties of Poisson point process)</a></li>
+<li class="chapter" data-level="45.2.2" data-path="-poisson-point-process.html"><a href="-poisson-point-process.html#-superpositioning-and-thinning"><i class="fa fa-check"></i><b>45.2.2</b> 중첩과 세선화(superpositioning and thinning)</a></li>
+<li class="chapter" data-level="45.2.3" data-path="-poisson-point-process.html"><a href="-poisson-point-process.html#-simulation-of-poisson-processes"><i class="fa fa-check"></i><b>45.2.3</b> 포아송과정의 시뮬레이션(simulation of Poisson processes)</a></li>
+<li class="chapter" data-level="45.2.4" data-path="-poisson-point-process.html"><a href="-poisson-point-process.html#--density-of-poisson-point-processes"><i class="fa fa-check"></i><b>45.2.4</b> 포아송 점과정의 밀도(density of Poisson point processes)</a></li>
+<li class="chapter" data-level="45.2.5" data-path="-poisson-point-process.html"><a href="-poisson-point-process.html#-marked-poisson-process"><i class="fa fa-check"></i><b>45.2.5</b> 표시된 포아송과정(marked Poisson process)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="46" data-path="summaryPP.html"><a href="summaryPP.html"><i class="fa fa-check"></i><b>46</b> 점과정의 요약통계</a><ul>
+<li class="chapter" data-level="46.1" data-path="-1-2-first-and-second-order-properties-of-a-point-process.html"><a href="-1-2-first-and-second-order-properties-of-a-point-process.html"><i class="fa fa-check"></i><b>46.1</b> 점과정의 1차 및 2차 성질들(first and second order properties of a point process)</a></li>
+</ul></li>
+<li class="part"><span><b>VIII Extreme Value Statistics</b></span></li>
+<li class="chapter" data-level="47" data-path="uGEVtheory.html"><a href="uGEVtheory.html"><i class="fa fa-check"></i><b>47</b> 일변량 극단값 이론</a><ul>
+<li class="chapter" data-level="47.1" data-path="-generalized-extreme-value-distribution.html"><a href="-generalized-extreme-value-distribution.html"><i class="fa fa-check"></i><b>47.1</b> 일반화 극단값 분포(generalized extreme value distribution)</a></li>
+<li class="chapter" data-level="47.2" data-path="max-stablity.html"><a href="max-stablity.html"><i class="fa fa-check"></i><b>47.2</b> 최대안정성(max-stablity)</a></li>
+<li class="chapter" data-level="47.3" data-path="-return-level.html"><a href="-return-level.html"><i class="fa fa-check"></i><b>47.3</b> 복귀 수준(return level)</a></li>
+<li class="chapter" data-level="47.4" data-path="-inference-in-extreme-value-statistics.html"><a href="-inference-in-extreme-value-statistics.html"><i class="fa fa-check"></i><b>47.4</b> 극단값 분포에서의 추론(inference in extreme value statistics)</a></li>
+<li class="chapter" data-level="47.5" data-path="-mle-in-extreme-value-statistics.html"><a href="-mle-in-extreme-value-statistics.html"><i class="fa fa-check"></i><b>47.5</b> 극단값 분포에서의 최대가능도추정(mle in extreme value statistics)</a></li>
+<li class="chapter" data-level="47.6" data-path="-profile-likelihood-in-extreme-value-statistics.html"><a href="-profile-likelihood-in-extreme-value-statistics.html"><i class="fa fa-check"></i><b>47.6</b> 극단값 분포에서의 프로파일 가능도(profile likelihood in extreme value statistics)</a></li>
+</ul></li>
+<li class="chapter" data-level="48" data-path="pot.html"><a href="pot.html"><i class="fa fa-check"></i><b>48</b> 분계점 방법들</a><ul>
+<li class="chapter" data-level="48.1" data-path="-generalized-pareto-distribution.html"><a href="-generalized-pareto-distribution.html"><i class="fa fa-check"></i><b>48.1</b> 일반화 파레토 분포(generalized pareto distribution)</a></li>
+</ul></li>
+<li class="chapter" data-level="49" data-path="spatextremes.html"><a href="spatextremes.html"><i class="fa fa-check"></i><b>49</b> 공간 극단값 이론과 최대안정과정</a><ul>
+<li class="chapter" data-level="49.1" data-path="max-stable-process.html"><a href="max-stable-process.html"><i class="fa fa-check"></i><b>49.1</b> 최대안정과정(max-stable process)</a><ul>
+<li class="chapter" data-level="49.1.1" data-path="max-stable-process.html"><a href="max-stable-process.html#smith-smith-model"><i class="fa fa-check"></i><b>49.1.1</b> Smith 모형(Smith model)</a></li>
+<li class="chapter" data-level="49.1.2" data-path="max-stable-process.html"><a href="max-stable-process.html#schlather-schlather-model"><i class="fa fa-check"></i><b>49.1.2</b> Schlather 모형(Schlather model)</a></li>
+<li class="chapter" data-level="49.1.3" data-path="max-stable-process.html"><a href="max-stable-process.html#brown-resnick-brown-resnick-model"><i class="fa fa-check"></i><b>49.1.3</b> Brown-Resnick 모형(Brown-Resnick model)</a></li>
+<li class="chapter" data-level="49.1.4" data-path="max-stable-process.html"><a href="max-stable-process.html#-t-extremal-t-model"><i class="fa fa-check"></i><b>49.1.4</b> 극단-t 모형(extremal-t model)</a></li>
+</ul></li>
+<li class="chapter" data-level="49.2" data-path="-spatial-dependence-of-extremes.html"><a href="-spatial-dependence-of-extremes.html"><i class="fa fa-check"></i><b>49.2</b> 극단값의 공간 종속성(spatial dependence of extremes)</a></li>
+</ul></li>
+<li class="chapter" data-level="50" data-path="maxstableRF.html"><a href="maxstableRF.html"><i class="fa fa-check"></i><b>50</b> 최대안정 임의장</a><ul>
+<li class="chapter" data-level="50.1" data-path="brown-resnick-brown-resnick-random-fields.html"><a href="brown-resnick-brown-resnick-random-fields.html"><i class="fa fa-check"></i><b>50.1</b> Brown-Resnick 임의장(Brown-Resnick random fields)</a></li>
+<li class="chapter" data-level="50.2" data-path="extremal-gaussian-extremal-gaussian-random-fields.html"><a href="extremal-gaussian-extremal-gaussian-random-fields.html"><i class="fa fa-check"></i><b>50.2</b> Extremal-Gaussian 임의장(extremal-Gaussian random fields)</a></li>
+<li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
+</ul></li>
+<li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">통계공부와 관련된 글들</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="--types-of-kalman-filter" class="section level2">
+<h2><span class="header-section-number">13.1</span> 칼만필터 모형의 종류(types of Kalman filter)</h2>
+<div id="--hidden-markov-model" class="section level3">
+<h3><span class="header-section-number">13.1.1</span> 은닉 마르코프 모형(hidden Markov model)</h3>
+<p>오차항이 없는 칼만필터 모형으로 다음과 같다.</p>
+<p><span class="math display">\[
+\begin{cases}
+\mu_{t}=G\mu_{t-1} \\
+Y_{t}=F\mu_{t}.\\
+\end{cases}
+\]</span></p>
+<p>여기서 전이행렬 <span class="math inline">\(G\)</span>와 출력행렬 <span class="math inline">\(F\)</span>는 시간에 따라 변화하지 않으므로 상태방정식은 확률과정에서의 상태벡터 <span class="math inline">\(\mu_{t}\)</span>의 전이행렬이 <span class="math inline">\(G\)</span>인 마르코프 연쇄로 생각할 수 있다. 관측치 <span class="math inline">\(Y_{t}\)</span>만 주어져 있고 <span class="math inline">\(\mu_{t}\)</span>는 모르는 경우 모수 <span class="math inline">\(G\)</span>와 <span class="math inline">\(F\)</span>를 추정하여 생성구조를 완성하는 과정을 이룬다. 은닉 마르코프 모형은 범주형 자료에도 적용이 가능하며, 신호처리에 바탕을 두고 있는 음성인식, 영상인식, 문장인식에 널리 사용되고 있는 통계적 기법이다.</p>
+</div>
+<div id="--simple-kalman-filter-model" class="section level3">
+<h3><span class="header-section-number">13.1.2</span> 일차 칼만필터 모형(simple Kalman filter model)</h3>
+<p><strong>일차 칼만필터 모형(simple Kalman filter model)</strong>은 오차항을 포함한 칼만필터 모형 중 가장 간단한 형태로 <span class="math inline">\(t\)</span> 시점의 상태열이 임의보행과정(random walk)으로 직전 상태값 주위에서 흔들리며 변화할 때 사용한다.</p>
+<p><span class="math display">\[
+\begin{cases}
+\mu_{t}=\mu_{t-1}+w_{t} \\
+Y_{t}=\mu_{t}+v_{t}.\\
+\end{cases}
+\]</span></p>
+</div>
+<div id="--regression-kalman-filter-model" class="section level3">
+<h3><span class="header-section-number">13.1.3</span> 회귀 칼만필터 모형(regression Kalman filter model)</h3>
+<p><strong>회귀 칼만필터 모형(regression Kalman filter model)</strong>은 입력변수(설명변수)가 있는 경우에 사용하는 동적모형으로 계수(상태열)가 시간에 따라 변화하는 동적 계수가 된다.</p>
+<p><span class="math display">\[
+\begin{cases}
+\theta_{t}=\theta_{t-1}+w_{t} \\
+Y_{t}=F_{t}\theta_{t}+v_{t}.\\
+\end{cases}
+\]</span></p>
+</div>
+<div id="--general-kalman-filter-model" class="section level3">
+<h3><span class="header-section-number">13.1.4</span> 일반적 칼만필터 모형(general Kalman filter model)</h3>
+<p><strong>일반적 칼만필터 모형(general Kalman filter model)</strong>은 회귀 칼만필터 모형에서 동적 계수가 임의보행이 아닌 경우에 전이행렬을 고려하는 동적모형이다.</p>
+<p><span class="math display">\[
+\begin{cases}
+\theta_{t}=G_{t}\theta_{t-1}+w_{t} \\
+Y_{t}=F_{t}\theta_{t}+v_{t}.\\
+\end{cases}
+\]</span></p>
+</div>
+<div id="--extended-kalman-filter-model" class="section level3">
+<h3><span class="header-section-number">13.1.5</span> 확장된 칼만필터 모형(extended Kalman filter model)</h3>
+<p>칼만필터 모형에서 상태방정식과 출력방정식이 선형모형이 아닌 비선형모형인 경우를 <strong>확장된 칼만필터 모형(extended Kalman filter model)</strong>이라고 한다. 추정과 최시노하는 주어진 식을 선형화하여 해결하며, 시스템에 대한 물리적 이해가 필요하다.</p>
+<p><span class="math display">\[
+\begin{cases}
+\theta_{t}=f(\theta_{t-1},w_{t}) \\
+Y_{t}=h(\theta_{t},v_{t})\\
+\end{cases}
+\]</span></p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="kalman.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="-updating-algorithm.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://seoncheolpark.github.io/book/_book/15-kalman.Rmd",
+"text": "Edit"
+},
+"download": ["book.pdf", "book.epub", "book.mobi"],
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "static"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

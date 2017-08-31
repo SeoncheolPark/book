@@ -18,28 +18,22 @@ knitr::include_graphics("images/basic_convergenceconnection.png")
 
 $X_{n}$이 점근적으로 $\mathcal{N}(\mu_{n}, \sigma_{n}^{2})$에 수렴한다는 문장을 생각해보자. 즉 이 얘기는 $(X_{n}-\mu_{n})/\sigma_{n} \stackrel{D}{\rightarrow} \mathcal{N}(0,1)$이라는 말이다. 그러나 이것이 $E(X_{n})=\mu_{n}$이고 $\text{var}(X_{n})=\sigma_{n}^{2}$임을 의미하지는 않는다. 일반적으로 $X_{n} \stackrel{D}{\rightarrow} X$는 $E(X_{n}) \rightarrow E(X)$임을 의미하지 않는다.
 
-<div class="definition">
-
-(추정량은 무한대의 평균을 갖으나 확률변수의 극한은 유한한 평균을 갖는 예.)
-
+```{example, name="추정량은 무한대의 평균을 갖으나 확률변수의 극한은 유한한 평균을 갖는 예"}
 $\hat{p}_{n}$이 iid 베르누이 확률변수 $X_{1}, \ldots, X_{n}$로부터 나온 표본비(sample proportion)라고 하자. 그러면 CLT에 의해 $\hat{p}_{n}$은 점근적으로 평균 $p=E(X_{1})$이고 분산 $p(1-p)/n$인 정규분포를 따른다. 델타 방법(delta method)에 의해 $\text{ln}(\hat{p})$는 점근적으로 평균 $\ln(p)$, 분산 $(1-p)/(np)$인 정규분포를 따름을 안다. 그러면
 $$Z_{n} = \frac{\text{ln}(\hat{p}_{n})-\text{ln}(p)}{\sqrt{(1-p)/(np)}} \stackrel{D}{\rightarrow} Z \sim \mathcal{N}(0,1)$$
 임을 안다. 그러나 모든 $n$에 대해 $E\{\text{ln}(\hat{p}_{n}) \}=-\infty$인데, 이는 $\hat{p}_{n}$은 0이 될 확률이 양수이기 때문이다. 그러므로 $E(Z_{n})=-\infty$이나, $E(Z)=0$이다.
-
-</div>
+```
 
 (Skrohod 정리를 이용한 추가적 설명 필요, Essential of Probability Theory for Statisticians 193-194쪽)
 
-<div class="definition">
-
+```{definition, name="일양적분가능"}
 만약 각 $\epsilon >0$에 대해
 $$E\{ |X_{n}| I(|X_{n}|>A)\}<\epsilon \forall n$$
 을 만족하는 $A$가 존재한다면 이 확률변수의 수열 $X_{n}$을 **일양적분가능(uniformly integrable, UI)**이라고 부른다.
 또는
 $$\lim_{A\rightarrow\infty}\sup_{n}E\{ |X_{n}| I(|X_{n}|>A)\}=0$$
 을 만족하는 것으로 정의하기도 한다.
-
-</div>
+```
 
 그렇다면 일양적분가능이 말하고자 하는 것은 무엇인가? $|X_{n}| I(|X_{n}|>A)$항부터 살펴보자. 이것은 $A$보다 작은 $|X_{n}|$ 값은 0이 되도록 조절하는 것이다. 다음 그림을 참고하자.
 

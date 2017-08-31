@@ -10,6 +10,15 @@ documentclass: book
 bibliography: [book.bib, article.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
+output:
+  bookdown::gitbook:
+    lib_dir: assets
+    split_by: section
+    config:
+      toolbar:
+        position: static
+  bookdown::pdf_book:
+    keep_tex: yes
 github-repo: SeoncheolPark/book
 description: "통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다."
 ---

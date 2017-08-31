@@ -10,7 +10,7 @@ $$ \mathbf{y}=(y_{1},\ldots,y_{n}), n=2^{J}$$
 
 다중척도 방법론에서 알고 싶어하는 가장 중요한 정보는 각기 다른 **척도(scale)**와 **위치(location)**에서의 $\mathbf{y}$의 **상세(detail)**이다. 여기서 척도는 수준(level), 해상도(resolution) 등으로 불리기도 하며 통계학 용어로 번역하자면 분산, 파워(power), 도수(frequency) 등으로 말할 수 있다. 장소라는 것은 관측값을 관찰한 정의역(domain)을 의미하며, 시간 자료면 시간, 공간 자료면 공간이 로케이션이 된다. 한편 상세의 정의는 다음과 같다.
 
-```{definition, waveletdetail, name="상세"}
+```{definition, name="상세"}
 주어진 자료 $\mathbf{y}$의 **상세(detail)** $d_{k}$는
 \begin{equation}
 d_{k}=y_{2k}-y_{2k-1},\qquad{k=1,2,\ldots,\frac{n}{2}}
@@ -55,18 +55,6 @@ c_{J-2,l}=c_{J-1,2l}+c_{J-1,2l-1},l=1,2,\ldots,\frac{n}{4}
 knitr::include_graphics("images/multiscale_001.png")
 ```
 
-<div class="example">
-
-다음과 같은 자료 $\mathbf{y}=(1,1,7,9,2,8,8,6)$를 생각해보자. 그러면 $J=0,1,2$에서의 상세와 성김은
-
-```{r, echo=F, fig.cap='Graphical depiction of a multiscale transform.', fig.align='center'}
-knitr::include_graphics("images/multiscale_002.png")
-```
-
-로 구할 수 있다. 이는 Mallat이 1998년 개발하였으며 **피라미드 알고리즘(pyramid algorithm)**이라 부른다. 
-
-</div>
-
 다중척도 변환은 다음과 같이 같은 차원의 새로운 벡터를 정의하는 과정으로 볼 수 있다.
 $$(1,1,7,9,2,8,8,6) \rightarrow (42,6,14,4,0,2,6,-2).$$
 바뀐 벡터를 살펴보면, 42는 평균(global trend)에 해당되고, 6은 $J=0$일 때의 상세, $(14,4)$는 $J=1$일 때의 상세, $(0,2,6,-2)$는 $J=2$일 때의 상세이다. $d_{j,k}$는 **웨이블릿 계수(wavelet coefficient)**로, $c_{j,k}$는 **압축 계수(scaling coefficient)** 또는 **부드러움 계수(smooth coefficient)**라 부른다. 여기서 $j$는 수준(level), 척도(scale), 또는 해상도(resolution)을 나타내며, $k$는 위치(location)를 나타낸다.
@@ -104,23 +92,14 @@ knitr::include_graphics("images/multiscale_003.png")
 $$y=f+\epsilon, \qquad{\epsilon \sim \mathcal{N}(0,\sigma^{2}).}$$
 다시 말하면, 우리가 지금까지 다뤘던 모든 자료에는 오차($\epsilon$)와 $f$가 공존하는 형태의 모형이다. 이러한 모형에서는, 평균이 매우 중요하며 큰 의미를 갖게 된다. 그러나 성긴 모형에서는 상황이 조금 달라진다. 어떤 $y$는 $f$만 갖기도 하고, 또는 $\epsilon$만 갖기도 한다. $\mathbf{y}=(y_{1},y_{2},y_{3},y_{4})$라는 자료가 있을 때 이들 중 $y_{3}$만 $f$의 정보가 들어있는 진짜 신호이고 나머지 $y_{1},y_{2},y_{4}$는 잡음만 있을 수도 있는 것이다. 이런 자료에서 가장 좋은 추정량은 평균이 아니라 $y_{3}$이다.
 
-<div class="example">
+```{theorem, name="다중척도 변환의 희소성"}
 
 다음과 같은 자료 $\mathbf{y}=(1,1,1,1,2,2,2,2)$를 생각해보자. 이 자료를 다중척도 변환해 보면
 $$(1,1,1,1,2,2,2,2) \rightarrow (1,2,4,0,0,0,0,0)$$
 과 같이 0이 많은 벡터로 변환될 것이다. 
-
-</div>
+```
 
 위 예제와 같이 0이 많이 있는 자료들을 **희소성(sparsity)**이 있는 자료라 하며, 다중척도 변환은 희소성이 있는 자료를 다룰 때 많은 도움이 될 수 있다.
-
-<div class="remark">
-
-다음과 같은 자료 $\mathbf{y}=(1,1,7,9,2,8,8,6)$을 다중척도 변환한 결과는 $(42,6,14,4,0,2,6,-2)$였다. 이 벡터를 $\mathbf{d}$라 하자. 그러면
-$$\| \mathbf{y} \|^{2}=\sum_{i=1}^{8}y_{i}^{2}=219, \| \mathbf{d} \|^{2}=\sum_{i=1}^{8}d_{i}^{2}=2056$$
-이다. 그러나 때때로 우리는 $\| \mathbf{y} \|^{2}=\| \mathbf{d} \|^{2}$가 되도록 만들고 싶어한다. 이를 해결해 줄 수 있는 것이 **이산 Haar 웨이블릿 변환(discrete Haar wavelet transform)**이다.
-
-</div>
 
 ## 신호처리에서의 필터(filter in signal processing)
 

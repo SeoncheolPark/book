@@ -6,29 +6,23 @@
 
 ## 이산 푸리에변환(discrete Fourier transform)
 
-<div class="definition">
-
+```{definition, name="L2"}
 어떤 함수 $f$가 $L^{2}[a,b]$에 속한다는 것은
 $$\int_{a}^{b}f^{2}(x)dx <\infty$$
 를 만족할 때이다.
-
-</div>
+```
 
 푸리에의 결과는 $f\in L^{2}[-\pi, \pi]$인 어떤 함수 $f$는 다음과 같이 사인함수와 코사인함수의 무합급수로 표현할 수 있다는 것이다.
 $$f(x)=\frac{1}{2}a_{0}+\sum_{j=1}^{\infty}(a_{j}\cos (jx) + b_{j}\sin (jx)),$$
 여기서 $\{ a_{0}, a_{1}, b_{1}, \ldots \}$들은 계수다.
 
-<div class="definition">
-
+```{definition, name="직교"}
 두 함수 $f_{1},f_{2}\in L^{2}[a,b]$는 $<f_{1},f_{2}=0$일 때 **직교(orthogonal)**라고 부른다.
+```
 
-</div>
-
-<div class="definition">
-
+```{definition, name="직교정규"}
 함수들의 수열 $\{ f_{j} \}$는 모든 $f_{j}$들이 짝지은 직교(pairwise orthogonal)이며 $\| f_{j}\|=1$일 때 **직교정규(orthonormal)**이라고 한다.
-
-</div>
+```
 
 ## 시간주파수해석(time-frequency analysis)
 
@@ -42,9 +36,8 @@ $$f(x)=\frac{1}{2}a_{0}+\sum_{j=1}^{\infty}(a_{j}\cos (jx) + b_{j}\sin (jx)),$$
 
 푸리에 해석에서의 주파수와는 달리, 웨이블릿 해석에서는 **척도(scale)**가 중요한 역할을 한다. 척도가 큰 창(window)을 통해서 신호를 관찰하면, 그 신호의 전반적인 특징을 관찰할 수 있다. 즉 웨이블릿이라는 창을 사용해서 신호를 분석하면 신호의 전체적인 모습뿐 아니라 세부적인 모습까지도 분석할 수 있다. 따라서 신호가 가지고 있는 비정상적(nonstationry) 성질들을 나타내는 데 웨이블릿이 유용하다. 예를 들어, 푸리에 해석에서는 신호의 불연속성, 단절(rupture) 등을 잘 식별할 수 없지만 웨이블릿 해석을 사용하면 식별이 가능하다. 이는 웨이블릿이 단순히 신호의 자세한 부분까지를 반영하기 때문이 아니라 신호가 변화하는 부분을 잘 나타내기 때문이다.
 
-<div class="definition">
-
-**(wavelet)** **웨이블릿(wavelet)** $\psi(t)$는 실변수함수로, localized waveform을 갖으며
+```{definition, name="웨이블릿"}
+**웨이블릿(wavelet)** $\psi(t)$는 실변수함수로, localized waveform을 갖으며
 
 1. $\int_{-\infty}^{\infty}\psi(t)dt=0$
 
@@ -53,11 +46,9 @@ $$f(x)=\frac{1}{2}a_{0}+\sum_{j=1}^{\infty}(a_{j}\cos (jx) + b_{j}\sin (jx)),$$
 3. $\psi(t)$의 푸리에 변환 결과인 $\Psi(t)$가 **admissibility condition**이라 불리는 다음 성질
 $$C_{\Psi}\equiv\int_{0}^{\infty}\frac{|\Psi(\omega) |^{2}}{\omega}d\omega <\infty$$
 를 만족한다. 이 때 $C_{\Psi}$를 **admissibility constant**라고 부르며 이 값은 $\psi(t)$의 explicit t-dependence에 의존한다고 한다.
+```
 
-</div>
-
-<div class="example">
-
+```{example, name="Haar 웨이블릿"}
 **Haar 웨이블릿(Haar wavelet)**은 
 
 \begin{equation} 
@@ -70,6 +61,7 @@ $$C_{\Psi}\equiv\int_{0}^{\infty}\frac{|\Psi(\omega) |^{2}}{\omega}d\omega <\inf
 \end{equation}
 
 으로 정의된다.
+```
 
 ```{r, echo=F, fig.cap='Haar wavelet function.', fig.align='center'}
 h_1_0 = function(t){
@@ -81,24 +73,6 @@ h = function(t,n,k){return(2^((n-1)/2) * h_1_0((2^(n-1)) * t - k))}
 Vh <- Vectorize(h, "t")
 curve( Vh(t = x, n = 1, k = 0), from = -0.5, to = 1.5, ylab=expression(paste(psi, "(x)")), xlab="t")
 ```
-
-</div>
-
-<div class="example">
-
-**Mexican hat wavelet**은
-$$\psi(t) \equiv \frac{2}{\sqrt{3}\sigma\pi^{1/4}}(1-\frac{t^{2}}{\sigma^{2}})e^{-t^{2}/(2\sigma^{2})}$$
-으로 정의된다. 이 웨이블릿은 가우스 함수를 변형해서 얻을 수 있다고 한다.
-
-```{r, echo=F, fig.cap='Mexican hat wavelet function.', fig.align='center'}
-mexican <- function(t, sigma){
-  value <- 2/(sqrt(3)*sigma*pi^(0.25))*(1-(t^2)/(sigma^2))*exp(-(t^2)/(2*sigma^2))
-}
-t <- seq(from=-2, to=2, by=0.05)
-plot(t, mexican(t, sigma=1), xlab="t", ylab=expression(paste(psi, "(x)")), type="l")
-```
-
-</div>
 
 한 마디로 정리하자면 웨이블릿은 localized oscillating wave라고 볼 수 있다.
 
@@ -118,9 +92,8 @@ knitr::include_graphics("images/multiscale_Transform.png")
 $$\psi(\frac{t-b}{a})=[1-(\frac{t-b}{a})^{2}]e^{[-\frac{1}{2}\cdot (\frac{t-b}{a})^{2}]}$$
 이 된다. ($\sigma=1$인 경우)
 
-<div class="definition">
-
-**(wavelet transform)** 연속신호 $x(t)$의 웨이블릿 $\psi(t)$에 대한 **웨이블릿 변환(wavelet transform)** $T(a,b)$는
+```{definition, name="웨이블릿 변환"}
+연속신호 $x(t)$의 웨이블릿 $\psi(t)$에 대한 **웨이블릿 변환(wavelet transform)** $T(a,b)$는
 $$T(a,b)=w(a)\int_{-\infty}^{\infty}x(t)\psi(\frac{t-b}{a})dt$$
 로 정의된다. 여기서 $w(a)$는 **가중치함수(weighted function)**이라고 부른다.
 
@@ -129,8 +102,7 @@ $$\psi_{a,b}(t)=\frac{1}{\sqrt{a}}\psi(\frac{t-b}{a})$$
 를 정의해 앞선 식을
 $$T(a,b)=\int_{-\infty}^{\infty}x(t)\psi_{a,b}(t)dt$$
 로 쓸 수 있다. 앞으로 $\psi_{a,b}(t)$을 단순히 **웨이블릿**으로 부르기로 한다.
-
-</div>
+```
 
 일반적으로 $w(a)=\frac{1}{\sqrt{a}}$로 정의하는데 그 이유는
 $$\int_{-\infty}^{\infty}[\frac{1}{\sqrt(a)}\psi(\frac{t-b}{a})]^{2}dt=\int_{-\infty}^{\infty}\psi(u)^{2}du = 1 \qquad{ \text{ with } u=\frac{t-b}{a}}$$
@@ -144,8 +116,7 @@ $$\int_{-\infty}^{\infty}[\frac{1}{\sqrt(a)}\psi(\frac{t-b}{a})]^{2}dt=\int_{-\i
 
 다중해상도 분석은 사실 함수공간의 집합(a set of function space)이다. 혼란스럽게 용어가 정의되어 있어 주의를 필요로 한다.
 
-<div class="definition">
-
+```{definition, name="다중해상도 분석"}
 **다중해상도 분석(multiresolution analysis)**란 $L^{2}(\mathbb{R})$의 닫힌 부분공간(closed subspace)의 함수공간의 집합 $\mathcal{V}_{j}:j\in\mathbb{Z}$으로 $\mathcal{V}_{j}$는 다음 조건을 만족한다.
 
 1. $\cdots \subset \mathcal{V}_{-2} \subset \mathcal{V}_{-1} \subset \mathcal{V}_{0} \subset \mathcal{V}_{1} \subset \mathcal{V}_{2} \ldots \subset L^{2}(\mathbb{R})$
@@ -155,14 +126,13 @@ $$\int_{-\infty}^{\infty}[\frac{1}{\sqrt(a)}\psi(\frac{t-b}{a})]^{2}dt=\int_{-\i
 3. $f(t)\in\mathcal{V}_{j}$ if and only if $f(2t)\in\mathcal{V}_{j+1}$ for all integer $j$
 
 4. 집합 $\{ \phi (t-n), n \in \mathbb{Z}\}$가 $\mathcal{V}_{0}$의 직교정규기저(orthonormal basis)가 되도록 하는 함수 $\phi(t)\in\mathcal{V}_{0}$이 존재한다.
-
-</div>
+```
 
 이 때 $\phi(t)$를 **척도함수(scaling function)** 또는 **부웨이블릿(father wavelet)**이라고 부른다. 참고할만한 사항으로 다중해상도 분석의 정의는 $\phi(t)$의 존재에 대한 어떤 정보도 주지 않는다. 그러나 우리가 만약 바람직한 함수 $\phi(t)$를 찾는다면 $\{ \phi(t-n), n\in\mathbb{Z}\}$가 span하는 함수공간 $\mathcal{V}_{0}$를 정의할 수 있고 앞선 정의의 3번을 이용해 $V_{j}$들을 계속해서 만들어내 다중해상도 분석 $\mathcal{V}_{j}$를 만들 수 있다. 즉 다시말하면 척도함수 $\phi(t)$가 다중해상도 분석 $\{ \mathcal{V}_{j}\}$를 생성한다.
 
-<div class="example">
-
+```{definition, name="다중해상도 분석의 예"}
 $L^{2}(\mathbb{R})$에서 어떤 구간 $[2^{-m}n, 2^{-m}(n+1)], \forall n\in\mathbb{Z}$에서만 상수값을 갖는 모든 함수들의 집합 $\mathcal{V}_{m}$을 생각해보자. 그러면 $\mathcal{V}_{m}$은 다중해상도 분석의 조건 1부터 3까지를 만족시킨다($\phi$들은 기저이다. 잘 생각해 볼 것)
+```
 
 ```{r, echo=F, fig.cap='(a) Dilatation and (b) translation of a wavelet.', fig.align='center'}
 knitr::include_graphics("images/multiscale_Multiscaleanalysis.png")
@@ -181,8 +151,6 @@ knitr::include_graphics("images/multiscale_Multiscaleanalysis.png")
 로 정의되며 다중해상도분석의 4번 조건을 만족한다. 즉, 어떤 함수 $f\in\mathcal{V}_{0}$은
 $$f(t)=\sum_{n=-\infty}^{\infty}c_{n}\phi(t-n)$$
 으로 표현가능하다. 여기서 $c_{n}$은 적절한 상수이다. 따라서 공간 $\mathcal{V}_{m}$은 $\phi(t)$로 생성되어지는 다중해상도 분석이다.
-
-</div>
 
 ### 직교분해(orthogonal decomposition)
 
@@ -245,13 +213,11 @@ x(t)&=& \cdots + g_{-1}(t)+g_{0}(t)+g_{1}(t)+\cdots\\
 
 결과적으로 family $\psi_{m,n}(t)$가 $L^{2}(\mathbb{R})$의 직교정규 기저가 된다. 위 결과를 다음 정리로 요약할 수 있다.
 
-<div class="theorem">
-
+```{theorem, name="직교정규 기저의 구성"}
 $\{ \mathcal{V}_{j}\}$를 다중해상도 분석이라고 하고 공간 $\mathcal{W}_{0}$를 $\mathcal{W}_{0}=\mathcal{V}_{1}/\mathcal{V}_{0}$으로 정의한다. 만약 어떤 함수 $\psi(t)$가 $\mathcal{W}_{0}$의 정규직교 기저 $\{ \psi(t-n),n\in\mathbb{Z}\}$를 만들어 낸다면, 함수들의 집합 $\{\psi_{m,n},m,n\in\mathbb{Z}\}$는
 $$\psi_{m,n}(t)=2^{m/2}\psi(2^{m}t-n)$$
 $L^2{\mathbb{R}}$에서의 직교정규 기저를 구성한다.
-
-</div>
+```
 
 여기서 소개된 $\psi(t)$는 웨이블릿을 결정하는 데, 즉 Haar wavelet이냐 mexican hat wavelet이냐 등을 결정하는 데 쓰이므로, $\mathcal{W}_{m}$을 **웨이블릿 공간(wavelet space)**이라고 부르며 함수 $\psi(t)$를 **모웨이블릿(mother wavelet)**이라고 부른다.
 
@@ -265,29 +231,25 @@ $$\phi_{0,n}(t)\equiv \phi(t-n) \in \mathcal{V}_{0}$$
 $$\phi_{m,n}(t)=2^{m/2}\phi(2^{m}t-n), m\in\mathbb{Z}$$
 가 $\mathcal{V}_{m}$의 직교정규 기저가 되는 것으로 이어진다. 특히 $\phi \in \mathcal{V}_{0}\subset \mathcal{V}_{1}$이고 $\phi_{1,n}(t)=\sqrt{2}\phi(2t-n)$이 $\mathcal{V}_{1}$의 직교정규 기저이기 때문에, $\phi(t)$는 $\phi_{1,n}(t)$에 의해 확장되어질 수 있다. 이것은 다음 정리로 요약할 수 있다.
 
-<div class="theorem">
-
+```{theorem, name="두-스케일 관계"}
 척도함수 $\phi(t)$가 다중척도 해석 $\{ \mathcal{V}_{j}\}$을 생성할 때, 다음과 같은 관계식을 얻을 수 있다.
 $$\phi(t)=\sum-{n=-\infty}^{\infty}p_{n}\phi_{1,n}(t)=\sqrt{2}\sum_{n=-\infty}^{\infty}p_{n}\phi(2t-n),$$
 이 때
 $$p_{n}=\int_{-\infty}^{\infty}\phi(t)\phi_{1,n}(t)dt$$
 이다. 이 식을 $\phi(t)$의 **두-스케일 관계(two-scale relation)**식이라고 부른다. 그리고 계수 $p_{n}$을 **척도함수계수(scaling function coefficients)**라고 부른다.
+```
 
-</div>
-
-<div class="example">
-
+```{example, name="두-스케일 관계의 예"}
 다음과 같이 $L^{2}(\mathbb{R})$의 함수들을 모두 포함하고 구간 $[2^{-m}n, 2^{-m}(n+1)], n\in\mathbb{Z}$에서 상수값을 갖는 공간 $\mathcal{V}_{m}$에 대해 생각해보자. 이 다중해상도 해석은 앞 예제에서 등장했던 척도함수 $\phi(t)$에 의해 생성됨이 알려져있다.
 $$p_{0}=p_{1}=\frac{1}{2} \text{ and } p_{n}=0 \text{ for }n\neq 0,1.$$
 따라서, 이 예의 두-스케일 관계식은
 $$phi(t)=\phi(2t)+\phi(2t-1)$$
 이 된다.
+```
 
 ```{r, echo=F, fig.cap='Two-scale relation of phi(t).', fig.align='center'}
 knitr::include_graphics("images/multiscale_Twoscale.png")
 ```
-
-</div>
 
 ### 모웨이블릿(mother wavelet)
 
@@ -297,13 +259,11 @@ $$\psi(t)=\sum_{n=-\infty}^{\infty}q_{n}\sqrt{2}\phi(2t-n), n\in\mathbb{Z}.$$
 $$q_{n}=(-1)^{n-1}p_{-n-1}$$
 로 주어진다.
 
-<div class="theorem">
-
+```{theorem, name="모웨이블릿"}
 만약 $\{ \mathcal{V}_{m\}$이 척도함수 $\phi(t)$를 갖는 다중해상도 해석이라고 한다면, 모웨이블릿 $\psi(t)$는
 $$\psi(t)=\sqrt{2}\sum_{n=-\infty}^{\infty}(-1)^{n-1}p_{-n-1}\phi(2t-n), n\in\mathbb{Z}$$
 로 주어진다. 이 때 $p_{n}$은 척도함수 $phi(t)$의 계수이다. 그리고 이 $p_{n}$은 유일하게 정해진다.
-
-</div>
+```
 
 즉 위 정리에 의하면 모웨이블릿 $\psi(t)$는 주어진 다중해상도 해석에서 척도함수 $\phi(t)$를 특정화하면 얻을 수 있다.
 

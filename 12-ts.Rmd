@@ -28,9 +28,8 @@ knitr::include_graphics("images/basic_var_nonstationary.png")
 knitr::include_graphics("images/basic_cov_nonstationary.png")
 ```
 
-<div class="definition">
-
-**(strictly stationary)** 시계열 $\{ x_{t}\}$가 있을 때 두 collection
+```{definition, name="강정상성"}
+시계열 $\{ x_{t}\}$가 있을 때 두 collection
 
 $$\{ x_{t_{1}}, x_{t_{2}}, \cdots  x_{t_{k}}\}, \{ x_{t_{1+h}}, x_{t_{2+h}}, \cdots  x_{t_{k+h}}\}$$
 
@@ -39,38 +38,31 @@ $$\{ x_{t_{1}}, x_{t_{2}}, \cdots  x_{t_{k}}\}, \{ x_{t_{1+h}}, x_{t_{2+h}}, \cd
 $$P \{ x_{t_{1}} <c_{1}, \ldots , x_{t_{k}} \leq c_{k}\}=P \{ x_{t_{1+h}} <c_{1}, \ldots , x_{t_{k+h}} \leq c_{k}\}$$
 
 일 때 이 시계열을 **강정상성(strictly stationary)**이라고 한다.
-
-</div>
+```
 
 그러나 강정상성의 정의는 대부분의 응용에서 너무 강한 조건인데, 특히 single data set으로부터 강정상성을 assess하기 어렵다고 한다. 시계열에서는 series의 첫 두 moment에만 관련된 약정상성을 생각하여 조건을 부드럽게 한다.
 
-<div class="definition">
-
-**(week stationary)**  시계열 $x_{t}$가 finite variance를 갖는 process이며
+```{definition, name="약정상성"}
+시계열 $x_{t}$가 finite variance를 갖는 process이며
 
 1. 평균함수 $\mu_{t}$가 상수이며 시간에 따라 변하지 않고
 
 2. 자기공분산함수 $\gamma(s,t)$가 이들의 차이 $|s-t|$에만 depend할 때
 
 이 시계열을 **약정상성(weekly stationary)**이라고 한다.
+```
 
-</div>
-
-<div class="definition">
-
-**(autocovariance function of a stationary time series)** 정상시계열의 **자기공분산함수(autocovariance function)**는
+```{definition, name="자기공분산함수"}
+정상시계열의 **자기공분산함수(autocovariance function)**는
 $$\gamma(h)=Cov(x_{t+h}, x_{t})=E[(x_{t+h}-\mu)(x_{t}-\mu)]$$
 로 정의된다.
+```
 
-</div>
-
-<div class="definition">
-
-**(autocorrelation function of a stationary time series)** 정상시계열의 **자기상관함수(autocorrelation function)**는
+```{definition, name="자기상관함수"}
+정상시계열의 **자기상관함수(autocorrelation function)**는
 $$\rho(h)=\frac{\gamma(t+h,t)}{\sqrt{\gamma(t+h,t_h)\gamma(t,t)}}=\frac{\gamma(h)}{\gamma(0)}$$
 이다.
-
-</div>
+```
 
 - linear process, guassian process
 
@@ -143,13 +135,11 @@ acf(diff(gtemp), 48, main="first difference")
 
 이 모형은 현재의 관측값을 과거의 관측값들의 함수형태로 나타내는 것이다.
 
-<div class="definition">
-
+```{definition, name="자기회귀모형"}
 **AR(p)** 차수 p를 갖는 **자기회귀모형(autoregressive model, AR model)**은
 $$x_{t}=\phi_{1}x_{t-1}+\phi_{2}x_{t-2} + \cdots + \phi_{p}x_{t-p}+w_{t}$$
 와 같은 형태를 갖는다. 여기서 $x_{t}$는 정상과정이며, $\phi_{1},\ldots , \phi_{p}$는 상수이다.
-
-</div>
+```
 
 일반적으로 AR과정의 ACF는 지수적으로 감소하며, PACF는 AR과정의 차수에 해당되는 차수 이후에는 0이 되는 성질을 갖고 있다.
 
