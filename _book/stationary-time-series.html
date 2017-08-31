@@ -34,12 +34,12 @@
   
 <link rel="prev" href="ts.html">
 <link rel="next" href="-characteristics-of-time-series.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -584,7 +591,7 @@ FIGURE 11.3: Time invariant covariance.
 <p><span class="math display">\[\{ x_{t_{1}}, x_{t_{2}}, \cdots  x_{t_{k}}\}, \{ x_{t_{1+h}}, x_{t_{2+h}}, \cdots  x_{t_{k+h}}\}\]</span></p>
 <p>가 identical하다면, 즉 모든 <span class="math inline">\(k=1,2,\ldots\)</span>, 모든 숫자 <span class="math inline">\(c_{1},c_{2},\ldots , c_{k}\)</span> 그리고 <span class="math inline">\(h=0, \pm 1, \pm 2,\ldots\)</span>에 대해</p>
 <p><span class="math display">\[P \{ x_{t_{1}} &lt;c_{1}, \ldots , x_{t_{k}} \leq c_{k}\}=P \{ x_{t_{1+h}} &lt;c_{1}, \ldots , x_{t_{k+h}} \leq c_{k}\}\]</span></p>
-일 때 이 시계열을 <strong>강정상성(strictly stationary)</strong>이라고 한다.
+<p>일 때 이 시계열을 <strong>강정상성(strictly stationary)</strong>이라고 한다.</p>
 </div>
 <p></p>
 <p>그러나 강정상성의 정의는 대부분의 응용에서 너무 강한 조건인데, 특히 single data set으로부터 강정상성을 assess하기 어렵다고 한다. 시계열에서는 series의 첫 두 moment에만 관련된 약정상성을 생각하여 조건을 부드럽게 한다.</p>
@@ -595,17 +602,17 @@ FIGURE 11.3: Time invariant covariance.
 <li><p>평균함수 <span class="math inline">\(\mu_{t}\)</span>가 상수이며 시간에 따라 변하지 않고</p></li>
 <li><p>자기공분산함수 <span class="math inline">\(\gamma(s,t)\)</span>가 이들의 차이 <span class="math inline">\(|s-t|\)</span>에만 depend할 때</p></li>
 </ol>
-이 시계열을 <strong>약정상성(weekly stationary)</strong>이라고 한다.
+<p>이 시계열을 <strong>약정상성(weekly stationary)</strong>이라고 한다.</p>
 </div>
 <p></p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-63" class="definition"><strong>Definition 11.3  (자기공분산함수)  </strong></span>정상시계열의 <strong>자기공분산함수(autocovariance function)</strong>는 <span class="math display">\[\gamma(h)=Cov(x_{t+h}, x_{t})=E[(x_{t+h}-\mu)(x_{t}-\mu)]\]</span> 로 정의된다.
+<p><span id="def:unnamed-chunk-63" class="definition"><strong>Definition 11.3  (자기공분산함수)  </strong></span>정상시계열의 <strong>자기공분산함수(autocovariance function)</strong>는 <span class="math display">\[\gamma(h)=Cov(x_{t+h}, x_{t})=E[(x_{t+h}-\mu)(x_{t}-\mu)]\]</span> 로 정의된다.</p>
 </div>
 <p></p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-64" class="definition"><strong>Definition 11.4  (자기상관함수)  </strong></span>정상시계열의 <strong>자기상관함수(autocorrelation function)</strong>는 <span class="math display">\[\rho(h)=\frac{\gamma(t+h,t)}{\sqrt{\gamma(t+h,t_h)\gamma(t,t)}}=\frac{\gamma(h)}{\gamma(0)}\]</span> 이다.
+<p><span id="def:unnamed-chunk-64" class="definition"><strong>Definition 11.4  (자기상관함수)  </strong></span>정상시계열의 <strong>자기상관함수(autocorrelation function)</strong>는 <span class="math display">\[\rho(h)=\frac{\gamma(t+h,t)}{\sqrt{\gamma(t+h,t_h)\gamma(t,t)}}=\frac{\gamma(h)}{\gamma(0)}\]</span> 이다.</p>
 </div>
 <p></p>
 <ul>
@@ -622,13 +629,13 @@ FIGURE 11.3: Time invariant covariance.
 <a href="-characteristics-of-time-series.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -648,16 +655,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/12-ts.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

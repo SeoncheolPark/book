@@ -34,12 +34,12 @@
   
 <link rel="prev" href="-computational-issues-in-spatial-statistics.html">
 <link rel="next" href="-pseudo-likelihood-and-composite-likelihood.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -550,18 +557,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="-approximate-likelihood" class="section level2">
 <h2><span class="header-section-number">37.7</span> 근사 가능도(approximate Likelihood)</h2>
 <p>마지막으로 기타 다른 방법들에 대해서 소개한다.</p>
-<p>Vecchina (1988)은 approximate likelihood라는 것을 소개했다. <span class="math inline">\(\beta\)</span>를 회귀모수, <span class="math inline">\(\theta\)</span>를 covariance parameter, <span class="math inline">\(\mathbf{z}=(z_{1}, \cdots , z_{n})\)</span>를 data라고 하자. 그러면 원래 likelihood를 conditional density argument를 통해 decompose할 수 있다는 아이디어에서 비롯되었다. <span class="math display">\[
-\begin{eqnarray*}
+<p>Vecchina (1988)은 approximate likelihood라는 것을 소개했다. <span class="math inline">\(\beta\)</span>를 회귀모수, <span class="math inline">\(\theta\)</span>를 covariance parameter, <span class="math inline">\(\mathbf{z}=(z_{1}, \cdots , z_{n})\)</span>를 data라고 하자. 그러면 원래 likelihood를 conditional density argument를 통해 decompose할 수 있다는 아이디어에서 비롯되었다.</p>
+<span class="math display">\[\begin{eqnarray*}
 L(\beta, \sigma, \mathbf{z}) &amp;=&amp; f(\mathbf{z}, \beta, \sigma)\\
 &amp;=&amp;f(\mathbf{z}, \beta, \sigma) \prod_{i=2}^{n}f(z_{i}|z_{j}, 1 \leq j \leq i-1, \beta, \theta)\\
-\end{eqnarray*}
-\]</span></p>
-<p>그 후에 적당한 subset <span class="math inline">\(z_{im}\)</span>을 잡는 것이다. 즉 <span class="math display">\[
-\begin{eqnarray*}
+\end{eqnarray*}\]</span>
+<p>그 후에 적당한 subset <span class="math inline">\(z_{im}\)</span>을 잡는 것이다. 즉</p>
+<span class="math display">\[\begin{eqnarray*}
 P(X,Y)&amp;=&amp;P(X)P(Y|X)\\
 &amp;\approx&amp; f(\mathbf{z},\beta, \theta)\prod_{i=2}^{n}f(z_{i}|z_{j}; z_{im}\text{은 subset of }z_{1}, \cdots ,z_{i-1})\\
-\end{eqnarray*}
-\]</span> 그렇다면 얼마나 자를 것인가? 가까운 애들만 남기면 된다. Empirically, <span class="math inline">\(n=100\)</span>일 때 <span class="math inline">\(m \approx 10\)</span> 정도를 쓴다고 한다. Vecchina는 theory를 안했다고 한다. 물론 80년대라서 이럴 수 있었다고 한다.</p>
+\end{eqnarray*}\]</span>
+<p>그렇다면 얼마나 자를 것인가? 가까운 애들만 남기면 된다. Empirically, <span class="math inline">\(n=100\)</span>일 때 <span class="math inline">\(m \approx 10\)</span> 정도를 쓴다고 한다. Vecchina는 theory를 안했다고 한다. 물론 80년대라서 이럴 수 있었다고 한다.</p>
 <p>Stein et al (2004)는 Vecchina의 접근을 REML에서 시도하였다. 특히 subset을 찾기 위한 몇 가지 시도들을 했고, 근사값을 계산하기 위한 방법을 제공했다. 또한 강한 spatial dependence가 있는 경우, 멀리 있는 observation 또한 고려할 필요가 있음을 보였다.</p>
 </div>
             </section>
@@ -573,13 +579,13 @@ P(X,Y)&amp;=&amp;P(X)P(Y|X)\\
 <a href="-pseudo-likelihood-and-composite-likelihood.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -599,16 +605,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/56-spatlikelihood.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

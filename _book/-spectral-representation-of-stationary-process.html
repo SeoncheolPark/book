@@ -34,12 +34,12 @@
   
 <link rel="prev" href="-whitening-of-stationary-process.html">
 <link rel="next" href="-non-decimated-discrete-wavelets.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -551,9 +558,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">21.3</span> 정상과정의 스펙트럼 표현(spectral representation of stationary process)</h2>
 <p><span class="math inline">\(\{ X(t) \}\)</span>를 평균이 0인 정상과정이라고 하자. 그러면 다음 <span class="math display">\[X(t)=\int_{-\infty}^{\infty} e^{it\omega}dZ(\omega)\]</span> 를 만족시키는 <strong>직교과정(orthogonal process)</strong> <span class="math inline">\(\{Z(\omega)\}\)</span>가 존재한다.</p>
 <p>여기서 잠시 <strong>직교증분과정(orthogonal increment process)</strong>라는 것에 대해 소개하겠다.</p>
+
 <div class="definition">
-<p>두개의 다른 주파수 <span class="math inline">\(\omega\)</span>, <span class="math inline">\(\omega&#39;\)</span> <span class="math inline">\((\omega \neq \omega&#39;)\)</span>가 있다고 하자. 만약 두 개의 process <span class="math display">\[dZ(\omega)=\{Z(\omega +d\omega)-Z(\omega)\} \text{ and } dZ(\omega&#39;)=\{Z(\omega&#39; +d\omega&#39;)-Z(\omega&#39;)\}\]</span> 가 무상관<span class="math inline">\((\text{Cov}(dZ(\omega), dZ(\omega&#39;))=0)\)</span>일 때 <span class="math inline">\(dZ(\omega)\)</span>는 <strong>직교증분과정</strong>이라고 한다.</p>
+<p><span id="def:unnamed-chunk-143" class="definition"><strong>Definition 21.2  (직교증분과정)  </strong></span>두개의 다른 주파수 <span class="math inline">\(\omega\)</span>, <span class="math inline">\(\omega&#39;\)</span> <span class="math inline">\((\omega \neq \omega&#39;)\)</span>가 있다고 하자. 만약 두 개의 process <span class="math display">\[dZ(\omega)=\{Z(\omega +d\omega)-Z(\omega)\} \text{ and } dZ(\omega&#39;)=\{Z(\omega&#39; +d\omega&#39;)-Z(\omega&#39;)\}\]</span> 가 무상관<span class="math inline">\((\text{Cov}(dZ(\omega), dZ(\omega&#39;))=0)\)</span>일 때 <span class="math inline">\(dZ(\omega)\)</span>는 <strong>직교증분과정</strong>이라고 한다.</p>
 </div>
+<p></p>
 <p>다시 직교과정으로 돌아가서, <span class="math inline">\(\{Z(\omega)\}\)</span>는 다음 성질들을 만족시킨다.</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(E(dZ(\omega))=0, \forall \omega\)</span>.</p></li>
@@ -566,7 +575,6 @@ X_{t}=\int_{-\pi}^{\pi}A(\omega)e^{it\omega}d\xi(\omega)
 \end{equation}\]</span>
 <p>이 때 <span class="math inline">\(A(\omega)\)</span>, <span class="math inline">\(d\xi(\omega)\)</span>가 <span class="math inline">\(dZ(\omega)\)</span> 역할을 하게 되는 것이며, 가장 영향력 있는 계수들의 제곱이 <strong>스펙트럼(spectrum)</strong>이 된다.</p>
 <p><span class="math display">\[|A(\omega)|^{2}=\hat{h}(\omega): \text{ periodogram (point estimator but not consistent)}\]</span> <span class="math display">\[|\tilde{A}(\omega)|^{2}: \text{ smoothing시 consistent 해짐}\]</span></p>
-<div class="remark">
 <p><span class="math display">\[Cov(X(t), X(t+\tau))=\int_{-\infty}^{\infty}e^{it\omega}dH(\omega)\]</span> 이며, 여기서 <span class="math inline">\(Cov(X(t), X(t+\tau))\)</span>는 <span class="math inline">\(X(t)\)</span>의 공분산함수이며, <span class="math inline">\(dH(\omega)\)</span>는 <span class="math inline">\(X(t)\)</span>의 스펙트럼이고, 이들은 <span class="math inline">\(e^{it\omega}\)</span> 라는 푸리에변환을 통해 일대일변환(one-to-one transform)된다.</p>
 다음 내용은 <span class="citation">(Priestley <a href="#ref-Priestley1981">1981</a>)</span> 및 <span class="citation">(Dahlhaus <a href="#ref-Dahlhaus1996">1996</a>)</span>에서 발췌한 내용이다. 비정상과정 <span class="math inline">\(X(t)\)</span>는 다음과 같이 간주할 수 있다. <span class="math display">\[\phi_{t}(\omega) \text{ instead of } e^{it\omega}\]</span>
 <span class="math display">\[\begin{eqnarray*}
@@ -574,7 +582,6 @@ X(t)&amp;=&amp;\int \phi_{t}(\omega)dZ(\omega)=\int A(\omega)e^{it\omega}d\xi(\o
 &amp;=&amp;\int A_{t}(\omega)e^{i\theta(\omega)t}dZ(\omega) \Longrightarrow \text{ &quot;Oscillatory process&quot;}\\
 \end{eqnarray*}\]</span>
 <p>여기서 <span class="math inline">\(A_{t}(\omega)\)</span>는 일종의 가중치(weight)이며 시간에 따라 계속 바뀐다. 이 내용은 비정상과정의 시계열을 분할하여 <strong>스펙트럴 표현(spectral representation)</strong>이 되도록 제한할 수 있다는 것이다. 그러나 유일(unique)하게 정의되지 않는다는 것은 문제이다.</p>
-</div>
 <p>함수추정에서 웨이블릿은 희소(sparsity) 장점을 준다. 그러나 시계열에서의 웨이블릿 사용은 희소와는 큰 관련이 없다. 다만 다음과 같이 변환하였을 때,</p>
 <p><span class="math display">\[X(t) \stackrel{\omega}{\rightarrow}d_{jk}(t) \text{ j: scale, k: location}\]</span></p>
 <p><span class="math inline">\(d\)</span>는 <span class="math inline">\(\omega\)</span>와 <span class="math inline">\(t\)</span>의 성질을 동시에 갖으며 이를 통해 비정상 시계열을 다룰 수 있지 않을까 하는 기대감 때문이다. 이러한 분석 방법을 <strong>time (k) - scale (j) analysis</strong>라고 한다.</p>
@@ -600,13 +607,13 @@ X(t)&amp;=&amp;\int \phi_{t}(\omega)dZ(\omega)=\int A(\omega)e^{it\omega}d\xi(\o
 <a href="-non-decimated-discrete-wavelets.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -626,16 +633,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/26-multiscalets.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

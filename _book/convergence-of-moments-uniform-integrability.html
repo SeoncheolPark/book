@@ -34,12 +34,12 @@
   
 <link rel="prev" href="-connections-between-modes-of-convergence.html">
 <link rel="next" href="big-o-small-o-big-o-and-small-o.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -552,13 +559,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><span class="math inline">\(X_{n}\)</span>이 점근적으로 <span class="math inline">\(\mathcal{N}(\mu_{n}, \sigma_{n}^{2})\)</span>에 수렴한다는 문장을 생각해보자. 즉 이 얘기는 <span class="math inline">\((X_{n}-\mu_{n})/\sigma_{n} \stackrel{D}{\rightarrow} \mathcal{N}(0,1)\)</span>이라는 말이다. 그러나 이것이 <span class="math inline">\(E(X_{n})=\mu_{n}\)</span>이고 <span class="math inline">\(\text{var}(X_{n})=\sigma_{n}^{2}\)</span>임을 의미하지는 않는다. 일반적으로 <span class="math inline">\(X_{n} \stackrel{D}{\rightarrow} X\)</span>는 <span class="math inline">\(E(X_{n}) \rightarrow E(X)\)</span>임을 의미하지 않는다.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-44" class="example"><strong>Example 4.1  (추정량은 무한대의 평균을 갖으나 확률변수의 극한은 유한한 평균을 갖는 예)  </strong></span><span class="math inline">\(\hat{p}_{n}\)</span>이 iid 베르누이 확률변수 <span class="math inline">\(X_{1}, \ldots, X_{n}\)</span>로부터 나온 표본비(sample proportion)라고 하자. 그러면 CLT에 의해 <span class="math inline">\(\hat{p}_{n}\)</span>은 점근적으로 평균 <span class="math inline">\(p=E(X_{1})\)</span>이고 분산 <span class="math inline">\(p(1-p)/n\)</span>인 정규분포를 따른다. 델타 방법(delta method)에 의해 <span class="math inline">\(\text{ln}(\hat{p})\)</span>는 점근적으로 평균 <span class="math inline">\(\ln(p)\)</span>, 분산 <span class="math inline">\((1-p)/(np)\)</span>인 정규분포를 따름을 안다. 그러면 <span class="math display">\[Z_{n} = \frac{\text{ln}(\hat{p}_{n})-\text{ln}(p)}{\sqrt{(1-p)/(np)}} \stackrel{D}{\rightarrow} Z \sim \mathcal{N}(0,1)\]</span> 임을 안다. 그러나 모든 <span class="math inline">\(n\)</span>에 대해 <span class="math inline">\(E\{\text{ln}(\hat{p}_{n}) \}=-\infty\)</span>인데, 이는 <span class="math inline">\(\hat{p}_{n}\)</span>은 0이 될 확률이 양수이기 때문이다. 그러므로 <span class="math inline">\(E(Z_{n})=-\infty\)</span>이나, <span class="math inline">\(E(Z)=0\)</span>이다.
+<p><span id="exm:unnamed-chunk-44" class="example"><strong>Example 4.1  (추정량은 무한대의 평균을 갖으나 확률변수의 극한은 유한한 평균을 갖는 예)  </strong></span><span class="math inline">\(\hat{p}_{n}\)</span>이 iid 베르누이 확률변수 <span class="math inline">\(X_{1}, \ldots, X_{n}\)</span>로부터 나온 표본비(sample proportion)라고 하자. 그러면 CLT에 의해 <span class="math inline">\(\hat{p}_{n}\)</span>은 점근적으로 평균 <span class="math inline">\(p=E(X_{1})\)</span>이고 분산 <span class="math inline">\(p(1-p)/n\)</span>인 정규분포를 따른다. 델타 방법(delta method)에 의해 <span class="math inline">\(\text{ln}(\hat{p})\)</span>는 점근적으로 평균 <span class="math inline">\(\ln(p)\)</span>, 분산 <span class="math inline">\((1-p)/(np)\)</span>인 정규분포를 따름을 안다. 그러면 <span class="math display">\[Z_{n} = \frac{\text{ln}(\hat{p}_{n})-\text{ln}(p)}{\sqrt{(1-p)/(np)}} \stackrel{D}{\rightarrow} Z \sim \mathcal{N}(0,1)\]</span> 임을 안다. 그러나 모든 <span class="math inline">\(n\)</span>에 대해 <span class="math inline">\(E\{\text{ln}(\hat{p}_{n}) \}=-\infty\)</span>인데, 이는 <span class="math inline">\(\hat{p}_{n}\)</span>은 0이 될 확률이 양수이기 때문이다. 그러므로 <span class="math inline">\(E(Z_{n})=-\infty\)</span>이나, <span class="math inline">\(E(Z)=0\)</span>이다.</p>
 </div>
 <p></p>
 <p>(Skrohod 정리를 이용한 추가적 설명 필요, Essential of Probability Theory for Statisticians 193-194쪽)</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-45" class="definition"><strong>Definition 4.3  (일양적분가능)  </strong></span>만약 각 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math display">\[E\{ |X_{n}| I(|X_{n}|&gt;A)\}&lt;\epsilon \forall n\]</span> 을 만족하는 <span class="math inline">\(A\)</span>가 존재한다면 이 확률변수의 수열 <span class="math inline">\(X_{n}\)</span>을 <strong>일양적분가능(uniformly integrable, UI)</strong>이라고 부른다. 또는 <span class="math display">\[\lim_{A\rightarrow\infty}\sup_{n}E\{ |X_{n}| I(|X_{n}|&gt;A)\}=0\]</span> 을 만족하는 것으로 정의하기도 한다.
+<p><span id="def:unnamed-chunk-45" class="definition"><strong>Definition 4.3  (일양적분가능)  </strong></span>만약 각 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math display">\[E\{ |X_{n}| I(|X_{n}|&gt;A)\}&lt;\epsilon \forall n\]</span> 을 만족하는 <span class="math inline">\(A\)</span>가 존재한다면 이 확률변수의 수열 <span class="math inline">\(X_{n}\)</span>을 <strong>일양적분가능(uniformly integrable, UI)</strong>이라고 부른다. 또는 <span class="math display">\[\lim_{A\rightarrow\infty}\sup_{n}E\{ |X_{n}| I(|X_{n}|&gt;A)\}=0\]</span> 을 만족하는 것으로 정의하기도 한다.</p>
 </div>
 <p></p>
 <p>그렇다면 일양적분가능이 말하고자 하는 것은 무엇인가? <span class="math inline">\(|X_{n}| I(|X_{n}|&gt;A)\)</span>항부터 살펴보자. 이것은 <span class="math inline">\(A\)</span>보다 작은 <span class="math inline">\(|X_{n}|\)</span> 값은 0이 되도록 조절하는 것이다. 다음 그림을 참고하자.</p>
@@ -604,13 +611,13 @@ FIGURE 4.5: An example of sequence of random variables that is not bounded but u
 <a href="big-o-small-o-big-o-and-small-o.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -630,16 +637,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/05-convergencerv.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

@@ -34,12 +34,12 @@
   
 <link rel="prev" href="pot.html">
 <link rel="next" href="spatextremes.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -551,8 +558,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">48.1</span> 일반화 파레토 분포(generalized pareto distribution)</h2>
 <p><span class="math inline">\(X_{1},X_{2},\ldots\)</span>를 독립적이며 같은 분포를 따르며 분포함수 <span class="math inline">\(F\)</span>를 갖는 확률변수들의 수열이라고 하자. 여기서 분계 <span class="math inline">\(u\)</span>를 초과하는 <span class="math inline">\(X_{i}\)</span>값들을 극단 사건(extreme event)라고 생각할 수 있다. <span class="math inline">\(F\)</span>가 알려져 있는 분포라고 한다면 <span class="math display">\[P\{X&gt;u+y|X&gt;u\}=\frac{1-F(x+y)}{1-F(u)}, y&gt;0\]</span> 이 성립한다.</p>
 <p>주된 결과는 다음 정리에 포함되어 있다.</p>
+
 <div class="theorem">
-<span class="math inline">\(X_{1},X_{2},\ldots\)</span>이 분포함수 <span class="math inline">\(F\)</span>를 갖는 독립인 확률변수의 수열이라고 하자. 그리고 <span class="math display">\[M_{n}=\max\{X_{1},\ldots,X_{n}\}\]</span> 을 정의한다. <span class="math inline">\(F\)</span>가 극단 종류 정리를 만족한다면 충분히 큰 <span class="math inline">\(n\)</span>에 대해 <span class="math display">\[P\{M_{n}\leq z\}\approx G(z)\]</span> 이 성립한다. 이때 <span class="math display">\[G(z)=\exp\{-[1+\xi(\frac{z-\mu}{\sigma})]^{-1/\xi}\}\]</span> 이며 여기서 <span class="math inline">\(\mu, \sigma&gt;0\)</span>이다. 그리고 충분히 큰 <span class="math inline">\(u\)</span>에 대해 <span class="math inline">\(X&gt;u\)</span>일 때 <span class="math inline">\((X-u)\)</span>의 분포함수는
+<span id="thm:unnamed-chunk-244" class="theorem"><strong>Theorem 48.1  (일반화 파레토 분포)  </strong></span><span class="math inline">\(X_{1},X_{2},\ldots\)</span>이 분포함수 <span class="math inline">\(F\)</span>를 갖는 독립인 확률변수의 수열이라고 하자. 그리고 <span class="math display">\[M_{n}=\max\{X_{1},\ldots,X_{n}\}\]</span> 을 정의한다. <span class="math inline">\(F\)</span>가 극단 종류 정리를 만족한다면 충분히 큰 <span class="math inline">\(n\)</span>에 대해 <span class="math display">\[P\{M_{n}\leq z\}\approx G(z)\]</span> 이 성립한다. 이때 <span class="math display">\[G(z)=\exp\{-[1+\xi(\frac{z-\mu}{\sigma})]^{-1/\xi}\}\]</span> 이며 여기서 <span class="math inline">\(\mu, \sigma&gt;0\)</span>이다. 그리고 충분히 큰 <span class="math inline">\(u\)</span>에 대해 <span class="math inline">\(X&gt;u\)</span>일 때 <span class="math inline">\((X-u)\)</span>의 분포함수는
 <span class="math display">\[\begin{equation}
 H(y)=1-(1+\frac{\xi y}{\tilde{\sigma}})^{-1/\xi}
 \end{equation}\]</span>
@@ -562,6 +570,7 @@ H(y)=1-(1+\frac{\xi y}{\tilde{\sigma}})^{-1/\xi}
 \end{equation}\]</span>
 <p>이다.</p>
 </div>
+<p></p>
 
 </div>
 <!-- </div> -->
@@ -574,13 +583,13 @@ H(y)=1-(1+\frac{\xi y}{\tilde{\sigma}})^{-1/\xi}
 <a href="spatextremes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -600,16 +609,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/92-pot.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

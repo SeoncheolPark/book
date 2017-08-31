@@ -8,11 +8,10 @@
 $$M_{n}=\max\{X_{1},\ldots,X_{n}\}$$
 의 통계적 움직임에 초점을 맞출 것이다. 여기서 $X_{1},\ldots,X_{n}$은 $F$라는 분포함수를 갖는 독립 확률변수의 수열이다. 일반적으로 $X_{i}$는 일정한 시간 스케일(예: 시간별, 일별, 월별 등)을 갖고 측정된 어떤 (확률)과정의 값들을 나타낸다. 정리하면 $M_{n}$은 $n$ 시간 단위의 관측값 중 최대값을 나타낸다.
 
-<div class="example">
-
+```{definition, name="극단값의 예"}
 $n$이 일년동한 관찰한 관측값 수라고 할 경우, $M_{n}$은 월 최대값에 대응된다.
 
-</div>
+```
 
 $X_{i}$들이 독립이라고 가정하였으므로 $M_{n}$의 분포는
 \begin{eqnarray*}
@@ -30,8 +29,7 @@ $n \rightarrow \infty$일 때 $F^{n}$의 움직임에 대해 살펴보자. 논�
 $$M_{n}^{*}=\frac{M_{n}-b_{n}}{a_{n}}.$$
 여기서 $\{a_{n} >0\}$과 $\{b_{n}\}$은 적당한 상수열이다. $\{a_{n}\}$과 $\{b_{n}\}$은 $n$이 커짐에 따라 $M_{n}^{*}$의 위치(location)와 척도(scale)을 안정화시킬 수 있도록 잘 잡아준다.
 
-<div class="theorem">
-
+```{theorem, name="일반화 극단값 분포 정리"}
 만약 앞서 말한 상수열 $\{a_{n} >0\}$과 $\{b_{n}\}$이 존재해
 $$P\{(M_{n}-b_{n})/a_{n}\leq z\} \rightarrow G(z), \qquad{n \rightarrow \infty}$$
 가 성립한다고 가정하자. 여기서 $G$는 퇴화분포가 아닌 어떤 분포함수이다. 이 때, $G$다음 세 개의 족(family) 중 하나를 따른다.
@@ -49,7 +47,7 @@ $$\textbf{와이블(Weibull): }G(z)=
 \end{cases}$$
 이 때 $a>0$, $b$는 모수들이고 $\alpha >0$이다.
 
-</div>
+```
 
 ```{r, message=FALSE, echo=F}
 library(evd) #rgev를 위해 필요
@@ -65,8 +63,8 @@ plot(x, dgev(x, scale=2, shape=-1), type='l', col="red", lwd=2, ylab='Density', 
 
 위 정리는 재정규화 시킨 표본 최대값들 $M_{n}^{*}=\frac{M_{n}-b_{n}}{a_{n}}.$이 세 가지 분포족 중 하나로 분포수렴할 것임을 알려주고 있다. $M_{n}^{*}$의 극한 분포는 놀랍게도 $F$에 상관없이 항상 저 세가지 분포족 중 하나로 수렴한다. 세 가지 분포의 이름은 앞으로 자주 등장할 것이므로 기억해두자. 참고로 이 적당한 $a_{n}$, $b_{n}$은 존재하지 않을 수도 있다. (예: 포아송 분포)
 
-<div class="example">
 
+```{example, name="굼벨분포"}
 $X_{1}, X_{2}, \ldots$가 정규지수분포$(=\text{Exp}(1))$에서 추출된 확률변수의 수열이라고 하자. 참고로 $F(x)=1-\exp^{x}$ ($x>0$)이다. 이때 $a_{n}=1$, $b_{n}=\log n$이라고 하면 $n\rightarrow \infty$일 때 고정된 $z\in\mathbb{R}$에 대해
 
 \begin{eqnarray}
@@ -78,15 +76,14 @@ P\{(M_{n}-b_{n})/a_{n} \leq z \} &=& F^{n}(z+\log n) \nonumber\\
 
 이다. 즉 $a_{n}$과 $b_{n}$을 위와 같이 선택하였을 때 $M_{n}$의 극한분포는 굼벨분포가 된다.
 
-</div>
+```
 
-<div class="example">
-
+```{example, name="굼벨분포로의 수렴속도"}
 $X_{1}, X_{2}, \ldots$가 표준정규분포에서 추출된 확률변수의 수열이라고 하자. 이때 
 $$a_{n}=(2\log n)^{-0.5}, b_{n}=(2\log n)^{0.5}-0.5(2\log n)^{-0.5}(\log\log n +log 4\pi)$$
 로 놓을 경우 재정규화된 $M_{n}$ 또한 굼벨분포로 수렴함이 알려져 있다. 그러나 앞 예제와 비교하였을 때 수렴 속도는 현저히 느리다.
 
-</div>
+```
 
 $M_{n}$의 수렴속도를 체크하는 것은 중요한 일이다. 왜냐면 우리는 일반화 극단값 분포를 유한개의 표본 최대값들의 점근 분포로 생각하고 사용할 것이기 때문이다. 결국 일반화 극단값 분포를 사용하기 위해 얼마나 많은 데이터가 필요할 것인가라는 문제는 $M_{n}$의 수렴속도와 관계된다.
 
@@ -100,21 +97,19 @@ $$G(z)=\exp\{-[1+\xi(\frac{z-\mu}{\sigma})]^{-1/\xi}\}.$$
 
 ## 최대안정성(max-stablity)
 
-<div class="definition"> 
-
+```{definition, name="최대안정성"}
 모든 $n=2,3,\ldots,$에서 상수들 $\alpha_{n}>0$, $\beta_{n}$이 존재해 
 $$G^{n}(\alpha_{n}z+\beta_{n})=G(z)$$
 일 경우 분포 G를 **최대안정(max-stable)**하다고 부른다. 즉 $G$에 거듭제곱을 하는 것은 단지 위치모수와 척도모수의 변화만 야기한다는 것이다.
 
-</div>
+```
 
 최대안정성과 일반화 극단값 분포 사이에는 다음과 같은 정리가 있다.
 
-<div class="remark"> 
-
+```{corollary}
 어떤 분포가 최대안정한 것은 분포가 일반화 극단값 분포임과 동치이다. [@Coles2001]
 
-</div>
+```
 
 ## 복귀 수준(return level)
 
@@ -122,11 +117,10 @@ $$G^{n}(\alpha_{n}z+\beta_{n})=G(z)$$
 
 한 가지 방법으로 **복귀 수준(return level)**이라는 것이 있다. **n-복귀 수준**은 우리가 매 $n$년마다 한 번꼴로 초과될 것으로 기대되는 값이다. 다시 말하면 어떤 특정한 해에 그런 강도의 사건을 마주칠 확률이 $\frac{1}{n}$ 정도 될 때 $n$-복귀 수준이 된다. 분위수(quantile)로 봤을 때에는 $1-\frac{1}{n}$분위수에 대응되는 사건이다.
 
-<div class="example">
-
+```{example, name="복귀 수준"}
 20년 복귀 수준은 매 20년마다 최대 수준이 한 번꼴로 초과할 것으로 기대되는 수준에 대응된다. 이것은 매 년 $\frac{1}{20}=0.05$의 확률로 그러한 사건이 마주칠 것으로 기대되며 $1-\frac{1}{20}=0.95$의 분위수에 대응된다.
 
-</div>
+```
 
 일반적으로 많이 쓰이는 복귀 수준은 $20, 50, 100$년 정도이다.
 
@@ -160,8 +154,7 @@ $k$개의 연 최대값 $X_{1}, \ldots , X_{k}$들이 주어져 있을 때, 일�
 
 일반화 극단값 분포에 최대가능도추정을 적용하기 전에 일반적인 가능도 관련 이론에 대해 정리해보자.
 
-<div class="definition">
-
+```{definition, name="가능도와 최대가능도추정량"}
 $y$가 자료이고 이 자료가 다음과 같은 모수 $\theta$로 정의되는 확률변수 $Y \sim f(y;\theta)$의 실현(realization)이라고 하자. 이때 **가능도(likelihood, 우도)**와 로그 가능도는
 $$L(\theta)=L(\theta;y)=f_{Y}(y;\theta), l(\theta)=\log L(\theta), \theta \in \Omega_{\theta}$$
 로 정의된다.
@@ -180,7 +173,7 @@ $$J(\theta)=-\frac{\partial^{2}l(\theta)}{\partial \theta \partial \theta^{T}}.$
 $$W(\theta)=2\{l(\hat{\theta})-l(\theta)\}\geq 0$$
 이다.
 
-</div>
+```
 
 가능도 근사(likelihood approximation)은 $n$이 클때, 데이터가 $f(y,\theta^{0})$에서 생성되었다고 가정하면
 $$\hat{\theta} \stackrel{\cdot}{\sim} \mathcal{N}_{p}(\theta^{0}, J(\hat{\theta})^{-1})$$
@@ -192,13 +185,12 @@ $$W(\theta^{0}) \stackrel{\cdot}{\sim} \xi_{p}^{2}$$
 $$W_{p}(\psi)=2\{l(\hat{\psi},\hat{\lambda})-l(\psi,\hat{\lambda}_{\psi})\}=2\{l(\hat{\theta})-l(\hat{\theta}_{\psi})\}$$
 로 정의한다. 이 때 다음과 같은 통계량을 정의할 수 있다.
 
-<div class="definition">
-
+```{definition, name="일반화가능도통계량"}
 **일반화가능도통계량(generalized likelihood ratio statistic)**은
 $$W_{p}(\psi)=2\{l(\hat{\psi},\hat{\lambda})-l(\psi,\hat{\lambda}_{\psi})\}=2\{l(\hat{\theta})-l(\hat{\theta}_{\psi})\}$$
 이다.
 
-</div>
+```
 
 만약 $\psi^{0}$이 정칙모형(regular model)의 자료로부터 얻은 $\psi$값이라고 하면 앞선 정의에 의해
 $$W_{p}(\psi) \stackrel{\cdot}{\sim} \xi_{q}^{2}, \qquad{for large n}$$
@@ -208,30 +200,27 @@ $$W_{p}(\psi) \stackrel{\cdot}{\sim} \xi_{q}^{2}, \qquad{for large n}$$
 
 앞선 상황처럼 알려지지 않은 모수를 흥미있는 모수들과 장애모수들로 나눌 수 있고 이 둘을 모두 추정해야 하나 흥미있는 모수들에만 관심이 있을 경우 사용할 수 있는 것 중의 하나가 **프로파일 가능도(profile likelihood)**이다.
 
-<div class="definition">
-
+```{definition, name="프로파일 가능도"}
 $\theta$를 모수 벡터라 하고 $\theta_{i}$를 제외한 모든 $\theta$의 원소들의 모임을 $\theta_{-i}$라고 했을 때 $\theta_{i}$에 대한 **프로파일 로그 가능도(profile log-likelihood)**는
 $$l_{p}(\theta_{i})=\max_{\theta_{-i}}l(\theta_{i},\theta_{-i})$$
 이다.
 
-</div>
+```
 
-<div class="definition">
-
+```{definition, name="프로파일 로그 가능도"}
 $\theta$를 모수 벡터라 하고 이것을 $(\theta^{(1)}, \theta^{(2)})$로 분할할 수 있다고 하자. 여기서 $\theta^{(1)}$은 $k$차원 흥미있는 모수들의 벡터이며 $\theta^{(2)}$는 나머지들의 $(d-k)$차원 벡터이다. 이때 $\theta^{(1)}$에 대한 **프로파일 로그 가능도(profile log-likelihood)**는
 $$l_{p}(\theta^{1})=\max_{\theta^{(2)}}l(\theta^{(1)},\theta^{(2)})$$
 이다.
 
-</div>
+```
 
 정칙 조건 하에서 프로파일 로그 가능도를 이용한 통계량은 다음과 같은 점근분포를 갖음이 알려져 있다.[@Coles2001]
 
-<div class="theorem">
-
+```{theorem, name="프로파일 로그 가능도를 이용한 통계량의 점근분포"}
 $x_{1}, \ldots , x_{n}$을 모수분포 $\mathcal{F}$ 안에 있는 어떤 분포의 독립적인 실현이라고 하자. $\hat{\theta}_{0}$을 $d$차원 모수벡터 $\theta_{0}=(\theta^{(1)},\theta^{(2)})$의 최대가능도추정량이라고 하자. 이때 $\theta^{(1)}$의 길이를 $k$라고 하자. 그러면 정칙 조건 하에서 $n$이 클 때
 $$D_{p}(\theta^{(1)})=2\{l(\hat{\theta}_{0})-l_{p}(\theta^{(1)}) \} \stackrel{\cdot}{\sim} \chi_{k}^{2}$$
 이다.
 
-</div>
+```
 
 위 정리는 크게 두 가지 상황에서 쓰인다. 첫째, 길이 1의 모수 $\theta_{i}$에 대해 $(1-\alpha)$ 신뢰구간 $C_{\alpha}=\{\theta_{i}: D_{p}(\theta_{i})\leq c_{\alpha}\}$를 계산할 때 쓴다. 여기서 $c_{\alpha}$는 $\xi_{1}^{2}$ 분포의 $(1-\alpha)$ 분위수를 뜻한다. 두 번째 응용은 모형 선택이다.

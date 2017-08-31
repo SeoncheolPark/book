@@ -34,12 +34,12 @@
   
 <link rel="prev" href="-stationary-time-series.html">
 <link rel="next" href="-spectral-representation-of-stationary-process.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -555,14 +562,16 @@ E d_{jk}d_{j&#39;k&#39;}&amp;=&amp;\int \int_{\mathbb{R}^{2}}\gamma(t,s)\psi_{jk
 &amp;=&amp;\frac{1}{2 \pi}\int_{\mathbb{R}}\hat{\gamma}(\omega)\hat{\psi}(\frac{\omega}{2^{j}})\bar{\hat{\psi}}(\frac{\omega}{2^{j}})e^{-i\omega k 2^{-j}}e^{-i\omega k&#39; 2^{-j&#39;}}2^{-\frac{j}{2}}2^{-\frac{j&#39;}{2}}d\omega.\\
 \end{eqnarray*}\]</span>
 <p>이다. 갑자기 notation들이 막 튀어나오는데 자세한 내용은 <span class="citation">(Zhang and Walter <a href="#ref-Zhang1994">1994</a>)</span>를 참고하라.</p>
+
 <div class="theorem">
-<p><span class="math inline">\(d_{jk}\)</span>와 <span class="math inline">\(d_{j&#39;k&#39;}\)</span>는</p>
+<p><span id="thm:unnamed-chunk-142" class="theorem"><strong>Theorem 21.2  (정상과정의 백색화)  </strong></span><span class="math inline">\(d_{jk}\)</span>와 <span class="math inline">\(d_{j&#39;k&#39;}\)</span>는</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(|j-j&#39;|&gt;1\)</span>일 경우 <strong>무상관(uncorrelated)</strong>이다(에를 들어 <span class="math inline">\(d_{1}\)</span>과 <strong>상관(correlated)</strong>된 것은 <span class="math inline">\(d_{0}, d_{2}\)</span>이다).</p></li>
 <li><p><span class="math inline">\(|j-j&#39;|=1\)</span>일 경우 약간의 correlation을 갖는다.</p></li>
-<li><p><span class="math inline">\(j \neq j&#39;\)</span>일 경우 <span class="math inline">\(O(|j-j&#39;|^{-p})\)</span>의 correlation을 갖는다.</p></li>
+<li><span class="math inline">\(j \neq j&#39;\)</span>일 경우 <span class="math inline">\(O(|j-j&#39;|^{-p})\)</span>의 correlation을 갖는다.</li>
 </ol>
 </div>
+<p></p>
 <p><span class="citation">(Johnstone and Silverman <a href="#ref-Johnstone1997">1997</a>)</span>에서는 위 정리의 결과를 그대로 웨이블릿 축소에 가져왔다. 즉 각 level끼리 독립이므로 level별로 따로 임계화(thresholding)를 하는 방법을 생각한 것이다. 이 때 레벨 <span class="math inline">\(j\)</span>에서 <span class="math display">\[\hat{\lambda}_{j}=\sqrt{2\log n_{j}}\hat{\sigma}_{j} \text{ or } \hat{\lambda}_{j}=\min_{\lambda}\text{SURE}(\lambda_{j})\]</span> 를 이용한다. <span class="math inline">\(n_{j}\)</span>는 레벨 <span class="math inline">\(j\)</span>에서의 계수의 총 갯수이고, <span class="math inline">\(\hat{\sigma}_{j}\)</span>는 MAD로 계산한다.</p>
 <p>그러나 자료가 정상성이 아닐 경우 방법이 없다. 왜냐하면 비정상 시계열(nonstationary time series)은 너무 광범위한 개념이기 때문이다. 따라서 사람들은 비정상 시계열들 중 다루기 쉬운 일부를 제한해 그것을 분석한다. Evolutionary stationary process가 그 예이다.</p>
 </div>
@@ -584,13 +593,13 @@ E d_{jk}d_{j&#39;k&#39;}&amp;=&amp;\int \int_{\mathbb{R}^{2}}\gamma(t,s)\psi_{jk
 <a href="-spectral-representation-of-stationary-process.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -610,16 +619,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/26-multiscalets.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

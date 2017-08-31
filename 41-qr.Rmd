@@ -10,11 +10,12 @@
 
 ## 분위수 (quantile)
 
-<div class="definition">
-
+```{definition, name="분위수"}
 실수값을 갖는 확률변수 $X$가 분포함수 $F$를 따른다고 할 때, $X$의 $\tau$번째 **분위수(quantile)**는
 $$Q_{X}(\tau)=F_{X}^{-1}(\tau)=\inf\{x|F(x)\geq \tau\}$$
 로 정의된다.
+
+```
 
 ```{r , fig.align='center', comment=">", echo=F, fig.cap="Cummulative distribution function (left) and corresponding quantile plot (right)."}
 par(mfrow=c(1,2))
@@ -32,15 +33,12 @@ segments(x0=0, y0=qlnorm(0.4,0,0.25), x1=0.4, y1=qlnorm(0.4,0,0.25), col="red")
 $$Q_{X}(\tau_{1}) \leq Q_{X}(\tau_{2}) \qquad{ \text{for } \tau_{1} < \tau_{2}}$$
 이다.
 
-</div>
-
-<div class="definition">
-
+```{definition, name="조건부 분위수"}
 $Y$를 반응변수, $\mathbf{X}$를 $p$차원 예측변수라고 하자. 이 때 $\mathbf{X}=\mathbf{x}$로 주어졌을 때 $Y$의 조건부 누적분포함수는 $F_{Y}(y|\mathbf{X}=\mathbf{x})=P(Y\leq y|\mathbf{X}=\mathbf{x})$라고 하자. 이 때 $Y$의 $\tau$**번째 조건부 분위수 (**$\tau$**-th conditional quantile)**는
 $$Q_{\tau}(Y|\mathbf{X}=\mathbf{x})=\inf\{y:F_{Y}(y|\mathbf{x})\geq \tau\}$$
 로 정의된다.
 
-</div>
+```
 
 ## 선형 분위수 회귀분석(linear quantile regression)
 

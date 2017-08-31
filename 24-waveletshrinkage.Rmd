@@ -37,21 +37,20 @@ $$\sum g^{2}(x)=\sum \theta_{i}^{2}.$$
 
 수축 방법에는 두 가지가 있다. **하드 임계화(hard thresholding)**와 **소프트 임계화(soft thresholding)**가 그것이다. 두 임계화를 다음과 같이 정의한다.
 
-<div class="definition">
-
+```{definition, name="하드 임계화와 소프트 임계화"}
 주어진 (empirical) 웨이블릿 상수 d와 **threshold** $\mathbf{\lambda}$가 있을 때, 그것의 **하드 임계화(hard thresholding)**는
 $$\hat{\theta}_{H}=\eta_{H}(d,\lambda)=d\mathbb{I}\{ |d| > \lambda \}$$
 이다. 그리고 **소프트 임계화(soft thresholding)**는
 $$\hat{\theta}_{S}=\eta_{S}(d,\lambda)=\text{sgn}(d)(|d|-\lambda)\mathbb{I}\{ |d| > \lambda \}$$
 이다.
 
+```
+
 ```{r, echo=F, fig.cap='Hard thresholding (dotted line) and soft thresholding.', fig.align='center'}
 knitr::include_graphics("images/waveletshrinkage_thresholding.png")
 ```
 
 두 방법 다 공통적으로 $\mathbf{d} \in (-\lambda, \lambda)^{n}$이면 0이 된다.
-
-</div>
 
 하드 임계화는 "keep or kill" 방법이라고도 불린다. 그 이유는 값이 어떤 threshold($\mathbf{\lambda}$)보다 작을 경우 무조건 0으로 놓기 때문이다. 이것은 회귀분석의 변수 선택(variable selection)과 동일한 아이디어이다. 변수 선택에서도 변수를 넣기 또는 빼기 두 가지 선택지만 있다는 것을 생각하기 바란다. 그리고 하드임계화에서는 축소를 하지 않는다. 소프트 임계화는 하드 임계화를 함과 동시에 신호 변환 함수가 연속이 되도록 값이 큰 signal도 같이 축소(shrinkage)하는 방법이다. 이는 변수선택에서 LASSO와 대응되는 방법이다. 
 
@@ -75,11 +74,12 @@ $$ M \triangleq E(\hat{M})=\text{Risk of }\hat{g}.$$
 잠시 선형 회귀분석 모형을 복습해보자. 다음과 같은 선형 회귀분석 모형 
 $$\mathbf{y}=\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\epsilon}$$
 이 있다고 하자. 여기서 $\mathbf{y}$는 $n \times 1$ 행렬, $\mathbf{X}$는 $n \times d$ 행렬, $\boldsymbol{\beta}$는 $d \times 1$ 행렬, 그리고 $\boldsymbol{\epsilon}$은 $n \times 1$ 행렬이다. 만약 여기서 $X$의 열(column)이 정규직교라고 해보자. 그러면
-$$\begin{eqnarray*}
+
+\begin{eqnarray*}
 \hat{\boldsymbol{\beta}}&=&(\hat{\beta}_{1},\cdots,\beta_{d})^{T}=(\mathbf{X}^{T}\mathbf{X})^{-1}\mathbf{X}^{T}\mathbf{y}=\mathbf{X}^{T}\mathbf{y}\\
 &\Longrightarrow& \hat{\beta}_{1}=\sum X_{i1}y_{i}, \hat{\beta}_{2}=\sum X_{i2}y_{i}, \cdots
 \end{eqnarray*}
-$$
+
 로 모든 $\boldsymbol{\beta}$의 원소들이 separate(decoupled)되는 것을 볼 수 있다. 참고로 $(\mathbf{X}^{T}\mathbf{X})^{-1}\neq \mathbf{I}$인 경우 $\hat{\beta}$가 다 연결되므로 이렇게 분석할 수 없다. 그리고
 $$\hat{\boldsymbol{\beta}}=\min \| \mathbf{y}-\mathbf{X}\boldsymbol{\beta} \|^{2} \Leftrightarrow \min \| \mathbf{X}^{T}\mathbf{y} - \mathbf{X}^{T}\boldsymbol{\beta} \|^{2}=\min \| \hat{\boldsymbol{\beta}}-\boldsymbol{\beta} \|^{2}$$
 가 된다. [@Donoho1994] 논문에 갑자기 이 사실을 이용해 전개하는 내용이 있다.
@@ -114,13 +114,12 @@ $$M_{\text{universal}}\leq(2\log n +1)(\sigma^{2}+M_{\text{ideal}})$$
 
 앞서 등장한 $\lambda^{u}=\sigma \sqrt{2 \log n}$을 특별히 **만능 임계화(universal Thresholding)**라고 한다. 실제로는 $\sigma$를 모르므로 $\hat{\sigma}$를 사용한다.
 
-<div class="theorem">
-
+```{theorem, name="만능 임계화"}
 $X_{1},\cdots , X_{n}$을 $EX_{i}=0, EX_{i}^{2}=1, EX_{i}X_{i+k}=\gamma(k)$인 stationary Gaussian process (Lag-k covariance structure를 갖는 Gaussian process)라고 하고 특별히 $X_{(n)}=\max \{ X_{i} \}$라 하자. 만약 $\lim_{k \rightarrow \infty} \gamma (k) =0$이면,
 $$\frac{X_{(n)}}{\sqrt{2 \log n}} \rightarrow 1 \text{ as } n \rightarrow \infty$$
 이다.
 
-</div>
+```
 
 위 정리는 n Gaussian 확률 변수들 중 가장 큰 것은(독립일 필요는 없다) 대략 $\sqrt{2 \log n}$ 사이즈라는 것이다. 이 정리에 비추어 만능 임계화를 생각하면 이 임계화는 오차(error)가 Gaussian random variable을 따르는 것이라면 모두 다 임계화하겠다는 뜻으로 해석할 수 있다. 이 방법은 이론적으로는 완벽해 보이기는 하나 너무나 많은 잡음(noise)을 줄이는 underfit한 임계화이다. 결국 SURE와 같은 실용적인 임계화 방법을 생각하게 된 것이다. 이 얘기는 추후에 다시 나올 것이다.
 
@@ -146,23 +145,21 @@ $$
 SURE가 처음 등장한 논문은 [@Donoho1995]로, [@Stein1981]의 내용을 웨이블릿 도메인으로 갖고 온 것이다. 다음과 같은 data domain에서의 모델 $y_{i}=g(x_{i})+e_{i}, i=1,\cdots,n,e_{i} \stackrel{iid}{\sim} \mathcal{N}(0,\sigma^{2})$과 이를 웨이블릿 도메인(domain)으로 옮긴 $\mathbf{d}=\boldsymbol{\theta}+\boldsymbol{\epsilon}, \boldsymbol{\epsilon} \sim \mathcal{N}(0,\sigma^{2}\mathbf{I})$를 생각하자. Stein의 논문에서는 이 notation을 다음과 같이 썼다.
 $$\mathbf{x}=\boldsymbol{\mu}+\boldsymbol{\epsilon}.$$
 
-<div class="theorem">
-
+```{theorem, name="Stein"}
 [@Stein1981] 만약 $\hat{\boldsymbol{\mu}}\mathbf{(x)}=\mathbf{x}+\mathbf{g(x)}$, $g:\mathbb{R}^{n} \rightarrow \mathbb{R}^{n}$ is weakly differentiable 조건이면
 $$E \| \hat{\boldsymbol{\mu}}\mathbf{(x)}-\boldsymbol{\mu} \|^{2} =n+ E\{ \|\mathbf{g(x)}\|^{2}+2\bigtriangledown \cdot \mathbf{g(x)} \}, \bigtriangledown\cdot \mathbf{g}=\sum_{i} \frac{\partial}{\partial x_{i}}g_{i}$$
 이다.
 
-</div>
+```
 
 그리고 $\hat{\mu}_{i}(\lambda)=\eta_{s}(x_{i},\lambda) \Rightarrow \frac{\partial}{\partial x_{i}}\hat{\mu}_{i}(\lambda)=I( |x_{i}|>\lambda)$과 $\| \mathbf{g(x)} \|^{2}=\sum \hat{\mu}_{i}(\lambda, x)^{2}=\sum_{i=1}^{n}(|x_{i}|-\lambda)^{2}I(|x_{i}>\lambda)$ 사실을 이용해 SURE를 정의한다.
 
-<div class="theorem">
-
+```{theorem, name="SURE"}
 $\text{SURE}(\lambda,\mathbf{x})=n-2\#\{ i: |x_{i}| \leq \lambda \} + \sum_{i=1}^{n}(|x_{i}| \wedge \lambda)^{2}$는 risk의 불편추정량이다.
 $$E \| \eta_{s}(\mathbf{x},\lambda)-\mu \|^{2}=E\text{SURE}(\lambda, \mathbf{x}).$$
 실제로, $\lambda=\text{argmin}_{0<\lambda \leq lambda^{u}}\text{SURE}(\lambda,\mathbf{x})$이며, 이 방법을 **SUREShrink**라고 한다.
 
-</div>
+```
 
 ## R 예제(R-waveletshrinkage)
 

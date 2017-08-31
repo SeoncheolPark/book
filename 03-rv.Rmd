@@ -5,12 +5,14 @@ $(\Omega_{1}, \mathcal{F}_{1})$, $(\Omega_{2}, \mathcal{F}_{2})$가 두 가측�
 $$X^{-1}(E)=\{ \omega \in \Omega_{1}: X(\omega) \in E\} \mathcal{F}_{1}$$
 (또는 위 조건을 $X^{-1}(\mathcal{F}_{2})\in \mathcal{F}_{1})$)
 일 때 $X$가 **가측(measurable)**이라고 한다. (또는 $\mathcal{F}_{1}$-가측 이라고도 부른다.)
+
 ```
 
 ```{definition, name="확률변수"}
 $(\Omega, \mathcal{F}, P)$가 확률공간(probability space)이라고 하자. 그러면 어떤 실변수 함수
 $$X:\Omega \rightarrow \mathbb{R}$$
 가 $(\Omega, \mathcal{F})$에서 $(\mathbb{R}, \mathcal{B})$로 가는 가측함수(measurable function)일 때(여기서 $\mathcal{B}$는 $\mathbb{R}$에서의 보렐 시그마-체) 이 $X$를 **확률변수(random variable)**라고 부른다.
+
 ```
 
 (확률변수에 대한 설명 보충 필요)
@@ -21,8 +23,10 @@ $$X:\Omega \rightarrow \mathbb{R}$$
 **(Borel-Cantelli lemma)** 만약 $\sum_{n=1}^{\infty}P(A_{n}) < \infty$라면
 $$P(A_{n} i.o.)=0$$
 이다.
+
 ```
 
 ```{lemma, name="제 2 보렐-칸텔리 따름정리"}
 **(Second Borel-Cantelli lemma)** 만약 사건 $A_{n}$들이 독립이라면 $\sum P(A_{n})=\infty$는 $P(A_{n} i.o.)=1$임을 내포한다.
+
 ```

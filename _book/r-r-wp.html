@@ -34,12 +34,12 @@
   
 <link rel="prev" href="-cosine-packet.html">
 <link rel="next" href="clustering.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -553,8 +560,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">256</span>)
 zwp &lt;-<span class="st"> </span><span class="kw">wp</span>(z, <span class="dt">filter.number=</span><span class="dv">2</span>, <span class="dt">family=</span><span class="st">&quot;DaubExPhase&quot;</span>)
 <span class="kw">plot</span>(zwp, <span class="dt">color.force=</span><span class="ot">TRUE</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-148"></span>
-<img src="book_files/figure-html/unnamed-chunk-148-1.png" alt="Wavelet packet coefficients of the independent Gaussian sequence z." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-164"></span>
+<img src="book_files/figure-html/unnamed-chunk-164-1.svg" alt="Wavelet packet coefficients of the independent Gaussian sequence z." width="672" />
 <p class="caption">
 FIGURE 25.3: Wavelet packet coefficients of the independent Gaussian sequence z.
 </p>
@@ -578,8 +585,8 @@ FIGURE 25.3: Wavelet packet coefficients of the independent Gaussian sequence z.
 <p>100인 값이 하나가 있고 나머지는 모두 0인 벡터는 매우 sparse하다. <code>zwp2</code>에 앞서 말한 패킷을 넣어보자.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">zwp2 &lt;-<span class="st"> </span><span class="kw">putpacket</span>(zwp, <span class="dt">level=</span><span class="dv">6</span>, <span class="dt">index=</span><span class="dv">3</span>, <span class="dt">packet=</span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dv">100</span>, <span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">53</span>)))
 <span class="kw">plot</span>(zwp2)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-150"></span>
-<img src="book_files/figure-html/unnamed-chunk-150-1.png" alt="Wavelet packet coefficients of zwp2." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-166"></span>
+<img src="book_files/figure-html/unnamed-chunk-166-1.svg" alt="Wavelet packet coefficients of zwp2." width="672" />
 <p class="caption">
 FIGURE 25.4: Wavelet packet coefficients of zwp2.
 </p>
@@ -683,8 +690,8 @@ zwp2.nv</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">InvBasis</span>(zwp2, zwp2.nv))</code></pre></div>
 <pre><code>&gt; [1] -0.07088779  1.20759137 -0.94939909 -1.00649083 -1.28767514 -0.10820385</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">InvBasis</span>(zwp2, zwp2.nv), <span class="dt">type=</span><span class="st">&quot;o&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-152"></span>
-<img src="book_files/figure-html/unnamed-chunk-152-1.png" alt="Inversion plotting." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-168"></span>
+<img src="book_files/figure-html/unnamed-chunk-168-1.svg" alt="Inversion plotting." width="672" />
 <p class="caption">
 FIGURE 25.5: Inversion plotting.
 </p>
@@ -705,13 +712,13 @@ FIGURE 25.5: Inversion plotting.
 <a href="clustering.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -731,16 +738,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/31-packet.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

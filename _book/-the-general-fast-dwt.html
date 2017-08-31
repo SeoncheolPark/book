@@ -34,12 +34,12 @@
   
 <link rel="prev" href="generalDWT.html">
 <link rel="next" href="-the-epsilon-decimated-wavelet-transform.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -583,9 +590,11 @@ d_{J-1,k}=\sum_{n}g_{n-2k}c_{J,n}
 <div id="filtering-dyadic-decimation-downscaling" class="section level3">
 <h3><span class="header-section-number">18.1.2</span> Filtering, dyadic decimation, downscaling</h3>
 <p>앞서 언급한 (<a href="#eq:fatherj4">(<strong>??</strong>)</a>), (<a href="#eq:motherj1">(<strong>??</strong>)</a>)을 다른 방법으로 생각해 볼 수도 있다. 예를 들면, 우리는 (<a href="#eq:fatherj4">(<strong>??</strong>)</a>)와 같은 결과를 처음에 수열 <span class="math inline">\(\{c_{J,n}\}\)</span>에 대해 <span class="math inline">\(\{h_{n}\}\)</span>이라는 필터를 적용함으로써 <span class="math display">\[c_{J-1,k}^{*}=\sum_{n}h_{n-k}c_{J,n}\]</span> 이라는 결과를 얻을 수 있다는 것이다. 이는 일반적인 convolution 식이다. 여기서 ’every other one’을 pick해 <span class="math inline">\(c_{J-1,k}=c_{J-1,2k}^{*}\)</span>을 만드는 것이다. 이 연산을 <strong>이진 데시메이션(dyadic decimation)</strong>이라고 한다(by an integer factor of 2).</p>
+
 <div class="definition">
-<p><strong>(even dyddic decimation operator)</strong> 어떤 수열 <span class="math inline">\(x_{i}\)</span>에 대한 <strong>(even) dyadic decimation operator</strong> <span class="math inline">\(\mathcal{D}_{0}\)</span>는 <span class="math display">\[(\mathcal{D}_{0}x)_{l}=x_{2l}\]</span> 로 정의한다.</p>
+<span id="def:unnamed-chunk-114" class="definition"><strong>Definition 17.2  (이진 데시메이션)  </strong></span><strong>(even dyddic decimation operator)</strong> 어떤 수열 <span class="math inline">\(x_{i}\)</span>에 대한 <strong>(even) dyadic decimation operator</strong> <span class="math inline">\(\mathcal{D}_{0}\)</span>는 <span class="math display">\[(\mathcal{D}_{0}x)_{l}=x_{2l}\]</span> 로 정의한다.
 </div>
+<p></p>
 <p>그러면 식 (<a href="#eq:fatherj4">(<strong>??</strong>)</a>)와 (<a href="#eq:motherj1">(<strong>??</strong>)</a>)는 (even) dyadic decimation operator를 활용해 <span class="math display">\[c_{J-1}=\mathcal{D}_{0}\mathcal{H}c_{J} \text{ and } d_{J-1}=\mathcal{D}_{0}\mathcal{G}c_{J}\]</span> 로 나타낼 수 있다. 이 때 <span class="math inline">\(\mathcal{H}\)</span>와 <span class="math inline">\(\mathcal{G}\)</span>는 <strong>regular filtering operation</strong>을 나타낸다. 이러한 연산자의 사용은 식의 표현을 좀 더 효율적으로 만든다.</p>
 <p>이를 응용해, DWT 계수들의 whole set은 <span class="math display">\[d_{j}=\mathcal{D}_{0}\mathcal{G}(\mathcal{D}_{0}\mathcal{H})^{J-j-1}c_{J},\]</span> <span class="math display">\[c_{j}=(\mathcal{D}_{0}\mathcal{H})^{J-j}c_{J}\]</span> 로 표현할 수 있다. (<span class="math inline">\(j=0,\ldots , J-1\)</span>) 이 때 <span class="math inline">\(d_{j}\)</span>, <span class="math inline">\(c_{j}\)</span>는 길이 <span class="math inline">\(2^{j}\)</span>인 벡터임을 상기하자.</p>
 </div>
@@ -609,13 +618,13 @@ d_{J-1,k}=\sum_{n}g_{n-2k}c_{J,n}
 <a href="-the-epsilon-decimated-wavelet-transform.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -635,16 +644,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/23-generalDWT.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

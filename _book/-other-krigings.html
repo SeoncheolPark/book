@@ -34,12 +34,12 @@
   
 <link rel="prev" href="-prediction-error-in-kriging.html">
 <link rel="next" href="-more-krigings.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -554,13 +561,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><p><strong>Simple kriging</strong>: <span class="math inline">\(\mathbf{x}_{0}^{T}\boldsymbol{\beta} \rightarrow \boldsymbol{\mu}\)</span> <span class="math display">\[\hat{Z}_{0}=\hat{\boldsymbol{\mu}}+\mathbf{T}^{T}\boldsymbol{\Sigma}^{-1}(\mathbf{Z}-\hat{\boldsymbol{\mu}}\cdot \mathbf{1}), \hat{\mathbf{\mu}}=\bar{\mathbf{Z}}.\]</span> 여전히 covariance parameter들은 안다고 가정한다.</p></li>
 <li><p><strong>Ordinary kriging</strong>: <span class="math inline">\(\mathbf{x}_{0}^{T}\boldsymbol{\beta} \rightarrow \boldsymbol{\mu}\)</span> <span class="math display">\[\hat{Z}_{0}=\tilde{\boldsymbol{\mu}}+\mathbf{T}^{T}\boldsymbol{\Sigma}^{-1}(\mathbf{Z}-\tilde{\boldsymbol{\mu}}\cdot \mathbf{1}), \tilde{\boldsymbol{\mu}}=(\mathbf{1}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{1})^{-1}\mathbf{1}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{Z}.\]</span> 여기서 <span class="math inline">\(\tilde{\boldsymbol{\mu}}\)</span>는 <span class="math inline">\(\boldsymbol{\mu}\)</span>의 GLS solution이며 ordinary kriging은 universal kriging의 special case이다.</p></li>
 </ul>
-<p>만약 <span class="math inline">\(\hat{Z}_{0}\)</span>를 prediction weight (<span class="math inline">\(\boldsymbol{\psi}\)</span>의 함수) <span class="math inline">\(\lambda_{i}\)</span>와 <span class="math inline">\(Z(\mathbf{s}_{i})\)</span>의 linaer combination으로 생각한다면 <span class="math inline">\(\hat{Z}_{0}=\sum_{i=1}^{n}\lambda_{i}Z(\mathbf{s}_{i})\)</span>로 쓸 수 있다. Simple kriging의 경우는 <span class="math display">\[
-\begin{eqnarray*}
+<p>만약 <span class="math inline">\(\hat{Z}_{0}\)</span>를 prediction weight (<span class="math inline">\(\boldsymbol{\psi}\)</span>의 함수) <span class="math inline">\(\lambda_{i}\)</span>와 <span class="math inline">\(Z(\mathbf{s}_{i})\)</span>의 linaer combination으로 생각한다면 <span class="math inline">\(\hat{Z}_{0}=\sum_{i=1}^{n}\lambda_{i}Z(\mathbf{s}_{i})\)</span>로 쓸 수 있다. Simple kriging의 경우는</p>
+<span class="math display">\[\begin{eqnarray*}
 \hat{Z}_{0}&amp;=&amp;(1-\sigma_{i}\lambda_{i})\boldsymbol{\mu}+\boldsymbol{\lambda}^{T}\mathbf{Z} \qquad(\boldsymbol{\lambda}=\mathbf{T}^{T}\boldsymbol{\Sigma}^{-1})\\
 &amp;=&amp;(1-\sigma_{i}\lambda_{i})\boldsymbol{\mu}+\sum_{i}\lambda_{i}Z(\mathbf{s}_{i})\\
 &amp;=&amp;\text{global mean + data로부터 나오는 mean}\\
-\end{eqnarray*}
-\]</span> 으로 <span class="math inline">\(\hat{\boldsymbol{\mu}}=\bar{\mathbf{Z}}\)</span>로 했기 때문에 global mean이 없어지지 않고 남는다. 한편 ordinary kriging의 경우는 <span class="math inline">\(\sum_{i}\lambda_{i}=1\)</span>이라는 제약조건 하에 <span class="math inline">\(\hat{Z}_{0}=\sum_{i}\lambda_{i}Z(\mathbf{s}_{i})\)</span>로 표현 가능하다. 참고로 universal kriging인 경우에 constraint는 <span class="math inline">\(\boldsymbol{\lambda}^{T}\mathbf{x}=x_{0}\)</span>이라는 제약조건이 있다.</p>
+\end{eqnarray*}\]</span>
+<p>으로 <span class="math inline">\(\hat{\boldsymbol{\mu}}=\bar{\mathbf{Z}}\)</span>로 했기 때문에 global mean이 없어지지 않고 남는다. 한편 ordinary kriging의 경우는 <span class="math inline">\(\sum_{i}\lambda_{i}=1\)</span>이라는 제약조건 하에 <span class="math inline">\(\hat{Z}_{0}=\sum_{i}\lambda_{i}Z(\mathbf{s}_{i})\)</span>로 표현 가능하다. 참고로 universal kriging인 경우에 constraint는 <span class="math inline">\(\boldsymbol{\lambda}^{T}\mathbf{x}=x_{0}\)</span>이라는 제약조건이 있다.</p>
 <p>참고로 <strong>크리깅 자체는 stationary 가정이 필요 없다.</strong> 다만 나중에 <span class="math inline">\(\Sigma\)</span> 추정시 문제가 될 수 있다고 한다.</p>
 </div>
             </section>
@@ -572,13 +579,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <a href="-more-krigings.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -598,16 +605,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/57-kriging.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

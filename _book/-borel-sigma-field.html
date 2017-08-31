@@ -34,12 +34,12 @@
   
 <link rel="prev" href="probability-space.html">
 <link rel="next" href="measure.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -585,7 +592,7 @@ FIGURE 3.2: Collection of disjoint unions on [0,1]
 <p>즉 <span class="math inline">\(H\)</span>는 사건이 아닌 셈이 되고 <span class="math inline">\(P\{ H \}\)</span>가 존재하지 않는다. 이상의 결과를 다음 정리로 요약해본다.</p>
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-27" class="theorem"><strong>Theorem 3.1  (연속 표본공간에서 시그마-체로 멱집합을 쓰지 않는 이유)  </strong></span>셀 수 없는 표본공간 <span class="math inline">\([0,1]\)</span>에서 시그마-체 <span class="math inline">\(2^{[0,1]}\)</span>을 고려할 경우 <span class="math inline">\(P\{[a,b]\}=b-a, \text{ for all } 0\leq a \leq b \leq 1\)</span>과 <span class="math inline">\(P\{ A \oplus r\}=P\{A\}, \text{ for all } A\subseteq [0,1] \text{ and } 0 &lt; r &lt; 1\)</span>을 동시에 만족하는 <span class="math inline">\(P: 2^{[0,1]}\rightarrow [0,1]\)</span>은 존재하지 않는다.
+<p><span id="thm:unnamed-chunk-27" class="theorem"><strong>Theorem 3.1  (연속 표본공간에서 시그마-체로 멱집합을 쓰지 않는 이유)  </strong></span>셀 수 없는 표본공간 <span class="math inline">\([0,1]\)</span>에서 시그마-체 <span class="math inline">\(2^{[0,1]}\)</span>을 고려할 경우 <span class="math inline">\(P\{[a,b]\}=b-a, \text{ for all } 0\leq a \leq b \leq 1\)</span>과 <span class="math inline">\(P\{ A \oplus r\}=P\{A\}, \text{ for all } A\subseteq [0,1] \text{ and } 0 &lt; r &lt; 1\)</span>을 동시에 만족하는 <span class="math inline">\(P: 2^{[0,1]}\rightarrow [0,1]\)</span>은 존재하지 않는다.</p>
 </div>
 <p></p>
 <p>다시말하면, 모든 <span class="math inline">\(A\subseteq [0,1]\)</span>에 대해 균등확률 <span class="math inline">\(P\{ A \}\)</span>를 정의할 수 없다는 것이다.</p>
@@ -596,28 +603,28 @@ FIGURE 3.2: Collection of disjoint unions on [0,1]
 <p>여기서 잠시 <span class="math inline">\(\mathbb{R}\)</span>에서의 <strong>보렐 시그마-체(Borel sigma-algebra)</strong>에 대해 살펴보자. <span class="math inline">\(\mathbb{R}\)</span>에서의 모든 열린 집합(open set)들의 모임을 <span class="math inline">\(\mathcal{O}\)</span>라고 하자. 그러면 <span class="math inline">\(\mathcal{O}\)</span>는 시그마-체가 아니다. (왜냐하면 <span class="math inline">\(A\in\mathcal{O}\)</span>이면 <span class="math inline">\(A^{C}\)</span>는 닫힌 집합이고 따라서 <span class="math inline">\(A^{C}\notin\mathcal{O}\)</span>이다.)</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-28" class="definition"><strong>Definition 3.7  (보렐 시그마-체)  </strong></span><span class="math inline">\(\mathbb{R}\)</span>에서의 <strong>보렐 시그마-체(Borel sigma-field, Borel sigma-algebra)</strong> <span class="math inline">\(\mathcal{B}\)</span>는 <span class="math inline">\(\mathcal{B}=\sigma(\mathcal{O})\)</span>로 정의한다.
+<p><span id="def:unnamed-chunk-28" class="definition"><strong>Definition 3.7  (보렐 시그마-체)  </strong></span><span class="math inline">\(\mathbb{R}\)</span>에서의 <strong>보렐 시그마-체(Borel sigma-field, Borel sigma-algebra)</strong> <span class="math inline">\(\mathcal{B}\)</span>는 <span class="math inline">\(\mathcal{B}=\sigma(\mathcal{O})\)</span>로 정의한다.</p>
 </div>
 <p></p>
 <p>결론은 <span class="math inline">\(\mathbb{R}\)</span>에서의 보렐 시그마-체를 interval을 포함하는 시그마-체로 만들 수 있다는 것이다. 그 전에 증명을 위해 한 가지 정리를 언급하겠다.</p>
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-29" class="theorem"><strong>Theorem 3.2  (열린 집합과 열린 구간들)  </strong></span><span class="math inline">\(E \subseteq \mathbb{R}\)</span>이 열린 집합이라고 하자. 그러면 기껏해야 셀 수 있는 정도로만 많은(at most countably many) 열린 구간들(open intervals) <span class="math inline">\(I_{j}, j=1,2,\ldots,\)</span>가 존재해 다음을 만족한다. <span class="math display">\[E=\bigcup_{j=1}^{\infty}I_{j}.\]</span>
+<p><span id="thm:unnamed-chunk-29" class="theorem"><strong>Theorem 3.2  (열린 집합과 열린 구간들)  </strong></span><span class="math inline">\(E \subseteq \mathbb{R}\)</span>이 열린 집합이라고 하자. 그러면 기껏해야 셀 수 있는 정도로만 많은(at most countably many) 열린 구간들(open intervals) <span class="math inline">\(I_{j}, j=1,2,\ldots,\)</span>가 존재해 다음을 만족한다. <span class="math display">\[E=\bigcup_{j=1}^{\infty}I_{j}.\]</span></p>
 </div>
 <p></p>
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-30" class="exercise"><strong>Exercise 3.1  (열린 집합과 열린 구간들의 증명)  </strong></span>이 정리의 증명은 <span class="math inline">\(E=\bigcup_{j=1}^{\infty}I_{j}\)</span>를 만족하는 <span class="math inline">\(I_{j}\)</span>들이 있음을 보이고 이것이 (1) at most countably many (2) disjoint (3) open (4) intervals 임을 보이면 된다. 증명 방법은 동치 관계를 이용하는 것이다. <span class="math inline">\(a, b \in E, (a &lt; b)\)</span>일 때 열린구간 <span class="math inline">\((a,b)\subseteq E\)</span>이면 <span class="math inline">\(a \sim b\)</span>로 놓는다. 그러면 <span class="math inline">\(E\)</span>의 disjoint union of classes는 equivalence relationship partitions <span class="math inline">\(E\)</span>가 된다. 아직 이것들이 countably many한지 모르므로 이들을 <span class="math inline">\(I_{j}, j\in J, J \text{ is an arbitrary index set}\)</span>이라고 높자. 임의의 <span class="math inline">\(a_{j}&lt;b_{j}\in I_{j}\)</span>에 대해 <span class="math inline">\(a_{j} \sim b_{j}\)</span>이고 <span class="math inline">\((a_{j}, b_{j}) \in I_{j}\)</span>이므로 <span class="math inline">\(I_{j}\)</span>는 interval이다. 또 <span class="math inline">\(x\in I_{j}\)</span>를 임의로 뽑았을 때 <span class="math inline">\(x\in E\)</span>이고 <span class="math inline">\(E\)</span>가 open이므로, <span class="math inline">\((x-\epsilon, x+\epsilon)\subseteq E\)</span>를 만족하는 <span class="math inline">\(\epsilon &gt;0\)</span>이 모든 <span class="math inline">\(x\)</span>에 대해 존재함을 알 수 있고 ahems <span class="math inline">\(a\in (x-\epsilon, x+\epsilon)\)</span>에 대해 <span class="math inline">\(a \sim x\)</span>이므로 <span class="math inline">\(x\)</span>의 <span class="math inline">\(\epsilon\)</span>-근방은 <span class="math inline">\(I_{j}\)</span>에 포함됨을 알 수 있어 <span class="math inline">\(I_{j}\)</span>는 open이다. 마지막으로 모든 <span class="math inline">\(I_{j}\)</span>는 적어도 하나의 유리수를 포함하고 있어 이를 통해 <span class="math inline">\(I_{j}\)</span>의 갯수는 countably many임을 알 수 있다.
+<p><span id="exr:unnamed-chunk-30" class="exercise"><strong>Exercise 3.1  (열린 집합과 열린 구간들의 증명)  </strong></span>이 정리의 증명은 <span class="math inline">\(E=\bigcup_{j=1}^{\infty}I_{j}\)</span>를 만족하는 <span class="math inline">\(I_{j}\)</span>들이 있음을 보이고 이것이 (1) at most countably many (2) disjoint (3) open (4) intervals 임을 보이면 된다. 증명 방법은 동치 관계를 이용하는 것이다. <span class="math inline">\(a, b \in E, (a &lt; b)\)</span>일 때 열린구간 <span class="math inline">\((a,b)\subseteq E\)</span>이면 <span class="math inline">\(a \sim b\)</span>로 놓는다. 그러면 <span class="math inline">\(E\)</span>의 disjoint union of classes는 equivalence relationship partitions <span class="math inline">\(E\)</span>가 된다. 아직 이것들이 countably many한지 모르므로 이들을 <span class="math inline">\(I_{j}, j\in J, J \text{ is an arbitrary index set}\)</span>이라고 높자. 임의의 <span class="math inline">\(a_{j}&lt;b_{j}\in I_{j}\)</span>에 대해 <span class="math inline">\(a_{j} \sim b_{j}\)</span>이고 <span class="math inline">\((a_{j}, b_{j}) \in I_{j}\)</span>이므로 <span class="math inline">\(I_{j}\)</span>는 interval이다. 또 <span class="math inline">\(x\in I_{j}\)</span>를 임의로 뽑았을 때 <span class="math inline">\(x\in E\)</span>이고 <span class="math inline">\(E\)</span>가 open이므로, <span class="math inline">\((x-\epsilon, x+\epsilon)\subseteq E\)</span>를 만족하는 <span class="math inline">\(\epsilon &gt;0\)</span>이 모든 <span class="math inline">\(x\)</span>에 대해 존재함을 알 수 있고 ahems <span class="math inline">\(a\in (x-\epsilon, x+\epsilon)\)</span>에 대해 <span class="math inline">\(a \sim x\)</span>이므로 <span class="math inline">\(x\)</span>의 <span class="math inline">\(\epsilon\)</span>-근방은 <span class="math inline">\(I_{j}\)</span>에 포함됨을 알 수 있어 <span class="math inline">\(I_{j}\)</span>는 open이다. 마지막으로 모든 <span class="math inline">\(I_{j}\)</span>는 적어도 하나의 유리수를 포함하고 있어 이를 통해 <span class="math inline">\(I_{j}\)</span>의 갯수는 countably many임을 알 수 있다.</p>
 </div>
 <p></p>
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-31" class="theorem"><strong>Theorem 3.3  (실수 구간에서의 보렐 시그마-체의 생성)  </strong></span><span class="math inline">\(\mathbb{R}\)</span>에서의 보렐 시그마-체(Borel sigma-field, Borel sigma-algebra) <span class="math inline">\(\mathcal{B}\)</span>는 <span class="math inline">\((-\infty, a], a\in\mathbb{Q}\)</span>로 생성할 수 있다.
+<p><span id="thm:unnamed-chunk-31" class="theorem"><strong>Theorem 3.3  (실수 구간에서의 보렐 시그마-체의 생성)  </strong></span><span class="math inline">\(\mathbb{R}\)</span>에서의 보렐 시그마-체(Borel sigma-field, Borel sigma-algebra) <span class="math inline">\(\mathcal{B}\)</span>는 <span class="math inline">\((-\infty, a], a\in\mathbb{Q}\)</span>로 생성할 수 있다.</p>
 </div>
 <p></p>
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-32" class="exercise"><strong>Exercise 3.2  (실수 구간에서의 보렐 시그마-체의 생성의 증명)  </strong></span><span class="math inline">\(\mathcal{O}_{0}\)</span>을 <span class="math inline">\(\mathbb{R}\)</span>에서의 모든 열린 구간(open interval)들의 collection이라고 하자. 앞선 정리에 의해 <span class="math inline">\(\mathbb{R}\)</span>에서의 모든 열린 집합은 기껏해야 셀 수 있을 정도의 열린 구간의 합집합으로 나타낼 수 있으므로 <span class="math inline">\(\sigma(\mathcal{O}_{0})=\mathcal{B}\)</span>가 된다. <span class="math inline">\(\mathcal{D}\)</span>를 <span class="math inline">\((-\infty, a], a\in \mathbb{Q}\)</span>인 구간들의 collection이라고 하자. 그리고 구간 <span class="math inline">\((a,b)\)</span>를 <span class="math inline">\((a,b)\in \mathcal{O}_{0}, a,b \in \mathbb{Q}, a&lt;b\)</span>와 같이 정의하자. 여기서 <span class="math display">\[a_{n}=a+\frac{1}{n} \text{ and } b_{n}=b-\frac{1}{n}\]</span> 으로 놓으면 <span class="math display">\[(a,b)=\bigcup_{n=1}^{\infty}(a_{n},b_{n}]=\bigcup_{n=1}^{\infty}\{ (-\infty, b_{n}] \cap (-\infty, a_{n}]^{c}\}\]</span> 이다. 이것은 <span class="math inline">\((a,b)\in \sigma (\mathcal{D})\)</span>임을 의미한다. 즉 <span class="math inline">\(\mathcal{O}_{0}\subseteq \sigma(\mathcal{D})\)</span>이고 <span class="math inline">\(\sigma(\mathcal{O}_{0})\subseteq \sigma(\mathcal{D})\)</span>이다. 그러나 <span class="math inline">\(\mathcal{D}\)</span>의 모든 원소는 닫힌 집합이고 이는 <span class="math inline">\(\sigma(\mathcal{D})\subseteq \mathcal{B}\)</span>를 의미한다. 따라서 <span class="math display">\[\mathcal{B} = \sigma(\mathcal{O}_{0})\subseteq \sigma(\mathcal{D})\subseteq \mathcal{B}\]</span> 이므로 <span class="math inline">\(\sigma(\mathcal{D})=\mathcal{B}\)</span>이다.
+<p><span id="exr:unnamed-chunk-32" class="exercise"><strong>Exercise 3.2  (실수 구간에서의 보렐 시그마-체의 생성의 증명)  </strong></span><span class="math inline">\(\mathcal{O}_{0}\)</span>을 <span class="math inline">\(\mathbb{R}\)</span>에서의 모든 열린 구간(open interval)들의 collection이라고 하자. 앞선 정리에 의해 <span class="math inline">\(\mathbb{R}\)</span>에서의 모든 열린 집합은 기껏해야 셀 수 있을 정도의 열린 구간의 합집합으로 나타낼 수 있으므로 <span class="math inline">\(\sigma(\mathcal{O}_{0})=\mathcal{B}\)</span>가 된다. <span class="math inline">\(\mathcal{D}\)</span>를 <span class="math inline">\((-\infty, a], a\in \mathbb{Q}\)</span>인 구간들의 collection이라고 하자. 그리고 구간 <span class="math inline">\((a,b)\)</span>를 <span class="math inline">\((a,b)\in \mathcal{O}_{0}, a,b \in \mathbb{Q}, a&lt;b\)</span>와 같이 정의하자. 여기서 <span class="math display">\[a_{n}=a+\frac{1}{n} \text{ and } b_{n}=b-\frac{1}{n}\]</span> 으로 놓으면 <span class="math display">\[(a,b)=\bigcup_{n=1}^{\infty}(a_{n},b_{n}]=\bigcup_{n=1}^{\infty}\{ (-\infty, b_{n}] \cap (-\infty, a_{n}]^{c}\}\]</span> 이다. 이것은 <span class="math inline">\((a,b)\in \sigma (\mathcal{D})\)</span>임을 의미한다. 즉 <span class="math inline">\(\mathcal{O}_{0}\subseteq \sigma(\mathcal{D})\)</span>이고 <span class="math inline">\(\sigma(\mathcal{O}_{0})\subseteq \sigma(\mathcal{D})\)</span>이다. 그러나 <span class="math inline">\(\mathcal{D}\)</span>의 모든 원소는 닫힌 집합이고 이는 <span class="math inline">\(\sigma(\mathcal{D})\subseteq \mathcal{B}\)</span>를 의미한다. 따라서 <span class="math display">\[\mathcal{B} = \sigma(\mathcal{O}_{0})\subseteq \sigma(\mathcal{D})\subseteq \mathcal{B}\]</span> 이므로 <span class="math inline">\(\sigma(\mathcal{D})=\mathcal{B}\)</span>이다.</p>
 </div>
 <p></p>
 <p>이제 <span class="math inline">\([0,1]\subset \mathbb{R}\)</span>에서의 보렐 시그마-체 <span class="math inline">\(\mathcal{B}_{1}\)</span>을 생각해보자. 이는 <span class="math inline">\(\mathcal{B}\)</span>와 마찬가지로 <span class="math inline">\([0,1]\)</span>의 열린 부분집합들의 collection으로부터 생성된 시그마-체라고 생각할 수 있다. 한 가지 주의해야 할 점은 <span class="math inline">\(\mathcal{B}_{1}\)</span>은 <span class="math inline">\(\mathcal{B}\)</span>의 부분 시그마-체는 아니라는 것이다. 시그마-체에서 포함 관계를 얘기하려면 두 시그마-체의 표본공간이 같아야 한다.</p>
@@ -629,12 +636,12 @@ FIGURE 3.2: Collection of disjoint unions on [0,1]
 <p>그 전에 몇 가지 개념들에 대해 정의하겠다.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-33" class="definition"><strong>Definition 3.8  (유한한 교집합에 대해 닫혀있다)  </strong></span>표본공간 <span class="math inline">\(\Omega\)</span>의 부분집합들의 class <span class="math inline">\(\mathcal{C}\)</span>가 <span class="math display">\[\bigcap_{i=1}^{n}A_{i}\in\mathcal{C}\qquad{\text{for every }n\infty \text{ and } A_{1},\ldots ,A_{n}\in\mathcal{C}}\]</span> 를 만족하면 <strong>유한한 교집합에 대해 닫혀있다(closed under finite intersection)</strong>라고 한다.
+<p><span id="def:unnamed-chunk-33" class="definition"><strong>Definition 3.8  (유한한 교집합에 대해 닫혀있다)  </strong></span>표본공간 <span class="math inline">\(\Omega\)</span>의 부분집합들의 class <span class="math inline">\(\mathcal{C}\)</span>가 <span class="math display">\[\bigcap_{i=1}^{n}A_{i}\in\mathcal{C}\qquad{\text{for every }n\infty \text{ and } A_{1},\ldots ,A_{n}\in\mathcal{C}}\]</span> 를 만족하면 <strong>유한한 교집합에 대해 닫혀있다(closed under finite intersection)</strong>라고 한다.</p>
 </div>
 <p></p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-34" class="definition"><strong>Definition 3.9  (증가하는 극한에 대해 닫혀있다)  </strong></span>표본공간 <span class="math inline">\(\Omega\)</span>의 부분집합들의 class <span class="math inline">\(\mathcal{C}\)</span>가 <span class="math display">\[\bigcup_{i=1}^{\infty}A_{i}\in\mathcal{C}\qquad{\text{for every collection } A_{1}, A_{2},\ldots \in \mathcal{C} \text{ with } A_{1}\subseteq A_{2}\subseteq \ldots}\]</span> 를 만족하면 <strong>증가하는 극한에 대해 닫혀있다(closed under increasing limits)</strong>라고 한다.
+<p><span id="def:unnamed-chunk-34" class="definition"><strong>Definition 3.9  (증가하는 극한에 대해 닫혀있다)  </strong></span>표본공간 <span class="math inline">\(\Omega\)</span>의 부분집합들의 class <span class="math inline">\(\mathcal{C}\)</span>가 <span class="math display">\[\bigcup_{i=1}^{\infty}A_{i}\in\mathcal{C}\qquad{\text{for every collection } A_{1}, A_{2},\ldots \in \mathcal{C} \text{ with } A_{1}\subseteq A_{2}\subseteq \ldots}\]</span> 를 만족하면 <strong>증가하는 극한에 대해 닫혀있다(closed under increasing limits)</strong>라고 한다.</p>
 </div>
 <p></p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-35"></span>
@@ -645,7 +652,7 @@ FIGURE 3.3: Closed under increasing limits.
 </div>
 
 <div class="definition">
-<span id="def:unnamed-chunk-36" class="definition"><strong>Definition 3.10  (유한한 차에 대해 닫혀있다)  </strong></span>표본공간 <span class="math inline">\(\Omega\)</span>의 부분집합들의 class <span class="math inline">\(\mathcal{C}\)</span>가 모든 <span class="math inline">\(A,B\in\mathcal{C}, A\subseteq B\)</span>에 대해 <span class="math inline">\(B\backslash A \in \mathcal{C}\)</span>를 만족하면 <strong>유한한 차에 대해 닫혀있다(closed under finite differences)</strong>라고 한다.
+<p><span id="def:unnamed-chunk-36" class="definition"><strong>Definition 3.10  (유한한 차에 대해 닫혀있다)  </strong></span>표본공간 <span class="math inline">\(\Omega\)</span>의 부분집합들의 class <span class="math inline">\(\mathcal{C}\)</span>가 모든 <span class="math inline">\(A,B\in\mathcal{C}, A\subseteq B\)</span>에 대해 <span class="math inline">\(B\backslash A \in \mathcal{C}\)</span>를 만족하면 <strong>유한한 차에 대해 닫혀있다(closed under finite differences)</strong>라고 한다.</p>
 </div>
 <p></p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-37"></span>
@@ -657,7 +664,7 @@ FIGURE 3.4: Closed under finite differences.
 <p>다음은 단조족에 대한 정의다.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-38" class="definition"><strong>Definition 3.11  (단조족)  </strong></span>표본공간 <span class="math inline">\(\Omega\)</span>의 부분집합들의 class <span class="math inline">\(\mathcal{C}\)</span>가 closed under countable increasing set이거나 closed under countable decreasing set이면, 즉 <span class="math inline">\(E_{1},E_{2},\ldots \in \mathcal{C}\)</span>일 때 <span class="math display">\[E_{i}\uparrow E \text{ or } E_{i}\downarrow E \Longrightarrow E \in \mathcal{C}\]</span> 이면 <span class="math inline">\(\mathcal{C}\)</span>를 <strong>단조족(monotone class)</strong>이라고 한다.
+<p><span id="def:unnamed-chunk-38" class="definition"><strong>Definition 3.11  (단조족)  </strong></span>표본공간 <span class="math inline">\(\Omega\)</span>의 부분집합들의 class <span class="math inline">\(\mathcal{C}\)</span>가 closed under countable increasing set이거나 closed under countable decreasing set이면, 즉 <span class="math inline">\(E_{1},E_{2},\ldots \in \mathcal{C}\)</span>일 때 <span class="math display">\[E_{i}\uparrow E \text{ or } E_{i}\downarrow E \Longrightarrow E \in \mathcal{C}\]</span> 이면 <span class="math inline">\(\mathcal{C}\)</span>를 <strong>단조족(monotone class)</strong>이라고 한다.</p>
 </div>
 <p></p>
 <p>이에 대한 증명은 <span class="citation">(Durrett <a href="#ref-Durrett2010">2010</a>)</span>의 Appendix 부분을 참고하자.</p>
@@ -678,13 +685,13 @@ FIGURE 3.4: Closed under finite differences.
 <a href="measure.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -704,16 +711,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/02-prob.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

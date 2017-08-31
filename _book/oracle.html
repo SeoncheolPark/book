@@ -34,12 +34,12 @@
   
 <link rel="prev" href="-main-concept-of-wavelet-shrinkage.html">
 <link rel="next" href="-universal-thresholding.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -553,11 +560,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><span class="math display">\[\hat{M}=\frac{1}{n}\sum_{i=1}^{n}(\hat{g}(x_{i})-g(x_{i}))^{2}.\]</span> 그러나 우리는 <span class="math inline">\(g\)</span>를 모르기 때문에 실제로 ISE를 계산할 수는 없다. 대신 ‘평균(average)’ 개념을 적용한 <strong>평균적분제곱오차(mean integrated squared err, MISE)</strong> <span class="math inline">\(E(\hat{M})\)</span>을 정의한다.</p>
 <p><span class="math display">\[ M \triangleq E(\hat{M})=\text{Risk of }\hat{g}.\]</span> 웨이블릿에서 <span class="math inline">\(\hat{g}\)</span>는 <span class="math inline">\(\lambda, \eta, \theta\)</span>에 좌우(depend)한다. 참고로 보통 <span class="math inline">\(g\)</span>가 정의되는 함수공간 <span class="math inline">\(g \in \mathcal{F}\)</span>은 일반적으로 <span class="math inline">\(L^{2}(\mathbb{R})\)</span>에서만 생각한다. 웨이블릿은 점프가 있는 함수도 다룰 수 있긴 하다. 결국 통계적 추정의 목표는 이 MISE를 최소화하는 <span class="math inline">\(\hat{g}\)</span>를 찾는 것이다.</p>
 <p>웨이블릿에서 <span class="math inline">\(\hat{M}=\sum_{j,k}(\hat{\theta}_{jk}-\theta_{jk})^{2}\)</span>이다. 여기서 웨이블릿 변환은 정규직교이므로 ’decoupling’이라는 성질을 이용할 수 있다. 이 얘기는 위의 값을 계산할 때 <span class="math inline">\(j,k\)</span>를 무시하고 마치 하나만 있는 것처럼 계산해도 된다는 것이다. 마치 벡터(vector)를 스칼라(scalar)처럼 볼 수 있다는 것이다.</p>
-<p>잠시 선형 회귀분석 모형을 복습해보자. 다음과 같은 선형 회귀분석 모형 <span class="math display">\[\mathbf{y}=\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\epsilon}\]</span> 이 있다고 하자. 여기서 <span class="math inline">\(\mathbf{y}\)</span>는 <span class="math inline">\(n \times 1\)</span> 행렬, <span class="math inline">\(\mathbf{X}\)</span>는 <span class="math inline">\(n \times d\)</span> 행렬, <span class="math inline">\(\boldsymbol{\beta}\)</span>는 <span class="math inline">\(d \times 1\)</span> 행렬, 그리고 <span class="math inline">\(\boldsymbol{\epsilon}\)</span>은 <span class="math inline">\(n \times 1\)</span> 행렬이다. 만약 여기서 <span class="math inline">\(X\)</span>의 열(column)이 정규직교라고 해보자. 그러면 <span class="math display">\[\begin{eqnarray*}
+<p>잠시 선형 회귀분석 모형을 복습해보자. 다음과 같은 선형 회귀분석 모형 <span class="math display">\[\mathbf{y}=\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\epsilon}\]</span> 이 있다고 하자. 여기서 <span class="math inline">\(\mathbf{y}\)</span>는 <span class="math inline">\(n \times 1\)</span> 행렬, <span class="math inline">\(\mathbf{X}\)</span>는 <span class="math inline">\(n \times d\)</span> 행렬, <span class="math inline">\(\boldsymbol{\beta}\)</span>는 <span class="math inline">\(d \times 1\)</span> 행렬, 그리고 <span class="math inline">\(\boldsymbol{\epsilon}\)</span>은 <span class="math inline">\(n \times 1\)</span> 행렬이다. 만약 여기서 <span class="math inline">\(X\)</span>의 열(column)이 정규직교라고 해보자. 그러면</p>
+<span class="math display">\[\begin{eqnarray*}
 \hat{\boldsymbol{\beta}}&amp;=&amp;(\hat{\beta}_{1},\cdots,\beta_{d})^{T}=(\mathbf{X}^{T}\mathbf{X})^{-1}\mathbf{X}^{T}\mathbf{y}=\mathbf{X}^{T}\mathbf{y}\\
 &amp;\Longrightarrow&amp; \hat{\beta}_{1}=\sum X_{i1}y_{i}, \hat{\beta}_{2}=\sum X_{i2}y_{i}, \cdots
-\end{eqnarray*}
-\]</span> 로 모든 <span class="math inline">\(\boldsymbol{\beta}\)</span>의 원소들이 separate(decoupled)되는 것을 볼 수 있다. 참고로 <span class="math inline">\((\mathbf{X}^{T}\mathbf{X})^{-1}\neq \mathbf{I}\)</span>인 경우 <span class="math inline">\(\hat{\beta}\)</span>가 다 연결되므로 이렇게 분석할 수 없다. 그리고 <span class="math display">\[\hat{\boldsymbol{\beta}}=\min \| \mathbf{y}-\mathbf{X}\boldsymbol{\beta} \|^{2} \Leftrightarrow \min \| \mathbf{X}^{T}\mathbf{y} - \mathbf{X}^{T}\boldsymbol{\beta} \|^{2}=\min \| \hat{\boldsymbol{\beta}}-\boldsymbol{\beta} \|^{2}\]</span> 가 된다. <span class="citation">(Donoho and Johnstone <a href="#ref-Donoho1994">1994</a>)</span> 논문에 갑자기 이 사실을 이용해 전개하는 내용이 있다.</p>
+\end{eqnarray*}\]</span>
+<p>로 모든 <span class="math inline">\(\boldsymbol{\beta}\)</span>의 원소들이 separate(decoupled)되는 것을 볼 수 있다. 참고로 <span class="math inline">\((\mathbf{X}^{T}\mathbf{X})^{-1}\neq \mathbf{I}\)</span>인 경우 <span class="math inline">\(\hat{\beta}\)</span>가 다 연결되므로 이렇게 분석할 수 없다. 그리고 <span class="math display">\[\hat{\boldsymbol{\beta}}=\min \| \mathbf{y}-\mathbf{X}\boldsymbol{\beta} \|^{2} \Leftrightarrow \min \| \mathbf{X}^{T}\mathbf{y} - \mathbf{X}^{T}\boldsymbol{\beta} \|^{2}=\min \| \hat{\boldsymbol{\beta}}-\boldsymbol{\beta} \|^{2}\]</span> 가 된다. <span class="citation">(Donoho and Johnstone <a href="#ref-Donoho1994">1994</a>)</span> 논문에 갑자기 이 사실을 이용해 전개하는 내용이 있다.</p>
 더 나아가 벌점화 최소자승법(penalized least square) 문제를 생각해보자. <span class="math inline">\(\mathbf{z}=\mathbf{X}^{T}\mathbf{y}\)</span>, <span class="math inline">\(\hat{\mathbf{y}}=\mathbf{Xz}=\mathbf{XX}^{T}\mathbf{y}\)</span>를 정의하면
 <span class="math display">\[\begin{eqnarray*}
 \| \mathbf{y}-\mathbf{X}\boldsymbol{\beta}\|^{2}+\lambda \sum_{j=1}^{d}P(| \beta_{j} |) &amp;=&amp; \| \mathbf{y}-\hat{\mathbf{y}}+\hat{\mathbf{y}}-\mathbf{X}\boldsymbol{\beta}\|^{2}+\lambda \sum_{j=1}^{d}P(|\beta_{j}|)\\
@@ -590,13 +598,13 @@ E(\theta^{2})=\theta^{2} &amp; \text{o.w.}
 <a href="-universal-thresholding.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -616,16 +624,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/24-waveletshrinkage.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

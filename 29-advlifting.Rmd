@@ -182,7 +182,8 @@ $$\delta_{(t-1)n+k,tn+k}=l_{t}\delta^{min}$$
 으로 정의한다.
 
 이웃 노드들의 집합은 다음과 같이 정의한다.
-$$J_{(t-1)n+k}=
+$$
+J_{(t-1)n+k}=
 \begin{cases}
 \{ \{ (j)_{j\in J_{k}}\} \cup \{ n+k \} \} & \text{if $t=1$}\\
 \{ \{ ((t-1)n+j)_{j\in J_{k}} \} \cup \{ ((t-2)n+k) \} \cup \{ (tn+k) \} \} & \text{if $1<t<T$}\\

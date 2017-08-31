@@ -22,6 +22,7 @@ $X_{n}$이 점근적으로 $\mathcal{N}(\mu_{n}, \sigma_{n}^{2})$에 수렴한�
 $\hat{p}_{n}$이 iid 베르누이 확률변수 $X_{1}, \ldots, X_{n}$로부터 나온 표본비(sample proportion)라고 하자. 그러면 CLT에 의해 $\hat{p}_{n}$은 점근적으로 평균 $p=E(X_{1})$이고 분산 $p(1-p)/n$인 정규분포를 따른다. 델타 방법(delta method)에 의해 $\text{ln}(\hat{p})$는 점근적으로 평균 $\ln(p)$, 분산 $(1-p)/(np)$인 정규분포를 따름을 안다. 그러면
 $$Z_{n} = \frac{\text{ln}(\hat{p}_{n})-\text{ln}(p)}{\sqrt{(1-p)/(np)}} \stackrel{D}{\rightarrow} Z \sim \mathcal{N}(0,1)$$
 임을 안다. 그러나 모든 $n$에 대해 $E\{\text{ln}(\hat{p}_{n}) \}=-\infty$인데, 이는 $\hat{p}_{n}$은 0이 될 확률이 양수이기 때문이다. 그러므로 $E(Z_{n})=-\infty$이나, $E(Z)=0$이다.
+
 ```
 
 (Skrohod 정리를 이용한 추가적 설명 필요, Essential of Probability Theory for Statisticians 193-194쪽)
@@ -33,6 +34,7 @@ $$E\{ |X_{n}| I(|X_{n}|>A)\}<\epsilon \forall n$$
 또는
 $$\lim_{A\rightarrow\infty}\sup_{n}E\{ |X_{n}| I(|X_{n}|>A)\}=0$$
 을 만족하는 것으로 정의하기도 한다.
+
 ```
 
 그렇다면 일양적분가능이 말하고자 하는 것은 무엇인가? $|X_{n}| I(|X_{n}|>A)$항부터 살펴보자. 이것은 $A$보다 작은 $|X_{n}|$ 값은 0이 되도록 조절하는 것이다. 다음 그림을 참고하자.

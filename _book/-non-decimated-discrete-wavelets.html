@@ -34,12 +34,12 @@
   
 <link rel="prev" href="-spectral-representation-of-stationary-process.html">
 <link rel="next" href="-locally-stationary-wavelet-process.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -551,9 +558,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">21.4</span> 압축 표본화되지 않은 이산 웨이블릿(non-decimated discrete wavelets)</h2>
 <p>일반적인 웨이블릿은 시계열 자료를 다루기에는 information이 너무 작아지는 경향이 있는데, <strong>압축 표본화되지 않은 웨이블릿(non-decimated wavelets)</strong>은 그렇지 않아 temporal resolution에 좋다고 한다.</p>
 <p><span class="citation">(G. P. Nason, Sachs, and Kroisandt <a href="#ref-Nason2000">2000</a>)</span>은 <strong>컴팩트 지지 웨이블릿(compactly supported wavelets)</strong>이라는 것을 만들었다. <span class="math inline">\(\psi_{j}=(\psi_{j,0},\ldots,\psi_{j,N_{j}-1})\)</span>를 길이가 <span class="math inline">\(N_{j}\)</span> (<span class="math inline">\(j\)</span>는 scale)인 웨이블릿의 수열 값이라고 하자. 그러면 <span class="math display">\[\psi_{-1,n}=\sum_{k}g_{n-2k}\delta_{0,k}=g_{n},\qquad{n=0,\ldots, N_{-1}-1},\]</span> <span class="math display">\[\psi_{j-1,n}=\sum_{k}h_{n-2k}\psi_{j,k},\qquad{n=0,\ldots, N_{-1}-1},\]</span> <span class="math display">\[N_{j}=(2^{-j}-1)(N_{h}-1)+1,\]</span> 여기서 <span class="math inline">\(\delta_{0,k}\)</span>는 크로네커 델타(Kronecker delta)이며 <span class="math inline">\(N_{h}\)</span>는 <span class="math inline">\(\{h_{k}\}\)</span>의 0이 아닌 원소들의 수이다.</p>
+
 <div class="example">
-<p>이산 Haar 웨이블릿의 경우 <span class="math display">\[\psi_{-1}=(g_{0},g_{1})=(1,-1)/\sqrt{2},\]</span> <span class="math display">\[\psi_{-2}=(h_{0}g_{0},h_{1}g_{0},h_{0}g_{1},h_{1}g_{1})=(1,1,-1,-1)/2\]</span> 이다.</p>
+<p><span id="exm:unnamed-chunk-144" class="example"><strong>Example 21.3  (이산 Haar 웨이블릿)  </strong></span>이산 Haar 웨이블릿의 경우 <span class="math display">\[\psi_{-1}=(g_{0},g_{1})=(1,-1)/\sqrt{2},\]</span> <span class="math display">\[\psi_{-2}=(h_{0}g_{0},h_{1}g_{0},h_{0}g_{1},h_{1}g_{1})=(1,1,-1,-1)/2\]</span> 이다.</p>
 </div>
+<p></p>
 </div>
 <h3> References</h3>
 <div id="refs" class="references">
@@ -570,13 +579,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <a href="-locally-stationary-wavelet-process.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -596,16 +605,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/26-multiscalets.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

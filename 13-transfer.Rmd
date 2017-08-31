@@ -54,6 +54,7 @@ $$\tilde{y}_{t}=\frac{\phi(B)}{\theta(B)}y_{t}=\alpha(B)w_{t}+\frac{\phi(B)}{\th
 정상인 두 시계열 $X_{t}$와 $Y_{t}$ 사이의 교차상관함수는
 $$\gamma_{XY}(t)=E[(X_{t}-\mu_{X})(Y_{t+k}-\mu_{Y})], \qquad{k=0,\pm 1, \pm 2, \ldots}$$
 이다. 단 모든 $t$에 대해 $\mu_{X}=E[X_{t}]$, $\mu_{Y}=E[Y_{t}]$이다.
+
 ```
 
 교차상관함수의 성질 중 중요한 것은 **자기상관함수와는 달리 대칭이 아니라**는 점이다. 따라서 교차상관함수는 자기상관함수와는 달리 상관의 정도와 영향을 미치는 방향을 같이 측정한다는 점이 특징이다.
@@ -62,6 +63,7 @@ $$\gamma_{XY}(t)=E[(X_{t}-\mu_{X})(Y_{t+k}-\mu_{Y})], \qquad{k=0,\pm 1, \pm 2, \
 정상인 두 시계열 $X_{t}$와 $Y_{t}$ 사이의 교차상관함수는
 $$\rho_{XY}(k)=Corr(X_{t},Y_{t+k})=\frac{\gamma_{XY}(k)}{\sigma_{X}\sigma_{Y}}=\frac{\gamma_{XY}(k)}{\sqrt{\gamma_{X}(0)\gamma_{Y}(0)}}$$
 으로 정의한다.
+
 ```
 
 앞선 모형에서 $\tilde{y}_{t}$와 $w_{t}$의 교차상관계수는

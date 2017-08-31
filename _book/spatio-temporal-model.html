@@ -34,12 +34,12 @@
   
 <link rel="prev" href="minimum-spanning-tree-mst-type-network.html">
 <link rel="next" href="window-based-approach.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -554,7 +561,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>We consider distance along spatial dimension as Euclidean distance and the distance in the time dimension as the minimum distance in the spatial dimension multiplied by some temporal scale factor -&gt; 이것을 <span class="math inline">\(l_{t}\)</span>라고 놓는다.</p>
 <p>이 척도 factor는 시간 domain의 어떠한 irregularity라도 유지하기 위해서라고 한다.</p>
 <p><span class="math inline">\(\delta^{min}\)</span>을 모든 노드에서의 최소 spatial edge distance, 즉 <span class="math display">\[\delta^{min}=\min \{ (\delta_{kj})_{j\in J_{k}, k\in \mathcal{N}_{1}}\}\]</span> 이라고 하자. 그리고 두 가지 경우의 시공간 네트워크를 고려하자.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-142"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-156"></span>
 <img src="images/advmultiscale_LOCAAT03.png" alt="Two spatio-temporal network examples." width="670" />
 <p class="caption">
 FIGURE 22.11: Two spatio-temporal network examples.
@@ -563,14 +570,15 @@ FIGURE 22.11: Two spatio-temporal network examples.
 <div id="case-1" class="section level3">
 <h3><span class="header-section-number">23.7.1</span> Case 1</h3>
 <p>첫번째 경우는 최초 시간에서의 엣지 구조가 시간이 지남에 따라 변하지 않고 계속 유지되는 경우다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-143"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-157"></span>
 <img src="images/advmultiscale_LOCAAT04.png" alt="Extending the spatial network to the spatio-temporal network." width="386" />
 <p class="caption">
 FIGURE 22.12: Extending the spatial network to the spatio-temporal network.
 </p>
 </div>
 <p>이것은 위 그림과 같이 시간에 따라 순차적으로 계산함으로써 해결할 수 있다. 노드 <span class="math inline">\((t-1)n+k\)</span>와 <span class="math inline">\(tn+k\)</span>의 엣지 거리는 <span class="math display">\[\delta_{(t-1)n+k,tn+k}=l_{t}\delta^{min}\]</span> 으로 정의한다.</p>
-<p>이웃 노드들의 집합은 다음과 같이 정의한다. <span class="math display">\[J_{(t-1)n+k}=
+<p>이웃 노드들의 집합은 다음과 같이 정의한다. <span class="math display">\[
+J_{(t-1)n+k}=
 \begin{cases}
 \{ \{ (j)_{j\in J_{k}}\} \cup \{ n+k \} \} &amp; \text{if $t=1$}\\
 \{ \{ ((t-1)n+j)_{j\in J_{k}} \} \cup \{ ((t-2)n+k) \} \cup \{ (tn+k) \} \} &amp; \text{if $1&lt;t&lt;T$}\\
@@ -591,13 +599,13 @@ FIGURE 22.12: Extending the spatial network to the spatio-temporal network.
 <a href="window-based-approach.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -617,16 +625,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/29-advlifting.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

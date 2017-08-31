@@ -11,6 +11,7 @@
 
 ```{definition, name="카디널리티가 같다"}
 두 집합 $A$, $B$ 사이에 전단사(bijection, 일대일 대응) 관계가 성립할 때, 두 집합의 카디널리티가 같다고 정의하고, $|A|=|B|$로 표기한다.
+
 ```
 
 ## 실함수의 수열들(sequences of real functions)
@@ -23,6 +24,7 @@ $$\lim_{n\rightarrow \infty}f_{n}(x)=f(x)$$
 를 만족하는 실함수 $f$가 존재할 때 수열 $\{ f_{n}(x)\}_{n=1}^{\infty}$이 $f$에 **점별수렴(pointwise convergence)**한다고 한다. 여기서는 $n\rightarrow \infty$일 때
 $$f_{n} \stackrel{pw}{\rightarrow} f$$
 로 표현하기로 한다.
+
 ```
 
 점별수렴보다 더 강한 조건으로 $x \in \mathbb{R}$에 상관 없이 모든 지점에서 동시에 $n\rightarrow\infty$일 때 $f_{n}(x) \rightarrow f(x)$이길 요구할 수도 있다. 이 때 사용되는 정의가 균등수렴이다.
@@ -33,6 +35,7 @@ $$|f_{n}(x)-f(x)| <\epsilon \forall n \geq n_{\epsilon} \text{ and } x\in \mathb
 을 만족시키는 정수 $n_{\epsilon}$이 존재할 때 수열 $\{ f_{n}(x)\}_{n=1}^{\infty}$이 $f$에 **균등수렴(uniform convergence)**한다고 한다. 여기서는 $n\rightarrow \infty$일 때
 $$f_{n} \stackrel{u}{\rightarrow} f$$
 로 표현하기로 한다.
+
 ```
 
 (두 수열의 차이점 설명)
@@ -58,6 +61,7 @@ a_{m1} & \cdots & a_{mn} & 0 & \cdots & 0 \\
 0 & \cdots & 0 & b_{p1} & \cdots & b_{pq} \\
 \end{bmatrix}
 $$
+
 ```
 
 ```{example, name="직합의 예"}
@@ -79,6 +83,7 @@ $$
 0 & 0 & 0 & 0 & 1\\
 \end{bmatrix}
 $$
+
 ```
 
 ### 크로네커 곱(Kronecker product)
@@ -93,6 +98,7 @@ a_{11}\mathbf{B} & \cdots & a_{1n}\mathbf{B} \\
 a_{m1}\mathbf{B} & \cdots & a_{mn}\mathbf{B} \\
 \end{bmatrix}
 $$
+
 ```
 
 ```{example, name="크로네커 곱의 예"}
@@ -123,6 +129,7 @@ $$
 18 & 21 & 24 & 28\\
 \end{bmatrix}
 $$
+
 ```
 
 ### 텐서곱(tensor product)
@@ -149,6 +156,7 @@ $$\| \mathbf{x}+\mathbf{y}\|\leq \|\mathbf{x}\| + \|\mathbf{y}\|$$
 3. 임의의 스칼라 $\alpha$와 임의의 $\mathbf{x}\in X$에 대해
 $$\| \alpha \mathbf{x}\|=|\alpha| \|\mathbf{x}\|$$
 가 성립한다.
+
 ```
 
 #### 행렬 노름(matrix norm)
@@ -163,6 +171,7 @@ $$\| \alpha \mathbf{x}\|=|\alpha| \|\mathbf{x}\|$$
 2. 임의의 $x,y\in X$에 대해서 $d(x,y)=d(y,x)$이다.
 
 3. 임의의 $x,y,z\in X$에 대해서 $d(x,z)\leq d(x,y)+d(y,z)$가 성립한다.
+
 ```
 
 만약 $d(\mathbf{x},\mathbf{y})=\| \mathbf{x}-\mathbf{y}\|$라 하면 노름공간이 거리공간이 된다. 그러나 모든 거리공간이 노름공간으로부터 유도되는 것은 이니다.

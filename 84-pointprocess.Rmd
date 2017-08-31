@@ -38,8 +38,8 @@ $$\mathcal{N}_{lf}=\sigma (\{ \{ x \in N_{lf}, n(x_{B})=m \{ m \in \mathbb{N}_{0
 $$P_{X}(F)=P(\{ \omega \in l : X(\omega) \in \mathcal{F}\}) \qquad{\text{where } \mathcal{F} \in \mathcal{N}_{lf}}$$
 이다.
 
-<div class="remark">
 
+```{corollary}
 1. $X$의 가측성(measurability) $\Longleftrightarrow$ $N(B)$가 모든 $B\in\mathcal{B}_{0}$에서 확률변수 인 것(확률론에 의해 $\mathcal{B}_{0}$을 $\mathcal{B}$로 확장할 수 있다)
 
 2. $X$의 분포는 **가산함수(count function)들의 유한한 분포** $(N(B_{1}), \ldots , N(B_{m}))$로 결정된다. 즉 가산함수들만 잘 알면 $X$의 정보를 모두 알 수 있다.
@@ -54,7 +54,7 @@ $$v(B)=P(N(B)=0), B\in\mathcal{B}_{0}$$
 $$G_{X}(u)=E[\prod_{\xi \in X}u(\xi)]$$
 로 정의되면 여기서 함수 $u$는 $u:S\longrightarrow [0,1]$이며 $\xi$는 $\{ \xi \in S, u(\xi)\leq 1 \}$로 유계(bounded)이다. 생성범함수는 $X$의 분포를 유일하게 결정한다. 예를 들어 $u(\xi)=t^{I_{\{\xi \in B\} }}$이고 $B\in \mathcal{B}_{0}, 0 \leq t \leq 1$이면 $G_{X}(u)=E t^{N(B)}$다.
 
-</div>
+```
 
 ### 표시된 점과정(marked point process)
 
@@ -68,14 +68,12 @@ $$X=\{ (\xi, m_{\xi}), \xi \in Y  \},$$
 
 가장 기본적인 점과정으로 **포아송 점과정(Poisson point process)**이 있으며, 이것의 특별한 경우가 CSR이다. 포아송 점과정을 정의하기 위해서는 먼저 **이항 점과정(binomial point process)**에 대해 알아야 한다.
 
-<div class="definition">
-
+```{definition, name="이항 점과정"}
 $f$가 $B\subseteq S$ 위에서의 밀도함수(density function)라고 하자. B 위에서 밀도 $f$를 갖는 $n$개의 i.i.d. 점들로 구성된 점과정 $X$를 **이항 점과정(binomial point process)**이라고 하며 $X\sim \text{binomial}(B,n,f)$라고 쓴다. 포아송 점과정과는 달리 $n$이 고정되어 있으며 이 $n$는 균등(uniform)이 아닌 $f$에 의해 i.i.d로 뽑인다. CSR은 $f=\frac{1}{|B|}$인 경우다.
 
-</div>
+```
 
-<div class="definition">
-
+```{definition, name="포아송 점과정"}
 $S$ 위에서 강도함수(intensity function) $\rho$를 갖는 점과정 $X$가
 
 1. $\mu (B)=\int_{B} \rho (\xi) d\xi <\infty$를 갖는 어떤 $B\subset S$에 대해 $N(B)=n(X_{B}) ~ \text{Poisson}(\mu(B))$ (만약 $\mu(B)=0$이면 $N(B)=0$이다) 이고
@@ -84,34 +82,32 @@ $S$ 위에서 강도함수(intensity function) $\rho$를 갖는 점과정 $X$가
 
 $X \sim \text{Poisson}(S,\rho)$를 **포아송 점과정(Poisson point process)**이라 부른다.
 
-</div>
+```
 
-<div class="remark">
-
+```{corollary}
 - $E N(B)=\mu(B)$ for $\mu(B) <\infty$
 
 - $\rho(\xi)d\xi$: heuristically probability of a point in a small neighborhood of $\xi$
 
 - $P(X=\xi)=0$
 
-</div>
+```
 
-<div class="definition">
 
+```{definition, name="포아송 점과정과 관련된 정의들"}
 $\rho(\cdot)=\rho$인 포아송 점과정을 **동질적 포아송 점과정(homogeneous Poisson point process)**, $\rho(\cdot)\neq\rho$인 포아송 점과정을 **비동질적 포아송 점과정(inhomogeneous Poisson point process)**이라고 부른다. 한편, 점과정에서도 정상성을 정의할 수 있는데, 임의의 점 $s\in \mathbb{R}^{d}$에 대해 이동불변성(translation invariant)
 $$X+s =\{\xi + s xi\in X\} \stackrel{\mathcal{D}}{=} X$$
 을 갖는 $X$를 **정상 점과정(stationray point process)**라고 한다. 등방성(isotropy)에 대해서도 정의할 수 있는데, $\mathbb{R}^{d}$상의 원점에 대해 회전불변성(rortation invariant)
 $$\mathcal{O}X=\{ \mathcal{O}\xi, \xi \in X\} \stackrel{\mathcal{D}}{=} X$$
 을 갖는 $X$를 **등방 점과정(isotropic point process)**라고 한다. $\mathcal{O}$은 일종의 회전연산자이다.
 
-</div>
+```
 
 ### 포아송 점과정의 성질들(properties of Poisson point process)
 
 이 절의 내용은 [@Moller2003]의 3장에 있는 포아송 점과정의 성질들을 언급한다. 증명은 생략하니 참고문헌을 참조하길 바란다. $S$는 기본적으로 유계일 필요는 없으며, $\rho$는 기본적으로 국소 적분가능(locally integrable)이다.
 
-<div class="proposition">
-
+```{proposition, name="포아송 점과정과 관련된 성질들"}
 1. $X \in \text{Poisson}(S, \rho)$인 것은
 
 $\mu(B)=\int_{S}\rho(\xi)d\xi <\infty$인 모든 $B \subseteq S$와 모든 $F \subseteq N_{lf}$에 대해
@@ -122,104 +118,93 @@ $$P(X_{B}\in F)=\sum_{n=0}^{\infty}\frac{e^{-\mu(B)}}{n!}\int_{B}\cdots\int_{B}I
 $$E[h(X_{B})]=\sum_{n=0}^{\infty}\frac{e^{-\mu(B)}}{n!}\int_{B}\cdots\int_{B}h(\{x_{1},\ldots, x_{n}\})\prod_{i=1}^{n}\rho(x_{i})dx_{1}\cdots dx_{n}$$
 이다.
 
-</div>
+```
 
 다음 정리는 포아송 점과정에 해당하는 빈 확률(void probability)은 무엇일까에 관한 것이다.
 
-<div class="theorem">
-
+```{proposition, name="포아송 점과정에 해당하는 빈 확률"}
 $X \in \text{Poisson}(S, \rho)$는 빈 확률
 $$v(B)=e^{-\mu(B)}, \qquad{\text{bounded } B\subseteq S}$$
 에 의해 유일하게 결정된다.
 
-</div>
+```
 
 다음 명제는 disjoint한 지역에서의 포아송 점과정들은 서로 독립이라는 것을 말하고 있다.
 
-<div class="proposition">
-
+```{proposition, name="disjoint한 지역에서의 포아송 점과정들은 서로 독립"}
 점과정 $X$가 포아송 점과정 $X \in \text{Poisson}(S, \rho)$이면, $X_{B_{1}}, X_{B_{2}}, \ldots$는 disjoint set들 $B_{1},B_{2},\ldots \subseteq S$에 대해 독립이다.
 
-</div>
+```
 
 다음 명제는 포아송 점과정의 생성범함수에 관한 것이다.
 
-<div class="proposition">
-
+```{proposition, name="포아송 점과정의 생성범함수"}
 점과정 $X$가 포아송 점과정 $X \in \text{Poisson}(S, \rho)$이면
 $$G_{X}(u)=E[ \prod_{\xi \in X}u(\xi)] \stackrel{\text{PPP}}{=}e^{-\int_{S}(1-u(\xi))\rho(\xi)d\xi}$$
 이다. 이 때 $u:S\rightarrow [0,1]$이다.
 
-</div>
+```
 
 다음 명제는 (정상) 포아송 점과정을 어떻게 생성할 것인가에 대한 것이다. 여기서는 극좌표(polar coordinate)를 응용한다.
 
-<div class="proposition">
-
+```{proposition, name="극좌표를 활용한 포아송 점과정의 생성"}
 $S_{1}, U_{1}, S_{2}, U_{2}, \ldots$가 $U_{i}$는 $\{u \in \mathbb{R}^{d}: \| u\| =1 \}$에서 균등하게 분포되어 있고 $S_{i} \sim \text{Exp}(\rho \omega_{d})$가 평균 $1/(\rho \omega_{d})$ $(\omega_{d}\text{: volume of d-dimension unit ball})$로 지수 분포되어있다고 하자. $R_{0}=0, R_{i}^{d}=R_{i-1}^{d}+S_{i}, i=1,2,\ldots$로 정의되었다고 할 때
 $$X=\{R_{1}U_{1}, R_{2}U_{2},\ldots\}\sim \text{Poisson}(\mathbb{R}^{d},\rho)$$
 이다.
 
-</div>
+```
 
-<div class="theorem">
-
-**(Slivnyak-Mecke's theorem)** $X \in \text{Poisson}(S, \rho)$일 때 함수 $h:S\times N_{lf} \rightarrow [0,\infty])$에 대해
+```{theorem, name="(Slivnyak-Mecke's theorem)"}
+$X \in \text{Poisson}(S, \rho)$일 때 함수 $h:S\times N_{lf} \rightarrow [0,\infty])$에 대해
 $$E[\sum_{\xi\in X}h(\xi,X\backslash \xi)]=\int_{S}[E[h(\xi,X)]]\rho(\xi)d\xi.$$
 
-</div>
+```
 
-<div class="theorem">
-
-**(Extended Slivnyak-Mecke's theorem)** $X \in \text{Poisson}(S, \rho)$일 때 함수 $h:S^{n}\times N_{lf} \rightarrow [0,\infty])$에 대해
+```{theorem, name="(Extended Slivnyak-Mecke's theorem)"}
+$X \in \text{Poisson}(S, \rho)$일 때 함수 $h:S^{n}\times N_{lf} \rightarrow [0,\infty])$에 대해
 \begin{eqnarray*}
 & &E[\sum_{\xi_{1},\ldots ,\xi_{n}\in X}^{\neq}h(\xi_{1},\ldots,\xi_{n},X\backslash \{\xi_{1},\ldots,\xi_{n}\})]\\
 &=&\int_{S}\cdots\int_{S}[E[h(\xi_{1},\ldots,\xi_{n},X)]]\prod_{i=1}^{n}\rho(\xi_{i})d\xi_{1}\cdots d\xi_{n}.\\
 \end{eqnarray*}
 
-</div>
+```
 
 ### 중첩과 세선화(superpositioning and thinning)
 
 중첩(superposition)과 세선화(thnning)는 점과정의 기본적인 연산자들이다.
 
-<div class="definition">
-
+```{definition, name="중첩"}
 포아송 점과정들 $X_{1},X_{2},\ldots$의 배반 합집합 $\cup_{i=1}^{\infty}X_{i}$를 **중첩(superposition)**이라고 한다.
 
-</div>
+```
 
-<div class="definition">
-
+```{definition, name="세선화"}
 $p:S\rightarrow [0,1]$이 함수이고 $X$가 $S$에서의 점과정이라고 하자. 점과정 $X_{thin}\subseteq X$는 $\xi \in X$를 $X_{thin}$에 확률 $p(\xi)$로 포함하는 점과정으로 정의한다. 이때 각 점들은 독립적으로 포함될지 안될지를 결정한다고 하자. 그러면 $X_{thin}$은 **보유확률(retention probability)** $p(\xi)$를 갖는 $X$의 **독립 세선화(independent thinning)**으로 정의한다. 보통
 $X_{thin}=\{ \xi \in X: R(\xi) \leq p(\xi) \}$
 로 놓으며 이 때 $R(\xi) \sim \text{Uniform}[0,1]$, $\xi\in S$는 $X$에서 뽑힌 상호독립 점들이다.
 
-</div>
+```
 
 $X_{i}$들이 독립인 포아송 점과정일 때에는 중첩을 하거나, 세선화 한 것, 그리고 세선화하면서 버려진 점과정들 또한 포아송 점과정이 된다. 다음 명제들은 이 사실에 관한 것들이다.
 
-<div class="proposition">
-
+```{proposition, name="포아송 점과정의 중첩과 세선화"}
 $X_{i}\sim \text{Poisson}(S,\rho_{i}), i=1,2,\ldots$가 상호 독립이고 $\rho=\sum\rho_{i}$가 확률 1로 국소 적분가능하면, 배반 합집합 $X=\cup_{i=1}^{\infty}X_{i}\sim\text{Poisson}(S,\rho)$이다.
 
-</div>
+```
 
-<div class="proposition">
-
+```{proposition, name="독립 세선화"}
 $X \sim \text{Poisson}(S,\rho)$가 보유확률 $p(\xi), xi\in S$를 갖는 독립 세선화 $X_{thin}$을 갖는다고 하고
 $$\rho_{thin}(\xi)=p(\xi)\rho(\xi), \xi\in S$$
 일 때, $X_{thin}$과 $X\backslash X_{thin}$은 모두 독립 포아송 과정이며 이것의 강도함수는 각각 $\rho_{thin}$과 $\rho-\rho_{thin}$이다.
 
-</div>
+```
 
 다음 따름정리를 이용하면 비동질적 포아송 점과정 또한 생성 가능하다고 한다.
 
-<div class="corollary">
-
+```{corollary}
 $X \sim \text{Poisson}(\mathbb{R}^{d}, \rho)$이며 강도함수 $\rho$는 상수 $c$에 의해 유계이다. 그러면 $X$는 보유확률 $p(\xi)=\frac{\rho(\xi)}{c}$를 갖는 $\text{Poisson}(\mathbb{R}^{d},c)$의 독립 세선화로 간주할 수 있다.
 
-</div>
+```
 
 ### 포아송과정의 시뮬레이션(simulation of Poisson processes)
 
@@ -244,15 +229,14 @@ $$P(X_{1}\in F) = E[ I_{\{X_{2}\in F\}}f(X_{2}) ], F\subseteq \mathcal{N}_{lf}$$
 
 포아송과정은 일반적으로 절대연속은 아니나 $S$가 유계일 경우에는 항상 절대연속이 된다고 한다.
 
-<div class="proposition">
-
+```{proposition, name="포아송 점과정의 절대연속"}
 1. 임의의 숫자 $\rho_{1}, \rho_{2} >0$에 대해 $\text{Poisson}(\mathbb{R}^{d},\rho_{1})$이 $\text{Poisson}(\mathbb{R}^{d},\rho_{2})$에 대해 절대연속이라는 것은 $\rho_{1}=\rho_{2}$라는 것과 동치다.
 
 2. $i=1,2$일 때 $\rho_{i}:S\rightarrow [0,\infty)$가 존재하여 $\mu_{i}=\int_{S}\rho_{i}(\xi)d\xi$가 유한하다고 하자. 그리고 $\rho_{1}>0$일 때 항상 $\rho_{2}>0$이라고 하자. 그러면 $\text{Poisson}(S,\rho_{1})$은 $\text{Poisson}(S,\rho_{2})$에 대해 절대연속이며 밀도는
 $$f(x)=e^{\mu_{2}(S)-\mu_{1}S}\prod_{\xi\in x}\frac{\rho_{1}(\xi)}{\rho_{2}(\xi)}$$
 가 된다. $(x\subset S)$
 
-</div>
+```
 
 ### 표시된 포아송과정(marked Poisson process)
 

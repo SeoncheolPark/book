@@ -34,12 +34,12 @@
   
 <link rel="prev" href="-fitting-transfer-function-model.html">
 <link rel="next" href="-types-of-kalman-filter.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -577,34 +584,36 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ol style="list-style-type: decimal">
 <li><p>회귀모형은 회귀계수가 미지의 상수인 경우로 정적 모형이다. 즉 <span class="math display">\[Y_{t}=m_{0}+m_{1}X_{1t}+m_{2}X_{2t}+v_{t}\]</span> 인 형태가 된다.</p></li>
 <li><p>회귀동적모형은 회귀계수가 시간에 따라 변화하는 경우로 동적모형이다. 즉 <span class="math display">\[Y_{t}=m_{0t}+m_{1t}X_{1t}+m_{2t}X_{2t}+v_{t}\]</span> 인 형태가 되며 각 회귀계수들을 함수형태로 추정해 주어야 한다.</p></li>
-<li>회귀동적선형모형은 회귀계수가 전 시점의 회귀계수에 의하여 결정되는 경우로 회귀동적모형의 특수한 경우가 된다. 예를 들어, 전이행렬이 단위행렬인 경우(상태벡터가 임의보행인 경우) <span class="math display">\[Y_{t}=m_{0t}+m_{1t}X_{1t}+m_{2t}X_{2t}+v_{t}\]</span> $$ _{t} =
-<span class="math display">\[\begin{pmatrix}
+<li><p>회귀동적선형모형은 회귀계수가 전 시점의 회귀계수에 의하여 결정되는 경우로 회귀동적모형의 특수한 경우가 된다. 예를 들어, 전이행렬이 단위행렬인 경우(상태벡터가 임의보행인 경우) <span class="math display">\[Y_{t}=m_{0t}+m_{1t}X_{1t}+m_{2t}X_{2t}+v_{t}\]</span></p></li>
+</ol>
+<p>그리고</p>
+<p><span class="math display">\[
+\theta_{t} =
+ \begin{pmatrix}
   m_{0t} \\
   m_{1t} \\
   m_{2t} 
- \end{pmatrix}\]</span>
-=
-<span class="math display">\[\begin{pmatrix}
+ \end{pmatrix}
+= 
+ \begin{pmatrix}
   1 &amp; 0 &amp; 0 \\
   0 &amp; 1 &amp; 0 \\
   0 &amp; 0 &amp; 1
- \end{pmatrix}\]</span>
-<span class="math display">\[\begin{pmatrix}
+ \end{pmatrix}
+ \begin{pmatrix}
   m_{0,t-1} \\
   m_{1,t-1} \\
   m_{2,t-1} 
- \end{pmatrix}\]</span></li>
-</ol>
-<ul>
-<li><span class="math display">\[\begin{pmatrix}
+ \end{pmatrix} 
++
+ \begin{pmatrix}
   w_{0t} \\
   w_{1t} \\
   w_{2t} 
- \end{pmatrix}\]</span>
-$$ 이와 같은 형태를 지닌다.
+ \end{pmatrix}
+\]</span> 이와 같은 형태를 지닌다.</p>
 </div>
-</li>
-</ul> 
+<p></p> 
 </div>
             </section>
 
@@ -615,13 +624,13 @@ $$ 이와 같은 형태를 지닌다.
 <a href="-types-of-kalman-filter.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -641,16 +650,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/15-kalman.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

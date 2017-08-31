@@ -34,12 +34,12 @@
   
 <link rel="prev" href="advwaveletshrinkage.html">
 <link rel="next" href="-multiple-testing.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -564,14 +571,27 @@ E(y_{i}-\hat{f}_{\lambda}^{-i}(x_{i}))^{2}&amp;=&amp;E(y_{i}-f(x_{i})+f(x_{i})-\
 &amp;=&amp;\sigma^{2}+E(f(x_{i})-\hat{f}_{\lambda}^{-i}(x_{i}))^{2}.\\
 \end{eqnarray*}\]</span>
 <p>만약 <span class="math inline">\(\hat{f}_{\lambda}^{-i}(x_{i}) \approx \hat{f}_{\lambda}(x_{i})\)</span>이면 <span class="math inline">\(E(\text{CV})=\text{PSE}(\lambda)\)</span>이고 <span class="math inline">\(\min_{\lambda}E(\text{CV}) \approx \min_{\lambda}\text{PSE}(\lambda) \approx \min_{\lambda}\text{MSE}(\lambda)\)</span>이다. 물론 <span class="math inline">\(\min_{\lambda}E(\text{CV}) \neq \min_{\lambda}\text{CV}\)</span>이나 아주 틀린 생각은 아니다.</p>
-<p><span class="citation">(G. P. Nason <a href="#ref-Nason1996">1996</a>)</span>에서는 웨이블릿에서 교차타당성을 하기 위한 몇 가지 방법을 제시했다. 첫 번째 방법은 하나의 자료 대신 절반의 자료(<span class="math inline">\(\frac{n}{2}\)</span>)를 제거하는 이다. 다음과 같은 <span class="math inline">\(y_{1}, \cdots, y_{n}, y_{i}=g(x_{i})+\epsilon_{i}, n=2^{J}\)</span>이라는 자료가 있다고 가정하자. 그러면 two-fold CV를 하는 방법은 다음과 같다.\  <span class="math inline">\(\lambda\)</span>의 후보군 <span class="math inline">\(\lambda \in (\lambda_{L}, \lambda^{U})\)</span>를 설정한다.\  먼저 모든 홀수번째 항의 <span class="math inline">\(y_{i}\)</span>를 제거하고 남은 <span class="math inline">\(y_{j}\)</span>에 대해 re-index를 한다(<span class="math inline">\(y_{j},j=1,\cdots,\frac{n}{2}\)</span>).\  웨이블릿 축소를 이용해 <span class="math inline">\(y_{j},j=1,\cdots,\frac{n}{2}\)</span>로부터 <span class="math inline">\(\hat{g}^{E}\)</span>를 얻는다(이 때 bound problem이 생기므로 bound treatment를 해 줘야 한다).\ <span class="math display">\[\mathbf{y} \xrightarrow{\text{DWT}} \mathbf{d} \text{ (thresholding $\lambda$) } \xrightarrow{\text{IDWT}}  \hat{g}^{E}\]</span>  Even-index 자료를 가지고 odd index의 함수값을 예측하기 위해 다음과 같은 예측값 <span class="math inline">\(\bar{g}_{\lambda,j}^{E}=\frac{(\hat{g}_{\lambda,j+1}^{E}+\hat{g}_{\lambda,j}^{E})}{2}, j=1,2,\cdots,\frac{n}{2}\)</span>를 계산한다.\  비슷한 방법으로 <span class="math inline">\(\bar{g}_{\lambda,j}^{O}\)</span>를 계산한다.\  <span class="math inline">\(\hat{M}(\lambda)=\sum_{j=1}^{\frac{n}{2}}\{(\bar{g}_{\lambda,j}^{E}-y_{2j+1})^{2}+(\bar{g}_{\lambda,j}^{O}-y_{2j})\}^{2}\)</span>를 계산한다. 여기서 앞 항은 even-index 자료를 가지고 odd 자료를 예측한 것이고, 뒤 항은 odd-index 자료를 가지고 even 자료를 예측한 것이다.\  <span class="math inline">\(\hat{M}(\lambda)\)</span>가 제일 작은 <span class="math inline">\(\lambda^{*}=\text{argmin}_{\lambda \in (\lambda_{L},\lambda^{U})} \hat{M}(\lambda)\)</span>를 최종적으로 선택한다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-128"></span>
+<p><span class="citation">(G. P. Nason <a href="#ref-Nason1996">1996</a>)</span>에서는 웨이블릿에서 교차타당성을 하기 위한 몇 가지 방법을 제시했다. 첫 번째 방법은 하나의 자료 대신 절반의 자료(<span class="math inline">\(\frac{n}{2}\)</span>)를 제거하는 이다. 다음과 같은 <span class="math inline">\(y_{1}, \cdots, y_{n}, y_{i}=g(x_{i})+\epsilon_{i}, n=2^{J}\)</span>이라는 자료가 있다고 가정하자. 그러면 two-fold CV를 하는 방법은 다음과 같다.</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\lambda\)</span>의 후보군 <span class="math inline">\(\lambda \in (\lambda_{L}, \lambda^{U})\)</span>를 설정한다.</li>
+</ol>
+<p>2 먼저 모든 홀수번째 항의 <span class="math inline">\(y_{i}\)</span>를 제거하고 남은 <span class="math inline">\(y_{j}\)</span>에 대해 re-index를 한다(<span class="math inline">\(y_{j},j=1,\cdots,\frac{n}{2}\)</span>).</p>
+<ol start="3" style="list-style-type: decimal">
+<li>웨이블릿 축소를 이용해 <span class="math inline">\(y_{j},j=1,\cdots,\frac{n}{2}\)</span>로부터 <span class="math inline">\(\hat{g}^{E}\)</span>를 얻는다(이 때 bound problem이 생기므로 bound treatment를 해 줘야 한다).</li>
+</ol>
+<p><span class="math display">\[\mathbf{y} \xrightarrow{\text{DWT}} \mathbf{d} \text{ (thresholding $\lambda$) } \xrightarrow{\text{IDWT}}  \hat{g}^{E}\]</span> 4. Even-index 자료를 가지고 odd index의 함수값을 예측하기 위해 다음과 같은 예측값 <span class="math inline">\(\bar{g}_{\lambda,j}^{E}=\frac{(\hat{g}_{\lambda,j+1}^{E}+\hat{g}_{\lambda,j}^{E})}{2}, j=1,2,\cdots,\frac{n}{2}\)</span>를 계산한다.</p>
+<ol start="5" style="list-style-type: decimal">
+<li><p>비슷한 방법으로 <span class="math inline">\(\bar{g}_{\lambda,j}^{O}\)</span>를 계산한다.</p></li>
+<li><p><span class="math inline">\(\hat{M}(\lambda)=\sum_{j=1}^{\frac{n}{2}}\{(\bar{g}_{\lambda,j}^{E}-y_{2j+1})^{2}+(\bar{g}_{\lambda,j}^{O}-y_{2j})\}^{2}\)</span>를 계산한다. 여기서 앞 항은 even-index 자료를 가지고 odd 자료를 예측한 것이고, 뒤 항은 odd-index 자료를 가지고 even 자료를 예측한 것이다.</p></li>
+<li><p><span class="math inline">\(\hat{M}(\lambda)\)</span>가 제일 작은 <span class="math inline">\(\lambda^{*}=\text{argmin}_{\lambda \in (\lambda_{L},\lambda^{U})} \hat{M}(\lambda)\)</span>를 최종적으로 선택한다.</p></li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-133"></span>
 <img src="images/advwaveletshrinkage_foldlarge.png" alt="Relation between the large number of folds and CV." width="306" />
 <p class="caption">
 FIGURE 20.1: Relation between the large number of folds and CV.
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-129"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-134"></span>
 <img src="images/advwaveletshrinkage_fold.png" alt="Relation between the small number of folds and CV." width="306" />
 <p class="caption">
 FIGURE 20.2: Relation between the small number of folds and CV.
@@ -594,13 +614,13 @@ FIGURE 20.2: Relation between the small number of folds and CV.
 <a href="-multiple-testing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -620,16 +640,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/25-advwaveletshrinkage.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

@@ -18,11 +18,10 @@ $$\text{covariance function}: C(\mathbf{s}_{1},\mathbf{s}_{2})=E(Z(\mathbf{s}_{1
 우리의 관심사는 $C(\mathbf{s}_{1},\mathbf{s}_{2})$이다(공간 변화 모델링, spatial variation modeling).
 
 그렇다면 우리는 왜 이러한 공간 변화(sptaial variation)를 고려해야 하는가? 간단한 회귀분석의 예를 들면
-$$
+
 \begin{equation}
 \mathbf{y}=\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\epsilon}, \qquad{\epsilon_{i} \sim (0, \sigma^{2}\Sigma_{0})}
 \end{equation}
-$$
 
 으로 식을 쓸 수 있다. 그런데 여기서 오차항을 $\epsilon_{i} \stackrel{\text{iid}}{\sim} (0, \sigma^{2})$이라고 놓고 모델링을 하면 일치성(consistency)은 만족하나 효율성(efficiency)이 깨지는 결과를 얻는다. 즉 추론(inference)를 하기 위해서 변동(variability)을 구할 때 이것이 커지므로 신뢰구간(confidence interval)도 커지고 부정확한 검정(test) 결과를 주는 것이다.
 
@@ -43,7 +42,7 @@ $$\mu(\mathbf{s})=\mu \text{ (mean function이 상수)}$$
 $$C(\mathbf{s}_{1},\mathbf{s}_{2})=C_{0}(\mathbf{s}_{1}-\mathbf{s}_{2})$$
 두 가지 조건을 만족하는 것이다. 두 번째 조건은 covariance function이 distribution에 depend하는 어떤 함수 $C_{0}$로 표현된다는 것이다. $C \in \mathbb{R}^{d}\times \mathbb{R}^{d}$, $C_{0} \in \mathbb{R}^{d}$라는 점에서 두 함수는 다른 함수이다.
 
-이것을 만족하는 예는 **가우스 과정(Gaussian process, GP)**, **가우스 임의장(Gaussian random field, GRF)**이 있다. 보통 **\mathbf{s}**가 1차원이면 주로 과정(process), 2차원이면 주로 장(field)이라고 부른다.
+이것을 만족하는 예는 **가우스 과정(Gaussian process, GP)**, **가우스 임의장(Gaussian random field, GRF)**이 있다. 보통 $\mathbf{s}$가 1차원이면 주로 과정(process), 2차원이면 주로 장(field)이라고 부른다.
 
 ### 내재정상성(intrinsic stationary)
 
@@ -77,14 +76,12 @@ $$2\gamma(\mathbf{h})=2(C(\mathbf{0})-c(\mathbf{h}))$$
 
 를 만족시킨다고 한다. 이 때 $\sigma^{2}$을 확산계수(diffusion coefficient)라고 한다. 편의상 1차원에서 생각하자. 그러면 $E(B(t+h)-B(t))=0$, $\text{Var}(B(t+h)-B(t))=2|h|$이므로 내재정상성이다. 그러나 $h < 0$인 경우에 공분산을 계산하면
 
-$$
 \begin{eqnarray}
 \text{Cov}(B(t+h),B(t)) &=& E(B(t+h)B(t))\nonumber\\
 &=&E[B(t+h)\{B(t)-B(t+h)+B(t+h)\}]\nonumber\\
 &=&E[B^{2}(t+h)]+E[B(t+h)]E[B(t)-B(t+h)]\nonumber\\
 &=&\sigma^{2}(t+h)+0=\sigma^{2}(t+h).
 \end{eqnarray}
-$$
 
 가 된다. 같은 방법으로 $h > 0$인 경우도 증명할 수 있으며 결국 $Cov(B(t+h),B(t))=\min (t+h,t)$가 된다. 이는 $h$의 함수가 아니고 차이로 표현 못한다는 뜻이므로 약정상성이 아니다.
 

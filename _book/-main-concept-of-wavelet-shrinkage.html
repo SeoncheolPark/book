@@ -34,12 +34,12 @@
   
 <link rel="prev" href="waveletshrinkage.html">
 <link rel="next" href="oracle.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -562,16 +569,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 <p>이런 상황에서는 평균이 틀리게 된다. 즉 <span class="math inline">\(\hat{\theta}=\frac{1}{n}\sum_{i=1}^{n}d_{i}\)</span>가 <span class="math inline">\(\theta\)</span>의 좋은 추정량이 될 수 없다는 것이다. 그래서 이를 해결하기 위해 도입된 아이디어가 <strong>임계화(thresholding)</strong>이다. 임계화가 등장하기 전까지 모든 추정량에는 평균 개념이 있었다. (ex. Ridge) 기존의 자료분석들은 “aggregation”에 치중했다. 모든 변수에 다 신호가 존재한다고 생각한 것이다. 이런 방식으로는 위의 문제를 해결할 수 없다. 그러나 웨이블릿 변환의 등장 이후에는 “sparsity” 개념이 등장하였고 몇 개의 신호만 선택하게 되었다. 이 개념 덕분 에 고차원(high-dimensional) 자료(<span class="math inline">\(n \ll p\)</span>)를 분석할 수 있게 되었다.</p>
 <p>수축 방법에는 두 가지가 있다. <strong>하드 임계화(hard thresholding)</strong>와 <strong>소프트 임계화(soft thresholding)</strong>가 그것이다. 두 임계화를 다음과 같이 정의한다.</p>
+
 <div class="definition">
-<p>주어진 (empirical) 웨이블릿 상수 d와 <strong>threshold</strong> <span class="math inline">\(\mathbf{\lambda}\)</span>가 있을 때, 그것의 <strong>하드 임계화(hard thresholding)</strong>는 <span class="math display">\[\hat{\theta}_{H}=\eta_{H}(d,\lambda)=d\mathbb{I}\{ |d| &gt; \lambda \}\]</span> 이다. 그리고 <strong>소프트 임계화(soft thresholding)</strong>는 <span class="math display">\[\hat{\theta}_{S}=\eta_{S}(d,\lambda)=\text{sgn}(d)(|d|-\lambda)\mathbb{I}\{ |d| &gt; \lambda \}\]</span> 이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-125"></span>
+<p><span id="def:unnamed-chunk-126" class="definition"><strong>Definition 19.1  (하드 임계화와 소프트 임계화)  </strong></span>주어진 (empirical) 웨이블릿 상수 d와 <strong>threshold</strong> <span class="math inline">\(\mathbf{\lambda}\)</span>가 있을 때, 그것의 <strong>하드 임계화(hard thresholding)</strong>는 <span class="math display">\[\hat{\theta}_{H}=\eta_{H}(d,\lambda)=d\mathbb{I}\{ |d| &gt; \lambda \}\]</span> 이다. 그리고 <strong>소프트 임계화(soft thresholding)</strong>는 <span class="math display">\[\hat{\theta}_{S}=\eta_{S}(d,\lambda)=\text{sgn}(d)(|d|-\lambda)\mathbb{I}\{ |d| &gt; \lambda \}\]</span> 이다.</p>
+</div>
+<p></p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-127"></span>
 <img src="images/waveletshrinkage_thresholding.png" alt="Hard thresholding (dotted line) and soft thresholding." width="263" />
 <p class="caption">
 FIGURE 19.1: Hard thresholding (dotted line) and soft thresholding.
 </p>
 </div>
 <p>두 방법 다 공통적으로 <span class="math inline">\(\mathbf{d} \in (-\lambda, \lambda)^{n}\)</span>이면 0이 된다.</p>
-</div>
 <p>하드 임계화는 “keep or kill” 방법이라고도 불린다. 그 이유는 값이 어떤 threshold(<span class="math inline">\(\mathbf{\lambda}\)</span>)보다 작을 경우 무조건 0으로 놓기 때문이다. 이것은 회귀분석의 변수 선택(variable selection)과 동일한 아이디어이다. 변수 선택에서도 변수를 넣기 또는 빼기 두 가지 선택지만 있다는 것을 생각하기 바란다. 그리고 하드임계화에서는 축소를 하지 않는다. 소프트 임계화는 하드 임계화를 함과 동시에 신호 변환 함수가 연속이 되도록 값이 큰 signal도 같이 축소(shrinkage)하는 방법이다. 이는 변수선택에서 LASSO와 대응되는 방법이다.</p>
 <p>때때로 굉장히 큰 <span class="math inline">\(\mathbf{d}\)</span>에는 오차가 작게 들어있을 것이라 생각할 수도 있다. 이를 보완하기 위해 SCAD 같은 방법들이 나중에 제안되었는데, 원래 이는 웨이블릿을 연구하는 학자들이 생각했던 개념으로 이를 통계학 언어로 옮긴 것에 불과하다.</p>
 <p>여기서 등장하는 <span class="math inline">\(\lambda\)</span>는 <strong>핵평활(kernel smoothing)</strong>이나 <strong>평활 스플라인(smoothing spline)</strong>에서 나오는 <strong>띠너비(bandwidth)</strong>와 비슷한 개념이라고 생각하면 된다. <span class="math inline">\(\lambda\)</span>의 선택 또한 중요한 이슈가 된다. 이것을 어떻게 선택하느냐에 따라 performance가 굉장히 변하고 <span class="math inline">\(\hat{g}\)</span>의 질(quality)에 영향을 미친다. <span class="math display">\[y \xrightarrow{W} d \xrightarrow{\text{th}} \hat{\theta}_{Shrink} \xrightarrow{W^{-1}} \hat{g}.\]</span></p>
@@ -585,13 +594,13 @@ FIGURE 19.1: Hard thresholding (dotted line) and soft thresholding.
 <a href="oracle.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -611,16 +620,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/24-waveletshrinkage.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

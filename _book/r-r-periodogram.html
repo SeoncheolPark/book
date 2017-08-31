@@ -34,12 +34,12 @@
   
 <link rel="prev" href="-quantile-periodogram.html">
 <link rel="next" href="fouriertowavelet.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -565,7 +572,7 @@ time_index_month &lt;-<span class="st"> </span><span class="kw">seq</span>(<span
 dataspec &lt;-<span class="st"> </span><span class="kw">xts</span>(dataspec[,<span class="dv">1</span>], <span class="dt">order.by=</span>time_index_month)
 <span class="kw">plot</span>(dataspec, <span class="dt">type=</span><span class="st">&#39;o&#39;</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">150</span>), <span class="dt">xlab=</span><span class="st">&quot;Month&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Monthly&quot;</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-77"></span>
-<img src="book_files/figure-html/unnamed-chunk-77-1.png" alt="Time series of Seoul PM10." width="672" />
+<img src="book_files/figure-html/unnamed-chunk-77-1.svg" alt="Time series of Seoul PM10." width="672" />
 <p class="caption">
 FIGURE 14.3: Time series of Seoul PM10.
 </p>
@@ -573,27 +580,27 @@ FIGURE 14.3: Time series of Seoul PM10.
 <p><code>TSA</code>, <code>kza</code>, <code>itsmr</code> 패키지를 이용한다. 같은 이름의 함수를 사용하기 때문에 실행할 때 주의해야 한다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TSA::<span class="kw">periodogram</span>(dataspec, <span class="dt">log=</span><span class="st">&#39;yes&#39;</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-78"></span>
-<img src="book_files/figure-html/unnamed-chunk-78-1.png" alt="Periodogram (using R package TSA)." width="672" />
+<img src="book_files/figure-html/unnamed-chunk-78-1.svg" alt="Periodogram (using R package TSA)." width="672" />
 <p class="caption">
 FIGURE 14.4: Periodogram (using R package TSA).
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(kza::<span class="kw">periodogram</span>(<span class="kw">as.numeric</span>(dataspec)), <span class="dt">type=</span><span class="st">&#39;o&#39;</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-79"></span>
-<img src="book_files/figure-html/unnamed-chunk-79-1.png" alt="Periodogram (using R package kza)." width="672" />
+<img src="book_files/figure-html/unnamed-chunk-79-1.svg" alt="Periodogram (using R package kza)." width="672" />
 <p class="caption">
 FIGURE 14.5: Periodogram (using R package kza).
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(itsmr::<span class="kw">periodogram</span>(dataspec))</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-80"></span>
-<img src="book_files/figure-html/unnamed-chunk-80-1.png" alt="Periodogram (using R package itsmr)." width="672" />
+<img src="book_files/figure-html/unnamed-chunk-80-1.svg" alt="Periodogram (using R package itsmr)." width="672" />
 <p class="caption">
 FIGURE 14.6: Periodogram (using R package itsmr).
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-80"></span>
-<img src="book_files/figure-html/unnamed-chunk-80-2.png" alt="Periodogram (using R package itsmr)." width="672" />
+<img src="book_files/figure-html/unnamed-chunk-80-2.svg" alt="Periodogram (using R package itsmr)." width="672" />
 <p class="caption">
 FIGURE 14.6: Periodogram (using R package itsmr).
 </p>
@@ -619,13 +626,13 @@ FIGURE 14.6: Periodogram (using R package itsmr).
 <a href="fouriertowavelet.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -645,16 +652,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/19-spectral.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

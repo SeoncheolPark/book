@@ -34,12 +34,12 @@
   
 <link rel="prev" href="-linear-wavelet-smoothing.html">
 <link rel="next" href="multiscalets.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -550,19 +557,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="-block-thresholding" class="section level2">
 <h2><span class="header-section-number">20.5</span> 블록 임계화(block thresholding)</h2>
 <p>그림과 같은 모자 함수는 한 지점에서만 값이 달라지나 이 변하는 것을 나타내기 위해 여러 개의 nonzero 웨이블릿 계수를 써야한다는 문제점이 있다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-132"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-137"></span>
 <img src="images/advwaveletshrinkage_hat.png" alt="Posterior median plot using prior mixture of point mass and Gaussian." width="258" />
 <p class="caption">
 FIGURE 20.5: Posterior median plot using prior mixture of point mass and Gaussian.
 </p>
 </div>
-<p>다음과 같은 모형 <span class="math inline">\(y_{i}=g(x_{i})+e_{i}\)</span>를 생각해보자. <span class="math inline">\(g(x_{i})\)</span>의 <span class="math inline">\((j,k)\)</span>번째 true 웨이블릿 계수는 <span class="math inline">\(\theta_{jk}=\int g(x)\psi_{jk}(x)dx\)</span>이다. <span class="math inline">\(\theta_{jk}\)</span>를 잘 계산하기 위해 다음과 같은 경험적 quantity <span class="math inline">\(\hat{d}_{jk}=\frac{1}{n}\sum_{k=1}^{n}y_{i}\psi_{jk}^{2}(x_{i})\)</span>를 생각해보자. 이것의 분산은 <span class="math display">\[
-\begin{eqnarray*}
+<p>다음과 같은 모형 <span class="math inline">\(y_{i}=g(x_{i})+e_{i}\)</span>를 생각해보자. <span class="math inline">\(g(x_{i})\)</span>의 <span class="math inline">\((j,k)\)</span>번째 true 웨이블릿 계수는 <span class="math inline">\(\theta_{jk}=\int g(x)\psi_{jk}(x)dx\)</span>이다. <span class="math inline">\(\theta_{jk}\)</span>를 잘 계산하기 위해 다음과 같은 경험적 quantity <span class="math inline">\(\hat{d}_{jk}=\frac{1}{n}\sum_{k=1}^{n}y_{i}\psi_{jk}^{2}(x_{i})\)</span>를 생각해보자. 이것의 분산은</p>
+<span class="math display">\[\begin{eqnarray*}
 var(\hat{d}_{jk})&amp;=&amp;\frac{1}{n}\sum_{i=1}^{n}var(y_{i})\psi_{jk}^{2}(x_{i})\\
 &amp;=&amp;\frac{1}{n}\sum_{i=1}^{n}\sigma^{2}\psi_{jk}^{2}(x_{i})\\
 &amp;\simeq&amp; \frac{1}{n}\sigma^{2}\int \psi_{jk}^{2}(x)dx=\frac{\sigma^{2}}{n}.
-\end{eqnarray*}
-\]</span> 로 분산이 커지는 문제가 발생한다고 한다.</p>
+\end{eqnarray*}\]</span>
+<p>로 분산이 커지는 문제가 발생한다고 한다.</p>
 <p>이 방법에 대한 해결책으로 “blockwise”하는 방법이 있다. <span class="math inline">\(j\)</span> 스케일(레벨)에서 길이 l인 겹치지 않는 블록들 <span class="math inline">\(B_{b}\)</span>를 만드는 것이다. “block truth”를 다음과 같이 정의한다. <span class="math display">\[B_{jb}=\frac{1}{l}\sum_{(b)}\theta_{jk}^{2}.\]</span> 여기서 <span class="math inline">\(\sum_{(b)}\)</span>는 <span class="math inline">\(k \in B_{b}\)</span>에 대해 모두 더하라는 것이다. 이것에 대한 추정량은 <span class="math inline">\(\hat{B}_{jb}=\frac{1}{l}\sum_{(b)}d_{jk}^{2}\)</span>이며 블록 웨이블릿 계수 contribution은 다음과 같이 구할 수 있다. <span class="math display">\[\sum_{j=0}^{q}\sum_{-\infty &lt; b &lt; \infty} \{ \sum_{(b)}\hat{d}_{jk}\psi_{jk}(x_{i})\}I(\hat{B}_{jb} &gt; \lambda^{2}).\]</span> 물론 length <span class="math inline">\(l\)</span>의 선택과 overlapping을 하는 것이 좋은지에 대한 문제가 남아 있다.</p>
 
 </div>
@@ -576,13 +583,13 @@ var(\hat{d}_{jk})&amp;=&amp;\frac{1}{n}\sum_{i=1}^{n}var(y_{i})\psi_{jk}^{2}(x_{
 <a href="multiscalets.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -602,16 +609,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/25-advwaveletshrinkage.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

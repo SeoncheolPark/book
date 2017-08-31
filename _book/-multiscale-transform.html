@@ -34,12 +34,12 @@
   
 <link rel="prev" href="multiscale.html">
 <link rel="next" href="inverse.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -557,7 +564,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="math display">\[\begin{equation}
 d_{k}=y_{2k}-y_{2k-1},\qquad{k=1,2,\ldots,\frac{n}{2}}
 \end{equation}\]</span>
-이다.
+<p>이다.</p>
 </div>
 <p></p>
 
@@ -566,7 +573,7 @@ d_{k}=y_{2k}-y_{2k-1},\qquad{k=1,2,\ldots,\frac{n}{2}}
 <span class="math display">\[\begin{equation}
 d_{1}=y_{2}-y_{1}, d_{2}=y_{4}-y_{3}, d_{3}=y_{6}-y_{5}, d_{4}=y_{8}-y_{7}
 \end{equation}\]</span>
-와 같이 4개가 존재한다. 여기서 특이한 점은 <span class="math inline">\(y_{3}-y_{2}\)</span>와 같은 값들은 고려하지 않는다는 것이다. 이는 어떻게 관측하느냐에 따라 <span class="math inline">\(d_{k}\)</span>가 완전히 달라질 수도 있다는 말이다. 즉 상세는 평행 이동 불변(translation invariant)하지 않다.
+<p>와 같이 4개가 존재한다. 여기서 특이한 점은 <span class="math inline">\(y_{3}-y_{2}\)</span>와 같은 값들은 고려하지 않는다는 것이다. 이는 어떻게 관측하느냐에 따라 <span class="math inline">\(d_{k}\)</span>가 완전히 달라질 수도 있다는 말이다. 즉 상세는 평행 이동 불변(translation invariant)하지 않다.</p>
 </div>
 <p></p>
 <p>한편, 상세와 유사한 개념으로 <strong>성김(coarser)</strong>을 정의한다.</p>
@@ -576,7 +583,7 @@ d_{1}=y_{2}-y_{1}, d_{2}=y_{4}-y_{3}, d_{3}=y_{6}-y_{5}, d_{4}=y_{8}-y_{7}
 <span class="math display">\[\begin{equation}
 c_{k}=y_{2k}+y_{2k-1},\qquad{k=1,2,\ldots,\frac{n}{2}}
 \end{equation}\]</span>
-이다.
+<p>이다.</p>
 </div>
 <p></p>
 <p>성김은 <strong>매끄러움(smooth)</strong>으로 불리기도 하며, +의 개념이다. 상세는 <strong>차이(difference)</strong>로 불리기도 하며, -의 개념이다. <span class="math inline">\(c_{k}\)</span>와 <span class="math inline">\(d_{k}\)</span>를 알고 있으면 원래 자료들의 원소 <span class="math inline">\(y_{i}\)</span>들도 다 알아낼 수 있다. 이렇게 다중척도 변환은 원래 신호를 재구성(reconstruction)할 수 있어야 한다.</p>
@@ -607,13 +614,13 @@ FIGURE 16.1: Generic step in multiscale transform.
 <a href="inverse.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -633,16 +640,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/21-multiscale.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

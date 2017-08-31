@@ -15,20 +15,19 @@ $$C(\mathbf{h})=\text{Cov}(Z(\mathbf{s}+\mathbf{h}), (Z(\mathbf{s}), \qquad{C(\c
 
 **스펙트럴 표현 정리(spectral representation theorem)**는 다른 말로 **Bochner의 정리(Bochner's theorem)**이라고 부른다.
 
-<div class="theorem">
-
+```{theorem, name="스펙트럴 표현 정리"}
 실수값을 갖는 연속 함수 $C$가 양정치함수라는 것은 그 함수가 symmetric nonnegative measure $F$로부터 $\mathcal{R}^{d}$로 가는 Fourier transform인 경우이다. 즉 
 
-$$
 \begin{eqnarray}
 C(\mathbf{h})&=&\int_{\mathbb{R}^{d}}\exp(i\mathbf{h}^{T}\mathbf{x})dF(\mathbf{x})\nonumber\\
 &=&\int_{\mathbb{R}^{d}}\cos(\mathbf{h}^{T}\mathbf{x})dF(\mathbf{x}) \text{ (spectral representation)}
 \end{eqnarray}
-$$
 
-</div>
+인 경우이다. 
 
-인 경우이다. 여기서 $F$를 **스펙트럼 측도(spectral measure)**라고 한다. 만약 $F$가 좋은 성질을 갖고 있어서 **(르베그) 밀도함수((Lebesgue) density function)** $f$가 있으면, 즉 $F(\mathbf{x})=f(\mathbf{x})d\mathbf{x}$이면 $f(\mathbf{x})$를 **스펙트럼 밀도(spectral density)**라고 하며 이것의 스펙트럼 표현(spectral representation)은 
+```
+
+여기서 $F$를 **스펙트럼 측도(spectral measure)**라고 한다. 만약 $F$가 좋은 성질을 갖고 있어서 **(르베그) 밀도함수((Lebesgue) density function)** $f$가 있으면, 즉 $F(\mathbf{x})=f(\mathbf{x})d\mathbf{x}$이면 $f(\mathbf{x})$를 **스펙트럼 밀도(spectral density)**라고 하며 이것의 스펙트럼 표현(spectral representation)은 
 $$
 C(\mathbf{h})=\int_{\mathbb{R}^{d}}\exp(i\mathbf{h}^{T}\mathbf{x})f(\mathbf{x})d\mathbf{x}=\int_{\mathbb{R}^{d}}\cos(\mathbf{h}^{T}\mathbf{x})f(\mathbf{x})d\mathbf{x}
 $$
@@ -136,25 +135,24 @@ $$C(\cdot) \text{가 원점에서 연속이면} \rightarrow C(\cdot) \text{는 �
 
 이 정리는 다음 두 가지를 일컫는 말이다.
 
-<div class="theorem">
-
+```{theorem, name="Bartlett의 정리"}
 공분산함수 $\rho(\mathbf{u})$를 갖는 정상확률과정이 k-번 평균제곱 미분가능하다는 것은 $\rho(\mathbf{u})$가 원점에서 2k-번 미분가능하다는 것과 동치이다. (k=0일 경우 위에서 말했던 관계와 같다.)
 
 k번 미분가능한 평균제곱 미분계수(k-th mean-square derivative) $Z^{(k)}(\mathbf{s})$의 공분산함수는 $(-1)^{k}C^{(2k)}$이다.
 
-</div>
+```
 
 위 설명 내용은 나중에 공분산 모형으로 체크해 볼 수 있다. 지수 공분산 모형(exponential covariance model)은 미분가능하지 않다. 한편 Matern 계급(class)을 이용할 경우 모수를 조절해서 어느 정도까지 공분산 모형이 미분가능할 지 조절할 수 있다. 한편 비모수적인 방법으로 경험적 변동도(empirical variogram)를 쓸 수 있는데, 이 방법으로는 공분산 모형이 몇 번 미분가능한지 구분할 수 없다.
 
-<div class="example">
 
+```{example, name="Bartlett의 정리의 예"}
 (1-d인 경우) $Z_{h}(\mathbf{s})=\frac{Z(\mathbf{s}+\mathbf{h})-Z(\mathbf{s})}{h}$로 정의하고 이것의 공분산함수 $C_{h}(\mathbf{t})$를 계산하면
 $$C_{h}(\mathbf{t})=\text{Cov}(Z_{h}(\mathbf{s}+\mathbf{t}),Z_{h}(\mathbf{s}))=\frac{1}{h^{2}}\{2C(\mathbf{t})-C(\mathbf{t}+\mathbf{h})-C(\mathbf{t}-\mathbf{h})\}$$
 이다. 만약 $C(\cdot)$이 두 번 미분가능하다면
 $$C_{h}(\mathbf{t}) \stackrel{\|\mathbf{h}\| \rightarrow 0}{\rightarrow} -C^{''}(\mathbf{t})$$
 이다.
 
-</div>
+```
 
 한편 평균제곱 연속성은 프랙탈 분석(fractal analysis) (표면의 부드러움 체크 관련), first index estimation 등과도 관련된다고 한다.
 
@@ -162,25 +160,23 @@ $$C_{h}(\mathbf{t}) \stackrel{\|\mathbf{h}\| \rightarrow 0}{\rightarrow} -C^{''}
 
 평균제곱연속이나 경로연속이지 않은 경우(path-continuous 조건이 mean-square continuous조건보다 strong하다)는 것을 보이는 [@Kent1989]의 정리를 소개하였다. 여기서는 간단하게 2-d version으로 정리한다.
 
-<div class="theorem">
-
+```{theorem, name="Kent의 경로연속을 위한 충분조건"}
 $\rho(\mathbf{u})$를 상관함수(correlation function)라고 하자. 이 함수를 테일러 전개로
 $$\rho(\mathbf{u})=\rho_{m}(\mathbf{u})+r_{m}(\mathbf{u}), \mathbf{u} \in \mathbb{R}^{2},$$
 여기서 $\rho_{m}(\mathbf{u})$는 $\mathbf{u}=\mathbf{0}$에서 전개한 테일러 급수의 m차 다항함수, $r_{m}(\mathbf{u})$는 나머지(remainder)이다.
 
-</div>
+```
 
 이 때, 경로연속이 성립할 충분조건은 $\rho (\cdot)$이 두번 연속 미분가능하고 $|r_{2}(\mathbf{u})|$가 다음의 순서로
 $$|r_{2}(\mathbf{u})|=O(\frac{|\mathbf{u}|^{2}}{(\log |\mathbf{u}|)^{3+\gamma}}) \text{ as } |u| \rightarrow 0 \text{ for some } \gamma >0$$
 0으로 가는 것이다.
 
-<div class="corollary">
-
+```{corollary}
 정상 가우스 과정일 때 경로 연속에 대한 충분조건은
 $$\rho(\mathbf{0})-\rho(\mathbf{u})=O(\frac{1}{(\log |\mathbf{u}|)^{1+\epsilon}})=o(1) \text{ as } |\mathbf{u}| \rightarrow 0 \text{ for some } \epsilon > 0$$
 이다. 왼쪽의 $\rho(\mathbf{0})-\rho(\mathbf{u})$은 가우스 과정일 경우 나머지의 차수(order)가 아닌 상관(correlation)의 차수로 표현 가능하다는 뜻이다.
 
-</div>
+```
 
 분산 1일 시
 $$\rho(\mathbf{0})-\rho(\mathbf{u})=\gamma(\mathbf{u}) \stackrel{\|\mathbf{u}\| \rightarrow 0}{\rightarrow} 0$$

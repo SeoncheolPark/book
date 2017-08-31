@@ -34,12 +34,12 @@
   
 <link rel="prev" href="-effective-range.html">
 <link rel="next" href="-variograms-in-other-situation.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -550,8 +557,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="----classical-parametric-isotropic-variogram-models" class="section level2">
 <h2><span class="header-section-number">35.4</span> 대표적인 모수 등방성 변동도 모형들(classical parametric isotropic variogram models)</h2>
 <p>여기서는 총 9가지의 변동도 모형을 소개한다. 그러나 실제로 널리 쓰이는 모델은 ‘exponential’과 ’matern’ 두 개이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-165"></span>
-<img src="book_files/figure-html/unnamed-chunk-165-1.png" alt="Various variogram models." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-187"></span>
+<img src="book_files/figure-html/unnamed-chunk-187-1.svg" alt="Various variogram models." width="672" />
 <p class="caption">
 FIGURE 35.2: Various variogram models.
 </p>
@@ -569,8 +576,8 @@ c_{0}+c_{1}\| \mathbf{h}\| &amp; \textrm{if $\mathbf{h}\neq 0$}\\
 <ol start="2" style="list-style-type: decimal">
 <li><strong>Spherical</strong></li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-166"></span>
-<img src="book_files/figure-html/unnamed-chunk-166-1.png" alt="Spherical model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-188"></span>
+<img src="book_files/figure-html/unnamed-chunk-188-1.svg" alt="Spherical model." width="672" />
 <p class="caption">
 FIGURE 35.3: Spherical model.
 </p>
@@ -585,8 +592,8 @@ c_{0}+c_{1} &amp; \textrm{if $\|\mathbf{h}\|&gt;R$}\\
 <ol start="3" style="list-style-type: decimal">
 <li><strong>Exponential</strong></li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-167"></span>
-<img src="book_files/figure-html/unnamed-chunk-167-1.png" alt="Exponential model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-189"></span>
+<img src="book_files/figure-html/unnamed-chunk-189-1.svg" alt="Exponential model." width="672" />
 <p class="caption">
 FIGURE 35.4: Exponential model.
 </p>
@@ -600,8 +607,8 @@ c_{0}+c_{1}(1-e^{-\frac{\|\mathbf{h}\|}{R}}) &amp; \textrm{if $\mathbf{h}\neq 0$
 <ol start="4" style="list-style-type: decimal">
 <li><strong>Gaussian</strong></li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-168"></span>
-<img src="book_files/figure-html/unnamed-chunk-168-1.png" alt="Gaussian model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-190"></span>
+<img src="book_files/figure-html/unnamed-chunk-190-1.svg" alt="Gaussian model." width="672" />
 <p class="caption">
 FIGURE 35.5: Gaussian model.
 </p>
@@ -671,7 +678,8 @@ c_{0}+c_{1}\| \mathbf{h}\|^{\lambda} &amp; \textrm{if $\mathbf{h}\neq 0$, $0\leq
 <div id="-----addtional-explanation-for-k_alpha" class="section level3">
 <h3><span class="header-section-number">35.4.1</span> 변형된 이형 베셀에 대한 보충 설명(addtional explanation for K_alpha)</h3>
 <p><strong>변형 베셀 함수(modified Bessel function)</strong>은 <strong>변형 베셀 방정식(modified Bessel equation)</strong>의 해이다. 변형 베셀 방정식(modified Bessel equation)은 다음의 <span class="math display">\[x^{2}y&#39;&#39;+xy&#39;-(x^{2}+\alpha^{2})y=0\]</span> 미분방정식의 해이다. (original은 <span class="math inline">\(x^{2}+\alpha^{2}\)</span> 부분이 다르다고 한다)</p>
-<p>이 해는 두 개가 존재한다. <span class="math display">\[\begin{array}{ll}
+<p>이 해는 두 개가 존재한다. <span class="math display">\[
+\begin{array}{ll}
 I_{\alpha}(x): &amp; \text{exponentially growing}\\
 K_{\alpha}(x): &amp; \text{exponentially decaying}\\
 \end{array}
@@ -695,13 +703,13 @@ K_{\alpha}(x) \sim \left\{ \begin{array}{ll}
 <a href="-variograms-in-other-situation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -721,16 +729,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/54-covmodel.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

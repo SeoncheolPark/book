@@ -34,12 +34,12 @@
   
 <link rel="prev" href="differencing.html">
 <link rel="next" href="-arima-seasonal-arima-models.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -554,7 +561,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>이 모형은 현재의 관측값을 과거의 관측값들의 함수형태로 나타내는 것이다.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-67" class="definition"><strong>Definition 11.5  (자기회귀모형)  </strong></span><strong>AR(p)</strong> 차수 p를 갖는 <strong>자기회귀모형(autoregressive model, AR model)</strong>은 <span class="math display">\[x_{t}=\phi_{1}x_{t-1}+\phi_{2}x_{t-2} + \cdots + \phi_{p}x_{t-p}+w_{t}\]</span> 와 같은 형태를 갖는다. 여기서 <span class="math inline">\(x_{t}\)</span>는 정상과정이며, <span class="math inline">\(\phi_{1},\ldots , \phi_{p}\)</span>는 상수이다.
+<p><span id="def:unnamed-chunk-67" class="definition"><strong>Definition 11.5  (자기회귀모형)  </strong></span><strong>AR(p)</strong> 차수 p를 갖는 <strong>자기회귀모형(autoregressive model, AR model)</strong>은 <span class="math display">\[x_{t}=\phi_{1}x_{t-1}+\phi_{2}x_{t-2} + \cdots + \phi_{p}x_{t-p}+w_{t}\]</span> 와 같은 형태를 갖는다. 여기서 <span class="math inline">\(x_{t}\)</span>는 정상과정이며, <span class="math inline">\(\phi_{1},\ldots , \phi_{p}\)</span>는 상수이다.</p>
 </div>
 <p></p>
 <p>일반적으로 AR과정의 ACF는 지수적으로 감소하며, PACF는 AR과정의 차수에 해당되는 차수 이후에는 0이 되는 성질을 갖고 있다.</p>
@@ -565,7 +572,7 @@ ARsim02 &lt;-<span class="st"> </span><span class="kw">arima.sim</span>(<span cl
 <span class="kw">plot</span>(ARsim02, <span class="dt">ylab=</span><span class="st">&quot;x&quot;</span>, <span class="dt">main=</span>(<span class="kw">expression</span>(<span class="kw">AR</span>(<span class="dv">1</span>)~<span class="er">~~</span>phi==-.<span class="dv">9</span>)))
 <span class="kw">acf</span>(ARsim01); <span class="kw">acf</span>(ARsim02); <span class="kw">pacf</span>(ARsim01); <span class="kw">pacf</span>(ARsim02)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-68"></span>
-<img src="book_files/figure-html/unnamed-chunk-68-1.png" alt="Simulated AR model." width="672" />
+<img src="book_files/figure-html/unnamed-chunk-68-1.svg" alt="Simulated AR model." width="672" />
 <p class="caption">
 FIGURE 11.6: Simulated AR model.
 </p>
@@ -581,7 +588,7 @@ MAsim02 &lt;-<span class="st"> </span><span class="kw">arima.sim</span>(<span cl
 <span class="kw">plot</span>(MAsim02, <span class="dt">ylab=</span><span class="st">&quot;x&quot;</span>,<span class="dt">main=</span>(<span class="kw">expression</span>(<span class="kw">MA</span>(<span class="dv">1</span>)~<span class="er">~~</span>theta==-.<span class="dv">5</span>))) 
 <span class="kw">acf</span>(MAsim01); <span class="kw">acf</span>(MAsim02); <span class="kw">pacf</span>(MAsim01); <span class="kw">pacf</span>(MAsim02)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-69"></span>
-<img src="book_files/figure-html/unnamed-chunk-69-1.png" alt="Simulated MA model." width="672" />
+<img src="book_files/figure-html/unnamed-chunk-69-1.svg" alt="Simulated MA model." width="672" />
 <p class="caption">
 FIGURE 11.7: Simulated MA model.
 </p>
@@ -603,13 +610,13 @@ FIGURE 11.7: Simulated MA model.
 <a href="-arima-seasonal-arima-models.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -629,16 +636,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/12-ts.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

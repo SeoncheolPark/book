@@ -30,7 +30,8 @@ $$\text{Data: } \mathbf{Z}=(Z(\mathbf{s}_{1}), \cdots , Z(\mathbf{s}_{n}))^{T}$$
 $$\text{Want to predict } Z_{0}=Z(\mathbf{s}_{0})=\mathbf{x}^{T}(\mathbf{s}_{0})\boldsymbol{\beta}+\mathbf+\boldsymbol{\epsilon}(\mathbf{s}_{0})\stackrel{let}{=}\mathbf{x}_{0}\boldsymbol{\beta}+\boldsymbol{\epsilon}_{0}$$
 
 일단 covariance structure가 필요하다.
-$$\text{Cov}\left[\begin{array}
+$$
+\text{Cov}\left[\begin{array}
 {r}
 \mathbf{Z}\\
 Z_{0}\\
@@ -51,63 +52,63 @@ $$
 Linear unbiased predictor
 $$\hat{Z}_{0}=\sum_{i=1}^{n}\lambda_{i}z_{i}=\boldsymbol{\lambda}^{T}\mathbf{Z} \text{ and } E(\hat{Z}_{0}-Z_{0})$$
 를 가정하자. 여기서 주의하여야 할 점은 $Z_{0}$자체도 random이므로 $E(\hat{Z}_{0})=Z_{0}$라 할 수 없다는 것이다. $\mathbf{Z}=\boldsymbol{X}^{T}\boldsymbol{\beta}+\boldsymbol{\epsilon}$을 이용하면
-$$
+
 \begin{eqnarray*}
 E(\hat{Z}_{0})&=&E(\boldsymbol{\lambda}^{T}\mathbf{Z})\\
 &\Longrightarrow& E(\boldsymbol{\lambda}^{T}(\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\epsilon}))=\mathbf{x}_{0}^{T}\boldsymbol{\beta}\\
 &\Longleftrightarrow& \boldsymbol{\lambda}^{T}\mathbf{X}\boldsymbol{\beta}=\mathbf{x}_{0}^{T}\boldsymbol{\beta}\\
 &\Longleftrightarrow& \boldsymbol{\lambda}^{T}\mathbf{X}\mathbf{x}_{0}^{T} \textbf{ (unbiasedness 조건)}\\
 \end{eqnarray*}
-$$
+
 마지막 줄이 성립하는 이유는 $\boldsymbol{\lambda}^{T}\mathbf{X}$, $\mathbf{x}_{0}^{T}$는 행렬이 아닌 벡터지만 임의의 $\boldsymbol{\beta}$에 대해 세번째 줄 식이 모두 만족해야 하기 때문이다.
 
 $E(\hat{Z}_{0}-Z_{0})^{2}$을 minimize하기 위해 우선
-$$
+
 \begin{eqnarray*}
 \hat{Z}_{0}-Z_{0} &=& \boldsymbol{\lambda}^{T}(\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\epsilon}-(\mathbf{x}_{0}^{T}\boldsymbol{\beta}+\epsilon_{0}))\\
 &=&\boldsymbol{\lambda}^{T}\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\lambda}^{T}\boldsymbol{\epsilon}-\mathbf{x}_{0}^{T}\boldsymbol{\beta}-\epsilon_{0}\\
 &=&\mathbf{x}_{0}^{T}\boldsymbol{\beta}+\boldsymbol{\lambda}^{T}\boldsymbol{\epsilon}-\mathbf{x}_{0}^{T}\boldsymbol{\beta}-\epsilon_{0}\text{ (unbiased constraint를 쓴다)}\\
 &=&\boldsymbol{\lambda}^{T}\boldsymbol{\epsilon}-\epsilon_{0}
 \end{eqnarray*}
-$$
+
 마지막 식을 보면, unbiasedness 조건을 줬더니 놀랍게도 $\boldsymbol{\beta}$가 없어졌음을 알 수 있다. 이는 $\boldsymbol{\beta}$를 뭘 쓸지 고민할 필요 없이 prediction이 가능하다는 의미라고 한다.
 
 그러면 $E(\hat{Z}_{0}-Z_{0})^{2}$의 계산은
-$$
+
 \begin{eqnarray*}
 E(\hat{Z}_{0}-Z_{0})^{2}&=&E(\boldsymbol{\lambda}^{T}\boldsymbol{\epsilon}-\epsilon_{0})^{2}\\
 &=&E((\boldsymbol{\lambda}^{T}\boldsymbol{\epsilon})^{2})+E(\epsilon_{0}^{2})-2E(\boldsymbol{\lambda}^{T}\boldsymbol{\epsilon}-\epsilon_{0})\\
-&=&\boldsymbol{\lambda}^{T}\boldsymbol{\Sigma}\boldsymbol{\lambda}+\sigma_{0}^{2}-2\boldsymbol{\lambda}^{T}\mathbf{T}\tag{$\star$}\\
+&=&\boldsymbol{\lambda}^{T}\boldsymbol{\Sigma}\boldsymbol{\lambda}+\sigma_{0}^{2}-2\boldsymbol{\lambda}^{T}\mathbf{T}
 \end{eqnarray*}
-$$
+
 $E((\boldsymbol{\lambda}^{T}\boldsymbol{\epsilon})^{2})$를 계산하기 위해 $\boldsymbol{\lambda}^{T}\boldsymbol{\epsilon}$이 스칼라라는 것을 이용, $(\boldsymbol{\lambda}^{T}\boldsymbol{\epsilon})(\boldsymbol{\lambda}^{T}\boldsymbol{\epsilon})^{T}=\boldsymbol{\lambda}^{T}\boldsymbol{\epsilon}\boldsymbol{\epsilon}^{T}\boldsymbol{\lambda}$임를 이용하였다.
 
 이제 $\boldsymbol{\lambda}^{T}\mathbf{X}\mathbf{x}_{0}^{T}$ 제한이 걸린 ($\star$)를 최소화하는 문제 (constraint optimization problem)을 풀기 위해 **Lagrange multiplier**를 쓰도록 하자. 참고로 나중에 추정을 해야 하지만 지금은 $\boldsymbol{\Sigma}, \sigma_{0}^{2}$을 안다고 가정한다. 다음
 $$
-L(\boldsymbol{\lambda},\boldsymbol{\nu})=\boldsymbol{\lambda}^{T}\boldsymbol{\Sigma}\boldsymbol{\lambda}-2\boldsymbol{\lambda}^{T}\mathbf{T}+\sigma_{0}^{2}-2(\boldsymbol{\lambda}^{T}\mathbf{X}-\mathbf{x}_{0}^{T})\boldsymbol{\nu} \text{ (계산을 편하게 하기 위해 constraint에 2를 곱합)}\\
+L(\boldsymbol{\lambda},\boldsymbol{\nu})=\boldsymbol{\lambda}^{T}\boldsymbol{\Sigma}\boldsymbol{\lambda}-2\boldsymbol{\lambda}^{T}\mathbf{T}+\sigma_{0}^{2}-2(\boldsymbol{\lambda}^{T}\mathbf{X}-\mathbf{x}_{0}^{T})\boldsymbol{\nu} \text{ (계산을 편하게 하기 위해 constraint에 2를 곱합)}
 $$
 식을 미분하면 minimizer를 구할 수 있다.
-$$\frac{\partial L(\boldsymbol{\lambda},\boldsymbol{\nu})}{\partial \boldsymbol{\lambda}}=2\boldsymbol{\lambda}^{T}\boldsymbol{\Sigma}-2\mathbf{T}-2\mathbf{X}\boldsymbol{\nu}=\mathbf{0}\tag{1}$$
-$$\frac{\partial L(\boldsymbol{\lambda},\boldsymbol{\nu})}{\partial \boldsymbol{\nu}}=-2(\mathbf{x}_{0}^{T}-\boldsymbol{\lambda}^{T}\mathbf{X})=0 \tag{2}$$
+$$\frac{\partial L(\boldsymbol{\lambda},\boldsymbol{\nu})}{\partial \boldsymbol{\lambda}}=2\boldsymbol{\lambda}^{T}\boldsymbol{\Sigma}-2\mathbf{T}-2\mathbf{X}\boldsymbol{\nu}=\mathbf{0}$$
+$$\frac{\partial L(\boldsymbol{\lambda},\boldsymbol{\nu})}{\partial \boldsymbol{\nu}}=-2(\mathbf{x}_{0}^{T}-\boldsymbol{\lambda}^{T}\mathbf{X})=0 $$
 
-우선 (1)식으로부터
+우선 첫 번째 식으로부터
 $$\hat{\boldsymbol{\lambda}}=\boldsymbol{\Sigma}^{-1}(\mathbf{T}+\mathbf{X}\boldsymbol{\nu})$$
-를 얻는다. 이것을 (2)식에 집어넣으면
+를 얻는다. 이것을 두 번째 식에 집어넣으면
 $$
 \mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}(\mathbf{T}+\mathbf{X}\boldsymbol{\nu})=\mathbf{x}_{0}\\
 \mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{T}+\mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{X}\boldsymbol{\nu}=\mathbf{x}_{0}\\
 \therefore \hat{\boldsymbol{\nu}}=(\mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{X})^{-1}(\mathbf{x}_{0}-\mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{T})\\
 $$
-가 된다. 이 식을 다시 (1)에 집어넣는다. 그러면
+가 된다. 이 식을 다시 첫 번째 식에 집어넣는다. 그러면
 $$\hat{\boldsymbol{\lambda}}=\boldsymbol{\Sigma}^{-1}(\mathbf{T}+\mathbf{X}(\mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{X})^{-1}(\mathbf{x}_{0}-\mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{T}))$$
 이고
-$$
+
 \begin{eqnarray*}
 \hat{Z_{0}}&=&\hat{\boldsymbol{\lambda}}^{T}\mathbf{Z}=(\mathbf{T}+\mathbf{X}(\mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{X})^{-1}(\mathbf{x}_{0}-\mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{T}))^{T}\boldsymbol{\Sigma}^{-1}\mathbf{Z}\\
 &=&\mathbf{T}^{2}\boldsymbol{\Sigma}^{-1}\mathbf{Z}+(\mathbf{x}_{0}-\mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{T})^{T}(\mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{X})^{-1}\mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{Z}\\
 &=&\mathbf{x}_{0}\hat{\boldsymbol{\beta}}_{\text{GLS}}+\mathbf{T}^{T}\boldsymbol{\Sigma}^{-1}(\mathbf{Z}-\mathbf{X}^{T}\hat{\boldsymbol{\beta}}_{\text{GLS}})\\
 \end{eqnarray*}
-$$
+
 이다. 마지막 식을 살펴보면 $(\mathbf{Z}-\mathbf{X}^{T}\hat{\boldsymbol{\beta}}_{\text{GLS}})$는 일종의 residual로 생각할 수 있고 $\mathbf{T}^{T}\boldsymbol{\Sigma}^{-1}$은 대응되는 적당한 weight라고 생각할 수 있다. 여기서
 $$\hat{\boldsymbol{\beta}}_{\text{GLS}}=(\mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{X})^{-1}\mathbf{X}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{Z}$$
 이다.
@@ -166,21 +167,21 @@ $$\propto \pi(\theta)\cdot \frac{1}{\sigma^{2}}$$
 로 준다. $\boldsymbol{\beta}$는 flat prior를 주며 $\pi(\theta)$는 parameter에 따라 바뀐다. 가능하면 사전분포의 contribution을 없애고 싶기 때문에 이렇게 놓는다고 한다.
 
 Bayesian setting에서는 $Z_{0}|\mathbf{Z}$에 $Z_{0}|\mathbf{Z}, \boldsymbol{\beta}, \sigma^{2}, \theta$(이 분포는 알고 있는 분포이다)가 숨어있는 꼴이라고 한다. $\pi(Z_{0}|\mathbf{Z})$를 만들려면 $\boldsymbol{\beta}, \sigma^{2}, \theta$에 대해 적분해야 한다. 먼저 $\boldsymbol{\beta}$에 대해 decompose를 이용해 적분하면
-$$
+
 \begin{eqnarray*}
 \pi(Z_{0}|\mathbf{Z},\sigma^{2},\theta)&=&\int \pi(Z_{0},\boldsymbol{\beta}|\mathbf{Z},\sigma^{2},\theta)d\mathbf{\beta}\\
 &=& \int \pi(Z_{0}|\mathbf{Z},\boldsymbol{\beta},\sigma^{2},\theta)\pi(\boldsymbol{\beta}|\mathbf{Z},\sigma^{2},\theta)d\mathbf{\beta}\\
 \end{eqnarray*}
-$$
+
 으로 구할 수 있다. 같은 방법으로 $\sigma^{2}$에 대해서도 적분하면
 $$\pi(Z_{0}|\mathbf{Z},\theta)=\int \pi(Z_{0},\sigma^{2}|\mathbf{Z},\theta)d\sigma^{2}$$
 으로 구할 수 있다. 여기까지는 explicit form이 잘 나온다고 한다. 그리고 $\theta$에 대해서도 마찬가지로 적분할 수 있는데
-$$
+
 \begin{eqnarray*}
 \pi(Z_{0}|\mathbf{Z})&=&\int\pi(Z_{0},\theta |\mathbf{Z})d\theta\\
 &=&\int\pi(Z_{0}|\mathbf{Z}, \theta )\cdot\pi(\theta)d\theta\\
 \end{eqnarray*}
-$$
+
 이다. 그런데 여기서는 explicit form이 잘 안나와 보통 numerical integration을 한다고 한다.
 
 이 방법의 장점은 앞선 두 방법들과 달리 $\Sigma$, $\sigma_{0}^{2}$을 알 필요가 없다는 것이다. 라그랑지 승수법과 조건부 분포를 이용한 방법은 $\hat{\Sigma}$, $\hat{\sigma}_{0}^{2}$를 통해 uncertainty가 늘어나는데 이 방법은 그렇지 않다.
@@ -230,13 +231,13 @@ $$\hat{Z}_{0}=\tilde{\boldsymbol{\mu}}+\mathbf{T}^{T}\boldsymbol{\Sigma}^{-1}(\m
 여기서 $\tilde{\boldsymbol{\mu}}$는 $\boldsymbol{\mu}$의 GLS solution이며 ordinary kriging은 universal kriging의 special case이다.
 
 만약 $\hat{Z}_{0}$를 prediction weight ($\boldsymbol{\psi}$의 함수) $\lambda_{i}$와 $Z(\mathbf{s}_{i})$의 linaer combination으로 생각한다면 $\hat{Z}_{0}=\sum_{i=1}^{n}\lambda_{i}Z(\mathbf{s}_{i})$로 쓸 수 있다. Simple kriging의 경우는
-$$
+
 \begin{eqnarray*}
 \hat{Z}_{0}&=&(1-\sigma_{i}\lambda_{i})\boldsymbol{\mu}+\boldsymbol{\lambda}^{T}\mathbf{Z} \qquad(\boldsymbol{\lambda}=\mathbf{T}^{T}\boldsymbol{\Sigma}^{-1})\\
 &=&(1-\sigma_{i}\lambda_{i})\boldsymbol{\mu}+\sum_{i}\lambda_{i}Z(\mathbf{s}_{i})\\
 &=&\text{global mean + data로부터 나오는 mean}\\
 \end{eqnarray*}
-$$
+
 으로 $\hat{\boldsymbol{\mu}}=\bar{\mathbf{Z}}$로 했기 때문에 global mean이 없어지지 않고 남는다. 한편 ordinary kriging의 경우는 $\sum_{i}\lambda_{i}=1$이라는 제약조건 하에 $\hat{Z}_{0}=\sum_{i}\lambda_{i}Z(\mathbf{s}_{i})$로 표현 가능하다. 참고로 universal kriging인 경우에 constraint는 $\boldsymbol{\lambda}^{T}\mathbf{x}=x_{0}$이라는 제약조건이 있다.
 
 참고로 **크리깅 자체는 stationary 가정이 필요 없다.** 다만 나중에  $\Sigma$ 추정시 문제가 될 수 있다고 한다.
@@ -248,7 +249,8 @@ $$
 예를 들면 weather station에 있는 기온, 습도, 풍속 데이터 등을 크리깅할 경우가 이에 해당한다. 한 장소에 $p$개의 데이터
 $$\mathbf{Z}(\mathbf{s})=(Z_{1}(\mathbf{s}), \ldots, Z_{p}(\mathbf{s}_{n}))$$
 이 있다고 하자. 여기서 $Z_{1}(\mathbf{s}_{0})$을 예측하고 싶다고 하자. 추가로 $E(\mathbf{Z}(\mathbf{s}))=\boldsymbol{\mu}=(\mu_{1}, \ldots , \mu_{n})^{T}$,
-$$\text{Cov}(\mathbf{Z}(\mathbf{s}),\mathbf{Z}(\mathbf{t}))=C(\mathbf{s},\mathbf{t})=
+$$
+\text{Cov}(\mathbf{Z}(\mathbf{s}),\mathbf{Z}(\mathbf{t}))=C(\mathbf{s},\mathbf{t})=
 \begin{bmatrix}
 C_{11}(\mathbf{s},\mathbf{t}) & \ldots & C_{1p}(\mathbf{s},\mathbf{t}) \\
 \vdots & \ddots & \vdots\\

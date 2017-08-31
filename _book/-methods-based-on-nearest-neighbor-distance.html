@@ -34,12 +34,12 @@
   
 <link rel="prev" href="-general-monte-carlo-methods-for-csr-test.html">
 <link rel="next" href="r-r-edf.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -564,8 +571,8 @@ G(y)=P(Y\leq y)&amp;\approx &amp; 1-(1-\pi y^{2}|A|^{-1})^{n-1}\\
 <li><p>(Point-to-nearest event distance) <span class="math inline">\(X\)</span>를 <span class="math inline">\(A\)</span> 안에 있는 어떤 점에서 <span class="math inline">\(n\)</span>개의 사건들 중 가장 가까운 사건과의 거리라고 하자. 또 <span class="math inline">\(x_{i}, i=1,\ldots ,m\)</span>을 <span class="math inline">\(A\)</span>의 <span class="math inline">\(i\)</span>번째 점에서 <span class="math inline">\(n\)</span>개의 사건들 중 가장 가까운 사건과의 거리라고 하자. 그러면 <span class="math display">\[F(x)=P(X\leq x) \approx 1 - e^{-\lambda \pi x^{2}}, \qquad{x \geq 0, \lambda = \frac{n}{|A|}}\]</span> <span class="math display">\[\hat{F}_{1}(x)=\frac{1}{m}\sum I(x_{i}\leq x)\]</span> 그 다음에는 앞게 비슷하게 EDF 그림을 그려보거나 <span class="math inline">\(u_{1}=\int (\hat{F}_{1}(x)-\bar{F}_{1}(x))^{2}dx\)</span>등으로 검정 가능하다.</p></li>
 <li><p>정방구역 계산(quadrat count)</p></li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-178"></span>
-<img src="book_files/figure-html/unnamed-chunk-178-1.png" alt="Examples of rectangle area." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-205"></span>
+<img src="book_files/figure-html/unnamed-chunk-205-1.svg" alt="Examples of rectangle area." width="672" />
 <p class="caption">
 FIGURE 43.1: Examples of rectangle area.
 </p>
@@ -589,13 +596,13 @@ FIGURE 43.1: Examples of rectangle area.
 <a href="r-r-edf.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -615,16 +622,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/82-CSR.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

@@ -34,12 +34,12 @@
   
 <link rel="prev" href="-the-non-decimated-wavelet-transform-ndwt.html">
 <link rel="next" href="waveletshrinkage.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -575,16 +582,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>대칭 chirp 함수를 <span class="math display">\[y(x)=\sin(\pi/x)\]</span> 로 정의한다. 이 때 <span class="math inline">\(x=\epsilon &#39; +(-1,-1,+\delta,-1+2\delta, \ldots, 1-2\delta)\)</span>이며 <span class="math inline">\(\epsilon &#39; =10^{-5}\)</span>이며 <span class="math inline">\(\delta=1/512\)</span>이다. 이 함수의 그림은 다음과 같다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw">simchirp</span>()
 <span class="kw">plot</span>(y, <span class="dt">type=</span><span class="st">&#39;l&#39;</span>, <span class="dt">xlab=</span><span class="st">&quot;Time&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Chirp value&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-121"></span>
-<img src="book_files/figure-html/unnamed-chunk-121-1.png" alt="Simulated chirp signal." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-122"></span>
+<img src="book_files/figure-html/unnamed-chunk-122-1.svg" alt="Simulated chirp signal." width="672" />
 <p class="caption">
 FIGURE 17.7: Simulated chirp signal.
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ywd &lt;-<span class="st"> </span><span class="kw">wd</span>(y$y, <span class="dt">filter.number=</span><span class="dv">2</span>, <span class="dt">family=</span><span class="st">&quot;DaubExPhase&quot;</span>)
 <span class="kw">plot</span>(ywd, <span class="dt">scaling=</span><span class="st">&quot;by.level&quot;</span>, <span class="dt">main=</span><span class="st">&quot;&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-122"></span>
-<img src="book_files/figure-html/unnamed-chunk-122-1.png" alt="Discrete wavelet coefficients of simulated chirp signal." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-123"></span>
+<img src="book_files/figure-html/unnamed-chunk-123-1.svg" alt="Discrete wavelet coefficients of simulated chirp signal." width="672" />
 <p class="caption">
 FIGURE 17.8: Discrete wavelet coefficients of simulated chirp signal.
 </p>
@@ -593,8 +600,8 @@ FIGURE 17.8: Discrete wavelet coefficients of simulated chirp signal.
 &gt;  [8] 7.484166 8.769223 4.756466</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ywd &lt;-<span class="st"> </span><span class="kw">wd</span>(y$y, <span class="dt">filter.number=</span><span class="dv">2</span>, <span class="dt">family=</span><span class="st">&quot;DaubExPhase&quot;</span>, <span class="dt">type=</span><span class="st">&quot;station&quot;</span>)
 <span class="kw">plot</span>(ywd, <span class="dt">scaling=</span><span class="st">&quot;by.level&quot;</span>, <span class="dt">main=</span><span class="st">&quot;&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-123"></span>
-<img src="book_files/figure-html/unnamed-chunk-123-1.png" alt="Time-ordered non-decimated wavelet coefficients of simulated chirp signal." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-124"></span>
+<img src="book_files/figure-html/unnamed-chunk-124-1.svg" alt="Time-ordered non-decimated wavelet coefficients of simulated chirp signal." width="672" />
 <p class="caption">
 FIGURE 17.9: Time-ordered non-decimated wavelet coefficients of simulated chirp signal.
 </p>
@@ -603,8 +610,8 @@ FIGURE 17.9: Time-ordered non-decimated wavelet coefficients of simulated chirp 
 &gt;  [8] 11.736733 13.175435  7.737538</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ywst &lt;-<span class="st"> </span><span class="kw">wst</span>(y$y, <span class="dt">filter.number=</span><span class="dv">2</span>, <span class="dt">family=</span><span class="st">&quot;DaubExPhase&quot;</span>)
 <span class="kw">plot</span>(ywst, <span class="dt">scaling=</span><span class="st">&quot;by.level&quot;</span>, <span class="dt">main=</span><span class="st">&quot;&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-124"></span>
-<img src="book_files/figure-html/unnamed-chunk-124-1.png" alt="Packet-ordered non-decimated wavelet coefficients of simulated chirp signal." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-125"></span>
+<img src="book_files/figure-html/unnamed-chunk-125-1.svg" alt="Packet-ordered non-decimated wavelet coefficients of simulated chirp signal." width="672" />
 <p class="caption">
 FIGURE 17.10: Packet-ordered non-decimated wavelet coefficients of simulated chirp signal.
 </p>
@@ -622,13 +629,13 @@ FIGURE 17.10: Packet-ordered non-decimated wavelet coefficients of simulated chi
 <a href="waveletshrinkage.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -648,16 +655,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/23-generalDWT.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

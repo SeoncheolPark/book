@@ -34,12 +34,12 @@
   
 <link rel="prev" href="max-stablity.html">
 <link rel="next" href="-inference-in-extreme-value-statistics.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -551,9 +558,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">47.3</span> 복귀 수준(return level)</h2>
 <p>앞서 극단값 분석은 극단적인 사건들을 모델링하고 적합한 위험 평가를 해 줄 수 있는 통계적 방법을 제공한다고 설명하였다. 그렇다면 우리는 어떤 방법을 통해 이 <strong>위험(risk)</strong>를 측정할 수 있을까?</p>
 <p>한 가지 방법으로 <strong>복귀 수준(return level)</strong>이라는 것이 있다. <strong>n-복귀 수준</strong>은 우리가 매 <span class="math inline">\(n\)</span>년마다 한 번꼴로 초과될 것으로 기대되는 값이다. 다시 말하면 어떤 특정한 해에 그런 강도의 사건을 마주칠 확률이 <span class="math inline">\(\frac{1}{n}\)</span> 정도 될 때 <span class="math inline">\(n\)</span>-복귀 수준이 된다. 분위수(quantile)로 봤을 때에는 <span class="math inline">\(1-\frac{1}{n}\)</span>분위수에 대응되는 사건이다.</p>
+
 <div class="example">
-<p>20년 복귀 수준은 매 20년마다 최대 수준이 한 번꼴로 초과할 것으로 기대되는 수준에 대응된다. 이것은 매 년 <span class="math inline">\(\frac{1}{20}=0.05\)</span>의 확률로 그러한 사건이 마주칠 것으로 기대되며 <span class="math inline">\(1-\frac{1}{20}=0.95\)</span>의 분위수에 대응된다.</p>
+<p><span id="exm:unnamed-chunk-238" class="example"><strong>Example 47.3  (복귀 수준)  </strong></span>20년 복귀 수준은 매 20년마다 최대 수준이 한 번꼴로 초과할 것으로 기대되는 수준에 대응된다. 이것은 매 년 <span class="math inline">\(\frac{1}{20}=0.05\)</span>의 확률로 그러한 사건이 마주칠 것으로 기대되며 <span class="math inline">\(1-\frac{1}{20}=0.95\)</span>의 분위수에 대응된다.</p>
 </div>
+<p></p>
 <p>일반적으로 많이 쓰이는 복귀 수준은 <span class="math inline">\(20, 50, 100\)</span>년 정도이다.</p>
 <p>이 복귀 수준이라는 개념은 통계학에서 말하는 분위수와 일맥상통한다. <span class="math inline">\(0&lt;p&lt;1\)</span>이라 할 때, 일반화 극단값 분포의 분위수 <span class="math inline">\(x_{p}\)</span>는 <span class="math display">\[x_{p}=\mu-\frac{\sigma}{\xi}[1-\{-\log(1-p)\}^{-\xi}]\]</span> 가 된다. 이것은 <span class="math inline">\(G(x_{p})=1-p\)</span>라 놓고 <span class="math inline">\(x_{p}\)</span>에 대해 풀어 얻을 수 있다. 이 때 <span class="math inline">\(x_{p}\)</span>를 <span class="math inline">\(1/p\)</span> <strong>복귀 주기(return period)</strong>에 대응되는 복귀 수준이라 부른다.</p>
 </div>
@@ -566,13 +575,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <a href="-inference-in-extreme-value-statistics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -592,16 +601,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/91-uevtheory.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

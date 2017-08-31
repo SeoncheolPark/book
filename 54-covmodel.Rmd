@@ -62,8 +62,7 @@ $$\gamma(\mathbf{h})=C(\mathbf{0})-C(\mathbf{h})$$
 
 ## 유효 범위(effective range)
 
-앞서 말한 성질들에 variogram은 $\mathbf{h} \rightarrow \infty$어떤 값으로 수렴한다. 그런데 어느정도 지난 $\mathbf{h}$이후에 수렴값과 맞닿으면 range를 정의할 수 있으나 점근해서 수렴하는 경우는 range가 $\infty$가 되는 문제가 발생한다. 이럴 때 대신 쓰는 정의로 **유효 범위(effective range)**라는 것이 있다. 이 것의 정의는 다음과 같다.
-$$\gamma(\mathbf{h}) \text{가 sill의 95% 접근하는 smallest } \|\mathbf{h}\| .$$
+앞서 말한 성질들에 variogram은 $\mathbf{h} \rightarrow \infty$어떤 값으로 수렴한다. 그런데 어느정도 지난 $\mathbf{h}$이후에 수렴값과 맞닿으면 range를 정의할 수 있으나 점근해서 수렴하는 경우는 range가 $\infty$가 되는 문제가 발생한다. 이럴 때 대신 쓰는 정의로 **유효 범위(effective range)**라는 것이 있다. 이 것의 정의는 $\gamma(\mathbf{h})$ 가 sill의 95% 접근하는 smallest $\|\mathbf{h}\|$ 이다.
 
 ## 대표적인 모수 등방성 변동도 모형들(classical parametric isotropic variogram models)
 
@@ -273,7 +272,8 @@ $$x^{2}y''+xy'-(x^{2}+\alpha^{2})y=0$$
 미분방정식의 해이다. (original은 $x^{2}+\alpha^{2}$ 부분이 다르다고 한다)
 
 이 해는 두 개가 존재한다.
-$$\begin{array}{ll}
+$$
+\begin{array}{ll}
 I_{\alpha}(x): & \text{exponentially growing}\\
 K_{\alpha}(x): & \text{exponentially decaying}\\
 \end{array}

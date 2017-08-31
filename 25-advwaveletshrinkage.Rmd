@@ -26,15 +26,22 @@ E(y_{i}-\hat{f}_{\lambda}^{-i}(x_{i}))^{2}&=&E(y_{i}-f(x_{i})+f(x_{i})-\hat{f}_{
 \end{eqnarray*}
 만약 $\hat{f}_{\lambda}^{-i}(x_{i}) \approx \hat{f}_{\lambda}(x_{i})$이면 $E(\text{CV})=\text{PSE}(\lambda)$이고 $\min_{\lambda}E(\text{CV}) \approx \min_{\lambda}\text{PSE}(\lambda) \approx \min_{\lambda}\text{MSE}(\lambda)$이다. 물론 $\min_{\lambda}E(\text{CV}) \neq \min_{\lambda}\text{CV}$이나 아주 틀린 생각은 아니다.
 
-[@Nason1996]에서는 웨이블릿에서 교차타당성을 하기 위한 몇 가지 방법을 제시했다. 첫 번째 방법은 하나의 자료 대신 절반의 자료($\frac{n}{2}$)를 제거하는 \textbf{two-fold CV}이다. 다음과 같은 $y_{1}, \cdots, y_{n}, y_{i}=g(x_{i})+\epsilon_{i}, n=2^{J}$이라는 자료가 있다고 가정하자. 그러면 two-fold CV를 하는 방법은 다음과 같다.\\
-\circled{1} $\lambda$의 후보군 $\lambda \in (\lambda_{L}, \lambda^{U})$를 설정한다.\\
-\circled{2} 먼저 모든 홀수번째 항의 $y_{i}$를 제거하고 남은 $y_{j}$에 대해 re-index를 한다($y_{j},j=1,\cdots,\frac{n}{2}$).\\
-\circled{3} 웨이블릿 축소를 이용해 $y_{j},j=1,\cdots,\frac{n}{2}$로부터 $\hat{g}^{E}$를 얻는다(이 때 bound problem이 생기므로 bound treatment를 해 줘야 한다).\\
+[@Nason1996]에서는 웨이블릿에서 교차타당성을 하기 위한 몇 가지 방법을 제시했다. 첫 번째 방법은 하나의 자료 대신 절반의 자료($\frac{n}{2}$)를 제거하는 \textbf{two-fold CV}이다. 다음과 같은 $y_{1}, \cdots, y_{n}, y_{i}=g(x_{i})+\epsilon_{i}, n=2^{J}$이라는 자료가 있다고 가정하자. 그러면 two-fold CV를 하는 방법은 다음과 같다.
+
+1. $\lambda$의 후보군 $\lambda \in (\lambda_{L}, \lambda^{U})$를 설정한다.
+
+2 먼저 모든 홀수번째 항의 $y_{i}$를 제거하고 남은 $y_{j}$에 대해 re-index를 한다($y_{j},j=1,\cdots,\frac{n}{2}$).
+
+3. 웨이블릿 축소를 이용해 $y_{j},j=1,\cdots,\frac{n}{2}$로부터 $\hat{g}^{E}$를 얻는다(이 때 bound problem이 생기므로 bound treatment를 해 줘야 한다).
+
 $$\mathbf{y} \xrightarrow{\text{DWT}} \mathbf{d} \text{ (thresholding $\lambda$) } \xrightarrow{\text{IDWT}}  \hat{g}^{E}$$
-\circled{4} Even-index 자료를 가지고 odd index의 함수값을 예측하기 위해 다음과 같은 예측값 $\bar{g}_{\lambda,j}^{E}=\frac{(\hat{g}_{\lambda,j+1}^{E}+\hat{g}_{\lambda,j}^{E})}{2}, j=1,2,\cdots,\frac{n}{2}$를 계산한다.\\
-\circled{5} 비슷한 방법으로 $\bar{g}_{\lambda,j}^{O}$를 계산한다.\\
-\circled{6} $\hat{M}(\lambda)=\sum_{j=1}^{\frac{n}{2}}\{(\bar{g}_{\lambda,j}^{E}-y_{2j+1})^{2}+(\bar{g}_{\lambda,j}^{O}-y_{2j})\}^{2}$를 계산한다. 여기서 앞 항은 even-index 자료를 가지고 odd 자료를 예측한 것이고, 뒤 항은 odd-index 자료를 가지고 even 자료를 예측한 것이다.\\
-\circled{7} $\hat{M}(\lambda)$가 제일 작은 $\lambda^{*}=\text{argmin}_{\lambda \in (\lambda_{L},\lambda^{U})} \hat{M}(\lambda)$를 최종적으로 선택한다.
+4. Even-index 자료를 가지고 odd index의 함수값을 예측하기 위해 다음과 같은 예측값 $\bar{g}_{\lambda,j}^{E}=\frac{(\hat{g}_{\lambda,j+1}^{E}+\hat{g}_{\lambda,j}^{E})}{2}, j=1,2,\cdots,\frac{n}{2}$를 계산한다.
+
+5. 비슷한 방법으로 $\bar{g}_{\lambda,j}^{O}$를 계산한다.
+
+6. $\hat{M}(\lambda)=\sum_{j=1}^{\frac{n}{2}}\{(\bar{g}_{\lambda,j}^{E}-y_{2j+1})^{2}+(\bar{g}_{\lambda,j}^{O}-y_{2j})\}^{2}$를 계산한다. 여기서 앞 항은 even-index 자료를 가지고 odd 자료를 예측한 것이고, 뒤 항은 odd-index 자료를 가지고 even 자료를 예측한 것이다.
+
+7. $\hat{M}(\lambda)$가 제일 작은 $\lambda^{*}=\text{argmin}_{\lambda \in (\lambda_{L},\lambda^{U})} \hat{M}(\lambda)$를 최종적으로 선택한다.
 
 ```{r, echo=F, fig.cap='Relation between the large number of folds and CV.', fig.align='center'}
 knitr::include_graphics("images/advwaveletshrinkage_foldlarge.png")
@@ -167,13 +174,13 @@ knitr::include_graphics("images/advwaveletshrinkage_hat.png")
 ```
 
 다음과 같은 모형 $y_{i}=g(x_{i})+e_{i}$를 생각해보자. $g(x_{i})$의 $(j,k)$번째 true 웨이블릿 계수는 $\theta_{jk}=\int g(x)\psi_{jk}(x)dx$이다. $\theta_{jk}$를 잘 계산하기 위해 다음과 같은 경험적 quantity $\hat{d}_{jk}=\frac{1}{n}\sum_{k=1}^{n}y_{i}\psi_{jk}^{2}(x_{i})$를 생각해보자. 이것의 분산은
-$$
+
 \begin{eqnarray*}
 var(\hat{d}_{jk})&=&\frac{1}{n}\sum_{i=1}^{n}var(y_{i})\psi_{jk}^{2}(x_{i})\\
 &=&\frac{1}{n}\sum_{i=1}^{n}\sigma^{2}\psi_{jk}^{2}(x_{i})\\
 &\simeq& \frac{1}{n}\sigma^{2}\int \psi_{jk}^{2}(x)dx=\frac{\sigma^{2}}{n}.
 \end{eqnarray*}
-$$
+
 로 분산이 커지는 문제가 발생한다고 한다.
 
 이 방법에 대한 해결책으로 "blockwise"하는 방법이 있다. $j$ 스케일(레벨)에서 길이 l인 겹치지 않는 블록들 $B_{b}$를 만드는 것이다. "block truth"를 다음과 같이 정의한다.

@@ -34,12 +34,12 @@
   
 <link rel="prev" href="-computing-coarser-scale-coefficients-from-fine-scale.html">
 <link rel="next" href="-types-of-wavelets.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -549,7 +556,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="---defference-between-scale-approximations--" class="section level2">
 <h2><span class="header-section-number">17.5</span> 척도 근사들 사이의 차이(defference between scale approximations)(이를 웨이블릿이라 부름)</h2>
-척도 근사들의 차이에서 도출된 함수들이 작은 파도(small wave) 형태를 띄므로 이것을 웨이블릿이라 부른다. 앞서 근사식 <span class="math inline">\(f_{J}=\sum_{k=0}^{2^{J}-1}c_{J,k}\phi_{J,k}(x)\)</span>과 <span class="math inline">\(p_{j,k}(x)=2^{\frac{j}{2}}p(2^{j}x-k)\)</span>으로부터 <span class="math inline">\(J=1\)</span>일 때에는 <span class="math display">\[f_{1}(x)=c_{10}\phi_{10}(x)+c_{11}\phi_{11}(x)=c_{10}2^{\frac{1}{2}}\phi(2x)+c_{11}2^{\frac{1}{2}}\phi(2x-1)
+척도 근사들의 차이에서 도출된 함수들이 작은 파도(small wave) 형태를 띄므로 이것을 웨이블릿이라 부른다. 앞서 근사식 <span class="math inline">\(f_{J}=\sum_{k=0}^{2^{J}-1}c_{J,k}\phi_{J,k}(x)\)</span>과 <span class="math inline">\(p_{j,k}(x)=2^{\frac{j}{2}}p(2^{j}x-k)\)</span>으로부터 <span class="math inline">\(J=1\)</span>일 때에는 <span class="math display">\[
+f_{1}(x)=c_{10}\phi_{10}(x)+c_{11}\phi_{11}(x)=c_{10}2^{\frac{1}{2}}\phi(2x)+c_{11}2^{\frac{1}{2}}\phi(2x-1)
 \]</span> 이다. 여기서 <span class="math inline">\(f_{0}(x)=c_{00}\phi_{00}(x)\)</span>라 하고 <span class="math inline">\(c_{J-1,k}=\frac{c_{J,2k}+c_{J,2k-1}}{\sqrt{2}}\)</span>를 이용하면
 <span class="math display">\[\begin{eqnarray*}
 f_{1}(x)-f_{0}(x)&amp;=&amp;c_{10}\phi_{10}(x)+c_{11}\phi_{11}(x)-c_{00}\phi_{00}(x)\\
@@ -574,7 +582,10 @@ f_{1}(x)-f_{0}(x)&amp;=&amp;c_{10}\phi_{10}(x)+c_{11}\phi_{11}(x)-c_{00}\phi_{00
 FIGURE 17.4: Haar mother wavelet function.
 </p>
 </div>
-<p>우리는 웨이블릿을 가지고 어떤 함수를 분해(decompose)할 수 있다. 앞의 결과는 <span class="math display">\[f_{1}(x)=f_{0}(x)+d_{00}\psi(x)=c_{00}\phi(x)+d_{00}\psi(x)\]</span> 로 쓸 수 있으며 <span class="math inline">\(f_{1}\)</span>을 좀 더 성긴 척도함수인 <span class="math inline">\(f_{0}\)</span>과 차이(difference)에 해당하는 <span class="math inline">\(\psi(x)\)</span>로 분해할 수 있음을 보여준다. 일반적으로 <span class="math inline">\(f_{j+1}(x)\)</span>는 다음과 같이 쓸 수 있다.</p>
+<p>우리는 웨이블릿을 가지고 어떤 함수를 분해(decompose)할 수 있다. 앞의 결과는 <span class="math display">\[
+f_{1}(x)=f_{0}(x)+d_{00}\psi(x)=c_{00}\phi(x)+d_{00}\psi(x)
+\]</span></p>
+<p>로 쓸 수 있으며 <span class="math inline">\(f_{1}\)</span>을 좀 더 성긴 척도함수인 <span class="math inline">\(f_{0}\)</span>과 차이(difference)에 해당하는 <span class="math inline">\(\psi(x)\)</span>로 분해할 수 있음을 보여준다. 일반적으로 <span class="math inline">\(f_{j+1}(x)\)</span>는 다음과 같이 쓸 수 있다.</p>
 <span class="math display">\[\begin{eqnarray*}
 f_{j+1}(x)&amp;=&amp;\sum_{k=0}^{2^{j}-1}c_{jk}\phi_{jk}(x)+\sum_{k=0}^{2^{j}-1}d_{jk}\psi_{jk}(x)\\
 &amp;=&amp;f_{j}(x)+g_{j}(x)\\
@@ -593,13 +604,13 @@ f_{j+1}(x)&amp;=&amp;\sum_{k=0}^{2^{j}-1}c_{jk}\phi_{jk}(x)+\sum_{k=0}^{2^{j}-1}
 <a href="-types-of-wavelets.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -619,16 +630,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/22-wavelettransform.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

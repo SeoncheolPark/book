@@ -34,12 +34,12 @@
   
 <link rel="prev" href="-inference-in-extreme-value-statistics.html">
 <link rel="next" href="-profile-likelihood-in-extreme-value-statistics.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -550,17 +557,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="--mle-in-extreme-value-statistics" class="section level2">
 <h2><span class="header-section-number">47.5</span> 극단값 분포에서의 최대가능도추정(mle in extreme value statistics)</h2>
 <p>일반화 극단값 분포에 최대가능도추정을 적용하기 전에 일반적인 가능도 관련 이론에 대해 정리해보자.</p>
+
 <div class="definition">
-<p><span class="math inline">\(y\)</span>가 자료이고 이 자료가 다음과 같은 모수 <span class="math inline">\(\theta\)</span>로 정의되는 확률변수 <span class="math inline">\(Y \sim f(y;\theta)\)</span>의 실현(realization)이라고 하자. 이때 <strong>가능도(likelihood, 우도)</strong>와 로그 가능도는 <span class="math display">\[L(\theta)=L(\theta;y)=f_{Y}(y;\theta), l(\theta)=\log L(\theta), \theta \in \Omega_{\theta}\]</span> 로 정의된다.</p>
+<p><span id="def:unnamed-chunk-239" class="definition"><strong>Definition 47.3  (가능도와 최대가능도추정량)  </strong></span><span class="math inline">\(y\)</span>가 자료이고 이 자료가 다음과 같은 모수 <span class="math inline">\(\theta\)</span>로 정의되는 확률변수 <span class="math inline">\(Y \sim f(y;\theta)\)</span>의 실현(realization)이라고 하자. 이때 <strong>가능도(likelihood, 우도)</strong>와 로그 가능도는 <span class="math display">\[L(\theta)=L(\theta;y)=f_{Y}(y;\theta), l(\theta)=\log L(\theta), \theta \in \Omega_{\theta}\]</span> 로 정의된다.</p>
 <p><strong>최대가능도추정량(maximum likelihood estimate, MLE)</strong>은 <span class="math display">\[l(\hat{\theta})\geq l(\theta), \forall \theta \in \Omega_{\theta}\]</span> 을 만족시키는 <span class="math inline">\(\hat{\theta}\)</span>이다. 많은 경우 <span class="math inline">\(\hat{\theta}\)</span>는 유일하며 다음과 같은 <strong>점수방정식(score equation, 또는 가능도방정식)</strong> <span class="math display">\[\frac{\partial l(\theta)}{\partial \theta}=0\]</span> 을 만족한다. 만약 <span class="math inline">\(\theta\)</span>가 <span class="math inline">\(p \times 1\)</span> 벡터라면 점수방정식 또한 <span class="math inline">\(p \times 1\)</span> 벡터가 된다.</p>
 <p><strong>관측정보행렬(observed information matrix)</strong>는 점수방정식을 한 번 더 미분한 것이다. <span class="math display">\[J(\theta)=-\frac{\partial^{2}l(\theta)}{\partial \theta \partial \theta^{T}}.\]</span> 만약 <span class="math inline">\(\theta\)</span>가 <span class="math inline">\(p \times 1\)</span> 벡터라면 <span class="math inline">\(J(\theta)\)</span>는 <span class="math inline">\(p \times p\)</span> 행렬이 된다.</p>
 <p><strong>가능도 통계량(likelihood ratio statistic, 윌크스의 통계량)</strong>은 <span class="math display">\[W(\theta)=2\{l(\hat{\theta})-l(\theta)\}\geq 0\]</span> 이다.</p>
 </div>
+<p></p>
 <p>가능도 근사(likelihood approximation)은 <span class="math inline">\(n\)</span>이 클때, 데이터가 <span class="math inline">\(f(y,\theta^{0})\)</span>에서 생성되었다고 가정하면 <span class="math display">\[\hat{\theta} \stackrel{\cdot}{\sim} \mathcal{N}_{p}(\theta^{0}, J(\hat{\theta})^{-1})\]</span> 로 근사하는 것이다. 이때 <span class="math inline">\(\hat{\theta}\)</span>, <span class="math inline">\(J(\hat{\theta})\)</span>는 보통 수치적으로 계산하게 된다. 그리고 검정통계량은 <span class="math inline">\(n\)</span>이 작을지라도 <span class="math display">\[W(\theta^{0}) \stackrel{\cdot}{\sim} \xi_{p}^{2}\]</span> 근사를 이용한다.</p>
 <p>실제로는 <span class="math inline">\(\theta\)</span>를 <strong>흥미있는 모수들(interest parameters)</strong> <span class="math inline">\(\psi_{q\times 1}\)</span>와 <strong>장애모수들(nuisance parameters)</strong> <span class="math inline">\(\lambda_{p-q\times 1}\)</span>로 나누어 분석하게 된다. <span class="math inline">\(\hat{\lambda}_{\psi}\)</span>를 <span class="math inline">\(\psi\)</span>가 고정되어 있을 때 <span class="math inline">\(\lambda\)</span>의 최대가능도추정량이라고 하자. 그러면 <strong>일반화가능도통계량(generalized likelihood ratio statistic)</strong>을 <span class="math display">\[W_{p}(\psi)=2\{l(\hat{\psi},\hat{\lambda})-l(\psi,\hat{\lambda}_{\psi})\}=2\{l(\hat{\theta})-l(\hat{\theta}_{\psi})\}\]</span> 로 정의한다. 이 때 다음과 같은 통계량을 정의할 수 있다.</p>
+
 <div class="definition">
-<p><strong>일반화가능도통계량(generalized likelihood ratio statistic)</strong>은 <span class="math display">\[W_{p}(\psi)=2\{l(\hat{\psi},\hat{\lambda})-l(\psi,\hat{\lambda}_{\psi})\}=2\{l(\hat{\theta})-l(\hat{\theta}_{\psi})\}\]</span> 이다.</p>
+<p><span id="def:unnamed-chunk-240" class="definition"><strong>Definition 47.4  (일반화가능도통계량)  </strong></span><strong>일반화가능도통계량(generalized likelihood ratio statistic)</strong>은 <span class="math display">\[W_{p}(\psi)=2\{l(\hat{\psi},\hat{\lambda})-l(\psi,\hat{\lambda}_{\psi})\}=2\{l(\hat{\theta})-l(\hat{\theta}_{\psi})\}\]</span> 이다.</p>
 </div>
+<p></p>
 <p>만약 <span class="math inline">\(\psi^{0}\)</span>이 정칙모형(regular model)의 자료로부터 얻은 <span class="math inline">\(\psi\)</span>값이라고 하면 앞선 정의에 의해 <span class="math display">\[W_{p}(\psi) \stackrel{\cdot}{\sim} \xi_{q}^{2}, \qquad{for large n}\]</span> 이 된다. <span class="math inline">\(\psi^{0}\)</span>에 대한 신뢰구간(confidence interval)과 검정은 이것에 기초해서 만들게 된다.</p>
 </div>
             </section>
@@ -572,13 +583,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <a href="-profile-likelihood-in-extreme-value-statistics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -598,16 +609,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/91-uevtheory.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

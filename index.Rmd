@@ -2,26 +2,20 @@
 title: "통계공부와 관련된 글들"
 author: "Seoncheol Park"
 date: "`r Sys.Date()`"
-header-includes:
-   - \usepackage{bm}
+header-includes: \usepackage{amsthm, amsmath, kotex, bm, indentfirst, lmodern, graphicx, hyperref, multicol, footmisc, babel, comment, makeidx}
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, article.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-output:
-  bookdown::gitbook:
-    lib_dir: assets
-    split_by: section
-    config:
-      toolbar:
-        position: static
-      toc:
-        collapse: section
-  bookdown::pdf_book:
-    keep_tex: yes
 github-repo: SeoncheolPark/book
+papersize: b5
+geometry: [inner=0.75in,outer=0.75in, top=0.6in, bottom=0.9in]
+linkcolor: Cerulean
+citecolor: Fuchsia
+urlcolor: RedOrange
+toccolor: Black
 description: "통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다."
 ---
 

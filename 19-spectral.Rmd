@@ -56,6 +56,7 @@ plot.ts(x, ylim=c(-16,16), main="sum")
 
 ```{theorem, name="정상과정의 스펙트럼 표현"}
  어던 정상 시계열이든 근사적으로라도 random superposition of sines and cosines oscillating at various frequencies로 생각할 수 있다. 즉 자기공분산은 각 주기성분들을 이용해 표현할 수 있으며, 역으로 각 주기성분들도 자기공분산을 이용하여 나타낼 수 있다.
+ 
 ```
 
 식 (\@ref(eq:periodrp))의 고정된 진동수 버전 $\omega_{0}$를 생각해보자.

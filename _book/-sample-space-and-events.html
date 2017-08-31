@@ -34,12 +34,12 @@
   
 <link rel="prev" href="basicprob.html">
 <link rel="next" href="-sigma-field.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -552,37 +559,37 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>통계학은 무작위(random) 또는 확률적(stochastic) 실험(experiment), 즉 어떤 결과가 나올지 미리 확실히 예측할 수 없는 실험들에 초점을 맞춘다.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-10" class="definition"><strong>Definition 3.1  (표본공간)  </strong></span>어떤 무작위 실험의 <strong>표본공간(sample space)</strong> <span class="math inline">\(\Omega\)</span>는 그 실험에서 나올 수 있는 모든 결과들의 집합이다.
+<p><span id="def:unnamed-chunk-10" class="definition"><strong>Definition 3.1  (표본공간)  </strong></span>어떤 무작위 실험의 <strong>표본공간(sample space)</strong> <span class="math inline">\(\Omega\)</span>는 그 실험에서 나올 수 있는 모든 결과들의 집합이다.</p>
 </div>
 <p></p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-11" class="example"><strong>Example 3.1  (동전 던지기 실험)  </strong></span>동전을 두 번 던지는 실험에서 <span class="math inline">\(\Omega=\{ HH, HT, TH, TT \}\)</span>이다. 이러한 표본공간을 <strong>(유한) 이산 표본공간(finite discrete sample space)</strong>이라고 한다.
+<p><span id="exm:unnamed-chunk-11" class="example"><strong>Example 3.1  (동전 던지기 실험)  </strong></span>동전을 두 번 던지는 실험에서 <span class="math inline">\(\Omega=\{ HH, HT, TH, TT \}\)</span>이다. 이러한 표본공간을 <strong>(유한) 이산 표본공간(finite discrete sample space)</strong>이라고 한다.</p>
 </div>
 <p></p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-12" class="example"><strong>Example 3.2  (동전 계속 던지기 실험)  </strong></span>이번에는 동전의 뒷 면이 나올때까지 동전을 계속해서 던지는 실험에 대해 살펴보자. 그러면 <span class="math display">\[\{ T, HT, HHT, HHHT, \ldots, \{ HHH\ldots\} \}\]</span> 와 같은 결과들의 수얼을 얻을 수 있다. 이를 만약 동전을 던진 횟수로 정리한다면 <span class="math display">\[\{ 1,2,3,\ldots, ,\infty\}\]</span> 로 볼 수 있다. 이러한 표본공간을 <strong>(무한) 이산 표본공간(infinite discrete sample space)</strong>라고 한다.
+<p><span id="exm:unnamed-chunk-12" class="example"><strong>Example 3.2  (동전 계속 던지기 실험)  </strong></span>이번에는 동전의 뒷 면이 나올때까지 동전을 계속해서 던지는 실험에 대해 살펴보자. 그러면 <span class="math display">\[\{ T, HT, HHT, HHHT, \ldots, \{ HHH\ldots\} \}\]</span> 와 같은 결과들의 수얼을 얻을 수 있다. 이를 만약 동전을 던진 횟수로 정리한다면 <span class="math display">\[\{ 1,2,3,\ldots, ,\infty\}\]</span> 로 볼 수 있다. 이러한 표본공간을 <strong>(무한) 이산 표본공간(infinite discrete sample space)</strong>라고 한다.</p>
 </div>
 <p></p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-13" class="example"><strong>Example 3.3  (지하철 도착 시간)  </strong></span>우리가 지하철을 기다리고 있다고 가정해보자. 지하철은 <span class="math inline">\(T\)</span> 시간마다 한 번씩 도착한다. 그러면 우리가 기다리는 시간에 대한 표본공간은 <span class="math display">\[[0,T]=\{t:0\leq y \leq T\}\]</span> 이다. 이러한 표본 공간은 <strong>연속 표본공간(continuous sample space)</strong>라고 한다.
+<p><span id="exm:unnamed-chunk-13" class="example"><strong>Example 3.3  (지하철 도착 시간)  </strong></span>우리가 지하철을 기다리고 있다고 가정해보자. 지하철은 <span class="math inline">\(T\)</span> 시간마다 한 번씩 도착한다. 그러면 우리가 기다리는 시간에 대한 표본공간은 <span class="math display">\[[0,T]=\{t:0\leq y \leq T\}\]</span> 이다. 이러한 표본 공간은 <strong>연속 표본공간(continuous sample space)</strong>라고 한다.</p>
 </div>
 <p></p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-14" class="definition"><strong>Definition 3.2  (사건)  </strong></span><strong>사건(event)</strong>란 표본공간 <span class="math inline">\(\Omega\)</span>의 임의의 부분집합(subset)을 의미한다.
+<p><span id="def:unnamed-chunk-14" class="definition"><strong>Definition 3.2  (사건)  </strong></span><strong>사건(event)</strong>란 표본공간 <span class="math inline">\(\Omega\)</span>의 임의의 부분집합(subset)을 의미한다.</p>
 </div>
 <p></p>
 
 <div class="example">
 <p><span id="exm:unnamed-chunk-15" class="example"><strong>Example 3.4  (사건의 예)  </strong></span>- 앞서 동전을 두 번 던지는 실험에서 앞면이 하나만 나올 사건을 <span class="math inline">\(A\)</span>라고 하면 <span class="math inline">\(A=\{ HT, TH \}\)</span>이다.</p>
 <ul>
-<li>앞서 동전을 두 번 던지는 실험에서 적어도 한 번 앞면이 나올 사건을 <span class="math inline">\(B\)</span>라고 하면 <span class="math inline">\(A=\{ HH, HT, TH \}\)</span>이다.
-</div>
-</li>
+<li>앞서 동전을 두 번 던지는 실험에서 적어도 한 번 앞면이 나올 사건을 <span class="math inline">\(B\)</span>라고 하면 <span class="math inline">\(A=\{ HH, HT, TH \}\)</span>이다.</li>
 </ul>
+</div>
+<p></p>
 </div>
             </section>
 
@@ -593,13 +600,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <a href="-sigma-field.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -619,16 +626,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/02-prob.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

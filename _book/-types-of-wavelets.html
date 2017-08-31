@@ -34,12 +34,12 @@
   
 <link rel="prev" href="-defference-between-scale-approximations-.html">
 <link rel="next" href="-non-decimated-wavelets.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -562,7 +569,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <div class="definition">
 <p><span id="def:unnamed-chunk-112" class="definition"><strong>Definition 17.1  (유니터리 푸리에 변환)  </strong></span> 주어진 함수의 <strong>각진동수(angular frequency)를 이용한 유니터리 푸리에 변환(Fourier transform with unitary and angular frequency)</strong>은 다음과 같다. <span class="math display">\[\hat{f}(\omega)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(x)e^{-i\omega x}dx\]</span></p>
-여기서 <span class="math inline">\(\frac{1}{\sqrt{2\pi}}\)</span>는 이 변환을 유니터리 푸리에 변환으로 만들기 위해 곱해지는 상수이다. 유니터리 변환과 푸리에 변환에 대한 보다 자세한 나용은 인터넷을 참조하기 바란다.
+<p>여기서 <span class="math inline">\(\frac{1}{\sqrt{2\pi}}\)</span>는 이 변환을 유니터리 푸리에 변환으로 만들기 위해 곱해지는 상수이다. 유니터리 변환과 푸리에 변환에 대한 보다 자세한 나용은 인터넷을 참조하기 바란다.</p>
 </div>
 <p></p>
 <p>앞서 나온 푸리에 변환을 이용해 Haar 함수를 푸리에 변환한 결과는 다음과 같다. <span class="math display">\[\hat{\phi}(\omega)=\frac{1}{\sqrt{2\pi}}e^{-\frac{i\omega}{2}}\text{sinc}(\frac{\omega}{2}).\]</span> 여기서 <span class="math display">\[
@@ -571,7 +578,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 \frac{\sin (\omega)}{\omega} &amp; \text{if $\omega \neq 0$}\\
 1 &amp;\text{if $\omega = 0$}
 \end{cases}
-\]</span> 이다. <span class="math inline">\(\hat{\phi}(\omega)\)</span>는 <span class="math inline">\(| \omega |^{-1}\)</span>만큼의 감쇠(decay)를 가지며 꼬리가 굉장히 긴 함수이다. 즉 주파수 영역에서 이 함수는 컴팩트 받침과 거리가 먼 함수가 된다. 시간 영역과 주파수 영역 사이에 불확정성 원리(uncertainty principle)이 있다는 것은 알려진 사실이다.</p>
+\]</span></p>
+<p>이다. <span class="math inline">\(\hat{\phi}(\omega)\)</span>는 <span class="math inline">\(| \omega |^{-1}\)</span>만큼의 감쇠(decay)를 가지며 꼬리가 굉장히 긴 함수이다. 즉 주파수 영역에서 이 함수는 컴팩트 받침과 거리가 먼 함수가 된다. 시간 영역과 주파수 영역 사이에 불확정성 원리(uncertainty principle)이 있다는 것은 알려진 사실이다.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-113"></span>
 <img src="images/multiscale_008.png" alt="Haar function (left) and Haar function in frequency domain after Fourier transform (right)." width="250" />
 <p class="caption">
@@ -589,13 +597,13 @@ FIGURE 17.5: Haar function (left) and Haar function in frequency domain after Fo
 <a href="-non-decimated-wavelets.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -615,16 +623,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/22-wavelettransform.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

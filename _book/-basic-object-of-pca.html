@@ -34,12 +34,12 @@
   
 <link rel="prev" href="-curse-of-dimensionality.html">
 <link rel="next" href="CCA.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -550,12 +557,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="--basic-object-of-pca" class="section level2">
 <h2><span class="header-section-number">27.2</span> 주성분분석의 기본 목적(basic object of PCA)</h2>
 <p>다음과 같이 <span class="math inline">\(\mathbf{x}_{i}\in\mathbb{R}^{d}, i=1,\ldots, n\)</span>이라는 training pattern이 있다고 하자. 주성분은 <span class="math inline">\(q &lt;d\)</span>의 직교정규 벡터의 집합이며 첫번째 주성분은 데이터를 한 개의 축으로 사상(projection)시켰을 때 그 분산이 가장 커지는 축이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-153"></span>
-<img src="images/unsupervised_PCA01.gif" alt="Principal component w1 points into the direction of maximum variance."  />
-<p class="caption">
-FIGURE 27.1: Principal component w1 points into the direction of maximum variance.
-</p>
-</div>
 <p><span class="math inline">\(\mathbf{y}\)</span>를 subspace로의 projection이라고 하자. <span class="math inline">\(\mathbf{W}\)</span>를 column에 principal component를 포함하는 <span class="math inline">\(d\times q\)</span> 행렬이라고 하자. 그러면 <span class="math display">\[\mathbf{y}=\mathbf{W}^{T}\mathbf{x}\]</span> 가 된다. 즉 <span class="math inline">\(\mathbf{y}\)</span>는 <span class="math inline">\(\mathbf{x}\)</span>의 dimension-reduced 표현이 되는 것이다. <span class="math inline">\(\hat{\mathbf{x}}\)</span>를 <span class="math inline">\(\mathbf{y}\)</span>가 주어졌을 때 <span class="math inline">\(\mathbf{x}\)</span>의 reconstruction이라고 하자. <span class="math display">\[\hat{\mathbf{x}}=\mathbf{W}^{T}\mathbf{y}.\]</span> 그리면 PCA의 목표는 다음과 같은 <span class="math display">\[E_{rec}=\frac{1}{n}\sum_{i=1}^{n}\| \mathbf{x}_{i}-\hat{\mathbf{x}}_{i}\|^{2}\]</span> <span class="math inline">\(E_{rec}\)</span>을 minimize하도록 subspace를 set하는 것이다.</p>
 
 </div>
@@ -569,13 +570,13 @@ FIGURE 27.1: Principal component w1 points into the direction of maximum varianc
 <a href="CCA.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -595,16 +596,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/33-PCA.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

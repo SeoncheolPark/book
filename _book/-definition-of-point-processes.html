@@ -34,12 +34,12 @@
   
 <link rel="prev" href="pointprocess.html">
 <link rel="next" href="-poisson-point-process.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -564,15 +571,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>점과정을 정의하기 전에 먼저 확률변수의 정의를 다시 생각해보자. 확률변수를 한 마디로 말하면 <strong>가측함수(measurable function)</strong>이다. <span class="math inline">\(X\)</span>가 확률변수라면 <span class="math display">\[X: \Omega \longrightarrow \mathbb{R}\]</span> 이며 이때 <span class="math inline">\(\Omega\)</span>는 <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>인 확률공간이며 <span class="math inline">\(\mathbb{R}\)</span> 또한 보렐 시그마-체 <span class="math inline">\(\mathcal{B}\)</span>를 갖는다<span class="math inline">\((\mathbb{R}, \mathcal{B})\)</span>. <span class="math inline">\(\mathbb{R}\)</span>의 가측 집합을 <span class="math inline">\(X\)</span>를 통해 <span class="math inline">\(\Omega\)</span>쪽으로 보내도 가측이어야 한다.</p>
 <p>그러면 이제 점과정 <span class="math inline">\(X\)</span>를 정의해보자. <span class="math inline">\(X\)</span>는 <span class="math display">\[X: \Omega \longrightarrow N_{lf}\]</span> 로 확률공간은 <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>이며 <span class="math inline">\(N_{lf}\)</span> 또한 보렐 시그마-체 <span class="math inline">\(\mathcal{N}_{lf}\)</span>를 갖아 <span class="math inline">\((N_{lf}, \mathcal{N}_{lf})\)</span>가 된다. <span class="math inline">\(\mathcal{N}_{lf}\)</span>은 <span class="math inline">\(S\)</span>에서의 시그마-체이며 <span class="math display">\[\mathcal{N}_{lf}=\sigma (\{ \{ x \in N_{lf}, n(x_{B})=m \{ m \in \mathbb{N}_{0}, B\in\mathcal{B}_{0}\} \} \})\]</span> 로 정의되며 <span class="math inline">\(\mathbb{N}_{0}\)</span>는 set of nonnegative integer, <span class="math inline">\(\mathcal{B}_{0}\)</span>는 class of bounded Borel sets in <span class="math inline">\(S\)</span>이다.</p>
 <p>마지막으로 <span class="math inline">\(X\)</span>의 분포함수 <span class="math inline">\(P_{X}\)</span>는 <span class="math display">\[P_{X}(F)=P(\{ \omega \in l : X(\omega) \in \mathcal{F}\}) \qquad{\text{where } \mathcal{F} \in \mathcal{N}_{lf}}\]</span> 이다.</p>
-<div class="remark">
-<ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(X\)</span>의 가측성(measurability) <span class="math inline">\(\Longleftrightarrow\)</span> <span class="math inline">\(N(B)\)</span>가 모든 <span class="math inline">\(B\in\mathcal{B}_{0}\)</span>에서 확률변수 인 것(확률론에 의해 <span class="math inline">\(\mathcal{B}_{0}\)</span>을 <span class="math inline">\(\mathcal{B}\)</span>로 확장할 수 있다)</p></li>
+
+<div class="corollary">
+<p><span id="cor:unnamed-chunk-210" class="corollary"><strong>Corollary 45.1  </strong></span>1. <span class="math inline">\(X\)</span>의 가측성(measurability) <span class="math inline">\(\Longleftrightarrow\)</span> <span class="math inline">\(N(B)\)</span>가 모든 <span class="math inline">\(B\in\mathcal{B}_{0}\)</span>에서 확률변수 인 것(확률론에 의해 <span class="math inline">\(\mathcal{B}_{0}\)</span>을 <span class="math inline">\(\mathcal{B}\)</span>로 확장할 수 있다)</p>
+<ol start="2" style="list-style-type: decimal">
 <li><p><span class="math inline">\(X\)</span>의 분포는 <strong>가산함수(count function)들의 유한한 분포</strong> <span class="math inline">\((N(B_{1}), \ldots , N(B_{m}))\)</span>로 결정된다. 즉 가산함수들만 잘 알면 <span class="math inline">\(X\)</span>의 정보를 모두 알 수 있다.</p></li>
 <li><p><span class="math inline">\(\mathcal{N}_{lf}^{0}\equiv\{ \{ x\in N_{lf}, n(x_{B})=0 \} ; B \in \mathcal{B}_{0}\}\)</span></p></li>
 <li><p><strong>빈 확률(void probability)</strong>: 빈 확률 <span class="math inline">\(v(B)\)</span>는 <span class="math display">\[v(B)=P(N(B)=0), B\in\mathcal{B}_{0}\]</span> 으로 정의된다. 빈 확률과 관련된 가장 중요한 성질은 점과정은 그것의 빈 확률로 <strong>유일하게 정의된다</strong>(분포가 같다는 의미). 포아송 점과정일 경우 <span class="math inline">\(N(B)\)</span>는 결국 포아송분포(Poisson distribution)가 된다.</p></li>
-<li><p>생성범함수(generating functional) <span class="math inline">\(G_{X}(u)\)</span>는 <span class="math display">\[G_{X}(u)=E[\prod_{\xi \in X}u(\xi)]\]</span> 로 정의되면 여기서 함수 <span class="math inline">\(u\)</span>는 <span class="math inline">\(u:S\longrightarrow [0,1]\)</span>이며 <span class="math inline">\(\xi\)</span>는 <span class="math inline">\(\{ \xi \in S, u(\xi)\leq 1 \}\)</span>로 유계(bounded)이다. 생성범함수는 <span class="math inline">\(X\)</span>의 분포를 유일하게 결정한다. 예를 들어 <span class="math inline">\(u(\xi)=t^{I_{\{\xi \in B\} }}\)</span>이고 <span class="math inline">\(B\in \mathcal{B}_{0}, 0 \leq t \leq 1\)</span>이면 <span class="math inline">\(G_{X}(u)=E t^{N(B)}\)</span>다.</p></li>
+<li>생성범함수(generating functional) <span class="math inline">\(G_{X}(u)\)</span>는 <span class="math display">\[G_{X}(u)=E[\prod_{\xi \in X}u(\xi)]\]</span> 로 정의되면 여기서 함수 <span class="math inline">\(u\)</span>는 <span class="math inline">\(u:S\longrightarrow [0,1]\)</span>이며 <span class="math inline">\(\xi\)</span>는 <span class="math inline">\(\{ \xi \in S, u(\xi)\leq 1 \}\)</span>로 유계(bounded)이다. 생성범함수는 <span class="math inline">\(X\)</span>의 분포를 유일하게 결정한다. 예를 들어 <span class="math inline">\(u(\xi)=t^{I_{\{\xi \in B\} }}\)</span>이고 <span class="math inline">\(B\in \mathcal{B}_{0}, 0 \leq t \leq 1\)</span>이면 <span class="math inline">\(G_{X}(u)=E t^{N(B)}\)</span>다.</li>
 </ol>
 </div>
+<p></p>
 <div id="-marked-point-process" class="section level3">
 <h3><span class="header-section-number">45.1.1</span> 표시된 점과정(marked point process)</h3>
 <p>때로는 각 지점의 장소 정보 이외에 추가된 정보가 있는 자료들이 있다. 예를 들면 나무의 사이즈 등이 같이 첨부된 자료 등이 있다. 이러한 자료들을 나타내는 점과정을 <strong>표시된 점과정(marked point process)</strong>라고 한다. <span class="math display">\[X=\{ (\xi, m_{\xi}), \xi \in Y  \},\]</span> 여기서 <span class="math inline">\(Y\)</span>는 <span class="math inline">\(T\)</span>(보통 <span class="math inline">\(\mathbb{R}^{d}\)</span>)에 있는 점과정이다. <span class="math inline">\(m_{\xi}\)</span>는 표시(mark)로 <span class="math inline">\(m_{\xi}\in M\)</span>이다. <span class="math inline">\(M\)</span>은 표시된 공간(mark space)으로 보통 정수집합이지만 실수집합이 될 수도 있다.</p>
@@ -588,13 +597,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <a href="-poisson-point-process.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -614,16 +623,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/84-pointprocess.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

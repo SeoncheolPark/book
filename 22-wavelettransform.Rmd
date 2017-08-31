@@ -64,6 +64,7 @@ W =
 $$
 
 $\mathbf{d}=(\frac{21\sqrt{2}}{2},0,-\sqrt{2},-3\sqrt{2},\sqrt{2},-7,-2,\frac{3\sqrt{2}}{2})$를 얻을 수 있다. (이 예제에서는 [@Nason2010]의 정의를 따라갔다.)
+
 ```
 
 위 예제의 $W$처럼 Haar 웨이블릿의 $W$는 **정규직교(orthonormal)**라는 성질을 갖는데, 정규직교의 의미는 $W^{T}W=I$이다. 그러나 모든 웨이블릿의 $W$가 정규직교인 것은 아니다. 그리고
@@ -149,7 +150,8 @@ knitr::include_graphics("images/multiscale_006.png")
 ## 척도 근사들 사이의 차이(defference between scale approximations)(이를 웨이블릿이라 부름)
 
 척도 근사들의 차이에서 도출된 함수들이 작은 파도(small wave) 형태를 띄므로 이것을 웨이블릿이라 부른다. 앞서 근사식 $f_{J}=\sum_{k=0}^{2^{J}-1}c_{J,k}\phi_{J,k}(x)$과 $p_{j,k}(x)=2^{\frac{j}{2}}p(2^{j}x-k)$으로부터 $J=1$일 때에는
-$$f_{1}(x)=c_{10}\phi_{10}(x)+c_{11}\phi_{11}(x)=c_{10}2^{\frac{1}{2}}\phi(2x)+c_{11}2^{\frac{1}{2}}\phi(2x-1)
+$$
+f_{1}(x)=c_{10}\phi_{10}(x)+c_{11}\phi_{11}(x)=c_{10}2^{\frac{1}{2}}\phi(2x)+c_{11}2^{\frac{1}{2}}\phi(2x-1)
 $$
 이다. 여기서 $f_{0}(x)=c_{00}\phi_{00}(x)$라 하고 $c_{J-1,k}=\frac{c_{J,2k}+c_{J,2k-1}}{\sqrt{2}}$를 이용하면
 \begin{eqnarray*}
@@ -176,7 +178,10 @@ knitr::include_graphics("images/multiscale_007.png")
 ```
 
 우리는 웨이블릿을 가지고 어떤 함수를 분해(decompose)할 수 있다. 앞의 결과는
-$$f_{1}(x)=f_{0}(x)+d_{00}\psi(x)=c_{00}\phi(x)+d_{00}\psi(x)$$
+$$
+f_{1}(x)=f_{0}(x)+d_{00}\psi(x)=c_{00}\phi(x)+d_{00}\psi(x)
+$$
+
 로 쓸 수 있으며 $f_{1}$을 좀 더 성긴 척도함수인 $f_{0}$과 차이(difference)에 해당하는 $\psi(x)$로 분해할 수 있음을 보여준다. 일반적으로 $f_{j+1}(x)$는 다음과 같이 쓸 수 있다.
 
 \begin{eqnarray*}
@@ -210,6 +215,7 @@ $x$를 **물리적 영역(physical domain)** 또는 **시간 영역(time domain,
 $$\hat{f}(\omega)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(x)e^{-i\omega x}dx$$
 
 여기서 $\frac{1}{\sqrt{2\pi}}$는 이 변환을 유니터리 푸리에 변환으로 만들기 위해 곱해지는 상수이다. 유니터리 변환과 푸리에 변환에 대한 보다 자세한 나용은 인터넷을 참조하기 바란다.
+
 ```
 
 앞서 나온 푸리에 변환을 이용해 Haar 함수를 푸리에 변환한 결과는 다음과 같다.
@@ -222,6 +228,7 @@ $$
 1 &\text{if $\omega = 0$}
 \end{cases}
 $$
+
 이다. $\hat{\phi}(\omega)$는 $| \omega |^{-1}$만큼의 감쇠(decay)를 가지며 꼬리가 굉장히 긴 함수이다. 즉 주파수 영역에서 이 함수는 컴팩트 받침과 거리가 먼 함수가 된다. 시간 영역과 주파수 영역 사이에 불확정성 원리(uncertainty principle)이 있다는 것은 알려진 사실이다.
 
 ```{r, echo=F, fig.cap='Haar function (left) and Haar function in frequency domain after Fourier transform (right).', fig.align='center'}

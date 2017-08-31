@@ -13,23 +13,21 @@ $$W_{2n+1}(x)=\sqrt{2}\sum_{k}g_{k}W_{n}(2x-k)$$
 $$W_{jbk}(t)=2^{j/2}W_{b}(2^{j}t-k)$$
 로 표현한다. 이 때 $W_{b}(t), b=0,1,2,\ldots$는 **웨이블릿 패킷 함수(wavelet packet function)**이라고 한다. 이 때 $b$는 index for oscillation of frequency이다. 교수님이 좋아하시는 말로는 $b= \text{number of zero-crossing}$이다.
 
-<div class="example">
-
+```{example, name="Haar wavelet"}
 - Haar wavelet: time series에서 "Walsh function"
 
-</div>
+```
 
 일반적인 웨이블은 $W_{j0k}, W_{j1k}(=\psi_{jk})$ 둘만 사용한다는 점에서 차이점이 있다고 한다. $W_{00k}=\phi_{0k}$이며
 $$f(t)=\sum_{k}c_{0k}\phi_{0k}(t) +\sum\sum d_{jk}\psi_{jk}(t)$$
 이다.
 
-<div class="theorem">
-
-**(Coifman and Wickerhauser (1992))** $[2^{j}n, 2^{j}(n+1)]$이 $[0,\infty)$의 disjoint countable covering을 만드는 인덱스들의 collection $(j,n,k)\subset \mathbb{N}\times \mathbb{N}\mathbb{Z}$ 있을 때 $\{W_{jnk}(t)\}$는 $L^{2}(\mathbb{R})$의 직교정규 기저가 된다. 즉, 어떤 $f(t)\in L^{2}(\mathbb{R})$에 대해
+```{theorem, name="Coifman and Wickerhauser (1992)"}
+$[2^{j}n, 2^{j}(n+1)]$이 $[0,\infty)$의 disjoint countable covering을 만드는 인덱스들의 collection $(j,n,k)\subset \mathbb{N}\times \mathbb{N}\mathbb{Z}$ 있을 때 $\{W_{jnk}(t)\}$는 $L^{2}(\mathbb{R})$의 직교정규 기저가 된다. 즉, 어떤 $f(t)\in L^{2}(\mathbb{R})$에 대해
 $$f(t)\approx \sum_{j}\sum_{n}\sum_{k}\omega_{jnk}W_{jnk}$$
 로 표현할 수 있다고 한다. 이 때 $\omega_{jnk}=\int f(t)W_{jbk}(t)dt$이다.
 
-</div>
+```
 
 ```{r, echo=F, fig.cap='Illustration of wavelet packet transform applied to eight data points.', fig.align='center'}
 knitr::include_graphics("images/adwavelet_waveletpacket.png")

@@ -34,12 +34,12 @@
   
 <link rel="prev" href="qr.html">
 <link rel="next" href="-linear-quantile-regression.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -549,19 +556,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="-quantile" class="section level2">
 <h2><span class="header-section-number">30.1</span> 분위수 (quantile)</h2>
+
 <div class="definition">
-<p>실수값을 갖는 확률변수 <span class="math inline">\(X\)</span>가 분포함수 <span class="math inline">\(F\)</span>를 따른다고 할 때, <span class="math inline">\(X\)</span>의 <span class="math inline">\(\tau\)</span>번째 <strong>분위수(quantile)</strong>는 <span class="math display">\[Q_{X}(\tau)=F_{X}^{-1}(\tau)=\inf\{x|F(x)\geq \tau\}\]</span> 로 정의된다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-154"></span>
-<img src="book_files/figure-html/unnamed-chunk-154-1.png" alt="Cummulative distribution function (left) and corresponding quantile plot (right)." width="672" />
+<p><span id="def:unnamed-chunk-169" class="definition"><strong>Definition 30.1  (분위수)  </strong></span>실수값을 갖는 확률변수 <span class="math inline">\(X\)</span>가 분포함수 <span class="math inline">\(F\)</span>를 따른다고 할 때, <span class="math inline">\(X\)</span>의 <span class="math inline">\(\tau\)</span>번째 <strong>분위수(quantile)</strong>는 <span class="math display">\[Q_{X}(\tau)=F_{X}^{-1}(\tau)=\inf\{x|F(x)\geq \tau\}\]</span> 로 정의된다.</p>
+</div>
+<p></p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-170"></span>
+<img src="book_files/figure-html/unnamed-chunk-170-1.svg" alt="Cummulative distribution function (left) and corresponding quantile plot (right)." width="672" />
 <p class="caption">
 FIGURE 30.1: Cummulative distribution function (left) and corresponding quantile plot (right).
 </p>
 </div>
 <p>참고로 <span class="math inline">\(Q_{X}(\tau)\)</span>는 감소하지 않는 함수이다. 즉 <span class="math display">\[Q_{X}(\tau_{1}) \leq Q_{X}(\tau_{2}) \qquad{ \text{for } \tau_{1} &lt; \tau_{2}}\]</span> 이다.</p>
-</div>
+
 <div class="definition">
-<p><span class="math inline">\(Y\)</span>를 반응변수, <span class="math inline">\(\mathbf{X}\)</span>를 <span class="math inline">\(p\)</span>차원 예측변수라고 하자. 이 때 <span class="math inline">\(\mathbf{X}=\mathbf{x}\)</span>로 주어졌을 때 <span class="math inline">\(Y\)</span>의 조건부 누적분포함수는 <span class="math inline">\(F_{Y}(y|\mathbf{X}=\mathbf{x})=P(Y\leq y|\mathbf{X}=\mathbf{x})\)</span>라고 하자. 이 때 <span class="math inline">\(Y\)</span>의 <span class="math inline">\(\tau\)</span><strong>번째 조건부 분위수 (</strong><span class="math inline">\(\tau\)</span><strong>-th conditional quantile)</strong>는 <span class="math display">\[Q_{\tau}(Y|\mathbf{X}=\mathbf{x})=\inf\{y:F_{Y}(y|\mathbf{x})\geq \tau\}\]</span> 로 정의된다.</p>
+<p><span id="def:unnamed-chunk-171" class="definition"><strong>Definition 30.2  (조건부 분위수)  </strong></span><span class="math inline">\(Y\)</span>를 반응변수, <span class="math inline">\(\mathbf{X}\)</span>를 <span class="math inline">\(p\)</span>차원 예측변수라고 하자. 이 때 <span class="math inline">\(\mathbf{X}=\mathbf{x}\)</span>로 주어졌을 때 <span class="math inline">\(Y\)</span>의 조건부 누적분포함수는 <span class="math inline">\(F_{Y}(y|\mathbf{X}=\mathbf{x})=P(Y\leq y|\mathbf{X}=\mathbf{x})\)</span>라고 하자. 이 때 <span class="math inline">\(Y\)</span>의 <span class="math inline">\(\tau\)</span><strong>번째 조건부 분위수 (</strong><span class="math inline">\(\tau\)</span><strong>-th conditional quantile)</strong>는 <span class="math display">\[Q_{\tau}(Y|\mathbf{X}=\mathbf{x})=\inf\{y:F_{Y}(y|\mathbf{x})\geq \tau\}\]</span> 로 정의된다.</p>
 </div>
+<p></p>
 </div>
             </section>
 
@@ -572,13 +583,13 @@ FIGURE 30.1: Cummulative distribution function (left) and corresponding quantile
 <a href="-linear-quantile-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -598,16 +609,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/41-qr.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

@@ -47,7 +47,8 @@ $$\boldsymbol{\theta}=(\sigma^{2}, c_{0}, R) \rightarrow (\sigma^{2}, \phi , R)$
 다음과 같이 one-to-one mapping하는 것이다. 
 
 재모수화 후의 공분산 행렬은
-$$\sigma^{2}V(\boldsymbol{\theta}) = \sigma^{2} 
+$$
+\sigma^{2}V(\boldsymbol{\theta}) = \sigma^{2} 
 \begin{bmatrix}
 \frac{1}{1-\rho} &  &  \\
 e^{-\frac{d_{ij}}{R}} & \ddots &  \\
@@ -97,7 +98,8 @@ $$
 임을 보였다. 즉 projection matrix의 linear independent한 column을 뽑아내면 된다.
 
 또 다른 방법으로는 QR 분해를 하는 것이 있다.
-$$\mathbf{X}_{n\times p}=\mathbf{Q}\mathbf{P}=[\mathbf{Q}_{1}, \mathbf{Q}_{2}]_{n\times n}
+$$
+\mathbf{X}_{n\times p}=\mathbf{Q}\mathbf{P}=[\mathbf{Q}_{1}, \mathbf{Q}_{2}]_{n\times n}
 \begin{bmatrix}
  &  &  \\
  & \ddots &  \\
@@ -193,20 +195,20 @@ Tapered covariance matrix는 block-diagonal 형태가 되며 이런 행렬의 �
 마지막으로 기타 다른 방법들에 대해서 소개한다.
 
 Vecchina (1988)은 approximate likelihood라는 것을 소개했다. $\beta$를 회귀모수, $\theta$를 covariance parameter, $\mathbf{z}=(z_{1}, \cdots , z_{n})$를 data라고 하자. 그러면 원래 likelihood를 conditional density argument를 통해 decompose할 수 있다는 아이디어에서 비롯되었다.
-$$
+
 \begin{eqnarray*}
 L(\beta, \sigma, \mathbf{z}) &=& f(\mathbf{z}, \beta, \sigma)\\
 &=&f(\mathbf{z}, \beta, \sigma) \prod_{i=2}^{n}f(z_{i}|z_{j}, 1 \leq j \leq i-1, \beta, \theta)\\
 \end{eqnarray*}
-$$
+
 
 그 후에 적당한 subset $z_{im}$을 잡는 것이다. 즉
-$$
+
 \begin{eqnarray*}
 P(X,Y)&=&P(X)P(Y|X)\\
 &\approx& f(\mathbf{z},\beta, \theta)\prod_{i=2}^{n}f(z_{i}|z_{j}; z_{im}\text{은 subset of }z_{1}, \cdots ,z_{i-1})\\
 \end{eqnarray*}
-$$
+
 그렇다면 얼마나 자를 것인가? 가까운 애들만 남기면 된다. Empirically, $n=100$일 때 $m \approx 10$ 정도를 쓴다고 한다. Vecchina는 theory를 안했다고 한다. 물론 80년대라서 이럴 수 있었다고 한다.
 
 Stein et al (2004)는 Vecchina의 접근을 REML에서 시도하였다. 특히 subset을 찾기 위한 몇 가지 시도들을 했고, 근사값을 계산하기 위한 방법을 제공했다. 또한 강한 spatial dependence가 있는 경우, 멀리 있는 observation 또한 고려할 필요가 있음을 보였다.

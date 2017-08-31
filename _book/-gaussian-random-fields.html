@@ -34,12 +34,12 @@
   
 <link rel="prev" href="spatiotemporal.html">
 <link rel="next" href="stcovmodel.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -549,19 +556,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="-gaussian-random-fields" class="section level2">
 <h2><span class="header-section-number">39.1</span> 가우스 확률장(Gaussian random fields)</h2>
+
 <div class="definition">
-<p>시공간 확률장 <span class="math inline">\(Y(\mathbf{s},t)\)</span>가 임의의 <span class="math inline">\(\{(\mathbf{s}_{1},t_{1}),\ldots , (\mathbf{s}_{n},t_{n})\}\)</span>에 대해 무작위 벡터 <span class="math inline">\(\mathbf{Y}=(Y(\mathbf{s}_{1},t_{1}),\ldots , Y(\mathbf{s}_{n},t_{n}) )&#39;\)</span>가 다변량 가우스 분포(multivariate Gaussian distribution)를 따를 때, 이 확률장을 <strong>가우스 확률장(Gaussian random fields)</strong>이라고 한다.</p>
+<p><span id="def:unnamed-chunk-194" class="definition"><strong>Definition 39.1  (가우스 확률장)  </strong></span>시공간 확률장 <span class="math inline">\(Y(\mathbf{s},t)\)</span>가 임의의 <span class="math inline">\(\{(\mathbf{s}_{1},t_{1}),\ldots , (\mathbf{s}_{n},t_{n})\}\)</span>에 대해 무작위 벡터 <span class="math inline">\(\mathbf{Y}=(Y(\mathbf{s}_{1},t_{1}),\ldots , Y(\mathbf{s}_{n},t_{n}) )&#39;\)</span>가 다변량 가우스 분포(multivariate Gaussian distribution)를 따를 때, 이 확률장을 <strong>가우스 확률장(Gaussian random fields)</strong>이라고 한다.</p>
 </div>
+<p></p>
 <p><span class="math inline">\(\{ Y(\mathbf{s},t), (\mathbf{s},t) \in \mathcal{I}\}\)</span>를 <span class="math inline">\(\mathcal{I}\)</span>에서 정의된 실수값을 갖는 확률과정(random process)이라고 하자. 이 때 <span class="math inline">\(\mathcal{I}=\mathcal{S}\times\mathcal{T}, \mathcal{S}\subseteq \mathbb{R}^{d}, \mathcal{T}\subseteq \mathbb{R}\)</span>이다. <span class="math inline">\(\mathcal{I}=\mathcal{S}\)</span>이면 <span class="math inline">\(Y(\mathbf{s})\equiv Y(\mathbf{s},t_{0})\)</span>이면 공간 확률장(spatial random field)이 된다. 마찬가지로 <span class="math inline">\(\mathcal{I}=\mathcal{T}\)</span>이면 <span class="math inline">\(Y(\mathbf{t})\equiv Y(\mathbf{s}_{0},t)\)</span>은 시간 확률장(temporal random field)이 된다. <span class="math inline">\(I:=\{1,\ldots , l\}\)</span>과 <span class="math inline">\(J:\{ 1, \ldots, k \}\)</span>를 index set이라고 놓고 이들의 데카르트 곱(Cartesian product)을 <span class="math inline">\(I^{*}=I\times J\)</span>라고 놓자. 그리고 이것의 카디널리티를 <span class="math inline">\(m=k\cdot l\)</span>이라고 놓자.</p>
 <p>간단히 하기 위해 <span class="math inline">\(Y(\mathbf{s},t)\)</span>가 약정상성(second-roder stationary)을 따르는 시공간 가우스 확률장이라고 놓자. 이 뜻은 <span class="math display">\[\forall (\mathbf{s},t)\in\mathcal{I}, E[Y(\mathbf{s},t)]=\mu, \qquad{\text{Var}[Y(\mathbf{s},t)]=\omega{2}}\]</span> <span class="math display">\[\forall (\mathbf{s},t), (\mathbf{s}&#39;,t)\in\mathcal{I}, \text{cov}[Y(\mathbf{s},t), Y(\mathbf{s}&#39;,t)]=E[Y(\mathbf{s},t), Y(\mathbf{s}&#39;,t)]-\mu^{2}\]</span> 이다. 마지막 공분산과 관련된 조건은 <span class="math inline">\(C(\mathbf{h}, u)\)</span>가 이동불변성(translation invariant)을 갖는다고 볼 수 있다. <span class="math inline">\(C(\cdot, \cdot)\)</span>는 양의 정부호 함수(positive definite function)로 <span class="math inline">\(\mathbf{h}=\mathbf{s}&#39;-\mathbf{s}\)</span>와 <span class="math inline">\(u=t&#39;-t\)</span>에만 의존하는 함수다. 이럴 경우에 <span class="math inline">\(Y\)</span>는 시간 및 공간에 대해 <strong>정상 공분산함수(stationary covariance function)</strong>를 갖는다고 말한다. 그러면 <span class="math inline">\(Y\)</span>의 분산은 시간 또는 공간의 위치의 영향을 받지 않게되며 <span class="math display">\[V(Y(\mathbf{s},t))=C(\mathbf{0},0)=\sigma^{2}, \forall (\mathbf{s},t)\in\mathbb{R}^{d}\times\mathbb{R}\]</span> 과 같이 표현할 수 있다. 이 때 <span class="math inline">\(C(\mathbf{0},0)\)</span>은 무작위장의 <strong>사전분산(priori variance)</strong>이라 불린다.</p>
 <p><span class="math inline">\(Y\)</span>의 상관관계 함수는(correlation function) <span class="math display">\[\rho (\mathbf{h}, u )=\frac{C(\mathbf{h}, u )}{C (\mathbf{0}, 0 )}\]</span> 가 된다.</p>
+
 <div class="definition">
-<p>시공간 확률장 <span class="math inline">\(Y(\mathbf{s},t)\)</span>의 공분산함수가 임의의 시공간 장소 <span class="math inline">\((\mathbf{s}_{i}, t_{i}),(\mathbf{s}_{j}, t_{j})\in\mathbb{R}^{d}\times \mathbb{R}\)</span>에 대해 다음과 같이 <span class="math display">\[C((\mathbf{s}_{i}, t_{i}), (\mathbf{s}_{j}, t_{j}))=C_{s}(\mathbf{s}_{i},\mathbf{s}_{j})C_{t}(t_{i},t_{j})\]</span> 시간에 대한 공분산함수 <span class="math inline">\(C_{s}\)</span>와 공간에 대한 공분산함수 <span class="math inline">\(C_{t}\)</span>로 분해될 때, 이 공분산함수 <span class="math inline">\(C\)</span>가 <strong>분리가능(separable)</strong>하다고 한다.</p>
+<p><span id="def:unnamed-chunk-195" class="definition"><strong>Definition 39.2  (분리가능)  </strong></span>시공간 확률장 <span class="math inline">\(Y(\mathbf{s},t)\)</span>의 공분산함수가 임의의 시공간 장소 <span class="math inline">\((\mathbf{s}_{i}, t_{i}),(\mathbf{s}_{j}, t_{j})\in\mathbb{R}^{d}\times \mathbb{R}\)</span>에 대해 다음과 같이 <span class="math display">\[C((\mathbf{s}_{i}, t_{i}), (\mathbf{s}_{j}, t_{j}))=C_{s}(\mathbf{s}_{i},\mathbf{s}_{j})C_{t}(t_{i},t_{j})\]</span> 시간에 대한 공분산함수 <span class="math inline">\(C_{s}\)</span>와 공간에 대한 공분산함수 <span class="math inline">\(C_{t}\)</span>로 분해될 때, 이 공분산함수 <span class="math inline">\(C\)</span>가 <strong>분리가능(separable)</strong>하다고 한다.</p>
 </div>
+<p></p>
+
 <div class="definition">
-<p>시공간 확률장 <span class="math inline">\(Y(\mathbf{s},t)\)</span>의 <strong>시공간 변동도(spatio-temporal variogram)</strong>는 <span class="math display">\[2\gamma((\mathbf{s}_{i},t_{i}), (\mathbf{s}_{j},t_{j}))=V(Y(\mathbf{s}_{i},t_{i})-Y(\mathbf{s}_{j},t_{j}))\]</span> 로 정의된다. 이것의 절반을 <strong>시공간 준변동도(spatio-temporal semivariogram)</strong>으로 정의한다. 만약 상수 평균값을 갖는 시공간 확률장이라면,<br />
-<span class="math display">\[\gamma((\mathbf{s}_{i},t_{i}), (\mathbf{s}_{j},t_{j}))=\frac{1}{2}E(Y(\mathbf{s}_{i},t_{i})-Y(\mathbf{s}_{j},t_{j}))^{2}\]</span> 이 된다.</p>
+<p><span id="def:unnamed-chunk-196" class="definition"><strong>Definition 39.3  (시공간 변동도)  </strong></span>시공간 확률장 <span class="math inline">\(Y(\mathbf{s},t)\)</span>의 <strong>시공간 변동도(spatio-temporal variogram)</strong>는 <span class="math display">\[2\gamma((\mathbf{s}_{i},t_{i}), (\mathbf{s}_{j},t_{j}))=V(Y(\mathbf{s}_{i},t_{i})-Y(\mathbf{s}_{j},t_{j}))\]</span> 로 정의된다. 이것의 절반을 <strong>시공간 준변동도(spatio-temporal semivariogram)</strong>으로 정의한다. 만약 상수 평균값을 갖는 시공간 확률장이라면, <span class="math display">\[\gamma((\mathbf{s}_{i},t_{i}), (\mathbf{s}_{j},t_{j}))=\frac{1}{2}E(Y(\mathbf{s}_{i},t_{i})-Y(\mathbf{s}_{j},t_{j}))^{2}\]</span> 이 된다.</p>
 </div>
+<p></p>
 <div id="-spatio-temporal-covariance" class="section level3">
 <h3><span class="header-section-number">39.1.1</span> 시공간 공분산함수(spatio-temporal covariance)</h3>
 <p>이 절의 내용은 <span class="citation">(N. A. C. Cressie and Wikle <a href="#ref-Cressie2015">2015</a>)</span>의 6장 1절을 참고한다.</p>
@@ -595,13 +607,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <a href="stcovmodel.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -621,16 +633,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/61-spatiotemporal.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>

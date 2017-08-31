@@ -50,13 +50,11 @@ d_{J-1,k}=\sum_{n}g_{n-2k}c_{J,n}
 $$c_{J-1,k}^{*}=\sum_{n}h_{n-k}c_{J,n}$$
 이라는 결과를 얻을 수 있다는 것이다. 이는 일반적인 convolution 식이다. 여기서 'every other one'을 pick해 $c_{J-1,k}=c_{J-1,2k}^{*}$을 만드는 것이다. 이 연산을 **이진 데시메이션(dyadic decimation)**이라고 한다(by an integer factor of 2).
 
-<div class="definition">
-
+```{definition, name="이진 데시메이션"}
 **(even dyddic decimation operator)** 어떤 수열 $x_{i}$에 대한 **(even) dyadic decimation operator** $\mathcal{D}_{0}$는
 $$(\mathcal{D}_{0}x)_{l}=x_{2l}$$
 로 정의한다.
-
-</div>
+```
 
 그러면 식 (\@ref(eq:fatherj4))와 (\@ref(eq:motherj1))는 (even) dyadic decimation operator를 활용해
 $$c_{J-1}=\mathcal{D}_{0}\mathcal{H}c_{J} \text{ and } d_{J-1}=\mathcal{D}_{0}\mathcal{G}c_{J}$$

@@ -34,12 +34,12 @@
   
 <link rel="prev" href="-examples-of-spatial-point-patterns.html">
 <link rel="next" href="-general-monte-carlo-methods-for-csr-test.html">
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 
 
 
@@ -87,6 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -99,6 +100,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">통계공부와 관련된 글들</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 일러두기</a></li>
 <li class="part"><span><b>I Basic Concepts</b></span></li>
 <li class="chapter" data-level="2" data-path="math.html"><a href="math.html"><i class="fa fa-check"></i><b>2</b> 기본적인 수학 개념들</a><ul>
@@ -530,6 +534,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="50.3" data-path="extremal-t-extremal-t-random-fields.html"><a href="extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>50.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
 </ul></li>
 <li class="chapter" data-level="51" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>51</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
+
 </ul>
 
       </nav>
@@ -550,14 +557,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="csr" class="section level1">
 <h1><span class="header-section-number">Chapter 43</span> 완전공간임의성</h1>
 <p>공간점패턴 자료를 받으면 제일 처음으로 이 자료가 <strong>완전공간임의성(complete spatial randomness, CSR)</strong>을 따르는지 체크하게 되는데, 그 이유는 이것을 따르면 모델링이 단순해지기 때문이다.</p>
+
 <div class="definition">
-<p>완전공간임의성 가정은 다음 두 조건</p>
+<p><span id="def:unnamed-chunk-202" class="definition"><strong>Definition 43.1  (동질적 포아송 점과정)  </strong></span>완전공간임의성 가정은 다음 두 조건</p>
 <ol style="list-style-type: decimal">
 <li><p>면적이 <span class="math inline">\(|A|\)</span>인 관찰 지역 <span class="math inline">\(A\)</span> 안의 사건의 숫자가 <span class="math inline">\(\text{Poisson}(\lambda |A|), \lambda &gt;0, |A| &gt;0\)</span>을 따른다.</p></li>
 <li><p><span class="math inline">\(n\)</span>개의 사건이 주어졌을 때, 각각의 사건들 <span class="math inline">\(x_{i}, i=1,\ldots , n\)</span>은 <span class="math inline">\(A\)</span> 위에서 균등분포(uniform distribution)를 따르는 독립인 무작위 표본들이다.</p></li>
 </ol>
 <p>을 만족하는 것이다. 이를 만족하는 점과정을 특별히 <strong>동질적 포아송 점과정(homogeneous Poisson point process)</strong>이라고 부른다. <span class="math inline">\(\lambda\)</span>는 강도(intensity)로 단위 면적 당 사건 발생의 기대값을 결정하는 값이다. <span class="math inline">\(\lambda\)</span>가 위치에 관계 없는 상수값이라는 것은 사건의 발생횟수가 위치에 따라 변하지 않는다는 의미이다. 또한 CSR 가정은 사건들 사이에 어떤 상호작용도 존재하지 않음을 의미한다.</p>
 </div>
+<p></p>
 <p>우리는 어떤 자료가 정규분포를 따르는지 알아보기 위해 평균, 분산, 왜도, 첨도 등을 체크하고 Q-Q plot 등을 그리기도 한다. 그렇다면 CSR의 특징은 무엇인가? 이를 알먄 어떤 자료가 CSR을 따르는지 체크 가능할 것이다.</p> 
 </div>
             </section>
@@ -569,13 +578,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <a href="-general-monte-carlo-methods-for-csr-test.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -595,16 +604,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://seoncheolpark.github.io/book/_book/82-CSR.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["book.pdf", "book.epub", "book.mobi"],
 "toc": {
 "collapse": "section"
 },
 "toolbar": {
 "position": "static"
-}
+},
+"search": true
 });
 });
 </script>
