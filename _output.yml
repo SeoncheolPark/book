@@ -20,15 +20,12 @@ bookdown::html_chapters:
 bookdown::pdf_book:
   toc: true
   number_sections: yes
-  template: default
+  template: null
   includes:
     in_header: preamble.tex
-    after_body: after_body.tex
+  citation_package: natbib
   keep_tex: yes
   latex_engine: xelatex
   toc_depth: 3
   toc_unnumbered: yes
   toc_appendix: yes
-bookdown::epub_book:
-  dev: svglite
-  stylesheet: css/style.css

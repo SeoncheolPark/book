@@ -182,7 +182,7 @@ $$
 $$A\oplus r = \{ a+r : a \in A, a+r \leq 1 \} \cup \{ a+r-1: a\in A, a+r > 1\}$$
 로 정의할 수 있다.
 
-```{r, echo=F, fig.cap='Shift invariance.', fig.align='center'}
+```{r, echo=F, fig.cap='Shift invariance.', fig.align='center', fig.fullwidth=TRUE}
 knitr::include_graphics("images/basic_shift.png")
 ```
 
@@ -285,7 +285,7 @@ $$\bigcup_{i=1}^{\infty}A_{i}\in\mathcal{C}\qquad{\text{for every collection } A
 
 ```
 
-```{r, echo=F, fig.cap='Closed under increasing limits.', fig.align='center'}
+```{r, echo=F, fig.cap='Closed under increasing limits.', fig.align='center', fig.fullwidth=TRUE}
 knitr::include_graphics("images/basic_cuil.png")
 ```
 
@@ -294,7 +294,7 @@ knitr::include_graphics("images/basic_cuil.png")
 
 ```
 
-```{r, echo=F, fig.cap='Closed under finite differences.', fig.align='center'}
+```{r, echo=F, fig.cap='Closed under finite differences.', fig.align='center', fig.fullwidth=TRUE}
 knitr::include_graphics("images/basic_cufd.png")
 ```
 

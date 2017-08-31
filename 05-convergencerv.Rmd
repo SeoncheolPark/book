@@ -65,7 +65,7 @@ knitr::include_graphics("images/basic_UI03.png")
 
 마지막으로 유계가 아니나 일양적분가능한 확률변수의 수열의 예를 소개한다.
 
-```{r, echo=F, fig.cap='An example of sequence of random variables that is not bounded but uniformly integrable.', fig.align='center'}
+```{r, echo=F, fig.cap='An example of sequence of random variables that is not bounded but uniformly integrable.'}
 knitr::include_graphics("images/basic_UI04.png")
 ```
 

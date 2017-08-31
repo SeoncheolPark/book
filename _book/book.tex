@@ -1,4 +1,4 @@
-\documentclass[b5paper,]{book}
+\documentclass[b5paper,]{scrbook}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -22,9 +22,9 @@
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
 \usepackage[inner=0.75in,outer=0.75in,top=0.6in,bottom=0.9in]{geometry}
-\usepackage{hyperref}
+\usepackage[unicode=true]{hyperref}
 \PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
-\hypersetup{unicode=true,
+\hypersetup{
             pdftitle={통계공부와 관련된 글들},
             pdfauthor={Seoncheol Park},
             colorlinks=true,
@@ -33,6 +33,8 @@
             urlcolor=RedOrange,
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
+\usepackage{natbib}
+\bibliographystyle{apalike}
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -74,15 +76,6 @@
 \newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{{#1}}}}
 \newcommand{\NormalTok}[1]{{#1}}
 \usepackage{longtable,booktabs}
-\usepackage{graphicx,grffile}
-\makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 \IfFileExists{parskip.sty}{%
 \usepackage{parskip}
 }{% else
@@ -102,32 +95,6 @@
 \let\oldsubparagraph\subparagraph
 \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
-
-%%% Use protect on footnotes to avoid problems with footnotes in titles
-\let\rmarkdownfootnote\footnote%
-\def\footnote{\protect\rmarkdownfootnote}
-
-%%% Change title format to be more compact
-\usepackage{titling}
-
-% Create subtitle command for use in maketitle
-\newcommand{\subtitle}[1]{
-  \posttitle{
-    \begin{center}\large#1\end{center}
-    }
-}
-
-\setlength{\droptitle}{-2em}
-  \title{통계공부와 관련된 글들}
-  \pretitle{\vspace{\droptitle}\centering\huge}
-  \posttitle{\par}
-  \author{Seoncheol Park}
-  \preauthor{\centering\large\emph}
-  \postauthor{\par}
-  \predate{\centering\large\emph}
-  \postdate{\par}
-  \date{2017-08-31}
-
 \usepackage[hangul]{kotex}
 \usepackage{makeidx}
 \makeindex
@@ -241,6 +208,10 @@
 
 \frontmatter
 
+\title{통계공부와 관련된 글들}
+\author{Seoncheol Park}
+\date{2017-08-31}
+
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{lemma}{Lemma}[chapter]
@@ -274,6 +245,8 @@ John W. Tukey는 이렇게 말했다.
 각 장은 독립된 구성으로 되어 있으며, 한 권 이상의 책들을 참고문헌으로
 하여 그들의 정의 및 표현을 따라가는 방식으로 구성되어 있다. 따라서 각
 장마다 표현 및 한국어 용어 번역이 상이할 수 있다.
+
+\mainmatter
 
 \part{Basic Concepts}\label{part-basic-concepts}
 
@@ -756,18 +729,14 @@ space}\label{reproducing-kernel-hilbert-space}
 \chapter{기초 확률론}\label{basicprob}
 
 이 장에서는 앞으로 다룰 내용을 이해하기 위해 필요한 기본적인 확률 개념을
-정리하였다. 대학원 과정의 확률론을 다룬 유명한 책들로는 (Durrett
-\protect\hyperlink{ref-Durrett2010}{2010}), (Billingsley
-\protect\hyperlink{ref-Billingsley2012}{2012}) 그리고 (Chung
-\protect\hyperlink{ref-Chung2001}{2001})이 있다. 그 밖에 본인이 추천하는
-책들은 다음과 같다. (Gut \protect\hyperlink{ref-Gut2012}{2012})는 최근에
-나온 대학원 확률론 입문서 교재로써 비교적 내용이 자세하다. (Schilling
-\protect\hyperlink{ref-Schilling2005}{2005})는 삽화가 많고 저자가
-연습문제의 답을 웹에 올려놓았다. (Shorack
-\protect\hyperlink{ref-Shorack2006}{2006})과 (Proschan and Shaw
-\protect\hyperlink{ref-Proschan2016}{20016})는 통계학자의 입장에서
-필요한 확률론 지식을 비교적 쉽게 서술하였다. 여기서는 앞서 언급한 모든
-책들을 참고할 것이다.
+정리하였다. 대학원 과정의 확률론을 다룬 유명한 책들로는
+\citep{Durrett2010}, \citep{Billingsley2012} 그리고 \citep{Chung2001}이
+있다. 그 밖에 본인이 추천하는 책들은 다음과 같다. \citep{Gut2012}는
+최근에 나온 대학원 확률론 입문서 교재로써 비교적 내용이 자세하다.
+\citep{Schilling2005}는 삽화가 많고 저자가 연습문제의 답을 웹에
+올려놓았다. \citep{Shorack2006}과 \citep{Proschan2016}는 통계학자의
+입장에서 필요한 확률론 지식을 비교적 쉽게 서술하였다. 여기서는 앞서
+언급한 모든 책들을 참고할 것이다.
 
 \section{표본공간과 사건(sample space and
 events)}\label{-sample-space-and-events}
@@ -1302,8 +1271,7 @@ under countable decreasing set이면, 즉
 이면 \(\mathcal{C}\)를 \textbf{단조족(monotone class)}이라고 한다.
 \EndKnitrBlock{definition}
 
-이에 대한 증명은 (Durrett \protect\hyperlink{ref-Durrett2010}{2010})의
-Appendix 부분을 참고하자.
+이에 대한 증명은 \citep{Durrett2010}의 Appendix 부분을 참고하자.
 
 \section{측도(measure)}\label{measure}
 
@@ -1488,12 +1456,7 @@ integrable, UI)}이라고 부른다. 또는
 마지막으로 유계가 아니나 일양적분가능한 확률변수의 수열의 예를 소개한다.
 
 \begin{figure}
-
-{\centering \includegraphics[width=5.03in]{images/basic_UI04} 
-
-}
-
-\caption{An example of sequence of random variables that is not bounded but uniformly integrable.}\label{fig:unnamed-chunk-49}
+\includegraphics[width=5.03in]{images/basic_UI04} \caption{An example of sequence of random variables that is not bounded but uniformly integrable.}\label{fig:unnamed-chunk-49}
 \end{figure}
 
 \section{Big O와 small o (big O and small
@@ -1536,8 +1499,7 @@ X_{n}\stackrel{n\rightarrow \infty}{=}O_{p}(a_{n}) &\Leftrightarrow& \text{sup}_
 
 \chapter{확률과정론}\label{stoprocess}
 
-참고할만한 책으로 (Moller and Waagepetersen
-\protect\hyperlink{ref-Lindgren2012}{2012})가 있다.
+참고할만한 책으로 \citep{Lindgren2012}가 있다.
 
 \section{확률과정이란?(stochastic process)}\label{stochastic-process}
 
@@ -1650,7 +1612,7 @@ AIC, AICc, BIC
 
 \section{선형모형(linear model)}\label{linear-model}
 
-이 절의 내용은 (Yee \protect\hyperlink{ref-Yee2015}{2015})를 따른다.
+이 절의 내용은 \citep{Yee2015}를 따른다.
 
 \chapter{벌점화 및 축소방법}\label{penalshrink}
 
@@ -1670,10 +1632,9 @@ AIC, AICc, BIC
 \section{능형회귀(ridge regression)}\label{ridge-regression}
 
 앞서 말한 문제점의 한 가지 해결방법으로 추정량의 불편성을 약간 깨는
-방법이 있다. (Hoerl and Kennard
-\protect\hyperlink{ref-Hoerl1970}{1970})은 \(X^{T}X\)에 작은 상수값
-\(\lambda\)를 더해 역을 취해 추정량의 불안정성을 해결할 수 있다고
-생각하고 다음과 같은 추정량을 제안하였다.
+방법이 있다. \citep{Hoerl1970}은 \(X^{T}X\)에 작은 상수값 \(\lambda\)를
+더해 역을 취해 추정량의 불안정성을 해결할 수 있다고 생각하고 다음과 같은
+추정량을 제안하였다.
 \[\hat{\beta}_{ridge}=(X^{T}X+\lambda I_{p})^{-1}X^{T}Y.\] 이를
 \textbf{능형회귀(ridge regression)} 추정량이라고 부른다. 참고로
 수학에서는 이 방법을
@@ -1737,8 +1698,7 @@ SVD를 이용하는 방법이 있다. 즉
 
 \chapter{일반화선형모형}\label{glm}
 
-(Nelder and Wedderburn \protect\hyperlink{ref-Nelder1972}{1972})는
-몇가지 중요한 회귀분석 모형들을 통합한 개념인
+\citep{Nelder1972}는 몇가지 중요한 회귀분석 모형들을 통합한 개념인
 \textbf{일반화선형모형(generalized linear model, GLM)}을 발표하였다. 이
 논문에서 \textbf{포아송 회귀(Poisson regression)}와 \textbf{로지스틱
 회귀(logistic regression)}가 GLM의 특수한 경우임을 보이고 추정을 위해
@@ -1750,22 +1710,21 @@ SVD를 이용하는 방법이 있다. 즉
 \section{벡터 일반화선형모형(vector generalized linear
 models)}\label{-vector-generalized-linear-models}
 
-이 절의 내용은 (Yee \protect\hyperlink{ref-Yee2015}{2015})를 따른다.
+이 절의 내용은 \citep{Yee2015}를 따른다.
 
 \section{일반화선형모형의 한계점(limations of
 glm)}\label{-limations-of-glm}
 
-(Yee \protect\hyperlink{ref-Yee2015}{2015})에 의하면 GLM은 잘 알려진
-지수족 내의 일차원 분포에서만 잘 적용된다는 한계점을 가지고 있다.
+\citep{Yee2015}에 의하면 GLM은 잘 알려진 지수족 내의 일차원 분포에서만
+잘 적용된다는 한계점을 가지고 있다.
 
 \chapter{일반화가법모형}\label{gam}
 
-일반화가법모형에 대한 참고문헌으로는 (Wood
-\protect\hyperlink{ref-Wood2006}{2006})이 있다. 최근에 나온 좋은
-책으로는 (Yee \protect\hyperlink{ref-Yee2015}{2015})가 있으며 이 책은
-주로 \textbf{벡터 일반화선형모형(vector genearlized linear model,
-VGLMs)} 및 \textbf{벡터 일반화가법모형(vector generalized addtive model,
-VGAMs)}에 초점을 맞추고 있고 R 코드를 포함하고 있다.
+일반화가법모형에 대한 참고문헌으로는 \citep{Wood2006}이 있다. 최근에
+나온 좋은 책으로는 \citep{Yee2015}가 있으며 이 책은 주로 \textbf{벡터
+일반화선형모형(vector genearlized linear model, VGLMs)} 및 \textbf{벡터
+일반화가법모형(vector generalized addtive model, VGAMs)}에 초점을 맞추고
+있고 R 코드를 포함하고 있다.
 
 \section{가법모형들(additive models)}\label{additive-models}
 
@@ -1830,10 +1789,8 @@ residuals를 계산하는 것이다.
 
 \chapter{시계열분석}\label{ts}
 
-내용과 표기는 (Shumway and Stoffer
-\protect\hyperlink{ref-Shumway2010}{2010})를 따른다. (Cryer and Chan
-\protect\hyperlink{ref-Cryer2008}{2008})또한 R 예제가 이쓴 시계열분석
-교재로써 참고할 만 하다.
+내용과 표기는 \citep{Shumway2010}를 따른다. \citep{Cryer2008}또한 R
+예제가 이쓴 시계열분석 교재로써 참고할 만 하다.
 
 시계열에서 다루는 대부분의 확률모형들은 확률과정을 설명하는 모형이라고
 한다. 관측된 시계열은 표본공간의 각 원소에 대응하는 확률과정
@@ -2533,8 +2490,7 @@ Y_{t}=h(\theta_{t},v_{t})\\
 
 \chapter{스펙트럼 분석}\label{spectral}
 
-이 절의 내용은 (Shumway and Stoffer
-\protect\hyperlink{ref-Shumway2010}{2010})를 참고하였다.
+이 절의 내용은 \citep{Shumway2010}를 참고하였다.
 
 시간영역의 분석 방법이 자기상관함수 등을 이용해 시간에 따른 상관 정도를
 분석하고 변수들 사이의 관계를 가장 잘 설명해 주는 모형을 찾는 데 반해,
@@ -2719,9 +2675,8 @@ spectrum)}\label{-estimation-of-spectrum}
 
 스펙트럼을 추정하는 방법을 이해하기 위해서는
 \textbf{피리오도그램(periodogram)}에 대한 이해가 필요하다. 이 절의
-서술은 (Lim \protect\hyperlink{ref-Lim2013}{2013})을 참고하였다. 또 다른
-참고자료로는 (Shumway and Stoffer
-\protect\hyperlink{ref-Shumway2010}{2010})이 있다.
+서술은 \citep{Lim2013}을 참고하였다. 또 다른 참고자료로는
+\citep{Shumway2010}이 있다.
 
 다음과 같은 시계열 자료의 수열 \(\{Y_{1}, \ldots, Y_{n}\}\)을 관측한다고
 하자. 그러면 \textbf{피리오도그램(periodogram)} \(I_{n}(\omega)\)는
@@ -2731,9 +2686,9 @@ parameter)}이다. \(\omega\)가 푸리에
 진동수(\(\omega=\frac{2\pi k}{n}, k\in\mathbb{Z}\))일 때 이
 피리오도그램은
 \[I_{n}(\omega)=\frac{n}{4}\| \tilde{\boldsymbol{\beta}}_{n}(\omega)\|^{2}\]
-으로 표현할 수 있다고 한다(Li \protect\hyperlink{ref-Li2008}{2008}).
-여기서 \(\| \cdot \|\)은 벡터의 \(l_{2}\) 노름이며
-\(\tilde{\boldsymbol{\beta}}_{n}(\omega)\)은 최소자승법
+으로 표현할 수 있다고 한다\citep{Li2008}. 여기서 \(\| \cdot \|\)은
+벡터의 \(l_{2}\) 노름이며 \(\tilde{\boldsymbol{\beta}}_{n}(\omega)\)은
+최소자승법
 \[\tilde{\boldsymbol{\beta}}_{n}(\omega)=\text{arg}\min_{\boldsymbol{\beta}\in\mathbb{R}^{2}}\sum_{i=1}^{n}| Y_{i}-\mathbf{x}_{t}^{T}(\omega)\boldsymbol{\beta}|^{2}\]
 의 해다. 그리고 이 때
 \(\mathbf{x}_{t}(\omega)=(\cos(\omega t), \sin (\omega t))^{T}\)로
@@ -2753,9 +2708,8 @@ periodogram)}\label{-quantile-periodogram}
   직접 구현
 \end{enumerate}
 
-다음 예제는 (Shumway and Stoffer
-\protect\hyperlink{ref-Shumway2010}{2010})에 있는 scaled periodogram을
-구하는 예제이다.
+다음 예제는 \citep{Shumway2010}에 있는 scaled periodogram을 구하는
+예제이다.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2848,8 +2802,7 @@ Statistics}\label{part-multiscale-methods-in-statistics}
 
 \chapter{푸리에로부터 웨이블릿으로}\label{fouriertowavelet}
 
-이 절의 초반부 내용은 (Ogden \protect\hyperlink{ref-Ogden2012}{2012})를
-참고하였다.
+이 절의 초반부 내용은 \citep{Ogden2012}를 참고하였다.
 
 \section{이산 푸리에변환(discrete Fourier
 transform)}\label{-discrete-fourier-transform}
@@ -2894,8 +2847,8 @@ analysis)}라고 한다. 반면에 푸리에해석은 주파수의 관점에서 
 
 \section{웨이블릿(wavelet)}\label{wavelet}
 
-웨이블릿은 뒷장에서도 다시 설명하겠지만, 여기서는 (Shima
-\protect\hyperlink{ref-Shima2016}{2016})의 내용을 다룬다.
+웨이블릿은 뒷장에서도 다시 설명하겠지만, 여기서는 \citep{Shima2016}의
+내용을 다룬다.
 
 앞서 보았듯이, 푸리에 변환은 시간 영역에서 진동이 있는 요소들을
 추출해낸다는 점에서 효율적인 툴로 알려져있다. 그러나 푸리에 변환은 시간
@@ -3313,8 +3266,8 @@ detail)}라고 부른다. 그러면 다중해상도 표현은
 \chapter{다중척도 방법론}\label{multiscale}
 
 이 장에서는 통계학에서의 다중척도 방법론을 다룬다. 주된 내용은 2015년
-지도교수님의 특강 수업 내용이다. 이 문서에 담겨있는 그림들은 (G. Nason
-\protect\hyperlink{ref-Nason2010}{2010})을 참고하였다.
+지도교수님의 특강 수업 내용이다. 이 문서에 담겨있는 그림들은
+\citep{Nason2010}을 참고하였다.
 
 \section{다중척도 변환(multiscale
 transform)}\label{-multiscale-transform}
@@ -3481,16 +3434,15 @@ c_{34}&=&\frac{(16+2)}{2}=9, c_{33}=\frac{(16-2)}{2}=7, c_{32}=\frac{(2+0)}{2}=1
 수도 있다. 이런 함수들을 다룰 때에는 다중척도 방법으로 접근하는 것이
 필요하다.
 
-(Donoho and Johnstone \protect\hyperlink{ref-Donoho1994}{1994})의 논문
-이전까지 통계학자들의 관심사는 부드러운 함수의 평균 추정에 집중되어
-있었다. Donoho는 논문에서 몇 가지 혁신적인 개념들을 제시했는데,
-임계화(thresholding), \textbf{희소성(sparsity)} 등이 그것이다. 그의
-아이디어는 당시에는 이해하기 힘든 것들이었다. 그러나 이 논문은 후대에
-들에 고차원 자료 분석의 밑거름이 되게 해 주었고, \textbf{least absolute
-sharinkage and selection operator (LASSO)}와 거의 같은 개념을 먼저
-제시하였다. Donoho의 제자인 Fan은 후에 스승의 아이디어를 알기 쉽게
-해석하여 \textbf{smoothly clipped absolute deviation (SCAD)}라는 것을
-제안하기도 하였다.
+\citep{Donoho1994}의 논문 이전까지 통계학자들의 관심사는 부드러운 함수의
+평균 추정에 집중되어 있었다. Donoho는 논문에서 몇 가지 혁신적인 개념들을
+제시했는데, 임계화(thresholding), \textbf{희소성(sparsity)} 등이
+그것이다. 그의 아이디어는 당시에는 이해하기 힘든 것들이었다. 그러나 이
+논문은 후대에 들에 고차원 자료 분석의 밑거름이 되게 해 주었고,
+\textbf{least absolute sharinkage and selection operator (LASSO)}와 거의
+같은 개념을 먼저 제시하였다. Donoho의 제자인 Fan은 후에 스승의
+아이디어를 알기 쉽게 해석하여 \textbf{smoothly clipped absolute
+deviation (SCAD)}라는 것을 제안하기도 하였다.
 
 우리가 지금까지 일반적으로 배운 회귀분석 모형은 다음과 같이 나타낼 수
 있다. \[y=f+\epsilon, \qquad{\epsilon \sim \mathcal{N}(0,\sigma^{2}).}\]
@@ -3598,11 +3550,9 @@ processing)}\label{-filter-in-signal-processing}
 
 \section{선형 필터(linear filter)}\label{-linear-filter}
 
-이 절의 내용은 (Shumway and Stoffer
-\protect\hyperlink{ref-Shumway2010}{2010})를 참고하였다. 여기서는 선형
-필터가 시계열로부터 신호를 어떻게 뽑아내는지에 대해 설명한다. 선형
-필터는 시계열 자료의 스펙트럼 특성을 변형시켜 예측 가능하게끔 한다고
-한다.
+이 절의 내용은 \citep{Shumway2010}를 참고하였다. 여기서는 선형 필터가
+시계열로부터 신호를 어떻게 뽑아내는지에 대해 설명한다. 선형 필터는
+시계열 자료의 스펙트럼 특성을 변형시켜 예측 가능하게끔 한다고 한다.
 
 선형필터는 특정화한 계수들 \(a_{j}, j=0,\pm 1, \pm 2, \ldots\)를
 사용한다. 이것은 투입된 시계열 \(x_{t}\)를 다음 관계를 통해
@@ -3613,11 +3563,10 @@ function)}이라고 부른다.
 
 \section{R 예제(R-multiscale)}\label{r-r-multiscale}
 
-웨이블릿과 관련된 R 예제를 담고 있는 책은 (G. Nason
-\protect\hyperlink{ref-Nason2010}{2010})이 있다. 이 책의 저자는
-\texttt{wavethresh}란 R 패키지를 만들기도 했다. 또 다른 R 패키지로
-\texttt{waveslim}이라는 것도 있다. 여기서는 (G. Nason
-\protect\hyperlink{ref-Nason2010}{2010})의 예제를 일부 다뤄보기로 한다.
+웨이블릿과 관련된 R 예제를 담고 있는 책은 \citep{Nason2010}이 있다. 이
+책의 저자는 \texttt{wavethresh}란 R 패키지를 만들기도 했다. 또 다른 R
+패키지로 \texttt{waveslim}이라는 것도 있다. 여기서는 \citep{Nason2010}의
+예제를 일부 다뤄보기로 한다.
 
 \texttt{wavethresh} 라이브러리를 실행시킨 상황에서, 다음 벡터의 웨이블릿
 변환을 실행해본다. \texttt{wd}라는 함수가 이를 가능케 해 준다.
@@ -3785,8 +3734,7 @@ W =
 \]
 
 \(\mathbf{d}=(\frac{21\sqrt{2}}{2},0,-\sqrt{2},-3\sqrt{2},\sqrt{2},-7,-2,\frac{3\sqrt{2}}{2})\)를
-얻을 수 있다. (이 예제에서는 (G. Nason
-\protect\hyperlink{ref-Nason2010}{2010})의 정의를 따라갔다.)
+얻을 수 있다. (이 예제에서는 \citep{Nason2010}의 정의를 따라갔다.)
 \EndKnitrBlock{example}
 
 위 예제의 \(W\)처럼 Haar 웨이블릿의 \(W\)는
@@ -4416,8 +4364,7 @@ orderings)}\label{-ndwt--ndwttime-and-packet-ndwt-orderings}
 
 \chapter{웨이블릿 수축}\label{waveletshrinkage}
 
-이 장의 주된 내용과 그림들은 (G. Nason
-\protect\hyperlink{ref-Nason2010}{2010})를 참고하였다.
+이 장의 주된 내용과 그림들은 \citep{Nason2010}를 참고하였다.
 
 다음과 같이 자료를 관찰하는 도메인(domain)인 physical domain (physical
 model)에서의 모델 \(y_{i}=g(x_{i})+e_{i}, i=1,\cdots,n\)에서 관측한 길이
@@ -4587,8 +4534,8 @@ squared err, MISE)} \(E(\hat{M})\)을 정의한다.
 볼 수 있다. 참고로 \((\mathbf{X}^{T}\mathbf{X})^{-1}\neq \mathbf{I}\)인
 경우 \(\hat{\beta}\)가 다 연결되므로 이렇게 분석할 수 없다. 그리고
 \[\hat{\boldsymbol{\beta}}=\min \| \mathbf{y}-\mathbf{X}\boldsymbol{\beta} \|^{2} \Leftrightarrow \min \| \mathbf{X}^{T}\mathbf{y} - \mathbf{X}^{T}\boldsymbol{\beta} \|^{2}=\min \| \hat{\boldsymbol{\beta}}-\boldsymbol{\beta} \|^{2}\]
-가 된다. (Donoho and Johnstone \protect\hyperlink{ref-Donoho1994}{1994})
-논문에 갑자기 이 사실을 이용해 전개하는 내용이 있다.
+가 된다. \citep{Donoho1994} 논문에 갑자기 이 사실을 이용해 전개하는
+내용이 있다.
 
 더 나아가 벌점화 최소자승법(penalized least square) 문제를 생각해보자.
 \(\mathbf{z}=\mathbf{X}^{T}\mathbf{y}\),
@@ -4623,22 +4570,20 @@ E(\theta^{2})=\theta^{2} & \text{o.w.}
 \(\lambda\)를 크게 취하는 것이 유리하다.
 
 통계학에서 오라클이라는 개념을 처음 사용한 사람은 Dave Donoho이다.
-오라클이라는 개념이 처음 등장하는 논문은 (Donoho and Johnstone
-\protect\hyperlink{ref-Donoho1994}{1994})인데, 오라클을``With ideal
-spatial adaptation, an oracle furnishes information about how best to
-adapt a spatially variable estimator, whether piecewise constant,
-piecewise polynomial, variable knot spline, or variable bandwidth kernel
-to the unknown function''이라고 소개하고 있다. 교수님의 요약은 다음과
-같다. ``The oracle is notional device that tells you which coefficients
-you should select.''
+오라클이라는 개념이 처음 등장하는 논문은 \citep{Donoho1994}인데,
+오라클을``With ideal spatial adaptation, an oracle furnishes information
+about how best to adapt a spatially variable estimator, whether
+piecewise constant, piecewise polynomial, variable knot spline, or
+variable bandwidth kernel to the unknown function''이라고 소개하고 있다.
+교수님의 요약은 다음과 같다. ``The oracle is notional device that tells
+you which coefficients you should select.''
 
 오라클에 의한 ideal risk는(hard thresholding의 경우)
 \(M_{ideal}=\sum_{j,k}\min(\theta_{j,k}^{2},\sigma^{2})\)이다. 그렇다면
 \(\hat{\theta}\)를 어떻게 구하는가? 이 문제는 결국
 \(\eta_{H}, \eta_{S}, \lambda\)를 선택하는 문제로 귀착된다. Donoho와
 Johnstone은 \(M_{ideal}\approx M\)이 되게 하는 \(\hat{\theta}\)를 몇
-가지 제시하였다. (Donoho and Johnstone
-\protect\hyperlink{ref-Donoho1994}{1994})에서
+가지 제시하였다. \citep{Donoho1994}에서
 \(\hat{\theta}=\eta_{x}(d,\lambda)\),
 \(\lambda=\sigma\sqrt{2\log n}\)으로 할 시
 \[M_{\text{universal}}\leq(2\log n +1)(\sigma^{2}+M_{\text{ideal}})\]
@@ -4705,9 +4650,8 @@ noise-free하지만 signal도 너무 많이 죽일 가능성이 있다는 것이
 \(\lambda^{u}\)는 noise-free reconstruction을 하는 최소의
 \(\lambda\)이므로, \(0< \lambda^{*} \ll \lambda^{u}\)인
 \(\lambda^{*}\)를 생각할 수 있을 것이다. 이런 \(\lambda^{*}\) 중의
-하나로 (Donoho and Johnstone
-\protect\hyperlink{ref-Donoho1994}{1994})에서는 \textbf{RiskShrink}라는
-것을 제시했다. 이 방법은 \(\Lambda_{n}^{*}(=2 \log n +1)\)에 해당하는
+하나로 \citep{Donoho1994}에서는 \textbf{RiskShrink}라는 것을 제시했다.
+이 방법은 \(\Lambda_{n}^{*}(=2 \log n +1)\)에 해당하는
 \(\Lambda_{n}^{*}\)과 이에 대응되는 \(\lambda^{*}\)을 table 형태로
 계산한 것이다. 예를 들어 \(n=1024\) 일 때
 \(\lambda^{u}=3.72, \lambda^{*}=2.23, \Lambda_{n}^{*}=5.976\)이다.
@@ -4725,10 +4669,9 @@ noise-free하지만 signal도 너무 많이 죽일 가능성이 있다는 것이
 추정량들은 Bayesian과 밀접한 관련이 있다. Bayesian들이 주로 하는 것은
 자료를 prior의 정보에 민감하게 반응하도록 수축(shrinkage)해 주는 것이다.
 
-SURE가 처음 등장한 논문은 (Donoho and Johnstone
-\protect\hyperlink{ref-Donoho1995}{1995})로, (Stein
-\protect\hyperlink{ref-Stein1981}{1981})의 내용을 웨이블릿 도메인으로
-갖고 온 것이다. 다음과 같은 data domain에서의 모델
+SURE가 처음 등장한 논문은 \citep{Donoho1995}로, \citep{Stein1981}의
+내용을 웨이블릿 도메인으로 갖고 온 것이다. 다음과 같은 data domain에서의
+모델
 \(y_{i}=g(x_{i})+e_{i}, i=1,\cdots,n,e_{i} \stackrel{iid}{\sim} \mathcal{N}(0,\sigma^{2})\)과
 이를 웨이블릿 도메인(domain)으로 옮긴
 \(\mathbf{d}=\boldsymbol{\theta}+\boldsymbol{\epsilon}, \boldsymbol{\epsilon} \sim \mathcal{N}(0,\sigma^{2}\mathbf{I})\)를
@@ -4737,8 +4680,8 @@ SURE가 처음 등장한 논문은 (Donoho and Johnstone
 
 \BeginKnitrBlock{theorem}[Stein]
 \protect\hypertarget{thm:unnamed-chunk-129}{}{\label{thm:unnamed-chunk-129}
-\iffalse (Stein) \fi{} }(Stein \protect\hyperlink{ref-Stein1981}{1981})
-만약 \(\hat{\boldsymbol{\mu}}\mathbf{(x)}=\mathbf{x}+\mathbf{g(x)}\),
+\iffalse (Stein) \fi{} }\citep{Stein1981} 만약
+\(\hat{\boldsymbol{\mu}}\mathbf{(x)}=\mathbf{x}+\mathbf{g(x)}\),
 \(g:\mathbb{R}^{n} \rightarrow \mathbb{R}^{n}\) is weakly differentiable
 조건이면
 \[E \| \hat{\boldsymbol{\mu}}\mathbf{(x)}-\boldsymbol{\mu} \|^{2} =n+ E\{ \|\mathbf{g(x)}\|^{2}+2\bigtriangledown \cdot \mathbf{g(x)} \}, \bigtriangledown\cdot \mathbf{g}=\sum_{i} \frac{\partial}{\partial x_{i}}g_{i}\]
@@ -4841,10 +4784,9 @@ E(y_{i}-\hat{f}_{\lambda}^{-i}(x_{i}))^{2}&=&E(y_{i}-f(x_{i})+f(x_{i})-\hat{f}_{
 물론 \(\min_{\lambda}E(\text{CV}) \neq \min_{\lambda}\text{CV}\)이나
 아주 틀린 생각은 아니다.
 
-(G. P. Nason \protect\hyperlink{ref-Nason1996}{1996})에서는 웨이블릿에서
-교차타당성을 하기 위한 몇 가지 방법을 제시했다. 첫 번째 방법은 하나의
-자료 대신 절반의 자료(\(\frac{n}{2}\))를 제거하는
-\textbf{two-fold CV}이다. 다음과 같은
+\citep{Nason1996}에서는 웨이블릿에서 교차타당성을 하기 위한 몇 가지
+방법을 제시했다. 첫 번째 방법은 하나의 자료 대신 절반의
+자료(\(\frac{n}{2}\))를 제거하는 \textbf{two-fold CV}이다. 다음과 같은
 \(y_{1}, \cdots, y_{n}, y_{i}=g(x_{i})+\epsilon_{i}, n=2^{J}\)이라는
 자료가 있다고 가정하자. 그러면 two-fold CV를 하는 방법은 다음과 같다.
 
@@ -5060,9 +5002,8 @@ Gaussian''이다. 이는 가우스 분포 두 개를 합성한 것을 prior로 �
 Gaussian}\label{prior-mixture-of-point-mass-and-gaussian}
 
 이러한 단점을 보완하기 위해 등장한 방법이 ``prior mixture of point mass
-and Gaussian''로, (Abramovich, Sapatinas, and Silverman
-\protect\hyperlink{ref-Abramovich1998}{1998})이 제안한 방법이다. 이는
-다음과 같이 prior를 바꾸는 것에서 출발한다.
+and Gaussian''로, \citep{Abramovich1998}이 제안한 방법이다. 이는 다음과
+같이 prior를 바꾸는 것에서 출발한다.
 \[\theta_{j} \sim \gamma_{j}\mathcal{N}(0,\tau_{j}^{2})+(1-\gamma_{j})\delta_{0} \text{ where $\delta_{0}$ is a point mass at zero}.\]
 이를 이용해 posterior distribution \(F(\theta | d)\)를 구한 후 그것의
 median를 점추정값으로 삼는다.
@@ -5087,12 +5028,11 @@ median를 점추정값으로 삼는다.
 \subsection{Mixture of point mass and heavy-tail
 distribution}\label{mixture-of-point-mass-and-heavy-tail-distribution}
 
-또 다른 방법은 (I. Johnstone and Silverman
-\protect\hyperlink{ref-Johnstone2005}{2005})에 등장하는 ``Mixture of
-point mass and heavy-tail distribution''이다. 이 논문에는 sparse에 대한
-설명도 잘 되어있다. 이 논문의 저자들은 이 방법의 idea를 건초더미에서
-바늘 찾기(finding a needle in a haystack)로 요약하였다. 이 방법에서는
-다음과 같은 spike-flat prior를 고려한다.
+또 다른 방법은 \citep{Johnstone2005}에 등장하는 ``Mixture of point mass
+and heavy-tail distribution''이다. 이 논문에는 sparse에 대한 설명도 잘
+되어있다. 이 논문의 저자들은 이 방법의 idea를 건초더미에서 바늘
+찾기(finding a needle in a haystack)로 요약하였다. 이 방법에서는 다음과
+같은 spike-flat prior를 고려한다.
 \[f_{\text{prior}}(\theta)=w \tau(\theta)+ (1-w)\delta_{0}.\] 여기서
 \(\tau(\theta)\)는 Laplace distribution과 같은 두꺼운 꼬리 분포를
 의미한다. 이는 ``sparse signal을 Normal보다 두꺼운 꼬리를 갖는 분포로
@@ -5267,8 +5207,8 @@ E d_{jk}d_{j'k'}&=&\int \int_{\mathbb{R}^{2}}\gamma(t,s)\psi_{jk}(t)\psi_{j'k'}(
 &=&\frac{1}{2 \pi}\int_{\mathbb{R}}\hat{\gamma}(\omega)\hat{\psi}(\frac{\omega}{2^{j}})\bar{\hat{\psi}}(\frac{\omega}{2^{j}})e^{-i\omega k 2^{-j}}e^{-i\omega k' 2^{-j'}}2^{-\frac{j}{2}}2^{-\frac{j'}{2}}d\omega.\\
 \end{eqnarray*}
 
-이다. 갑자기 notation들이 막 튀어나오는데 자세한 내용은 (Zhang and
-Walter \protect\hyperlink{ref-Zhang1994}{1994})를 참고하라.
+이다. 갑자기 notation들이 막 튀어나오는데 자세한 내용은
+\citep{Zhang1994}를 참고하라.
 
 \BeginKnitrBlock{theorem}[정상과정의 백색화]
 \protect\hypertarget{thm:unnamed-chunk-142}{}{\label{thm:unnamed-chunk-142}
@@ -5286,11 +5226,9 @@ Walter \protect\hyperlink{ref-Zhang1994}{1994})를 참고하라.
 \end{enumerate}
 \EndKnitrBlock{theorem}
 
-(Johnstone and Silverman
-\protect\hyperlink{ref-Johnstone1997}{1997})에서는 위 정리의 결과를
-그대로 웨이블릿 축소에 가져왔다. 즉 각 level끼리 독립이므로 level별로
-따로 임계화(thresholding)를 하는 방법을 생각한 것이다. 이 때 레벨
-\(j\)에서
+\citep{Johnstone1997}에서는 위 정리의 결과를 그대로 웨이블릿 축소에
+가져왔다. 즉 각 level끼리 독립이므로 level별로 따로
+임계화(thresholding)를 하는 방법을 생각한 것이다. 이 때 레벨 \(j\)에서
 \[\hat{\lambda}_{j}=\sqrt{2\log n_{j}}\hat{\sigma}_{j} \text{ or } \hat{\lambda}_{j}=\min_{\lambda}\text{SURE}(\lambda_{j})\]
 를 이용한다. \(n_{j}\)는 레벨 \(j\)에서의 계수의 총 갯수이고,
 \(\hat{\sigma}_{j}\)는 MAD로 계산한다.
@@ -5333,7 +5271,7 @@ process
   \(Cov(dZ(\omega), dZ(\omega'))=0\). (직교증분과정)
 \end{enumerate}
 
-(G. Nason \protect\hyperlink{ref-Nason2010}{2010})에 의하면, 어떤 시계열
+\citep{Nason2010}에 의하면, 어떤 시계열
 \(\{Z_{t} \}_{t\in \mathbb{Z}}\)가 정상확률과정이라면 다음과 같이 표현할
 수 있다고 한다. 즉 \(\sin\), \(\cos\) basis function으로 expansion할 수
 있는 것이다.
@@ -5354,8 +5292,7 @@ X_{t}=\int_{-\pi}^{\pi}A(\omega)e^{it\omega}d\xi(\omega)
 \(dH(\omega)\)는 \(X(t)\)의 스펙트럼이고, 이들은 \(e^{it\omega}\) 라는
 푸리에변환을 통해 일대일변환(one-to-one transform)된다.
 
-다음 내용은 (Priestley \protect\hyperlink{ref-Priestley1981}{1981}) 및
-(Dahlhaus \protect\hyperlink{ref-Dahlhaus1996}{1996})에서 발췌한
+다음 내용은 \citep{Priestley1981} 및 \citep{Dahlhaus1996}에서 발췌한
 내용이다. 비정상과정 \(X(t)\)는 다음과 같이 간주할 수 있다.
 \[\phi_{t}(\omega) \text{ instead of } e^{it\omega}\]
 
@@ -5385,9 +5322,8 @@ wavelets)}\label{----non-decimated-discrete-wavelets}
 경향이 있는데, \textbf{압축 표본화되지 않은 웨이블릿(non-decimated
 wavelets)}은 그렇지 않아 temporal resolution에 좋다고 한다.
 
-(G. P. Nason, Sachs, and Kroisandt
-\protect\hyperlink{ref-Nason2000}{2000})은 \textbf{컴팩트 지지
-웨이블릿(compactly supported wavelets)}이라는 것을 만들었다.
+\citep{Nason2000}은 \textbf{컴팩트 지지 웨이블릿(compactly supported
+wavelets)}이라는 것을 만들었다.
 \(\psi_{j}=(\psi_{j,0},\ldots,\psi_{j,N_{j}-1})\)를 길이가 \(N_{j}\)
 (\(j\)는 scale)인 웨이블릿의 수열 값이라고 하자. 그러면
 \[\psi_{-1,n}=\sum_{k}g_{n-2k}\delta_{0,k}=g_{n},\qquad{n=0,\ldots, N_{-1}-1},\]
@@ -5407,14 +5343,13 @@ wavelets)}은 그렇지 않아 temporal resolution에 좋다고 한다.
 \section{국소 정상 웨이블릿 과정(locally stationary wavelet
 process)}\label{---locally-stationary-wavelet-process}
 
-국소 정상성의 정의는 (G. P. Nason, Sachs, and Kroisandt
-\protect\hyperlink{ref-Nason2000}{2000})에 등장한다.
+국소 정상성의 정의는 \citep{Nason2000}에 등장한다.
 
 \chapter{고급 다중척도 방법론}\label{admultiscale}
 
 이 장에서는 앞 장에서 다룬 다중척도 방법론 중 심화된 웨이블릿 방법론 및
-최신 동향에 대해 다룬다. 이 분야의 대표적인 참고문헌에는 (M. H. Jansen
-and Oonincx \protect\hyperlink{ref-Jansen2005}{2005})가 있다.
+최신 동향에 대해 다룬다. 이 분야의 대표적인 참고문헌에는
+\citep{Jansen2005}가 있다.
 
 \section{2세대 웨이블릿 변환(second-generation wavelet
 transform)}\label{--second-generation-wavelet-transform}
@@ -5613,10 +5548,10 @@ transformation)이라고 부르는 것이다.
 \section{2차원 자료의 리프팅 스킴(lifting in two
 dimensions)}\label{---lifting-in-two-dimensions}
 
-이 절의 내용은 (Jang \protect\hyperlink{ref-Jang2012}{2012})의 서술을
-참고하였다. 2차원 자료에서는 1차원 자료와 다르게 짝과 홀을 정할 수
-없다는 문제점이 있다. 불규칙한 격자점에서, 이웃(neighborhood)은
-삼각분할(triangulation)을 통해 정의된다.
+이 절의 내용은 \citep{Jang2012}의 서술을 참고하였다. 2차원 자료에서는
+1차원 자료와 다르게 짝과 홀을 정할 수 없다는 문제점이 있다. 불규칙한
+격자점에서, 이웃(neighborhood)은 삼각분할(triangulation)을 통해
+정의된다.
 
 리프팅 스킴은 모든 해상도 수준(resolution level)에서 \textbf{다중척도
 들로네 삼각분할(multiscale Delaunay triangulation)}이라 부르는
@@ -5791,8 +5726,7 @@ reconstruction)}\label{--automatic-perfect-reconstruction}
 
 \section{LOCAAT 알고리즘}\label{locaat-}
 
-리프팅 스킴에 기초하여, (M. Jansen, Nason, and Silverman
-\protect\hyperlink{ref-Jansen2008}{2009})은 \textbf{lifting one
+리프팅 스킴에 기초하여, \citep{Jansen2008}은 \textbf{lifting one
 coefficient at a time (LOCAAT)}라는 산재된 자료를 다중해상도로 다룰 수
 있는 새로운 패러다임을 제시했다. 이 방법은 말 그대로 한 step에 한 개의
 상세계수만을 계산한다.
@@ -5890,10 +5824,10 @@ LOCAAT)}\label{locaat-example-of-locaat}
 때문에 위 그림과 같이 간단한 형태로 디자인하였다.
 
 첫 번째로 제거되어야 할 점을 1번 노드라고 하자(참고로 어떤 점을 먼저
-제거해야 할 지에 대한 논의는 (M. Jansen, Nason, and Silverman
-\protect\hyperlink{ref-Jansen2008}{2009})에 있다). 1번 노드의 이웃은 2번
-노드밖에 없으며 inverse distance weight를 주었을 때 \(a_{2}=1\)이 된다.
-그러면 식 (\eqref{eq:LOCAATforwardpre})에 넣어 \(d_{2}=0\)을 얻는다.
+제거해야 할 지에 대한 논의는 \citep{Jansen2008}에 있다). 1번 노드의
+이웃은 2번 노드밖에 없으며 inverse distance weight를 주었을 때
+\(a_{2}=1\)이 된다. 그러면 식 (\eqref{eq:LOCAATforwardpre})에 넣어
+\(d_{2}=0\)을 얻는다.
 
 다음 단계는 척도계수를 업데이트 하는 것이다. 여기서는 2번 노드만
 업데이트 하면 된다. LOCAAT 계수가 0이었기 때문에,
@@ -5926,10 +5860,9 @@ LOCAAT)}\label{locaat-example-of-locaat}
 \section{Spatial model}\label{spatial-model}
 
 \((k,j)\)를 노드 \(k\)와 \(j\)의 엣지(edge)라고 하고 \(\delta_{kj}\)를
-노드 \(k\)와 \(j\)의 거리라고 하자. (M. Jansen, Nason, and Silverman
-\protect\hyperlink{ref-Jansen2008}{2009})는 tree-based network
-structure를 이용해 알고리즘으 구현하였다. 리프팅을 통해 제거할 때마다
-minimum spanning tree (MST) 방법을 통해 트리를 업데이트한다.
+노드 \(k\)와 \(j\)의 거리라고 하자. \citep{Jansen2008}는 tree-based
+network structure를 이용해 알고리즘으 구현하였다. 리프팅을 통해 제거할
+때마다 minimum spanning tree (MST) 방법을 통해 트리를 업데이트한다.
 
 \begin{figure}
 
@@ -6115,9 +6048,9 @@ recursively하게 applied하는 것이다.
 
 (Nason 책 70쪽)
 
-(Coifman and Wickerhauser \protect\hyperlink{ref-Coifman1992}{1992})는
-엔트로피에 기반한 best-basis 알고리즘을 제시하였다. 교수님은 이를
-likelihoo-based method와 동일한 아이디어라고 설명했다. 즉
+\citep{Coifman1992}는 엔트로피에 기반한 best-basis 알고리즘을
+제시하였다. 교수님은 이를 likelihoo-based method와 동일한 아이디어라고
+설명했다. 즉
 \[\text{minimize } \sum c(W_{j,n,k})=\sum_{k}W_{jnk}^{2}\log W_{jnk}^{2}\]
 하는 \(\{j,n\}\)을 선택하는 것이다. 이 때 \(c\)는 cost function이다.
 교수님은 더 나아가 벌점함수를 붙인 \[\sum c(W_{jbk})+\lambda P(\omega)\]
@@ -6138,8 +6071,7 @@ transform}\label{non-decimated-wavelet-packet-transform}
 이 알고리즘은 \(\mathcal{D}_{0}\mathcal{H}\),
 \(\mathcal{D}_{0}\mathcal{G}\), \(\mathcal{D}_{1}\mathcal{H}\),
 \(\mathcal{D}_{1}\mathcal{G}\)를 recursively하게 섞어서 실현 가능하다.
-자세한 내용은 (G. P. Nason and Sapatinas
-\protect\hyperlink{ref-Nason2002}{2002})를 참고하자.
+자세한 내용은 \citep{Nason2002}를 참고하자.
 
 \begin{figure}
 
@@ -6153,9 +6085,9 @@ transform}\label{non-decimated-wavelet-packet-transform}
 \section{웨이블릿 패킷과 시계열(time series with wavelet
 packets)}\label{--time-series-with-wavelet-packets}
 
-웨이블릿 패킷 변환은 시계열 문제에 적용할 수 있다고 한다. (G. P. Nason
-and Sapatinas \protect\hyperlink{ref-Nason2002}{2002})는 두 시계열 간의
-전이함수모형을 개발하는 방법을 묘사했다.
+웨이블릿 패킷 변환은 시계열 문제에 적용할 수 있다고 한다.
+\citep{Nason2002}는 두 시계열 간의 전이함수모형을 개발하는 방법을
+묘사했다.
 
 \begin{itemize}
 \item
@@ -6429,8 +6361,7 @@ Learning}\label{part-unsupervised-learning}
 
 \textbf{주성분분석(principal component analysis, PCA)}란 \textbf{차원
 축소(dimension reduction)}을 위해 많이 쓰이는 툴이다. 이 분야의 유명한
-참고문헌으로는 (Jolliffe \protect\hyperlink{ref-Jolliffe2002}{2002})가
-있다.
+참고문헌으로는 \citep{Jolliffe2002}가 있다.
 
 여러 다변량 데이터셋이 갖는 문제들 중 하나는 변수가 너무 많다는 것이다.
 너무 많은 변수들이 가질 수 있는 문제로는 차원의 저주(curse of
@@ -6655,7 +6586,19 @@ Diggle et al. (1998)이 만든 R \texttt{geoRglm} 패키지의 롱겔라프 환�
 실험을 한 곳의 방사능을 측정한 자료이다. 이 자료는 공간 이산
 자료(spatial discrete data)의 예이다.
 
-\begin{center}\includegraphics{book_files/figure-latex/unnamed-chunk-175-1} \end{center}
+\begin{verbatim}
+## Warning in library(package, lib.loc = lib.loc, character.only = TRUE,
+## logical.return = TRUE, : there is no package called 'geoRglm'
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: geoRglm
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in library(package, lib.loc = lib.loc, character.only = TRUE,
+## logical.return = TRUE, : there is no package called 'geoRglm'
+\end{verbatim}
 
 이 자료는 다른 자료들과 달리 sampling design이 되어있는 자료이다. 즉
 자료를 200m마다 하나씩 일정하게 뽑은 것이다. 추가로 4개의 지역에
@@ -7119,9 +7062,9 @@ for path-continuity) (2-d
 ver)}\label{kent---kents-sufficient-condition-for-path-continuity-2-d-ver}
 
 평균제곱연속이나 경로연속이지 않은 경우(path-continuous 조건이
-mean-square continuous조건보다 strong하다)는 것을 보이는 (Kent
-\protect\hyperlink{ref-Kent1989}{1989})의 정리를 소개하였다. 여기서는
-간단하게 2-d version으로 정리한다.
+mean-square continuous조건보다 strong하다)는 것을 보이는
+\citep{Kent1989}의 정리를 소개하였다. 여기서는 간단하게 2-d version으로
+정리한다.
 
 \BeginKnitrBlock{theorem}[Kent의 경로연속을 위한 충분조건]
 \protect\hypertarget{thm:unnamed-chunk-183}{}{\label{thm:unnamed-chunk-183}
@@ -7158,8 +7101,7 @@ mean-square continuous조건보다 strong하다)는 것을 보이는 (Kent
 \chapter{공분산모형}\label{covmodel}
 
 이 장에서는 공분산모형에는 어떤 것들이 있는지 살펴볼 것이다. 여기에
-등장하는 그림은 주로 (Montero, Fernández-Avilés, and Mateu
-\protect\hyperlink{ref-Montero2015}{2015}) 책에 있는 그림들을 가져온
+등장하는 그림은 주로 \citep{Montero2015} 책에 있는 그림들을 가져온
 것이다.
 
 \section{덩어리 효과(nugget effect)}\label{-nugget-effect}
@@ -7570,9 +7512,8 @@ structure)는 고려 안한 변동도만 살펴보았다. 그러나 그렇지 �
   Parametric fit
 \end{itemize}
 
-그리고 (Gelfand et al. \protect\hyperlink{ref-Gelfand2010}{2010})의
-33쪽부터, (N. A. C. Cressie \protect\hyperlink{ref-Cressie1993}{1993})의
-69쪽부터 참고했다.
+그리고 \citep{Gelfand2010}의 33쪽부터, \citep{Cressie1993}의 69쪽부터
+참고했다.
 
 \section{경험변동도(empirical variogram)}\label{empirical-variogram}
 
@@ -7609,8 +7550,7 @@ Irregular한 자료에서는 \(\mathbf{h}\)에 대응되는 \(N(\mathbf{h})\)가
 
 그렇다면 이 근방의 size는 어떻게 정해야 할 것인가라는 질문이 생길 수도
 있다. 이것은 \textbf{띠너비 선택(bandwidth selection)} 문제와 유사하다.
-Practically하게 (Journel and Huijbregts
-\protect\hyperlink{ref-Journel2003}{2003})는
+Practically하게 \citep{Journel2003}는
 \(| \cup \{N(\mathbf{h}): \mathbf{h} \in T(\mathbf{h}) \} |\)에 들어가는
 distinct pair들이 적어도 30개 이상이 되도록 잡는 것이 좋다고 하였다.
 
@@ -7742,8 +7682,8 @@ OLS로 \(\boldsymbol{\gamma}(\boldsymbol{\theta})\) 부분을 먼저
 
 \subsection{근사 WLS (approximated WLS)}\label{-wls-approximated-wls}
 
-(N. Cressie \protect\hyperlink{ref-Cressie1985}{1985})는 WLS의 계산의
-어려움을 피하기 위해 다음과 같은 근사 WLS 방법을 쓰기도 한다.
+\citep{Cressie1985}는 WLS의 계산의 어려움을 피하기 위해 다음과 같은 근사
+WLS 방법을 쓰기도 한다.
 \[\hat{\boldsymbol{\theta}}=\text{argmin}_{\boldsymbol{\theta}}\sum_{j}\frac{|N(\mathbf{h}_{j})}{\gamma^{2}(\mathbf{h}_{j};\boldsymbol{\theta})}\{ \hat{\gamma}(\mathbf{h}_{j})-\gamma(\mathbf{h}_{j};\boldsymbol{\theta}) \}^{2}\]
 이 근사가 가능한 이유는
 \(\text{Var}(\hat{\gamma(\mathbf{h}_{j})}) \cong \frac{8 \gamma^{2}(\mathbf{h}_{j}l\boldsymbol{\theta})}{|N(\mathbf{h}_{j})|}\)이기
@@ -7770,12 +7710,11 @@ OLS로 \(\boldsymbol{\gamma}(\boldsymbol{\theta})\) 부분을 먼저
   커질 때마다 밀도가 일정해야 하므로 region도 커져야 한다는 것이다.
 \end{itemize}
 
-참고로 (N. Cressie \protect\hyperlink{ref-Cressie1985}{1985})에서는
-다음과 같이 적혀 있다. ``\(|N(\mathbf{h}_{j})| \rightarrow \infty\) for
-each \(j=1, \cdots, k\) as \(N \rightarrow \infty\) as
-\(|D| \rightarrow \infty\) such that \(N/|D|\), the sampling rate per
-unit area is constant.'' 그리고 data가 evenly spaced 되어야 이 방법이 잘
-맞는다고 한다.
+참고로 \citep{Cressie1985}에서는 다음과 같이 적혀 있다.
+``\(|N(\mathbf{h}_{j})| \rightarrow \infty\) for each \(j=1, \cdots, k\)
+as \(N \rightarrow \infty\) as \(|D| \rightarrow \infty\) such that
+\(N/|D|\), the sampling rate per unit area is constant.'' 그리고 data가
+evenly spaced 되어야 이 방법이 잘 맞는다고 한다.
 
 \begin{itemize}
 \tightlist
@@ -7922,9 +7861,8 @@ dimension 또한 커져 복잡한 문제가 되므로 \(m\)을 고정하는 것�
 앞 장에서는 지구통계 모형의 모수 추정을 적률 추정 또는 최소자승법에
 기반한 추정으로 하는 방법들을 고려했다. 이러한 방법들을 흔히
 \textbf{고전 지구통계학(classical geostatistics)}라고 부른다. 이
-장에서는 가능도 기반 방법론들에 대해 살펴본다. (Gelfand et al.
-\protect\hyperlink{ref-Gelfand2010}{2010})의 45쪽부터의 내용을
-참고하였다.
+장에서는 가능도 기반 방법론들에 대해 살펴본다. \citep{Gelfand2010}의
+45쪽부터의 내용을 참고하였다.
 
 보통 coordinate를 가지고 least square로 mean trend 제거
 후(\(\hat{\beta}\) 모델링) 잔차를 이용해 variogram을 fitting한다. 그리고
@@ -8020,9 +7958,7 @@ likelihood를 사용할 경우
 이 식에서 \(\chi^{2}\)로 점근적으로 가는 속도가 그냥 likelihood를 쓸
 때보다 느려진다고 한다. 또한 bias가 생기는 문제도 있다. 이를 해결하기
 위해 \textbf{Bartlett Correction}이라는 것을 사용한다고 한다.
-(BarndorfF-Nielsen
-\protect\hyperlink{ref-BarndorfF-Nielsen1983}{1983})이나 (Cox and Reid
-\protect\hyperlink{ref-Cox1987}{1987}) 등은 modified profile
+\citep{BarndorfF-Nielsen1983}이나 \citep{Cox1987} 등은 modified profile
 likelihood를 제안하기도 하였다. 더 자세한 내용을 알려면 mixed model
 thoery나 likelihood inference쪽 reference를 찾아보기 바란다.
 
@@ -8727,13 +8663,10 @@ Statistics}\label{part-spatio-tempral-statistics}
 
 \chapter{시공간 통계학}\label{spatiotemporal}
 
-이 장의 전체적인 내용 및 수학 기호 표시는 (N. A. C. Cressie and Wikle
-\protect\hyperlink{ref-Cressie2015}{2015})를 따라가려고 한다. R-code로
-참고할 만한 논문은 (S. A. Padoan and Bevilacqua
-\protect\hyperlink{ref-Padoan2015}{2015})가 있다. 또 다른 참고할 만한
-책으로는 (Montero, Fernández-Avilés, and Mateu
-\protect\hyperlink{ref-Montero2015}{2015})로, 이 책의 5장부터 내용을
-참고했다.
+이 장의 전체적인 내용 및 수학 기호 표시는 \citep{Cressie2015}를
+따라가려고 한다. R-code로 참고할 만한 논문은 \citep{Padoan2015}가 있다.
+또 다른 참고할 만한 책으로는 \citep{Montero2015}로, 이 책의 5장부터
+내용을 참고했다.
 
 \section{가우스 확률장(Gaussian random
 fields)}\label{-gaussian-random-fields}
@@ -8807,12 +8740,10 @@ semivariogram)}으로 정의한다. 만약 상수 평균값을 갖는 시공간
 \subsection{시공간 공분산함수(spatio-temporal
 covariance)}\label{-spatio-temporal-covariance}
 
-이 절의 내용은 (N. A. C. Cressie and Wikle
-\protect\hyperlink{ref-Cressie2015}{2015})의 6장 1절을 참고한다.
+이 절의 내용은 \citep{Cressie2015}의 6장 1절을 참고한다.
 
-(S. A. Padoan and Bevilacqua
-\protect\hyperlink{ref-Padoan2015}{2015})에서는 실제 현상의 국소
-변동성을 묘사하기 위해 시공간 확률장을
+\citep{Padoan2015}에서는 실제 현상의 국소 변동성을 묘사하기 위해 시공간
+확률장을
 \[Y(\mathbf{s}, t)=Y_{0}(\mathbf{s},t) +\epsilon (\mathbf{s},t),\] 으로
 놓는다. 여기서 \(\epsilon(\mathbf{s},t)\sin\mathcal(0,\tau^{2})\)은
 \(Y_{0}\)와 독립인 백색잡읍이다. 이것의 공분산함수는
@@ -8831,8 +8762,7 @@ covariance)}\label{-spatio-temporal-covariance}
 spatio-temporal covariance and
 semivariogram)}\label{---properties-of-the-spatio-temporal-covariance-and-semivariogram}
 
-(Montero, Fernández-Avilés, and Mateu
-\protect\hyperlink{ref-Montero2015}{2015}) 5장 4절을 참고한다.
+\citep{Montero2015} 5장 4절을 참고한다.
 
 \chapter{시공간 공분산모형}\label{stcovmodel}
 
@@ -9189,9 +9119,8 @@ distance)}\label{----mc-tests-based-on-nearest-neighbor-distance}
   \(u_{i}=\int (\hat{G}_{c}(y)-G(y))^{2}dy\)를 이용하는 것이다. 이 때
   \(G\) 대신 \(\bar{G}\)를 넣어도 된다.
 \item
-  (Clark and Evans \protect\hyperlink{ref-Clark1954}{1954})
-  \(\bar{y}=\frac{1}{n}\sum y_{i}\)로 놓는다. 이 경우에 \(\bar{y}\)는
-  근사적으로 정규분포를 따르며
+  \citep{Clark1954} \(\bar{y}=\frac{1}{n}\sum y_{i}\)로 놓는다. 이
+  경우에 \(\bar{y}\)는 근사적으로 정규분포를 따르며
   \[E(\bar{y})=0.5(n^{-1}|A|)^{\frac{1}{2}} + (0.051 + 0.042 n^{-\frac{1}{2}})n^{-1}P\]
   \[\text{Var}(\bar{y})=0.070n^{-2}|A| + 0.037(n^{-5}|A|)^{\frac{1}{2}}P\]
   이다. 이 때 \(P\)는 \(A\)의 둘레의 길이다.
@@ -9300,10 +9229,9 @@ sparse sampled data)}\label{-----quadrat-counts-for-sparse-sampled-data}
 검정은 \((m-1)I \sim \chi_{m-1}^{2}\) 사실을 이용하며 \(I >> 1\)인
 경우에는 \textbf{집적(aggregate)}된 자료(\(n_{1}, \ldots, n_{m}\)의
 variation이 크므로 표본분산이 커짐)이며 \(I << 1\)인 경우에는
-\textbf{정칙(regular)}성을 띈 자료가 된다. (P. J. Diggle
-\protect\hyperlink{ref-Diggle1979}{1979})는 이 검정이 집적된 자료를
-찾는데에는 강력(powerful)하나 정칙성을 띈 자료를 찾는 데에는 좋지 않다는
-사실을 밝혔다.
+\textbf{정칙(regular)}성을 띈 자료가 된다. \citep{Diggle1979}는 이
+검정이 집적된 자료를 찾는데에는 강력(powerful)하나 정칙성을 띈 자료를
+찾는 데에는 좋지 않다는 사실을 밝혔다.
 
 한편 강도 \(\lambda\)의 추정량 \(\hat{\lambda}\)는
 \[\hat{\lambda}=\sum_{i=1}^{m}\frac{n_{i}}{m|B|}\] 와 같이 계산을 할 수
@@ -9326,11 +9254,10 @@ data)}\label{-----distance-methods-for-sparsely-sampled-data}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  (Hopkins and Skellam \protect\hyperlink{ref-Hopkins1954}{1954})는 뒤에
-  나올 \(h\)를 이용한 검정 방법을 제안했다. 임의로 \(m\)개의 점을 골랐을
-  때 각 점들마다 가장 가까운 사건 사이의 거리를
-  \(\{X_{1}, \ldots, X_{m}\}\)이라고 놓자. 그리고 임의로 사건을 하나
-  골랐을 때 그 사건과 가장 가까운 다른 사건 사이의 거리를
+  \citep{Hopkins1954}는 뒤에 나올 \(h\)를 이용한 검정 방법을 제안했다.
+  임의로 \(m\)개의 점을 골랐을 때 각 점들마다 가장 가까운 사건 사이의
+  거리를 \(\{X_{1}, \ldots, X_{m}\}\)이라고 놓자. 그리고 임의로 사건을
+  하나 골랐을 때 그 사건과 가장 가까운 다른 사건 사이의 거리를
   \(\{Y_{1}, \ldots, Y_{m}\}\)이라고 놓자. 그러면
   \[2\pi\lambda X_{i}^{2} \stackrel{ind}{\sim} \chi_{2}^{2} \bot \sum 2\pi\lambda Y_{i}^{2} \sim \chi_{2}^{2},\]
   \[\sum 2\pi X_{i}^{2} \stackrel{ind}{\sim} \chi_{2m}^{2} \bot \sum 2\pi Y_{i}^{2} \sim \chi_{2m}^{2}\]
@@ -9563,11 +9490,10 @@ process)}, \(\rho(\cdot)\neq\rho\)인 포아송 점과정을 \textbf{비동질�
 \subsection{포아송 점과정의 성질들(properties of Poisson point
 process)}\label{--properties-of-poisson-point-process}
 
-이 절의 내용은 (Moller and Waagepetersen
-\protect\hyperlink{ref-Moller2003}{2003})의 3장에 있는 포아송 점과정의
-성질들을 언급한다. 증명은 생략하니 참고문헌을 참조하길 바란다. \(S\)는
-기본적으로 유계일 필요는 없으며, \(\rho\)는 기본적으로 국소
-적분가능(locally integrable)이다.
+이 절의 내용은 \citep{Moller2003}의 3장에 있는 포아송 점과정의 성질들을
+언급한다. 증명은 생략하니 참고문헌을 참조하길 바란다. \(S\)는 기본적으로
+유계일 필요는 없으며, \(\rho\)는 기본적으로 국소 적분가능(locally
+integrable)이다.
 
 \BeginKnitrBlock{proposition}[포아송 점과정과 관련된 성질들]
 \protect\hypertarget{prp:unnamed-chunk-215}{}{\label{prp:unnamed-chunk-215}
@@ -9997,7 +9923,7 @@ parameter)}, \(\sigma\)는 \textbf{척도모수(scale parameter)}, 그리고
 \BeginKnitrBlock{corollary}
 \protect\hypertarget{cor:unnamed-chunk-237}{}{\label{cor:unnamed-chunk-237}
 }어떤 분포가 최대안정한 것은 분포가 일반화 극단값 분포임과 동치이다.
-(Coles \protect\hyperlink{ref-Coles2001}{2001})
+\citep{Coles2001}
 \EndKnitrBlock{corollary}
 
 \section{복귀 수준(return level)}\label{-return-level}
@@ -10056,8 +9982,8 @@ statistics)}\label{--inference-in-extreme-value-statistics}
 일반화 극단값 분포를 가능도 기반 방법으로 분석할 때 정칙 조건(regularity
 condition)을 만족하는지 항상 확인해야 한다. 일반화 극단값 분포의
 모수들로 표현된 값 \(\mu-\sigma/\xi\)이 \(\xi\neq 0\)일때 분포의
-끝점(end point)이 되기 때문에 정칙 조건을 만족하지 않을 수도 있다.(Smith
-\protect\hyperlink{ref-Smith1985}{1985})
+끝점(end point)이 되기 때문에 정칙 조건을 만족하지 않을 수도
+있다.\citep{Smith1985}
 
 한편 형태모수 값과 최대가능도추정량의 존재 사이의 관계에 대해 다음과
 같은 사실이 알려져 있다.
@@ -10167,8 +10093,7 @@ log-likelihood)}는
 \EndKnitrBlock{definition}
 
 정칙 조건 하에서 프로파일 로그 가능도를 이용한 통계량은 다음과 같은
-점근분포를 갖음이 알려져 있다.(Coles
-\protect\hyperlink{ref-Coles2001}{2001})
+점근분포를 갖음이 알려져 있다.\citep{Coles2001}
 
 \BeginKnitrBlock{theorem}[프로파일 로그 가능도를 이용한 통계량의 점근분포]
 \protect\hypertarget{thm:unnamed-chunk-243}{}{\label{thm:unnamed-chunk-243}
@@ -10238,16 +10163,14 @@ H(y)=1-(1+\frac{\xi y}{\tilde{\sigma}})^{-1/\xi}
 
 이 절은 \textbf{최대안정과정(max-stable process)} 및 이것의 \textbf{공간
 극단값(spatial extremes)}이론으로의 응용에 초점을 맞춰 서술한다. 이 절의
-서술 내용은 (Coles \protect\hyperlink{ref-Coles2001}{2001})과 (Dey and
-Yan \protect\hyperlink{ref-Dey2015}{2015})를 참고하였다. 그림은 R 패키지
-\texttt{SpatialExtremes}를 이용하였다.
+서술 내용은 \citep{Coles2001}과 \citep{Dey2015}를 참고하였다. 그림은 R
+패키지 \texttt{SpatialExtremes}를 이용하였다.
 
 \section{최대안정과정(max-stable process)}\label{max-stable-process}
 
 최대안정과정은 GEV 분포와 같은 극단값 분포를 공간 상황에서 설명할 수
 있게끔 하는 역할을 한다. 앞서 나왔던 \textbf{최대안정(max-stable)}의
-정의를 다시 살펴보자. 이번엔 (Dey and Yan
-\protect\hyperlink{ref-Dey2015}{2015}) 버전이다.
+정의를 다시 살펴보자. 이번엔 \citep{Dey2015} 버전이다.
 
 \BeginKnitrBlock{definition}[최대안정과정의 다른 정의]
 \protect\hypertarget{def:unnamed-chunk-246}{}{\label{def:unnamed-chunk-246}
@@ -10264,8 +10187,7 @@ Yan \protect\hyperlink{ref-Dey2015}{2015})를 참고하였다. 그림은 R 패�
 \textbf{최대안정(max-stable)}하다고 말한다.
 \EndKnitrBlock{definition}
 
-다음은 (De Haan \protect\hyperlink{ref-DeHaan1984}{1984})에 나오는
-정리이다.
+다음은 \citep{DeHaan1984}에 나오는 정리이다.
 
 \BeginKnitrBlock{theorem}[최대안정과정 관련 정리]
 \protect\hypertarget{thm:unnamed-chunk-247}{}{\label{thm:unnamed-chunk-247}
@@ -10312,8 +10234,8 @@ process)}이라고 부른다.
 
 \BeginKnitrBlock{theorem}[최대안정과정의 spectral characterization]
 \protect\hypertarget{thm:unnamed-chunk-249}{}{\label{thm:unnamed-chunk-249}
-\iffalse (최대안정과정의 spectral characterization) \fi{} }((De Haan
-\protect\hyperlink{ref-DeHaan1984}{1984})의 characterization)
+\iffalse (최대안정과정의 spectral characterization) \fi{}
+}(\citep{DeHaan1984}의 characterization)
 \(\{ (\xi_{i}, U_{i})\}_{i \geq 1}\)을
 \((0,\infty ] \times \mathbb{R}^{d}\)에서 (intensity
 \(d\Lambda (\xi, u)=\xi^{-2}d\xi\nu(du), \nu\)는 \(\mathbb{R}^{d}\)에서
@@ -10354,8 +10276,8 @@ event를 묘사한 것일 때, 최대값들을 이은 검은 곡선이 최대안
 
 \BeginKnitrBlock{theorem}[unit Fréchet margin을 가지는 최대안정과정]
 \protect\hypertarget{thm:unnamed-chunk-251}{}{\label{thm:unnamed-chunk-251}
-\iffalse (unit Fréchet margin을 가지는 최대안정과정) \fi{} }((Schlather
-\protect\hyperlink{ref-Schlather2002}{2002})의 characterization)
+\iffalse (unit Fréchet margin을 가지는 최대안정과정) \fi{}
+}(\citep{Schlather2002}의 characterization)
 \(\{ (\xi_{i}, U_{i})\}_{i \geq 1}\)이 \((0,\infty ]\)에서 intensity
 \(d \Lambda (\xi)=\xi^{-2}d\xi\)를 갖는 \textbf{Poisson point process}의
 점들이고 \(Y_{1},Y_{2},\ldots\)를
@@ -10382,11 +10304,10 @@ characterization과는 달리 storm center \(U_{i}\)가 존재하지 않는다.
 
 \subsection{Smith 모형(Smith model)}\label{smith-smith-model}
 
-첫 번째 제안된 공간 극단값 모형은 (Smith
-\protect\hyperlink{ref-Smith1990}{1990})의 모형이다. 이를 \textbf{Smith
-과정(Smith process)}이라고 부르기도 한다. (Schlather
-\protect\hyperlink{ref-Schlather2002}{2002})에서는 \textbf{가우스 극단값
-과정(Gaussian extreme value process)}로 언급되었다. 이 모형은
+첫 번째 제안된 공간 극단값 모형은 \citep{Smith1990}의 모형이다. 이를
+\textbf{Smith 과정(Smith process)}이라고 부르기도 한다.
+\citep{Schlather2002}에서는 \textbf{가우스 극단값 과정(Gaussian extreme
+value process)}로 언급되었다. 이 모형은
 
 \begin{equation}
 Z(x)=\max_{i\geq 1}\xi_{i}\phi(x-U_{i};\mathbf{0},\Sigma), x\in\mathcal{X},
@@ -10402,10 +10323,10 @@ density)}이다.
 \subsection{Schlather 모형(Schlather
 model)}\label{schlather-schlather-model}
 
-Smith 모형이 제안되고 10여년 후, (Schlather
-\protect\hyperlink{ref-Schlather2002}{2002})는 \textbf{Schlather
-과정(Schlather process)}이라는 것을 제안했다. 이 모형은 \textbf{극단
-가우스 과정(extremal Gaussian process)}으로 불리기도 한다. 이 모형은
+Smith 모형이 제안되고 10여년 후, \citep{Schlather2002}는
+\textbf{Schlather 과정(Schlather process)}이라는 것을 제안했다. 이
+모형은 \textbf{극단 가우스 과정(extremal Gaussian process)}으로 불리기도
+한다. 이 모형은
 
 \begin{equation}
 Z(x)=\sqrt{2\pi}\max_{i\geq 1}\zeta_{i}\max\{0,W_{i}(x)\}
@@ -10424,10 +10345,8 @@ process)}의 독립된 copy들이다. 또한 척도요인(scaling factor)
 \subsection{Brown-Resnick 모형(Brown-Resnick
 model)}\label{brown-resnick-brown-resnick-model}
 
-이 모형은 (Brown and Resnick \protect\hyperlink{ref-Brown1977}{1977})이
-처음 제안하였고 (Kabluchko, Schlather, and Haan
-\protect\hyperlink{ref-Kabluchko2009a}{2009})가 일반화하였다.
-\textbf{Brown-Resnick 과정(Brown-Resnick process)}는
+이 모형은 \citep{Brown1977}이 처음 제안하였고 \citep{Kabluchko2009a}가
+일반화하였다. \textbf{Brown-Resnick 과정(Brown-Resnick process)}는
 
 \begin{equation}
 Z(x)=\max_{i\geq 1}\xi_{i}\exp\{W_{i}(x)-\gamma(x)\},x\in\mathcal{X}
@@ -10445,8 +10364,8 @@ process)의 독립된 cpoy들이다. 한편 Smith 모형은 위 식의 특별한
 \subsection{극단-t 모형(extremal-t model)}\label{-t-extremal-t-model}
 
 \textbf{극단-t 과정(extremal-t process)}는 이것의 \textbf{스펠트럴
-특성화(spectral representation)}이 최종적으로 (Opitz
-\protect\hyperlink{ref-Opitz2013}{2013})에 의해 유도되었다.
+특성화(spectral representation)}이 최종적으로 \citep{Opitz2013}에 의해
+유도되었다.
 
 \begin{equation}
 Z(x)=c_{\nu}\max_{i \geq 1}\zeta_{i}\max\{0,W_{i}(x)\}^{\nu}, x\in\mathcal{X}
@@ -10467,8 +10386,7 @@ extremes)}\label{--spatial-dependence-of-extremes}
 \end{equation}
 
 이다. 그러나 공간 극단값 이론에서는 분산 또는 평균조차도 존재하지 않을
-수 있다. 다행히도 (Cooley, Naveau, and Poncet
-\protect\hyperlink{ref-Cooley2006}{2006})이
+수 있다. 다행히도 \citep{Cooley2006}이
 \textbf{F-매도그램(F-madogram)}이라는 적절한 툴을 제공하였다. 이것의
 정의는 다음과 같다.
 
@@ -10526,15 +10444,11 @@ extreme value distribution)}을 갖으며 유한한 장소의 집합에 대한
 
 \begin{itemize}
 \item
-  Brown-Resnick ((Kabluchko, Schlather, and Haan
-  \protect\hyperlink{ref-Kabluchko2009a}{2009}), (Kabluchko
-  \protect\hyperlink{ref-Kabluchko2011}{2011}))
+  Brown-Resnick (\citep{Kabluchko2009a}, \citep{Kabluchko2011})
 \item
-  extremal-Gaussian ((Schlather
-  \protect\hyperlink{ref-Schlather2002}{2002}))
+  extremal-Gaussian (\citep{Schlather2002})
 \item
-  extremal-t ((Davison, Padoan, and Ribatet
-  \protect\hyperlink{ref-Davison2012}{2012}))
+  extremal-t (\citep{Davison2012})
 \end{itemize}
 
 \section{Brown-Resnick 임의장(Brown-Resnick random
@@ -10545,11 +10459,9 @@ fields)}\label{brown-resnick-brown-resnick-random-fields}
 V_{1}(z_{1},z_{2};\mathbf{h})=\frac{1}{z_{1}}\Phi (\frac{\lambda(\mathbf{h})}{2}+\frac{\log z_{2}/z_{1}}{\lambda(\mathbf{h})}) + \frac{1}{z_{2}}\Phi (\frac{\lambda(\mathbf{h})}{2}+\frac{\log z_{1}/z_{2}}{\lambda(\mathbf{h})})
 \] 이다. 여기서 \(\lambda(\mathbf{h})=\sqrt{2\gamma(\mathbf{h})}\)이며
 \(\gamma\)는 가우스 임의장 하의 준변동도(semivariogram)이다. 위 식의
-유도는 (Hüsler and Reiss \protect\hyperlink{ref-Husler1989}{1989})와
-(Smith \protect\hyperlink{ref-Smith1990}{1990})에 있다. 지수종속함수의
-시공간 버전은 (Kabluchko \protect\hyperlink{ref-Kabluchko2009b}{2009})
-및 (Davis, Klüppelberg, and Steinkohl
-\protect\hyperlink{ref-Davis2013}{2013})을 참조하길 바란다.
+유도는 \citep{Husler1989}와 \citep{Smith1990}에 있다. 지수종속함수의
+시공간 버전은 \citep{Kabluchko2009b} 및 \citep{Davis2013}을 참조하길
+바란다.
 
 \section{Extremal-Gaussian 임의장(extremal-Gaussian random
 fields)}\label{extremal-gaussian-extremal-gaussian-random-fields}
@@ -10570,333 +10482,6 @@ V_{3}(z_{1},z_{2};\mathbf{h})=\frac{1}{z_{1}}T_{\nu+1}\{\frac{(z_{2}/z_{1})^{1/\
 분포이며 \(\rho(\mathbf{h})\)는 압축함수(scaling function)이고 \(\nu\)는
 Student-t random field의 자유도이다.
 
-\hypertarget{refs}{}
-\hypertarget{ref-Abramovich1998}{}
-Abramovich, F., T. Sapatinas, and B. W. Silverman. 1998. ``Wavelet
-Thresholding via a Bayesian Approach.'' \emph{Journal of the Royal
-Statistical Society: Series B (Statistical Methodology)} 60 (4):
-725--49.
-doi:\href{https://doi.org/10.1111/1467-9868.00151}{10.1111/1467-9868.00151}.
-
-\hypertarget{ref-BarndorfF-Nielsen1983}{}
-BarndorfF-Nielsen. 1983. ``On a Formula for the Distribution of the
-Maximum Likelihood Estimator.'' \emph{Biometrika} 70 (2): 343--65.
-doi:\href{https://doi.org/10.1093/biomet/70.2.343}{10.1093/biomet/70.2.343}.
-
-\hypertarget{ref-Billingsley2012}{}
-Billingsley, Patrick. 2012. \emph{Probability and Measure}. John Wiley;
-Sons.
-
-\hypertarget{ref-Brown1977}{}
-Brown, Bruce M., and Sidney I. Resnick. 1977. ``Extreme Values of
-Independent Stochastic Processes.'' \emph{Journal of Applied
-Probability} 14 (4): 732--39.
-doi:\href{https://doi.org/10.2307/3213346}{10.2307/3213346}.
-
-\hypertarget{ref-Chung2001}{}
-Chung, Kai Lai. 2001. \emph{A Course in Probability Theory}. Academic
-Press.
-
-\hypertarget{ref-Clark1954}{}
-Clark, Philip J., and Francis C. Evans. 1954. ``Distance to Nearest
-Neighbor as a Measure of Spatial Relationships in Populations.''
-\emph{Ecology} 35 (4): 445--53.
-doi:\href{https://doi.org/10.2307/1931034}{10.2307/1931034}.
-
-\hypertarget{ref-Coifman1992}{}
-Coifman, R. R., and M. V. Wickerhauser. 1992. ``Entropy-Based Algorithms
-for Best Basis Selection.'' \emph{IEEE Transactions on Information
-Theory} 38 (2): 713--18.
-doi:\href{https://doi.org/10.1109/18.119732}{10.1109/18.119732}.
-
-\hypertarget{ref-Coles2001}{}
-Coles, Stuart. 2001. \emph{An Introduction to Statistical Modeling of
-Extreme Values}. Springer.
-
-\hypertarget{ref-Cooley2006}{}
-Cooley, Dan, Philippe Naveau, and Paul Poncet. 2006. ``Dependence in
-Probability and Statistics.'' In, edited by Patrice Bertail, Paul
-Doukhan, and Philippe Soulie, 187:373--90. Lecture Notes in Statistics.
-Springer Science; Business Media.
-
-\hypertarget{ref-Cox1987}{}
-Cox, D.R., and N. Reid. 1987. ``Parameter Orthogonality and Approximate
-Conditional Inference.'' \emph{Journal of the Royal Statistical Society:
-Series B (Statistical Methodology)} 49 (1): 1--39.
-
-\hypertarget{ref-Cressie1985}{}
-Cressie, Noel. 1985. ``Fitting Variogram Models by Weighted Least
-Squares.'' \emph{Journal of the International Association for
-Mathematical Geology} 17 (5): 563--86.
-doi:\href{https://doi.org/10.1007/BF01032109}{10.1007/BF01032109}.
-
-\hypertarget{ref-Cressie1993}{}
-Cressie, Noel A. C. 1993. \emph{Statistics for Spatial Data}. J. Wiley.
-
-\hypertarget{ref-Cressie2015}{}
-Cressie, Noel A. C., and Christopher K. Wikle. 2015. \emph{Statistics
-for Spatio-Temporal Data}. J. Wiley.
-
-\hypertarget{ref-Cryer2008}{}
-Cryer, Jonathan D., and Kung-Sik Chan. 2008. \emph{Time Series Analysis:
-With Applications in R}. Springer Science; Business Media.
-
-\hypertarget{ref-Dahlhaus1996}{}
-Dahlhaus, R. 1996. ``On the Kullback-Leibler Information Divergence of
-Locally Stationary Processes.'' \emph{Stochastic Processes and Their
-Applications} 62 (1): 139--68.
-doi:\href{https://doi.org/10.1016/0304-4149(95)00090-9}{10.1016/0304-4149(95)00090-9}.
-
-\hypertarget{ref-Davis2013}{}
-Davis, Richard A., Claudia Klüppelberg, and Christina Steinkohl. 2013.
-``Max-Stable Processes for Modeling Extremes Observed in Space and
-Time.'' \emph{Journal of the Korean Statistical Society} 42 (3):
-399--414.
-doi:\href{https://doi.org/10.1016/j.jkss.2013.01.002}{10.1016/j.jkss.2013.01.002}.
-
-\hypertarget{ref-Davison2012}{}
-Davison, A. C., S. A. Padoan, and M. Ribatet. 2012. ``Statistical
-Modeling of Spatial Extremes.'' \emph{Statistical Science} 27 (2):
-161--86.
-doi:\href{https://doi.org/10.1214/11-STS376}{10.1214/11-STS376}.
-
-\hypertarget{ref-DeHaan1984}{}
-De Haan, L. 1984. ``A Spectral Representation for Max-Stable
-Processes.'' \emph{The Annals of Probability} 12 (4): 1194--1204.
-doi:\href{https://doi.org/10.1214/aop/1176993148}{10.1214/aop/1176993148}.
-
-\hypertarget{ref-Dey2015}{}
-Dey, Dipak K., and Jun Yan. 2015. \emph{Extreme Value Modeling and Risk
-Analysis: Methods and Applications}. Chapman; Hall/CRC.
-
-\hypertarget{ref-Diggle1979}{}
-Diggle, Peter J. 1979. ``On Parameter Estimation and Goodness-of-Fit
-Testing for Spatial Point Patterns.'' \emph{Biometrics} 35 (1): 87--101.
-doi:\href{https://doi.org/10.2307/2529938}{10.2307/2529938}.
-
-\hypertarget{ref-Donoho1994}{}
-Donoho, David L., and Iain M. Johnstone. 1994. ``Ideal Spatial
-Adaptation by Wavelet Shrinkage.'' \emph{Biometrika} 81 (3): 425--55.
-doi:\href{https://doi.org/10.1093/biomet/81.3.425}{10.1093/biomet/81.3.425}.
-
-\hypertarget{ref-Donoho1995}{}
----------. 1995. ``Adapting to Unknown Smoothness via Wavelet
-Shrinkage.'' \emph{Journal of the American Statistical Association} 90
-(4): 1200--1224.
-doi:\href{https://doi.org/10.1080/01621459.1995.10476626}{10.1080/01621459.1995.10476626}.
-
-\hypertarget{ref-Durrett2010}{}
-Durrett, Rick. 2010. \emph{Probability: Theory and Examples}. Cambridge
-University Press.
-
-\hypertarget{ref-Gelfand2010}{}
-Gelfand, Alan E., Peter Diggle, Peter Guttorp, and Montserrat Fuentes.
-2010. \emph{Handbook of Spatial Statistics}. CRC Press.
-
-\hypertarget{ref-Gut2012}{}
-Gut, Allan. 2012. \emph{Probability: A Graduate Course}. Springer
-Science; Business Media.
-
-\hypertarget{ref-Hoerl1970}{}
-Hoerl, Arthur E., and Robert W. Kennard. 1970. ``Ridge Regression:
-Biased Estimation for Nonorthogonal Problems.'' \emph{Technometrics} 12
-(1): 55--67.
-
-\hypertarget{ref-Hopkins1954}{}
-Hopkins, Brian, and J. G. Skellam. 1954. ``A New Method for Determining
-the Type of Distribution of Plant Individuals.'' \emph{Annals of Botany}
-18 (70): 213--27.
-
-\hypertarget{ref-Husler1989}{}
-Hüsler, Jürg, and Rolf-Dieter Reiss. 1989. ``Maxima of Normal Random
-Vectors: Between Independence and Complete Dependence.''
-\emph{Statistics and Probability Letters} 7 (4): 283--86.
-doi:\href{https://doi.org/10.1016/0167-7152(89)90106-5}{10.1016/0167-7152(89)90106-5}.
-
-\hypertarget{ref-Jang2012}{}
-Jang, Dongik. 2012. ``Directional Wavelets for Scattered Data and Their
-Applications.'' PhD thesis, Seoul National University.
-
-\hypertarget{ref-Jansen2005}{}
-Jansen, Maarten H., and Patrick J. Oonincx. 2005. \emph{Second
-Generation Wavelets and Applications}. Spring Street, New York: Springer
-Science \& Business Media.
-
-\hypertarget{ref-Jansen2008}{}
-Jansen, Maarten, Guy P. Nason, and B. W. Silverman. 2009. ``Multiscale
-Methods for Data on Graphs and Irregular Multidimensional Situations.''
-\emph{Journal of the Royal Statistical Society: Series B (Statistical
-Methodology)} 71 (1): 97--125.
-doi:\href{https://doi.org/10.1111/j.1467-9868.2008.00672.x}{10.1111/j.1467-9868.2008.00672.x}.
-
-\hypertarget{ref-Johnstone1997}{}
-Johnstone, Iain M., and Bernard W. Silverman. 1997. ``Wavelet Threshold
-Estimators for Data with Correlated Noise.'' \emph{Journal of the Royal
-Statistical Society: Series B (Statistical Methodology)} 59 (2):
-319--51.
-doi:\href{https://doi.org/10.1111/1467-9868.00071}{10.1111/1467-9868.00071}.
-
-\hypertarget{ref-Johnstone2005}{}
-Johnstone, Iain, and Bernard Silverman. 2005. ``EbayesThresh: R Programs
-for Empirical Bayes Thresholding.'' \emph{Journal of Statistical
-Software} 12 (1).
-doi:\href{https://doi.org/10.18637/jss.v012.i08}{10.18637/jss.v012.i08}.
-
-\hypertarget{ref-Jolliffe2002}{}
-Jolliffe, I.T. 2002. \emph{Principal Component Analysis}. 2nd ed.
-Springer Science \& Business Media.
-
-\hypertarget{ref-Journel2003}{}
-Journel, A. G., and Ch. J. Huijbregts. 2003. \emph{Mining
-Geostatistics}. Blackburn Press.
-
-\hypertarget{ref-Kabluchko2009b}{}
-Kabluchko, Zakhar. 2009. ``Extremes of Space-Time Gaussian Processes.''
-\emph{Stochastic Processes and Their Applications} 119 (11): 3962--80.
-doi:\href{https://doi.org/10.1016/j.spa.2009.08.001}{10.1016/j.spa.2009.08.001}.
-
-\hypertarget{ref-Kabluchko2011}{}
----------. 2011. ``Extremes of Independent Gaussian Processes.''
-\emph{Extremes} 14 (3): 285--310.
-doi:\href{https://doi.org/10.1007/s10687-010-0110-x}{10.1007/s10687-010-0110-x}.
-
-\hypertarget{ref-Kabluchko2009a}{}
-Kabluchko, Zakhar, Martin Schlather, and Laurens de Haan. 2009.
-``Stationary Max-Stable Fields Associated to Negative Definite
-Functions.'' \emph{The Annals of Probability} 37 (5): 2042--65.
-doi:\href{https://doi.org/10.1214/09-AOP455}{10.1214/09-AOP455}.
-
-\hypertarget{ref-Kent1989}{}
-Kent, John T. 1989. ``Continuity Properties for Random Fields.''
-\emph{The Annals of Probability} 17 (4): 1432--40.
-doi:\href{https://doi.org/10.1214/aop/1176991163}{10.1214/aop/1176991163}.
-
-\hypertarget{ref-Li2008}{}
-Li, Ta-Hsin. 2008. ``Laplace Periodogram for Time Series Analysis.''
-\emph{Journal of the American Statistical Association} 103 (2): 757--68.
-doi:\href{https://doi.org/10.1198/016214508000000265}{10.1198/016214508000000265}.
-
-\hypertarget{ref-Lim2013}{}
-Lim, Yaeji. 2013. ``Data Adaptive Quantile-Based Approach.'' PhD thesis,
-Seoul National University.
-
-\hypertarget{ref-Moller2003}{}
-Moller, Jesper, and Rasmus Plenge Waagepetersen. 2003. \emph{Statistical
-Inference and Simulation for Spatial Point Processes}. Chapman;
-Hall/CRC.
-
-\hypertarget{ref-Lindgren2012}{}
----------. 2012. \emph{Stationary Stochastic Processes}. Chapman;
-Hall/CRC.
-
-\hypertarget{ref-Montero2015}{}
-Montero, José-María, Gema Fernández-Avilés, and Jorge Mateu. 2015.
-\emph{Spatial and Spatio-Temporal Geostatistical Modeling and Kriging}.
-John Wiley \& Sons.
-
-\hypertarget{ref-Nason1996}{}
-Nason, G. P. 1996. ``Wavelet Shrinkage Using Cross-Validation.''
-\emph{Journal of the Royal Statistical Society: Series B (Statistical
-Methodology)} 58 (2): 463--79.
-
-\hypertarget{ref-Nason2002}{}
-Nason, G. P., and Theofanis Sapatinas. 2002. ``Wavelet Packet Transfer
-Function Modelling of Nonstationary Time Series.'' \emph{Statistics and
-Computing} 12 (1): 45--56.
-doi:\href{https://doi.org/10.1023/A:1013168221710}{10.1023/A:1013168221710}.
-
-\hypertarget{ref-Nason2000}{}
-Nason, G. P., R. Von Sachs, and G. Kroisandt. 2000. ``Wavelet Processes
-and Adaptive Estimation of the Evolutionary Wavelet Spectrum.''
-\emph{Journal of the Royal Statistical Society: Series B (Statistical
-Methodology)} 62 (2): 271--92.
-doi:\href{https://doi.org/10.1111/1467-9868.00231}{10.1111/1467-9868.00231}.
-
-\hypertarget{ref-Nason2010}{}
-Nason, Guy. 2010. \emph{Wavelet Methods in Statistics with R}. 2nd ed.
-Spring Street, New York: Springer Science \& Business Media.
-
-\hypertarget{ref-Nelder1972}{}
-Nelder, J. A., and R. W. M. Wedderburn. 1972. ``Generalized Linear
-Models.'' \emph{Journal of the Royal Statistical Society: Series B
-(General)} 135 (3): 370--84.
-doi:\href{https://doi.org/10.2307/2344614}{10.2307/2344614}.
-
-\hypertarget{ref-Ogden2012}{}
-Ogden, Todd. 2012. \emph{Essential Wavelets for Statistical Applications
-and Data Analysis}. Springer Science \& Business Media.
-
-\hypertarget{ref-Opitz2013}{}
-Opitz, T. 2013. ``Extremal T Processes: Elliptical Domain of Attraction
-and a Spectral Representation.'' \emph{Journal of Multivariate Analysis}
-122: 409--13.
-doi:\href{https://doi.org/10.1016/j.jmva.2013.08.008}{10.1016/j.jmva.2013.08.008}.
-
-\hypertarget{ref-Padoan2015}{}
-Padoan, Simone A., and Moreno Bevilacqua. 2015. ``Analysis of Random
-Fields Using Comprandfld.'' \emph{Journal of Statistical Software} 63
-(9).
-doi:\href{https://doi.org/10.18637/jss.v063.i09}{10.18637/jss.v063.i09}.
-
-\hypertarget{ref-Priestley1981}{}
-Priestley, Maurice Bertram. 1981. \emph{Spectral Analysis and Time
-Series}. Academic Press.
-
-\hypertarget{ref-Proschan2016}{}
-Proschan, Micheal A., and Pamela A. Shaw. 20016. \emph{Essentials of
-Probability Theory for Statisticians}. Chapman; Hall/CRC.
-
-\hypertarget{ref-Schilling2005}{}
-Schilling, René L. 2005. \emph{Measures, Integrals and Martingales}.
-Cambridge University Press.
-
-\hypertarget{ref-Schlather2002}{}
-Schlather, Martin. 2002. ``Models for Stationary Max-Stable Random
-Fields.'' \emph{Extremes} 5 (1): 33--44.
-doi:\href{https://doi.org/10.1023/A:1020977924878}{10.1023/A:1020977924878}.
-
-\hypertarget{ref-Shima2016}{}
-Shima, Hiroyuki. 2016. \emph{Functional Analysis for Physics and
-Engineering: An Introduction}. CRC Press.
-
-\hypertarget{ref-Shorack2006}{}
-Shorack, Galen R. 2006. \emph{Probability for Statisticians}. Springer
-Science; Business Media.
-
-\hypertarget{ref-Shumway2010}{}
-Shumway, Robert H., and David S. Stoffer. 2010. \emph{Time Series
-Analysis and Its Applications: With R Examples}. Springer Science;
-Business Media.
-
-\hypertarget{ref-Smith1985}{}
-Smith, Richard L. 1985. ``Maximum Likelihood Estimation in a Class of
-Nonregular Cases.'' \emph{Biometrika} 72 (1): 67--90.
-doi:\href{https://doi.org/10.2307/2336336\%20}{10.2307/2336336}.
-
-\hypertarget{ref-Smith1990}{}
----------. 1990. ``Max-Stable Processes and Spatial Extremes.''
-
-\hypertarget{ref-Stein1981}{}
-Stein, Charles M. 1981. ``Estimation of the Mean of a Multivariate
-Normal Distribution.'' \emph{The Annals of Statistics} 9 (6): 1135--51.
-doi:\href{https://doi.org/10.1214/aos/1176345632}{10.1214/aos/1176345632}.
-
-\hypertarget{ref-Wood2006}{}
-Wood, Simon. 2006. \emph{Generalized Additive Models: An Introduction
-with R}. CRC Press.
-
-\hypertarget{ref-Yee2015}{}
-Yee, Thomas W. 2015. \emph{Vector Generalized Linear and Additive
-Models: With an Implementation in R}. Springer.
-
-\hypertarget{ref-Zhang1994}{}
-Zhang, Jun, and Gilbert Walter. 1994. ``A Wavelet-Based Kl-Like
-Expansion for Wide-Sense Stationary Random Processes.'' \emph{IEEE
-Transactions on Signal Processing} 42 (7): 1737--45.
-doi:\href{https://doi.org/10.1109/78.298281}{10.1109/78.298281}.
-
-\backmatter
-\printindex
-
+\bibliography{article.bib,book.bib,packages.bib}
 
 \end{document}

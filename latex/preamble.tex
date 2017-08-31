@@ -14,7 +14,33 @@
 
 %\setmainfont[UprightFeatures={SmallCapsFont=AlegreyaSC-Regular}]{Alegreya}
 
-\pagenumbering{arabic}
+\makeatletter
+\def\@endtheorem{\qed\endtrivlist\@endpefalse } % insert `\qed` macro
+\makeatother
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem*{claim*}{Claim}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem*{assumption*}{Assumption}
+\newtheorem{example}{Example}[section]
+\newtheorem*{example*}{Example}
+\newtheorem*{notation}{Notation}
+
+\numberwithin{equation}{section}
+
+\newcommand{\argmin}{\mathrm{argmin}}
+\newcommand{\argmax}{\mathrm{argmax}}
+
 
 \usepackage{framed,color}
 \definecolor{shadecolor}{RGB}{248,248,248}
