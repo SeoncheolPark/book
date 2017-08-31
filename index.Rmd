@@ -17,6 +17,8 @@ output:
     config:
       toolbar:
         position: static
+      toc:
+        collapse: section
   bookdown::pdf_book:
     keep_tex: yes
 github-repo: SeoncheolPark/book
