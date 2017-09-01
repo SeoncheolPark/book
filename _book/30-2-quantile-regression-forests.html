@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="15-fouriertowavelet.html">
-<link rel="next" href="15-2-time-frequency-analysis.html">
+<link rel="prev" href="30-1-construction-of-decision-trees.html">
+<link rel="next" href="30-3-generalized-random-forest.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -563,32 +563,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="-discrete-fourier-transform" class="section level2">
-<h2><span class="header-section-number">15.1</span> 이산 푸리에변환(discrete Fourier transform)</h2>
-
-<div class="definition">
-<p><span id="def:unnamed-chunk-84" class="definition"><strong>Definition 15.1  (L2)  </strong></span>어떤 함수 <span class="math inline">\(f\)</span>가 <span class="math inline">\(L^{2}[a,b]\)</span>에 속한다는 것은 <span class="math display">\[\int_{a}^{b}f^{2}(x)dx &lt;\infty\]</span> 를 만족할 때이다.</p>
+<div id="--quantile-regression-forests" class="section level2">
+<h2><span class="header-section-number">30.2</span> 분위수 회귀 포레스트(quantile regression forests)</h2>
+<p>분위수 회귀 포레스트는 <span class="citation">(Meinshausen <a href="#ref-Meinshausen2006">2006</a>)</span>이 처음 발표했다.</p>
 </div>
-<p></p>
-<p>푸리에의 결과는 <span class="math inline">\(f\in L^{2}[-\pi, \pi]\)</span>인 어떤 함수 <span class="math inline">\(f\)</span>는 다음과 같이 사인함수와 코사인함수의 무합급수로 표현할 수 있다는 것이다. <span class="math display">\[f(x)=\frac{1}{2}a_{0}+\sum_{j=1}^{\infty}(a_{j}\cos (jx) + b_{j}\sin (jx)),\]</span> 여기서 <span class="math inline">\(\{ a_{0}, a_{1}, b_{1}, \ldots \}\)</span>들은 계수다.</p>
-
-<div class="definition">
-<p><span id="def:unnamed-chunk-85" class="definition"><strong>Definition 15.2  (직교)  </strong></span>두 함수 <span class="math inline">\(f_{1},f_{2}\in L^{2}[a,b]\)</span>는 <span class="math inline">\(&lt;f_{1},f_{2}=0\)</span>일 때 <strong>직교(orthogonal)</strong>라고 부른다.</p>
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-Meinshausen2006">
+<p>Meinshausen, Nicolai. 2006. “Quantile Regression Forests.” <em>Journal of Machine Learning Research</em> 7: 983–99.</p>
 </div>
-<p></p>
-
-<div class="definition">
-<p><span id="def:unnamed-chunk-86" class="definition"><strong>Definition 15.3  (직교정규)  </strong></span>함수들의 수열 <span class="math inline">\(\{ f_{j} \}\)</span>는 모든 <span class="math inline">\(f_{j}\)</span>들이 짝지은 직교(pairwise orthogonal)이며 <span class="math inline">\(\| f_{j}\|=1\)</span>일 때 <strong>직교정규(orthonormal)</strong>이라고 한다.</p>
-</div>
-<p></p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="15-fouriertowavelet.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="15-2-time-frequency-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="30-1-construction-of-decision-trees.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="30-3-generalized-random-forest.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -617,7 +608,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://seoncheolpark.github.io/book/_book/20-fouriertowavelet.Rmd",
+"link": "https://seoncheolpark.github.io/book/_book/38-tree.Rmd",
 "text": "Edit"
 },
 "download": ["book.pdf"],

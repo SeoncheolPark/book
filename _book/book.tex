@@ -6473,7 +6473,24 @@ reconstruction이라고 하자.
 
 \section{주성분 분석의 결과 정리}\label{---}
 
-박창이 교수님 외 R을 이용한 데이터마이닝 책을 참고하였다.
+박창이 교수님 외 R을 이용한 데이터마이닝 책을 참고하였다. 주성분 분석의
+간단한 결과 요약은 다음과 같다.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  주성분은 원 변수들의 공분산행렬 또는 상관계수행렬의 고유벡터로부터
+  구해진다.
+\item
+  임의의 두 주성분간의 공분산은 항상 0이므로 주성분들 간에는 상관성이
+  존재하지 않는다.
+\item
+  원 자료의 변수들의 분산의 합은 주성분변수들의 분산의 합과 항상
+  일치한다.
+\item
+  주성분의 각 적재계수(loading coefficient)는 특정 변수가 주성분변수에
+  기여하는 정도를 나타낸다.
+\end{enumerate}
 
 \chapter{정준상관분석}\label{CCA}
 
@@ -6529,6 +6546,58 @@ methodology)}\label{----ssa-algorithms-and-methodology}
 \end{enumerate}
 
 \chapter{의사결정나무}\label{trees}
+
+이 장의 기본적인 설명은 박창이 교수님 외 R을 이용한 데이터마이닝 책을
+참고하였다. \textbf{의사결정나무(decision tree)}는 주어진 입력값에 대해
+출력값을 예측하는 모형으로써 분류나무(classification trees)와
+회귀나무(regression trees) 모형이 있다. 이 장에서는 회귀 의사결정나무에
+중점을 두어 설명한다.
+
+\section{의사결정나무의 형성(construction of decision
+trees)}\label{-construction-of-decision-trees}
+
+의사결정나무의 형성과정은 크게 성장(growing), 가지치기(pruining), 타당성
+평가, 해석 및 에측으로 이루어져 있다. 훈련자료를 \((x_{i}, y_{i})\)로
+나타내자. \(p \in \mathbb{N}_{+}\)개의 설명변수가 있을 경우
+\(x_{i}=(x_{i1}, \ldots, x_{ip})^{T}\)이다. \(\mathcal{B}\)를 \(X\)의
+치역이라고 두자. 즉
+\(\Omega \rightarrow \mathcal{B} \subseteq \mathbb{R}^{p}\)이다. 이
+전체의 영역 \(\mathbf{B}\)를 \(L\)개의 부분공간
+\(R_{l}\subseteq \mathcal{B}\)로 나누고 각 영역에서 상수값 \(c_{l}\)로
+예측하는 다음과 같은 나무모형을 생각해 볼 수 있다.
+
+\[f(x)=\sum_{l=1}^{L}c_{l}I(x\in R_{l}).\]
+
+이 때 우리는 \(c_{l}\)과 \(R_{l}\)의 값을 정해줘야 하는데,
+\textbf{불순도(impurity)}라는 측도를 이용한다. 회귀나무에서는 흔히
+오차제곱합 \(Q_{l}(T)=\sum_{i=1}^{n}(y_{i}-f(x_{i}))^{2}\)을 그 측도로서
+사용한다. 주어진 분리변수(split variable)가 \(x_{j}\)가 연속형인 경우
+분리점을 \(s\)라 하면 두 영역 \(R_{1}(j,s)=\{ x: x_{j} \leq s\}\)와
+\(R_{2}(j,s)=\{ x: x_{j} > s\}\)를 정의할 수 있다. 그러면 분리기준을
+정하기 위해 다음 최적화 문제를 생각한다.
+
+\[\min_{j,s}(\min_{c_{1}}\sum_{x_{i}\in R_{1}(j,s)}(y_{i}-c_{1})^{2} + \min_{c_{2}}\sum_{x_{i}\in R_{2}(j,s)}(y_{i}-c_{2})^{2}).\]
+
+위 식에서 주어진 \(j\)와 \(s\)에 대해 최소값을 갖는 해는 \(c_{1}\),
+\(x_{2}\)로써 각기 \(R_{1}(j,s)\)와 \(R_{2}(j,s)\)에 속하는 자료의
+\(y_{i}\)값들의 평균으로 주어진다.
+
+\subsection{가지치기(pruning)}\label{pruning}
+
+너무 큰 나무모형은 자료를 과대적합하고 반대로 너무 작은 나무모형은
+자료를 과소적합한다. 즉, 의사결정나무에서는 나무의 크기를 모형의
+복잡도로 볼 수 있고 최적의 나무크기는 자료로부터 추정하게 된다.
+일반적으로 사용되는 방법은 마디에 속하는 자료가 일정 수 이하일 때 분할을
+정지하고 비용-복잡도 가지치기(cost-complexity pruning)을 이용하여
+성장시킨 나무를 가지치기 하게 된다. \#\# 랜덤 포레스트(random forests)
+
+\section{분위수 회귀 포레스트(quantile regression
+forests)}\label{--quantile-regression-forests}
+
+분위수 회귀 포레스트는 \citep{Meinshausen2006}이 처음 발표했다.
+
+\section{일반화 랜덤 포레스트(generalized random
+forest)}\label{--generalized-random-forest}
 
 \part{Quantile Regression and
 FDA}\label{part-quantile-regression-and-fda}
@@ -10513,5 +10582,8 @@ V_{3}(z_{1},z_{2};\mathbf{h})=\frac{1}{z_{1}}T_{\nu+1}\{\frac{(z_{2}/z_{1})^{1/\
 Student-t random field의 자유도이다.
 
 \bibliography{article.bib,book.bib,packages.bib}
+
+\backmatter
+\printindex
 
 \end{document}
