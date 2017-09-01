@@ -239,7 +239,7 @@ $$E=\bigcup_{j=1}^{\infty}I_{j}.$$
 
 ```
 
-```{exercise, name="열린 집합과 열린 구간들의 증명"}
+```{proof}
 이 정리의 증명은 $E=\bigcup_{j=1}^{\infty}I_{j}$를 만족하는 $I_{j}$들이 있음을 보이고 이것이 (1) at most countably many (2) disjoint (3) open (4) intervals 임을 보이면 된다. 증명 방법은 동치 관계를 이용하는 것이다. $a, b \in E, (a < b)$일 때 열린구간 $(a,b)\subseteq E$이면 $a \sim b$로 놓는다. 그러면 $E$의 disjoint union of classes는 equivalence relationship partitions $E$가 된다. 아직 이것들이 countably many한지 모르므로 이들을 $I_{j}, j\in J, J \text{ is an arbitrary index set}$이라고 높자. 임의의 $a_{j}<b_{j}\in I_{j}$에 대해 $a_{j} \sim b_{j}$이고 $(a_{j}, b_{j}) \in I_{j}$이므로 $I_{j}$는 interval이다. 또 $x\in I_{j}$를 임의로 뽑았을 때 $x\in E$이고 $E$가 open이므로, $(x-\epsilon, x+\epsilon)\subseteq E$를 만족하는 $\epsilon >0$이 모든 $x$에 대해 존재함을 알 수 있고 ahems $a\in (x-\epsilon, x+\epsilon)$에 대해 $a \sim x$이므로 $x$의 $\epsilon$-근방은 $I_{j}$에 포함됨을 알 수 있어 $I_{j}$는 open이다. 마지막으로 모든 $I_{j}$는 적어도 하나의 유리수를 포함하고 있어 이를 통해 $I_{j}$의 갯수는 countably many임을 알 수 있다.
 
 ```
@@ -250,7 +250,7 @@ $\mathbb{R}$에서의 보렐 시그마-체(Borel sigma-field, Borel sigma-algebr
 
 ```
 
-```{exercise, name="실수 구간에서의 보렐 시그마-체의 생성의 증명"}
+```{proof}
 $\mathcal{O}_{0}$을 $\mathbb{R}$에서의 모든 열린 구간(open interval)들의 collection이라고 하자. 앞선 정리에 의해 $\mathbb{R}$에서의 모든 열린 집합은 기껏해야 셀 수 있을 정도의 열린 구간의 합집합으로 나타낼 수 있으므로 $\sigma(\mathcal{O}_{0})=\mathcal{B}$가 된다. $\mathcal{D}$를 $(-\infty, a], a\in \mathbb{Q}$인 구간들의 collection이라고 하자. 그리고 구간 $(a,b)$를 $(a,b)\in \mathcal{O}_{0}, a,b \in \mathbb{Q}, a<b$와 같이 정의하자. 여기서
 $$a_{n}=a+\frac{1}{n} \text{ and } b_{n}=b-\frac{1}{n}$$
 으로 놓으면

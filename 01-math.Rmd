@@ -282,6 +282,44 @@ V&=&A^{T}A\\
 &=&V(\Sigma^{T}\Sigma)V^{T}\\
 \end{eqnarray*}
 
+즉 $u_{1},\ldots , u_{k}, \ldots u_{m}$는 range$(A)$의 직교정규벡터, $v_{1},\ldots ,v_{k},\ldots , v_{n}$는 $\mathcal{N}(A)^{\perp}$의 직교정규벡터이다.
+
+### 특이값 분해에 대한 추가 설명
+
+여기서는 [Boyd 교수의 강의노트](https://web.stanford.edu/class/archive/ee/ee263/ee263.1082/notes/ee263coursereader.pdf)를 참고하였다. 잠시 편의를 위해 $U$ 는 $m\times n$ 행렬, $\Sigma$는 $n \times n$ 행렬이라고 하자. 그러면 특이값 분해는
+
+$$A=U\Sigma V^{T}=\sum_{i=1}^{n}\sigma_{i}u_{i}v_{i}^{T}$$
+
+
+```{r, echo=F, fig.cap='SVD 그림.', fig.align='center'}
+knitr::include_graphics("images/math_svd001.png")
+```
+
+가 된다. 선형 사상(mapping) $y=Ax$는 다음과 같이 분해할 수 있다.
+
+- $x$를 input direction들 $v_{1}, \ldots , v_{n}$을 따라 계수들을 계산한다.
+
+- $\sigma_{i}$는 척도계수
+
+- 이것들을 다시 output directions $u_{1}, \ldots, u_{n}$을 따라 재구성한다.
+
+대칭행렬 $A$에 대한 고유값 분해와 달라지는 점은 input direction들과 output direction들이 다르다는 것이다.
+
+- $v_{1}$는 input direction으로 가장 민감하다.(most sensitive, highest gain)
+
+- $u_{1}$은 output direction으로 가장 민감하다.
+
+- $Av_{1}=\sigma_{1}u_{1}$이다.
+
+```{example, name="SVD의 기하학적 의미 예"}
+$A=\mathbb{R}^{2\times 2}$이며 $\Sigma=\text{diag}(1,0.5)$인 경우를 생각해보자. 이 경우 $x$를 $v_{1}$, $v_{2}$를 따라 풀면 $v_{1}^{T}x=0.5, v_{2}^{T}x=0.6$ 즉 $x=0.5v_{1} + 0.6v_{2}$이며, $Ax=(v_{1}^{T}x)\sigma_{1}u_{1} + (v_{2}^{T}x)\sigma_{2}u_{2}= (0.5)(1)u_{1} + (0.6)(0.5)u_{2}$ 이다.
+
+```
+
+```{r, echo=F, fig.cap='SVD 예제 그림.', fig.align='center'}
+knitr::include_graphics("images/math_svd002.png")
+```
+
 ### 특이값 분해의 기하학적 의미
 
 [위키피디아](https://en.wikipedia.org/wiki/Singular_value_decomposition)를 참고하자.

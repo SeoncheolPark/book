@@ -6,7 +6,6 @@
 library(geoR)
 library(fields)
 library(RandomFields)
-library(gstat)
 v.f.cov <- function(x, ...) {
   cov.spatial(x, ...)
 }
@@ -68,10 +67,6 @@ $$\gamma(\mathbf{h})=C(\mathbf{0})-C(\mathbf{h})$$
 
 여기서는 총 9가지의 변동도 모형을 소개한다. 그러나 실제로 널리 쓰이는 모델은 'exponential'과 'matern' 두 개이다.
 
-```{r, fig.align='center', echo=FALSE, warning=FALSE, message=FALSE, results='hide', fig.cap = 'Various variogram models.'}
-show.vgms() #in `gstat`
-```
-
 1. **Linear**
 
 $$
@@ -85,22 +80,6 @@ $\lim_{\|\mathbf{h}\| \rightarrow \mathbf{0}}\gamma(\mathbf{h}) \rightarrow \inf
 
 2. **Spherical**
 
-```{r, fig.align='center', echo=FALSE, warning=FALSE, message=FALSE, results='hide', fig.cap = 'Spherical model.'}
-par(mfrow = c(2, 2))
-curve(v.f.sem(x, cov.pars = c(1, 0.15), cov.model = "sph"), 0, 1, xlab = "distance", 
-      ylab = expression(gamma("|h|")), lwd = 2, lty = 1, col = "1")
-legend(0.4, 0.8, expression(paste("Spherical, \n R=0.15, C"[1],"=1")), lty = 1, lwd = 2, col = 1,box.col = "white")
-set.seed(120)
-sim1 <- grf(10000, grid = "reg", cov.pars = c(1, 0.15), cov.model = "sph")
-image(sim1, col = rainbow(128))
-curve(v.f.sem(x, cov.pars = c(1, 0.5), cov.model = "sph"), 0, 1, xlab = "distance", 
-      ylab = expression(gamma("|h|")), lwd = 2, lty = 1, col = "1")
-legend(0.4, 0.8, expression(paste("Spherical, \n R=0.5, C"[1],"=1")), lty = 1, lwd = 2, col = 1,box.col = "white")
-set.seed(120)
-sim1 <- grf(10000, grid = "reg", cov.pars = c(1, 0.5), cov.model = "sph")
-image(sim1, col = rainbow(128))
-```
-
 $$
 \gamma(\mathbf{h})= \left\{ \begin{array}{ll}
 0 & \textrm{if $\mathbf{h}$=0}\\
@@ -112,38 +91,6 @@ $$
 
 3. **Exponential**
 
-```{r, fig.align='center', echo=FALSE, warning=FALSE, message=FALSE, results='hide', fig.cap = 'Exponential model.'}
-par(mfrow = c(2, 2))
-curve(v.f.sem(x, cov.pars = c(1, 0.1), cov.model = "exponential"), 0, 1, xlab = "distance", 
-      ylab = expression(gamma("|h|")), lwd = 2, lty = 1, col = "1")
-legend(0.3, 0.5, expression(paste("Exponential, \n R=0.1, C"[1],"=1")), lty = 1, lwd = 2, col = 1,box.col = "white")
-model <- "exponential"
-mean <- 0
-variance <- 1
-nugget <- 0
-scale <- 0.1
-step <- 0.01
-x <- seq(0, 1, step)
-y <- seq(0, 1, step)
-set.seed(99)
-f <- GaussRF(x = x, y = y, model = model, grid = TRUE, param = c(mean, variance, nugget, scale))
-image(x, y, f, col = rainbow(128))
-
-curve(v.f.sem(x, cov.pars = c(1, 0.25), cov.model = "exp"), 0, 1, xlab = "distance", 
-      ylab = expression(gamma("|h|")), lwd = 2, lty = 1, col = "1")
-legend(0.3, 0.5, expression(paste("Exponential, \n R=0.25, C"[1],"=1")), lty = 1, lwd = 2, col = 1,box.col = "white")
-model <- "exponential"
-mean <- 0
-variance <- 1
-nugget <- 0
-scale <- 0.25
-step <- 0.01
-x <- seq(0, 1, step)
-y <- seq(0, 1, step)
-set.seed(99)
-f <- GaussRF(x = x, y = y, model = model, grid = TRUE, param = c(mean, variance, nugget, scale))
-image(x, y, f, col = rainbow(128))
-```
 
 $$
 \gamma(\mathbf{h})= \left\{ \begin{array}{ll}
@@ -154,39 +101,6 @@ $$
 이것은 평균제곱연속이나 평균제곱 미분 가능하지는 않다고 한다. 그리고 다른 애들보다 독립적인 편이라고(공분산이 약함) 한다. 특히 뒤에 나오는 가우스 변동도(Gaussian variogram)와 비교했을 때 덜 부드럽다.
 
 4. **Gaussian**
-
-```{r, fig.align='center', echo=FALSE, warning=FALSE, message=FALSE, results='hide', fig.cap = 'Gaussian model.'}
-par(mfrow = c(2, 2))
-curve(v.f.sem(x, cov.pars = c(1, 0.1), cov.model = "gauss"), 0, 1, xlab = "distance", 
-      ylab = expression(gamma("|h|")), lwd = 2, lty = 1, col = "1")
-legend(0.3, 0.5, expression(paste("Gaussian, \n R=0.1, C"[1],"=1")), lty = 1, lwd = 2, col = 1,box.col = "white")
-model <- "gauss"
-mean <- 0
-variance <- 1
-nugget <- 0
-scale <- 0.1
-step <- 0.01
-x <- seq(0, 1, step)
-y <- seq(0, 1, step)
-set.seed(98)
-f <- GaussRF(x = x, y = y, model = model, grid = TRUE, param = c(mean, variance, nugget, scale))
-image(x, y, f, col = rainbow(256))
-
-curve(v.f.sem(x, cov.pars = c(1, 0.25), cov.model = "gauss"), 0, 1, xlab = "distance", 
-      ylab = expression(gamma("|h|")), lwd = 2, lty = 1, col = "1")
-legend(0.3, 0.5, expression(paste("Gaussian, \n R=0.25, C"[1],"=1")), lty = 1, lwd = 2, col = 1,box.col = "white")
-model <- "gauss"
-mean <- 0
-variance <- 1
-nugget <- 0
-scale <- 0.25
-step <- 0.01
-x <- seq(0, 1, step)
-y <- seq(0, 1, step)
-set.seed(98)
-f <- GaussRF(x = x, y = y, model = model, grid = TRUE, param = c(mean, variance, nugget, scale))
-image(x, y, f, col = rainbow(256))
-```
 
 $$
 \gamma(\mathbf{h})= \left\{ \begin{array}{ll}
