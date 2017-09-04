@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2017-09-01">
+<meta name="date" content="2017-09-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -131,12 +131,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.5.2" data-path="2-5-basis.html"><a href="2-5-basis.html#radial-basis-function"><i class="fa fa-check"></i><b>2.5.2</b> Radial basis function</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="2-6-space.html"><a href="2-6-space.html"><i class="fa fa-check"></i><b>2.6</b> 공간(space)</a><ul>
-<li class="chapter" data-level="2.6.1" data-path="2-6-space.html"><a href="2-6-space.html#l2-l2-space"><i class="fa fa-check"></i><b>2.6.1</b> L2 공간(L2 space)</a></li>
-<li class="chapter" data-level="2.6.2" data-path="2-6-space.html"><a href="2-6-space.html#banach-space"><i class="fa fa-check"></i><b>2.6.2</b> 바나흐공간(Banach space)</a></li>
-<li class="chapter" data-level="2.6.3" data-path="2-6-space.html"><a href="2-6-space.html#hilbert-space"><i class="fa fa-check"></i><b>2.6.3</b> 힐버트공간(Hilbert space)</a></li>
-<li class="chapter" data-level="2.6.4" data-path="2-6-space.html"><a href="2-6-space.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.6.4</b> Sobolev 공간(Sobolev space)</a></li>
-<li class="chapter" data-level="2.6.5" data-path="2-6-space.html"><a href="2-6-space.html#besov-besov-space"><i class="fa fa-check"></i><b>2.6.5</b> Besov 공간(Besov space)</a></li>
-<li class="chapter" data-level="2.6.6" data-path="2-6-space.html"><a href="2-6-space.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.6.6</b> Reproducing kernel Hilbert space</a></li>
+<li class="chapter" data-level="2.6.1" data-path="2-6-space.html"><a href="2-6-space.html#-vector-space"><i class="fa fa-check"></i><b>2.6.1</b> 벡터 공간(vector space)</a></li>
+<li class="chapter" data-level="2.6.2" data-path="2-6-space.html"><a href="2-6-space.html#-normed-space"><i class="fa fa-check"></i><b>2.6.2</b> 노름 공간(normed space)</a></li>
+<li class="chapter" data-level="2.6.3" data-path="2-6-space.html"><a href="2-6-space.html#-banach-space"><i class="fa fa-check"></i><b>2.6.3</b> 바나흐 공간(Banach space)</a></li>
+<li class="chapter" data-level="2.6.4" data-path="2-6-space.html"><a href="2-6-space.html#-hilbert-space"><i class="fa fa-check"></i><b>2.6.4</b> 힐버트 공간(Hilbert space)</a></li>
+<li class="chapter" data-level="2.6.5" data-path="2-6-space.html"><a href="2-6-space.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.6.5</b> Sobolev 공간(Sobolev space)</a></li>
+<li class="chapter" data-level="2.6.6" data-path="2-6-space.html"><a href="2-6-space.html#besov-besov-space"><i class="fa fa-check"></i><b>2.6.6</b> Besov 공간(Besov space)</a></li>
+<li class="chapter" data-level="2.6.7" data-path="2-6-space.html"><a href="2-6-space.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.6.7</b> Reproducing kernel Hilbert space</a></li>
 </ul></li>
 <li class="chapter" data-level="2.7" data-path="2-7-distance.html"><a href="2-7-distance.html"><i class="fa fa-check"></i><b>2.7</b> 거리(distance)</a></li>
 </ul></li>
@@ -216,6 +217,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="11.6" data-path="11-6-arima-seasonal-arima-models.html"><a href="11-6-arima-seasonal-arima-models.html"><i class="fa fa-check"></i><b>11.6</b> 계절성이 있는 ARIMA 모델링(seasonal ARIMA models)</a></li>
 <li class="chapter" data-level="11.7" data-path="11-7-coherency-section-3-9.html"><a href="11-7-coherency-section-3-9.html"><i class="fa fa-check"></i><b>11.7</b> Coherency (section 3.9)</a></li>
+<li class="chapter" data-level="11.8" data-path="11-8-self-similar-process.html"><a href="11-8-self-similar-process.html"><i class="fa fa-check"></i><b>11.8</b> Self-Similar Process</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="12-transfer.html"><a href="12-transfer.html"><i class="fa fa-check"></i><b>12</b> 전이함수모형</a><ul>
 <li class="chapter" data-level="12.1" data-path="12-1-stability-and-causality.html"><a href="12-1-stability-and-causality.html"><i class="fa fa-check"></i><b>12.1</b> 안정성과 인과성(stability and causality)</a></li>
@@ -568,32 +570,32 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>통계학은 무작위(random) 또는 확률적(stochastic) 실험(experiment), 즉 어떤 결과가 나올지 미리 확실히 예측할 수 없는 실험들에 초점을 맞춘다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-13" class="definition"><strong>Definition 3.1  (표본공간)  </strong></span>어떤 무작위 실험의 <strong>표본공간(sample space)</strong> <span class="math inline">\(\Omega\)</span>는 그 실험에서 나올 수 있는 모든 결과들의 집합이다.</p>
+<p><span id="def:unnamed-chunk-18" class="definition"><strong>Definition 3.1  (표본공간)  </strong></span>어떤 무작위 실험의 <strong>표본공간(sample space)</strong> <span class="math inline">\(\Omega\)</span>는 그 실험에서 나올 수 있는 모든 결과들의 집합이다.</p>
 </div>
 <p></p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-14" class="example"><strong>Example 3.1  (동전 던지기 실험)  </strong></span>동전을 두 번 던지는 실험에서 <span class="math inline">\(\Omega=\{ HH, HT, TH, TT \}\)</span>이다. 이러한 표본공간을 <strong>(유한) 이산 표본공간(finite discrete sample space)</strong>이라고 한다.</p>
+<p><span id="exm:unnamed-chunk-19" class="example"><strong>Example 3.1  (동전 던지기 실험)  </strong></span>동전을 두 번 던지는 실험에서 <span class="math inline">\(\Omega=\{ HH, HT, TH, TT \}\)</span>이다. 이러한 표본공간을 <strong>(유한) 이산 표본공간(finite discrete sample space)</strong>이라고 한다.</p>
 </div>
 <p></p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-15" class="example"><strong>Example 3.2  (동전 계속 던지기 실험)  </strong></span>이번에는 동전의 뒷 면이 나올때까지 동전을 계속해서 던지는 실험에 대해 살펴보자. 그러면 <span class="math display">\[\{ T, HT, HHT, HHHT, \ldots, \{ HHH\ldots\} \}\]</span> 와 같은 결과들의 수얼을 얻을 수 있다. 이를 만약 동전을 던진 횟수로 정리한다면 <span class="math display">\[\{ 1,2,3,\ldots, ,\infty\}\]</span> 로 볼 수 있다. 이러한 표본공간을 <strong>(무한) 이산 표본공간(infinite discrete sample space)</strong>라고 한다.</p>
+<p><span id="exm:unnamed-chunk-20" class="example"><strong>Example 3.2  (동전 계속 던지기 실험)  </strong></span>이번에는 동전의 뒷 면이 나올때까지 동전을 계속해서 던지는 실험에 대해 살펴보자. 그러면 <span class="math display">\[\{ T, HT, HHT, HHHT, \ldots, \{ HHH\ldots\} \}\]</span> 와 같은 결과들의 수얼을 얻을 수 있다. 이를 만약 동전을 던진 횟수로 정리한다면 <span class="math display">\[\{ 1,2,3,\ldots, ,\infty\}\]</span> 로 볼 수 있다. 이러한 표본공간을 <strong>(무한) 이산 표본공간(infinite discrete sample space)</strong>라고 한다.</p>
 </div>
 <p></p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-16" class="example"><strong>Example 3.3  (지하철 도착 시간)  </strong></span>우리가 지하철을 기다리고 있다고 가정해보자. 지하철은 <span class="math inline">\(T\)</span> 시간마다 한 번씩 도착한다. 그러면 우리가 기다리는 시간에 대한 표본공간은 <span class="math display">\[[0,T]=\{t:0\leq y \leq T\}\]</span> 이다. 이러한 표본 공간은 <strong>연속 표본공간(continuous sample space)</strong>라고 한다.</p>
+<p><span id="exm:unnamed-chunk-21" class="example"><strong>Example 3.3  (지하철 도착 시간)  </strong></span>우리가 지하철을 기다리고 있다고 가정해보자. 지하철은 <span class="math inline">\(T\)</span> 시간마다 한 번씩 도착한다. 그러면 우리가 기다리는 시간에 대한 표본공간은 <span class="math display">\[[0,T]=\{t:0\leq y \leq T\}\]</span> 이다. 이러한 표본 공간은 <strong>연속 표본공간(continuous sample space)</strong>라고 한다.</p>
 </div>
 <p></p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-17" class="definition"><strong>Definition 3.2  (사건)  </strong></span><strong>사건(event)</strong>란 표본공간 <span class="math inline">\(\Omega\)</span>의 임의의 부분집합(subset)을 의미한다.</p>
+<p><span id="def:unnamed-chunk-22" class="definition"><strong>Definition 3.2  (사건)  </strong></span><strong>사건(event)</strong>란 표본공간 <span class="math inline">\(\Omega\)</span>의 임의의 부분집합(subset)을 의미한다.</p>
 </div>
 <p></p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-18" class="example"><strong>Example 3.4  (사건의 예)  </strong></span>- 앞서 동전을 두 번 던지는 실험에서 앞면이 하나만 나올 사건을 <span class="math inline">\(A\)</span>라고 하면 <span class="math inline">\(A=\{ HT, TH \}\)</span>이다.</p>
+<p><span id="exm:unnamed-chunk-23" class="example"><strong>Example 3.4  (사건의 예)  </strong></span>- 앞서 동전을 두 번 던지는 실험에서 앞면이 하나만 나올 사건을 <span class="math inline">\(A\)</span>라고 하면 <span class="math inline">\(A=\{ HT, TH \}\)</span>이다.</p>
 <ul>
 <li>앞서 동전을 두 번 던지는 실험에서 적어도 한 번 앞면이 나올 사건을 <span class="math inline">\(B\)</span>라고 하면 <span class="math inline">\(A=\{ HH, HT, TH \}\)</span>이다.</li>
 </ul>

@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2017-09-01">
+<meta name="date" content="2017-09-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -131,12 +131,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.5.2" data-path="2-5-basis.html"><a href="2-5-basis.html#radial-basis-function"><i class="fa fa-check"></i><b>2.5.2</b> Radial basis function</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="2-6-space.html"><a href="2-6-space.html"><i class="fa fa-check"></i><b>2.6</b> 공간(space)</a><ul>
-<li class="chapter" data-level="2.6.1" data-path="2-6-space.html"><a href="2-6-space.html#l2-l2-space"><i class="fa fa-check"></i><b>2.6.1</b> L2 공간(L2 space)</a></li>
-<li class="chapter" data-level="2.6.2" data-path="2-6-space.html"><a href="2-6-space.html#banach-space"><i class="fa fa-check"></i><b>2.6.2</b> 바나흐공간(Banach space)</a></li>
-<li class="chapter" data-level="2.6.3" data-path="2-6-space.html"><a href="2-6-space.html#hilbert-space"><i class="fa fa-check"></i><b>2.6.3</b> 힐버트공간(Hilbert space)</a></li>
-<li class="chapter" data-level="2.6.4" data-path="2-6-space.html"><a href="2-6-space.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.6.4</b> Sobolev 공간(Sobolev space)</a></li>
-<li class="chapter" data-level="2.6.5" data-path="2-6-space.html"><a href="2-6-space.html#besov-besov-space"><i class="fa fa-check"></i><b>2.6.5</b> Besov 공간(Besov space)</a></li>
-<li class="chapter" data-level="2.6.6" data-path="2-6-space.html"><a href="2-6-space.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.6.6</b> Reproducing kernel Hilbert space</a></li>
+<li class="chapter" data-level="2.6.1" data-path="2-6-space.html"><a href="2-6-space.html#-vector-space"><i class="fa fa-check"></i><b>2.6.1</b> 벡터 공간(vector space)</a></li>
+<li class="chapter" data-level="2.6.2" data-path="2-6-space.html"><a href="2-6-space.html#-normed-space"><i class="fa fa-check"></i><b>2.6.2</b> 노름 공간(normed space)</a></li>
+<li class="chapter" data-level="2.6.3" data-path="2-6-space.html"><a href="2-6-space.html#-banach-space"><i class="fa fa-check"></i><b>2.6.3</b> 바나흐 공간(Banach space)</a></li>
+<li class="chapter" data-level="2.6.4" data-path="2-6-space.html"><a href="2-6-space.html#-hilbert-space"><i class="fa fa-check"></i><b>2.6.4</b> 힐버트 공간(Hilbert space)</a></li>
+<li class="chapter" data-level="2.6.5" data-path="2-6-space.html"><a href="2-6-space.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.6.5</b> Sobolev 공간(Sobolev space)</a></li>
+<li class="chapter" data-level="2.6.6" data-path="2-6-space.html"><a href="2-6-space.html#besov-besov-space"><i class="fa fa-check"></i><b>2.6.6</b> Besov 공간(Besov space)</a></li>
+<li class="chapter" data-level="2.6.7" data-path="2-6-space.html"><a href="2-6-space.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.6.7</b> Reproducing kernel Hilbert space</a></li>
 </ul></li>
 <li class="chapter" data-level="2.7" data-path="2-7-distance.html"><a href="2-7-distance.html"><i class="fa fa-check"></i><b>2.7</b> 거리(distance)</a></li>
 </ul></li>
@@ -216,6 +217,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="11.6" data-path="11-6-arima-seasonal-arima-models.html"><a href="11-6-arima-seasonal-arima-models.html"><i class="fa fa-check"></i><b>11.6</b> 계절성이 있는 ARIMA 모델링(seasonal ARIMA models)</a></li>
 <li class="chapter" data-level="11.7" data-path="11-7-coherency-section-3-9.html"><a href="11-7-coherency-section-3-9.html"><i class="fa fa-check"></i><b>11.7</b> Coherency (section 3.9)</a></li>
+<li class="chapter" data-level="11.8" data-path="11-8-self-similar-process.html"><a href="11-8-self-similar-process.html"><i class="fa fa-check"></i><b>11.8</b> Self-Similar Process</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="12-transfer.html"><a href="12-transfer.html"><i class="fa fa-check"></i><b>12</b> 전이함수모형</a><ul>
 <li class="chapter" data-level="12.1" data-path="12-1-stability-and-causality.html"><a href="12-1-stability-and-causality.html"><i class="fa fa-check"></i><b>12.1</b> 안정성과 인과성(stability and causality)</a></li>
@@ -568,13 +570,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>전이함수의 형태를 식별하기 위해서는 충격반응가중값을 먼저 구해야 하는데, 이를 위해 두 개의 시계열 사이의 상관의 정도와 방향을 나타내는 교차상관함수를 이용한다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-73" class="definition"><strong>Definition 12.1  (교차상관함수)  </strong></span>정상인 두 시계열 <span class="math inline">\(X_{t}\)</span>와 <span class="math inline">\(Y_{t}\)</span> 사이의 교차상관함수는 <span class="math display">\[\gamma_{XY}(t)=E[(X_{t}-\mu_{X})(Y_{t+k}-\mu_{Y})], \qquad{k=0,\pm 1, \pm 2, \ldots}\]</span> 이다. 단 모든 <span class="math inline">\(t\)</span>에 대해 <span class="math inline">\(\mu_{X}=E[X_{t}]\)</span>, <span class="math inline">\(\mu_{Y}=E[Y_{t}]\)</span>이다.</p>
+<p><span id="def:unnamed-chunk-78" class="definition"><strong>Definition 12.1  (교차상관함수)  </strong></span>정상인 두 시계열 <span class="math inline">\(X_{t}\)</span>와 <span class="math inline">\(Y_{t}\)</span> 사이의 교차상관함수는 <span class="math display">\[\gamma_{XY}(t)=E[(X_{t}-\mu_{X})(Y_{t+k}-\mu_{Y})], \qquad{k=0,\pm 1, \pm 2, \ldots}\]</span> 이다. 단 모든 <span class="math inline">\(t\)</span>에 대해 <span class="math inline">\(\mu_{X}=E[X_{t}]\)</span>, <span class="math inline">\(\mu_{Y}=E[Y_{t}]\)</span>이다.</p>
 </div>
 <p></p>
 <p>교차상관함수의 성질 중 중요한 것은 <strong>자기상관함수와는 달리 대칭이 아니라</strong>는 점이다. 따라서 교차상관함수는 자기상관함수와는 달리 상관의 정도와 영향을 미치는 방향을 같이 측정한다는 점이 특징이다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-74" class="definition"><strong>Definition 12.2  (교차상관계수)  </strong></span>정상인 두 시계열 <span class="math inline">\(X_{t}\)</span>와 <span class="math inline">\(Y_{t}\)</span> 사이의 교차상관함수는 <span class="math display">\[\rho_{XY}(k)=Corr(X_{t},Y_{t+k})=\frac{\gamma_{XY}(k)}{\sigma_{X}\sigma_{Y}}=\frac{\gamma_{XY}(k)}{\sqrt{\gamma_{X}(0)\gamma_{Y}(0)}}\]</span> 으로 정의한다.</p>
+<p><span id="def:unnamed-chunk-79" class="definition"><strong>Definition 12.2  (교차상관계수)  </strong></span>정상인 두 시계열 <span class="math inline">\(X_{t}\)</span>와 <span class="math inline">\(Y_{t}\)</span> 사이의 교차상관함수는 <span class="math display">\[\rho_{XY}(k)=Corr(X_{t},Y_{t+k})=\frac{\gamma_{XY}(k)}{\sigma_{X}\sigma_{Y}}=\frac{\gamma_{XY}(k)}{\sqrt{\gamma_{X}(0)\gamma_{Y}(0)}}\]</span> 으로 정의한다.</p>
 </div>
 <p></p>
 <p>앞선 모형에서 <span class="math inline">\(\tilde{y}_{t}\)</span>와 <span class="math inline">\(w_{t}\)</span>의 교차상관계수는 <span class="math display">\[\gamma_{\tilde{y} w}(h)=E[\tilde{y}_{t} w_{t}]=E[\sum_{j=0}^{\infty}\alpha_{j}w_{t+h-j}w_{t}]=\sigma_{w}^{2}\alpha_{h}\]</span> 로 쓸 수 있다. 이는 <span class="math inline">\(j=h\)</span>일 때를 제외하고 백색잡음의 ACF가 0임을 이용하는 것이다. 이 관계식을 보면 <span class="math display">\[\hat{\alpha}_{h}=\frac{\hat{\gamma}_{\tilde{y}w}(h)}{\hat{\sigma}_{w}^{2}}\]</span> 임을 유추해 낼 수 있다.</p>

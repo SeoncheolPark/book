@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2017-09-01">
+<meta name="date" content="2017-09-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -131,12 +131,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.5.2" data-path="2-5-basis.html"><a href="2-5-basis.html#radial-basis-function"><i class="fa fa-check"></i><b>2.5.2</b> Radial basis function</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="2-6-space.html"><a href="2-6-space.html"><i class="fa fa-check"></i><b>2.6</b> 공간(space)</a><ul>
-<li class="chapter" data-level="2.6.1" data-path="2-6-space.html"><a href="2-6-space.html#l2-l2-space"><i class="fa fa-check"></i><b>2.6.1</b> L2 공간(L2 space)</a></li>
-<li class="chapter" data-level="2.6.2" data-path="2-6-space.html"><a href="2-6-space.html#banach-space"><i class="fa fa-check"></i><b>2.6.2</b> 바나흐공간(Banach space)</a></li>
-<li class="chapter" data-level="2.6.3" data-path="2-6-space.html"><a href="2-6-space.html#hilbert-space"><i class="fa fa-check"></i><b>2.6.3</b> 힐버트공간(Hilbert space)</a></li>
-<li class="chapter" data-level="2.6.4" data-path="2-6-space.html"><a href="2-6-space.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.6.4</b> Sobolev 공간(Sobolev space)</a></li>
-<li class="chapter" data-level="2.6.5" data-path="2-6-space.html"><a href="2-6-space.html#besov-besov-space"><i class="fa fa-check"></i><b>2.6.5</b> Besov 공간(Besov space)</a></li>
-<li class="chapter" data-level="2.6.6" data-path="2-6-space.html"><a href="2-6-space.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.6.6</b> Reproducing kernel Hilbert space</a></li>
+<li class="chapter" data-level="2.6.1" data-path="2-6-space.html"><a href="2-6-space.html#-vector-space"><i class="fa fa-check"></i><b>2.6.1</b> 벡터 공간(vector space)</a></li>
+<li class="chapter" data-level="2.6.2" data-path="2-6-space.html"><a href="2-6-space.html#-normed-space"><i class="fa fa-check"></i><b>2.6.2</b> 노름 공간(normed space)</a></li>
+<li class="chapter" data-level="2.6.3" data-path="2-6-space.html"><a href="2-6-space.html#-banach-space"><i class="fa fa-check"></i><b>2.6.3</b> 바나흐 공간(Banach space)</a></li>
+<li class="chapter" data-level="2.6.4" data-path="2-6-space.html"><a href="2-6-space.html#-hilbert-space"><i class="fa fa-check"></i><b>2.6.4</b> 힐버트 공간(Hilbert space)</a></li>
+<li class="chapter" data-level="2.6.5" data-path="2-6-space.html"><a href="2-6-space.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.6.5</b> Sobolev 공간(Sobolev space)</a></li>
+<li class="chapter" data-level="2.6.6" data-path="2-6-space.html"><a href="2-6-space.html#besov-besov-space"><i class="fa fa-check"></i><b>2.6.6</b> Besov 공간(Besov space)</a></li>
+<li class="chapter" data-level="2.6.7" data-path="2-6-space.html"><a href="2-6-space.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.6.7</b> Reproducing kernel Hilbert space</a></li>
 </ul></li>
 <li class="chapter" data-level="2.7" data-path="2-7-distance.html"><a href="2-7-distance.html"><i class="fa fa-check"></i><b>2.7</b> 거리(distance)</a></li>
 </ul></li>
@@ -216,6 +217,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="11.6" data-path="11-6-arima-seasonal-arima-models.html"><a href="11-6-arima-seasonal-arima-models.html"><i class="fa fa-check"></i><b>11.6</b> 계절성이 있는 ARIMA 모델링(seasonal ARIMA models)</a></li>
 <li class="chapter" data-level="11.7" data-path="11-7-coherency-section-3-9.html"><a href="11-7-coherency-section-3-9.html"><i class="fa fa-check"></i><b>11.7</b> Coherency (section 3.9)</a></li>
+<li class="chapter" data-level="11.8" data-path="11-8-self-similar-process.html"><a href="11-8-self-similar-process.html"><i class="fa fa-check"></i><b>11.8</b> Self-Similar Process</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="12-transfer.html"><a href="12-transfer.html"><i class="fa fa-check"></i><b>12</b> 전이함수모형</a><ul>
 <li class="chapter" data-level="12.1" data-path="12-1-stability-and-causality.html"><a href="12-1-stability-and-causality.html"><i class="fa fa-check"></i><b>12.1</b> 안정성과 인과성(stability and causality)</a></li>
@@ -580,36 +582,36 @@ dataspec &lt;-<span class="st"> </span><span class="kw">t</span>(dataspec)
 time_index_month &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="kw">as.POSIXct</span>(<span class="st">&quot;1998-01-01&quot;</span>), <span class="dt">to =</span> <span class="kw">as.POSIXct</span>(<span class="st">&quot;2014-12-01&quot;</span>), <span class="dt">by =</span> <span class="st">&quot;month&quot;</span>)
 dataspec &lt;-<span class="st"> </span><span class="kw">xts</span>(dataspec[,<span class="dv">1</span>], <span class="dt">order.by=</span>time_index_month)
 <span class="kw">plot</span>(dataspec, <span class="dt">type=</span><span class="st">&#39;o&#39;</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">150</span>), <span class="dt">xlab=</span><span class="st">&quot;Month&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Monthly&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-80"></span>
-<img src="book_files/figure-html/unnamed-chunk-80-1.svg" alt="Time series of Seoul PM10." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-85"></span>
+<img src="book_files/figure-html/unnamed-chunk-85-1.svg" alt="Time series of Seoul PM10." width="672" />
 <p class="caption">
 FIGURE 14.3: Time series of Seoul PM10.
 </p>
 </div>
 <p><code>TSA</code>, <code>kza</code>, <code>itsmr</code> 패키지를 이용한다. 같은 이름의 함수를 사용하기 때문에 실행할 때 주의해야 한다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TSA::<span class="kw">periodogram</span>(dataspec, <span class="dt">log=</span><span class="st">&#39;yes&#39;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-81"></span>
-<img src="book_files/figure-html/unnamed-chunk-81-1.svg" alt="Periodogram (using R package TSA)." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-86"></span>
+<img src="book_files/figure-html/unnamed-chunk-86-1.svg" alt="Periodogram (using R package TSA)." width="672" />
 <p class="caption">
 FIGURE 14.4: Periodogram (using R package TSA).
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(kza::<span class="kw">periodogram</span>(<span class="kw">as.numeric</span>(dataspec)), <span class="dt">type=</span><span class="st">&#39;o&#39;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-82"></span>
-<img src="book_files/figure-html/unnamed-chunk-82-1.svg" alt="Periodogram (using R package kza)." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-87"></span>
+<img src="book_files/figure-html/unnamed-chunk-87-1.svg" alt="Periodogram (using R package kza)." width="672" />
 <p class="caption">
 FIGURE 14.5: Periodogram (using R package kza).
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(itsmr::<span class="kw">periodogram</span>(dataspec))</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-83"></span>
-<img src="book_files/figure-html/unnamed-chunk-83-1.svg" alt="Periodogram (using R package itsmr)." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-88"></span>
+<img src="book_files/figure-html/unnamed-chunk-88-1.svg" alt="Periodogram (using R package itsmr)." width="672" />
 <p class="caption">
 FIGURE 14.6: Periodogram (using R package itsmr).
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-83"></span>
-<img src="book_files/figure-html/unnamed-chunk-83-2.svg" alt="Periodogram (using R package itsmr)." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-88"></span>
+<img src="book_files/figure-html/unnamed-chunk-88-2.svg" alt="Periodogram (using R package itsmr)." width="672" />
 <p class="caption">
 FIGURE 14.6: Periodogram (using R package itsmr).
 </p>

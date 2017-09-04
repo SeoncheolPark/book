@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2017-09-01">
+<meta name="date" content="2017-09-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -131,12 +131,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.5.2" data-path="2-5-basis.html"><a href="2-5-basis.html#radial-basis-function"><i class="fa fa-check"></i><b>2.5.2</b> Radial basis function</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="2-6-space.html"><a href="2-6-space.html"><i class="fa fa-check"></i><b>2.6</b> 공간(space)</a><ul>
-<li class="chapter" data-level="2.6.1" data-path="2-6-space.html"><a href="2-6-space.html#l2-l2-space"><i class="fa fa-check"></i><b>2.6.1</b> L2 공간(L2 space)</a></li>
-<li class="chapter" data-level="2.6.2" data-path="2-6-space.html"><a href="2-6-space.html#banach-space"><i class="fa fa-check"></i><b>2.6.2</b> 바나흐공간(Banach space)</a></li>
-<li class="chapter" data-level="2.6.3" data-path="2-6-space.html"><a href="2-6-space.html#hilbert-space"><i class="fa fa-check"></i><b>2.6.3</b> 힐버트공간(Hilbert space)</a></li>
-<li class="chapter" data-level="2.6.4" data-path="2-6-space.html"><a href="2-6-space.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.6.4</b> Sobolev 공간(Sobolev space)</a></li>
-<li class="chapter" data-level="2.6.5" data-path="2-6-space.html"><a href="2-6-space.html#besov-besov-space"><i class="fa fa-check"></i><b>2.6.5</b> Besov 공간(Besov space)</a></li>
-<li class="chapter" data-level="2.6.6" data-path="2-6-space.html"><a href="2-6-space.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.6.6</b> Reproducing kernel Hilbert space</a></li>
+<li class="chapter" data-level="2.6.1" data-path="2-6-space.html"><a href="2-6-space.html#-vector-space"><i class="fa fa-check"></i><b>2.6.1</b> 벡터 공간(vector space)</a></li>
+<li class="chapter" data-level="2.6.2" data-path="2-6-space.html"><a href="2-6-space.html#-normed-space"><i class="fa fa-check"></i><b>2.6.2</b> 노름 공간(normed space)</a></li>
+<li class="chapter" data-level="2.6.3" data-path="2-6-space.html"><a href="2-6-space.html#-banach-space"><i class="fa fa-check"></i><b>2.6.3</b> 바나흐 공간(Banach space)</a></li>
+<li class="chapter" data-level="2.6.4" data-path="2-6-space.html"><a href="2-6-space.html#-hilbert-space"><i class="fa fa-check"></i><b>2.6.4</b> 힐버트 공간(Hilbert space)</a></li>
+<li class="chapter" data-level="2.6.5" data-path="2-6-space.html"><a href="2-6-space.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.6.5</b> Sobolev 공간(Sobolev space)</a></li>
+<li class="chapter" data-level="2.6.6" data-path="2-6-space.html"><a href="2-6-space.html#besov-besov-space"><i class="fa fa-check"></i><b>2.6.6</b> Besov 공간(Besov space)</a></li>
+<li class="chapter" data-level="2.6.7" data-path="2-6-space.html"><a href="2-6-space.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.6.7</b> Reproducing kernel Hilbert space</a></li>
 </ul></li>
 <li class="chapter" data-level="2.7" data-path="2-7-distance.html"><a href="2-7-distance.html"><i class="fa fa-check"></i><b>2.7</b> 거리(distance)</a></li>
 </ul></li>
@@ -216,6 +217,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="11.6" data-path="11-6-arima-seasonal-arima-models.html"><a href="11-6-arima-seasonal-arima-models.html"><i class="fa fa-check"></i><b>11.6</b> 계절성이 있는 ARIMA 모델링(seasonal ARIMA models)</a></li>
 <li class="chapter" data-level="11.7" data-path="11-7-coherency-section-3-9.html"><a href="11-7-coherency-section-3-9.html"><i class="fa fa-check"></i><b>11.7</b> Coherency (section 3.9)</a></li>
+<li class="chapter" data-level="11.8" data-path="11-8-self-similar-process.html"><a href="11-8-self-similar-process.html"><i class="fa fa-check"></i><b>11.8</b> Self-Similar Process</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="12-transfer.html"><a href="12-transfer.html"><i class="fa fa-check"></i><b>12</b> 전이함수모형</a><ul>
 <li class="chapter" data-level="12.1" data-path="12-1-stability-and-causality.html"><a href="12-1-stability-and-causality.html"><i class="fa fa-check"></i><b>12.1</b> 안정성과 인과성(stability and causality)</a></li>
@@ -580,8 +582,8 @@ G(y)=P(Y\leq y)&amp;\approx &amp; 1-(1-\pi y^{2}|A|^{-1})^{n-1}\\
 <li><p>(Point-to-nearest event distance) <span class="math inline">\(X\)</span>를 <span class="math inline">\(A\)</span> 안에 있는 어떤 점에서 <span class="math inline">\(n\)</span>개의 사건들 중 가장 가까운 사건과의 거리라고 하자. 또 <span class="math inline">\(x_{i}, i=1,\ldots ,m\)</span>을 <span class="math inline">\(A\)</span>의 <span class="math inline">\(i\)</span>번째 점에서 <span class="math inline">\(n\)</span>개의 사건들 중 가장 가까운 사건과의 거리라고 하자. 그러면 <span class="math display">\[F(x)=P(X\leq x) \approx 1 - e^{-\lambda \pi x^{2}}, \qquad{x \geq 0, \lambda = \frac{n}{|A|}}\]</span> <span class="math display">\[\hat{F}_{1}(x)=\frac{1}{m}\sum I(x_{i}\leq x)\]</span> 그 다음에는 앞게 비슷하게 EDF 그림을 그려보거나 <span class="math inline">\(u_{1}=\int (\hat{F}_{1}(x)-\bar{F}_{1}(x))^{2}dx\)</span>등으로 검정 가능하다.</p></li>
 <li><p>정방구역 계산(quadrat count)</p></li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-204"></span>
-<img src="book_files/figure-html/unnamed-chunk-204-1.svg" alt="Examples of rectangle area." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-209"></span>
+<img src="book_files/figure-html/unnamed-chunk-209-1.svg" alt="Examples of rectangle area." width="672" />
 <p class="caption">
 FIGURE 44.1: Examples of rectangle area.
 </p>

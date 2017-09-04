@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2017-09-01">
+<meta name="date" content="2017-09-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -131,12 +131,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.5.2" data-path="2-5-basis.html"><a href="2-5-basis.html#radial-basis-function"><i class="fa fa-check"></i><b>2.5.2</b> Radial basis function</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="2-6-space.html"><a href="2-6-space.html"><i class="fa fa-check"></i><b>2.6</b> 공간(space)</a><ul>
-<li class="chapter" data-level="2.6.1" data-path="2-6-space.html"><a href="2-6-space.html#l2-l2-space"><i class="fa fa-check"></i><b>2.6.1</b> L2 공간(L2 space)</a></li>
-<li class="chapter" data-level="2.6.2" data-path="2-6-space.html"><a href="2-6-space.html#banach-space"><i class="fa fa-check"></i><b>2.6.2</b> 바나흐공간(Banach space)</a></li>
-<li class="chapter" data-level="2.6.3" data-path="2-6-space.html"><a href="2-6-space.html#hilbert-space"><i class="fa fa-check"></i><b>2.6.3</b> 힐버트공간(Hilbert space)</a></li>
-<li class="chapter" data-level="2.6.4" data-path="2-6-space.html"><a href="2-6-space.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.6.4</b> Sobolev 공간(Sobolev space)</a></li>
-<li class="chapter" data-level="2.6.5" data-path="2-6-space.html"><a href="2-6-space.html#besov-besov-space"><i class="fa fa-check"></i><b>2.6.5</b> Besov 공간(Besov space)</a></li>
-<li class="chapter" data-level="2.6.6" data-path="2-6-space.html"><a href="2-6-space.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.6.6</b> Reproducing kernel Hilbert space</a></li>
+<li class="chapter" data-level="2.6.1" data-path="2-6-space.html"><a href="2-6-space.html#-vector-space"><i class="fa fa-check"></i><b>2.6.1</b> 벡터 공간(vector space)</a></li>
+<li class="chapter" data-level="2.6.2" data-path="2-6-space.html"><a href="2-6-space.html#-normed-space"><i class="fa fa-check"></i><b>2.6.2</b> 노름 공간(normed space)</a></li>
+<li class="chapter" data-level="2.6.3" data-path="2-6-space.html"><a href="2-6-space.html#-banach-space"><i class="fa fa-check"></i><b>2.6.3</b> 바나흐 공간(Banach space)</a></li>
+<li class="chapter" data-level="2.6.4" data-path="2-6-space.html"><a href="2-6-space.html#-hilbert-space"><i class="fa fa-check"></i><b>2.6.4</b> 힐버트 공간(Hilbert space)</a></li>
+<li class="chapter" data-level="2.6.5" data-path="2-6-space.html"><a href="2-6-space.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.6.5</b> Sobolev 공간(Sobolev space)</a></li>
+<li class="chapter" data-level="2.6.6" data-path="2-6-space.html"><a href="2-6-space.html#besov-besov-space"><i class="fa fa-check"></i><b>2.6.6</b> Besov 공간(Besov space)</a></li>
+<li class="chapter" data-level="2.6.7" data-path="2-6-space.html"><a href="2-6-space.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.6.7</b> Reproducing kernel Hilbert space</a></li>
 </ul></li>
 <li class="chapter" data-level="2.7" data-path="2-7-distance.html"><a href="2-7-distance.html"><i class="fa fa-check"></i><b>2.7</b> 거리(distance)</a></li>
 </ul></li>
@@ -216,6 +217,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="11.6" data-path="11-6-arima-seasonal-arima-models.html"><a href="11-6-arima-seasonal-arima-models.html"><i class="fa fa-check"></i><b>11.6</b> 계절성이 있는 ARIMA 모델링(seasonal ARIMA models)</a></li>
 <li class="chapter" data-level="11.7" data-path="11-7-coherency-section-3-9.html"><a href="11-7-coherency-section-3-9.html"><i class="fa fa-check"></i><b>11.7</b> Coherency (section 3.9)</a></li>
+<li class="chapter" data-level="11.8" data-path="11-8-self-similar-process.html"><a href="11-8-self-similar-process.html"><i class="fa fa-check"></i><b>11.8</b> Self-Similar Process</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="12-transfer.html"><a href="12-transfer.html"><i class="fa fa-check"></i><b>12</b> 전이함수모형</a><ul>
 <li class="chapter" data-level="12.1" data-path="12-1-stability-and-causality.html"><a href="12-1-stability-and-causality.html"><i class="fa fa-check"></i><b>12.1</b> 안정성과 인과성(stability and causality)</a></li>
@@ -591,16 +593,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>대칭 chirp 함수를 <span class="math display">\[y(x)=\sin(\pi/x)\]</span> 로 정의한다. 이 때 <span class="math inline">\(x=\epsilon &#39; +(-1,-1,+\delta,-1+2\delta, \ldots, 1-2\delta)\)</span>이며 <span class="math inline">\(\epsilon &#39; =10^{-5}\)</span>이며 <span class="math inline">\(\delta=1/512\)</span>이다. 이 함수의 그림은 다음과 같다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw">simchirp</span>()
 <span class="kw">plot</span>(y, <span class="dt">type=</span><span class="st">&#39;l&#39;</span>, <span class="dt">xlab=</span><span class="st">&quot;Time&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Chirp value&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-125"></span>
-<img src="book_files/figure-html/unnamed-chunk-125-1.svg" alt="Simulated chirp signal." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-130"></span>
+<img src="book_files/figure-html/unnamed-chunk-130-1.svg" alt="Simulated chirp signal." width="672" />
 <p class="caption">
 FIGURE 17.7: Simulated chirp signal.
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ywd &lt;-<span class="st"> </span><span class="kw">wd</span>(y$y, <span class="dt">filter.number=</span><span class="dv">2</span>, <span class="dt">family=</span><span class="st">&quot;DaubExPhase&quot;</span>)
 <span class="kw">plot</span>(ywd, <span class="dt">scaling=</span><span class="st">&quot;by.level&quot;</span>, <span class="dt">main=</span><span class="st">&quot;&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-126"></span>
-<img src="book_files/figure-html/unnamed-chunk-126-1.svg" alt="Discrete wavelet coefficients of simulated chirp signal." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-131"></span>
+<img src="book_files/figure-html/unnamed-chunk-131-1.svg" alt="Discrete wavelet coefficients of simulated chirp signal." width="672" />
 <p class="caption">
 FIGURE 17.8: Discrete wavelet coefficients of simulated chirp signal.
 </p>
@@ -609,8 +611,8 @@ FIGURE 17.8: Discrete wavelet coefficients of simulated chirp signal.
 &gt;  [8] 7.484166 8.769223 4.756466</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ywd &lt;-<span class="st"> </span><span class="kw">wd</span>(y$y, <span class="dt">filter.number=</span><span class="dv">2</span>, <span class="dt">family=</span><span class="st">&quot;DaubExPhase&quot;</span>, <span class="dt">type=</span><span class="st">&quot;station&quot;</span>)
 <span class="kw">plot</span>(ywd, <span class="dt">scaling=</span><span class="st">&quot;by.level&quot;</span>, <span class="dt">main=</span><span class="st">&quot;&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-127"></span>
-<img src="book_files/figure-html/unnamed-chunk-127-1.svg" alt="Time-ordered non-decimated wavelet coefficients of simulated chirp signal." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-132"></span>
+<img src="book_files/figure-html/unnamed-chunk-132-1.svg" alt="Time-ordered non-decimated wavelet coefficients of simulated chirp signal." width="672" />
 <p class="caption">
 FIGURE 17.9: Time-ordered non-decimated wavelet coefficients of simulated chirp signal.
 </p>
@@ -619,8 +621,8 @@ FIGURE 17.9: Time-ordered non-decimated wavelet coefficients of simulated chirp 
 &gt;  [8] 11.736733 13.175435  7.737538</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ywst &lt;-<span class="st"> </span><span class="kw">wst</span>(y$y, <span class="dt">filter.number=</span><span class="dv">2</span>, <span class="dt">family=</span><span class="st">&quot;DaubExPhase&quot;</span>)
 <span class="kw">plot</span>(ywst, <span class="dt">scaling=</span><span class="st">&quot;by.level&quot;</span>, <span class="dt">main=</span><span class="st">&quot;&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-128"></span>
-<img src="book_files/figure-html/unnamed-chunk-128-1.svg" alt="Packet-ordered non-decimated wavelet coefficients of simulated chirp signal." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-133"></span>
+<img src="book_files/figure-html/unnamed-chunk-133-1.svg" alt="Packet-ordered non-decimated wavelet coefficients of simulated chirp signal." width="672" />
 <p class="caption">
 FIGURE 17.10: Packet-ordered non-decimated wavelet coefficients of simulated chirp signal.
 </p>

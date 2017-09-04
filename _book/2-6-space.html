@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2017-09-01">
+<meta name="date" content="2017-09-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -131,12 +131,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.5.2" data-path="2-5-basis.html"><a href="2-5-basis.html#radial-basis-function"><i class="fa fa-check"></i><b>2.5.2</b> Radial basis function</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="2-6-space.html"><a href="2-6-space.html"><i class="fa fa-check"></i><b>2.6</b> 공간(space)</a><ul>
-<li class="chapter" data-level="2.6.1" data-path="2-6-space.html"><a href="2-6-space.html#l2-l2-space"><i class="fa fa-check"></i><b>2.6.1</b> L2 공간(L2 space)</a></li>
-<li class="chapter" data-level="2.6.2" data-path="2-6-space.html"><a href="2-6-space.html#banach-space"><i class="fa fa-check"></i><b>2.6.2</b> 바나흐공간(Banach space)</a></li>
-<li class="chapter" data-level="2.6.3" data-path="2-6-space.html"><a href="2-6-space.html#hilbert-space"><i class="fa fa-check"></i><b>2.6.3</b> 힐버트공간(Hilbert space)</a></li>
-<li class="chapter" data-level="2.6.4" data-path="2-6-space.html"><a href="2-6-space.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.6.4</b> Sobolev 공간(Sobolev space)</a></li>
-<li class="chapter" data-level="2.6.5" data-path="2-6-space.html"><a href="2-6-space.html#besov-besov-space"><i class="fa fa-check"></i><b>2.6.5</b> Besov 공간(Besov space)</a></li>
-<li class="chapter" data-level="2.6.6" data-path="2-6-space.html"><a href="2-6-space.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.6.6</b> Reproducing kernel Hilbert space</a></li>
+<li class="chapter" data-level="2.6.1" data-path="2-6-space.html"><a href="2-6-space.html#-vector-space"><i class="fa fa-check"></i><b>2.6.1</b> 벡터 공간(vector space)</a></li>
+<li class="chapter" data-level="2.6.2" data-path="2-6-space.html"><a href="2-6-space.html#-normed-space"><i class="fa fa-check"></i><b>2.6.2</b> 노름 공간(normed space)</a></li>
+<li class="chapter" data-level="2.6.3" data-path="2-6-space.html"><a href="2-6-space.html#-banach-space"><i class="fa fa-check"></i><b>2.6.3</b> 바나흐 공간(Banach space)</a></li>
+<li class="chapter" data-level="2.6.4" data-path="2-6-space.html"><a href="2-6-space.html#-hilbert-space"><i class="fa fa-check"></i><b>2.6.4</b> 힐버트 공간(Hilbert space)</a></li>
+<li class="chapter" data-level="2.6.5" data-path="2-6-space.html"><a href="2-6-space.html#sobolev-sobolev-space"><i class="fa fa-check"></i><b>2.6.5</b> Sobolev 공간(Sobolev space)</a></li>
+<li class="chapter" data-level="2.6.6" data-path="2-6-space.html"><a href="2-6-space.html#besov-besov-space"><i class="fa fa-check"></i><b>2.6.6</b> Besov 공간(Besov space)</a></li>
+<li class="chapter" data-level="2.6.7" data-path="2-6-space.html"><a href="2-6-space.html#reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.6.7</b> Reproducing kernel Hilbert space</a></li>
 </ul></li>
 <li class="chapter" data-level="2.7" data-path="2-7-distance.html"><a href="2-7-distance.html"><i class="fa fa-check"></i><b>2.7</b> 거리(distance)</a></li>
 </ul></li>
@@ -216,6 +217,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="11.6" data-path="11-6-arima-seasonal-arima-models.html"><a href="11-6-arima-seasonal-arima-models.html"><i class="fa fa-check"></i><b>11.6</b> 계절성이 있는 ARIMA 모델링(seasonal ARIMA models)</a></li>
 <li class="chapter" data-level="11.7" data-path="11-7-coherency-section-3-9.html"><a href="11-7-coherency-section-3-9.html"><i class="fa fa-check"></i><b>11.7</b> Coherency (section 3.9)</a></li>
+<li class="chapter" data-level="11.8" data-path="11-8-self-similar-process.html"><a href="11-8-self-similar-process.html"><i class="fa fa-check"></i><b>11.8</b> Self-Similar Process</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="12-transfer.html"><a href="12-transfer.html"><i class="fa fa-check"></i><b>12</b> 전이함수모형</a><ul>
 <li class="chapter" data-level="12.1" data-path="12-1-stability-and-causality.html"><a href="12-1-stability-and-causality.html"><i class="fa fa-check"></i><b>12.1</b> 안정성과 인과성(stability and causality)</a></li>
@@ -565,24 +567,63 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="space" class="section level2">
 <h2><span class="header-section-number">2.6</span> 공간(space)</h2>
-<div id="l2-l2-space" class="section level3">
-<h3><span class="header-section-number">2.6.1</span> L2 공간(L2 space)</h3>
+<p>이 부분은 전체적으로 <span class="citation">(Shima <a href="#ref-Shima2016">2016</a>)</span>의 정의와 내용들을 따라간다.</p>
+<div id="-vector-space" class="section level3">
+<h3><span class="header-section-number">2.6.1</span> 벡터 공간(vector space)</h3>
+</div>
+<div id="-normed-space" class="section level3">
+<h3><span class="header-section-number">2.6.2</span> 노름 공간(normed space)</h3>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-13" class="definition"><strong>Definition 2.8  (노름 공간)  </strong></span>원소들에 일종의 ‘길이’ 또는 ’크기’가 부여된 벡터 공간 <span class="math inline">\(V\)</span>을 <strong>노름 공간(normed space)</strong>라고 한다.</p>
+</div>
+<p></p>
+</div>
+<div id="-banach-space" class="section level3">
+<h3><span class="header-section-number">2.6.3</span> 바나흐 공간(Banach space)</h3>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-14" class="definition"><strong>Definition 2.9  (힐버트 공간)  </strong></span>Normed space가 complete일 경우 이를 <strong>바나흐 공간(Banach space)</strong>라고 부른다.</p>
+</div>
+<p></p>
+<p>유한차원에서 노름공간은 항상 완비(complete)이다. 그러나 무한차원에서 노름공간은 완비일 수도 있고, 아닐 수도 있다.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-15" class="definition"><strong>Definition 2.10  (원-힐버트 공간)  </strong></span>Inner product spaces들 중 완비가 아닌 공간들을 <strong>원-힐버트 공간(pre-Hilbert space)</strong>라고 부른다.</p>
+</div>
+<p></p>
+</div>
+<div id="-hilbert-space" class="section level3">
+<h3><span class="header-section-number">2.6.4</span> 힐버트 공간(Hilbert space)</h3>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-16" class="definition"><strong>Definition 2.11  (힐버트 공간)  </strong></span>A complete normed space endowed with inner product is called a <strong>Hilbert space</strong></p>
+</div>
+<p></p>
+<p>다음 그림은 <span class="citation">(Shima <a href="#ref-Shima2016">2016</a>)</span>에 있는 그림으로 각 공간들 간의 사이의 관계를 이해하는 데 도움이 된다.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-17"></span>
+<img src="images/math_Hilbertspacemap.png" alt="Metric vector space로부터 힐버트 공간까지의 관계." width="309" />
+<p class="caption">
+FIGURE 2.3: Metric vector space로부터 힐버트 공간까지의 관계.
+</p>
+</div>
+<p>힐버트 공간의 대표적인 예로, <span class="math inline">\(L^{p}\)</span> 공간이 있다.</p>
 <p><span class="math display">\[\| f\|_{p}=(\int_{S}|f|^{p}d\mu)^{1/p}&lt;\infty\]</span></p>
 </div>
-<div id="banach-space" class="section level3">
-<h3><span class="header-section-number">2.6.2</span> 바나흐공간(Banach space)</h3>
-</div>
-<div id="hilbert-space" class="section level3">
-<h3><span class="header-section-number">2.6.3</span> 힐버트공간(Hilbert space)</h3>
-</div>
 <div id="sobolev-sobolev-space" class="section level3">
-<h3><span class="header-section-number">2.6.4</span> Sobolev 공간(Sobolev space)</h3>
+<h3><span class="header-section-number">2.6.5</span> Sobolev 공간(Sobolev space)</h3>
 </div>
 <div id="besov-besov-space" class="section level3">
-<h3><span class="header-section-number">2.6.5</span> Besov 공간(Besov space)</h3>
+<h3><span class="header-section-number">2.6.6</span> Besov 공간(Besov space)</h3>
 </div>
 <div id="reproducing-kernel-hilbert-space" class="section level3">
-<h3><span class="header-section-number">2.6.6</span> Reproducing kernel Hilbert space</h3>
+<h3><span class="header-section-number">2.6.7</span> Reproducing kernel Hilbert space</h3>
+</div>
+</div>
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-Shima2016">
+<p>Shima, Hiroyuki. 2016. <em>Functional Analysis for Physics and Engineering: An Introduction</em>. CRC Press.</p>
 </div>
 </div>
             </section>

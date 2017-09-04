@@ -364,13 +364,47 @@ $$\phi(r)=\frac{1}{\sqrt{1+(\epsilon r)^{2}}}$$
 
 ## 공간(space)
 
-### L2 공간(L2 space)
+이 부분은 전체적으로 [@Shima2016]의 정의와 내용들을 따라간다.
+
+### 벡터 공간(vector space)
+
+### 노름 공간(normed space)
+
+```{definition, name="노름 공간"}
+원소들에 일종의 '길이' 또는 '크기'가 부여된 벡터 공간 $V$을 **노름 공간(normed space)**라고 한다.
+
+```
+
+### 바나흐 공간(Banach space)
+
+```{definition, name="힐버트 공간"}
+Normed space가 complete일 경우 이를 **바나흐 공간(Banach space)**라고 부른다.
+
+```
+
+유한차원에서 노름공간은 항상 완비(complete)이다. 그러나 무한차원에서 노름공간은 완비일 수도 있고, 아닐 수도 있다.
+
+```{definition, name="원-힐버트 공간"}
+Inner product spaces들 중 완비가 아닌 공간들을 **원-힐버트 공간(pre-Hilbert space)**라고 부른다.
+
+```
+
+### 힐버트 공간(Hilbert space)
+
+```{definition, name="힐버트 공간"}
+A complete normed space endowed with inner product is called a **Hilbert space**
+
+```
+
+다음 그림은 [@Shima2016]에 있는 그림으로 각 공간들 간의 사이의 관계를 이해하는 데 도움이 된다.
+
+```{r, echo=F, fig.cap='Metric vector space로부터 힐버트 공간까지의 관계.', fig.align='center'}
+knitr::include_graphics("images/math_Hilbertspacemap.png")
+```
+
+힐버트 공간의 대표적인 예로, $L^{p}$ 공간이 있다.
 
 $$\| f\|_{p}=(\int_{S}|f|^{p}d\mu)^{1/p}<\infty$$
-
-### 바나흐공간(Banach space)
-
-### 힐버트공간(Hilbert space)
 
 ### Sobolev 공간(Sobolev space)
 
