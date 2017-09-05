@@ -218,3 +218,12 @@ ywst <- wst(y$y, filter.number=2, family="DaubExPhase")
 plot(ywst, scaling="by.level", main="")
 ```
 
+## Biorthogonal wavelet
+
+이 내용은 [@Gomes2015]를 참고하였다. Orthogonality는 wavelet을 만드는 데 매우 큰 제약조건이다. 이것은 wavelet basis를 고르는 데 큰 제약을 준다. 예를 들면, Haar wavelet은 symmetric compact support를 갖는 유일한 orthogonal basis다. 웨이블릿 함수의 바람직한 조건들을 유지시키면서 좀 더 flexible한 선택을 위해 orthogonality를 biorthogonality로 바꾼다.
+
+### Biorthogonal 기저 함수들(Biorthogonal basis functions)
+
+```{r, echo=F, fig.cap='Dual basis.', fig.align='center'}
+knitr::include_graphics("images/multiscale_Dualbasis.png")
+```

@@ -1,12 +1,65 @@
 # 확률변수의 수렴 {#convergencerv}
 
-## 거의 확실한 확률 수렴(Almost sure convergence)
+[@Proschan2016]의 내용을 따라간다.
+
+## 거의 확실한 수렴(Almost sure convergence)
+
+$X_{1}, X_{2},\ldots$가 확률공간 $(\Omega, \mathcal{F}, P)$에서의 확률변수의 수열이라고 하자. 고정된 $\omega$에 대해 $X_{n}(\omega)=x_{n}, n=1,2,\ldots$은 숫자의 수열이라고 하자. 각 $\omega$에 대해 $X_{n}(\omega)$가 수렴할 수 있지만 극한 $X(\omega)$는 $\omega$에 따라 다를 수 있다. 예를 들면, $(\Omega, \mathcal{F}, P)=([0,1],\mathcal{B}_{[0,1]},\mu_{L})$ 이고
+
+\begin{equation}
+X_{n}(\omega)=\omega^{n}
+(\#eq:almostsureex01)
+\end{equation}
+
+이다. 그러면 $n\rightarrow \infty$일 때 $X_{n}(\omega) \rightarrow I(\omega=1)$이다. 그런데 어떤 $\omega$에 대해서는 $X_{n}(\omega)$는 극한이 없거나 무한대의 극한을 갖을 수 있다. 예를 들면 앞선 식 \@ref(eq:almostsureex01)을 다음과 같이 바꾸는 것이다.
+
+\begin{equation}
+X_{n}(\omega)=(-\omega)^{n}
+(\#eq:almostsureex02)
+\end{equation}
+
+그러면 $\omega < 1$일 때 $n\rightarrow 0$이나 $\omega=1$일 때는 극한이 존재하지 않는다.
+
+식 \@ref(eq:almostsureex01)과 \@ref(eq:almostsureex02)에서의 행동이 다르다고 하더라도 $\{\omega=1\}$이 확률 0을 갖는다면 다른 행동을 무시할 수 있을 것이다. 이것을 확장시키면 확률 0인 집합들을 무시하는 것으로 이해할 수 있고, **거의 확실한 수렴(Almost sure convergence)**의 정의를 이끈다.
 
 ## 확률수렴(Convergence in probability)
 
 ## Lp 수렴(Convergence in Lp)
 
 ## 분포수렴(Convergence in distribution)
+
+**분포수렴(Convergence in distribution)**은 분포함수의 관계를 다룬다는 것에서 확률변수들의 관계를 고려하는 앞 수렴들과는 다른 타입의 수렴이라고 할 수 있다. $X_{n}$의 분포함수 $F_{n}(x)$가 $X$의 분포함수 $F(x)$로 수렴할 때 우리는 $X_{n}$이 $X$에 대해 분포적으로 가까워진다고 말한다. 가장 단순한 예로 $X_{n}=1+\frac{1}{n}$이고 $X$는 1인 경우를 생각해 볼 수 있다. 이 때 $X_{n}$의 분포함수 $F_{n}(x)$는 다음과 같은 분포함수 $F(x)$로 가까워지는 것처럼 보인다.
+
+\begin{equation}
+F(x)=
+\begin{cases}
+0 & \text{if } x < 1 \\
+1 & \text{if } x \geq 1 
+\end{cases}
+(\#eq:distnconvex01)
+\end{equation}
+
+그러나 $F_{n}(x)=P(X_{n}\leq x)$는
+
+\begin{equation}
+F_{n}(x)=
+\begin{cases}
+0 & \text{if } x < 1 + \frac{1}{n} \\
+1 & \text{if } x \geq 1 \frac{1}{n}
+\end{cases}
+(\#eq:distnconvex02)
+\end{equation}
+
+이며 이는
+
+\begin{equation}
+\begin{cases}
+0 & \text{if } x \leq 1 \\
+1 & \text{if } x > 1
+\end{cases}
+\end{equation}
+
+로 수렴한다. 식 \@ref(eq:distnconvex01)과 식 \@ref(eq:distnconvex02)의 분포함수는 $x=1$에서 일치하지 않는다. 따라서, $F_{n}(x)$가 모든 $x$에서 $F(x)$로 수렴하는 것은 너무 강한 조건으로 보인다. 따라서 분포수렴을 정의할 때에는 앞선 예의 $x=1$처럼 불연속인 점들을 제외한 연속인 점들 $x$에서 $F_{n}(x) \rightarrow F(x)$가 되는 것으로 정의한다.
 
 ## 수렴 사이들의 관계(Connections between modes of convergence)
 
@@ -100,3 +153,10 @@ X_{n}\stackrel{n\rightarrow \infty}{=}O_{p}(a_{n}) &\Leftrightarrow& \text{sup}_
 ## 절대연속(absolute continuous)
 
 확률변수 $X_{1}$, $X_{2}$가 있을 때 $X_{1}$이 $X_{2}$에 대해 **절대연속(absolute continuous)**하다는 것은(정확히 얘기하면 $X_{1}$의 분포가 $X_{2}$의 분포에 대해 절대연속이다) 적당한 집합 $F$에 대해 $P(X_{2}\in F)=0$이 $P(X_{1}\in F)=0$임을 내포하는 것과 동치이다.
+
+## 대수의 법칙(law of large numbers)
+
+```{proposition, name="대수의 약법칙과 대수의 강법칙"}
+**대수의 약법칙(weak law of large numbers, WLLN)**은 $\bar{X}_{n}$이 $\mu$에 확률수렴하는 것이고, **대수의 강법칙(strong law of large numbers, SLLN)**은 $\bar{X}_{n}$이 $\mu$에 거의 확실한 수렴을 하는 것이다.
+
+```
