@@ -59,7 +59,7 @@ F_{n}(x)=
 \end{cases}
 \end{equation}
 
-로 수렴한다. 식 \@ref(eq:distnconvex01)과 식 \@ref(eq:distnconvex02)의 분포함수는 $x=1$에서 일치하지 않는다. 따라서, $F_{n}(x)$가 모든 $x$에서 $F(x)$로 수렴하는 것은 너무 강한 조건으로 보인다. 따라서 분포수렴을 정의할 때에는 앞선 예의 $x=1$처럼 불연속인 점들을 제외한 연속인 점들 $x$에서 $F_{n}(x) \rightarrow F(x)$가 되는 것으로 정의한다.
+로 수렴한다. 식 \@ref(eq:distnconvex01)과 식 \@ref(eq:distnconvex02)의 분포함수는 $x=1$에서 일치하지 않는다. 따라서, $F_{n}(x)$가 모든 $x$에서 $F(x)$로 수렴하는 것은 너무 강한 조건으로 보인다. 분포수렴을 정의할 때에는 앞선 예의 $x=1$처럼 불연속인 점들을 제외한 연속인 점들 $x$에서 $F_{n}(x) \rightarrow F(x)$가 되는 것으로 정의한다.
 
 ## 수렴 사이들의 관계(Connections between modes of convergence)
 

@@ -791,6 +791,13 @@ vector의 set을 찾기만 하면 되는 것이다. 그러나 우리가 무한 �
 수렴(convergent)한다고 한다.
 \EndKnitrBlock{definition}
 
+\subsection{위상공간(topological space)}\label{topological-space}
+
+\subsection{분해 가능 공간(separable space)}\label{--separable-space}
+
+Countable dense subset을 포함하는 위상공간(topological space)을
+\textbf{분해 가능 공간(separable space)}이라고 한다.
+
 \subsection{노름 공간(normed space)}\label{-normed-space}
 
 \BeginKnitrBlock{definition}[노름 공간]
@@ -906,6 +913,14 @@ H"\{o\}lder space는 \(B_{\infty,\infty}^{m+\delta}\)와 같다. \(T\)를
 bounded variation을 갖는 함수들을 포함하는 집합이라고 할 때,
 \(B_{1,1}^{1}\subset T \subset B_{1,\infty}^{1}\)을 만족한다. 즉 Besov
 space는 넓은 범위희 함수 공간들을 포함한다.
+
+\subsection{Skorohod 공간(Skorohod
+space)}\label{skorohod-skorohod-space}
+
+\(D[a,b]\)을 right continuous하고 left limit을 갖는 함수들
+\(z:[a,b]\rightarrow \mathbb{R}\)의 집합을 \textbf{Skorohod
+공간(Skorohod space)}이라고 한다. \citep{VanderVaart2000} 257쪽에
+나와있다.
 
 \subsubsection{웨이블릿 expansion의 계수들로 이해하는 Besov 공간(Besov
 spaces in terms of the coefficients of the wavelet
@@ -1635,10 +1650,9 @@ F_{n}(x)=
 
 로 수렴한다. 식 \eqref{eq:distnconvex01}과 식 \eqref{eq:distnconvex02}의
 분포함수는 \(x=1\)에서 일치하지 않는다. 따라서, \(F_{n}(x)\)가 모든
-\(x\)에서 \(F(x)\)로 수렴하는 것은 너무 강한 조건으로 보인다. 따라서
-분포수렴을 정의할 때에는 앞선 예의 \(x=1\)처럼 불연속인 점들을 제외한
-연속인 점들 \(x\)에서 \(F_{n}(x) \rightarrow F(x)\)가 되는 것으로
-정의한다.
+\(x\)에서 \(F(x)\)로 수렴하는 것은 너무 강한 조건으로 보인다. 분포수렴을
+정의할 때에는 앞선 예의 \(x=1\)처럼 불연속인 점들을 제외한 연속인 점들
+\(x\)에서 \(F_{n}(x) \rightarrow F(x)\)가 되는 것으로 정의한다.
 
 \section{수렴 사이들의 관계(Connections between modes of
 convergence)}\label{--connections-between-modes-of-convergence}

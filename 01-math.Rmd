@@ -382,6 +382,12 @@ $$\phi(r)=\frac{1}{\sqrt{1+(\epsilon r)^{2}}}$$
 
 ```
 
+### 위상공간(topological space)
+
+### 분해 가능 공간(separable space)
+
+Countable dense subset을 포함하는 위상공간(topological space)을 **분해 가능 공간(separable space)**이라고 한다.
+
 ### 노름 공간(normed space)
 
 ```{definition, name="노름 공간"}
@@ -461,6 +467,10 @@ $$|f|_{p,\infty}^{\zeta}=\sup_{0<h<1}\frac{w_{r,p}(f;h)}{h^{\zeta}}$$
 ```
 
 Sobolev space $W(m)$은 Besov ball $B_{2,2}^{m}$에 대응된다. Generalized Sobolev space $W_{p}(m)$은 $m$차 미분에서 $L^{p}$ 노름을 사용하는 데 이것은 거의 Besov space와 비슷하다. 사실 $B_{p,1}^{m} \subset W_{p}(m) \subset B_{p,\infty}^{m}$이다. H\"{o}lder space는 $B_{\infty,\infty}^{m+\delta}$와 같다. $T$를 bounded variation을 갖는 함수들을 포함하는 집합이라고 할 때, $B_{1,1}^{1}\subset T \subset B_{1,\infty}^{1}$을 만족한다. 즉 Besov space는 넓은 범위희 함수 공간들을 포함한다.
+
+### Skorohod 공간(Skorohod space)
+
+$D[a,b]$을 right continuous하고 left limit을 갖는 함수들 $z:[a,b]\rightarrow \mathbb{R}$의 집합을 **Skorohod 공간(Skorohod space)**이라고 한다. [@VanderVaart2000] 257쪽에 나와있다.
 
 #### 웨이블릿 expansion의 계수들로 이해하는 Besov 공간(Besov spaces in terms of the coefficients of the wavelet expansion)
 
