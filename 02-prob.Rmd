@@ -314,9 +314,14 @@ $$E_{i}\uparrow E \text{ or } E_{i}\downarrow E \Longrightarrow E \in \mathcal{C
 
 **측도(measure)**란 수학에서, **양(quantity)**이라 개념을 반영하기 위해 만들어진 장치다. $X$를 어떤 집합이라고 하고, 이것의 부분집합 $U \subset X$가 있을 때,
 
-### Lebesgue 측도(Lebesgue measure)
 
 ### 확률측도(probability measure)
 
+확률측도는 측도들 중 $P(\Omega)=1$인 측도 $P$를 일컫는다.
+
+```{definition, name="르베그 측도"}
+시그마-장 $\mathcal{L}$이 있을 때 $C$가 어떤 구간(interval)일 경우 $\mu_{L}(C)=\text{length}C$로 정의한 측도 $\mu_{L}$을 **르베그 측도(Lebesgue measure)**라고 부른다. 더불어 $\mathcal{L}$을 **르베그 집합(Legesgue set)**이라고 부른다. 만약 우리가 르베그 집합을 $[0,1]$로 한정할 경우, $\mu_{L}$은 확률측도가 된다.
+
+```
 
 ## 라돈-니코딤 정리(Radon-Nykodim theorem)

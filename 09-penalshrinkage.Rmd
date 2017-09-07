@@ -4,6 +4,16 @@
 
 최소제곱 추정량은 $(X^{T}X)^{-1}$에 depend하므로 만약 $(X^{T}X)^{-1}$이 비정칙(singular)이거나 거의 비정칙일 때 $\beta_{LS}$를 계산하는 데 어려움을 겪을 수 있다. 이런 경우에 $X$에 약간의 변화만 있어도 $(X^{T}X)^{-1}$은 크게 달라지게 된다. 이 때 최소제곱 추정량 $\hat{beta}_{LS}$는 training data에 적합할 때에는 큰 문제가 되지 않으나 test data에 적합할 때에는 문제가 생길 수도 있다.
 
+## 과적합(overfitting)
+
+너무 복잡한 모형은 training data에서의 error를 줄여주지만, test error를 증가시킬 수 있다.
+
+```{r, echo=F, fig.cap='과적합의 예.', fig.align='center'}
+knitr::include_graphics("images/penalized_overfitting.png")
+```
+
+## Bias-Variance tradeoff
+
 ## 능형회귀(ridge regression)
 
 앞서 말한 문제점의 한 가지 해결방법으로 추정량의 불편성을 약간 깨는 방법이 있다. [@Hoerl1970]은 $X^{T}X$에 작은 상수값 $\lambda$를 더해 역을 취해 추정량의 불안정성을 해결할 수 있다고 생각하고 다음과 같은 추정량을 제안하였다.

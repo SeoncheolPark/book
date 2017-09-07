@@ -20,7 +20,7 @@ $$\hat{\mathbf{x}}=\mathbf{W}^{T}\mathbf{y}.$$
 $$E_{rec}=\frac{1}{n}\sum_{i=1}^{n}\| \mathbf{x}_{i}-\hat{\mathbf{x}}_{i}\|^{2}$$
 $E_{rec}$을 minimize하도록 subspace를 set하는 것이다.
 
-## 주성분 분석의 결과 정리
+## 주성분 분석의 결과 정리(PCA summary)
 
 박창이 교수님 외 R을 이용한 데이터마이닝 책을 참고하였다. 주성분 분석의 간단한 결과 요약은 다음과 같다.
 
@@ -31,3 +31,16 @@ $E_{rec}$을 minimize하도록 subspace를 set하는 것이다.
 3. 원 자료의 변수들의 분산의 합은 주성분변수들의 분산의 합과 항상 일치한다.
 
 4. 주성분의 각 적재계수(loading coefficient)는 특정 변수가 주성분변수에 기여하는 정도를 나타낸다.
+
+## 주성분 회귀분석(principal component regression)
+
+[@Jolliffe2002]의 내용을 참고한다. 다음과 같은 standard 회귀모형이 있다고 하자. 즉 모형은 다음과 같다.
+
+\begin{equation}
+\mathbf{y}=\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\epsilon}
+(\#eq:PCreg01)
+\end{equation}
+
+이 때 $\mathbf{y}$는 dependent variable의 평균에서 잰 $n$개 관찰값들의 벡터이고, $\mathbf{X}$는 $n\times p$ predictor matrix, $\boldsymbol{\beta}$는 $p$개 회귀분석 계수들의 벡터, $\boldsymbol{\epsilon}$는 오차항들의 벡터이다. 이 때 $\boldsymbol{\epsilon}$의 원소들은 각각 독립이고, 분산은 $\sigma^{2}$이다.
+
+참고로 주성분 회귀분석에서는 자료들을 센터링(centering)하는 것이 좋다.
