@@ -456,6 +456,10 @@ $D[a,b]$을 right continuous하고 left limit을 갖는 함수들 $z:[a,b]\right
 
 재생 커널 힐버트 공간(reproducing kernel Hilbert space)이 주어지면 이에 대응되는 유일한 재생 커널이 존재한다. 역으로, 양정치 커널 $K$가 주어지면 $K$를 재생 커널로 갖는 유일한 재생 커널 힐버트 공간 $\mathcal{H}$가 존재한다.
 
+### C 공간과 D 공간(the spaces C and D)
+
+[@Beran2013]의 appendix 참고
+
 ## 거리(distance)
 
 군집분석 방법에서는 관측값들의 거리를 이용해 군집을 나눌 때 사용된다.

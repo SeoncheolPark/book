@@ -66,11 +66,11 @@ F_{n}(x)=
 **Skorohod 표현 정리(Skorohod representation theorem)**이란 분포수렴이 확률변수의 다른 수열에서 거의 확실한 수렴을 보장해 주는 것이다.
 
 ```{theorem, name="Skorohod 표현 정리"}
-만약 $X_{n} \stackrel{D}{\rightarrow} X$라면 $(\Omega, \mathcal{F}, P)$에서 정의된 확률변수들 $X_{n}'$, $X'$가 존재해 $X_{n}'$가 $X_{n}$이랑 같은 분포를 갖고 $X'$는 $X$랑 같은 분포를 갖으며 $X'_{n}'$는 $X'$에 거의 확실한 수렴을 한다.
+만약 $X_{n} \stackrel{D}{\rightarrow} X$라면 $(\Omega, \mathcal{F}, P)$에서 정의된 확률변수들 $Y_{n}$, $Y$가 존재해 $Y_{n}$가 $X_{n}$이랑 같은 분포를 갖고 $Y$는 $X$랑 같은 분포를 갖으며 $Y_{n}'$는 $Y$에 거의 확실한 수렴을 한다.
 
 ```
 
-이를 수식으로 다시 쓰면, 우리가 $X_{n} \stackrel{D}{\rightarrow} X$ 임을 안다면 $X_{n}'\stackrel{D}{=}X_{n}$, $X'\stackrel{D}{=}X$ 이며 $X_{n}'\stackrel{a.s.}{\rightarrow}X$인 $X'_{n}'$과 $X'$이 존재해 준다는 것을 보장해 준다는 것이다.
+이를 수식으로 다시 쓰면, 우리가 $X_{n} \stackrel{D}{\rightarrow} X$ 임을 안다면 $Y_{n}\stackrel{D}{=}X_{n}$, $Y\stackrel{D}{=}X$ 이며 $Y_{n}\stackrel{a.s.}{\rightarrow}Y$인 $Y_{n}$과 $Y$이 존재해 준다는 것을 보장해 준다는 것이다.
 
 ## 수렴 사이들의 관계(Connections between modes of convergence)
 
