@@ -14,6 +14,51 @@
 
 ```
 
+## 극한(limit)
+
+이 부분은 [@Polansky2011]의 1장을 참고하였다.
+
+```{definition, name="수열의 수렴"}
+$\{ x_{n}\}_{n=1}^{\infty}$를 실수들의 수열이라고 하고 $x\in\mathbb{R}$을 실수라고 하자. 그러면 모든 $\epsilon >0$에 대해 $n_{\epsilon}\in\mathbb{N}$이 존재해 모든 $n\geq n_{\epsilon}$에 대해 $|x_{n}-x|<\epsilon$일 때 $x_{n}$은 $n\rightarrow\infty$함에 따라 $x$에 **수렴(converge)**한다고 말하며, 다음과 같이 쓴다.
+$$\lim_{n\rightarrow\infty}x_{n}=x.$$
+
+```
+
+```{definition, name="상계와 하계"}
+$\{ x_{n}\}_{n=1}^{\infty}$를 실수들의 수열이라고 하자. 만약  $x_{n}\leq u , \forall n\in\mathbb{N}$을 만족하는 실수 $u\in\mathbb{R}$이 존재할 경우 $u$를 수열 $\{ x_{n}\}_{n=1}^{\infty}$의 **상계(upper bound)**라고 한다. 마찬가지로 $x_{n}\geq l, \forall n\in\mathbb{N}$을 만족하는 실수 $l\in\mathbb{R}$을 수열 $\{ x_{n}\}_{n=1}^{\infty}$의 **하계(lower bound)**라고 한다.
+
+```
+
+```{definition, name="최소상계와 최대하계"}
+$\{ x_{n}\}_{n=1}^{\infty}$를 실수들의 수열이라고 하자. 수열 $\{ x_{n}\}_{n=1}^{\infty}$의 **최소상계(supremum)** $u_{l}$은 상계들 중 가장 작은 상계, 즉 모든 다른 상계들 $u$에 대해 $u_{l} \leq u$인 상계이며,
+$$u_{l}=\sup_{n\in\mathbb{N}}x_{n}$$
+으로 쓴다. 마찬가지로 수열 $\{ x_{n}\}_{n=1}^{\infty}$의 **최대하계(infimum)** $l_{u}$는 하계들 중 가장 큰 하계, 즉 모든 다른 하계들 $l$에 대해 $l_{u}\geq l$인 하계이며,
+$$l_{u}=\inf_{n\in\mathbb{N}}x_{n}$$
+으로 쓴다.
+
+```
+
+```{r, echo=F, fig.cap='최소상계.', fig.align='center'}
+knitr::include_graphics("images/math_sup.png")
+```
+
+우리는 최소상계와 최대하계의 극한 또한 생각해 볼 수 있다.
+
+```{definition, name="상극한과 하극한 그리고 극한"}
+$\{ x_{n}\}_{n=1}^{\infty}$를 실수들의 수열이라고 하자. 수열 $\{ x_{n}\}_{n=1}^{\infty}$의 **상극한(limit supremum)**은
+$$\lim_{n\rightarrow\infty}\sup x_{n}=\inf_{n\in\mathbb{N}}\sup_{k\geq n}x_{k}$$
+이다. 마찬가지로 수열 $\{ x_{n}\}_{n=1}^{\infty}$의 **하극한(limit infimum)**은
+$$\lim_{n\rightarrow\infty}\inf x_{n}=\sup_{n\in\mathbb{N}}\inf_{k\geq n}x_{k}$$
+로 정의한다. 만약
+$$\lim_{n\rightarrow\infty}\sup x_{n}=\lim_{n\rightarrow\infty}\inf x_{n}=c\in\mathbb{R}$$
+일 경우 $c$를 수열 $\{ x_{n}\}_{n=1}^{\infty}$의 **극한(limit)**이라고 한다.
+
+```
+
+```{r, echo=F, fig.cap='상극한과 하극한.', fig.align='center'}
+knitr::include_graphics("images/math_limsupliminf.png")
+```
+
 ## 연산자들과 노름(operators and norms)
 
 ### 직합(direct sum)

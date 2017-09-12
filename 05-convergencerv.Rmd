@@ -144,34 +144,6 @@ knitr::include_graphics("images/basic_UI04.png")
 
 (measure의 tight도 나중에 서술)
 
-## Big O와 small o (big O and small o)
-
-$x_{n}$을 무작위 벡터, $a_{n}$을 실수라고 하자.
-
-\begin{eqnarray*}
-x_{n}\stackrel{n\rightarrow \infty}{=}o(a_{n}) &\Leftrightarrow& \lim_{n\rightarrow\infty}\frac{x_{n}}{a_{n}}=0 \\
-&\Leftrightarrow& \frac{x_{n}}{a_{n}}\stackrel{n\rightarrow \infty}{=}o(1)\\
-\end{eqnarray*}
-
-\begin{eqnarray*}
-x_{n}\stackrel{n\rightarrow \infty}{=}O(a_{n}) &\Leftrightarrow& \text{sup}_{n}|\frac{x_{n}}{a_{n}}| < \infty \\
-&\Leftrightarrow& \frac{x_{n}}{a_{n}}\stackrel{n\rightarrow \infty}{=}O(1)\\
-\end{eqnarray*}
-
-## Big Op와 small op (big Op and small op)
-
-이번엔 $X_{n}$을 무작위 벡터, $a_{n}$을 실수라고 하자.
-
-\begin{eqnarray*}
-X_{n}\stackrel{n\rightarrow \infty}{=}o_{p}(a_{n}) &\Leftrightarrow& |\frac{X_{n}}{a_{n}}|\stackrel{P}{\rightarrow}0 \\
-&\Leftrightarrow& \frac{X_{n}}{a_{n}}=o_{p}(1)\\
-\end{eqnarray*}
-
-\begin{eqnarray*}
-X_{n}\stackrel{n\rightarrow \infty}{=}O_{p}(a_{n}) &\Leftrightarrow& \text{sup}_{n} P\{ \frac{X_{n}}{a_{n}}>k\}\stackrel{k\rightarrow\infty}{\rightarrow}0 \\
-&\Leftrightarrow& \frac{X_{n}}{a_{n}}\stackrel{n\rightarrow \infty}{=}O_{p}(1)\\
-\end{eqnarray*}
-
 ## 절대연속(absolute continuous)
 
 확률변수 $X_{1}$, $X_{2}$가 있을 때 $X_{1}$이 $X_{2}$에 대해 **절대연속(absolute continuous)**하다는 것은(정확히 얘기하면 $X_{1}$의 분포가 $X_{2}$의 분포에 대해 절대연속이다) 적당한 집합 $F$에 대해 $P(X_{2}\in F)=0$이 $P(X_{1}\in F)=0$임을 내포하는 것과 동치이다.
@@ -187,7 +159,7 @@ X_{n}\stackrel{n\rightarrow \infty}{=}O_{p}(a_{n}) &\Leftrightarrow& \text{sup}_
 
 연속 사상 정리는 [@Gut2012]의 서술을 따른다.
 
-```{theorem, name="연속 사상 정리"}
+```{theorem, name="연속 사상 정리", label="contmappingthm"}
 $X_{1}, X_{2},\ldots$가 확률변수들이라고 하고 $n\rightarrow \infty$일 때 $X_{n}\stackrel{d}{\rightarrow}$라고 하자. 만약 (실수 값을 갖는) 함수 $g$가 존재해 이것이 연속이라면, $n\rightarrow \infty$일 때 $g(X_{n})\stackrel{d}{\rightarrow}$이다.
 
 ```
