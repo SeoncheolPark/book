@@ -629,7 +629,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>이 모형은 현재의 관측값을 과거의 관측값들의 함수형태로 나타내는 것이다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-131" class="definition"><strong>Definition 13.5  (자기회귀모형)  </strong></span><strong>AR(p)</strong> 차수 p를 갖는 <strong>자기회귀모형(autoregressive model, AR model)</strong>은 <span class="math display">\[x_{t}=\phi_{1}x_{t-1}+\phi_{2}x_{t-2} + \cdots + \phi_{p}x_{t-p}+w_{t}\]</span> 와 같은 형태를 갖는다. 여기서 <span class="math inline">\(x_{t}\)</span>는 정상과정이며, <span class="math inline">\(\phi_{1},\ldots , \phi_{p}\)</span>는 상수이다.</p>
+<p><span id="def:unnamed-chunk-135" class="definition"><strong>Definition 13.5  (자기회귀모형)  </strong></span><strong>AR(p)</strong> 차수 p를 갖는 <strong>자기회귀모형(autoregressive model, AR model)</strong>은 <span class="math display">\[x_{t}=\phi_{1}x_{t-1}+\phi_{2}x_{t-2} + \cdots + \phi_{p}x_{t-p}+w_{t}\]</span> 와 같은 형태를 갖는다. 여기서 <span class="math inline">\(x_{t}\)</span>는 정상과정이며, <span class="math inline">\(\phi_{1},\ldots , \phi_{p}\)</span>는 상수이다.</p>
 </div>
 
 <p>일반적으로 AR과정의 ACF는 지수적으로 감소하며, PACF는 AR과정의 차수에 해당되는 차수 이후에는 0이 되는 성질을 갖고 있다.</p>
@@ -639,8 +639,8 @@ ARsim02 &lt;-<span class="st"> </span><span class="kw">arima.sim</span>(<span cl
 <span class="kw">plot</span>(ARsim01, <span class="dt">ylab=</span><span class="st">&quot;x&quot;</span>, <span class="dt">main=</span>(<span class="kw">expression</span>(<span class="kw">AR</span>(<span class="dv">1</span>)<span class="op">~</span><span class="er">~~</span>phi<span class="op">==+</span>.<span class="dv">9</span>)))
 <span class="kw">plot</span>(ARsim02, <span class="dt">ylab=</span><span class="st">&quot;x&quot;</span>, <span class="dt">main=</span>(<span class="kw">expression</span>(<span class="kw">AR</span>(<span class="dv">1</span>)<span class="op">~</span><span class="er">~~</span>phi<span class="op">==-</span>.<span class="dv">9</span>)))
 <span class="kw">acf</span>(ARsim01); <span class="kw">acf</span>(ARsim02); <span class="kw">pacf</span>(ARsim01); <span class="kw">pacf</span>(ARsim02)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-132"></span>
-<img src="book_files/figure-html/unnamed-chunk-132-1.svg" alt="Simulated AR model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-136"></span>
+<img src="book_files/figure-html/unnamed-chunk-136-1.svg" alt="Simulated AR model." width="672" />
 <p class="caption">
 FIGURE 13.6: Simulated AR model.
 </p>
@@ -655,8 +655,8 @@ MAsim02 &lt;-<span class="st"> </span><span class="kw">arima.sim</span>(<span cl
 <span class="kw">plot</span>(MAsim01, <span class="dt">ylab=</span><span class="st">&quot;x&quot;</span>, <span class="dt">main=</span>(<span class="kw">expression</span>(<span class="kw">MA</span>(<span class="dv">1</span>)<span class="op">~</span><span class="er">~~</span>theta<span class="op">==+</span>.<span class="dv">5</span>)))    
 <span class="kw">plot</span>(MAsim02, <span class="dt">ylab=</span><span class="st">&quot;x&quot;</span>,<span class="dt">main=</span>(<span class="kw">expression</span>(<span class="kw">MA</span>(<span class="dv">1</span>)<span class="op">~</span><span class="er">~~</span>theta<span class="op">==-</span>.<span class="dv">5</span>))) 
 <span class="kw">acf</span>(MAsim01); <span class="kw">acf</span>(MAsim02); <span class="kw">pacf</span>(MAsim01); <span class="kw">pacf</span>(MAsim02)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-133"></span>
-<img src="book_files/figure-html/unnamed-chunk-133-1.svg" alt="Simulated MA model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-137"></span>
+<img src="book_files/figure-html/unnamed-chunk-137-1.svg" alt="Simulated MA model." width="672" />
 <p class="caption">
 FIGURE 13.7: Simulated MA model.
 </p>
@@ -675,7 +675,7 @@ It also possible to obtain a homogeneous difference equation directly in terms o
 <h4><span class="header-section-number">13.5.3.1</span> ARMA 모형의 추정(estimation of ARMA models)</h4>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-134" class="definition"><strong>Definition 13.6  (Yule-Walker equations)  </strong></span><span class="math display">\[\gamma(h)=\phi_{1}\gamma(h-1)+\cdots +\phi_{p}\gamma(h-p), h=1,2,\ldots, p, \]</span> <span class="math display">\[\sigma_{w}^{2}=\gamma(0)-\phi_{1}\gamma(1)-\cdots - \phi_{p}\gamma(p).\]</span></p>
+<p><span id="def:unnamed-chunk-138" class="definition"><strong>Definition 13.6  (Yule-Walker equations)  </strong></span><span class="math display">\[\gamma(h)=\phi_{1}\gamma(h-1)+\cdots +\phi_{p}\gamma(h-p), h=1,2,\ldots, p, \]</span> <span class="math display">\[\sigma_{w}^{2}=\gamma(0)-\phi_{1}\gamma(1)-\cdots - \phi_{p}\gamma(p).\]</span></p>
 <p>Matrix notation으로는 <span class="math display">\[\Gamma_{p}\phi=\gamma_{p}, \sigma_{w}^{2}=\gamma(0)-\phi&#39;\gamma_{p}\]</span> 이며 <span class="math inline">\(\Gamma_{p}=\{ \gamma (k-j) \}_{j,k=1}^{p}\)</span>는 <span class="math inline">\(p\times p\)</span> 행렬이며 <span class="math inline">\(\phi=(\phi_{1},\ldots , \phi_{p})&#39;\)</span>는 <span class="math inline">\(p\times 1\)</span> 벡터이며 <span class="math inline">\(\gamma(p)=(\gamma(1),\ldots ,\gamma(p))&#39;\)</span>는 <span class="math inline">\(p\times 1\)</span> 벡터이다.</p>
 </div>
 

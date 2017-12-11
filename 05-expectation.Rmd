@@ -1,0 +1,29 @@
+# 적분과 기댓값 {#expectation}
+
+## 적분의 성질(properties of integration)
+
+어떤 상황에서 적분과 극한의 순서를 바꿀 수 있을까?
+
+```{theorem, name="단조수렴정리(MCT)"}
+
+1. null set $N$ $(\mu(N)=0)$ 바깥의 $\omega$에 대해  $f_{n}(omega)\geq 0,\forall n$이고 $f_{n}(\omega)\uparrow f(\omega)$라고 하자. 그러면 $\int f_{n}(\omega)d(\omega)\uparrow \int f(\omega)d\mu(\omega)$이다.
+
+2. 확률변수 버전으로는, 만약 모든 $n$에 대해 $P\{\omega: X_{n}(\omega)\geq 0 \forall n \text{ and } X_{n}(\omega)\uparrow X(\omega)\}=1$이라고 하자. 그러면 $E(X_{n})\uparrow E(X)$이다.
+
+```
+
+```{theorem, name="지배수렴정리(DCT)"}
+
+1. null set $N$ $(\mu(N)=0)$ 바깥의 $\omega$에 대해  $f_{n}(omega) \rightarrow f(\omega)$이고 $|f_{n}(\omega) | \leq g(\omega)$, $\int g(\omega)d\mu(\omega) < \infty$일 때 $\int f_{n}(\omega)d\mu(\omega) \rightarrow \int f(\omega)d\mu(\omega)$이다.
+
+2. 확률변수 버전으로는, 만약 모든 $n$에 대해 $P\{\omega: X_{n}(\omega)\rightarrow X(\omega) \text{ and } |X_{n}(\omega)|\leq Y(\omega) \forall n\}=1$이고 $E(Y)<\infty$라고 하자. 그러면 $E(X_{n})\rightarrow E(X)$이다.
+
+```
+
+지배수렴정리의 따름정리로 유계수렴정리(bounded convergence theorem, BCT)가 있다.
+
+```{theorem, name="지배수렴정리(DCT)"}
+$X_{n}$이 확률변수이고 $P\{X_{n}(\omega)\rightarrow X(\omega)\}=1$이며 각 $n$에 대해 $P\{|X_{n}|\leq c\}=1$ 일 때 ($c$는 상수), $E(X_{n})\rightarrow E(X)$이다.
+
+```
+

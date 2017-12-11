@@ -629,7 +629,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ol style="list-style-type: decimal">
 <li>시간의 추이와 관계 없이 평균이 불변한다.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-122"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-126"></span>
 <img src="images/basic_mean_nonstationary.png" alt="Time invariant mean." width="293" />
 <p class="caption">
 FIGURE 13.1: Time invariant mean.
@@ -638,7 +638,7 @@ FIGURE 13.1: Time invariant mean.
 <ol start="2" style="list-style-type: decimal">
 <li>시간의 추이와 관계 없이 분산이 불변한다.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-123"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-127"></span>
 <img src="images/basic_var_nonstationary.png" alt="Time invariant variance." width="288" />
 <p class="caption">
 FIGURE 13.2: Time invariant variance.
@@ -647,7 +647,7 @@ FIGURE 13.2: Time invariant variance.
 <ol start="3" style="list-style-type: decimal">
 <li>시간의 추이와 관계 없이 공분산이 불변한다.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-124"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-128"></span>
 <img src="images/basic_cov_nonstationary.png" alt="Time invariant covariance." width="283" />
 <p class="caption">
 FIGURE 13.3: Time invariant covariance.
@@ -655,7 +655,7 @@ FIGURE 13.3: Time invariant covariance.
 </div>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-125" class="definition"><strong>Definition 13.1  (강정상성)  </strong></span>시계열 <span class="math inline">\(\{ x_{t}\}\)</span>가 있을 때 두 collection</p>
+<p><span id="def:unnamed-chunk-129" class="definition"><strong>Definition 13.1  (강정상성)  </strong></span>시계열 <span class="math inline">\(\{ x_{t}\}\)</span>가 있을 때 두 collection</p>
 <p><span class="math display">\[\{ x_{t_{1}}, x_{t_{2}}, \cdots  x_{t_{k}}\}, \{ x_{t_{1+h}}, x_{t_{2+h}}, \cdots  x_{t_{k+h}}\}\]</span></p>
 <p>가 identical하다면, 즉 모든 <span class="math inline">\(k=1,2,\ldots\)</span>, 모든 숫자 <span class="math inline">\(c_{1},c_{2},\ldots , c_{k}\)</span> 그리고 <span class="math inline">\(h=0, \pm 1, \pm 2,\ldots\)</span>에 대해</p>
 <p><span class="math display">\[P \{ x_{t_{1}} &lt;c_{1}, \ldots , x_{t_{k}} \leq c_{k}\}=P \{ x_{t_{1+h}} &lt;c_{1}, \ldots , x_{t_{k+h}} \leq c_{k}\}\]</span></p>
@@ -665,7 +665,7 @@ FIGURE 13.3: Time invariant covariance.
 <p>그러나 강정상성의 정의는 대부분의 응용에서 너무 강한 조건인데, 특히 single data set으로부터 강정상성을 assess하기 어렵다고 한다. 시계열에서는 series의 첫 두 moment에만 관련된 약정상성을 생각하여 조건을 부드럽게 한다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-126" class="definition"><strong>Definition 13.2  (약정상성)  </strong></span>시계열 <span class="math inline">\(x_{t}\)</span>가 finite variance를 갖는 process이며</p>
+<p><span id="def:unnamed-chunk-130" class="definition"><strong>Definition 13.2  (약정상성)  </strong></span>시계열 <span class="math inline">\(x_{t}\)</span>가 finite variance를 갖는 process이며</p>
 <ol style="list-style-type: decimal">
 <li><p>평균함수 <span class="math inline">\(\mu_{t}\)</span>가 상수이며 시간에 따라 변하지 않고</p></li>
 <li><p>자기공분산함수 <span class="math inline">\(\gamma(s,t)\)</span>가 이들의 차이 <span class="math inline">\(|s-t|\)</span>에만 depend할 때</p></li>
@@ -675,12 +675,12 @@ FIGURE 13.3: Time invariant covariance.
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-127" class="definition"><strong>Definition 13.3  (자기공분산함수)  </strong></span>정상시계열의 <strong>자기공분산함수(autocovariance function)</strong>는 <span class="math display">\[\gamma(h)=Cov(x_{t+h}, x_{t})=E[(x_{t+h}-\mu)(x_{t}-\mu)]\]</span> 로 정의된다.</p>
+<p><span id="def:unnamed-chunk-131" class="definition"><strong>Definition 13.3  (자기공분산함수)  </strong></span>정상시계열의 <strong>자기공분산함수(autocovariance function)</strong>는 <span class="math display">\[\gamma(h)=Cov(x_{t+h}, x_{t})=E[(x_{t+h}-\mu)(x_{t}-\mu)]\]</span> 로 정의된다.</p>
 </div>
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-128" class="definition"><strong>Definition 13.4  (자기상관함수)  </strong></span>정상시계열의 <strong>자기상관함수(autocorrelation function)</strong>는 <span class="math display">\[\rho(h)=\frac{\gamma(t+h,t)}{\sqrt{\gamma(t+h,t_h)\gamma(t,t)}}=\frac{\gamma(h)}{\gamma(0)}\]</span> 이다.</p>
+<p><span id="def:unnamed-chunk-132" class="definition"><strong>Definition 13.4  (자기상관함수)  </strong></span>정상시계열의 <strong>자기상관함수(autocorrelation function)</strong>는 <span class="math display">\[\rho(h)=\frac{\gamma(t+h,t)}{\sqrt{\gamma(t+h,t_h)\gamma(t,t)}}=\frac{\gamma(h)}{\gamma(0)}\]</span> 이다.</p>
 </div>
 
 <ul>

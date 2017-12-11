@@ -627,7 +627,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><strong>스펙트럼 밀도(spectral density)</strong>는 기초적인 frequency domain tool 중 하나다. 스펙트럼 표현 정리(spectral representation theorem)은 정상시계열을 주기성분들로 분해하는 것에 대한 이론적 근거를 제공한다.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-135" class="definition"><strong>Definition 13.7  (자기공분산함수의 스펙트럼 표현)  </strong></span>만약 <span class="math inline">\(\{x_{t} \}\)</span>가 정상시계열이고 자기공분산 <span class="math inline">\(\gamma(h)=\text{cov}(x_{t+h},x_{t})\)</span>를 갖는다면 <strong>스펙트럼 분포(spectral distribution)</strong>이라 불리는 유일한 단조증가 함수가 존재해 <span class="math inline">\(F(-\infty)=F(-1/2)=0\)</span>이고 <span class="math inline">\(F(\infty)=F(1/2)=\gamma(0)\)</span>이며
+<span id="def:unnamed-chunk-139" class="definition"><strong>Definition 13.7  (자기공분산함수의 스펙트럼 표현)  </strong></span>만약 <span class="math inline">\(\{x_{t} \}\)</span>가 정상시계열이고 자기공분산 <span class="math inline">\(\gamma(h)=\text{cov}(x_{t+h},x_{t})\)</span>를 갖는다면 <strong>스펙트럼 분포(spectral distribution)</strong>이라 불리는 유일한 단조증가 함수가 존재해 <span class="math inline">\(F(-\infty)=F(-1/2)=0\)</span>이고 <span class="math inline">\(F(\infty)=F(1/2)=\gamma(0)\)</span>이며
 <span class="math display" id="eq:spectraldistnfct">\[\begin{equation}
 \gamma(h)=\int_{-1/2}^{1/2}e^{2\pi i \omega h}dF(\omega)
 \tag{13.1}
@@ -638,7 +638,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>자기공분산함수가 absolutely summable일 경우 스펙트럼 분포함수는 absolutely continuous하며 <span class="math inline">\(dF(\omega)=f(\omega)d\omega\)</span>이고 식 <a href="13-8-spetral-density.html#eq:spectraldistnfct">(13.1)</a>는 스펙트럼 밀도(spectral density)를 유도한다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-136" class="definition"><strong>Definition 13.8  (스펙트럼 밀도)  </strong></span>자기공분산함수 <span class="math inline">\(\gamma(h)\)</span>가 정상과정이며 <span class="math display">\[\sum_{h=-\infty}^{\infty}|\gamma(h)|&lt;\infty\]</span> 를 만족한다고 하면 자기공분산함수는 다음과 같은 표현 <span class="math display">\[\gamma(h)=\int_{-1/2}^{1/2}e^{2\pi i \omega h}f(\omega)d\omega, h=0,\pm 1,\pm 2,\ldots\]</span> 을 갖고, <strong>스펙트럼 밀도(spetral density)</strong>는 그것의 역변환 <span class="math display">\[f(\omega)=\sum_{h=-\infty}^{\infty}\gamma(h)e^{-2\pi i \omega h}, -1/2 \leq \omega \leq 1/2\]</span> 으로 정의한다.</p>
+<p><span id="def:unnamed-chunk-140" class="definition"><strong>Definition 13.8  (스펙트럼 밀도)  </strong></span>자기공분산함수 <span class="math inline">\(\gamma(h)\)</span>가 정상과정이며 <span class="math display">\[\sum_{h=-\infty}^{\infty}|\gamma(h)|&lt;\infty\]</span> 를 만족한다고 하면 자기공분산함수는 다음과 같은 표현 <span class="math display">\[\gamma(h)=\int_{-1/2}^{1/2}e^{2\pi i \omega h}f(\omega)d\omega, h=0,\pm 1,\pm 2,\ldots\]</span> 을 갖고, <strong>스펙트럼 밀도(spetral density)</strong>는 그것의 역변환 <span class="math display">\[f(\omega)=\sum_{h=-\infty}^{\infty}\gamma(h)e^{-2\pi i \omega h}, -1/2 \leq \omega \leq 1/2\]</span> 으로 정의한다.</p>
 </div>
 
 <p>스펙트럼 밀도는 확률밀도처럼 <span class="math inline">\(\gamma(h)\)</span>가 non-negative definite이므로 <span class="math display">\[f(\omega) \geq 0,\forall \omega\]</span> 을 만족한다. 또한 정의로부터 <span class="math display">\[f(\omega)=-f(\omega)\]</span> 이며 이는 스펙트럼 밀도함수가 우함수임을 보여준다. 이런 우함수 성질 덕분에 우리는 보통 <span class="math inline">\(0&lt;\omega \leq 1/2\)</span>인 <span class="math inline">\(\omega\)</span>에 대해서만 <span class="math inline">\(f(\omega)\)</span>를 그리게 된다.</p>

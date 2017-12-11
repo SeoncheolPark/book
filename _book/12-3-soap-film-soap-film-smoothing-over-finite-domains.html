@@ -626,7 +626,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">12.3</span> 유한 도메인에서의 soap film 스므딩(soap film smoothing over finite domains)</h2>
 <p>때때로 domain이 복잡한 boundary를 갖을 때가 있다. 이 때에는 boundary feature를 not to smooth across하는 것이 중요하다. <span class="citation">(S. N. Wood, Bravington, and Hedley <a href="#ref-Wood2008">2008</a>)</span>은 이를 해결하기 위해 <strong>soap film 스므딩(soap film smoothing)</strong>을 제안하였다.</p>
 <p>함수 <span class="math inline">\(f\)</span>가 주어졌을 때 boundary 안쪽의 soap film의 높이는 다음을 만족한다고 한다. <span class="math display">\[\frac{\partial^{2}f}{\partial x^{2}}+ \frac{\partial^{2}f}{\partial y^{2}}=0.\]</span> 그리고 boundary condition 또한 만족한다. 즉 soap film은 minimum surface tension configuration을 만족한다. 정의역의 모든 영역에 걸쳐 잡음이 들어간 <span class="math inline">\(z\)</span>가 부드럽게 존재하기 위해 soap film은 다음 왜곡 degree 측도를 만족해야 한다. <span class="math display">\[J_{\Omega}(f)=\int_{\Omega}(\frac{\partial^{2}f}{\partial x^{2}}+ \frac{\partial^{2}f}{\partial y^{2}})^{2}dxdy.\]</span> 이것이 thin plate spline과 soap film smoothing을 구분하는 부붅이다. TPS는 <span class="math inline">\(\Omega\)</span>에 대해 적분하지만 soap film smoothing은 그렇지 않다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-119"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-123"></span>
 <img src="images/gam_soapfilmsmoothing.png" alt="Soap film smoothing 설명 그림." width="454" />
 <p class="caption">
 FIGURE 12.1: Soap film smoothing 설명 그림.
