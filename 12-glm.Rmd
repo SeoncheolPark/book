@@ -1,0 +1,53 @@
+# 일반화선형모형 {#glm}
+
+[@Nelder1972]는 몇가지 중요한 회귀분석 모형들을 통합한 개념인 **일반화선형모형(generalized linear model, GLM)**을 발표하였다. 이 논문에서 **포아송 회귀(Poisson regression)**와 **로지스틱 회귀(logistic regression)**가 GLM의 특수한 경우임을 보이고 추정을 위해 **반복재가중최소제곱(iteratively reweighted least squares, IRLS)** 알고리즘이 사용될 수 있음을 보였다.
+
+## 일반화선형모형의 기본(GLM basics)
+
+### 선형모형(linear model)
+
+## 일변량 스므딩(univariate smoothing)
+
+[@Yee2015]에 따르면 스므더(smoother)의 종류에는 다음이 있다.
+
+1. Regression or series smoothers (polynomial regression, regression splines, P-splines, Fourier regression, filtering, wavelets)
+
+2. Smoothing splines (with roughness penalties, e.g., cubic smoothing splines, O-splines, P-splines)
+
+3. Local regression (Nadaraya-Watson estimator, kernel smoothers, Lowess, Loess, it generalizes to local likelihood)
+
+4. Nearest-neighbour smoothers (running means, running lines, running medians)
+
+**고전적인 스므딩 문제(classical smoothing problem)**는 다음 모형에 대해 임의의 부드러운 함수(smooth function) $f$를 추정하는 문제이다.
+
+$$y_{i}=f(x_{i})+\epsilon_{i}, \qquad{\epsilon_{i} \sim  (0, \sigma_{i}^{2})}$$
+
+일반적으로 자료를 $x_{1}<x_{2}<\ldots <x_{n}$ 등으로 크기에 따라 정렬할 수 있다고 가정하면, 모든 스므딩 방법의 기본 아이디어는 **이웃(neighbourhood)**을 정의하는 것이다. 타겟 포인트 $x_{0}$가 있을때 이것의 이웃의 크기를 정하는 일은 함수의 부드러움을 결정하는 문제와 같이 때문에 매우 중요하다.
+
+### 회귀 스플라인(regression spline)
+
+[@Yee2015]에 따르면 **회귀 스플라인(regression spline)**은 다음과 같은 장점들을 같고 있다.
+
+1. 이 방법은 계산적, 통계적으로 단순하고 표준적인 모수 추론이 가능하다. 왜냐하면 이 방법은 부드러운 함수의 LM 표현 방법이기 때문이다.
+
+2. 두 번째 장점으로 어떤 매듭(knot)이 없어도 무방한지에 대한 검정이 가능하다는 것이 있다.
+
+그러나 이 방법에서 매듭의 숫자와 위치를 고르는 데에 어려움이 있고, 부드러움의 정도가 한 개의 스므딩 모수로는 연속적으로 조절될 수 없다는 단점도 있다.
+
+### B-spline
+
+[@Yee2015]에 따르면 **B-스플라인(B-spline)**을 쓰는 이유는 주로 이것이 좋은 수치적 성질을 갖고 있기 때문이라고 한다(minimal support). Minimal support의 뜻은 $B_{s,q}(x)>0$ for $x$ belonging to the smallest overall region defined by knots 라고 한다. Minimal support를 갖고 있으면, neighbourhood의 개념이 계산적으로 more stable해진다. 왜냐하면 B-spline의 계수는 the amount of overlap is minimal과 관련이 있기 때문이다.
+
+[@Wasserman2006]에서는 B-spline이 compact support를 갖으므로 calculation speed-up을 할 수 있다고 설명하고 있다.
+
+### P-spline
+
+**P-스플라인(P-spline)**은 penalized B-spline이라는 의미를 갖고 있다.
+
+## 벡터 일반화선형모형(vector generalized linear models)
+
+이 절의 내용은 [@Yee2015]를 따른다.
+
+## 일반화선형모형의 한계점(limations of glm)
+
+[@Yee2015]에 의하면 GLM은 잘 알려진 지수족 내의 일차원 분포에서만 잘 적용된다는 한계점을 가지고 있다.

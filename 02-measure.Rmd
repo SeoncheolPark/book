@@ -1,0 +1,98 @@
+# 측도 {#measure}
+
+**측도(measure)**란 수학에서, **양(quantity)**이라 개념을 반영하기 위해 만들어진 장치다. $X$를 어떤 집합이라고 하고, 이것의 부분집합 $U \subset X$가 있을 때,
+
+
+전형적인 적분(integral) $\int_{A}f(x)dx$는 다음으로 구성되어있다.
+
+- $A$: the set of integration (or the domain of integration)
+
+- $f(x)$: the integrand
+
+- $dx$: the integrator
+
+다시 말해서, 적분이란 것은 연속적으로 변하는 물체들의 합인 것이다. 이는 역사적으로 적분기호 $\int$가 합을 뜻하는 sum의 $S$에서 온 것에서도 확인할 수 있다. 이 적분은 다음
+$$\sum_{\alpha\in I}\max_{x\in A_{\alpha}}f(x)|A_{\alpha}| \text{ or } \sum_{\alpha\in I}\min_{x\in A_{\alpha}}f(x)|A_{\alpha}|$$
+을 근사한다. 이 때 우리는 적분을 하고자 하는 집합 $A$를 disjoint set으로 나눌 수 있다, 즉 $A=\bigcup_{\alpha\in I}A_{\alpha}$로 나눌 수 있다고 가정하고 각 집합 $A_{\alpha}$ 에서 $f$는 거의 상수라고 가정한다. 여기서 우리는 $|A_{\alpha}|$를 집합 $A_{\alpha}$의 size라고 하자. 그리고 $\max_{x\in A_{\alpha}}f(x)$ 또는 $\min_{x\in A_{\alpha}}f(x)$를 $A_{\alpha}$에서의 함수값들을 대표하는 값으로 선택된 것이라 생각해보자. 가장 쉽게 질문할 수 있는 것은 '어떻게 set의 size를 정할 것인가?' 라는 문제가 있다.
+
+**리만 적분(Riemman integral)**에서는 interval (또는 rectangle, cube 등등)들의 size만 측도(measure)하면 된다.
+
+```{example, name="정의역과 치역이 1차원인 함수에서의 리만 적분"}
+$f$를 $\mathbb{R}$에서 정의된 함수고 정의역이 $[a,b]$라고 하자. 그러면 우리는 구간 $[a,b]$를 더 잘게, $[x_{0}=a,x_{1}], [x_{1},x_{2}],\ldots, [x_{n-1},x_{n}=b]$로 나누고 적분을 다음 값으로 근사한다.
+$$\sum_{i=1}^{n}f(x_{i})|x_{i}-x_{i-1}|.$$
+이 합의 극합이 적분값이 되며 우리는 이 적분을 리만 적분이라고 부른다. 여기서는 $\mathbb{R}$에서의 집합들의 크기(size)를 측도하기 위해 interval을 사용하였다.
+
+```
+
+```{r, echo=F, fig.cap='1차원 공간의 정의역을 자르는 방법.', fig.align='center'}
+knitr::include_graphics("images/measure_Riemann1d.png")
+```
+
+```{r, echo=F, fig.cap='2차원 공간의 정의역을 자르는 방법. 이 경우에는 사각형의 면적이 집합의 크기가 된다.', fig.align='center'}
+knitr::include_graphics("images/measure_Riemann2d.png")
+```
+
+그러나, 불연속 함수의 경우에는 interval (또는 rectangle, cube 등등)의 크기를 재는 것이 적분을 정의하기에 충분치 않을 수도 있다. 따라서 우리는 먼저 집합의 크기를 정의하는 것 부터 다시 정의할 필요가 있다. 이제부터 '집합의 크기(size)'를 집합의 **측도(measure)**라고 부를 것이다. **측도함수(measure function)** $m$는
+$$m:\mathcal{M}\rightarrow [0,\infty], \mathcal{M}\subseteq\mathcal{P}(\mathbb{R}^{n})$$
+이다. 즉 $\mathcal{M}$dms $\mathcal{P}(\mathbb{R}^{n})$의 subcollection이다. 이제 여기서의 목표는 적분이론에 잘 맞는 적절한 $m,\mathcal{M}$을 찾는 것이다. 그런데 우리가 모든 $\mathcal{P}(\mathbb{R}^{n})$에 대해 $m$을 정의할 수 있을까? 만약 그렇지 않다면, 적어도 우리는 $\mathcal{M}$에서의 측도 $m$이 interval이나 rectangle, open set, compact set 등 좋은 '집합'들에서 모두 잘 정의되게끔 구성하고자 한다. 더 나아가, 우리는 이 적분함수 $m$을 우리 직관에 일치하도록 확장시키고자 한다. 그 직관이란,
+
+- $m(\emptyset)=0$
+
+- $m([a,b])=b-a$ 또는 $m(\text{Rectangle})=|\text{vertical side}|\times |\text{horizontal side}|$
+
+- 만약 $A\subset B$인 경우 $m(A)\leq m(B)$
+
+- 만약 $A,B$가 disjoint인 경우 $m(A\cup B)=m(A)+m(B)$
+
+- 더 나아가, 우리는 측도가 countable additivity를 갖길 원한다. 즉 $A_{i},i=1,2,\ldots$가 disjoint이면 $\sum_{i=1}^{m}=m(\cup_{i=1}^{\infty}A_{i}).$
+
+정리하면, 만족스러운 적분이론을 얻기 위해 우리는 $\mathbb{R}^{n}$에서의 충분히 큰 subset들의 class에 대해 잘 정의되는 측도를 구성하고자 한다. 그러면 여기서 리만 적분으로는 불충분한 점들을 몇 가지 짚고 넘어가고자 한다.
+
+## 리만 적분의 한계정
+
+우선, 리만 적분이 가능하려면, '대부분의' 작은 interval에서 $\max f - \min f$가 매우 작아야한다. 즉, 리만 적분 가능성은 함수의 연속성과 관련이 있다. 실제로 함수 $f$가 리만 적분 가능하려면 $f$가 거의 모든 지점에서 연속이어야 한다(이는 필요충분조건이다).
+
+```{example, name="리만 적분이 안되는 함수"}
+다음과 같이 함수 $f_{\text{Dir}}(x)$를 정의하자
+$$
+f_{\text{Dir}}(x) = 
+\begin{cases}
+1 & \text{if $x\in\mathbb{Q}$} \\
+0 & \text{if $x\in\mathbb{Q}^{c}$.}\\
+\end{cases}
+$$
+
+그리면 임의의 구간 $I\subset\mathbb{R}$에 대해
+$$\max_{x\in I}f_{\text{Dir}}(x) =1 \text{ and } \min_{x\in I}f_{\text{Dir}}(x) =0$$
+이므로 $f_{\text{Dir}}(x)$는 리만적분이 가능하지 않다. 참고로 함수 $f_{\text{Dir}}(x)$는 어디에서도 연속이 아니다.
+
+```
+
+두 번째로, 리만 적분 이론에서는 적분의 정의역(domain)을 분해하기 위해 오로지 interval, rectangle 또는 cube 등등만을 고려한다. 그래서 우리는 interval을 어떻게 측도해야할지 알아야 한다. 그러나 어떤 함수드에서는, 다른 형태로 정의역을 분해하는 것이 좀 더 자연스러울 때가 있다. 예를 들면, 우리가 $\mathbb{Q}$ 또는 $\mathbb{Q}^{c}$에서의 측도를 정의하고자 할 때, 가장 자연스럽게 생각할 수 있는 것으로는 다음과 같은 적분이 있다.
+$$\int_{0}^{1}f_{\text{Dir}}(x)dx:=1\cdot |\mathbb{Q}\cap [0,1]| + 0\cdot |\mathbb{Q}^{c}\cap [0,1]|.$$
+
+마지막으로, 우리가 다음과 같은 함수들의 수열 $\{f_{n}:[0,1]\rightarrow\mathbb{R} \}$을 정의했을 때,
+$$
+f_{n}(x) := 
+\begin{cases}
+1 & \text{if $x=p/q$ where $p,q\in\mathbb{Z}$ and $q\leq n$} \\
+0 & \text{otherwise.}\\
+\end{cases}
+$$
+
+$f_{n}$들은 유한히 많은 점들을 제외하고 모두 연속이므로 리만 적분가능하다. 더불어 $n\rightarrow \infty$일 때 $f_{n}\rightarrow f_{\text{Dir}}$이다. 그러나 앞서 살펴본대로 $f_{\text{Dir}}$은 리만 적분 가능하지 않다. 이 예는 모든 함수들의 수열이 리만 적분 가능하더라도, 그것의 극한은 리만 적분 가능하지 않을 수도 있다는 것을 보여준다. 단 $\{f_{n}\}$이 $f$로 uniform converge 하는 경우에는 $f$는 항상 리만 적분 가능하다.
+
+## 르베그 측도의 구성(construction of Lebesgue measure)
+
+## 르베츠 측도의 성질(properties of Lebesgue measure)
+
+## 확률측도(probability measure)
+
+확률측도는 측도들 중 $P(\Omega)=1$인 측도 $P$를 일컫는다.
+
+```{definition, name="르베그 측도"}
+시그마-장 $\mathcal{L}$이 있을 때 $C$가 어떤 구간(interval)일 경우 $\mu_{L}(C)=\text{length}C$로 정의한 측도 $\mu_{L}$을 **르베그 측도(Lebesgue measure)**라고 부른다. 더불어 $\mathcal{L}$을 **르베그 집합(Legesgue set)**이라고 부른다. 만약 우리가 르베그 집합을 $[0,1]$로 한정할 경우, $\mu_{L}$은 확률측도가 된다.
+
+```
+
+## 라돈-니코딤 정리(Radon-Nykodim theorem)

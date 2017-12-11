@@ -1,0 +1,102 @@
+# 일반화가법모형 {#gam}
+
+일반화가법모형을 처음 다룬 논문들로는 [@Hastie1986]이 있다. 일반화가법모형에 대한 참고문헌으로는 [@Wood2006]이 있다. 최근에 나온 좋은 책으로는 [@Yee2015]가 있으며 이 책은 주로 **벡터 일반화선형모형(vector genearlized linear model, VGLMs)** 및 **벡터 일반화가법모형(vector generalized addtive model, VGAMs)**에 초점을 맞추고 있고 R 코드를 포함하고 있다.
+
+일반화가법모형은 일반화 선형모형이며 선형 predictor가 smooth functions of covariate의 합(sum) 형태로 표현된 모형을 말한다. 일반적으로는
+$$g(\mu_{i})=\mathbf{A}_{i}\boldsymbol{\theta}+f_{1}(x_{1i})+f_{2}(x_{2i})+f_{3}(x_{3i})+\ldots$$
+로 모형 structure를 표현할 수 있다. 이 때 $\mu_{i}\equiv E(Y_{i})$이고 $Y_{i}\sim \text{EF}(\mu_{i},\phi)$이다. $Y_{i}$는 설명변수들이고, $\text{EF}(\mu_{i},\phi)$는 평균 $\mu_{i}$와 척도모수(scale parameter) $\phi$인 지수족 분포(exponential family distribution)를 나타낸다. $\mathbf{A}_{i}$는 어떤 strictly parametric model components의 모형 행렬의 행(row)를 나타낸다. $\theta$는 대응되는 모수 벡터이다. $f_{j}$는 covariates들 $x_{k}$들의 smooth functions이다.
+
+## 가법모형들(additive models)
+
+회귀분석의 **가법모형(additive model)**은
+$$E[Y|\mathbf{X}=\mathbf{x}]=\alpha+\sum_{j=1}^{p}f_{j}(x_j)$$
+로 표현한다. 선형모형은 $f_{j}(x_{j})=\beta_{j}x_{j}$인 가법모형의 특별한 경우이다. $f_{j}$는 임의의 비선형 함수도 될 수 있다는 점에서 가법모형이 좀 더 일반적인 형태의 모형이라고 할 수 있다.
+
+## 일변량 스므딩(univariate smoothing)
+
+함수 모형의 표현은 보통 다음과 같은 기본적인 모형에서 출발한다.
+\begin{equation}
+y_{i}=f(x_{i})+\epsilon_{i}.
+(\#eq:univariatesmoothing)
+\end{equation}
+여기서 $y_{i}$는 종속변수, $x_{i}$는 공변량, $f$는 부드러운 함수이며 $\epsilon_{i}$는 독립이며 $\mathcal{N}(0,\sigma^{2})$을 갖는 확률변수들이다.
+
+### 함수를 기저로 표현하기(representing a function with basis expansions)
+
+$f$를 추정하기 위해 $f$를 식 \@ref(eq:univariatesmoothing)를 선형모형처럼 해석하는 방법이 있다. 이렇게 하기 위해 사용하는 것이 **기저(basis)**다. 기저라 함은 $f$가 원소로 있는 함수 공간을 정의하는 데 필요한 것이다. **기저 함수(basis function)**들은 매우 잘 알려져 있다고 단정한다. 만약 $b_{j}(x)$가 $j$번째 기저함수라고 하면, $f$는 다음과 같이 표현할 수 있다고 가정한다.
+
+## 유한 도메인에서의 soap film 스므딩(soap film smoothing over finite domains)
+
+때때로 domain이 복잡한 boundary를 갖을 때가 있다. 이 때에는 boundary feature를 not to smooth across하는 것이 중요하다. [@Wood2008]은 이를 해결하기 위해 **soap film 스므딩(soap film smoothing)**을 제안하였다.
+
+함수 $f$가 주어졌을 때 boundary 안쪽의 soap film의 높이는 다음을 만족한다고 한다.
+$$\frac{\partial^{2}f}{\partial x^{2}}+ \frac{\partial^{2}f}{\partial y^{2}}=0.$$
+그리고 boundary condition 또한 만족한다. 즉 soap film은 minimum surface tension configuration을 만족한다. 
+정의역의 모든 영역에 걸쳐 잡음이 들어간 $z$가 부드럽게 존재하기 위해 soap film은 다음 왜곡 degree 측도를 만족해야 한다.
+$$J_{\Omega}(f)=\int_{\Omega}(\frac{\partial^{2}f}{\partial x^{2}}+ \frac{\partial^{2}f}{\partial y^{2}})^{2}dxdy.$$
+이것이 thin plate spline과 soap film smoothing을 구분하는 부붅이다. TPS는 $\Omega$에 대해 적분하지만 soap film smoothing은 그렇지 않다.
+
+```{r, echo=F, fig.cap='Soap film smoothing 설명 그림.', fig.align='center'}
+knitr::include_graphics("images/gam_soapfilmsmoothing.png")
+```
+
+$n$개의 자료가 $z_{k}$가 있고 이것이 $h(x_{k},y_{k})$의 잡음이 있는 관찰값들이라고 할 때(물론 $h$는 정의역에서 부드러운 함수라고 가정한다), 우리는 $h$를 다음 조건을 최소화 하는 것으로 추정하려고 한다.
+\begin{equation}
+\sum_{i=1}^{n}\{ z_{i}-f(x_{i},y_{i})\}^{2}+\lambda J_{\Omega}(f).
+(\#eq:soapfilmsmoothing)
+\end{equation}
+
+## 벡터 일반화가법모형(vector GAMs)
+
+스므딩에는 다음과 같은 네 가지 종류가 있다.
+
+1. $y$는 스칼라, $x$는 일변량
+
+2. $y$는 스칼라, $\mathbf{x}$는 다변량
+
+3. $\mathbf{y}$는 벡터, $x$는 일변량
+
+4. $\mathbf{y}$는 벡터, $\mathbf{x}$는 다변량
+
+일반적으로 얘기하는 벡터 일반화가법모형은 (3)에 해당한다.
+
+## 퇴각 적합화(backfitting)
+
+**퇴각 적합화(backfitting)**는 **가우스-자이델 방법(Gauss-Seidel method)**이라고도 불리는 방법으로, GAM을 적합하기 위한 단순하면서도 아름다운 방법이다. 이 알고리즘의 기본 아이디어는 가법모형의 각 smooth component들에 대해 iteratively하게 가법모형의 smooth partial residuals를 계산하는 것이다. 
+
+다음과 같은 가법모형에서 추정을 하고 싶다고 가정하자.
+$$y_{i}=\alpha + \sum_{j=1}^{m}f_{j}(x_{ji})+\epsilon_{i},$$
+여기서 $f_{i}$는 부드러운 함수들(smooth functions)이며 공변량 $x_{j}$는 때때로 벡터이기도 하다. $\hat{\mathbf{f}}_{j}$를 $i$째 원소의 추정값이 $f_{j}(x_{ji})$인 벡터라고 하자. 그러면 기본적인 퇴각 적합화 알고리즘은 다음과 같다.
+
+1. Set $\alpha=\bar{y}$ and $\hat{\mathbf{f}}_{j}=\mathbf{0}$ for $j=1,\ldots , m$.
+
+2. Repeat step 3 to 5 until teh estimates $\hat{\mathbf{f}}_{j}=\mathbf{0}$ stop changing.
+
+3. For $j=1,\ldots ,m$, repeat steps 4 and 5.
+
+4. Calculate partial residuals:
+$$\mathbf{e}_{P}^{j}=\mathbf{y}-\hat{\alpha}-\sum_{k\neq j}\hat{\mathbf{f}}_{k}.$$
+
+5. Set $\hat{\mathbf{f}}_{j}$ equal to the result of smoothing $e_{p}^{j}$ with respect to $x_{j}$.
+
+## R 예제(R-gam)
+
+```{r, message=F, echo=F}
+library(wavethresh)
+```
+
+알고리즘을 짜면 다음과 같다.
+
+```{r, comment=">", eval=F, echo=T}
+f<-x*0;alpha<-mean(y);ok <- TRUE
+while (ok) { # backfitting loop
+  for (i in 1:m) { # loop through the smooth terms
+    ep <- y - rowSums(f[,-i]) - alpha
+    b <- smooth.spline(x[,i],ep,df=edf[i])
+    f[,i] <- predict(b,x[,i])$y
+  }
+  rss <- sum((y-rowSums(f))ˆ2)
+  if (abs(rss-rss0)<1e-6*rss) ok <- FALSE
+  rss0 <- rss
+}
+```

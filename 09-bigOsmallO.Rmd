@@ -1,0 +1,170 @@
+# Big O 와 small o {#bigOsmallo}
+
+Large-sample technique의 장점 중 하나는 중요한 부분과 minor한 부분으로 나눌 수 있게 한다는 점이다. 다음은 order에 관한 [@Jiang2010]의 예제이다.
+
+```{example, name="Order 고려의 중요성 (1)"}
+$X_{1},\ldots , X_{n}$이 i.i.d.로 얻어진 표본들이며 $\mu=E(X_{1})\neq 0$이라고 하자. 그러면 우리는 $\sum_{i=1}^{n}X_{i}$로 기댓값들의 합 $E(\sum_{i=1}^{n}X_{i})=n\mu$를 대체할 수 있다. 이것은 $\sum_{i=1}^{n}X_{i}-n\mu$가 order $O(\sqrt{n})$으로, $\sum_{i=1}^{n}X_{i}$의 order보다 낮기 때문이다. 그러나 이러한 technique은 우리가 $(\sum_{i=1}^{n}X_{i})^{2}$를 고려할 때에는 완벽하게 실패한다. 예를 들면 $X_{i}\sim \mathcal{N}(0,1)$이라고 하자. 그러면 $E(\sum_{i=1}^{n}X_{i})^{2}=n$이다. 그러나, $\sum_{i=1}^{n}X_{i}\sim\mathcal{N}(0,n)$이고 $(\sum_{i=1}^{n}X_{i})^{2}=n\{\frac{1}{\sqrt{n}}\sum_{i=1}^{n}X_{i} \}^{2} \sim n\chi_{1}^{2}$이므로, $(\sum_{i=1}^{n}X_{i})^{2}-E(\sum_{i=1}^{n}X_{i})^{2}=n(\chi_{1}^{2}-1)$이고 이는 $E(\sum_{i=1}^{n}X_{i})^{2}$와 같은 order이다. 따라서 $(\sum_{i=1}^{n}X_{i})^{2}$은 $E(\sum_{i=1}^{n}X_{i})^{2}$의 좋은 근사가 아니다.
+
+```
+
+```{example, name="Order 고려의 중요성 (2)"}
+앞선 예제를 다시 생각해보자. $X_{1},\ldots , X_{n}$이 i.i.d.로 얻어진 표본들이며 $\mu=E(X_{1})\neq 0$이라고 하자. 이때 우리가 $\sum_{i=1}^{n}X_{i}$로 기댓값들의 합 $E(\sum_{i=1}^{n}X_{i})=n\mu$를 대체할 수 있는 이유는 쉽게 생각하면, WLLN으로 인해 $\bar{X}=\frac{\sum_{i=1}^{n}X_{i}}{n}$이 $\mu$의 consistent estimator이기 때문이다. 따라서 $E(\sum_{i=1}^{n}X_{i})=n\mu$를 $n\bar{X}=\sum_{i=1}^{n}X_{i}$로 추정하는 것은 일리가 있다.
+
+이 방법을 다른 관점에서 바라보자. 만약 $X_{i}$들이 not i.i.d.일 경우, 어떻게 일반화 할 것이다. 우리는 앞 기대값을 다음과 같이 쓸 수 있다.
+\begin{eqnarray}
+E(\sum_{i=1}^{n}X_{i})&=&\sum_{i=1}^{n}X_{i}-\{ \sum_{i=1}^{n}X_{i}-E(\sum_{i=1}^{n}X_{i})\}\\
+&=&I_{1}-I_{2}.
+\end{eqnarray}
+
+이제 $I_{1}$과 $I_{2}$의 order를 비교해보자. $X_{i}$들이 유한한 분산 $\sigma, 0<\sigma^{2}<\infty$을 갖는다고 하자. 그러면 $I_{1}$의 order는 $O_{n}$이고 $I_{2}$의 order는 $O(\sqrt{n})$이다. 좀 더 자세히 보자면 WLLN으로 인해 $\frac{\sum_{i=1}^{n}X_{i}}{n}\stackrel{p}{\rightarrow}\mu\neq 0$이고, 이는 $I_{1}=O(n)$임을 의미한다. 한편, $E(I_{2}^{2})=n\sigma^{2}$임을 보일 수 있고 이는 $E(\frac{I_{2}}{\sqrt{n}})^{2}=\sigma^{2}$임을 의미한다. 이것은 $\frac{I_{2}}{\sqrt{n}}$이 $L^{2}$에서 유계(bounded)임을 의미한다. 따라서, $\frac{I_{2}}{\sqrt{n}}=O(1)$이고 이는 $I_{2}=O(\sqrt{n})$으로 쓸 수 있다. (여기서 $I_{1}, I_{2}$는 모두 확률변수이다.) Order로 미루어 볼 때 $E(\sum_{i=1}^{n}X_{i})$를 $I_{1}$으로 근사하는 것이 main part를 잡아준다는 점에서 reaseonable하다는 것을 알 수 있다.
+
+한편, 두 번째 케이스로 넘어가서, $E(\sum_{i=1}^{2}X_{i})^{2}$을 추정하는 문제를 생각해보자. 간단히 하기 위해 $\mu=0$이라고 가정한다. 그러면
+\begin{eqnarray}
+E(\sum_{i=1}^{n}X_{i})^{2}&=&(\sum_{i=1}^{n}X_{i})^{2}-\{ (\sum_{i=1}^{n}X_{i})^{2}-E(\sum_{i=1}^{n}X_{i})^{2}\}\\
+&=&I_{1}-I_{2}.
+\end{eqnarray}
+
+으로 쓸 수 있다. 우리는 여기서 또 $I_{1}$과 $I_{2}$의 order를 비교해볼 수 있다. CLT에 의해 $\frac{\sum_{i=1}^{n}X_{i}}{\sqrt{n}\sigma}\stackrel{d}{\rightarrow}\mathcal{N}(0,1)$임을 안다. 그러면 연속사상정리(정리 \@ref(thm:contmappingthm))에 의해 $n\rightarrow\infty$일 때
+\begin{equation}
+\frac{(\sum_{i=1}^{n}X_{i})^{2}}{n\sigma^{2}}\stackrel{d}{\rightarrow}\chi_{1}^{2},
+(\#eq:exorderchisqconv)
+\end{equation}
+
+\begin{equation}
+\frac{(\sum_{i=1}^{n}X_{i})^{2}}{n\sigma^{2}}-1 \stackrel{d}{\rightarrow}\chi_{1}^{2}-1
+(\#eq:exorderchisqconv2)
+\end{equation}
+이다. 식 \@ref(eq:exorderchisqconv)은 $I_{1}=O(n)$임을 의미한다. 더 나아가
+$$\frac{(\sum_{i=1}^{n}X_{i})^{2}-E(\sum_{i=1}^{n}X_{i})^{2}}{n\sigma^{2}}=\frac{(\sum_{i=1}^{n}X_{i})^{2}}{n\sigma^{2}}-1,$$
+이므로 식 \@ref(eq:exorderchisqconv2)은 $I_{2}=O(n)$임을 의미한다. 그러므로 이 경우에는 $I_{1}$과 $I_{2}$가 같은 order를 갖으므로 $(\sum_{i=1}^{n}X_{i})^{2}$은 $E(\sum_{i=1}^{n}X_{i})^{2}$의 좋은 근사가 아니다라는 결론을 얻을 수 있다.
+
+```
+
+## Big O와 small o (big O and small o)
+
+```{definition, name="big O"}
+(실수값을 갖는) 무한 수열 $a_{n},n=1,2,\ldots$가 유계일 경우 $a_{n}=O(1)$이라고 한다. 즉 어떤 상수 $c$가 존재해 $|a_{n}|\leq c, n\geq 1$이면 $a_{n}=O(1)$이다. $b_{n},n=1,2,\ldots$를 양의 값을 갖는 무한 수열이라고 하자. 그러면 수열 $a_{n}/b_{n}, n=1,2,\ldots$가 유계일 때 $a_{n}=O(b_{n})$이라고 한다.
+
+```
+
+```{lemma}
+$a_{n}=O(b_{n})$은 $a_{n}=b_{n}O(1)$임과 동치이다.
+
+```
+
+```{definition, name="small o"}
+수열 $a_{n},n=1,2,\ldots$가 $n\rightarrow\infty$일 때 $a_{n}\rightarrow 0$인 경우 $a_{n}=o(1)$이라고 한다. 좀 더 일반적으로, $b_{n},n=1,2,\ldots$를 양의 값을 갖는 무한 수열이라고 할 때 수열 $a_{n}/b_{n}, n=1,2,\ldots$가 $n\rightarrow \infty$일 때 $a_{n}/b_{n}\rightarrow 0$일 경우 $a_{n}=o(b_{n})$이라고 한다.
+
+```
+
+```{lemma}
+$a_{n}=o(b_{n})$은 $a_{n}=b_{n}o(1)$임과 동치이다.
+
+```
+
+여기서 우리는 small o가 big O보다 좀 더 강한 조건임을 알 수 있다.
+
+```{lemma}
+$a_{n}=o(b_{n})$이면 $a_{n}=O(b_{n})$이다.
+
+```
+
+```{lemma, name="big O와 small o의 성질들"}
+
+1. 만약 $a_{n}=O(b_{n})$이고 $b_{n}=O(c_{n})$이면 $a_{n}=O(c_{n})$이다.
+
+2. 만약 $a_{n}=O(b_{n})$이고 $b_{n}=o(c_{n})$이면 $a_{n}=o(c_{n})$이다.
+
+3. 만약 $a_{n}=o(b_{n})$이고 $b_{n}=O(c_{n})$이면 $a_{n}=o(c_{n})$이다.
+
+4. 만약 $a_{n}=o(b_{n})$이고 $b_{n}=o(c_{n})$이면 $a_{n}=o(c_{n})$이다.
+
+5. 만약 $a_{n}=O(b_{n})$이면 임의의 $p>0$에 대해 $|a_{n}^{p}|=O(b_{n}^{p})$이다.
+
+6. 만약 $a_{n}=o(b_{n})$이면 임의의 $p>0$에 대해 $|a_{n}^{p}|=o(b_{n}^{p})$이다.
+
+```
+
+그러나 어떤 증가함수 $g$에 대해 $a_{n}=O(b_{n})$은 $g(a_{n})=O\{g(b_{n})\}$임을 의미하지는 않는다. 마찬가지로, $a_{n}=o(b_{n})$은 $g(a_{n})=o\{g(b_{n})\}$임을 의미하지는 않는다.
+
+```{example, name="증가함수와 big O"}
+$a_{n}=n$, $b_{n}=2n$이라고 하자. 그러면 $a_{n}=O(b_{n})$이다. 그러나 $n\rightarrow\infty$일 때 $e^{a_{n}}/e^{b_{n}}=e^{n}/e^{2n}=e^{-n}\rightarrow 0$이다. 따라서 $e^{a_{n}}=o(e^{b_{n}})$이며 $O(e^{b_{n}})$이 아니다.
+
+```
+
+```{example, name="증가함수와 small o"}
+$a_{n}=n$, $b_{n}=n^{2}$을 생각해보자. 그러면 $a_{n}=o(b_{n})$이다. 그러나 $\log(a_{n})=\log(b_{n})$이고 $\log(b_{n})=2\log(n)$이며 $\log(a_{n})=O\{\log(b_{n})\}$이며 $o\{\log(b_{n})\}$이 아니다.
+
+```
+
+다음은 역수와 관련된 따름정리다.
+
+```{lemma, name="역수와 small o"}
+만약 $a_{n}$, $b_{n}$이 0이 아닌 수열들이고 $a_{n}=o(b_{n})$이라고 하자. 그러면 $b_{n}^{-1}=o(a_{n}^{-1})$이다.
+
+```
+
+## 실함수에서의 Big O와 small o (big O and small o for real valued functions)
+
+Big O와 small o 컨셉을 실함수에도 확장할 수 있다. 우선, $x\rightarrow 0$인 경우를 고려해 보자. $x\rightarrow 0$일 때 $f(x)/x$가 유계이면 $f(x)=O(x)$라고 한다. 유사하게, $x\rightarrow 0$일 때 $f(x)/x\rightarrow 0$일 경우 $f(x)=o(x)$라고 한다. 좀 더 일반적으로 임의의 $x_{0}$와 $p\geq 0$에 대해 $f(x)/|x-x_{0}|^{p}$가 유계일 경우 $f(x)=O(|x-x_{0}|^{p})$라고 한다. 마찬가지로 $|x|\rightarrow \infty$임에 따라 $f(x)/|x-x_{0}|^{p}\rightarrow 0$인 경우 $f(x)=o(|x-x_{0}|^{p})$라고 한다. 
+
+## 벡터와 행렬에서의 Big O와 small o (big O and small o for vectors and matrices)
+
+$|v|$를 벡터의 유클리드 노름으로, 즉 $|v|=\sqrt{\sum_{j=1}^{k}v_{j}^{2}}$이라고 하자. 또한 행렬의 노름도 생각해보자. 여기서는 **스펙트럴 노름(spectral norm)** $\|A\|=\{ \lambda_{\text{max}}(A^{T}A)\}^{1/2}$와 **2-노름(2-norm)** $\|A\|_{2}=\{ \text{tr}(A^{T}A) \}^{1/2}$를 생각한다.
+
+```{definition, name="벡터에서의 big O와 small o"}
+$a_{n},n=1,2,\ldots$를 양수들의 수열이라고 하자. $v_{n},n=1,2,\ldots$를 벡터들의 수열이라고 하자. 그러면 $|v_{n}|/a_{n}$이 유계인 경우 $v_{n}=O(a_{n})$이라고 한다. 그리고 $n\rightarrow \infty$일 때 $|v_{n}|/a_{n}\rightarrow 0$인 경우 $v_{n}=o(a_{n})$이라고 한다.
+
+```
+
+```{definition, name="행렬에서의 big O와 small o"}
+$a_{n},n=1,2,\ldots$를 양수들의 수열이라고 하자. $A_{n},n=1,2,\ldots$를 행렬들의 수열이라고 하자. 그러면 $\|A_{n}\|/a_{n}$이 유계인 경우 $A_{n}=O(a_{n})$이라고 한다. 그리고 $n\rightarrow \infty$일 때 $\|A_{n}\|/a_{n}\rightarrow 0$인 경우 $A_{n}=o(a_{n})$이라고 한다.
+
+```
+
+```{definition, name="벡터와 행렬에서의 부등호"}
+$A$와 $B$를 $k \times k$ 행렬이라고 하자. 그러면
+
+1. $A\geq B$는 $A-B$가 nonnegative definite임을 의미한다.
+
+2. $A>B$는 $A-B$가 positive definite이다.
+
+```
+
+## Big Op와 small op (big Op and small op)
+
+확률변수들의 수열 $X_{n},n=1,2,\ldots$이 $O_{P}(1)$인 것을 다른 말로 **bounded in probability**라고 부른다.
+
+```{definition, name="big Op"}
+확률변수들의 수열 $X_{n},n=1,2,\ldots$이 어떤 $\epsilon >0$에 대해 $M>0, N\geq 1$이 존재해
+\begin{equation}
+P(|X_{n}|\leq M)> 1-\epsilon,\qquad{n\geq N}
+\end{equation}
+이면 $X_{n}=O_{P}(1)$이라고 한다. $a_{n}$을 양수들의 수열이라고 하자. 좀 더 일반적으로 $X_{n}/a_{n}=O_{P}(1)$이라고 할 때 $X_{n}=O_{P}(a_{n})$이다.
+
+```
+
+```{lemma}
+$X_{n}=O_{P}(1)$인 것은 모든 $\epsilon >0$에 대해 $M>0$이 존재해
+\begin{equation}
+P(|X_{n}|\leq M)> 1-\epsilon,\qquad{n\geq 1}
+\end{equation}
+인 것과 동치이다.
+
+```
+
+```{definition, name="small Op"}
+$a_{n}$을 양수들의 수열이라고 하자. 확률변수들의 수열 $X_{n},n=1,2,\ldots$이 $n\rightarrow \infty$일 때 $X_{n}/a_{n}\stackrel{P}{\rightarrow}0$를 만족할 경우 $X_{n}=o_{P}(a_{n})$이라고 한다.
+
+```
+
+```{theorem, name="big Op 관련 정리"}
+확률변수들의 수열 $X_{n},n=1,2,\ldots$이 있다고 할 때 다음 중 하나라도 성립하면 $X_{n}=O_{P}(1)$이다.
+
+1. $p>0$이 존재해 $E(|X_{n}|^{p}),n\geq 1$이 유계다.
+
+2. $n\rightarrow \infty$일 때 어떤 확률변수 $X$에 대해 $X_{n}\stackrel{P}{\rightarrow} X$이다.
+
+3. $n\rightarrow \infty$일 때 어떤 확률변수 $X$에 대해 $X_{n}\stackrel{d}{\rightarrow} X$이다.
+
+```

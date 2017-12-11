@@ -44,3 +44,16 @@ $E_{rec}$을 minimize하도록 subspace를 set하는 것이다.
 이 때 $\mathbf{y}$는 dependent variable의 평균에서 잰 $n$개 관찰값들의 벡터이고, $\mathbf{X}$는 $n\times p$ predictor matrix, $\boldsymbol{\beta}$는 $p$개 회귀분석 계수들의 벡터, $\boldsymbol{\epsilon}$는 오차항들의 벡터이다. 이 때 $\boldsymbol{\epsilon}$의 원소들은 각각 독립이고, 분산은 $\sigma^{2}$이다.
 
 참고로 주성분 회귀분석에서는 자료들을 센터링(centering)하는 것이 좋다.
+
+```{r, echo=F, fig.cap='주성분분석에서 센터링을 해야 하는 이유.', fig.align='center'}
+knitr::include_graphics("images/pca_pcreg.png")
+```
+
+## 다변량 자료에서의 PCA (PCA for multivariate data)
+
+[@Ramsay2005]의 8장을 참고하였다. 다변량 자료에서의 기초 컨셉은 다음과 같은 설명변수들의 선형 결합을 취하는 것이다.
+$$f_{i}=\sum_{j=1}^{p}\beta_{j}x_{ij}, i=1,\ldots, N.$$
+여기서 $\beta_{j}$는 $j$번째 변수에 대한 $x_{ij}$ 관련 가중 계수(weighting coefficient)이다.
+
+## 함수자료에서의 PCA (PCA for functional data)
+

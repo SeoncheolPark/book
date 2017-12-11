@@ -18,10 +18,10 @@
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
 \IfFileExists{microtype.sty}{%
-\usepackage{microtype}
+\usepackage[]{microtype}
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\usepackage[inner=0.75in,outer=0.75in,top=0.6in,bottom=0.9in]{geometry}
+\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
 \usepackage[unicode=true]{hyperref}
 \PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
 \hypersetup{
@@ -33,6 +33,7 @@
             urlcolor=RedOrange,
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
+\usepackage[inner=0.75in,outer=0.75in,top=0.6in,bottom=0.9in]{geometry}
 \usepackage{natbib}
 \bibliographystyle{apalike}
 \usepackage{color}
@@ -44,38 +45,40 @@
 \usepackage{framed}
 \definecolor{shadecolor}{RGB}{248,248,248}
 \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\ImportTok}[1]{{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{{#1}}}}
-\newcommand{\BuiltInTok}[1]{{#1}}
-\newcommand{\ExtensionTok}[1]{{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{{#1}}}
-\newcommand{\RegionMarkerTok}[1]{{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{{#1}}}}
-\newcommand{\NormalTok}[1]{{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
 \usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
 \IfFileExists{parskip.sty}{%
 \usepackage{parskip}
 }{% else
@@ -95,6 +98,12 @@
 \let\oldsubparagraph\subparagraph
 \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
 \usepackage[hangul]{kotex}
 \usepackage{makeidx}
 \makeindex
@@ -236,7 +245,7 @@
 
 \title{통계공부와 관련된 글들}
 \author{Seoncheol Park}
-\date{2017-09-12}
+\date{2017-12-11}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -906,9 +915,11 @@ derivative를 갖는, 즉 모든 \(u,t\)에 대해
 
 \subsection{Sobolev 공간(Sobolev space)}\label{sobolev-sobolev-space}
 
-이 공간의 정의는 \citep{Wasserman2006}를 참고하였다. 이 책에서 Sobolev
-공간의 정의는 smooth function들의 집합이라는 것이다. \(D^{j}f\)를
-\(f\)의 \(j\)번째 weak derivative라고 하자. 먼저 weak
+해석학에서 소볼레프 공간(Sobolev space)이란 충분히 매끄럽고, 무한대에서
+충분히 빨리 0으로 수렴하는 함수들로 구성된 함수공간으로 르베그 공간의
+일반화이다. 이 공간의 정의는 \citep{Wasserman2006}를 참고하였다. 이
+책에서 Sobolev 공간의 정의는 smooth function들의 집합이라는 것이다.
+\(D^{j}f\)를 \(f\)의 \(j\)번째 weak derivative라고 하자. 먼저 weak
 differentiability에 대해 알아보자. \(f\)가 모든 bounded interval에서
 적분 가능하다고 하자. 만약 다음꽈 같은 함수 \(f'\)가 존재해 모든 bounded
 interval에서 적분 가능하다면, 즉 모든 \(x\leq y\)에 대해
@@ -1025,6 +1036,17 @@ D)}\label{c--d-the-spaces-c-and-d}
   geodesic distance
 \end{itemize}
 
+다른 거리들도 있다.
+
+\begin{itemize}
+\tightlist
+\item
+  Hamming distance: \citep{Massart2007} 책에 나오는 것으로
+  \(\mathcal{X}^{n}\)을 \(n\)개의 확률변수들이 값을 취하는 \(n\)차원
+  공간이라고 할 때 다음과 같다.
+  \[d(y,y')=\sum_{i=1}^{n}\mathbb{I}_{y_{i}\neq y'_{i}}, \qquad{\forall y,y'\in\mathcal{X}^{n}}\]
+\end{itemize}
+
 \section{계량(metric)}\label{metric}
 
 계량(metric)은 두 집합 사이의 모든 원소 짝의 거리를 지정해주는 함수이다.
@@ -1121,6 +1143,201 @@ continuous인 함수들의 집합이라고 하자. 다음과 같은 노름
 \caption{L2 norm에서 연속 극한을 갖지 않는 연속함수들의 코시 수열의 예.}\label{fig:unnamed-chunk-32}
 \end{figure}
 
+\section{연속(continuity)}\label{continuity}
+
+\subsection{립쉬츠 연속(Lipschitz
+continous)}\label{-lipschitz-continous}
+
+\citep{Abbott2015}의 문제 4.4.9를 참고하였다. 어떤 함수
+\(f:A\rightarrow \mathbb{R}\)이 \textbf{립쉬츠 연속(Lipschitz
+continous)}이라는 것은 모든 \(x\neq y\)에 대해 유계 \(M >0\)이 존재해
+\[|\frac{f(x)-f(y)}{x-y}|\leq M\] 을 만족하는 것이다. 기하학적으로
+말하면 어떤 함수 \(f\)가 립쉬츠라는 것은 \(f\)의 임의의 두 점을 잡아
+기울기를 계산해도 그것을 cover할 수 있는 uniform bound가 존재한다는
+것이다. 만약 \(f\)가 미분 가능할 경우 \(x\)가 \(y\)랑 매우 가까워지게
+되면 좌변은 미분의 절대값임을 알 수 있다. 그러나 립쉬츠 연속이 \(f\)가
+미분가능함을 말하는 것은 아니다. 단지 \(f\)가 너무 가파르지 않은
+함수라는 것만 알 수 있을 뿐이다.
+
+\begin{itemize}
+\tightlist
+\item
+  함수 \(f:A\rightarrow \mathbb{R}\)가 립쉬츠이면 그 함수는 또한
+  \(A\)에서 uniformly continuous하다.
+\end{itemize}
+
+\chapter{측도}\label{measure}
+
+\textbf{측도(measure)}란 수학에서, \textbf{양(quantity)}이라 개념을
+반영하기 위해 만들어진 장치다. \(X\)를 어떤 집합이라고 하고, 이것의
+부분집합 \(U \subset X\)가 있을 때,
+
+전형적인 적분(integral) \(\int_{A}f(x)dx\)는 다음으로 구성되어있다.
+
+\begin{itemize}
+\item
+  \(A\): the set of integration (or the domain of integration)
+\item
+  \(f(x)\): the integrand
+\item
+  \(dx\): the integrator
+\end{itemize}
+
+다시 말해서, 적분이란 것은 연속적으로 변하는 물체들의 합인 것이다. 이는
+역사적으로 적분기호 \(\int\)가 합을 뜻하는 sum의 \(S\)에서 온 것에서도
+확인할 수 있다. 이 적분은 다음
+\[\sum_{\alpha\in I}\max_{x\in A_{\alpha}}f(x)|A_{\alpha}| \text{ or } \sum_{\alpha\in I}\min_{x\in A_{\alpha}}f(x)|A_{\alpha}|\]
+을 근사한다. 이 때 우리는 적분을 하고자 하는 집합 \(A\)를 disjoint
+set으로 나눌 수 있다, 즉 \(A=\bigcup_{\alpha\in I}A_{\alpha}\)로 나눌 수
+있다고 가정하고 각 집합 \(A_{\alpha}\) 에서 \(f\)는 거의 상수라고
+가정한다. 여기서 우리는 \(|A_{\alpha}|\)를 집합 \(A_{\alpha}\)의
+size라고 하자. 그리고 \(\max_{x\in A_{\alpha}}f(x)\) 또는
+\(\min_{x\in A_{\alpha}}f(x)\)를 \(A_{\alpha}\)에서의 함수값들을
+대표하는 값으로 선택된 것이라 생각해보자. 가장 쉽게 질문할 수 있는 것은
+`어떻게 set의 size를 정할 것인가?' 라는 문제가 있다.
+
+\textbf{리만 적분(Riemman integral)}에서는 interval (또는 rectangle,
+cube 등등)들의 size만 측도(measure)하면 된다.
+
+\BeginKnitrBlock{example}[정의역과 치역이 1차원인 함수에서의 리만 적분]
+\protect\hypertarget{exm:unnamed-chunk-33}{}{\label{exm:unnamed-chunk-33}
+\iffalse (정의역과 치역이 1차원인 함수에서의 리만 적분) \fi{} }\(f\)를
+\(\mathbb{R}\)에서 정의된 함수고 정의역이 \([a,b]\)라고 하자. 그러면
+우리는 구간 \([a,b]\)를 더 잘게,
+\([x_{0}=a,x_{1}], [x_{1},x_{2}],\ldots, [x_{n-1},x_{n}=b]\)로 나누고
+적분을 다음 값으로 근사한다. \[\sum_{i=1}^{n}f(x_{i})|x_{i}-x_{i-1}|.\]
+이 합의 극합이 적분값이 되며 우리는 이 적분을 리만 적분이라고 부른다.
+여기서는 \(\mathbb{R}\)에서의 집합들의 크기(size)를 측도하기 위해
+interval을 사용하였다.
+\EndKnitrBlock{example}
+
+\begin{figure}
+
+{\centering \includegraphics[width=5.58in]{images/measure_Riemann1d} 
+
+}
+
+\caption{1차원 공간의 정의역을 자르는 방법.}\label{fig:unnamed-chunk-34}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=6.92in]{images/measure_Riemann2d} 
+
+}
+
+\caption{2차원 공간의 정의역을 자르는 방법. 이 경우에는 사각형의 면적이 집합의 크기가 된다.}\label{fig:unnamed-chunk-35}
+\end{figure}
+
+그러나, 불연속 함수의 경우에는 interval (또는 rectangle, cube 등등)의
+크기를 재는 것이 적분을 정의하기에 충분치 않을 수도 있다. 따라서 우리는
+먼저 집합의 크기를 정의하는 것 부터 다시 정의할 필요가 있다. 이제부터
+'집합의 크기(size)'를 집합의 \textbf{측도(measure)}라고 부를 것이다.
+\textbf{측도함수(measure function)} \(m\)는
+\[m:\mathcal{M}\rightarrow [0,\infty], \mathcal{M}\subseteq\mathcal{P}(\mathbb{R}^{n})\]
+이다. 즉 \(\mathcal{M}\)dms \(\mathcal{P}(\mathbb{R}^{n})\)의
+subcollection이다. 이제 여기서의 목표는 적분이론에 잘 맞는 적절한
+\(m,\mathcal{M}\)을 찾는 것이다. 그런데 우리가 모든
+\(\mathcal{P}(\mathbb{R}^{n})\)에 대해 \(m\)을 정의할 수 있을까? 만약
+그렇지 않다면, 적어도 우리는 \(\mathcal{M}\)에서의 측도 \(m\)이
+interval이나 rectangle, open set, compact set 등 좋은 '집합'들에서 모두
+잘 정의되게끔 구성하고자 한다. 더 나아가, 우리는 이 적분함수 \(m\)을
+우리 직관에 일치하도록 확장시키고자 한다. 그 직관이란,
+
+\begin{itemize}
+\item
+  \(m(\emptyset)=0\)
+\item
+  \(m([a,b])=b-a\) 또는
+  \(m(\text{Rectangle})=|\text{vertical side}|\times |\text{horizontal side}|\)
+\item
+  만약 \(A\subset B\)인 경우 \(m(A)\leq m(B)\)
+\item
+  만약 \(A,B\)가 disjoint인 경우 \(m(A\cup B)=m(A)+m(B)\)
+\item
+  더 나아가, 우리는 측도가 countable additivity를 갖길 원한다. 즉
+  \(A_{i},i=1,2,\ldots\)가 disjoint이면
+  \(\sum_{i=1}^{m}=m(\cup_{i=1}^{\infty}A_{i}).\)
+\end{itemize}
+
+정리하면, 만족스러운 적분이론을 얻기 위해 우리는
+\(\mathbb{R}^{n}\)에서의 충분히 큰 subset들의 class에 대해 잘 정의되는
+측도를 구성하고자 한다. 그러면 여기서 리만 적분으로는 불충분한 점들을 몇
+가지 짚고 넘어가고자 한다.
+
+\section{리만 적분의 한계정}\label{--}
+
+우선, 리만 적분이 가능하려면, `대부분의' 작은 interval에서
+\(\max f - \min f\)가 매우 작아야한다. 즉, 리만 적분 가능성은 함수의
+연속성과 관련이 있다. 실제로 함수 \(f\)가 리만 적분 가능하려면 \(f\)가
+거의 모든 지점에서 연속이어야 한다(이는 필요충분조건이다).
+
+\BeginKnitrBlock{example}[리만 적분이 안되는 함수]
+\protect\hypertarget{exm:unnamed-chunk-36}{}{\label{exm:unnamed-chunk-36}
+\iffalse (리만 적분이 안되는 함수) \fi{} }다음과 같이 함수
+\(f_{\text{Dir}}(x)\)를 정의하자 \[
+f_{\text{Dir}}(x) = 
+\begin{cases}
+1 & \text{if $x\in\mathbb{Q}$} \\
+0 & \text{if $x\in\mathbb{Q}^{c}$.}\\
+\end{cases}
+\]
+
+그리면 임의의 구간 \(I\subset\mathbb{R}\)에 대해
+\[\max_{x\in I}f_{\text{Dir}}(x) =1 \text{ and } \min_{x\in I}f_{\text{Dir}}(x) =0\]
+이므로 \(f_{\text{Dir}}(x)\)는 리만적분이 가능하지 않다. 참고로 함수
+\(f_{\text{Dir}}(x)\)는 어디에서도 연속이 아니다.
+\EndKnitrBlock{example}
+
+두 번째로, 리만 적분 이론에서는 적분의 정의역(domain)을 분해하기 위해
+오로지 interval, rectangle 또는 cube 등등만을 고려한다. 그래서 우리는
+interval을 어떻게 측도해야할지 알아야 한다. 그러나 어떤 함수드에서는,
+다른 형태로 정의역을 분해하는 것이 좀 더 자연스러울 때가 있다. 예를
+들면, 우리가 \(\mathbb{Q}\) 또는 \(\mathbb{Q}^{c}\)에서의 측도를
+정의하고자 할 때, 가장 자연스럽게 생각할 수 있는 것으로는 다음과 같은
+적분이 있다.
+\[\int_{0}^{1}f_{\text{Dir}}(x)dx:=1\cdot |\mathbb{Q}\cap [0,1]| + 0\cdot |\mathbb{Q}^{c}\cap [0,1]|.\]
+
+마지막으로, 우리가 다음과 같은 함수들의 수열
+\(\{f_{n}:[0,1]\rightarrow\mathbb{R} \}\)을 정의했을 때, \[
+f_{n}(x) := 
+\begin{cases}
+1 & \text{if $x=p/q$ where $p,q\in\mathbb{Z}$ and $q\leq n$} \\
+0 & \text{otherwise.}\\
+\end{cases}
+\]
+
+\(f_{n}\)들은 유한히 많은 점들을 제외하고 모두 연속이므로 리만
+적분가능하다. 더불어 \(n\rightarrow \infty\)일 때
+\(f_{n}\rightarrow f_{\text{Dir}}\)이다. 그러나 앞서 살펴본대로
+\(f_{\text{Dir}}\)은 리만 적분 가능하지 않다. 이 예는 모든 함수들의
+수열이 리만 적분 가능하더라도, 그것의 극한은 리만 적분 가능하지 않을
+수도 있다는 것을 보여준다. 단 \(\{f_{n}\}\)이 \(f\)로 uniform converge
+하는 경우에는 \(f\)는 항상 리만 적분 가능하다.
+
+\section{르베그 측도의 구성(construction of Lebesgue
+measure)}\label{--construction-of-lebesgue-measure}
+
+\section{르베츠 측도의 성질(properties of Lebesgue
+measure)}\label{--properties-of-lebesgue-measure}
+
+\section{확률측도(probability measure)}\label{probability-measure}
+
+확률측도는 측도들 중 \(P(\Omega)=1\)인 측도 \(P\)를 일컫는다.
+
+\BeginKnitrBlock{definition}[르베그 측도]
+\protect\hypertarget{def:unnamed-chunk-37}{}{\label{def:unnamed-chunk-37}
+\iffalse (르베그 측도) \fi{} }시그마-장 \(\mathcal{L}\)이 있을 때
+\(C\)가 어떤 구간(interval)일 경우 \(\mu_{L}(C)=\text{length}C\)로
+정의한 측도 \(\mu_{L}\)을 \textbf{르베그 측도(Lebesgue measure)}라고
+부른다. 더불어 \(\mathcal{L}\)을 \textbf{르베그 집합(Legesgue
+set)}이라고 부른다. 만약 우리가 르베그 집합을 \([0,1]\)로 한정할 경우,
+\(\mu_{L}\)은 확률측도가 된다.
+\EndKnitrBlock{definition}
+
+\section{라돈-니코딤 정리(Radon-Nykodim
+theorem)}\label{--radon-nykodim-theorem}
+
 \chapter{기초 확률론}\label{basicprob}
 
 이 장에서는 앞으로 다룰 내용을 이해하기 위해 필요한 기본적인 확률 개념을
@@ -1140,20 +1357,20 @@ events)}\label{-sample-space-and-events}
 어떤 결과가 나올지 미리 확실히 예측할 수 없는 실험들에 초점을 맞춘다.
 
 \BeginKnitrBlock{definition}[표본공간]
-\protect\hypertarget{def:unnamed-chunk-33}{}{\label{def:unnamed-chunk-33}
+\protect\hypertarget{def:unnamed-chunk-38}{}{\label{def:unnamed-chunk-38}
 \iffalse (표본공간) \fi{} }어떤 무작위 실험의 \textbf{표본공간(sample
 space)} \(\Omega\)는 그 실험에서 나올 수 있는 모든 결과들의 집합이다.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{example}[동전 던지기 실험]
-\protect\hypertarget{exm:unnamed-chunk-34}{}{\label{exm:unnamed-chunk-34}
+\protect\hypertarget{exm:unnamed-chunk-39}{}{\label{exm:unnamed-chunk-39}
 \iffalse (동전 던지기 실험) \fi{} }동전을 두 번 던지는 실험에서
 \(\Omega=\{ HH, HT, TH, TT \}\)이다. 이러한 표본공간을 \textbf{(유한)
 이산 표본공간(finite discrete sample space)}이라고 한다.
 \EndKnitrBlock{example}
 
 \BeginKnitrBlock{example}[동전 계속 던지기 실험]
-\protect\hypertarget{exm:unnamed-chunk-35}{}{\label{exm:unnamed-chunk-35}
+\protect\hypertarget{exm:unnamed-chunk-40}{}{\label{exm:unnamed-chunk-40}
 \iffalse (동전 계속 던지기 실험) \fi{} }이번에는 동전의 뒷 면이
 나올때까지 동전을 계속해서 던지는 실험에 대해 살펴보자. 그러면
 \[\{ T, HT, HHT, HHHT, \ldots, \{ HHH\ldots\} \}\] 와 같은 결과들의
@@ -1163,7 +1380,7 @@ space)} \(\Omega\)는 그 실험에서 나올 수 있는 모든 결과들의 집
 \EndKnitrBlock{example}
 
 \BeginKnitrBlock{example}[지하철 도착 시간]
-\protect\hypertarget{exm:unnamed-chunk-36}{}{\label{exm:unnamed-chunk-36}
+\protect\hypertarget{exm:unnamed-chunk-41}{}{\label{exm:unnamed-chunk-41}
 \iffalse (지하철 도착 시간) \fi{} }우리가 지하철을 기다리고 있다고
 가정해보자. 지하철은 \(T\) 시간마다 한 번씩 도착한다. 그러면 우리가
 기다리는 시간에 대한 표본공간은 \[[0,T]=\{t:0\leq y \leq T\}\] 이다.
@@ -1172,13 +1389,13 @@ space)} \(\Omega\)는 그 실험에서 나올 수 있는 모든 결과들의 집
 \EndKnitrBlock{example}
 
 \BeginKnitrBlock{definition}[사건]
-\protect\hypertarget{def:unnamed-chunk-37}{}{\label{def:unnamed-chunk-37}
+\protect\hypertarget{def:unnamed-chunk-42}{}{\label{def:unnamed-chunk-42}
 \iffalse (사건) \fi{} }\textbf{사건(event)}란 표본공간 \(\Omega\)의
 임의의 부분집합(subset)을 의미한다.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{example}[사건의 예]
-\protect\hypertarget{exm:unnamed-chunk-38}{}{\label{exm:unnamed-chunk-38}
+\protect\hypertarget{exm:unnamed-chunk-43}{}{\label{exm:unnamed-chunk-43}
 \iffalse (사건의 예) \fi{} }- 앞서 동전을 두 번 던지는 실험에서 앞면이
 하나만 나올 사건을 \(A\)라고 하면 \(A=\{ HT, TH \}\)이다.
 
@@ -1198,7 +1415,7 @@ space)} \(\Omega\)는 그 실험에서 나올 수 있는 모든 결과들의 집
 시그마-체라는 개념을 도입한다.
 
 \BeginKnitrBlock{definition}[대수(체)]
-\protect\hypertarget{def:unnamed-chunk-39}{}{\label{def:unnamed-chunk-39}
+\protect\hypertarget{def:unnamed-chunk-44}{}{\label{def:unnamed-chunk-44}
 \iffalse (대수(체)) \fi{} }어떤 집합(set) \(\Omega\)의 non-empty
 collection (즉 \(\Omega\)의 subset들의 모임)을 \(\mathcal{F}\)라고 하자.
 그러면 \(\mathcal{F}\)가
@@ -1220,7 +1437,7 @@ collection (즉 \(\Omega\)의 subset들의 모임)을 \(\mathcal{F}\)라고 하�
 시그마-체는 앞선 대수의 정의에서 두 번째 조건이 조금 바뀐 것이다.
 
 \BeginKnitrBlock{definition}[시그마-체]
-\protect\hypertarget{def:unnamed-chunk-40}{}{\label{def:unnamed-chunk-40}
+\protect\hypertarget{def:unnamed-chunk-45}{}{\label{def:unnamed-chunk-45}
 \iffalse (시그마-체) \fi{} }어떤 집합(set) \(\Omega\)의 non-empty
 collection을 \(\mathcal{F}\)라고 할 때, \(\mathcal{F}\)가
 
@@ -1242,7 +1459,7 @@ collection을 \(\mathcal{F}\)라고 할 때, \(\mathcal{F}\)가
 다음은 체와 시그마-체에 대한 간단한 사실들이다.
 
 \BeginKnitrBlock{corollary}[시그마-체에 대한 사실들]
-\protect\hypertarget{cor:unnamed-chunk-41}{}{\label{cor:unnamed-chunk-41}
+\protect\hypertarget{cor:unnamed-chunk-46}{}{\label{cor:unnamed-chunk-46}
 \iffalse (시그마-체에 대한 사실들) \fi{} }1. 모든 체는 finite union에
 대해 닫혀있다. 또한 같은 논리를 적용해 finite intersection에 대해서도
 닫혀있다.
@@ -1265,7 +1482,7 @@ collection을 \(\mathcal{F}\)라고 할 때, \(\mathcal{F}\)가
 \EndKnitrBlock{corollary}
 
 \BeginKnitrBlock{example}[시그마-체의 예]
-\protect\hypertarget{exm:unnamed-chunk-42}{}{\label{exm:unnamed-chunk-42}
+\protect\hypertarget{exm:unnamed-chunk-47}{}{\label{exm:unnamed-chunk-47}
 \iffalse (시그마-체의 예) \fi{} }- 어떤 집합 \(\Omega\)에 대해,
 \(\{\emptyset, \Omega\}\)는 시그마-체가 된다. 이 시그마-체는
 \(\Omega\)의 부분집합으로 만들 수 있는 가장 작은 시그마-체이다.
@@ -1282,7 +1499,7 @@ collection을 \(\mathcal{F}\)라고 할 때, \(\mathcal{F}\)가
 \EndKnitrBlock{example}
 
 \BeginKnitrBlock{example}[체이나 시그마-체가 아닌 예]
-\protect\hypertarget{exm:unnamed-chunk-43}{}{\label{exm:unnamed-chunk-43}
+\protect\hypertarget{exm:unnamed-chunk-48}{}{\label{exm:unnamed-chunk-48}
 \iffalse (체이나 시그마-체가 아닌 예) \fi{} }다음은 \(\mathcal{F}\)가
 체이나 시그마-체가 아닌 예이다. \(\Omega=(0,1]\)이고, \(\mathcal{F}\)는
 \(\emptyset\)과 모든
@@ -1296,7 +1513,7 @@ collection을 \(\mathcal{F}\)라고 할 때, \(\mathcal{F}\)가
 \EndKnitrBlock{example}
 
 \BeginKnitrBlock{example}[표본공간이 셀 수 있는 집합이면 멱집합이 사건들의 집합]
-\protect\hypertarget{exm:unnamed-chunk-44}{}{\label{exm:unnamed-chunk-44}
+\protect\hypertarget{exm:unnamed-chunk-49}{}{\label{exm:unnamed-chunk-49}
 \iffalse (표본공간이 셀 수 있는 집합이면 멱집합이 사건들의 집합) \fi{}
 }표본공간 \(\Omega\)가 셀 수 있는 집합, 예를 들면
 \(\{0,1,2,\ldots, \}\)라고 가정하자. 그리고 이 때 사건들의 집합
@@ -1326,7 +1543,7 @@ subset들의 collection \(\mathcal{A}\)가 있다고 하자. 그러면 멱집합
 부른다.
 
 \BeginKnitrBlock{example}[생성기들]
-\protect\hypertarget{exm:unnamed-chunk-45}{}{\label{exm:unnamed-chunk-45}
+\protect\hypertarget{exm:unnamed-chunk-50}{}{\label{exm:unnamed-chunk-50}
 \iffalse (생성기들) \fi{} }- 만약 \(\mathcal{A}=A\), 즉
 \(\mathcal{A}\)가 single set일 경우
 \(\sigma(\mathcal{A})=\{ \emptyset, A, A^{C}, \Omega\}\)이다.
@@ -1342,14 +1559,14 @@ subset들의 collection \(\mathcal{A}\)가 있다고 하자. 그러면 멱집합
 \section{확률공간(probability space)}\label{probability-space}
 
 \BeginKnitrBlock{definition}[가측공간]
-\protect\hypertarget{def:unnamed-chunk-46}{}{\label{def:unnamed-chunk-46}
+\protect\hypertarget{def:unnamed-chunk-51}{}{\label{def:unnamed-chunk-51}
 \iffalse (가측공간) \fi{} }표본공간 \(\Omega\)와 이와 연관된 시그마-체
 \(\mathcal{A}\)를 묶어 \((\Omega, \mathcal{A})\)를
 \textbf{가측공간(measurable space)}이라고 한다.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[확률측도]
-\protect\hypertarget{def:unnamed-chunk-47}{}{\label{def:unnamed-chunk-47}
+\protect\hypertarget{def:unnamed-chunk-52}{}{\label{def:unnamed-chunk-52}
 \iffalse (확률측도) \fi{} }가측공간 \((\Omega, \mathcal{A})\)가 주어졌을
 때 \textbf{확률측도(probability measure)} \(P\)는
 \(P:\mathcal{A}\rightarrow [0,1]\)인 함수로
@@ -1435,7 +1652,7 @@ around''라는 방법을 이용한다. 만약 ``wrapping around''를 \(\oplus\)�
 
 }
 
-\caption{Shift invariance.}\label{fig:unnamed-chunk-48}
+\caption{Shift invariance.}\label{fig:unnamed-chunk-53}
 \end{figure}
 
 ``wrapping around''를 이용해 \(A\)를 \(r\)만큼 이동해도 길이가 보존되기
@@ -1460,7 +1677,7 @@ around''라는 방법을 이용한다. 만약 ``wrapping around''를 \(\oplus\)�
 
 }
 
-\caption{Collection of disjoint unions on [0,1]}\label{fig:unnamed-chunk-49}
+\caption{Collection of disjoint unions on [0,1]}\label{fig:unnamed-chunk-54}
 \end{figure}
 
 \(H\)를 선택공리(the Axiom of Choice)에 의해 \([0,1]\)의 모든
@@ -1486,7 +1703,7 @@ around''라는 방법을 이용한다. 만약 ``wrapping around''를 \(\oplus\)�
 결과를 다음 정리로 요약해본다.
 
 \BeginKnitrBlock{theorem}[연속 표본공간에서 시그마-체로 멱집합을 쓰지 않는 이유]
-\protect\hypertarget{thm:unnamed-chunk-50}{}{\label{thm:unnamed-chunk-50}
+\protect\hypertarget{thm:unnamed-chunk-55}{}{\label{thm:unnamed-chunk-55}
 \iffalse (연속 표본공간에서 시그마-체로 멱집합을 쓰지 않는 이유) \fi{}
 }셀 수 없는 표본공간 \([0,1]\)에서 시그마-체 \(2^{[0,1]}\)을 고려할 경우
 \(P\{[a,b]\}=b-a, \text{ for all } 0\leq a \leq b \leq 1\)과
@@ -1511,7 +1728,7 @@ sigma-algebra)}에 대해 살펴보자. \(\mathbb{R}\)에서의 모든 열린
 \(A^{C}\)는 닫힌 집합이고 따라서 \(A^{C}\notin\mathcal{O}\)이다.)
 
 \BeginKnitrBlock{definition}[보렐 시그마-체]
-\protect\hypertarget{def:unnamed-chunk-51}{}{\label{def:unnamed-chunk-51}
+\protect\hypertarget{def:unnamed-chunk-56}{}{\label{def:unnamed-chunk-56}
 \iffalse (보렐 시그마-체) \fi{} }\(\mathbb{R}\)에서의 \textbf{보렐
 시그마-체(Borel sigma-field, Borel sigma-algebra)} \(\mathcal{B}\)는
 \(\mathcal{B}=\sigma(\mathcal{O})\)로 정의한다.
@@ -1522,7 +1739,7 @@ sigma-algebra)}에 대해 살펴보자. \(\mathbb{R}\)에서의 모든 열린
 언급하겠다.
 
 \BeginKnitrBlock{theorem}[열린 집합과 열린 구간들]
-\protect\hypertarget{thm:unnamed-chunk-52}{}{\label{thm:unnamed-chunk-52}
+\protect\hypertarget{thm:unnamed-chunk-57}{}{\label{thm:unnamed-chunk-57}
 \iffalse (열린 집합과 열린 구간들) \fi{} }\(E \subseteq \mathbb{R}\)이
 열린 집합이라고 하자. 그러면 기껏해야 셀 수 있는 정도로만 많은(at most
 countably many) 열린 구간들(open intervals) \(I_{j}, j=1,2,\ldots,\)가
@@ -1551,7 +1768,7 @@ open이다. 마지막으로 모든 \(I_{j}\)는 적어도 하나의 유리수를
 \EndKnitrBlock{proof}
 
 \BeginKnitrBlock{theorem}[실수 구간에서의 보렐 시그마-체의 생성]
-\protect\hypertarget{thm:unnamed-chunk-54}{}{\label{thm:unnamed-chunk-54}
+\protect\hypertarget{thm:unnamed-chunk-59}{}{\label{thm:unnamed-chunk-59}
 \iffalse (실수 구간에서의 보렐 시그마-체의 생성) \fi{}
 }\(\mathbb{R}\)에서의 보렐 시그마-체(Borel sigma-field, Borel
 sigma-algebra) \(\mathcal{B}\)는 \((-\infty, a], a\in\mathbb{Q}\)로
@@ -1607,7 +1824,7 @@ collection이라고 하자. 그러면 \(\mathcal{F}_{0}\)에서 확률측도
 그 전에 몇 가지 개념들에 대해 정의하겠다.
 
 \BeginKnitrBlock{definition}[유한한 교집합에 대해 닫혀있다]
-\protect\hypertarget{def:unnamed-chunk-56}{}{\label{def:unnamed-chunk-56}
+\protect\hypertarget{def:unnamed-chunk-61}{}{\label{def:unnamed-chunk-61}
 \iffalse (유한한 교집합에 대해 닫혀있다) \fi{} }표본공간 \(\Omega\)의
 부분집합들의 class \(\mathcal{C}\)가
 \[\bigcap_{i=1}^{n}A_{i}\in\mathcal{C}\qquad{\text{for every }n\infty \text{ and } A_{1},\ldots ,A_{n}\in\mathcal{C}}\]
@@ -1616,7 +1833,7 @@ intersection)}라고 한다.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[증가하는 극한에 대해 닫혀있다]
-\protect\hypertarget{def:unnamed-chunk-57}{}{\label{def:unnamed-chunk-57}
+\protect\hypertarget{def:unnamed-chunk-62}{}{\label{def:unnamed-chunk-62}
 \iffalse (증가하는 극한에 대해 닫혀있다) \fi{} }표본공간 \(\Omega\)의
 부분집합들의 class \(\mathcal{C}\)가
 \[\bigcup_{i=1}^{\infty}A_{i}\in\mathcal{C}\qquad{\text{for every collection } A_{1}, A_{2},\ldots \in \mathcal{C} \text{ with } A_{1}\subseteq A_{2}\subseteq \ldots}\]
@@ -1630,11 +1847,11 @@ increasing limits)}라고 한다.
 
 }
 
-\caption{Closed under increasing limits.}\label{fig:unnamed-chunk-58}
+\caption{Closed under increasing limits.}\label{fig:unnamed-chunk-63}
 \end{figure}
 
 \BeginKnitrBlock{definition}[유한한 차에 대해 닫혀있다]
-\protect\hypertarget{def:unnamed-chunk-59}{}{\label{def:unnamed-chunk-59}
+\protect\hypertarget{def:unnamed-chunk-64}{}{\label{def:unnamed-chunk-64}
 \iffalse (유한한 차에 대해 닫혀있다) \fi{} }표본공간 \(\Omega\)의
 부분집합들의 class \(\mathcal{C}\)가 모든
 \(A,B\in\mathcal{C}, A\subseteq B\)에 대해
@@ -1648,13 +1865,13 @@ increasing limits)}라고 한다.
 
 }
 
-\caption{Closed under finite differences.}\label{fig:unnamed-chunk-60}
+\caption{Closed under finite differences.}\label{fig:unnamed-chunk-65}
 \end{figure}
 
 다음은 단조족에 대한 정의다.
 
 \BeginKnitrBlock{definition}[단조족]
-\protect\hypertarget{def:unnamed-chunk-61}{}{\label{def:unnamed-chunk-61}
+\protect\hypertarget{def:unnamed-chunk-66}{}{\label{def:unnamed-chunk-66}
 \iffalse (단조족) \fi{} }표본공간 \(\Omega\)의 부분집합들의 class
 \(\mathcal{C}\)가 closed under countable increasing set이거나 closed
 under countable decreasing set이면, 즉
@@ -1665,33 +1882,16 @@ under countable decreasing set이면, 즉
 
 이에 대한 증명은 \citep{Durrett2010}의 Appendix 부분을 참고하자.
 
-\section{측도(measure)}\label{measure}
-
-\textbf{측도(measure)}란 수학에서, \textbf{양(quantity)}이라 개념을
-반영하기 위해 만들어진 장치다. \(X\)를 어떤 집합이라고 하고, 이것의
-부분집합 \(U \subset X\)가 있을 때,
-
-\subsection{확률측도(probability measure)}\label{probability-measure}
-
-확률측도는 측도들 중 \(P(\Omega)=1\)인 측도 \(P\)를 일컫는다.
-
-\BeginKnitrBlock{definition}[르베그 측도]
-\protect\hypertarget{def:unnamed-chunk-62}{}{\label{def:unnamed-chunk-62}
-\iffalse (르베그 측도) \fi{} }시그마-장 \(\mathcal{L}\)이 있을 때
-\(C\)가 어떤 구간(interval)일 경우 \(\mu_{L}(C)=\text{length}C\)로
-정의한 측도 \(\mu_{L}\)을 \textbf{르베그 측도(Lebesgue measure)}라고
-부른다. 더불어 \(\mathcal{L}\)을 \textbf{르베그 집합(Legesgue
-set)}이라고 부른다. 만약 우리가 르베그 집합을 \([0,1]\)로 한정할 경우,
-\(\mu_{L}\)은 확률측도가 된다.
-\EndKnitrBlock{definition}
-
-\section{라돈-니코딤 정리(Radon-Nykodim
-theorem)}\label{--radon-nykodim-theorem}
-
 \chapter{확률변수}\label{rv}
 
+\textbf{확률변수(random variable)}의 예로는 카드를 생각해 볼 수 있다.
+확률변수 \(X=X(\omega)\)는 실변수 함수로 정의역은 \(\Omega\)이다. 각각의
+\(\omega\)가 특정한 5장의 카드 집합을 나타낸다고 할 때
+\(X(\omega)=I\{\omega가 네 개의 에이스를 가지고 있음\}\)이라고
+정의한다면 \(X(\omega)\)는 random variable이다.
+
 \BeginKnitrBlock{definition}[가측]
-\protect\hypertarget{def:unnamed-chunk-63}{}{\label{def:unnamed-chunk-63}
+\protect\hypertarget{def:unnamed-chunk-67}{}{\label{def:unnamed-chunk-67}
 \iffalse (가측) \fi{} }\((\Omega_{1}, \mathcal{F}_{1})\),
 \((\Omega_{2}, \mathcal{F}_{2})\)가 두 가측공간(measurable)이라고 할 때,
 함수 \(X:\Omega_{1} \rightarrow \Omega_{2}\)가 임의의 집합
@@ -1703,7 +1903,7 @@ theorem)}\label{--radon-nykodim-theorem}
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[확률변수]
-\protect\hypertarget{def:unnamed-chunk-64}{}{\label{def:unnamed-chunk-64}
+\protect\hypertarget{def:unnamed-chunk-68}{}{\label{def:unnamed-chunk-68}
 \iffalse (확률변수) \fi{} }\((\Omega, \mathcal{F}, P)\)가
 확률공간(probability space)이라고 하자. 그러면 어떤 실변수 함수
 \[X:\Omega \rightarrow \mathbb{R}\] 가 \((\Omega, \mathcal{F})\)에서
@@ -1712,23 +1912,106 @@ theorem)}\label{--radon-nykodim-theorem}
 \(X\)를 \textbf{확률변수(random variable)}라고 부른다.
 \EndKnitrBlock{definition}
 
+다음 그림은
+\((\Omega, \mathcal{F}, P)= ((0,1), \mathcal{B}_{(0,1)}, \mu_{L})\)에서의
+확률변수 \(X(\omega) = \frac{1}{\omega(1-\omega)}\)의
+\textbf{역상(inverse image)} 개념을 묘사한 것이다. 이 때 보렐 집합
+\(B=\{ (6.25, \infty)\cup \{4\} \}\)이며,
+\(X^{-1}(B)=\{ (0,0.2)\cup (0.8,1)\cup \{0.5\} \}\)이며 이는
+\(\mathcal{B}_{(0,1)}\)안에 있다.
+
+\BeginKnitrBlock{example}[확률변수의 예]
+\protect\hypertarget{exm:unnamed-chunk-69}{}{\label{exm:unnamed-chunk-69}
+\iffalse (확률변수의 예) \fi{} }\(\Omega=[0,1]\),
+\(\mathcal{F}=\mathcal{B}_{[0,1]}\)이며 \(\Omega\)의 부분집합이라고
+하자. 그러면
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(X_{1}(\omega)\equiv=c\).
+\item
+  \(X_{2}(\omega)=I(\omega \leq 1/2)\).
+\item
+  \(X_{3}(\omega) = \omega\).
+\end{enumerate}
+
+위 \(X_{1}\), \(X_{2}\), \(X_{3}\)은 모두 확률변수이다.
+\(B\in\mathcal{B}\)이면 \(B\)가 \(c\)를 포함할 경우
+\(X_{1}^{-1}(B)=\Omega\in\mathcal{F}\), 그렇지 않을 경우
+\(X_{1}^{-1}(B)=\emptyset\in\mathcal{F}\)이므로 \(X_{1}\)는
+\(\mathcal{F}\)-가측이다. 또한 \[
+X_{2}^{-1}(B) := 
+\begin{cases}
+\emptyset\in\mathcal{F} & \text{if $B$가 0과 1을 모두 포함 안함} \\
+\Omega\in\mathcal{F} & \text{if $B$가 0과 1을 모두 포함} \\
+[1/2,1]\in\mathcal{F} & \text{if $B$가 1만 포함} \\
+[0,1/2]\in\mathcal{F} & \text{if $B$가 0만 포함} \\
+\end{cases}
+\] 이며 따라서 \(X_{2}\)는 \(\mathcal{F}\)-가측이다.
+\(B\in\mathcal{B}\)일 떄
+\(X_{3}^{-1}(B)=B\cap [0,1] \in \mathcal{B}_{[0,1]}\in\mathcal{F}\)이므로
+\(X_{3}(\omega)\)또한 확률변수다.
+\EndKnitrBlock{example}
+
+\begin{figure}
+
+{\centering \includegraphics[width=13.17in]{images/basic_invimage} 
+
+}
+
+\caption{역상의 예.}\label{fig:unnamed-chunk-70}
+\end{figure}
+
 (확률변수에 대한 설명 보충 필요)
 
-\section{보렐-칸텔리 따름정리}\label{--}
+\section{보렐-칸텔리 따름정리 (Borel-Cantelli
+lemma)}\label{---borel-cantelli-lemma}
 
 \BeginKnitrBlock{lemma}[보렐-칸텔리 따름정리]
-\protect\hypertarget{lem:unnamed-chunk-65}{}{\label{lem:unnamed-chunk-65}
+\protect\hypertarget{lem:unnamed-chunk-71}{}{\label{lem:unnamed-chunk-71}
 \iffalse (보렐-칸텔리 따름정리) \fi{} }\textbf{(Borel-Cantelli lemma)}
 만약 \(\sum_{n=1}^{\infty}P(A_{n}) < \infty\)라면 \[P(A_{n} i.o.)=0\]
 이다.
 \EndKnitrBlock{lemma}
 
 \BeginKnitrBlock{lemma}[제 2 보렐-칸텔리 따름정리]
-\protect\hypertarget{lem:unnamed-chunk-66}{}{\label{lem:unnamed-chunk-66}
+\protect\hypertarget{lem:unnamed-chunk-72}{}{\label{lem:unnamed-chunk-72}
 \iffalse (제 2 보렐-칸텔리 따름정리) \fi{} }\textbf{(Second
 Borel-Cantelli lemma)} 만약 사건 \(A_{n}\)들이 독립이라면
 \(\sum P(A_{n})=\infty\)는 \(P(A_{n} i.o.)=1\)임을 내포한다.
 \EndKnitrBlock{lemma}
+
+\section{부등식들(inequalities)}\label{inequalities}
+
+확률론에서 부등식들은 중요한 역할을 하는데, 대부분의 일들은 다른
+것들로부터 특정한 확률로 추정하는 문제들을 다루고 있기 때문이다.
+
+\BeginKnitrBlock{lemma}[모멘트로부터 꼬리확률을 추정]
+\protect\hypertarget{lem:unnamed-chunk-73}{}{\label{lem:unnamed-chunk-73}
+\iffalse (모멘트로부터 꼬리확률을 추정) \fi{} }\(g\)가 음이 아니고,
+감소하지 않는 함수이며 \(E\{g(X)\}<\infty\)라고 하자. \(x>0\)일 때
+\[P(|X|>x)\leq \frac{E\{g(|X|)\}}{g(x)}\] 이다.
+\EndKnitrBlock{lemma}
+
+\BeginKnitrBlock{proof}
+\iffalse{} {Proof. } \fi{}
+
+\begin{eqnarray}
+E\{g(|X|)\} &=& E\{g(|X|)\}I\{|X|>x\}\\
+&=& g(x)EI\{|X|>x\}\\
+&=& g(x)P(|X|>x).
+\end{eqnarray}
+\EndKnitrBlock{proof}
+
+\(g\)를 특수하게 설정할 경우 다음 정리를 얻는다.
+
+\BeginKnitrBlock{theorem}[마르코프 부등식]
+\protect\hypertarget{thm:unnamed-chunk-75}{}{\label{thm:unnamed-chunk-75}
+\iffalse (마르코프 부등식) \fi{} }어떤 \(r>0\)에 대해
+\(E|X|^{r}<\infty\)라고 하자. 만약 \(x>0\)이면 다음 부등식이 성립한다.
+\[P(|X|>x)\leq \frac{E|X|^{r}}{x^{r}}.\]
+\EndKnitrBlock{theorem}
 
 \chapter{확률변수의 수렴}\label{convergencerv}
 
@@ -1827,7 +2110,7 @@ theorem)}\label{skorohod--skorohod-representation-theorem}
 것이다.
 
 \BeginKnitrBlock{theorem}[Skorohod 표현 정리]
-\protect\hypertarget{thm:unnamed-chunk-67}{}{\label{thm:unnamed-chunk-67}
+\protect\hypertarget{thm:unnamed-chunk-76}{}{\label{thm:unnamed-chunk-76}
 \iffalse (Skorohod 표현 정리) \fi{} }만약
 \(X_{n} \stackrel{D}{\rightarrow} X\)라면
 \((\Omega, \mathcal{F}, P)\)에서 정의된 확률변수들 \(Y_{n}\), \(Y\)가
@@ -1849,7 +2132,7 @@ convergence)}\label{--connections-between-modes-of-convergence}
 
 }
 
-\caption{Connections between modes of convergences.}\label{fig:unnamed-chunk-68}
+\caption{Connections between modes of convergences.}\label{fig:unnamed-chunk-77}
 \end{figure}
 
 \section{Convergence of moments: 일양적분가능성(uniform
@@ -1864,7 +2147,7 @@ integrability)}\label{convergence-of-moments-uniform-integrability}
 \(E(X_{n}) \rightarrow E(X)\)임을 의미하지 않는다.
 
 \BeginKnitrBlock{example}[추정량은 무한대의 평균을 갖으나 확률변수의 극한은 유한한 평균을 갖는 예]
-\protect\hypertarget{exm:unnamed-chunk-69}{}{\label{exm:unnamed-chunk-69}
+\protect\hypertarget{exm:unnamed-chunk-78}{}{\label{exm:unnamed-chunk-78}
 \iffalse (추정량은 무한대의 평균을 갖으나 확률변수의 극한은 유한한
 평균을 갖는 예) \fi{} }\(\hat{p}_{n}\)이 iid 베르누이 확률변수
 \(X_{1}, \ldots, X_{n}\)로부터 나온 표본비(sample proportion)라고 하자.
@@ -1883,7 +2166,7 @@ integrability)}\label{convergence-of-moments-uniform-integrability}
 for Statisticians 193-194쪽)
 
 \BeginKnitrBlock{definition}[일양적분가능]
-\protect\hypertarget{def:unnamed-chunk-70}{}{\label{def:unnamed-chunk-70}
+\protect\hypertarget{def:unnamed-chunk-79}{}{\label{def:unnamed-chunk-79}
 \iffalse (일양적분가능) \fi{} }만약 각 \(\epsilon >0\)에 대해
 \[E\{ |X_{n}| I(|X_{n}|>A)\}<\epsilon \forall n\] 을 만족하는 \(A\)가
 존재한다면 이 확률변수의 수열 \(X_{n}\)을 \textbf{일양적분가능(uniformly
@@ -1902,7 +2185,7 @@ integrable, UI)}이라고 부른다. 또는
 
 }
 
-\caption{Case when function values bigger than A exist.}\label{fig:unnamed-chunk-71}
+\caption{Case when function values bigger than A exist.}\label{fig:unnamed-chunk-80}
 \end{figure}
 
 다음은 \(E\{|X_{n}| I(|X_{n}|>A)\}\)에 초점을 맞춘다. 이것은 그림
@@ -1919,7 +2202,7 @@ integrable, UI)}이라고 부른다. 또는
 
 }
 
-\caption{An example of sequence of random variables that is not uniformly integrable.}\label{fig:unnamed-chunk-72}
+\caption{An example of sequence of random variables that is not uniformly integrable.}\label{fig:unnamed-chunk-81}
 \end{figure}
 
 위 확률변수의 수열은 일양적분가능하지 않다. \(A\)가 커짐에 따라 항상
@@ -1934,7 +2217,7 @@ integrable, UI)}이라고 부른다. 또는
 
 }
 
-\caption{An example of sequence of random variables that is uniformly integrable.}\label{fig:unnamed-chunk-73}
+\caption{An example of sequence of random variables that is uniformly integrable.}\label{fig:unnamed-chunk-82}
 \end{figure}
 
 위 예들로부터 얻을 수 있는 직관적 사실들은 다음과 같다. 만약 \(X_{n}\)의
@@ -1954,7 +2237,7 @@ integrable, UI)}이라고 부른다. 또는
 마지막으로 유계가 아니나 일양적분가능한 확률변수의 수열의 예를 소개한다.
 
 \begin{figure}
-\includegraphics[width=5.03in]{images/basic_UI04} \caption{An example of sequence of random variables that is not bounded but uniformly integrable.}\label{fig:unnamed-chunk-74}
+\includegraphics[width=5.03in]{images/basic_UI04} \caption{An example of sequence of random variables that is not bounded but uniformly integrable.}\label{fig:unnamed-chunk-83}
 \end{figure}
 
 \subsection{Tight}\label{tight}
@@ -1962,7 +2245,7 @@ integrable, UI)}이라고 부른다. 또는
 여기서 tight의 정의는 \citep{Proschan2016}의 6.48을 따른다.
 
 \BeginKnitrBlock{definition}[Tight sequence of distribution functions]
-\protect\hypertarget{def:unnamed-chunk-75}{}{\label{def:unnamed-chunk-75}
+\protect\hypertarget{def:unnamed-chunk-84}{}{\label{def:unnamed-chunk-84}
 \iffalse (Tight sequence of distribution functions) \fi{} }분포함수들의
 수열 \$F\_\{1\}(x), F\_\{2\}(x),\ldots \$가 모든 \(\epsilon >0\)에 대해
 숫자 \(M\)이 존재해 \(F_{n}(M) <\epsilon\)이고 모든 \(n\)에 대해
@@ -1982,7 +2265,7 @@ integrable, UI)}이라고 부른다. 또는
 \section{대수의 법칙(law of large numbers)}\label{-law-of-large-numbers}
 
 \BeginKnitrBlock{proposition}[대수의 약법칙과 대수의 강법칙]
-\protect\hypertarget{prp:unnamed-chunk-76}{}{\label{prp:unnamed-chunk-76}
+\protect\hypertarget{prp:unnamed-chunk-85}{}{\label{prp:unnamed-chunk-85}
 \iffalse (대수의 약법칙과 대수의 강법칙) \fi{} }\textbf{대수의
 약법칙(weak law of large numbers, WLLN)}은 \(\bar{X}_{n}\)이 \(\mu\)에
 확률수렴하는 것이고, \textbf{대수의 강법칙(strong law of large numbers,
@@ -2015,7 +2298,7 @@ variables)}\label{--convergence-of-functions-of-random-variables}
 
 }
 
-\caption{Overview of the threee types of worlds in which our processes live.}\label{fig:unnamed-chunk-77}
+\caption{Overview of the threee types of worlds in which our processes live.}\label{fig:unnamed-chunk-86}
 \end{figure}
 
 \textbf{확률과정(stochastic process)}란 확률공간에서 정의되는
@@ -2028,11 +2311,8 @@ variables)}\label{--convergence-of-functions-of-random-variables}
 \section{확률과정에서의 연속성(continuity of stochastic
 process)}\label{-continuity-of-stochastic-process}
 
-\subsection{연속표본경로(continuous sample
-paths)}\label{continuous-sample-paths}
-
 \BeginKnitrBlock{definition}[연속표본경로]
-\protect\hypertarget{def:unnamed-chunk-78}{}{\label{def:unnamed-chunk-78}
+\protect\hypertarget{def:unnamed-chunk-87}{}{\label{def:unnamed-chunk-87}
 \iffalse (연속표본경로) \fi{} }과정 \(X\)가 \(t_{0}\)에서 연속이라 함은
 \[\text{For almost all }\omega, t \rightarrow t_{0} \text{ implies } X(t,\omega) \rightarrow X(t_{0},\omega)\]
 를 의미한다. 과정 \(X\)가 연속이라 함은
@@ -2040,12 +2320,157 @@ paths)}\label{continuous-sample-paths}
 임을 의미한다.
 \EndKnitrBlock{definition}
 
+\BeginKnitrBlock{definition}[CADLAG (CAGLAD)]
+\protect\hypertarget{def:unnamed-chunk-88}{}{\label{def:unnamed-chunk-88}
+\iffalse (CADLAG (CAGLAD)) \fi{} }Well-ordered set \(T\)에 있는 sample
+function \(x\)가 모든점에서 continuous from the right (left)하고 limited
+from the left (right)일 때 \textbf{CADLAG (CAGLAD)}이라고 한다. 즉, 모든
+\(t_{0}\in T\)에서 \(t\downarrow t_{0}\)이
+\(x(t) \rightarrow x(t_{0})\)를 의미하고 \(t\uparrow t_{0}\)일 때
+\(\lim_{t\uparrow t_{0}} x(t)\)가 존재하나 꼭 \(x(t_{0})\)일 필요는 없는
+상황임을 의미한다. 어떤 확률과정 \(X\)가 CADLAG임은 그것의 almost all
+sample path가 CADLAG임을 의미한다.
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{definition}[확률과정의 version]
+\protect\hypertarget{def:unnamed-chunk-89}{}{\label{def:unnamed-chunk-89}
+\iffalse (확률과정의 version) \fi{} }Common index set \(T\)를 갖는 두
+개의 확률과정 \(X\)와 \(Y\)이 서로의 \textbf{version}이라 함은
+\[\forall t \in T, \mathbb{P}(\omega: X(t,\omega)=Y(t,\omega))=1\] 임을
+의미한다. 이러한 과정들을 \textbf{stochastically equivalent}라고도
+부른다. 이는 임의의 시간대에서 \(X\)와 \(Y\)는 almost surely equal이라는
+것이다.
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{definition}[확률과정의 구분불가능성]
+\protect\hypertarget{def:unnamed-chunk-90}{}{\label{def:unnamed-chunk-90}
+\iffalse (확률과정의 구분불가능성) \fi{} }두 개의 확률과정 \(X\)와
+\(Y\)가 \textbf{구분불가능(indistinguishable)} 또는 \textbf{euqivalent
+up to evanescense}하다는 것은
+\[\mathbb{P}(\omega: \forall t, X(t,\omega)=Y(t,\omega))=1\] 임을
+의미한다. 쉽게 얘기하면 \(X\)와 \(Y\)의 표본 경로가 equal almost
+surely라는 것이다.
+\EndKnitrBlock{definition}
+
+구분불가능성을 갖는 확률과정은 서로의 version이 되나, 그 반대는 성립하지
+않는다.
+
+그렇다면 확률과정에서 왜 연속성이 이슈가 되는가? 우리는 sample path를
+보통 연속인 함수로 제한하고 싶어한다. 더 나아가 미분가능할 정도로
+부드러운 함수를 다루고자 하는 경우가 많다. 물론 이는 수학적인 편리함을
+위해서이다.
+
+\BeginKnitrBlock{proposition}
+\protect\hypertarget{prp:unnamed-chunk-91}{}{\label{prp:unnamed-chunk-91}
+}\(X(t,\omega)\)를 실변수이며 연속 표본 경로를 갖는 연속 모수 과정이라고
+하자. 그러면 모든 유한한 구간 \(I\)에 대해
+\(M(\omega)=\equiv \sup_{t\in I}X(t,\omega)\)이고
+\(m(\omega)\equiv \inf_{t\in I}X(t,\omega)\)는 가측 확률변수이다.
+\EndKnitrBlock{proposition}
+
+우리는 특정 시간에 관찰된 확률과정을 다룰 때 product \(\sigma\)-field를
+보통 쓴다. Product \(\sigma\)-field는 countable question에 대해 답을 해
+준다. 즉 어떤 measurable set \(A\)가 있으면 이 때
+\(x(\cdot, \omega)\in A\)는 countably many indices \(t\)의
+\(x(t,\omega)\) value들에 depend해야한다는 것이다. 이것은 모든
+continuous sample path들의 class가 not product \(\sigma\)-field
+measurable이 될 수도 있다는 것을 의미하는데, 그 이유는
+\(x(\cdot, \omega)\)가 \(t\)에서 연속이라는 것은 모든 수열
+\(t_{n}\rightarrow t\)에 대해
+\(x(t_{n},\omega)\rightarrow x(t,\omega)\)라는 것을 의미하면 이것은
+uncountably many coordinates들의 함숫값들을 포함하는 것이기 때문이다. 더
+나아가 differentiable function들의 class 또한 \(\sigma\)-field
+measurable이 아니다.
+
+\section{분리가능한 무작위 함수들(separable random
+functions)}\label{--separable-random-functions}
+
+\textbf{분리가능(separable)}한 무작위 함수들의 기본 아이디어는 contable,
+dense subset만 다룬다는 것이다.
+
+\BeginKnitrBlock{definition}[분리가능 함수들(separable functions]
+\protect\hypertarget{def:unnamed-chunk-92}{}{\label{def:unnamed-chunk-92}
+\iffalse (분리가능 함수들(separable functions) \fi{} }\(\Xi\)와 \(T\)가
+metric space라고 하고, \(D\)를 \(T\)의 countable, dense subset이라고
+하자. 그러면 함수 \(x: T\rightarrow \Xi\)가 \(\forall t\in T\)에 대해
+수열 \(t_{i}\in D\)가 존재해 \(t_{i}\rightarrow t\) 그리고
+\(x(t_{i})\rightarrow x(t)\)를 만족할 경우 함수 \(x\)를
+\textbf{D-분리가능(D-separable)} 또는 D에 대해 분리가능하다고 한다.
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{lemma}
+\protect\hypertarget{lem:unnamed-chunk-93}{}{\label{lem:unnamed-chunk-93}
+}다음 조건들은 분리가능성의 충분조건이다.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(T\) is countable
+\item
+  \(T\) is continuous
+\item
+  \(T\) is well-ordered and \(x\) is right-continuous.
+\end{enumerate}
+\EndKnitrBlock{lemma}
+
+\BeginKnitrBlock{proof}
+\iffalse{} {Proof. } \fi{}1. \(T\) 자체를 separating set으로 잡으면
+된다.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  어떤 countable dense set \(D\)를 잡는다. Dense 성질에 의해 모든
+  \(t\)에 대해 다음과 같은 수열 \(t_{i}\in D\)가 존재해
+  \(t_{i}\rightarrow t\)이다. 연속성에 의해 \(x(t_{i})\rightarrow t\)가
+  된다.
+\item
+  2와 마찬가지로 모든 coundtable dense \(D\)에 대해 \(t_{i}>t\)가
+  되도록인 채로 2와 같은 논리를 따라가면 된다.
+\end{enumerate}
+\EndKnitrBlock{proof}
+
+\BeginKnitrBlock{definition}[분리가능 과정]
+\protect\hypertarget{def:unnamed-chunk-95}{}{\label{def:unnamed-chunk-95}
+\iffalse (분리가능 과정) \fi{} }\(\Xi\)-valued process \(X\) on \(T\)가
+\textbf{D에 대해 분리가능(separable with respect to D)}하다는 것은
+\(D\)가 \(T\)의 countable, dense subset이고 다음과 같은 measure-zero set
+\(N\in\Omega\)가 존재해 모든 \(\omega \in N\)에 대해
+\(X(\cdot, \omega)\)가 \(D\)-분리가능이라는 것이다. 즉
+\(X(\cdot, \omega)\)가 almost surely \(D\)-separable이라는 것이다.
+\EndKnitrBlock{definition}
+
+\section{경험과정(empirical process)}\label{empirical-process}
+
+이 부분은 \citep{Jiang2010}을 참고했다. 확률변수들은
+관찰값(observation)들의 형태로 얻어지는데, 관찰된 확률변수들로 구성된
+함수를 우리는 특별히 \textbf{통계적 함수(statistical function)}이라고
+부른다. 통계적 함수는 실제로 얻을 수 있다는 점에서 많은 사람들이 그
+성질에 대해 관심을 갖는다. 보통은 통계적 함수들 중
+\textbf{경험과정(empriical process)}이라고 부르는 것에 집중을 하게 된다.
+\$X\_\{1\},X\_\{2\},\ldots \$가 분포함수 \(F\)를 갖는 i.i.d.
+확률변수들의 수열이라고 하자. 그러면 \textbf{경험적 분포함수(empirical
+distribution function)}은 다음과 같이 정의된다.
+
+\begin{equation}
+F_{n}(x)=\frac{1}{n}\sum_{i=1}^{n}1_{(X_{i}\leq x)}, -\infty < x < \infty.
+\label{eq:empiricalDF}
+\end{equation}
+
+식 \eqref{eq:empiricalDF}은 쉬워보이지만 이 식의 뜻을 쉽게 이해하기는
+어렵다. 여기서 \(X_{i}\)들은 관찰값들이고 \(x\)는 함수값이다.
+\(X_{i}\)들의 실현(realization)에 대해 식 \eqref{eq:empiricalDF}은
+계단함수를 정의한다. 그리고 \(X_{i}\)들이 무작위이므로 식
+\eqref{eq:empiricalDF} 또한 무작위이다. 즉 \(X_{1},\ldots ,X_{n}\)들이 매
+번 실현될 때마다 다른 함수를 얻게 된다.
+
 \section{포아송과정(Poisson process)}\label{poisson-process}
 
 \section{브라운운동(Brownian motion)}\label{brownian-motion}
 
 \BeginKnitrBlock{definition}[저차원에서의 브라운운동]
-\protect\hypertarget{def:unnamed-chunk-79}{}{\label{def:unnamed-chunk-79}
+\protect\hypertarget{def:unnamed-chunk-96}{}{\label{def:unnamed-chunk-96}
 \iffalse (저차원에서의 브라운운동) \fi{} }실수값을 갖는 확률과정
 \(\{ B(t) : t\geq 0\}\)이 다음 조건들을 만족할 때
 
@@ -2080,8 +2505,14 @@ derivative (또는 fractional integral) of Brownian motion을 일컫는
 
 \section{마팅게일(martingale)}\label{martingale}
 
+\textbf{마팅게일(martingale)}은 평균 0을 갖는 독립인 확률변수들의 합의
+일반화이다. 마팅게일은 확률과 통계에서 중요한 역할을 하며, 과거의 모든
+정보를 알고 있다면 미래의 기댓값이 현재 값과 동일한 과정이다.
+마팅게일이라는 말은 원래 도박에서 유래하였다고 한다. 마팅게일을 정의할
+때는 조건부 기댓값이 중요한 역할을 한다.
+
 \BeginKnitrBlock{definition}[마팅게일]
-\protect\hypertarget{def:unnamed-chunk-80}{}{\label{def:unnamed-chunk-80}
+\protect\hypertarget{def:unnamed-chunk-97}{}{\label{def:unnamed-chunk-97}
 \iffalse (마팅게일) \fi{} }확률과정 \(\{X_{n}\}\)가
 
 \begin{enumerate}
@@ -2102,7 +2533,7 @@ derivative (또는 fractional integral) of Brownian motion을 일컫는
 \section{마르코프 체인(Markov chain)}\label{-markov-chain}
 
 \BeginKnitrBlock{definition}[마르코프 체인]
-\protect\hypertarget{def:unnamed-chunk-81}{}{\label{def:unnamed-chunk-81}
+\protect\hypertarget{def:unnamed-chunk-98}{}{\label{def:unnamed-chunk-98}
 \iffalse (마르코프 체인) \fi{} }\textbf{마르코프 체인(Markov chain)}이란
 
 \[P(X_{n+1}=X|X_{1}=x_{1}, X_{2}=x_{2}, \ldots , X_{n}=x_{n})=P(X_{n+1}=x|X_{n}=x_{n})\]
@@ -2119,7 +2550,7 @@ Large-sample technique의 장점 중 하나는 중요한 부분과 minor한 부�
 예제이다.
 
 \BeginKnitrBlock{example}[Order 고려의 중요성 (1)]
-\protect\hypertarget{exm:unnamed-chunk-82}{}{\label{exm:unnamed-chunk-82}
+\protect\hypertarget{exm:unnamed-chunk-99}{}{\label{exm:unnamed-chunk-99}
 \iffalse (Order 고려의 중요성 (1)) \fi{} }\(X_{1},\ldots , X_{n}\)이
 i.i.d.로 얻어진 표본들이며 \(\mu=E(X_{1})\neq 0\)이라고 하자. 그러면
 우리는 \(\sum_{i=1}^{n}X_{i}\)로 기댓값들의 합
@@ -2138,7 +2569,7 @@ technique은 우리가 \((\sum_{i=1}^{n}X_{i})^{2}\)를 고려할 때에는
 \EndKnitrBlock{example}
 
 \BeginKnitrBlock{example}[Order 고려의 중요성 (2)]
-\protect\hypertarget{exm:unnamed-chunk-83}{}{\label{exm:unnamed-chunk-83}
+\protect\hypertarget{exm:unnamed-chunk-100}{}{\label{exm:unnamed-chunk-100}
 \iffalse (Order 고려의 중요성 (2)) \fi{} }앞선 예제를 다시 생각해보자.
 \(X_{1},\ldots , X_{n}\)이 i.i.d.로 얻어진 표본들이며
 \(\mu=E(X_{1})\neq 0\)이라고 하자. 이때 우리가 \(\sum_{i=1}^{n}X_{i}\)로
@@ -2208,7 +2639,7 @@ E(\sum_{i=1}^{n}X_{i})^{2}&=&(\sum_{i=1}^{n}X_{i})^{2}-\{ (\sum_{i=1}^{n}X_{i})^
 o)}\label{big-o-small-o-big-o-and-small-o}
 
 \BeginKnitrBlock{definition}[big O]
-\protect\hypertarget{def:unnamed-chunk-84}{}{\label{def:unnamed-chunk-84}
+\protect\hypertarget{def:unnamed-chunk-101}{}{\label{def:unnamed-chunk-101}
 \iffalse (big O) \fi{} }(실수값을 갖는) 무한 수열
 \(a_{n},n=1,2,\ldots\)가 유계일 경우 \(a_{n}=O(1)\)이라고 한다. 즉 어떤
 상수 \(c\)가 존재해 \(|a_{n}|\leq c, n\geq 1\)이면 \(a_{n}=O(1)\)이다.
@@ -2218,12 +2649,12 @@ o)}\label{big-o-small-o-big-o-and-small-o}
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{lemma}
-\protect\hypertarget{lem:unnamed-chunk-85}{}{\label{lem:unnamed-chunk-85}
+\protect\hypertarget{lem:unnamed-chunk-102}{}{\label{lem:unnamed-chunk-102}
 }\(a_{n}=O(b_{n})\)은 \(a_{n}=b_{n}O(1)\)임과 동치이다.
 \EndKnitrBlock{lemma}
 
 \BeginKnitrBlock{definition}[small o]
-\protect\hypertarget{def:unnamed-chunk-86}{}{\label{def:unnamed-chunk-86}
+\protect\hypertarget{def:unnamed-chunk-103}{}{\label{def:unnamed-chunk-103}
 \iffalse (small o) \fi{} }수열 \(a_{n},n=1,2,\ldots\)가
 \(n\rightarrow\infty\)일 때 \(a_{n}\rightarrow 0\)인 경우
 \(a_{n}=o(1)\)이라고 한다. 좀 더 일반적으로, \(b_{n},n=1,2,\ldots\)를
@@ -2233,19 +2664,19 @@ o)}\label{big-o-small-o-big-o-and-small-o}
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{lemma}
-\protect\hypertarget{lem:unnamed-chunk-87}{}{\label{lem:unnamed-chunk-87}
+\protect\hypertarget{lem:unnamed-chunk-104}{}{\label{lem:unnamed-chunk-104}
 }\(a_{n}=o(b_{n})\)은 \(a_{n}=b_{n}o(1)\)임과 동치이다.
 \EndKnitrBlock{lemma}
 
 여기서 우리는 small o가 big O보다 좀 더 강한 조건임을 알 수 있다.
 
 \BeginKnitrBlock{lemma}
-\protect\hypertarget{lem:unnamed-chunk-88}{}{\label{lem:unnamed-chunk-88}
+\protect\hypertarget{lem:unnamed-chunk-105}{}{\label{lem:unnamed-chunk-105}
 }\(a_{n}=o(b_{n})\)이면 \(a_{n}=O(b_{n})\)이다.
 \EndKnitrBlock{lemma}
 
 \BeginKnitrBlock{lemma}[big O와 small o의 성질들]
-\protect\hypertarget{lem:unnamed-chunk-89}{}{\label{lem:unnamed-chunk-89}
+\protect\hypertarget{lem:unnamed-chunk-106}{}{\label{lem:unnamed-chunk-106}
 \iffalse (big O와 small o의 성질들) \fi{} } 1. 만약
 \(a_{n}=O(b_{n})\)이고 \(b_{n}=O(c_{n})\)이면 \(a_{n}=O(c_{n})\)이다.
 
@@ -2271,16 +2702,46 @@ o)}\label{big-o-small-o-big-o-and-small-o}
 \EndKnitrBlock{lemma}
 
 그러나 어떤 증가함수 \(g\)에 대해 \(a_{n}=O(b_{n})\)은
-\(g(a_{n})=O\{g(b_{n})\}\)임을 의미하지는 않는다.
+\(g(a_{n})=O\{g(b_{n})\}\)임을 의미하지는 않는다. 마찬가지로,
+\(a_{n}=o(b_{n})\)은 \(g(a_{n})=o\{g(b_{n})\}\)임을 의미하지는 않는다.
 
-\BeginKnitrBlock{example}[증가함수와 big O and small o]
-\protect\hypertarget{exm:unnamed-chunk-90}{}{\label{exm:unnamed-chunk-90}
-\iffalse (증가함수와 big O and small o) \fi{} }\(a_{n}=n\),
-\(b_{n}=2n\)이라고 하자. 그러면 \(a_{n}=O(b_{n})\)이다. 그러나
-\(n\rightarrow\infty\)일 때
+\BeginKnitrBlock{example}[증가함수와 big O]
+\protect\hypertarget{exm:unnamed-chunk-107}{}{\label{exm:unnamed-chunk-107}
+\iffalse (증가함수와 big O) \fi{} }\(a_{n}=n\), \(b_{n}=2n\)이라고 하자.
+그러면 \(a_{n}=O(b_{n})\)이다. 그러나 \(n\rightarrow\infty\)일 때
 \(e^{a_{n}}/e^{b_{n}}=e^{n}/e^{2n}=e^{-n}\rightarrow 0\)이다. 따라서
 \(e^{a_{n}}=o(e^{b_{n}})\)이며 \(O(e^{b_{n}})\)이 아니다.
 \EndKnitrBlock{example}
+
+\BeginKnitrBlock{example}[증가함수와 small o]
+\protect\hypertarget{exm:unnamed-chunk-108}{}{\label{exm:unnamed-chunk-108}
+\iffalse (증가함수와 small o) \fi{} }\(a_{n}=n\), \(b_{n}=n^{2}\)을
+생각해보자. 그러면 \(a_{n}=o(b_{n})\)이다. 그러나
+\(\log(a_{n})=\log(b_{n})\)이고 \(\log(b_{n})=2\log(n)\)이며
+\(\log(a_{n})=O\{\log(b_{n})\}\)이며 \(o\{\log(b_{n})\}\)이 아니다.
+\EndKnitrBlock{example}
+
+다음은 역수와 관련된 따름정리다.
+
+\BeginKnitrBlock{lemma}[역수와 small o]
+\protect\hypertarget{lem:unnamed-chunk-109}{}{\label{lem:unnamed-chunk-109}
+\iffalse (역수와 small o) \fi{} }만약 \(a_{n}\), \(b_{n}\)이 0이 아닌
+수열들이고 \(a_{n}=o(b_{n})\)이라고 하자. 그러면
+\(b_{n}^{-1}=o(a_{n}^{-1})\)이다.
+\EndKnitrBlock{lemma}
+
+\section{실함수에서의 Big O와 small o (big O and small o for real valued
+functions)}\label{-big-o-small-o-big-o-and-small-o-for-real-valued-functions}
+
+Big O와 small o 컨셉을 실함수에도 확장할 수 있다. 우선,
+\(x\rightarrow 0\)인 경우를 고려해 보자. \(x\rightarrow 0\)일 때
+\(f(x)/x\)가 유계이면 \(f(x)=O(x)\)라고 한다. 유사하게,
+\(x\rightarrow 0\)일 때 \(f(x)/x\rightarrow 0\)일 경우 \(f(x)=o(x)\)라고
+한다. 좀 더 일반적으로 임의의 \(x_{0}\)와 \(p\geq 0\)에 대해
+\(f(x)/|x-x_{0}|^{p}\)가 유계일 경우 \(f(x)=O(|x-x_{0}|^{p})\)라고 한다.
+마찬가지로 \(|x|\rightarrow \infty\)임에 따라
+\(f(x)/|x-x_{0}|^{p}\rightarrow 0\)인 경우 \(f(x)=o(|x-x_{0}|^{p})\)라고
+한다.
 
 \section{벡터와 행렬에서의 Big O와 small o (big O and small o for
 vectors and
@@ -2294,7 +2755,7 @@ matrices)}\label{--big-o-small-o-big-o-and-small-o-for-vectors-and-matrices}
 생각한다.
 
 \BeginKnitrBlock{definition}[벡터에서의 big O와 small o]
-\protect\hypertarget{def:unnamed-chunk-91}{}{\label{def:unnamed-chunk-91}
+\protect\hypertarget{def:unnamed-chunk-110}{}{\label{def:unnamed-chunk-110}
 \iffalse (벡터에서의 big O와 small o) \fi{} }\(a_{n},n=1,2,\ldots\)를
 양수들의 수열이라고 하자. \(v_{n},n=1,2,\ldots\)를 벡터들의 수열이라고
 하자. 그러면 \(|v_{n}|/a_{n}\)이 유계인 경우 \(v_{n}=O(a_{n})\)이라고
@@ -2303,7 +2764,7 @@ matrices)}\label{--big-o-small-o-big-o-and-small-o-for-vectors-and-matrices}
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[행렬에서의 big O와 small o]
-\protect\hypertarget{def:unnamed-chunk-92}{}{\label{def:unnamed-chunk-92}
+\protect\hypertarget{def:unnamed-chunk-111}{}{\label{def:unnamed-chunk-111}
 \iffalse (행렬에서의 big O와 small o) \fi{} }\(a_{n},n=1,2,\ldots\)를
 양수들의 수열이라고 하자. \(A_{n},n=1,2,\ldots\)를 행렬들의 수열이라고
 하자. 그러면 \(\|A_{n}\|/a_{n}\)이 유계인 경우 \(A_{n}=O(a_{n})\)이라고
@@ -2312,7 +2773,7 @@ matrices)}\label{--big-o-small-o-big-o-and-small-o-for-vectors-and-matrices}
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[벡터와 행렬에서의 부등호]
-\protect\hypertarget{def:unnamed-chunk-93}{}{\label{def:unnamed-chunk-93}
+\protect\hypertarget{def:unnamed-chunk-112}{}{\label{def:unnamed-chunk-112}
 \iffalse (벡터와 행렬에서의 부등호) \fi{} }\(A\)와 \(B\)를
 \(k \times k\) 행렬이라고 하자. 그러면
 
@@ -2332,7 +2793,7 @@ op)}\label{big-op-small-op-big-op-and-small-op}
 \textbf{bounded in probability}라고 부른다.
 
 \BeginKnitrBlock{definition}[big Op]
-\protect\hypertarget{def:unnamed-chunk-94}{}{\label{def:unnamed-chunk-94}
+\protect\hypertarget{def:unnamed-chunk-113}{}{\label{def:unnamed-chunk-113}
 \iffalse (big Op) \fi{} }확률변수들의 수열 \(X_{n},n=1,2,\ldots\)이 어떤
 \(\epsilon >0\)에 대해 \(M>0, N\geq 1\)이 존재해
 
@@ -2346,7 +2807,7 @@ P(|X_{n}|\leq M)> 1-\epsilon,\qquad{n\geq N}
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{lemma}
-\protect\hypertarget{lem:unnamed-chunk-95}{}{\label{lem:unnamed-chunk-95}
+\protect\hypertarget{lem:unnamed-chunk-114}{}{\label{lem:unnamed-chunk-114}
 }\(X_{n}=O_{P}(1)\)인 것은 모든 \(\epsilon >0\)에 대해 \(M>0\)이 존재해
 
 \begin{equation}
@@ -2357,7 +2818,7 @@ P(|X_{n}|\leq M)> 1-\epsilon,\qquad{n\geq 1}
 \EndKnitrBlock{lemma}
 
 \BeginKnitrBlock{definition}[small Op]
-\protect\hypertarget{def:unnamed-chunk-96}{}{\label{def:unnamed-chunk-96}
+\protect\hypertarget{def:unnamed-chunk-115}{}{\label{def:unnamed-chunk-115}
 \iffalse (small Op) \fi{} }\(a_{n}\)을 양수들의 수열이라고 하자.
 확률변수들의 수열 \(X_{n},n=1,2,\ldots\)이 \(n\rightarrow \infty\)일 때
 \(X_{n}/a_{n}\stackrel{P}{\rightarrow}0\)를 만족할 경우
@@ -2365,7 +2826,7 @@ P(|X_{n}|\leq M)> 1-\epsilon,\qquad{n\geq 1}
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{theorem}[big Op 관련 정리]
-\protect\hypertarget{thm:unnamed-chunk-97}{}{\label{thm:unnamed-chunk-97}
+\protect\hypertarget{thm:unnamed-chunk-116}{}{\label{thm:unnamed-chunk-116}
 \iffalse (big Op 관련 정리) \fi{} }확률변수들의 수열
 \(X_{n},n=1,2,\ldots\)이 있다고 할 때 다음 중 하나라도 성립하면
 \(X_{n}=O_{P}(1)\)이다.
@@ -2389,7 +2850,50 @@ AIC, AICc, BIC
 
 \section{선형모형(linear model)}\label{linear-model}
 
-이 절의 내용은 \citep{Yee2015}를 따른다.
+\subsection{단순선형모형(simple linear
+model)}\label{simple-linear-model}
+
+이 절의 내용은 \citep{Yee2015}를 따른다. \citep{Wood2006}도 참고한다.
+다음과 같이 \(n\)개의 관찰값 \(x_{i},y_{i}, i=1,\ldots,n\)이 있다고
+하자. 이 때 \(y_{i}\)는 평균이 \(\mu_{i}=E(Y_{i})\)인 확률변수
+\(Y_{i}\)의 관찰값이라고 하자. 그러면 \(x\)와 \(y\) 사이에 가장 단순한
+형태의 선형모형을 세울 수 있다.
+\[Y_{i}=\mu_{i}+\epsilon_{i}, \qquad{\mu_{i}=x_{i}\beta}.\] 이 때
+\(\beta\)는 알려지지 않은 \textbf{모수(parameter)}이며
+\(\epsilon_{i}\)는 보통 상호 독립이면 평균이 0인 확률변수라고 가정한다.
+\(Y\)는 보통 \textbf{설명변수(response variable)}라고 부르며, \(x\)는
+\textbf{예측변수(predictor variable)}라고 부른다.
+
+\subsection{단순 최소제곱 추정(simple least squares
+estimation)}\label{--simple-least-squares-estimation}
+
+그렇다면 우리는 자료 \((x_{i},y_{i})\)들로부터 \(\beta\)를 어떻게 추정할
+수 있을까? 가장 합리적인 방법으로 자료를 가장 잘 적합(fit)하는
+\(\hat{\beta}\)로 \(\beta\)를 추정할 수 있다.
+
+\section{선형혼합모형(linear mixed model)}\label{linear-mixed-model}
+
+이 부분의 내용은\citep{Wood2006}를 참고하였다. 일반적으로
+\textbf{선형혼합모형(linear mixed model)}은 선형모형을 확장한 것이다.
+\[\mathbf{y}=\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\epsilon}, \qquad{\boldsymbol{\epsilon}\sim\mathcal{N}(0,\boldsymbol{\Lambda}_{\theta})}.\]
+이 때
+\[\mathbf{y}=\mathbf{X}\boldsymbol{\beta}+\mathbf{Zb}+\boldsymbol{\epsilon},\]
+\[\mathbf{b}\sim\mathcal{N}(\mathbf{0},\boldsymbol{\psi}_{\theta}),\]
+\[\boldsymbol{\epsilon}\sim\mathcal{N}(\mathbf{0},\boldsymbol{\Lambda}_{\theta})\]
+이다. \(\mathbf{b}\)는 무작위 벡터로 \textbf{무작위 효과(random
+effects)}를 나타낸다. \(\mathbf{b}\)는 기댓값이 0이고 공분산 행렬은
+알려지지 않은 모수 \(\theta\)를 포함한 \(\boldsymbol{\psi}_{\theta}\)를
+갖는다. \(\mathbf{Z}\)는 무작위 효과를 나타내는 모형 행렬(model
+matrix)이다. \(\boldsymbol{\Lambda}_{\theta}\)는 양정치(positive
+definite) 행렬로 residual의 autocorrelation을 모델링하는데 사용한다.
+만약 \(\boldsymbol{\Lambda}_{\theta}=\mathbf{I}\sigma^{2}\)이면
+\(\mathbf{b}\)와 \(\boldsymbol{\epsilon}\)은 독립이다.
+
+\subsection{무작위 요인인 한 개일 때(a single random
+factor)}\label{----a-single-random-factor}
+
+\citep{Wood2006}를 참고하였다. 이 때의 모형은
+\[y_{ij}=\alpha +b_{i}+e_{ij}\] 이다.
 
 \chapter{벌점화 및 축소방법}\label{penalshrink}
 
@@ -2417,7 +2921,7 @@ AIC, AICc, BIC
 
 }
 
-\caption{과적합의 예.}\label{fig:unnamed-chunk-98}
+\caption{과적합의 예.}\label{fig:unnamed-chunk-117}
 \end{figure}
 
 \section{Bias-Variance tradeoff}\label{bias-variance-tradeoff}
@@ -2454,7 +2958,7 @@ regression)}\label{--geometrical-interpretation-of-ridge-regression}
 
 }
 
-\caption{Geometric interpretation of ridge regression.}\label{fig:unnamed-chunk-99}
+\caption{Geometric interpretation of ridge regression.}\label{fig:unnamed-chunk-118}
 \end{figure}
 
 \(p=2\)인 경우를 생각해보자. 등고선이 있는 붉은색 타원이 residual sum of
@@ -2555,7 +3059,16 @@ smoothing)}\label{-univariate-smoothing}
 
 \subsection{B-spline}\label{b-spline}
 
-\citep{Yee2015}에 따르면
+\citep{Yee2015}에 따르면 \textbf{B-스플라인(B-spline)}을 쓰는 이유는
+주로 이것이 좋은 수치적 성질을 갖고 있기 때문이라고 한다(minimal
+support). Minimal support의 뜻은 \(B_{s,q}(x)>0\) for \(x\) belonging to
+the smallest overall region defined by knots 라고 한다. Minimal
+support를 갖고 있으면, neighbourhood의 개념이 계산적으로 more
+stable해진다. 왜냐하면 B-spline의 계수는 the amount of overlap is
+minimal과 관련이 있기 때문이다.
+
+\citep{Wasserman2006}에서는 B-spline이 compact support를 갖으므로
+calculation speed-up을 할 수 있다고 설명하고 있다.
 
 \subsection{P-spline}\label{p-spline}
 
@@ -2575,11 +3088,23 @@ glm)}\label{-limations-of-glm}
 
 \chapter{일반화가법모형}\label{gam}
 
+일반화가법모형을 처음 다룬 논문들로는 \citep{Hastie1986}이 있다.
 일반화가법모형에 대한 참고문헌으로는 \citep{Wood2006}이 있다. 최근에
 나온 좋은 책으로는 \citep{Yee2015}가 있으며 이 책은 주로 \textbf{벡터
 일반화선형모형(vector genearlized linear model, VGLMs)} 및 \textbf{벡터
 일반화가법모형(vector generalized addtive model, VGAMs)}에 초점을 맞추고
 있고 R 코드를 포함하고 있다.
+
+일반화가법모형은 일반화 선형모형이며 선형 predictor가 smooth functions
+of covariate의 합(sum) 형태로 표현된 모형을 말한다. 일반적으로는
+\[g(\mu_{i})=\mathbf{A}_{i}\boldsymbol{\theta}+f_{1}(x_{1i})+f_{2}(x_{2i})+f_{3}(x_{3i})+\ldots\]
+로 모형 structure를 표현할 수 있다. 이 때 \(\mu_{i}\equiv E(Y_{i})\)이고
+\(Y_{i}\sim \text{EF}(\mu_{i},\phi)\)이다. \(Y_{i}\)는 설명변수들이고,
+\(\text{EF}(\mu_{i},\phi)\)는 평균 \(\mu_{i}\)와 척도모수(scale
+parameter) \(\phi\)인 지수족 분포(exponential family distribution)를
+나타낸다. \(\mathbf{A}_{i}\)는 어떤 strictly parametric model
+components의 모형 행렬의 행(row)를 나타낸다. \(\theta\)는 대응되는 모수
+벡터이다. \(f_{j}\)는 covariates들 \(x_{k}\)들의 smooth functions이다.
 
 \section{가법모형들(additive models)}\label{additive-models}
 
@@ -2588,6 +3113,87 @@ glm)}\label{-limations-of-glm}
 표현한다. 선형모형은 \(f_{j}(x_{j})=\beta_{j}x_{j}\)인 가법모형의 특별한
 경우이다. \(f_{j}\)는 임의의 비선형 함수도 될 수 있다는 점에서
 가법모형이 좀 더 일반적인 형태의 모형이라고 할 수 있다.
+
+\section{일변량 스므딩(univariate
+smoothing)}\label{-univariate-smoothing-1}
+
+함수 모형의 표현은 보통 다음과 같은 기본적인 모형에서 출발한다.
+
+\begin{equation}
+y_{i}=f(x_{i})+\epsilon_{i}.
+\label{eq:univariatesmoothing}
+\end{equation}
+
+여기서 \(y_{i}\)는 종속변수, \(x_{i}\)는 공변량, \(f\)는 부드러운
+함수이며 \(\epsilon_{i}\)는 독립이며 \(\mathcal{N}(0,\sigma^{2})\)을
+갖는 확률변수들이다.
+
+\subsection{함수를 기저로 표현하기(representing a function with basis
+expansions)}\label{--representing-a-function-with-basis-expansions}
+
+\(f\)를 추정하기 위해 \(f\)를 식 \eqref{eq:univariatesmoothing}를
+선형모형처럼 해석하는 방법이 있다. 이렇게 하기 위해 사용하는 것이
+\textbf{기저(basis)}다. 기저라 함은 \(f\)가 원소로 있는 함수 공간을
+정의하는 데 필요한 것이다. \textbf{기저 함수(basis function)}들은 매우
+잘 알려져 있다고 단정한다. 만약 \(b_{j}(x)\)가 \(j\)번째 기저함수라고
+하면, \(f\)는 다음과 같이 표현할 수 있다고 가정한다.
+
+\section{유한 도메인에서의 soap film 스므딩(soap film smoothing over
+finite
+domains)}\label{--soap-film-soap-film-smoothing-over-finite-domains}
+
+때때로 domain이 복잡한 boundary를 갖을 때가 있다. 이 때에는 boundary
+feature를 not to smooth across하는 것이 중요하다. \citep{Wood2008}은
+이를 해결하기 위해 \textbf{soap film 스므딩(soap film smoothing)}을
+제안하였다.
+
+함수 \(f\)가 주어졌을 때 boundary 안쪽의 soap film의 높이는 다음을
+만족한다고 한다.
+\[\frac{\partial^{2}f}{\partial x^{2}}+ \frac{\partial^{2}f}{\partial y^{2}}=0.\]
+그리고 boundary condition 또한 만족한다. 즉 soap film은 minimum surface
+tension configuration을 만족한다. 정의역의 모든 영역에 걸쳐 잡음이
+들어간 \(z\)가 부드럽게 존재하기 위해 soap film은 다음 왜곡 degree
+측도를 만족해야 한다.
+\[J_{\Omega}(f)=\int_{\Omega}(\frac{\partial^{2}f}{\partial x^{2}}+ \frac{\partial^{2}f}{\partial y^{2}})^{2}dxdy.\]
+이것이 thin plate spline과 soap film smoothing을 구분하는 부붅이다.
+TPS는 \(\Omega\)에 대해 적분하지만 soap film smoothing은 그렇지 않다.
+
+\begin{figure}
+
+{\centering \includegraphics[width=12.61in]{images/gam_soapfilmsmoothing} 
+
+}
+
+\caption{Soap film smoothing 설명 그림.}\label{fig:unnamed-chunk-119}
+\end{figure}
+
+\(n\)개의 자료가 \(z_{k}\)가 있고 이것이 \(h(x_{k},y_{k})\)의 잡음이
+있는 관찰값들이라고 할 때(물론 \(h\)는 정의역에서 부드러운 함수라고
+가정한다), 우리는 \(h\)를 다음 조건을 최소화 하는 것으로 추정하려고
+한다.
+
+\begin{equation}
+\sum_{i=1}^{n}\{ z_{i}-f(x_{i},y_{i})\}^{2}+\lambda J_{\Omega}(f).
+\label{eq:soapfilmsmoothing}
+\end{equation}
+
+\section{벡터 일반화가법모형(vector GAMs)}\label{-vector-gams}
+
+스므딩에는 다음과 같은 네 가지 종류가 있다.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(y\)는 스칼라, \(x\)는 일변량
+\item
+  \(y\)는 스칼라, \(\mathbf{x}\)는 다변량
+\item
+  \(\mathbf{y}\)는 벡터, \(x\)는 일변량
+\item
+  \(\mathbf{y}\)는 벡터, \(\mathbf{x}\)는 다변량
+\end{enumerate}
+
+일반적으로 얘기하는 벡터 일반화가법모형은 (3)에 해당한다.
 
 \section{퇴각 적합화(backfitting)}\label{-backfitting}
 
@@ -2628,16 +3234,16 @@ residuals를 계산하는 것이다.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{f<-x*}\DecValTok{0}\NormalTok{;alpha<-}\KeywordTok{mean}\NormalTok{(y);ok <-}\StringTok{ }\OtherTok{TRUE}
-\NormalTok{while (ok) \{ }\CommentTok{# backfitting loop}
-  \NormalTok{for (i in }\DecValTok{1}\NormalTok{:m) \{ }\CommentTok{# loop through the smooth terms}
-    \NormalTok{ep <-}\StringTok{ }\NormalTok{y -}\StringTok{ }\KeywordTok{rowSums}\NormalTok{(f[,-i]) -}\StringTok{ }\NormalTok{alpha}
-    \NormalTok{b <-}\StringTok{ }\KeywordTok{smooth.spline}\NormalTok{(x[,i],ep,}\DataTypeTok{df=}\NormalTok{edf[i])}
-    \NormalTok{f[,i] <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(b,x[,i])$y}
-  \NormalTok{\}}
-  \NormalTok{rss <-}\StringTok{ }\KeywordTok{sum}\NormalTok{((y-}\KeywordTok{rowSums}\NormalTok{(f))ˆ}\DecValTok{2}\NormalTok{)}
-  \NormalTok{if (}\KeywordTok{abs}\NormalTok{(rss-rss0)<}\FloatTok{1e-6}\NormalTok{*rss) ok <-}\StringTok{ }\OtherTok{FALSE}
-  \NormalTok{rss0 <-}\StringTok{ }\NormalTok{rss}
+\NormalTok{f<-x}\OperatorTok{*}\DecValTok{0}\NormalTok{;alpha<-}\KeywordTok{mean}\NormalTok{(y);ok <-}\StringTok{ }\OtherTok{TRUE}
+\ControlFlowTok{while}\NormalTok{ (ok) \{ }\CommentTok{# backfitting loop}
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{m) \{ }\CommentTok{# loop through the smooth terms}
+\NormalTok{    ep <-}\StringTok{ }\NormalTok{y }\OperatorTok{-}\StringTok{ }\KeywordTok{rowSums}\NormalTok{(f[,}\OperatorTok{-}\NormalTok{i]) }\OperatorTok{-}\StringTok{ }\NormalTok{alpha}
+\NormalTok{    b <-}\StringTok{ }\KeywordTok{smooth.spline}\NormalTok{(x[,i],ep,}\DataTypeTok{df=}\NormalTok{edf[i])}
+\NormalTok{    f[,i] <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(b,x[,i])}\OperatorTok{$}\NormalTok{y}
+\NormalTok{  \}}
+\NormalTok{  rss <-}\StringTok{ }\KeywordTok{sum}\NormalTok{((y}\OperatorTok{-}\KeywordTok{rowSums}\NormalTok{(f))ˆ2)}
+  \ControlFlowTok{if}\NormalTok{ (}\KeywordTok{abs}\NormalTok{(rss}\OperatorTok{-}\NormalTok{rss0)}\OperatorTok{<}\FloatTok{1e-6}\OperatorTok{*}\NormalTok{rss) ok <-}\StringTok{ }\OtherTok{FALSE}
+\NormalTok{  rss0 <-}\StringTok{ }\NormalTok{rss}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -2678,7 +3284,7 @@ series)}\label{stationary-time-series}
 
 }
 
-\caption{Time invariant mean.}\label{fig:unnamed-chunk-102}
+\caption{Time invariant mean.}\label{fig:unnamed-chunk-122}
 \end{figure}
 
 \begin{enumerate}
@@ -2695,7 +3301,7 @@ series)}\label{stationary-time-series}
 
 }
 
-\caption{Time invariant variance.}\label{fig:unnamed-chunk-103}
+\caption{Time invariant variance.}\label{fig:unnamed-chunk-123}
 \end{figure}
 
 \begin{enumerate}
@@ -2712,11 +3318,11 @@ series)}\label{stationary-time-series}
 
 }
 
-\caption{Time invariant covariance.}\label{fig:unnamed-chunk-104}
+\caption{Time invariant covariance.}\label{fig:unnamed-chunk-124}
 \end{figure}
 
 \BeginKnitrBlock{definition}[강정상성]
-\protect\hypertarget{def:unnamed-chunk-105}{}{\label{def:unnamed-chunk-105}
+\protect\hypertarget{def:unnamed-chunk-125}{}{\label{def:unnamed-chunk-125}
 \iffalse (강정상성) \fi{} }시계열 \(\{ x_{t}\}\)가 있을 때 두 collection
 
 \[\{ x_{t_{1}}, x_{t_{2}}, \cdots  x_{t_{k}}\}, \{ x_{t_{1+h}}, x_{t_{2+h}}, \cdots  x_{t_{k+h}}\}\]
@@ -2736,7 +3342,7 @@ single data set으로부터 강정상성을 assess하기 어렵다고 한다.
 부드럽게 한다.
 
 \BeginKnitrBlock{definition}[약정상성]
-\protect\hypertarget{def:unnamed-chunk-106}{}{\label{def:unnamed-chunk-106}
+\protect\hypertarget{def:unnamed-chunk-126}{}{\label{def:unnamed-chunk-126}
 \iffalse (약정상성) \fi{} }시계열 \(x_{t}\)가 finite variance를 갖는
 process이며
 
@@ -2752,7 +3358,7 @@ process이며
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[자기공분산함수]
-\protect\hypertarget{def:unnamed-chunk-107}{}{\label{def:unnamed-chunk-107}
+\protect\hypertarget{def:unnamed-chunk-127}{}{\label{def:unnamed-chunk-127}
 \iffalse (자기공분산함수) \fi{} }정상시계열의
 \textbf{자기공분산함수(autocovariance function)}는
 \[\gamma(h)=Cov(x_{t+h}, x_{t})=E[(x_{t+h}-\mu)(x_{t}-\mu)]\] 로
@@ -2760,7 +3366,7 @@ process이며
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[자기상관함수]
-\protect\hypertarget{def:unnamed-chunk-108}{}{\label{def:unnamed-chunk-108}
+\protect\hypertarget{def:unnamed-chunk-128}{}{\label{def:unnamed-chunk-128}
 \iffalse (자기상관함수) \fi{} }정상시계열의
 \textbf{자기상관함수(autocorrelation function)}는
 \[\rho(h)=\frac{\gamma(t+h,t)}{\sqrt{\gamma(t+h,t_h)\gamma(t,t)}}=\frac{\gamma(h)}{\gamma(0)}\]
@@ -2853,7 +3459,7 @@ Q=\sum_{t=1}^{n}w_{t}^{2}=\sum_{t=1}^{n}(x_{t}-\boldsymbol{\beta}^{T}\mathbf{z}_
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(astsa)}
-\NormalTok{fit =}\StringTok{ }\KeywordTok{lm}\NormalTok{(gtemp~}\KeywordTok{time}\NormalTok{(gtemp), }\DataTypeTok{na.action=}\OtherTok{NULL}\NormalTok{) }\CommentTok{# regress gtemp on time}
+\NormalTok{fit =}\StringTok{ }\KeywordTok{lm}\NormalTok{(gtemp}\OperatorTok{~}\KeywordTok{time}\NormalTok{(gtemp), }\DataTypeTok{na.action=}\OtherTok{NULL}\NormalTok{) }\CommentTok{# regress gtemp on time}
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{))}
 \KeywordTok{plot}\NormalTok{(}\KeywordTok{resid}\NormalTok{(fit), }\DataTypeTok{type=}\StringTok{"o"}\NormalTok{, }\DataTypeTok{main=}\StringTok{"detrended"}\NormalTok{)}
 \KeywordTok{plot}\NormalTok{(}\KeywordTok{diff}\NormalTok{(gtemp), }\DataTypeTok{type=}\StringTok{"o"}\NormalTok{, }\DataTypeTok{main=}\StringTok{"first difference"}\NormalTok{)}
@@ -2862,11 +3468,11 @@ Q=\sum_{t=1}^{n}w_{t}^{2}=\sum_{t=1}^{n}(x_{t}-\boldsymbol{\beta}^{T}\mathbf{z}_
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-109-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-129-1} 
 
 }
 
-\caption{Detrended (top) and differenced (bottom) global temperature series.}\label{fig:unnamed-chunk-109}
+\caption{Detrended (top) and differenced (bottom) global temperature series.}\label{fig:unnamed-chunk-129}
 \end{figure}
 
 \begin{Shaded}
@@ -2880,11 +3486,11 @@ Q=\sum_{t=1}^{n}w_{t}^{2}=\sum_{t=1}^{n}(x_{t}-\boldsymbol{\beta}^{T}\mathbf{z}_
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-110-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-130-1} 
 
 }
 
-\caption{Sample ACF (top) detrended sample ACF (middle) and differenced (bottom) global temperature series.}\label{fig:unnamed-chunk-110}
+\caption{Sample ACF (top) detrended sample ACF (middle) and differenced (bottom) global temperature series.}\label{fig:unnamed-chunk-130}
 \end{figure}
 
 \section{ARMIA 모델들(ARIMA models)}\label{armia-arima-models}
@@ -2894,7 +3500,7 @@ Q=\sum_{t=1}^{n}w_{t}^{2}=\sum_{t=1}^{n}(x_{t}-\boldsymbol{\beta}^{T}\mathbf{z}_
 이 모형은 현재의 관측값을 과거의 관측값들의 함수형태로 나타내는 것이다.
 
 \BeginKnitrBlock{definition}[자기회귀모형]
-\protect\hypertarget{def:unnamed-chunk-111}{}{\label{def:unnamed-chunk-111}
+\protect\hypertarget{def:unnamed-chunk-131}{}{\label{def:unnamed-chunk-131}
 \iffalse (자기회귀모형) \fi{} }\textbf{AR(p)} 차수 p를 갖는
 \textbf{자기회귀모형(autoregressive model, AR model)}은
 \[x_{t}=\phi_{1}x_{t-1}+\phi_{2}x_{t-2} + \cdots + \phi_{p}x_{t-p}+w_{t}\]
@@ -2909,20 +3515,20 @@ Q=\sum_{t=1}^{n}w_{t}^{2}=\sum_{t=1}^{n}(x_{t}-\boldsymbol{\beta}^{T}\mathbf{z}_
 \begin{Highlighting}[]
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{2}\NormalTok{))}
 \NormalTok{ARsim01 <-}\StringTok{ }\KeywordTok{arima.sim}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{order=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{), }\DataTypeTok{ar=}\NormalTok{.}\DecValTok{9}\NormalTok{), }\DataTypeTok{n=}\DecValTok{100}\NormalTok{)}
-\NormalTok{ARsim02 <-}\StringTok{ }\KeywordTok{arima.sim}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{order=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{), }\DataTypeTok{ar=}\NormalTok{-.}\DecValTok{9}\NormalTok{), }\DataTypeTok{n=}\DecValTok{100}\NormalTok{)}
-\KeywordTok{plot}\NormalTok{(ARsim01, }\DataTypeTok{ylab=}\StringTok{"x"}\NormalTok{, }\DataTypeTok{main=}\NormalTok{(}\KeywordTok{expression}\NormalTok{(}\KeywordTok{AR}\NormalTok{(}\DecValTok{1}\NormalTok{)~}\ErrorTok{~~}\NormalTok{phi==+.}\DecValTok{9}\NormalTok{)))}
-\KeywordTok{plot}\NormalTok{(ARsim02, }\DataTypeTok{ylab=}\StringTok{"x"}\NormalTok{, }\DataTypeTok{main=}\NormalTok{(}\KeywordTok{expression}\NormalTok{(}\KeywordTok{AR}\NormalTok{(}\DecValTok{1}\NormalTok{)~}\ErrorTok{~~}\NormalTok{phi==-.}\DecValTok{9}\NormalTok{)))}
+\NormalTok{ARsim02 <-}\StringTok{ }\KeywordTok{arima.sim}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{order=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{), }\DataTypeTok{ar=}\OperatorTok{-}\NormalTok{.}\DecValTok{9}\NormalTok{), }\DataTypeTok{n=}\DecValTok{100}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(ARsim01, }\DataTypeTok{ylab=}\StringTok{"x"}\NormalTok{, }\DataTypeTok{main=}\NormalTok{(}\KeywordTok{expression}\NormalTok{(}\KeywordTok{AR}\NormalTok{(}\DecValTok{1}\NormalTok{)}\OperatorTok{~}\ErrorTok{~~}\NormalTok{phi}\OperatorTok{==+}\NormalTok{.}\DecValTok{9}\NormalTok{)))}
+\KeywordTok{plot}\NormalTok{(ARsim02, }\DataTypeTok{ylab=}\StringTok{"x"}\NormalTok{, }\DataTypeTok{main=}\NormalTok{(}\KeywordTok{expression}\NormalTok{(}\KeywordTok{AR}\NormalTok{(}\DecValTok{1}\NormalTok{)}\OperatorTok{~}\ErrorTok{~~}\NormalTok{phi}\OperatorTok{==-}\NormalTok{.}\DecValTok{9}\NormalTok{)))}
 \KeywordTok{acf}\NormalTok{(ARsim01); }\KeywordTok{acf}\NormalTok{(ARsim02); }\KeywordTok{pacf}\NormalTok{(ARsim01); }\KeywordTok{pacf}\NormalTok{(ARsim02)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-112-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-132-1} 
 
 }
 
-\caption{Simulated AR model.}\label{fig:unnamed-chunk-112}
+\caption{Simulated AR model.}\label{fig:unnamed-chunk-132}
 \end{figure}
 
 \subsection{MA 모형(MA models)}\label{ma-ma-models}
@@ -2934,23 +3540,51 @@ MA과정의 PACF는 AR과정의 ACF 형태와, MA과정의 ACF는 AR과정의 PA
 \begin{Highlighting}[]
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{2}\NormalTok{))   }
 \NormalTok{MAsim01 <-}\StringTok{ }\KeywordTok{arima.sim}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{order=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{), }\DataTypeTok{ma=}\NormalTok{.}\DecValTok{5}\NormalTok{), }\DataTypeTok{n=}\DecValTok{100}\NormalTok{)}
-\NormalTok{MAsim02 <-}\StringTok{ }\KeywordTok{arima.sim}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{order=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{), }\DataTypeTok{ma=}\NormalTok{-.}\DecValTok{5}\NormalTok{), }\DataTypeTok{n=}\DecValTok{100}\NormalTok{)}
-\KeywordTok{plot}\NormalTok{(MAsim01, }\DataTypeTok{ylab=}\StringTok{"x"}\NormalTok{, }\DataTypeTok{main=}\NormalTok{(}\KeywordTok{expression}\NormalTok{(}\KeywordTok{MA}\NormalTok{(}\DecValTok{1}\NormalTok{)~}\ErrorTok{~~}\NormalTok{theta==+.}\DecValTok{5}\NormalTok{)))    }
-\KeywordTok{plot}\NormalTok{(MAsim02, }\DataTypeTok{ylab=}\StringTok{"x"}\NormalTok{,}\DataTypeTok{main=}\NormalTok{(}\KeywordTok{expression}\NormalTok{(}\KeywordTok{MA}\NormalTok{(}\DecValTok{1}\NormalTok{)~}\ErrorTok{~~}\NormalTok{theta==-.}\DecValTok{5}\NormalTok{))) }
+\NormalTok{MAsim02 <-}\StringTok{ }\KeywordTok{arima.sim}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{order=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{), }\DataTypeTok{ma=}\OperatorTok{-}\NormalTok{.}\DecValTok{5}\NormalTok{), }\DataTypeTok{n=}\DecValTok{100}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(MAsim01, }\DataTypeTok{ylab=}\StringTok{"x"}\NormalTok{, }\DataTypeTok{main=}\NormalTok{(}\KeywordTok{expression}\NormalTok{(}\KeywordTok{MA}\NormalTok{(}\DecValTok{1}\NormalTok{)}\OperatorTok{~}\ErrorTok{~~}\NormalTok{theta}\OperatorTok{==+}\NormalTok{.}\DecValTok{5}\NormalTok{)))    }
+\KeywordTok{plot}\NormalTok{(MAsim02, }\DataTypeTok{ylab=}\StringTok{"x"}\NormalTok{,}\DataTypeTok{main=}\NormalTok{(}\KeywordTok{expression}\NormalTok{(}\KeywordTok{MA}\NormalTok{(}\DecValTok{1}\NormalTok{)}\OperatorTok{~}\ErrorTok{~~}\NormalTok{theta}\OperatorTok{==-}\NormalTok{.}\DecValTok{5}\NormalTok{))) }
 \KeywordTok{acf}\NormalTok{(MAsim01); }\KeywordTok{acf}\NormalTok{(MAsim02); }\KeywordTok{pacf}\NormalTok{(MAsim01); }\KeywordTok{pacf}\NormalTok{(MAsim02)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-113-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-133-1} 
 
 }
 
-\caption{Simulated MA model.}\label{fig:unnamed-chunk-113}
+\caption{Simulated MA model.}\label{fig:unnamed-chunk-133}
 \end{figure}
 
 \subsection{ARMA 모형(ARMA models)}\label{arma-arma-models}
+
+It also possible to obtain a homogeneous difference equation directly in
+terms of \(\gamma(h)\). First, we write
+
+\begin{eqnarray}
+\gamma(h)&=&\text{cov}(x_{t+h},x_{t})\\
+&=&\text{cov}(\sum_{j=1}^{p}\phi_{j}x_{t+h-j}+\sum_{j=0}^{q}\theta_{j}w_{t+h-j},x_{t})\\
+&=&\sum_{j=1}^{p}\phi_{j}\gamma(h-j)+\sigma_{w}^{2}\sum_{j=h}^{q}\theta_{j}\psi_{j-h}, h \geq 0.
+\end{eqnarray}
+
+general homoegeneous equations for the ACF of the ARMA process
+\[\gamma(h)-\phi_{1}\gamma(h-1)-\cdots - \phi_{p}\gamma(h-p)=0, h\geq \max(p,q+1)\]
+
+\subsubsection{ARMA 모형의 추정(estimation of ARMA
+models)}\label{arma--estimation-of-arma-models}
+
+\BeginKnitrBlock{definition}[Yule-Walker equations]
+\protect\hypertarget{def:unnamed-chunk-134}{}{\label{def:unnamed-chunk-134}
+\iffalse (Yule-Walker equations) \fi{}
+}\[\gamma(h)=\phi_{1}\gamma(h-1)+\cdots +\phi_{p}\gamma(h-p), h=1,2,\ldots, p, \]
+\[\sigma_{w}^{2}=\gamma(0)-\phi_{1}\gamma(1)-\cdots - \phi_{p}\gamma(p).\]
+
+Matrix notation으로는
+\[\Gamma_{p}\phi=\gamma_{p}, \sigma_{w}^{2}=\gamma(0)-\phi'\gamma_{p}\]
+이며 \(\Gamma_{p}=\{ \gamma (k-j) \}_{j,k=1}^{p}\)는 \(p\times p\)
+행렬이며 \(\phi=(\phi_{1},\ldots , \phi_{p})'\)는 \(p\times 1\) 벡터이며
+\(\gamma(p)=(\gamma(1),\ldots ,\gamma(p))'\)는 \(p\times 1\) 벡터이다.
+\EndKnitrBlock{definition}
 
 \subsection{ARIMA 모형(ARIMA models)}\label{arima-arima-models}
 
@@ -2983,6 +3617,80 @@ models)}\label{--arima-seasonal-arima-models}
 
 \textbf{결맞음(coherency)} 분석은 두 자료의 관계를 quantify하기 위해
 많이들 사용한다. 신호 사이의 결맞음 추정은 중요햐며
+
+\section{스펙트럼 밀도(spetral density)}\label{-spetral-density}
+
+\textbf{스펙트럼 밀도(spectral density)}는 기초적인 frequency domain
+tool 중 하나다. 스펙트럼 표현 정리(spectral representation theorem)은
+정상시계열을 주기성분들로 분해하는 것에 대한 이론적 근거를 제공한다.
+
+\BeginKnitrBlock{definition}[자기공분산함수의 스펙트럼 표현]
+\protect\hypertarget{def:unnamed-chunk-135}{}{\label{def:unnamed-chunk-135}
+\iffalse (자기공분산함수의 스펙트럼 표현) \fi{} }만약 \(\{x_{t} \}\)가
+정상시계열이고 자기공분산 \(\gamma(h)=\text{cov}(x_{t+h},x_{t})\)를
+갖는다면 \textbf{스펙트럼 분포(spectral distribution)}이라 불리는 유일한
+단조증가 함수가 존재해 \(F(-\infty)=F(-1/2)=0\)이고
+\(F(\infty)=F(1/2)=\gamma(0)\)이며
+
+\begin{equation}
+\gamma(h)=\int_{-1/2}^{1/2}e^{2\pi i \omega h}dF(\omega)
+\label{eq:spectraldistnfct}
+\end{equation}
+
+이다.
+\EndKnitrBlock{definition}
+
+자기공분산함수가 absolutely summable일 경우 스펙트럼 분포함수는
+absolutely continuous하며 \(dF(\omega)=f(\omega)d\omega\)이고 식
+\eqref{eq:spectraldistnfct}는 스펙트럼 밀도(spectral density)를 유도한다.
+
+\BeginKnitrBlock{definition}[스펙트럼 밀도]
+\protect\hypertarget{def:unnamed-chunk-136}{}{\label{def:unnamed-chunk-136}
+\iffalse (스펙트럼 밀도) \fi{} }자기공분산함수 \(\gamma(h)\)가
+정상과정이며 \[\sum_{h=-\infty}^{\infty}|\gamma(h)|<\infty\] 를
+만족한다고 하면 자기공분산함수는 다음과 같은 표현
+\[\gamma(h)=\int_{-1/2}^{1/2}e^{2\pi i \omega h}f(\omega)d\omega, h=0,\pm 1,\pm 2,\ldots\]
+을 갖고, \textbf{스펙트럼 밀도(spetral density)}는 그것의 역변환
+\[f(\omega)=\sum_{h=-\infty}^{\infty}\gamma(h)e^{-2\pi i \omega h}, -1/2 \leq \omega \leq 1/2\]
+으로 정의한다.
+\EndKnitrBlock{definition}
+
+스펙트럼 밀도는 확률밀도처럼 \(\gamma(h)\)가 non-negative definite이므로
+\[f(\omega) \geq 0,\forall \omega\] 을 만족한다. 또한 정의로부터
+\[f(\omega)=-f(\omega)\] 이며 이는 스펙트럼 밀도함수가 우함수임을
+보여준다. 이런 우함수 성질 덕분에 우리는 보통 \(0<\omega \leq 1/2\)인
+\(\omega\)에 대해서만 \(f(\omega)\)를 그리게 된다.
+
+\section{피리오도그램(periodogram)}\label{periodogram}
+
+\BeginKnitrBlock{definition}[이산 푸리에 변환]
+\protect\hypertarget{def:unnamed-chunk-137}{}{\label{def:unnamed-chunk-137}
+\iffalse (이산 푸리에 변환) \fi{} }자료 \(x_{1},\ldots, x_{n}\)이
+주어졌을 때, \textbf{이산 푸리에 변환(discrete Fourier transform,
+DFT)}은
+\[d(\omega_{j})=\frac{1}{\sqrt{2}}\sum_{t=1}^{n}x_{t}e^{-2\pi i \omega_{j}t}, j=0,1,\ldots, n-1\]
+이며 이 때 \textbf{도수(빈도, frequency)} \(\omega = j/n\)는
+\textbf{근본빈도(fundamental frequencies)} 또는
+\textbf{푸리에(Fourier)}라고 부른다.
+\EndKnitrBlock{definition}
+
+때때로 이산 푸리에 변환의 역버전을 생각하는 것이 편리할 때도 있다.
+
+\BeginKnitrBlock{definition}[이산 푸리에 변환의 역버전]
+\protect\hypertarget{def:unnamed-chunk-138}{}{\label{def:unnamed-chunk-138}
+\iffalse (이산 푸리에 변환의 역버전) \fi{}
+}\[x_{t}=\frac{1}{\sqrt{2}}\sum_{j=0}^{n-1}d(\omega_{j})e^{2\pi i \omega_{j}t}, t=1,\ldots, n.\]
+\EndKnitrBlock{definition}
+
+피리오도그램은 DFT의 squared modulus다.
+
+\BeginKnitrBlock{definition}[피리오도그램]
+\protect\hypertarget{def:unnamed-chunk-139}{}{\label{def:unnamed-chunk-139}
+\iffalse (피리오도그램) \fi{}
+}\[I(\omega_{j})=|d(\omega_{j})|^{2}, j=0,1,2,\ldots,n-1.\]
+\EndKnitrBlock{definition}
+
+\(I(0)=n\bar{x}^{2}\)이다.
 
 \section{Self-Similar Process}\label{self-similar-process}
 
@@ -3061,7 +3769,7 @@ function)}\label{cross-covariance-function}
 교차상관함수를 이용한다.
 
 \BeginKnitrBlock{definition}[교차상관함수]
-\protect\hypertarget{def:unnamed-chunk-114}{}{\label{def:unnamed-chunk-114}
+\protect\hypertarget{def:unnamed-chunk-140}{}{\label{def:unnamed-chunk-140}
 \iffalse (교차상관함수) \fi{} }정상인 두 시계열 \(X_{t}\)와 \(Y_{t}\)
 사이의 교차상관함수는
 \[\gamma_{XY}(t)=E[(X_{t}-\mu_{X})(Y_{t+k}-\mu_{Y})], \qquad{k=0,\pm 1, \pm 2, \ldots}\]
@@ -3074,7 +3782,7 @@ function)}\label{cross-covariance-function}
 정도와 영향을 미치는 방향을 같이 측정한다는 점이 특징이다.
 
 \BeginKnitrBlock{definition}[교차상관계수]
-\protect\hypertarget{def:unnamed-chunk-115}{}{\label{def:unnamed-chunk-115}
+\protect\hypertarget{def:unnamed-chunk-141}{}{\label{def:unnamed-chunk-141}
 \iffalse (교차상관계수) \fi{} }정상인 두 시계열 \(X_{t}\)와 \(Y_{t}\)
 사이의 교차상관함수는
 \[\rho_{XY}(k)=Corr(X_{t},Y_{t+k})=\frac{\gamma_{XY}(k)}{\sigma_{X}\sigma_{Y}}=\frac{\gamma_{XY}(k)}{\sqrt{\gamma_{X}(0)\gamma_{Y}(0)}}\]
@@ -3169,7 +3877,7 @@ model)}\label{-fitting-transfer-function-model}
 설명력과 예측력이 우수하며, 이론적 전개가 용이하다.
 
 \BeginKnitrBlock{example}[칼만필터 모형의 예]
-\protect\hypertarget{exm:unnamed-chunk-116}{}{\label{exm:unnamed-chunk-116}
+\protect\hypertarget{exm:unnamed-chunk-142}{}{\label{exm:unnamed-chunk-142}
 \iffalse (칼만필터 모형의 예) \fi{} }시간에 따라 생성되는 종속변수가
 하나이며 설명변수가 두 개인 선형모형을 생각해보자.
 
@@ -3404,17 +4112,17 @@ x_{t}=U_{1}\cos(2\pi\omega t) + U_{2}\sin(2\pi\omega t)
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-118-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-144-1} 
 
 }
 
-\caption{Periodic components and their sums.}\label{fig:unnamed-chunk-118}
+\caption{Periodic components and their sums.}\label{fig:unnamed-chunk-144}
 \end{figure}
 
 \section{스펙트럼이란(spectrum)}\label{spectrum}
 
 \BeginKnitrBlock{theorem}[정상과정의 스펙트럼 표현]
-\protect\hypertarget{thm:unnamed-chunk-119}{}{\label{thm:unnamed-chunk-119}
+\protect\hypertarget{thm:unnamed-chunk-145}{}{\label{thm:unnamed-chunk-145}
 \iffalse (정상과정의 스펙트럼 표현) \fi{} } 어던 정상 시계열이든
 근사적으로라도 random superposition of sines and cosines oscillating at
 various frequencies로 생각할 수 있다. 즉 자기공분산은 각 주기성분들을
@@ -3500,11 +4208,11 @@ signal)}\label{---using-regression-to-discover-a-periodic-signal}
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-120-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-146-1} 
 
 }
 
-\caption{Cosine wave with period 50 points (top) with standard Gaussian noise (middle) and with heavy Gaussian noise (bottom).}\label{fig:unnamed-chunk-120}
+\caption{Cosine wave with period 50 points (top) with standard Gaussian noise (middle) and with heavy Gaussian noise (bottom).}\label{fig:unnamed-chunk-146}
 \end{figure}
 
 진동수 \(\omega=1/50\)이 알려져 있다고 가정하자. 그러나 \(A\)와
@@ -3523,7 +4231,7 @@ spectrum)}\label{-estimation-of-spectrum}
 진동수가 중요한 성분이지 따라서 어떤 주기가 시계열에서 중요한 역할을
 하는지를 알아낼 수 있다.
 
-\subsection{피리오도그램(periodogram)}\label{periodogram}
+\subsection{피리오도그램(periodogram)}\label{periodogram-1}
 
 스펙트럼을 추정하는 방법을 이해하기 위해서는
 \textbf{피리오도그램(periodogram)}에 대한 이해가 필요하다. 이 절의
@@ -3577,7 +4285,7 @@ periodogram)}\label{-quantile-periodogram}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{dataspec <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{'~/Dropbox/Data/PM/MonthlyPMSeoul.csv'}\NormalTok{, }\DataTypeTok{header=}\NormalTok{T)}
-\NormalTok{dataspec <-}\StringTok{ }\NormalTok{dataspec[,-}\DecValTok{1}\NormalTok{]}
+\NormalTok{dataspec <-}\StringTok{ }\NormalTok{dataspec[,}\OperatorTok{-}\DecValTok{1}\NormalTok{]}
 \NormalTok{dataspec <-}\StringTok{ }\KeywordTok{t}\NormalTok{(dataspec)}
 \NormalTok{time_index_month <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from =} \KeywordTok{as.POSIXct}\NormalTok{(}\StringTok{"1998-01-01"}\NormalTok{), }\DataTypeTok{to =} \KeywordTok{as.POSIXct}\NormalTok{(}\StringTok{"2014-12-01"}\NormalTok{), }\DataTypeTok{by =} \StringTok{"month"}\NormalTok{)}
 \NormalTok{dataspec <-}\StringTok{ }\KeywordTok{xts}\NormalTok{(dataspec[,}\DecValTok{1}\NormalTok{], }\DataTypeTok{order.by=}\NormalTok{time_index_month)}
@@ -3587,11 +4295,11 @@ periodogram)}\label{-quantile-periodogram}
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-121-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-147-1} 
 
 }
 
-\caption{Time series of Seoul PM10.}\label{fig:unnamed-chunk-121}
+\caption{Time series of Seoul PM10.}\label{fig:unnamed-chunk-147}
 \end{figure}
 
 \texttt{TSA}, \texttt{kza}, \texttt{itsmr} 패키지를 이용한다. 같은
@@ -3599,54 +4307,54 @@ periodogram)}\label{-quantile-periodogram}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{TSA::}\KeywordTok{periodogram}\NormalTok{(dataspec, }\DataTypeTok{log=}\StringTok{'yes'}\NormalTok{)}
+\NormalTok{TSA}\OperatorTok{::}\KeywordTok{periodogram}\NormalTok{(dataspec, }\DataTypeTok{log=}\StringTok{'yes'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-122-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-148-1} 
 
 }
 
-\caption{Periodogram (using R package TSA).}\label{fig:unnamed-chunk-122}
+\caption{Periodogram (using R package TSA).}\label{fig:unnamed-chunk-148}
 \end{figure}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{plot}\NormalTok{(kza::}\KeywordTok{periodogram}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(dataspec)), }\DataTypeTok{type=}\StringTok{'o'}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(kza}\OperatorTok{::}\KeywordTok{periodogram}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(dataspec)), }\DataTypeTok{type=}\StringTok{'o'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-123-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-149-1} 
 
 }
 
-\caption{Periodogram (using R package kza).}\label{fig:unnamed-chunk-123}
+\caption{Periodogram (using R package kza).}\label{fig:unnamed-chunk-149}
 \end{figure}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{plot}\NormalTok{(itsmr::}\KeywordTok{periodogram}\NormalTok{(dataspec))}
+\KeywordTok{plot}\NormalTok{(itsmr}\OperatorTok{::}\KeywordTok{periodogram}\NormalTok{(dataspec))}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-124-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-150-1} 
 
 }
 
-\caption{Periodogram (using R package itsmr).}\label{fig:unnamed-chunk-1241}
+\caption{Periodogram (using R package itsmr).}\label{fig:unnamed-chunk-1501}
 \end{figure}\begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-124-2} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-150-2} 
 
 }
 
-\caption{Periodogram (using R package itsmr).}\label{fig:unnamed-chunk-1242}
+\caption{Periodogram (using R package itsmr).}\label{fig:unnamed-chunk-1502}
 \end{figure}
 
 \part{Multiscale Methods in
@@ -3660,7 +4368,7 @@ Statistics}\label{part-multiscale-methods-in-statistics}
 transform)}\label{-discrete-fourier-transform}
 
 \BeginKnitrBlock{definition}[L2]
-\protect\hypertarget{def:unnamed-chunk-125}{}{\label{def:unnamed-chunk-125}
+\protect\hypertarget{def:unnamed-chunk-151}{}{\label{def:unnamed-chunk-151}
 \iffalse (L2) \fi{} }어떤 함수 \(f\)가 \(L^{2}[a,b]\)에 속한다는 것은
 \[\int_{a}^{b}f^{2}(x)dx <\infty\] 를 만족할 때이다.
 \EndKnitrBlock{definition}
@@ -3671,13 +4379,13 @@ transform)}\label{-discrete-fourier-transform}
 여기서 \(\{ a_{0}, a_{1}, b_{1}, \ldots \}\)들은 계수다.
 
 \BeginKnitrBlock{definition}[직교]
-\protect\hypertarget{def:unnamed-chunk-126}{}{\label{def:unnamed-chunk-126}
+\protect\hypertarget{def:unnamed-chunk-152}{}{\label{def:unnamed-chunk-152}
 \iffalse (직교) \fi{} }두 함수 \(f_{1},f_{2}\in L^{2}[a,b]\)는
 \(<f_{1},f_{2}=0\)일 때 \textbf{직교(orthogonal)}라고 부른다.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[직교정규]
-\protect\hypertarget{def:unnamed-chunk-127}{}{\label{def:unnamed-chunk-127}
+\protect\hypertarget{def:unnamed-chunk-153}{}{\label{def:unnamed-chunk-153}
 \iffalse (직교정규) \fi{} }함수들의 수열 \(\{ f_{j} \}\)는 모든
 \(f_{j}\)들이 짝지은 직교(pairwise orthogonal)이며 \(\| f_{j}\|=1\)일 때
 \textbf{직교정규(orthonormal)}이라고 한다.
@@ -3723,7 +4431,7 @@ waveform으로 시간 및 주파수 스케일의 다양한 범위를 컨트롤�
 잘 나타내기 때문이다.
 
 \BeginKnitrBlock{definition}[웨이블릿]
-\protect\hypertarget{def:unnamed-chunk-128}{}{\label{def:unnamed-chunk-128}
+\protect\hypertarget{def:unnamed-chunk-154}{}{\label{def:unnamed-chunk-154}
 \iffalse (웨이블릿) \fi{} }\textbf{웨이블릿(wavelet)} \(\psi(t)\)는
 실변수함수로, localized waveform을 갖으며
 
@@ -3743,7 +4451,7 @@ waveform으로 시간 및 주파수 스케일의 다양한 범위를 컨트롤�
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{example}[Haar 웨이블릿]
-\protect\hypertarget{exm:unnamed-chunk-129}{}{\label{exm:unnamed-chunk-129}
+\protect\hypertarget{exm:unnamed-chunk-155}{}{\label{exm:unnamed-chunk-155}
 \iffalse (Haar 웨이블릿) \fi{} }\textbf{Haar 웨이블릿(Haar wavelet)}은
 
 \begin{equation} 
@@ -3760,11 +4468,11 @@ waveform으로 시간 및 주파수 스케일의 다양한 범위를 컨트롤�
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-130-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-156-1} 
 
 }
 
-\caption{Haar wavelet function.}\label{fig:unnamed-chunk-130}
+\caption{Haar wavelet function.}\label{fig:unnamed-chunk-156}
 \end{figure}
 
 한 마디로 정리하자면 웨이블릿은 localized oscillating wave라고 볼 수
@@ -3789,7 +4497,7 @@ waveform으로 시간 및 주파수 스케일의 다양한 범위를 컨트롤�
 
 }
 
-\caption{(a) Dilatation and (b) translation of a wavelet.}\label{fig:unnamed-chunk-131}
+\caption{(a) Dilatation and (b) translation of a wavelet.}\label{fig:unnamed-chunk-157}
 \end{figure}
 
 일례로 이동하고 전이된 버전의 Mexican hat wavelet은
@@ -3797,7 +4505,7 @@ waveform으로 시간 및 주파수 스케일의 다양한 범위를 컨트롤�
 이 된다. (\(\sigma=1\)인 경우)
 
 \BeginKnitrBlock{definition}[웨이블릿 변환]
-\protect\hypertarget{def:unnamed-chunk-132}{}{\label{def:unnamed-chunk-132}
+\protect\hypertarget{def:unnamed-chunk-158}{}{\label{def:unnamed-chunk-158}
 \iffalse (웨이블릿 변환) \fi{} }연속신호 \(x(t)\)의 웨이블릿
 \(\psi(t)\)에 대한 \textbf{웨이블릿 변환(wavelet transform)}
 \(T(a,b)\)는
@@ -3827,7 +4535,7 @@ analysis)}\label{-multiresolution-analysis}
 혼란스럽게 용어가 정의되어 있어 주의를 필요로 한다.
 
 \BeginKnitrBlock{definition}[다중해상도 분석]
-\protect\hypertarget{def:unnamed-chunk-133}{}{\label{def:unnamed-chunk-133}
+\protect\hypertarget{def:unnamed-chunk-159}{}{\label{def:unnamed-chunk-159}
 \iffalse (다중해상도 분석) \fi{} }\textbf{다중해상도
 분석(multiresolution analysis)}란 \(L^{2}(\mathbb{R})\)의 닫힌
 부분공간(closed subspace)의 함수공간의 집합
@@ -3861,7 +4569,7 @@ analysis)}\label{-multiresolution-analysis}
 \(\{ \mathcal{V}_{j}\}\)를 생성한다.
 
 \BeginKnitrBlock{definition}[다중해상도 분석의 예]
-\protect\hypertarget{def:unnamed-chunk-134}{}{\label{def:unnamed-chunk-134}
+\protect\hypertarget{def:unnamed-chunk-160}{}{\label{def:unnamed-chunk-160}
 \iffalse (다중해상도 분석의 예) \fi{} }\(L^{2}(\mathbb{R})\)에서 어떤
 구간 \([2^{-m}n, 2^{-m}(n+1)], \forall n\in\mathbb{Z}\)에서만 상수값을
 갖는 모든 함수들의 집합 \(\mathcal{V}_{m}\)을 생각해보자. 그러면
@@ -3875,7 +4583,7 @@ analysis)}\label{-multiresolution-analysis}
 
 }
 
-\caption{(a) Dilatation and (b) translation of a wavelet.}\label{fig:unnamed-chunk-135}
+\caption{(a) Dilatation and (b) translation of a wavelet.}\label{fig:unnamed-chunk-161}
 \end{figure}
 
 위 그림에 나오는 \(\{\phi(t-n),n\in\mathbb{Z}\}\)는
@@ -3917,7 +4625,7 @@ space)}이라고 부른다.
 
 }
 
-\caption{Hierarchical structure of the space V and W as subspace of L2.}\label{fig:unnamed-chunk-136}
+\caption{Hierarchical structure of the space V and W as subspace of L2.}\label{fig:unnamed-chunk-162}
 \end{figure}
 
 위 식은
@@ -3979,7 +4687,7 @@ x(t)&=& \cdots + g_{-1}(t)+g_{0}(t)+g_{1}(t)+\cdots\\
 기저가 된다. 위 결과를 다음 정리로 요약할 수 있다.
 
 \BeginKnitrBlock{theorem}[직교정규 기저의 구성]
-\protect\hypertarget{thm:unnamed-chunk-137}{}{\label{thm:unnamed-chunk-137}
+\protect\hypertarget{thm:unnamed-chunk-163}{}{\label{thm:unnamed-chunk-163}
 \iffalse (직교정규 기저의 구성) \fi{} }\(\{ \mathcal{V}_{j}\}\)를
 다중해상도 분석이라고 하고 공간 \(\mathcal{W}_{0}\)를
 \(\mathcal{W}_{0}=\mathcal{V}_{1}/\mathcal{V}_{0}\)으로 정의한다. 만약
@@ -4021,7 +4729,7 @@ relation)}에 대해 언급하겠다. 우리는 \(\mathcal{V}_{m}\)에 있는 �
 있다. 이것은 다음 정리로 요약할 수 있다.
 
 \BeginKnitrBlock{theorem}[두-스케일 관계]
-\protect\hypertarget{thm:unnamed-chunk-138}{}{\label{thm:unnamed-chunk-138}
+\protect\hypertarget{thm:unnamed-chunk-164}{}{\label{thm:unnamed-chunk-164}
 \iffalse (두-스케일 관계) \fi{} }척도함수 \(\phi(t)\)가 다중척도 해석
 \(\{ \mathcal{V}_{j}\}\)을 생성할 때, 다음과 같은 관계식을 얻을 수 있다.
 \[\phi(t)=\sum-{n=-\infty}^{\infty}p_{n}\phi_{1,n}(t)=\sqrt{2}\sum_{n=-\infty}^{\infty}p_{n}\phi(2t-n),\]
@@ -4032,7 +4740,7 @@ coefficients)}라고 부른다.
 \EndKnitrBlock{theorem}
 
 \BeginKnitrBlock{example}[두-스케일 관계의 예]
-\protect\hypertarget{exm:unnamed-chunk-139}{}{\label{exm:unnamed-chunk-139}
+\protect\hypertarget{exm:unnamed-chunk-165}{}{\label{exm:unnamed-chunk-165}
 \iffalse (두-스케일 관계의 예) \fi{} }다음과 같이
 \(L^{2}(\mathbb{R})\)의 함수들을 모두 포함하고 구간
 \([2^{-m}n, 2^{-m}(n+1)], n\in\mathbb{Z}\)에서 상수값을 갖는 공간
@@ -4049,7 +4757,7 @@ coefficients)}라고 부른다.
 
 }
 
-\caption{Two-scale relation of phi(t).}\label{fig:unnamed-chunk-140}
+\caption{Two-scale relation of phi(t).}\label{fig:unnamed-chunk-166}
 \end{figure}
 
 \subsection{모웨이블릿(mother wavelet)}\label{mother-wavelet}
@@ -4065,7 +4773,7 @@ spanned되어짐을 상기하자. 즉
 불리며 \[q_{n}=(-1)^{n-1}p_{-n-1}\] 로 주어진다.
 
 \BeginKnitrBlock{theorem}[모웨이블릿]
-\protect\hypertarget{thm:unnamed-chunk-141}{}{\label{thm:unnamed-chunk-141}
+\protect\hypertarget{thm:unnamed-chunk-167}{}{\label{thm:unnamed-chunk-167}
 \iffalse (모웨이블릿) \fi{} } 만약 \(\{ \mathcal{V}_{m}\}\)이 척도함수
 \(\phi(t)\)를 갖는 다중해상도 해석이라고 한다면, 모웨이블릿
 \(\psi(t)\)는
@@ -4142,7 +4850,7 @@ transform)}\label{-multiscale-transform}
 로케이션이 된다. 한편 상세의 정의는 다음과 같다.
 
 \BeginKnitrBlock{definition}[상세]
-\protect\hypertarget{def:unnamed-chunk-142}{}{\label{def:unnamed-chunk-142}
+\protect\hypertarget{def:unnamed-chunk-168}{}{\label{def:unnamed-chunk-168}
 \iffalse (상세) \fi{} }주어진 자료 \(\mathbf{y}\)의
 \textbf{상세(detail)} \(d_{k}\)는
 
@@ -4154,7 +4862,7 @@ d_{k}=y_{2k}-y_{2k-1},\qquad{k=1,2,\ldots,\frac{n}{2}}
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{example}[상세의 계산]
-\protect\hypertarget{exm:unnamed-chunk-143}{}{\label{exm:unnamed-chunk-143}
+\protect\hypertarget{exm:unnamed-chunk-169}{}{\label{exm:unnamed-chunk-169}
 \iffalse (상세의 계산) \fi{} }다음과 같이 길이 8인 자료
 \(\mathbf{y}=(y_{1},y_{2},\ldots,y_{8})\)가 있다고 하자. 그러면 이
 자료의 상세는
@@ -4216,7 +4924,7 @@ c_{J-2,l}=c_{J-1,2l}+c_{J-1,2l-1},l=1,2,\ldots,\frac{n}{4}
 
 }
 
-\caption{Generic step in multiscale transform.}\label{fig:unnamed-chunk-144}
+\caption{Generic step in multiscale transform.}\label{fig:unnamed-chunk-170}
 \end{figure}
 
 다중척도 변환은 다음과 같이 같은 차원의 새로운 벡터를 정의하는 과정으로
@@ -4237,7 +4945,7 @@ c_{J-2,l}=c_{J-1,2l}+c_{J-1,2l-1},l=1,2,\ldots,\frac{n}{4}
 이 두 가지만 알고 있으면 된다.
 
 \BeginKnitrBlock{example}[다중척도 역변환]
-\protect\hypertarget{exm:unnamed-chunk-145}{}{\label{exm:unnamed-chunk-145}
+\protect\hypertarget{exm:unnamed-chunk-171}{}{\label{exm:unnamed-chunk-171}
 \iffalse (다중척도 역변환) \fi{} }앞서 다룬 자료
 \(\mathbf{y}=(1,1,7,9,2,8,8,6)\)를 생각해보자. 이것의 다중척도 변환
 결과는
@@ -4271,7 +4979,7 @@ c_{34}&=&\frac{(16+2)}{2}=9, c_{33}=\frac{(16-2)}{2}=7, c_{32}=\frac{(2+0)}{2}=1
 
 }
 
-\caption{Example of sparse function.}\label{fig:unnamed-chunk-146}
+\caption{Example of sparse function.}\label{fig:unnamed-chunk-172}
 \end{figure}
 
 위 그림은 희소성을 갖는 함수의 전형적인 예 중 하나이다. 이 자료는 왼쪽은
@@ -4308,7 +5016,7 @@ deviation (SCAD)}라는 것을 제안하기도 하였다.
 좋은 추정량은 평균이 아니라 \(y_{3}\)이다.
 
 \BeginKnitrBlock{theorem}[다중척도 변환의 희소성]
-\protect\hypertarget{thm:unnamed-chunk-147}{}{\label{thm:unnamed-chunk-147}
+\protect\hypertarget{thm:unnamed-chunk-173}{}{\label{thm:unnamed-chunk-173}
 \iffalse (다중척도 변환의 희소성) \fi{} } 다음과 같은 자료
 \(\mathbf{y}=(1,1,1,1,2,2,2,2)\)를 생각해보자. 이 자료를 다중척도 변환해
 보면 \[(1,1,1,1,2,2,2,2) \rightarrow (1,2,4,0,0,0,0,0)\] 과 같이 0이
@@ -4359,7 +5067,7 @@ processing)}\label{-filter-in-signal-processing}
 
 }
 
-\caption{Various forms of linear filters.}\label{fig:unnamed-chunk-148}
+\caption{Various forms of linear filters.}\label{fig:unnamed-chunk-174}
 \end{figure}
 
 \begin{itemize}
@@ -4441,7 +5149,7 @@ function)}이라고 부른다.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{## what filter produced a particular wavelet decomposition object}
-\NormalTok{ywd$filter}
+\NormalTok{ywd}\OperatorTok{$}\NormalTok{filter}
 \end{Highlighting}
 \end{Shaded}
 
@@ -4482,11 +5190,11 @@ function)}이라고 부른다.
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-150-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-176-1} 
 
 }
 
-\caption{Wavelet decomposition coefficients.}\label{fig:unnamed-chunk-150}
+\caption{Wavelet decomposition coefficients.}\label{fig:unnamed-chunk-176}
 \end{figure}
 
 \begin{verbatim}
@@ -4566,7 +5274,7 @@ h_{l} =
 바꾸어 표현한다.
 
 \BeginKnitrBlock{example}[행렬을 이용한 웨이블릿 계수의 계산]
-\protect\hypertarget{exm:unnamed-chunk-151}{}{\label{exm:unnamed-chunk-151}
+\protect\hypertarget{exm:unnamed-chunk-177}{}{\label{exm:unnamed-chunk-177}
 \iffalse (행렬을 이용한 웨이블릿 계수의 계산) \fi{} }행렬을 이용해
 웨이블릿 계수를 계산해보자. 다음과 같은 자료
 \(\mathbf{y}=(1,1,7,9,2,8,8,6)\)에 행렬 \(W\)을 다음과 같이 정의하면
@@ -4634,7 +5342,7 @@ approximation)}\label{--fine-scale-approximation}
 
 }
 
-\caption{Plot of Haar function.}\label{fig:unnamed-chunk-152}
+\caption{Plot of Haar function.}\label{fig:unnamed-chunk-178}
 \end{figure}
 
 이 때 \(\phi(x)=\phi_{0,0}(x)\)이다. 즉 척도도 바꾸지 않고 어떤
@@ -4646,7 +5354,7 @@ approximation)}\label{--fine-scale-approximation}
 
 }
 
-\caption{Scaling and translation version of Haar function.}\label{fig:unnamed-chunk-153}
+\caption{Scaling and translation version of Haar function.}\label{fig:unnamed-chunk-179}
 \end{figure}
 
 가장 섬세한 레벨의 (Haar) \textbf{척도 웨이블릿(scaling wavelet, father
@@ -4695,7 +5403,7 @@ c_{J-1,k}&=&\int_{2^{-(J-1)}k}^{2^{-(J-1)}(k+1)}f(x)\phi_{J-1,k}(x)dx\\
 
 }
 
-\caption{Relationship between Haar scale function.}\label{fig:unnamed-chunk-154}
+\caption{Relationship between Haar scale function.}\label{fig:unnamed-chunk-180}
 \end{figure}
 
 \section{척도 근사들 사이의 차이(defference between scale
@@ -4738,7 +5446,7 @@ wavelet)}이라고 한다.
 
 }
 
-\caption{Haar mother wavelet function.}\label{fig:unnamed-chunk-155}
+\caption{Haar mother wavelet function.}\label{fig:unnamed-chunk-181}
 \end{figure}
 
 우리는 웨이블릿을 가지고 어떤 함수를 분해(decompose)할 수 있다. 앞의
@@ -4779,7 +5487,7 @@ supported)인 함수이다. 우리의 궁금점은 이 함수과 과연 \textbf{
 영역(frequency domain)}에서도 컴팩트 받침인가이다.
 
 \BeginKnitrBlock{definition}[유니터리 푸리에 변환]
-\protect\hypertarget{def:unnamed-chunk-156}{}{\label{def:unnamed-chunk-156}
+\protect\hypertarget{def:unnamed-chunk-182}{}{\label{def:unnamed-chunk-182}
 \iffalse (유니터리 푸리에 변환) \fi{} } 주어진 함수의
 \textbf{각진동수(angular frequency)를 이용한 유니터리 푸리에
 변환(Fourier transform with unitary and angular frequency)}은 다음과
@@ -4813,7 +5521,7 @@ supported)인 함수이다. 우리의 궁금점은 이 함수과 과연 \textbf{
 
 }
 
-\caption{Haar function (left) and Haar function in frequency domain after Fourier transform (right).}\label{fig:unnamed-chunk-157}
+\caption{Haar function (left) and Haar function in frequency domain after Fourier transform (right).}\label{fig:unnamed-chunk-183}
 \end{figure}
 
 \section{데시메이티드되지 않은 웨이블릿(non-decimated
@@ -4887,7 +5595,7 @@ one'을 pick해 \(c_{J-1,k}=c_{J-1,2k}^{*}\)을 만드는 것이다. 이 연산�
 factor of 2).
 
 \BeginKnitrBlock{definition}[이진 데시메이션]
-\protect\hypertarget{def:unnamed-chunk-158}{}{\label{def:unnamed-chunk-158}
+\protect\hypertarget{def:unnamed-chunk-184}{}{\label{def:unnamed-chunk-184}
 \iffalse (이진 데시메이션) \fi{} }\textbf{(even dyddic decimation
 operator)} 어떤 수열 \(x_{i}\)에 대한 \textbf{(even) dyadic decimation
 operator} \(\mathcal{D}_{0}\)는 \[(\mathcal{D}_{0}x)_{l}=x_{2l}\] 로
@@ -4993,7 +5701,7 @@ encoding하고 있다. 그렇다면 \(y_{2}\)와 \(y_{3}\)의 차이 정보는 �
 
 }
 
-\caption{Non-decimated wavelet transform flow diagram.}\label{fig:unnamed-chunk-159}
+\caption{Non-decimated wavelet transform flow diagram.}\label{fig:unnamed-chunk-185}
 \end{figure}
 
 비-데시메이티드 웨이블릿 변환의 실행 절차는 다음과 같다.
@@ -5149,27 +5857,27 @@ orderings)}\label{-ndwt--ndwttime-and-packet-ndwt-orderings}
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-166-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-192-1} 
 
 }
 
-\caption{Simulated chirp signal.}\label{fig:unnamed-chunk-166}
+\caption{Simulated chirp signal.}\label{fig:unnamed-chunk-192}
 \end{figure}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{ywd <-}\StringTok{ }\KeywordTok{wd}\NormalTok{(y$y, }\DataTypeTok{filter.number=}\DecValTok{2}\NormalTok{, }\DataTypeTok{family=}\StringTok{"DaubExPhase"}\NormalTok{)}
+\NormalTok{ywd <-}\StringTok{ }\KeywordTok{wd}\NormalTok{(y}\OperatorTok{$}\NormalTok{y, }\DataTypeTok{filter.number=}\DecValTok{2}\NormalTok{, }\DataTypeTok{family=}\StringTok{"DaubExPhase"}\NormalTok{)}
 \KeywordTok{plot}\NormalTok{(ywd, }\DataTypeTok{scaling=}\StringTok{"by.level"}\NormalTok{, }\DataTypeTok{main=}\StringTok{""}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-167-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-193-1} 
 
 }
 
-\caption{Discrete wavelet coefficients of simulated chirp signal.}\label{fig:unnamed-chunk-167}
+\caption{Discrete wavelet coefficients of simulated chirp signal.}\label{fig:unnamed-chunk-193}
 \end{figure}
 
 \begin{verbatim}
@@ -5179,18 +5887,18 @@ orderings)}\label{-ndwt--ndwttime-and-packet-ndwt-orderings}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{ywd <-}\StringTok{ }\KeywordTok{wd}\NormalTok{(y$y, }\DataTypeTok{filter.number=}\DecValTok{2}\NormalTok{, }\DataTypeTok{family=}\StringTok{"DaubExPhase"}\NormalTok{, }\DataTypeTok{type=}\StringTok{"station"}\NormalTok{)}
+\NormalTok{ywd <-}\StringTok{ }\KeywordTok{wd}\NormalTok{(y}\OperatorTok{$}\NormalTok{y, }\DataTypeTok{filter.number=}\DecValTok{2}\NormalTok{, }\DataTypeTok{family=}\StringTok{"DaubExPhase"}\NormalTok{, }\DataTypeTok{type=}\StringTok{"station"}\NormalTok{)}
 \KeywordTok{plot}\NormalTok{(ywd, }\DataTypeTok{scaling=}\StringTok{"by.level"}\NormalTok{, }\DataTypeTok{main=}\StringTok{""}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-168-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-194-1} 
 
 }
 
-\caption{Time-ordered non-decimated wavelet coefficients of simulated chirp signal.}\label{fig:unnamed-chunk-168}
+\caption{Time-ordered non-decimated wavelet coefficients of simulated chirp signal.}\label{fig:unnamed-chunk-194}
 \end{figure}
 
 \begin{verbatim}
@@ -5200,18 +5908,18 @@ orderings)}\label{-ndwt--ndwttime-and-packet-ndwt-orderings}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{ywst <-}\StringTok{ }\KeywordTok{wst}\NormalTok{(y$y, }\DataTypeTok{filter.number=}\DecValTok{2}\NormalTok{, }\DataTypeTok{family=}\StringTok{"DaubExPhase"}\NormalTok{)}
+\NormalTok{ywst <-}\StringTok{ }\KeywordTok{wst}\NormalTok{(y}\OperatorTok{$}\NormalTok{y, }\DataTypeTok{filter.number=}\DecValTok{2}\NormalTok{, }\DataTypeTok{family=}\StringTok{"DaubExPhase"}\NormalTok{)}
 \KeywordTok{plot}\NormalTok{(ywst, }\DataTypeTok{scaling=}\StringTok{"by.level"}\NormalTok{, }\DataTypeTok{main=}\StringTok{""}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-169-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-195-1} 
 
 }
 
-\caption{Packet-ordered non-decimated wavelet coefficients of simulated chirp signal.}\label{fig:unnamed-chunk-169}
+\caption{Packet-ordered non-decimated wavelet coefficients of simulated chirp signal.}\label{fig:unnamed-chunk-195}
 \end{figure}
 
 \section{Biorthogonal wavelet}\label{biorthogonal-wavelet}
@@ -5232,7 +5940,7 @@ functions)}\label{biorthogonal--biorthogonal-basis-functions}
 
 }
 
-\caption{Dual basis.}\label{fig:unnamed-chunk-170}
+\caption{Dual basis.}\label{fig:unnamed-chunk-196}
 \end{figure}
 
 \chapter{웨이블릿 수축}\label{waveletshrinkage}
@@ -5322,7 +6030,7 @@ correlated (stationary process)된 경우 웨이블릿 변환을 하면 변환�
 같이 정의한다.
 
 \BeginKnitrBlock{definition}[하드 임계화와 소프트 임계화]
-\protect\hypertarget{def:unnamed-chunk-171}{}{\label{def:unnamed-chunk-171}
+\protect\hypertarget{def:unnamed-chunk-197}{}{\label{def:unnamed-chunk-197}
 \iffalse (하드 임계화와 소프트 임계화) \fi{} }주어진 (empirical)
 웨이블릿 상수 d와 \textbf{threshold} \(\mathbf{\lambda}\)가 있을 때,
 그것의 \textbf{하드 임계화(hard thresholding)}는
@@ -5338,7 +6046,7 @@ correlated (stationary process)된 경우 웨이블릿 변환을 하면 변환�
 
 }
 
-\caption{Hard thresholding (dotted line) and soft thresholding.}\label{fig:unnamed-chunk-172}
+\caption{Hard thresholding (dotted line) and soft thresholding.}\label{fig:unnamed-chunk-198}
 \end{figure}
 
 두 방법 다 공통적으로 \(\mathbf{d} \in (-\lambda, \lambda)^{n}\)이면 0이
@@ -5478,7 +6186,7 @@ thresholding)}\label{-universal-thresholding}
 \(\hat{\sigma}\)를 사용한다.
 
 \BeginKnitrBlock{theorem}[만능 임계화]
-\protect\hypertarget{thm:unnamed-chunk-173}{}{\label{thm:unnamed-chunk-173}
+\protect\hypertarget{thm:unnamed-chunk-199}{}{\label{thm:unnamed-chunk-199}
 \iffalse (만능 임계화) \fi{} }\(X_{1},\cdots , X_{n}\)을
 \(EX_{i}=0, EX_{i}^{2}=1, EX_{i}X_{i+k}=\gamma(k)\)인 stationary
 Gaussian process (Lag-k covariance structure를 갖는 Gaussian
@@ -5552,7 +6260,7 @@ SURE가 처음 등장한 논문은 \citep{Donoho1995}로, \citep{Stein1981}의
 \[\mathbf{x}=\boldsymbol{\mu}+\boldsymbol{\epsilon}.\]
 
 \BeginKnitrBlock{theorem}[Stein]
-\protect\hypertarget{thm:unnamed-chunk-174}{}{\label{thm:unnamed-chunk-174}
+\protect\hypertarget{thm:unnamed-chunk-200}{}{\label{thm:unnamed-chunk-200}
 \iffalse (Stein) \fi{} }\citep{Stein1981} 만약
 \(\hat{\boldsymbol{\mu}}\mathbf{(x)}=\mathbf{x}+\mathbf{g(x)}\),
 \(g:\mathbb{R}^{n} \rightarrow \mathbb{R}^{n}\) is weakly differentiable
@@ -5567,7 +6275,7 @@ SURE가 처음 등장한 논문은 \citep{Donoho1995}로, \citep{Stein1981}의
 사실을 이용해 SURE를 정의한다.
 
 \BeginKnitrBlock{theorem}[SURE]
-\protect\hypertarget{thm:unnamed-chunk-175}{}{\label{thm:unnamed-chunk-175}
+\protect\hypertarget{thm:unnamed-chunk-201}{}{\label{thm:unnamed-chunk-201}
 \iffalse (SURE) \fi{}
 }\(\text{SURE}(\lambda,\mathbf{x})=n-2\#\{ i: |x_{i}| \leq \lambda \} + \sum_{i=1}^{n}(|x_{i}| \wedge \lambda)^{2}\)는
 risk의 불편추정량이다.
@@ -5588,24 +6296,24 @@ risk의 불편추정량이다.
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{))}
 \KeywordTok{set.seed}\NormalTok{(}\DecValTok{1234}\NormalTok{)}
 \NormalTok{data_bump <-}\StringTok{ }\KeywordTok{example.1}\NormalTok{()}
-\NormalTok{x <-}\StringTok{ }\NormalTok{data_bump$x; y <-}\StringTok{ }\NormalTok{data_bump$y}
+\NormalTok{x <-}\StringTok{ }\NormalTok{data_bump}\OperatorTok{$}\NormalTok{x; y <-}\StringTok{ }\NormalTok{data_bump}\OperatorTok{$}\NormalTok{y}
 \KeywordTok{plot}\NormalTok{(x,y, }\DataTypeTok{type=}\StringTok{'l'}\NormalTok{, }\DataTypeTok{main=}\StringTok{"Original"}\NormalTok{)}
-\NormalTok{y_noise <-}\StringTok{ }\NormalTok{y +}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\KeywordTok{length}\NormalTok{(y), }\DataTypeTok{sd=}\FloatTok{0.1}\NormalTok{)}
+\NormalTok{y_noise <-}\StringTok{ }\NormalTok{y }\OperatorTok{+}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\KeywordTok{length}\NormalTok{(y), }\DataTypeTok{sd=}\FloatTok{0.1}\NormalTok{)}
 \KeywordTok{plot}\NormalTok{(x,y_noise, }\DataTypeTok{type=}\StringTok{'l'}\NormalTok{, }\DataTypeTok{main=}\StringTok{"Noisy"}\NormalTok{)}
-\NormalTok{y_noise_wd <-}\StringTok{ }\NormalTok{wavethresh::}\KeywordTok{wd}\NormalTok{(y_noise)}
-\NormalTok{y_noise_threshold <-}\StringTok{ }\NormalTok{wavethresh::}\KeywordTok{threshold}\NormalTok{(y_noise_wd, }\DataTypeTok{type=}\StringTok{"soft"}\NormalTok{, }\DataTypeTok{policy=}\StringTok{"sure"}\NormalTok{)}
-\NormalTok{y_sure <-}\StringTok{ }\NormalTok{wavethresh::}\KeywordTok{wr}\NormalTok{(y_noise_threshold)}
+\NormalTok{y_noise_wd <-}\StringTok{ }\NormalTok{wavethresh}\OperatorTok{::}\KeywordTok{wd}\NormalTok{(y_noise)}
+\NormalTok{y_noise_threshold <-}\StringTok{ }\NormalTok{wavethresh}\OperatorTok{::}\KeywordTok{threshold}\NormalTok{(y_noise_wd, }\DataTypeTok{type=}\StringTok{"soft"}\NormalTok{, }\DataTypeTok{policy=}\StringTok{"sure"}\NormalTok{)}
+\NormalTok{y_sure <-}\StringTok{ }\NormalTok{wavethresh}\OperatorTok{::}\KeywordTok{wr}\NormalTok{(y_noise_threshold)}
 \KeywordTok{plot}\NormalTok{(x,y_sure, }\DataTypeTok{type=}\StringTok{'l'}\NormalTok{, }\DataTypeTok{main=}\StringTok{"Soft Thresholding"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-177-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-203-1} 
 
 }
 
-\caption{Wavelet shrinkage example.}\label{fig:unnamed-chunk-177}
+\caption{Wavelet shrinkage example.}\label{fig:unnamed-chunk-203}
 \end{figure}
 
 \chapter{웨이블릿 수축의 고등 논제들}\label{advwaveletshrinkage}
@@ -5711,7 +6419,7 @@ re-index를 한다(\(y_{j},j=1,\cdots,\frac{n}{2}\)).
 
 }
 
-\caption{Relation between the large number of folds and CV.}\label{fig:unnamed-chunk-178}
+\caption{Relation between the large number of folds and CV.}\label{fig:unnamed-chunk-204}
 \end{figure}
 
 \begin{figure}
@@ -5720,7 +6428,7 @@ re-index를 한다(\(y_{j},j=1,\cdots,\frac{n}{2}\)).
 
 }
 
-\caption{Relation between the small number of folds and CV.}\label{fig:unnamed-chunk-179}
+\caption{Relation between the small number of folds and CV.}\label{fig:unnamed-chunk-205}
 \end{figure}
 
 Fold 수가 커지면 bias가 줄어드나(더 정밀함) estimator의 variance는
@@ -5860,7 +6568,7 @@ Gaussian''이다. 이는 가우스 분포 두 개를 합성한 것을 prior로 �
 
 }
 
-\caption{Posterior mean and variance of parameter uwing prior mixture of Gaussian.}\label{fig:unnamed-chunk-180}
+\caption{Posterior mean and variance of parameter uwing prior mixture of Gaussian.}\label{fig:unnamed-chunk-206}
 \end{figure}
 
 여기서
@@ -5891,7 +6599,7 @@ median를 점추정값으로 삼는다.
 
 }
 
-\caption{Posterior median plot using prior mixture of point mass and Gaussian.}\label{fig:unnamed-chunk-181}
+\caption{Posterior median plot using prior mixture of point mass and Gaussian.}\label{fig:unnamed-chunk-207}
 \end{figure}
 
 이 그림은 prior mixture of point mass and Gaussian 방법을 이용했을 때
@@ -5960,7 +6668,7 @@ performance가 그리 좋지는 않다.
 
 }
 
-\caption{Posterior median plot using prior mixture of point mass and Gaussian.}\label{fig:unnamed-chunk-182}
+\caption{Posterior median plot using prior mixture of point mass and Gaussian.}\label{fig:unnamed-chunk-208}
 \end{figure}
 
 다음과 같은 모형 \(y_{i}=g(x_{i})+e_{i}\)를 생각해보자. \(g(x_{i})\)의
@@ -6015,7 +6723,7 @@ function)}
 \textbf{약정상과정(weakly stationary process)}에 대해 생각해보자.
 
 \BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-183}{}{\label{def:unnamed-chunk-183}
+\protect\hypertarget{def:unnamed-chunk-209}{}{\label{def:unnamed-chunk-209}
 }다음과 같은 세 가지 조건
 
 \begin{enumerate}
@@ -6039,7 +6747,7 @@ process)을 말하면 약정상성을 의미한다.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{example}[백색 잡음 과정]
-\protect\hypertarget{exm:unnamed-chunk-184}{}{\label{exm:unnamed-chunk-184}
+\protect\hypertarget{exm:unnamed-chunk-210}{}{\label{exm:unnamed-chunk-210}
 \iffalse (백색 잡음 과정) \fi{} }백색 잡음 과정 \(\{Z_{t}\}\)는
 \[E(Z_{t})=0, \forall t,\]
 \[\gamma(h)=\sigma^{2}\delta_{h}=E(Z_{t+h},Z_{t})=\sigma^{2}I\{h=0\}\]
@@ -6047,7 +6755,7 @@ process)을 말하면 약정상성을 의미한다.
 \EndKnitrBlock{example}
 
 \BeginKnitrBlock{example}[AR(1) 과정]
-\protect\hypertarget{exm:unnamed-chunk-185}{}{\label{exm:unnamed-chunk-185}
+\protect\hypertarget{exm:unnamed-chunk-211}{}{\label{exm:unnamed-chunk-211}
 \iffalse (AR(1) 과정) \fi{} }AR(1) 과정 \(\{X_{t}\}\)는
 \[X_{t}-\phi X_{t-1}=Z_{t}, Z_{t} \sim WN(0,\sigma^{2}), \]
 \[\gamma(h)=\sigma^{2}\frac{\phi^{|h|}}{1-\phi}\] 이므로 정상 과정이다.
@@ -6059,7 +6767,7 @@ process)을 말하면 약정상성을 의미한다.
 이다. 다음은 웨이블릿 변환과 정상성에 관련된 정리이다.
 
 \BeginKnitrBlock{theorem}[약정상과정 관련 정리]
-\protect\hypertarget{thm:unnamed-chunk-186}{}{\label{thm:unnamed-chunk-186}
+\protect\hypertarget{thm:unnamed-chunk-212}{}{\label{thm:unnamed-chunk-212}
 \iffalse (약정상과정 관련 정리) \fi{} }\(X(t)\)가 약한 정상 과정이고
 \(\gamma(t,s)\)가 \(\mathbb{R}^{2}\)에서 유계(bounded)이고 연속이면,
 \(X(t)\)가 약정상과정인 것과 \(\{ d_{jk} \}\)가 약정상과정인 것은
@@ -6084,7 +6792,7 @@ E d_{jk}d_{j'k'}&=&\int \int_{\mathbb{R}^{2}}\gamma(t,s)\psi_{jk}(t)\psi_{j'k'}(
 \citep{Zhang1994}를 참고하라.
 
 \BeginKnitrBlock{theorem}[정상과정의 백색화]
-\protect\hypertarget{thm:unnamed-chunk-187}{}{\label{thm:unnamed-chunk-187}
+\protect\hypertarget{thm:unnamed-chunk-213}{}{\label{thm:unnamed-chunk-213}
 \iffalse (정상과정의 백색화) \fi{} }\(d_{jk}\)와 \(d_{j'k'}\)는
 
 \begin{enumerate}
@@ -6122,7 +6830,7 @@ process)}\label{--spectral-representation-of-stationary-process}
 대해 소개하겠다.
 
 \BeginKnitrBlock{definition}[직교증분과정]
-\protect\hypertarget{def:unnamed-chunk-188}{}{\label{def:unnamed-chunk-188}
+\protect\hypertarget{def:unnamed-chunk-214}{}{\label{def:unnamed-chunk-214}
 \iffalse (직교증분과정) \fi{} }두개의 다른 주파수 \(\omega\),
 \(\omega'\) \((\omega \neq \omega')\)가 있다고 하자. 만약 두 개의
 process
@@ -6206,7 +6914,7 @@ wavelets)}이라는 것을 만들었다.
 수이다.
 
 \BeginKnitrBlock{example}[이산 Haar 웨이블릿]
-\protect\hypertarget{exm:unnamed-chunk-189}{}{\label{exm:unnamed-chunk-189}
+\protect\hypertarget{exm:unnamed-chunk-215}{}{\label{exm:unnamed-chunk-215}
 \iffalse (이산 Haar 웨이블릿) \fi{} }이산 Haar 웨이블릿의 경우
 \[\psi_{-1}=(g_{0},g_{1})=(1,-1)/\sqrt{2},\]
 \[\psi_{-2}=(h_{0}g_{0},h_{1}g_{0},h_{0}g_{1},h_{1}g_{1})=(1,1,-1,-1)/2\]
@@ -6274,7 +6982,7 @@ transform)}\label{--second-generation-wavelet-transform}
 
 }
 
-\caption{Forward lifting scheme using Haar transform.}\label{fig:unnamed-chunk-190}
+\caption{Forward lifting scheme using Haar transform.}\label{fig:unnamed-chunk-216}
 \end{figure}
 
 정리하면
@@ -6311,7 +7019,7 @@ transformation)이라고 부르는 것이다.
 
 }
 
-\caption{Standard lifting scheme using primal and dual lifting.}\label{fig:unnamed-chunk-191}
+\caption{Standard lifting scheme using primal and dual lifting.}\label{fig:unnamed-chunk-217}
 \end{figure}
 
 리프팅의 \textbf{역변환(backward transform)}은 다음과 같다.
@@ -6324,7 +7032,7 @@ transformation)이라고 부르는 것이다.
 
 }
 
-\caption{Backward lifting scheme.}\label{fig:unnamed-chunk-192}
+\caption{Backward lifting scheme.}\label{fig:unnamed-chunk-218}
 \end{figure}
 
 리프팅 스킴 방법은 데이터가 일정한 간격(equally space)으로 있어야 한다는
@@ -6335,7 +7043,7 @@ transformation)이라고 부르는 것이다.
 크기(clustering size)를 고민할 필요가 없다는 장점이 생긴다.
 
 \BeginKnitrBlock{example}[리프팅 스킴]
-\protect\hypertarget{exm:unnamed-chunk-193}{}{\label{exm:unnamed-chunk-193}
+\protect\hypertarget{exm:unnamed-chunk-219}{}{\label{exm:unnamed-chunk-219}
 \iffalse (리프팅 스킴) \fi{} }다음과 같은 벡터
 \[\mathbf{z}_{3}=(1,2,3,4,5,6,7,8), n=8, J=3.\] 가 있다고 하자. 이
 벡터에 리프팅 스킴을 적용하면 다음과 같다.
@@ -6389,7 +7097,7 @@ transformation)이라고 부르는 것이다.
 \EndKnitrBlock{example}
 
 \BeginKnitrBlock{example}[리프팅 스킴의 복원]
-\protect\hypertarget{exm:unnamed-chunk-194}{}{\label{exm:unnamed-chunk-194}
+\protect\hypertarget{exm:unnamed-chunk-220}{}{\label{exm:unnamed-chunk-220}
 \iffalse (리프팅 스킴의 복원) \fi{} }다중척도 방법의 특징은 저장된
 계수들을 가지고 원래 신호를 \textbf{복원(reconstruction)}할 수 있어야
 한다는 것이다. 앞선 예제의 detail과 global 계수들을 가지고 신호복원을
@@ -6467,11 +7175,11 @@ scheme)}\label{--max-lifting-scheme}
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-195-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-221-1} 
 
 }
 
-\caption{Haar transform is not robust.}\label{fig:unnamed-chunk-195}
+\caption{Haar transform is not robust.}\label{fig:unnamed-chunk-221}
 \end{figure}
 
 그러나 위 그림처럼 Haar 변환을 쓸 경우에는 odd/even의 선택에 따라
@@ -6551,7 +7259,7 @@ formalize 할 수 있다. \[D_{j}^{P}(k)=
 
 }
 
-\caption{A general adaptive lifting scheme. Data in both branches of the scheme contribute to the choices of prediction and update filters.}\label{fig:unnamed-chunk-196}
+\caption{A general adaptive lifting scheme. Data in both branches of the scheme contribute to the choices of prediction and update filters.}\label{fig:unnamed-chunk-222}
 \end{figure}
 
 프라이멀과 듀얼 리프팅 스텝에 모두 결정연산자를 사용하는 컨셉이 적응적
@@ -6574,7 +7282,7 @@ scheme)}\label{---reconstruction-of-adaptive-lifting-scheme}
 
 }
 
-\caption{Reconstruction with a general adaptive lifting scheme. Data in both branches of the scheme contribute to the choices of prediction and update filters.}\label{fig:unnamed-chunk-197}
+\caption{Reconstruction with a general adaptive lifting scheme. Data in both branches of the scheme contribute to the choices of prediction and update filters.}\label{fig:unnamed-chunk-223}
 \end{figure}
 
 적응적 리프팅 스킴에서 recounstruction하는 문제는 그렇게 간단하지는
@@ -6594,7 +7302,7 @@ reconstruction)}\label{--automatic-perfect-reconstruction}
 
 }
 
-\caption{Perfect reconstruction without book-keeping is easily achived by letting the decision maps only depend on the input data of the corresponding prediction and update filters.}\label{fig:unnamed-chunk-198}
+\caption{Perfect reconstruction without book-keeping is easily achived by letting the decision maps only depend on the input data of the corresponding prediction and update filters.}\label{fig:unnamed-chunk-224}
 \end{figure}
 
 \section{LOCAAT 알고리즘}\label{locaat-}
@@ -6689,7 +7397,7 @@ LOCAAT)}\label{locaat-example-of-locaat}
 
 }
 
-\caption{Toy network on which we assume the data [1,1,-1,-1] is observed. We also assume the nodes are separated by distance of 1 unit.}\label{fig:unnamed-chunk-199}
+\caption{Toy network on which we assume the data [1,1,-1,-1] is observed. We also assume the nodes are separated by distance of 1 unit.}\label{fig:unnamed-chunk-225}
 \end{figure}
 
 위 그림과 같이 \(\{1,1,-1,-1\}\)이라는 자료가 있다고 하자. LOCAAT 변환을
@@ -6743,7 +7451,7 @@ network structure를 이용해 알고리즘으 구현하였다. 리프팅을 통
 
 }
 
-\caption{Simple network and its edge entries of spatial data.}\label{fig:unnamed-chunk-200}
+\caption{Simple network and its edge entries of spatial data.}\label{fig:unnamed-chunk-226}
 \end{figure}
 
 위 그림은 일곱 개의 노드로 이루어진 공간 네트워크 예제이다. 각 노드
@@ -6795,7 +7503,7 @@ spatial dimension multiplied by some temporal scale factor
 
 }
 
-\caption{Two spatio-temporal network examples.}\label{fig:unnamed-chunk-201}
+\caption{Two spatio-temporal network examples.}\label{fig:unnamed-chunk-227}
 \end{figure}
 
 \subsection{Case 1}\label{case-1}
@@ -6809,7 +7517,7 @@ spatial dimension multiplied by some temporal scale factor
 
 }
 
-\caption{Extending the spatial network to the spatio-temporal network.}\label{fig:unnamed-chunk-202}
+\caption{Extending the spatial network to the spatio-temporal network.}\label{fig:unnamed-chunk-228}
 \end{figure}
 
 이것은 위 그림과 같이 시간에 따라 순차적으로 계산함으로써 해결할 수
@@ -6840,7 +7548,7 @@ J_{(t-1)n+k}=
 
 }
 
-\caption{Window based approach.}\label{fig:unnamed-chunk-203}
+\caption{Window based approach.}\label{fig:unnamed-chunk-229}
 \end{figure}
 
 \chapter{일반화 리프팅 스킴}\label{glifting}
@@ -6881,7 +7589,7 @@ frequency이다. 교수님이 좋아하시는 말로는
 \(b= \text{number of zero-crossing}\)이다.
 
 \BeginKnitrBlock{example}[Haar wavelet]
-\protect\hypertarget{exm:unnamed-chunk-204}{}{\label{exm:unnamed-chunk-204}
+\protect\hypertarget{exm:unnamed-chunk-230}{}{\label{exm:unnamed-chunk-230}
 \iffalse (Haar wavelet) \fi{} }- Haar wavelet: time series에서 ``Walsh
 function''
 \EndKnitrBlock{example}
@@ -6891,7 +7599,7 @@ function''
 \[f(t)=\sum_{k}c_{0k}\phi_{0k}(t) +\sum\sum d_{jk}\psi_{jk}(t)\] 이다.
 
 \BeginKnitrBlock{theorem}[Coifman and Wickerhauser (1992)]
-\protect\hypertarget{thm:unnamed-chunk-205}{}{\label{thm:unnamed-chunk-205}
+\protect\hypertarget{thm:unnamed-chunk-231}{}{\label{thm:unnamed-chunk-231}
 \iffalse (Coifman and Wickerhauser (1992)) \fi{}
 }\([2^{j}n, 2^{j}(n+1)]\)이 \([0,\infty)\)의 disjoint countable
 covering을 만드는 인덱스들의 collection
@@ -6908,7 +7616,7 @@ covering을 만드는 인덱스들의 collection
 
 }
 
-\caption{Illustration of wavelet packet transform applied to eight data points.}\label{fig:unnamed-chunk-206}
+\caption{Illustration of wavelet packet transform applied to eight data points.}\label{fig:unnamed-chunk-232}
 \end{figure}
 
 위 그림은 필터 \(\mathcal{H}\), \(\mathcal{G}\)를 이용해 어떻게 계수들과
@@ -6952,7 +7660,7 @@ transform}\label{non-decimated-wavelet-packet-transform}
 
 }
 
-\caption{Systematic NWPT for N=8 points (j=3).}\label{fig:unnamed-chunk-207}
+\caption{Systematic NWPT for N=8 points (j=3).}\label{fig:unnamed-chunk-233}
 \end{figure}
 
 \section{웨이블릿 패킷과 시계열(time series with wavelet
@@ -7021,11 +7729,11 @@ moment를 결정하기 위해z \textless{}- rnorm(256) argument
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-209-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-235-1} 
 
 }
 
-\caption{Wavelet packet coefficients of the independent Gaussian sequence z.}\label{fig:unnamed-chunk-209}
+\caption{Wavelet packet coefficients of the independent Gaussian sequence z.}\label{fig:unnamed-chunk-235}
 \end{figure}
 
 위 그림은 독립 가우스 수열 \(\mathbf{z}\)에 대해 웨이블릿 계수들을 구한
@@ -7077,11 +7785,11 @@ coefficient들에 대응된다. 그래서 시계열로 표현했는데 이는 �
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-211-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-237-1} 
 
 }
 
-\caption{Wavelet packet coefficients of zwp2.}\label{fig:unnamed-chunk-211}
+\caption{Wavelet packet coefficients of zwp2.}\label{fig:unnamed-chunk-237}
 \end{figure}
 
 여기서 출력되는 그림은 패킷 \((6,3)\) 지역을 제외하고는 앞선 그림과
@@ -7214,11 +7922,11 @@ extremely sparse하기 때문이다. 이 새로 선택된 \texttt{zwp2.nv}의 �
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-213-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-239-1} 
 
 }
 
-\caption{Inversion plotting.}\label{fig:unnamed-chunk-213}
+\caption{Inversion plotting.}\label{fig:unnamed-chunk-239}
 \end{figure}
 
 이 그림이 super-sparse \((6,3)\)의 결과다.
@@ -7313,6 +8021,27 @@ regression)}\label{-principal-component-regression}
 \(\sigma^{2}\)이다.
 
 참고로 주성분 회귀분석에서는 자료들을 센터링(centering)하는 것이 좋다.
+
+\begin{figure}
+
+{\centering \includegraphics{images/pca_pcreg} 
+
+}
+
+\caption{주성분분석에서 센터링을 해야 하는 이유.}\label{fig:unnamed-chunk-240}
+\end{figure}
+
+\section{다변량 자료에서의 PCA (PCA for multivariate
+data)}\label{--pca-pca-for-multivariate-data}
+
+\citep{Ramsay2005}의 8장을 참고하였다. 다변량 자료에서의 기초 컨셉은
+다음과 같은 설명변수들의 선형 결합을 취하는 것이다.
+\[f_{i}=\sum_{j=1}^{p}\beta_{j}x_{ij}, i=1,\ldots, N.\] 여기서
+\(\beta_{j}\)는 \(j\)번째 변수에 대한 \(x_{ij}\) 관련 가중
+계수(weighting coefficient)이다.
+
+\section{함수자료에서의 PCA (PCA for functional
+data)}\label{-pca-pca-for-functional-data}
 
 \chapter{정준상관분석}\label{CCA}
 
@@ -7443,7 +8172,7 @@ FDA}\label{part-quantile-regression-and-fda}
 \section{분위수 (quantile)}\label{-quantile}
 
 \BeginKnitrBlock{definition}[분위수]
-\protect\hypertarget{def:unnamed-chunk-214}{}{\label{def:unnamed-chunk-214}
+\protect\hypertarget{def:unnamed-chunk-241}{}{\label{def:unnamed-chunk-241}
 \iffalse (분위수) \fi{} }실수값을 갖는 확률변수 \(X\)가 분포함수 \(F\)를
 따른다고 할 때, \(X\)의 \(\tau\)번째 \textbf{분위수(quantile)}는
 \[Q_{X}(\tau)=F_{X}^{-1}(\tau)=\inf\{x|F(x)\geq \tau\}\] 로 정의된다.
@@ -7451,11 +8180,11 @@ FDA}\label{part-quantile-regression-and-fda}
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-215-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-242-1} 
 
 }
 
-\caption{Cummulative distribution function (left) and corresponding quantile plot (right).}\label{fig:unnamed-chunk-215}
+\caption{Cummulative distribution function (left) and corresponding quantile plot (right).}\label{fig:unnamed-chunk-242}
 \end{figure}
 
 참고로 \(Q_{X}(\tau)\)는 감소하지 않는 함수이다. 즉
@@ -7463,7 +8192,7 @@ FDA}\label{part-quantile-regression-and-fda}
 이다.
 
 \BeginKnitrBlock{definition}[조건부 분위수]
-\protect\hypertarget{def:unnamed-chunk-216}{}{\label{def:unnamed-chunk-216}
+\protect\hypertarget{def:unnamed-chunk-243}{}{\label{def:unnamed-chunk-243}
 \iffalse (조건부 분위수) \fi{} }\(Y\)를 반응변수, \(\mathbf{X}\)를
 \(p\)차원 예측변수라고 하자. 이 때 \(\mathbf{X}=\mathbf{x}\)로 주어졌을
 때 \(Y\)의 조건부 누적분포함수는
@@ -7539,7 +8268,7 @@ Davis (1972)는 \texttt{geoR}이라는 R 패키지를 만들었다.
 elevation)를 측정한 자료이다. 기본 distance unit은 50 feet이며, 높이의
 기본 distance unit은 10 feet이다.
 
-\begin{center}\includegraphics{book_files/figure-latex/unnamed-chunk-218-1} \end{center}
+\begin{center}\includegraphics{book_files/figure-latex/unnamed-chunk-245-1} \end{center}
 
 이러한 자료를 \texttt{plot}하기 위해서는 \texttt{geodata}로 바꿔줘야
 한다.
@@ -7557,7 +8286,7 @@ Diggle et al. (1998)이 만든 R \texttt{geoRglm} 패키지의 롱겔라프 환�
 실험을 한 곳의 방사능을 측정한 자료이다. 이 자료는 공간 이산
 자료(spatial discrete data)의 예이다.
 
-\begin{center}\includegraphics{book_files/figure-latex/unnamed-chunk-220-1} \end{center}
+\begin{center}\includegraphics{book_files/figure-latex/unnamed-chunk-247-1} \end{center}
 
 이 자료는 다른 자료들과 달리 sampling design이 되어있는 자료이다. 즉
 자료를 200m마다 하나씩 일정하게 뽑은 것이다. 추가로 4개의 지역에
@@ -7578,7 +8307,7 @@ county별로 센 \texttt{scotland} 자료이다. 이 자료는 \texttt{SpatialEp
 패키지에 있다. 이 자료는 spatial dependency가 clear해서 많이 쓰인다고
 한다.
 
-\begin{center}\includegraphics{book_files/figure-latex/unnamed-chunk-222-1} \end{center}
+\begin{center}\includegraphics{book_files/figure-latex/unnamed-chunk-249-1} \end{center}
 
 이 자료는 앞 자료들과 달리 point 자료가 아닌 지역별 자료이다. 이런
 자료를 공간 집적 자료(areal aggregation data)라고 한다. 이런 경우의 자료
@@ -7599,7 +8328,7 @@ inventory data, \texttt{Zurich.dat})이다. 이 자료의 특징은 숲이 어�
 위치가 고정되어 있었던 것과는 다른 상황이다. 나무의 size를 잴 때에는
 사람 가슴 정도 높이의 trunk를 잰다고 한다.
 
-\begin{center}\includegraphics{book_files/figure-latex/unnamed-chunk-224-1} \end{center}
+\begin{center}\includegraphics{book_files/figure-latex/unnamed-chunk-251-1} \end{center}
 
 산림학에서의 관심사는 나무와 나무 사이의 상호작용(interaction)이 있는지
 보는 것이다. 나무의 종류에 따라 같이 자랄 수도 있고, 또는 한 나무만
@@ -7775,7 +8504,7 @@ coefficient)라고 한다. 편의상 1차원에서 생각하자. 그러면
 여기서부터는 \citep{Gaetan2009}를 따른다.
 
 \BeginKnitrBlock{definition}[2차 과정]
-\protect\hypertarget{def:unnamed-chunk-225}{}{\label{def:unnamed-chunk-225}
+\protect\hypertarget{def:unnamed-chunk-252}{}{\label{def:unnamed-chunk-252}
 \iffalse (2차 과정) \fi{} }\(S\)를 set of site라고 하자. 그러면 모든
 \(s\in S\)에 대해 \(E(X_{s})^{2}<\infty\)인 확률변수
 \(X=\{X_{s}, s\in S\}\)를 \textbf{2차 과정(second-order process)}라구
@@ -7792,7 +8521,7 @@ coefficient)라고 한다. 편의상 1차원에서 생각하자. 그러면
 가우스 과정은 \(L^{2}\) 과정의 중요한 class이다.
 
 \BeginKnitrBlock{definition}[가우스 과정]
-\protect\hypertarget{def:unnamed-chunk-226}{}{\label{def:unnamed-chunk-226}
+\protect\hypertarget{def:unnamed-chunk-253}{}{\label{def:unnamed-chunk-253}
 \iffalse (가우스 과정) \fi{} }모든 유한한 부분집합
 \(\Lambda \subset S\)와 실수값을 갖는 수열 \(a=(a_{s}, s\in\Lambda)\)에
 대해 \(\sum_{s\in\Lambda}a_{s}X_{s}\)가 가우스 확률변수인 경우 \(X\)가
@@ -7827,7 +8556,7 @@ theorem)}\label{--spectral-representation-theorem}
 \textbf{Bochner의 정리(Bochner's theorem)}이라고 부른다.
 
 \BeginKnitrBlock{theorem}[스펙트럴 표현 정리]
-\protect\hypertarget{thm:unnamed-chunk-227}{}{\label{thm:unnamed-chunk-227}
+\protect\hypertarget{thm:unnamed-chunk-254}{}{\label{thm:unnamed-chunk-254}
 \iffalse (스펙트럴 표현 정리) \fi{} }실수값을 갖는 연속 함수 \(C\)가
 양정치함수라는 것은 그 함수가 symmetric nonnegative measure \(F\)로부터
 \(\mathcal{R}^{d}\)로 가는 Fourier transform인 경우이다. 즉
@@ -8014,7 +8743,7 @@ theorem)}\label{bartlett-bartletts-theorem}
 이 정리는 다음 두 가지를 일컫는 말이다.
 
 \BeginKnitrBlock{theorem}[Bartlett의 정리]
-\protect\hypertarget{thm:unnamed-chunk-228}{}{\label{thm:unnamed-chunk-228}
+\protect\hypertarget{thm:unnamed-chunk-255}{}{\label{thm:unnamed-chunk-255}
 \iffalse (Bartlett의 정리) \fi{} }공분산함수 \(\rho(\mathbf{u})\)를 갖는
 정상확률과정이 k-번 평균제곱 미분가능하다는 것은 \(\rho(\mathbf{u})\)가
 원점에서 2k-번 미분가능하다는 것과 동치이다. (k=0일 경우 위에서 말했던
@@ -8032,7 +8761,7 @@ k번 미분가능한 평균제곱 미분계수(k-th mean-square derivative)
 몇 번 미분가능한지 구분할 수 없다.
 
 \BeginKnitrBlock{example}[Bartlett의 정리의 예]
-\protect\hypertarget{exm:unnamed-chunk-229}{}{\label{exm:unnamed-chunk-229}
+\protect\hypertarget{exm:unnamed-chunk-256}{}{\label{exm:unnamed-chunk-256}
 \iffalse (Bartlett의 정리의 예) \fi{} }(1-d인 경우)
 \(Z_{h}(\mathbf{s})=\frac{Z(\mathbf{s}+\mathbf{h})-Z(\mathbf{s})}{h}\)로
 정의하고 이것의 공분산함수 \(C_{h}(\mathbf{t})\)를 계산하면
@@ -8055,7 +8784,7 @@ mean-square continuous조건보다 strong하다)는 것을 보이는
 정리한다.
 
 \BeginKnitrBlock{theorem}[Kent의 경로연속을 위한 충분조건]
-\protect\hypertarget{thm:unnamed-chunk-230}{}{\label{thm:unnamed-chunk-230}
+\protect\hypertarget{thm:unnamed-chunk-257}{}{\label{thm:unnamed-chunk-257}
 \iffalse (Kent의 경로연속을 위한 충분조건) \fi{} }\(\rho(\mathbf{u})\)를
 상관함수(correlation function)라고 하자. 이 함수를 테일러 전개로
 \[\rho(\mathbf{u})=\rho_{m}(\mathbf{u})+r_{m}(\mathbf{u}), \mathbf{u} \in \mathbb{R}^{2},\]
@@ -8070,7 +8799,7 @@ mean-square continuous조건보다 strong하다)는 것을 보이는
 0으로 가는 것이다.
 
 \BeginKnitrBlock{corollary}
-\protect\hypertarget{cor:unnamed-chunk-231}{}{\label{cor:unnamed-chunk-231}
+\protect\hypertarget{cor:unnamed-chunk-258}{}{\label{cor:unnamed-chunk-258}
 }정상 가우스 과정일 때 경로 연속에 대한 충분조건은
 \[\rho(\mathbf{0})-\rho(\mathbf{u})=O(\frac{1}{(\log |\mathbf{u}|)^{1+\epsilon}})=o(1) \text{ as } |\mathbf{u}| \rightarrow 0 \text{ for some } \epsilon > 0\]
 이다. 왼쪽의 \(\rho(\mathbf{0})-\rho(\mathbf{u})\)은 가우스 과정일 경우
@@ -8161,7 +8890,7 @@ case))}\label{--idealized-shape-of-variogram-isotropic-case}
 
 }
 
-\caption{Variogram example.}\label{fig:unnamed-chunk-233}
+\caption{Variogram example.}\label{fig:unnamed-chunk-260}
 \end{figure}
 
 새로 등장하는 용어인 \textbf{문턱(sill)}과 \textbf{범위(range)} 그리고
@@ -8743,7 +9472,7 @@ dimension 또한 커져 복잡한 문제가 되므로 \(m\)을 고정하는 것�
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
-\KeywordTok{plot}\NormalTok{(s100$coords[,}\DecValTok{1}\NormalTok{], s100$coords[,}\DecValTok{2}\NormalTok{],}
+\KeywordTok{plot}\NormalTok{(s100}\OperatorTok{$}\NormalTok{coords[,}\DecValTok{1}\NormalTok{], s100}\OperatorTok{$}\NormalTok{coords[,}\DecValTok{2}\NormalTok{],}
      \DataTypeTok{pch=}\StringTok{"x"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{, }\DataTypeTok{main=}\StringTok{"locations"}\NormalTok{)}
 \KeywordTok{plot}\NormalTok{(s100.v1, }\DataTypeTok{main=}\StringTok{"Variogram cloud"}\NormalTok{)}
 \KeywordTok{plot}\NormalTok{(s100.v2, }\DataTypeTok{main=}\StringTok{"MoM estimator"}\NormalTok{)}
@@ -8753,16 +9482,16 @@ dimension 또한 커져 복잡한 문제가 되므로 \(m\)을 고정하는 것�
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-235-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-262-1} 
 
 }
 
-\caption{Various variogram estimation methods.}\label{fig:unnamed-chunk-235}
+\caption{Various variogram estimation methods.}\label{fig:unnamed-chunk-262}
 \end{figure}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{true <-}\StringTok{ }\DecValTok{1}\NormalTok{-}\KeywordTok{matern}\NormalTok{(}\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\FloatTok{0.1}\NormalTok{),}\FloatTok{0.3}\NormalTok{,}\FloatTok{0.5}\NormalTok{)}
+\NormalTok{true <-}\StringTok{ }\DecValTok{1}\OperatorTok{-}\KeywordTok{matern}\NormalTok{(}\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\FloatTok{0.1}\NormalTok{),}\FloatTok{0.3}\NormalTok{,}\FloatTok{0.5}\NormalTok{)}
 \NormalTok{ols <-}\StringTok{ }\KeywordTok{variofit}\NormalTok{(s100.v2, }\DataTypeTok{ini=}\KeywordTok{c}\NormalTok{(}\FloatTok{0.9}\NormalTok{,}\FloatTok{0.2}\NormalTok{), }\DataTypeTok{cov.model=}\StringTok{"mat"}\NormalTok{,}
                 \DataTypeTok{fix.kappa=}\NormalTok{F, }\DataTypeTok{kap=}\FloatTok{1.5}\NormalTok{, }\DataTypeTok{nug=}\FloatTok{0.2}\NormalTok{, }\DataTypeTok{weights=}\StringTok{"equal"}\NormalTok{)}
 \end{Highlighting}
@@ -8801,11 +9530,11 @@ dimension 또한 커져 복잡한 문제가 되므로 \(m\)을 고정하는 것�
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-236-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-263-1} 
 
 }
 
-\caption{Comparison of variogram estimation methods.}\label{fig:unnamed-chunk-236}
+\caption{Comparison of variogram estimation methods.}\label{fig:unnamed-chunk-263}
 \end{figure}
 
 \chapter{공간자료에서의 가능도 기반 방법들}\label{spatlikelihood}
@@ -9024,7 +9753,7 @@ Cressie and Lahiri (1993, 1996)은 REML에서의 asymptotics를 보였다고
 Ying (1991)은 Gaussian이고 exponential covariance model
 \((\sigma^{2}e^{-\theta h})\)이고 \(d=1\)인 경우에 \(\sigma^{2}\)과
 \(\theta\)를 따로 estimate 할 수 없음을 보였다고 한다(MLE 포함 모든
-방법이 다 단된다. Increasing domain asymptotics인 경우에는 따로
+방법이 다 안된다. Increasing domain asymptotics인 경우에는 따로
 estimate하는 것이 가능하다고 한다). 그러나 곱한 경우,
 \(\sigma^{2}\theta\)는 MLE가 consistent함을 보였다고 한다.
 
@@ -9624,7 +10353,7 @@ Statistics}\label{part-spatio-tempral-statistics}
 fields)}\label{-gaussian-random-fields}
 
 \BeginKnitrBlock{definition}[가우스 확률장]
-\protect\hypertarget{def:unnamed-chunk-237}{}{\label{def:unnamed-chunk-237}
+\protect\hypertarget{def:unnamed-chunk-264}{}{\label{def:unnamed-chunk-264}
 \iffalse (가우스 확률장) \fi{} }시공간 확률장 \(Y(\mathbf{s},t)\)가
 임의의 \(\{(\mathbf{s}_{1},t_{1}),\ldots , (\mathbf{s}_{n},t_{n})\}\)에
 대해 무작위 벡터
@@ -9666,7 +10395,7 @@ stationary)을 따르는 시공간 가우스 확률장이라고 놓자. 이 뜻�
 가 된다.
 
 \BeginKnitrBlock{definition}[분리가능]
-\protect\hypertarget{def:unnamed-chunk-238}{}{\label{def:unnamed-chunk-238}
+\protect\hypertarget{def:unnamed-chunk-265}{}{\label{def:unnamed-chunk-265}
 \iffalse (분리가능) \fi{} }시공간 확률장 \(Y(\mathbf{s},t)\)의
 공분산함수가 임의의 시공간 장소
 \((\mathbf{s}_{i}, t_{i}),(\mathbf{s}_{j}, t_{j})\in\mathbb{R}^{d}\times \mathbb{R}\)에
@@ -9678,7 +10407,7 @@ stationary)을 따르는 시공간 가우스 확률장이라고 놓자. 이 뜻�
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[시공간 변동도]
-\protect\hypertarget{def:unnamed-chunk-239}{}{\label{def:unnamed-chunk-239}
+\protect\hypertarget{def:unnamed-chunk-266}{}{\label{def:unnamed-chunk-266}
 \iffalse (시공간 변동도) \fi{} }시공간 확률장 \(Y(\mathbf{s},t)\)의
 \textbf{시공간 변동도(spatio-temporal variogram)}는
 \[2\gamma((\mathbf{s}_{i},t_{i}), (\mathbf{s}_{j},t_{j}))=V(Y(\mathbf{s}_{i},t_{i})-Y(\mathbf{s}_{j},t_{j}))\]
@@ -9816,11 +10545,11 @@ patterns)}\label{--examples-of-spatial-point-patterns}
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-241-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-268-1} 
 
 }
 
-\caption{Japanese pine trees data.}\label{fig:unnamed-chunk-241}
+\caption{Japanese pine trees data.}\label{fig:unnamed-chunk-268}
 \end{figure}
 
 \begin{enumerate}
@@ -9838,11 +10567,11 @@ Ripley (1977)이 62그루의 캘리포니아 레드우드 모종(seeding)과
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-242-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-269-1} 
 
 }
 
-\caption{Califonia Redwoods data.}\label{fig:unnamed-chunk-242}
+\caption{Califonia Redwoods data.}\label{fig:unnamed-chunk-269}
 \end{figure}
 
 \begin{enumerate}
@@ -9860,11 +10589,11 @@ Crick and Ripley (1977)은 광학현미경으로 관찰한 42개의 생물학적
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-243-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-270-1} 
 
 }
 
-\caption{Biological cells data.}\label{fig:unnamed-chunk-243}
+\caption{Biological cells data.}\label{fig:unnamed-chunk-270}
 \end{figure}
 
 \begin{enumerate}
@@ -9882,11 +10611,11 @@ Diggle (1986)은 토끼의 망막에 있는 94개의 무축삭 세포(Amacrine c
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-244-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-271-1} 
 
 }
 
-\caption{Amacrine cells data.}\label{fig:unnamed-chunk-244}
+\caption{Amacrine cells data.}\label{fig:unnamed-chunk-271}
 \end{figure}
 
 여기서는 각자의 특징이 있는지, 두 그룹 사이에 관련성이 있는지에 대해
@@ -9902,7 +10631,7 @@ Diggle (1986)은 토끼의 망막에 있는 94개의 무축삭 세포(Amacrine c
 체크하게 되는데, 그 이유는 이것을 따르면 모델링이 단순해지기 때문이다.
 
 \BeginKnitrBlock{definition}[동질적 포아송 점과정]
-\protect\hypertarget{def:unnamed-chunk-245}{}{\label{def:unnamed-chunk-245}
+\protect\hypertarget{def:unnamed-chunk-272}{}{\label{def:unnamed-chunk-272}
 \iffalse (동질적 포아송 점과정) \fi{} }완전공간임의성 가정은 다음 두
 조건
 
@@ -10022,7 +10751,7 @@ EDF)}\label{-----mc-tests-using-edf}
 \end{enumerate}
 
 \BeginKnitrBlock{corollary}
-\protect\hypertarget{cor:unnamed-chunk-246}{}{\label{cor:unnamed-chunk-246}
+\protect\hypertarget{cor:unnamed-chunk-273}{}{\label{cor:unnamed-chunk-273}
 }1. Aggregate pattern이 의심될 경우: 작은 \(t_{0}\)를 선택하는 것이
 좋다.
 
@@ -10092,11 +10821,11 @@ distance)}\label{----mc-tests-based-on-nearest-neighbor-distance}
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-248-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-275-1} 
 
 }
 
-\caption{Examples of rectangle area.}\label{fig:unnamed-chunk-248}
+\caption{Examples of rectangle area.}\label{fig:unnamed-chunk-275}
 \end{figure}
 
 \textbf{정방구역(quadrat)}이란 어떤 관찰구역 \(A\)를 \(m\)개의 같은
@@ -10122,13 +10851,13 @@ distance)}\label{----mc-tests-based-on-nearest-neighbor-distance}
 \CommentTok{# Store the points as two-dimensional point pattern (ppp) object (ranging from 0 to 8 on both axis)}
 \NormalTok{coords.ppp <-}\StringTok{ }\KeywordTok{as.ppp}\NormalTok{(coords, }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{8}\NormalTok{))}
 \CommentTok{#  Number of points}
-\NormalTok{n <-}\StringTok{ }\NormalTok{coords.ppp$n}
+\NormalTok{n <-}\StringTok{ }\NormalTok{coords.ppp}\OperatorTok{$}\NormalTok{n}
 \CommentTok{#  We want to generate completely spatially random point patterns to compare against the observed}
 \NormalTok{ex <-}\StringTok{ }\KeywordTok{expression}\NormalTok{( }\KeywordTok{runifpoint}\NormalTok{( n , }\DataTypeTok{win =} \KeywordTok{owin}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{8}\NormalTok{),}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{8}\NormalTok{))))}
 \CommentTok{#  Reproducible simulation}
 \KeywordTok{set.seed}\NormalTok{(}\DecValTok{1}\NormalTok{)}
 \CommentTok{# Compute a simulation envelope using Gest, which estimates the nearest neighbour distance distribution function G(r)}
-\NormalTok{EDF <-}\StringTok{ }\KeywordTok{envelope}\NormalTok{( coords.ppp , Gest , }\DataTypeTok{nsim =} \DecValTok{99}\NormalTok{, }\DataTypeTok{simulate =} \NormalTok{ex ,}\DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{savefuns =} \OtherTok{TRUE} \NormalTok{)}
+\NormalTok{EDF <-}\StringTok{ }\KeywordTok{envelope}\NormalTok{( coords.ppp , Gest , }\DataTypeTok{nsim =} \DecValTok{99}\NormalTok{, }\DataTypeTok{simulate =}\NormalTok{ ex ,}\DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{savefuns =} \OtherTok{TRUE}\NormalTok{ )}
 \CommentTok{#  Plot}
 \KeywordTok{plot}\NormalTok{(EDF)}
 \end{Highlighting}
@@ -10136,11 +10865,11 @@ distance)}\label{----mc-tests-based-on-nearest-neighbor-distance}
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-250-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-277-1} 
 
 }
 
-\caption{EDF plot.}\label{fig:unnamed-chunk-250}
+\caption{EDF plot.}\label{fig:unnamed-chunk-277}
 \end{figure}
 
 \chapter{희박한 샘플링 분석}\label{sparsesampling}
@@ -10236,11 +10965,11 @@ data)}\label{-----distance-methods-for-sparsely-sampled-data}
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-252-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-279-1} 
 
 }
 
-\caption{Example of T-square sampling.}\label{fig:unnamed-chunk-252}
+\caption{Example of T-square sampling.}\label{fig:unnamed-chunk-279}
 \end{figure}
 
 그림에 대한 설명은 다음과 같다. 사건(event)가 아닌 점(point) \(O\)를
@@ -10323,7 +11052,7 @@ processes)}\label{-definition-of-point-processes}
 이다.
 
 \BeginKnitrBlock{corollary}
-\protect\hypertarget{cor:unnamed-chunk-253}{}{\label{cor:unnamed-chunk-253}
+\protect\hypertarget{cor:unnamed-chunk-280}{}{\label{cor:unnamed-chunk-280}
 }1. \(X\)의 가측성(measurability) \(\Longleftrightarrow\) \(N(B)\)가
 모든 \(B\in\mathcal{B}_{0}\)에서 확률변수 인 것(확률론에 의해
 \(\mathcal{B}_{0}\)을 \(\mathcal{B}\)로 확장할 수 있다)
@@ -10378,7 +11107,7 @@ process)}\label{-poisson-point-process}
 먼저 \textbf{이항 점과정(binomial point process)}에 대해 알아야 한다.
 
 \BeginKnitrBlock{definition}[이항 점과정]
-\protect\hypertarget{def:unnamed-chunk-254}{}{\label{def:unnamed-chunk-254}
+\protect\hypertarget{def:unnamed-chunk-281}{}{\label{def:unnamed-chunk-281}
 \iffalse (이항 점과정) \fi{} }\(f\)가 \(B\subseteq S\) 위에서의
 밀도함수(density function)라고 하자. B 위에서 밀도 \(f\)를 갖는
 \(n\)개의 i.i.d. 점들로 구성된 점과정 \(X\)를 \textbf{이항
@@ -10389,7 +11118,7 @@ i.i.d로 뽑인다. CSR은 \(f=\frac{1}{|B|}\)인 경우다.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[포아송 점과정]
-\protect\hypertarget{def:unnamed-chunk-255}{}{\label{def:unnamed-chunk-255}
+\protect\hypertarget{def:unnamed-chunk-282}{}{\label{def:unnamed-chunk-282}
 \iffalse (포아송 점과정) \fi{} }\(S\) 위에서 강도함수(intensity
 function) \(\rho\)를 갖는 점과정 \(X\)가
 
@@ -10410,7 +11139,7 @@ process)}이라 부른다.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{corollary}
-\protect\hypertarget{cor:unnamed-chunk-256}{}{\label{cor:unnamed-chunk-256}
+\protect\hypertarget{cor:unnamed-chunk-283}{}{\label{cor:unnamed-chunk-283}
 }- \(E N(B)=\mu(B)\) for \(\mu(B) <\infty\)
 
 \begin{itemize}
@@ -10423,7 +11152,7 @@ process)}이라 부른다.
 \EndKnitrBlock{corollary}
 
 \BeginKnitrBlock{definition}[포아송 점과정과 관련된 정의들]
-\protect\hypertarget{def:unnamed-chunk-257}{}{\label{def:unnamed-chunk-257}
+\protect\hypertarget{def:unnamed-chunk-284}{}{\label{def:unnamed-chunk-284}
 \iffalse (포아송 점과정과 관련된 정의들) \fi{} }\(\rho(\cdot)=\rho\)인
 포아송 점과정을 \textbf{동질적 포아송 점과정(homogeneous Poisson point
 process)}, \(\rho(\cdot)\neq\rho\)인 포아송 점과정을 \textbf{비동질적
@@ -10448,7 +11177,7 @@ process)}\label{--properties-of-poisson-point-process}
 integrable)이다.
 
 \BeginKnitrBlock{proposition}[포아송 점과정과 관련된 성질들]
-\protect\hypertarget{prp:unnamed-chunk-258}{}{\label{prp:unnamed-chunk-258}
+\protect\hypertarget{prp:unnamed-chunk-285}{}{\label{prp:unnamed-chunk-285}
 \iffalse (포아송 점과정과 관련된 성질들) \fi{} }1.
 \(X \in \text{Poisson}(S, \rho)\)인 것은
 
@@ -10474,7 +11203,7 @@ integrable)이다.
 무엇일까에 관한 것이다.
 
 \BeginKnitrBlock{proposition}[포아송 점과정에 해당하는 빈 확률]
-\protect\hypertarget{prp:unnamed-chunk-259}{}{\label{prp:unnamed-chunk-259}
+\protect\hypertarget{prp:unnamed-chunk-286}{}{\label{prp:unnamed-chunk-286}
 \iffalse (포아송 점과정에 해당하는 빈 확률) \fi{}
 }\(X \in \text{Poisson}(S, \rho)\)는 빈 확률
 \[v(B)=e^{-\mu(B)}, \qquad{\text{bounded } B\subseteq S}\] 에 의해
@@ -10485,7 +11214,7 @@ integrable)이다.
 말하고 있다.
 
 \BeginKnitrBlock{proposition}[disjoint한 지역에서의 포아송 점과정들은 서로 독립]
-\protect\hypertarget{prp:unnamed-chunk-260}{}{\label{prp:unnamed-chunk-260}
+\protect\hypertarget{prp:unnamed-chunk-287}{}{\label{prp:unnamed-chunk-287}
 \iffalse (disjoint한 지역에서의 포아송 점과정들은 서로 독립) \fi{}
 }점과정 \(X\)가 포아송 점과정 \(X \in \text{Poisson}(S, \rho)\)이면,
 \(X_{B_{1}}, X_{B_{2}}, \ldots\)는 disjoint set들
@@ -10495,7 +11224,7 @@ integrable)이다.
 다음 명제는 포아송 점과정의 생성범함수에 관한 것이다.
 
 \BeginKnitrBlock{proposition}[포아송 점과정의 생성범함수]
-\protect\hypertarget{prp:unnamed-chunk-261}{}{\label{prp:unnamed-chunk-261}
+\protect\hypertarget{prp:unnamed-chunk-288}{}{\label{prp:unnamed-chunk-288}
 \iffalse (포아송 점과정의 생성범함수) \fi{} }점과정 \(X\)가 포아송
 점과정 \(X \in \text{Poisson}(S, \rho)\)이면
 \[G_{X}(u)=E[ \prod_{\xi \in X}u(\xi)] \stackrel{\text{PPP}}{=}e^{-\int_{S}(1-u(\xi))\rho(\xi)d\xi}\]
@@ -10506,7 +11235,7 @@ integrable)이다.
 여기서는 극좌표(polar coordinate)를 응용한다.
 
 \BeginKnitrBlock{proposition}[극좌표를 활용한 포아송 점과정의 생성]
-\protect\hypertarget{prp:unnamed-chunk-262}{}{\label{prp:unnamed-chunk-262}
+\protect\hypertarget{prp:unnamed-chunk-289}{}{\label{prp:unnamed-chunk-289}
 \iffalse (극좌표를 활용한 포아송 점과정의 생성) \fi{}
 }\(S_{1}, U_{1}, S_{2}, U_{2}, \ldots\)가 \(U_{i}\)는
 \(\{u \in \mathbb{R}^{d}: \| u\| =1 \}\)에서 균등하게 분포되어 있고
@@ -10521,7 +11250,7 @@ integrable)이다.
 \EndKnitrBlock{proposition}
 
 \BeginKnitrBlock{theorem}[(Slivnyak-Mecke's theorem)]
-\protect\hypertarget{thm:unnamed-chunk-263}{}{\label{thm:unnamed-chunk-263}
+\protect\hypertarget{thm:unnamed-chunk-290}{}{\label{thm:unnamed-chunk-290}
 \iffalse ((Slivnyak-Mecke's theorem)) \fi{}
 }\(X \in \text{Poisson}(S, \rho)\)일 때 함수
 \(h:S\times N_{lf} \rightarrow [0,\infty])\)에 대해
@@ -10529,7 +11258,7 @@ integrable)이다.
 \EndKnitrBlock{theorem}
 
 \BeginKnitrBlock{theorem}[(Extended Slivnyak-Mecke's theorem)]
-\protect\hypertarget{thm:unnamed-chunk-264}{}{\label{thm:unnamed-chunk-264}
+\protect\hypertarget{thm:unnamed-chunk-291}{}{\label{thm:unnamed-chunk-291}
 \iffalse ((Extended Slivnyak-Mecke's theorem)) \fi{}
 }\(X \in \text{Poisson}(S, \rho)\)일 때 함수
 \(h:S^{n}\times N_{lf} \rightarrow [0,\infty])\)에 대해
@@ -10546,14 +11275,14 @@ thinning)}\label{-superpositioning-and-thinning}
 중첩(superposition)과 세선화(thnning)는 점과정의 기본적인 연산자들이다.
 
 \BeginKnitrBlock{definition}[중첩]
-\protect\hypertarget{def:unnamed-chunk-265}{}{\label{def:unnamed-chunk-265}
+\protect\hypertarget{def:unnamed-chunk-292}{}{\label{def:unnamed-chunk-292}
 \iffalse (중첩) \fi{} }포아송 점과정들 \(X_{1},X_{2},\ldots\)의 배반
 합집합 \(\cup_{i=1}^{\infty}X_{i}\)를 \textbf{중첩(superposition)}이라고
 한다.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[세선화]
-\protect\hypertarget{def:unnamed-chunk-266}{}{\label{def:unnamed-chunk-266}
+\protect\hypertarget{def:unnamed-chunk-293}{}{\label{def:unnamed-chunk-293}
 \iffalse (세선화) \fi{} }\(p:S\rightarrow [0,1]\)이 함수이고 \(X\)가
 \(S\)에서의 점과정이라고 하자. 점과정 \(X_{thin}\subseteq X\)는
 \(\xi \in X\)를 \(X_{thin}\)에 확률 \(p(\xi)\)로 포함하는 점과정으로
@@ -10570,7 +11299,7 @@ thinning)}\label{-superpositioning-and-thinning}
 명제들은 이 사실에 관한 것들이다.
 
 \BeginKnitrBlock{proposition}[포아송 점과정의 중첩과 세선화]
-\protect\hypertarget{prp:unnamed-chunk-267}{}{\label{prp:unnamed-chunk-267}
+\protect\hypertarget{prp:unnamed-chunk-294}{}{\label{prp:unnamed-chunk-294}
 \iffalse (포아송 점과정의 중첩과 세선화) \fi{}
 }\(X_{i}\sim \text{Poisson}(S,\rho_{i}), i=1,2,\ldots\)가 상호 독립이고
 \(\rho=\sum\rho_{i}\)가 확률 1로 국소 적분가능하면, 배반 합집합
@@ -10578,7 +11307,7 @@ thinning)}\label{-superpositioning-and-thinning}
 \EndKnitrBlock{proposition}
 
 \BeginKnitrBlock{proposition}[독립 세선화]
-\protect\hypertarget{prp:unnamed-chunk-268}{}{\label{prp:unnamed-chunk-268}
+\protect\hypertarget{prp:unnamed-chunk-295}{}{\label{prp:unnamed-chunk-295}
 \iffalse (독립 세선화) \fi{} }\(X \sim \text{Poisson}(S,\rho)\)가
 보유확률 \(p(\xi), xi\in S\)를 갖는 독립 세선화 \(X_{thin}\)을 갖는다고
 하고 \[\rho_{thin}(\xi)=p(\xi)\rho(\xi), \xi\in S\] 일 때,
@@ -10590,7 +11319,7 @@ thinning)}\label{-superpositioning-and-thinning}
 한다.
 
 \BeginKnitrBlock{corollary}
-\protect\hypertarget{cor:unnamed-chunk-269}{}{\label{cor:unnamed-chunk-269}
+\protect\hypertarget{cor:unnamed-chunk-296}{}{\label{cor:unnamed-chunk-296}
 }\(X \sim \text{Poisson}(\mathbb{R}^{d}, \rho)\)이며 강도함수 \(\rho\)는
 상수 \(c\)에 의해 유계이다. 그러면 \(X\)는 보유확률
 \(p(\xi)=\frac{\rho(\xi)}{c}\)를 갖는
@@ -10644,7 +11373,7 @@ processes)}\label{--density-of-poisson-point-processes}
 절대연속이 된다고 한다.
 
 \BeginKnitrBlock{proposition}[포아송 점과정의 절대연속]
-\protect\hypertarget{prp:unnamed-chunk-270}{}{\label{prp:unnamed-chunk-270}
+\protect\hypertarget{prp:unnamed-chunk-297}{}{\label{prp:unnamed-chunk-297}
 \iffalse (포아송 점과정의 절대연속) \fi{} }1. 임의의 숫자
 \(\rho_{1}, \rho_{2} >0\)에 대해
 \(\text{Poisson}(\mathbb{R}^{d},\rho_{1})\)이
@@ -10686,7 +11415,7 @@ process)}\label{-1--2-first-and-second-order-properties-of-a-point-process}
 order moment factorial moment measure)}라고 부른다.
 
 \BeginKnitrBlock{definition}[강도측도]
-\protect\hypertarget{def:unnamed-chunk-271}{}{\label{def:unnamed-chunk-271}
+\protect\hypertarget{def:unnamed-chunk-298}{}{\label{def:unnamed-chunk-298}
 \iffalse (강도측도) \fi{} }\(\mathbb{R}^{d}\)에서의
 \textbf{강도측도(intensity measure)} \(\mu\)는
 \[\mu(B)=E[N(B)], B\subset \mathbb{R}^{d}\] 로 정의하고
@@ -10701,7 +11430,7 @@ order moment factorial moment measure)} \(\alpha^{(2)}\)는
 와 같이 정의된다고 한다.
 
 \BeginKnitrBlock{definition}[강도함수]
-\protect\hypertarget{def:unnamed-chunk-272}{}{\label{def:unnamed-chunk-272}
+\protect\hypertarget{def:unnamed-chunk-299}{}{\label{def:unnamed-chunk-299}
 \iffalse (강도함수) \fi{} }\(\rho\)가 존재하여
 \[\mu(B)=\int_{B}\rho(\xi)d\xi\] 를 만족한다면, \(\rho\)를
 \textbf{강도함수(intensity function)}라고 한다.
@@ -10725,7 +11454,7 @@ Statistics}\label{part-extreme-value-statistics}
 정리하면 \(M_{n}\)은 \(n\) 시간 단위의 관측값 중 최대값을 나타낸다.
 
 \BeginKnitrBlock{definition}[극단값의 예]
-\protect\hypertarget{def:unnamed-chunk-273}{}{\label{def:unnamed-chunk-273}
+\protect\hypertarget{def:unnamed-chunk-300}{}{\label{def:unnamed-chunk-300}
 \iffalse (극단값의 예) \fi{} }\(n\)이 일년동한 관찰한 관측값 수라고 할
 경우, \(M_{n}\)은 월 최대값에 대응된다.
 \EndKnitrBlock{definition}
@@ -10766,7 +11495,7 @@ distribution)}를 따르게 된다. 퇴화분포는 다루기 어렵기 때문�
 안정화시킬 수 있도록 잘 잡아준다.
 
 \BeginKnitrBlock{theorem}[일반화 극단값 분포 정리]
-\protect\hypertarget{thm:unnamed-chunk-274}{}{\label{thm:unnamed-chunk-274}
+\protect\hypertarget{thm:unnamed-chunk-301}{}{\label{thm:unnamed-chunk-301}
 \iffalse (일반화 극단값 분포 정리) \fi{} }만약 앞서 말한 상수열
 \(\{a_{n} >0\}\)과 \(\{b_{n}\}\)이 존재해
 \[P\{(M_{n}-b_{n})/a_{n}\leq z\} \rightarrow G(z), \qquad{n \rightarrow \infty}\]
@@ -10787,11 +11516,11 @@ distribution)}를 따르게 된다. 퇴화분포는 다루기 어렵기 때문�
 
 \begin{figure}
 
-{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-276-1} 
+{\centering \includegraphics{book_files/figure-latex/unnamed-chunk-303-1} 
 
 }
 
-\caption{Plot of three GEV distributions.}\label{fig:unnamed-chunk-276}
+\caption{Plot of three GEV distributions.}\label{fig:unnamed-chunk-303}
 \end{figure}
 
 위 정리는 재정규화 시킨 표본 최대값들
@@ -10802,7 +11531,7 @@ distribution)}를 따르게 된다. 퇴화분포는 다루기 어렵기 때문�
 \(a_{n}\), \(b_{n}\)은 존재하지 않을 수도 있다. (예: 포아송 분포)
 
 \BeginKnitrBlock{example}[굼벨분포]
-\protect\hypertarget{exm:unnamed-chunk-277}{}{\label{exm:unnamed-chunk-277}
+\protect\hypertarget{exm:unnamed-chunk-304}{}{\label{exm:unnamed-chunk-304}
 \iffalse (굼벨분포) \fi{} }\(X_{1}, X_{2}, \ldots\)가
 정규지수분포\((=\text{Exp}(1))\)에서 추출된 확률변수의 수열이라고 하자.
 참고로 \(F(x)=1-\exp^{x}\) (\(x>0\))이다. 이때 \(a_{n}=1\),
@@ -10821,7 +11550,7 @@ P\{(M_{n}-b_{n})/a_{n} \leq z \} &=& F^{n}(z+\log n) \nonumber\\
 \EndKnitrBlock{example}
 
 \BeginKnitrBlock{example}[굼벨분포로의 수렴속도]
-\protect\hypertarget{exm:unnamed-chunk-278}{}{\label{exm:unnamed-chunk-278}
+\protect\hypertarget{exm:unnamed-chunk-305}{}{\label{exm:unnamed-chunk-305}
 \iffalse (굼벨분포로의 수렴속도) \fi{} }\(X_{1}, X_{2}, \ldots\)가
 표준정규분포에서 추출된 확률변수의 수열이라고 하자. 이때
 \[a_{n}=(2\log n)^{-0.5}, b_{n}=(2\log n)^{0.5}-0.5(2\log n)^{-0.5}(\log\log n +log 4\pi)\]
@@ -10862,7 +11591,7 @@ parameter)}, \(\sigma\)는 \textbf{척도모수(scale parameter)}, 그리고
 \section{최대안정성(max-stablity)}\label{max-stablity}
 
 \BeginKnitrBlock{definition}[최대안정성]
-\protect\hypertarget{def:unnamed-chunk-279}{}{\label{def:unnamed-chunk-279}
+\protect\hypertarget{def:unnamed-chunk-306}{}{\label{def:unnamed-chunk-306}
 \iffalse (최대안정성) \fi{} }모든 \(n=2,3,\ldots,\)에서 상수들
 \(\alpha_{n}>0\), \(\beta_{n}\)이 존재해
 \[G^{n}(\alpha_{n}z+\beta_{n})=G(z)\] 일 경우 분포 G를
@@ -10873,7 +11602,7 @@ parameter)}, \(\sigma\)는 \textbf{척도모수(scale parameter)}, 그리고
 최대안정성과 일반화 극단값 분포 사이에는 다음과 같은 정리가 있다.
 
 \BeginKnitrBlock{corollary}
-\protect\hypertarget{cor:unnamed-chunk-280}{}{\label{cor:unnamed-chunk-280}
+\protect\hypertarget{cor:unnamed-chunk-307}{}{\label{cor:unnamed-chunk-307}
 }어떤 분포가 최대안정한 것은 분포가 일반화 극단값 분포임과 동치이다.
 \citep{Coles2001}
 \EndKnitrBlock{corollary}
@@ -10892,7 +11621,7 @@ parameter)}, \(\sigma\)는 \textbf{척도모수(scale parameter)}, 그리고
 사건이다.
 
 \BeginKnitrBlock{example}[복귀 수준]
-\protect\hypertarget{exm:unnamed-chunk-281}{}{\label{exm:unnamed-chunk-281}
+\protect\hypertarget{exm:unnamed-chunk-308}{}{\label{exm:unnamed-chunk-308}
 \iffalse (복귀 수준) \fi{} }20년 복귀 수준은 매 20년마다 최대 수준이 한
 번꼴로 초과할 것으로 기대되는 수준에 대응된다. 이것은 매 년
 \(\frac{1}{20}=0.05\)의 확률로 그러한 사건이 마주칠 것으로 기대되며
@@ -10958,7 +11687,7 @@ statistics)}\label{--mle-in-extreme-value-statistics}
 이론에 대해 정리해보자.
 
 \BeginKnitrBlock{definition}[가능도와 최대가능도추정량]
-\protect\hypertarget{def:unnamed-chunk-282}{}{\label{def:unnamed-chunk-282}
+\protect\hypertarget{def:unnamed-chunk-309}{}{\label{def:unnamed-chunk-309}
 \iffalse (가능도와 최대가능도추정량) \fi{} }\(y\)가 자료이고 이 자료가
 다음과 같은 모수 \(\theta\)로 정의되는 확률변수 \(Y \sim f(y;\theta)\)의
 실현(realization)이라고 하자. 이때 \textbf{가능도(likelihood, 우도)}와
@@ -11001,7 +11730,7 @@ statistics)}\label{--mle-in-extreme-value-statistics}
 로 정의한다. 이 때 다음과 같은 통계량을 정의할 수 있다.
 
 \BeginKnitrBlock{definition}[일반화가능도통계량]
-\protect\hypertarget{def:unnamed-chunk-283}{}{\label{def:unnamed-chunk-283}
+\protect\hypertarget{def:unnamed-chunk-310}{}{\label{def:unnamed-chunk-310}
 \iffalse (일반화가능도통계량) \fi{}
 }\textbf{일반화가능도통계량(generalized likelihood ratio statistic)}은
 \[W_{p}(\psi)=2\{l(\hat{\psi},\hat{\lambda})-l(\psi,\hat{\lambda}_{\psi})\}=2\{l(\hat{\theta})-l(\hat{\theta}_{\psi})\}\]
@@ -11024,7 +11753,7 @@ statistics)}\label{---profile-likelihood-in-extreme-value-statistics}
 likelihood)}이다.
 
 \BeginKnitrBlock{definition}[프로파일 가능도]
-\protect\hypertarget{def:unnamed-chunk-284}{}{\label{def:unnamed-chunk-284}
+\protect\hypertarget{def:unnamed-chunk-311}{}{\label{def:unnamed-chunk-311}
 \iffalse (프로파일 가능도) \fi{} }\(\theta\)를 모수 벡터라 하고
 \(\theta_{i}\)를 제외한 모든 \(\theta\)의 원소들의 모임을
 \(\theta_{-i}\)라고 했을 때 \(\theta_{i}\)에 대한 \textbf{프로파일 로그
@@ -11033,7 +11762,7 @@ likelihood)}이다.
 \EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}[프로파일 로그 가능도]
-\protect\hypertarget{def:unnamed-chunk-285}{}{\label{def:unnamed-chunk-285}
+\protect\hypertarget{def:unnamed-chunk-312}{}{\label{def:unnamed-chunk-312}
 \iffalse (프로파일 로그 가능도) \fi{} }\(\theta\)를 모수 벡터라 하고
 이것을 \((\theta^{(1)}, \theta^{(2)})\)로 분할할 수 있다고 하자. 여기서
 \(\theta^{(1)}\)은 \(k\)차원 흥미있는 모수들의 벡터이며
@@ -11048,7 +11777,7 @@ log-likelihood)}는
 점근분포를 갖음이 알려져 있다.\citep{Coles2001}
 
 \BeginKnitrBlock{theorem}[프로파일 로그 가능도를 이용한 통계량의 점근분포]
-\protect\hypertarget{thm:unnamed-chunk-286}{}{\label{thm:unnamed-chunk-286}
+\protect\hypertarget{thm:unnamed-chunk-313}{}{\label{thm:unnamed-chunk-313}
 \iffalse (프로파일 로그 가능도를 이용한 통계량의 점근분포) \fi{}
 }\(x_{1}, \ldots , x_{n}\)을 모수분포 \(\mathcal{F}\) 안에 있는 어떤
 분포의 독립적인 실현이라고 하자. \(\hat{\theta}_{0}\)을 \(d\)차원
@@ -11087,7 +11816,7 @@ distribution)}\label{--generalized-pareto-distribution}
 주된 결과는 다음 정리에 포함되어 있다.
 
 \BeginKnitrBlock{theorem}[일반화 파레토 분포]
-\protect\hypertarget{thm:unnamed-chunk-287}{}{\label{thm:unnamed-chunk-287}
+\protect\hypertarget{thm:unnamed-chunk-314}{}{\label{thm:unnamed-chunk-314}
 \iffalse (일반화 파레토 분포) \fi{} }\(X_{1},X_{2},\ldots\)이 분포함수
 \(F\)를 갖는 독립인 확률변수의 수열이라고 하자. 그리고
 \[M_{n}=\max\{X_{1},\ldots,X_{n}\}\] 을 정의한다. \(F\)가 극단 종류
@@ -11125,7 +11854,7 @@ H(y)=1-(1+\frac{\xi y}{\tilde{\sigma}})^{-1/\xi}
 정의를 다시 살펴보자. 이번엔 \citep{Dey2015} 버전이다.
 
 \BeginKnitrBlock{definition}[최대안정과정의 다른 정의]
-\protect\hypertarget{def:unnamed-chunk-289}{}{\label{def:unnamed-chunk-289}
+\protect\hypertarget{def:unnamed-chunk-316}{}{\label{def:unnamed-chunk-316}
 \iffalse (최대안정과정의 다른 정의) \fi{} }\(Z_{1}, Z_{2},\ldots\)를
 확률과정 \(\{Z(x):x\in\mathcal{X} \}\)의 독립인 copy들의 수열이라고
 하자. 만약 각각의 \(n, (n\geq 1)\)에 대해 다음과 같은 \(a_{n}>0\),
@@ -11142,7 +11871,7 @@ H(y)=1-(1+\frac{\xi y}{\tilde{\sigma}})^{-1/\xi}
 다음은 \citep{DeHaan1984}에 나오는 정리이다.
 
 \BeginKnitrBlock{theorem}[최대안정과정 관련 정리]
-\protect\hypertarget{thm:unnamed-chunk-290}{}{\label{thm:unnamed-chunk-290}
+\protect\hypertarget{thm:unnamed-chunk-317}{}{\label{thm:unnamed-chunk-317}
 \iffalse (최대안정과정 관련 정리) \fi{} }\(Y_{1}, Y_{2},\ldots\)를
 continuous sample path를 갖는 \(\{Y(x):x\in\mathcal{X} \}\)의 독립인
 copy들의 수열이라고 하자. 만약 연속함수
@@ -11169,7 +11898,7 @@ copy들의 수열이라고 하자. 만약 연속함수
 때문이다.
 
 \BeginKnitrBlock{definition}[부분 최대 과정]
-\protect\hypertarget{def:unnamed-chunk-291}{}{\label{def:unnamed-chunk-291}
+\protect\hypertarget{def:unnamed-chunk-318}{}{\label{def:unnamed-chunk-318}
 \iffalse (부분 최대 과정) \fi{} }(margin이 unit Fréchet
 \((F(z)=\exp(-1/z))\)이라고 가정하자.) 이러한 경우에
 
@@ -11185,7 +11914,7 @@ process)}이라고 부른다.
 찾아보기)를 얻는 것이 가능하다고 한다.
 
 \BeginKnitrBlock{theorem}[최대안정과정의 spectral characterization]
-\protect\hypertarget{thm:unnamed-chunk-292}{}{\label{thm:unnamed-chunk-292}
+\protect\hypertarget{thm:unnamed-chunk-319}{}{\label{thm:unnamed-chunk-319}
 \iffalse (최대안정과정의 spectral characterization) \fi{}
 }(\citep{DeHaan1984}의 characterization)
 \(\{ (\xi_{i}, U_{i})\}_{i \geq 1}\)을
@@ -11215,7 +11944,7 @@ process)}이라고 부른다.
 
 }
 
-\caption{de Haans characterization.}\label{fig:unnamed-chunk-293}
+\caption{de Haans characterization.}\label{fig:unnamed-chunk-320}
 \end{figure}
 
 이 그림은 de Haan's characterization을 묘사한 것인데
@@ -11227,7 +11956,7 @@ event를 묘사한 것일 때, 최대값들을 이은 검은 곡선이 최대안
 것이다.
 
 \BeginKnitrBlock{theorem}[unit Fréchet margin을 가지는 최대안정과정]
-\protect\hypertarget{thm:unnamed-chunk-294}{}{\label{thm:unnamed-chunk-294}
+\protect\hypertarget{thm:unnamed-chunk-321}{}{\label{thm:unnamed-chunk-321}
 \iffalse (unit Fréchet margin을 가지는 최대안정과정) \fi{}
 }(\citep{Schlather2002}의 characterization)
 \(\{ (\xi_{i}, U_{i})\}_{i \geq 1}\)이 \((0,\infty ]\)에서 intensity
@@ -11246,7 +11975,7 @@ sample path stochastic process \(\{ Y(x)\}\)의 independent copy들이라고
 
 }
 
-\caption{Schlathers characterization}\label{fig:unnamed-chunk-295}
+\caption{Schlathers characterization}\label{fig:unnamed-chunk-322}
 \end{figure}
 
 이 그림은 Schlather's characterization을 묘사하고 있는데 앞서 de Haan's

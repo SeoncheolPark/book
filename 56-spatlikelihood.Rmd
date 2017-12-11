@@ -140,7 +140,7 @@ Cressie and Lahiri (1993, 1996)은 REML에서의 asymptotics를 보였다고 한
 
 이 방법은로는 general한 결과는 없고 매우 specific한 경우의 결과들만 있다.
 
-Ying (1991)은 Gaussian이고 exponential covariance model $(\sigma^{2}e^{-\theta h})$이고 $d=1$인 경우에 $\sigma^{2}$과 $\theta$를 따로 estimate 할 수 없음을 보였다고 한다(MLE 포함 모든 방법이 다 단된다. Increasing domain asymptotics인 경우에는 따로 estimate하는 것이 가능하다고 한다). 그러나 곱한 경우, $\sigma^{2}\theta$는 MLE가 consistent함을 보였다고 한다.
+Ying (1991)은 Gaussian이고 exponential covariance model $(\sigma^{2}e^{-\theta h})$이고 $d=1$인 경우에 $\sigma^{2}$과 $\theta$를 따로 estimate 할 수 없음을 보였다고 한다(MLE 포함 모든 방법이 다 안된다. Increasing domain asymptotics인 경우에는 따로 estimate하는 것이 가능하다고 한다). 그러나 곱한 경우, $\sigma^{2}\theta$는 MLE가 consistent함을 보였다고 한다.
 
 Ying (1993)은 $d \geq 2$인 multiplicative covariance model (두 exponential covariance model을 곱한 것, $d=2$일 때 $\sigma^{2}e^{-\theta_{1} h_{1}-\theta_{2}h_{2}}=\sigma^{2}e^{-\theta_{1}h_{1}}e^{-\theta_{2}h_{2}})$이다. Anisotropic model 중 하나지만 computation이 쉬운 편이다.)로 확장하여 $\sigma^{2}, \theta_{1}, \theta_{2}$를 따로 consistently하게 estimate할 수 있음을 보였다고 한다. 참고로 multiplicative covariance model은 공학에서 Gaussian process의 covariance model로 많이 쓴다고 한다.
 
