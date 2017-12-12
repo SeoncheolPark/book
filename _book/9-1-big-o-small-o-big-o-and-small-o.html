@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2017-12-11">
+<meta name="date" content="2017-12-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -629,33 +629,33 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">9.1</span> Big O와 small o (big O and small o)</h2>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-104" class="definition"><strong>Definition 9.1  (big O)  </strong></span>(실수값을 갖는) 무한 수열 <span class="math inline">\(a_{n},n=1,2,\ldots\)</span>가 유계일 경우 <span class="math inline">\(a_{n}=O(1)\)</span>이라고 한다. 즉 어떤 상수 <span class="math inline">\(c\)</span>가 존재해 <span class="math inline">\(|a_{n}|\leq c, n\geq 1\)</span>이면 <span class="math inline">\(a_{n}=O(1)\)</span>이다. <span class="math inline">\(b_{n},n=1,2,\ldots\)</span>를 양의 값을 갖는 무한 수열이라고 하자. 그러면 수열 <span class="math inline">\(a_{n}/b_{n}, n=1,2,\ldots\)</span>가 유계일 때 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이라고 한다.</p>
+<p><span id="def:unnamed-chunk-110" class="definition"><strong>Definition 9.1  (big O)  </strong></span>(실수값을 갖는) 무한 수열 <span class="math inline">\(a_{n},n=1,2,\ldots\)</span>가 유계일 경우 <span class="math inline">\(a_{n}=O(1)\)</span>이라고 한다. 즉 어떤 상수 <span class="math inline">\(c\)</span>가 존재해 <span class="math inline">\(|a_{n}|\leq c, n\geq 1\)</span>이면 <span class="math inline">\(a_{n}=O(1)\)</span>이다. <span class="math inline">\(b_{n},n=1,2,\ldots\)</span>를 양의 값을 갖는 무한 수열이라고 하자. 그러면 수열 <span class="math inline">\(a_{n}/b_{n}, n=1,2,\ldots\)</span>가 유계일 때 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이라고 한다.</p>
 </div>
 
 
 <div class="lemma">
-<p><span id="lem:unnamed-chunk-105" class="lemma"><strong>Lemma 9.1  </strong></span><span class="math inline">\(a_{n}=O(b_{n})\)</span>은 <span class="math inline">\(a_{n}=b_{n}O(1)\)</span>임과 동치이다.</p>
+<p><span id="lem:unnamed-chunk-111" class="lemma"><strong>Lemma 9.1  </strong></span><span class="math inline">\(a_{n}=O(b_{n})\)</span>은 <span class="math inline">\(a_{n}=b_{n}O(1)\)</span>임과 동치이다.</p>
 </div>
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-106" class="definition"><strong>Definition 9.2  (small o)  </strong></span>수열 <span class="math inline">\(a_{n},n=1,2,\ldots\)</span>가 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(a_{n}\rightarrow 0\)</span>인 경우 <span class="math inline">\(a_{n}=o(1)\)</span>이라고 한다. 좀 더 일반적으로, <span class="math inline">\(b_{n},n=1,2,\ldots\)</span>를 양의 값을 갖는 무한 수열이라고 할 때 수열 <span class="math inline">\(a_{n}/b_{n}, n=1,2,\ldots\)</span>가 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(a_{n}/b_{n}\rightarrow 0\)</span>일 경우 <span class="math inline">\(a_{n}=o(b_{n})\)</span>이라고 한다.</p>
+<p><span id="def:unnamed-chunk-112" class="definition"><strong>Definition 9.2  (small o)  </strong></span>수열 <span class="math inline">\(a_{n},n=1,2,\ldots\)</span>가 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(a_{n}\rightarrow 0\)</span>인 경우 <span class="math inline">\(a_{n}=o(1)\)</span>이라고 한다. 좀 더 일반적으로, <span class="math inline">\(b_{n},n=1,2,\ldots\)</span>를 양의 값을 갖는 무한 수열이라고 할 때 수열 <span class="math inline">\(a_{n}/b_{n}, n=1,2,\ldots\)</span>가 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(a_{n}/b_{n}\rightarrow 0\)</span>일 경우 <span class="math inline">\(a_{n}=o(b_{n})\)</span>이라고 한다.</p>
 </div>
 
 
 <div class="lemma">
-<p><span id="lem:unnamed-chunk-107" class="lemma"><strong>Lemma 9.2  </strong></span><span class="math inline">\(a_{n}=o(b_{n})\)</span>은 <span class="math inline">\(a_{n}=b_{n}o(1)\)</span>임과 동치이다.</p>
+<p><span id="lem:unnamed-chunk-113" class="lemma"><strong>Lemma 9.2  </strong></span><span class="math inline">\(a_{n}=o(b_{n})\)</span>은 <span class="math inline">\(a_{n}=b_{n}o(1)\)</span>임과 동치이다.</p>
 </div>
 
 <p>여기서 우리는 small o가 big O보다 좀 더 강한 조건임을 알 수 있다.</p>
 
 <div class="lemma">
-<p><span id="lem:unnamed-chunk-108" class="lemma"><strong>Lemma 9.3  </strong></span><span class="math inline">\(a_{n}=o(b_{n})\)</span>이면 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이다.</p>
+<p><span id="lem:unnamed-chunk-114" class="lemma"><strong>Lemma 9.3  </strong></span><span class="math inline">\(a_{n}=o(b_{n})\)</span>이면 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이다.</p>
 </div>
 
 
 <div class="lemma">
-<p><span id="lem:unnamed-chunk-109" class="lemma"><strong>Lemma 9.4  (big O와 small o의 성질들)  </strong></span> 1. 만약 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이고 <span class="math inline">\(b_{n}=O(c_{n})\)</span>이면 <span class="math inline">\(a_{n}=O(c_{n})\)</span>이다.</p>
+<p><span id="lem:unnamed-chunk-115" class="lemma"><strong>Lemma 9.4  (big O와 small o의 성질들)  </strong></span> 1. 만약 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이고 <span class="math inline">\(b_{n}=O(c_{n})\)</span>이면 <span class="math inline">\(a_{n}=O(c_{n})\)</span>이다.</p>
 <ol start="2" style="list-style-type: decimal">
 <li><p>만약 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이고 <span class="math inline">\(b_{n}=o(c_{n})\)</span>이면 <span class="math inline">\(a_{n}=o(c_{n})\)</span>이다.</p></li>
 <li><p>만약 <span class="math inline">\(a_{n}=o(b_{n})\)</span>이고 <span class="math inline">\(b_{n}=O(c_{n})\)</span>이면 <span class="math inline">\(a_{n}=o(c_{n})\)</span>이다.</p></li>
@@ -668,20 +668,30 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>그러나 어떤 증가함수 <span class="math inline">\(g\)</span>에 대해 <span class="math inline">\(a_{n}=O(b_{n})\)</span>은 <span class="math inline">\(g(a_{n})=O\{g(b_{n})\}\)</span>임을 의미하지는 않는다. 마찬가지로, <span class="math inline">\(a_{n}=o(b_{n})\)</span>은 <span class="math inline">\(g(a_{n})=o\{g(b_{n})\}\)</span>임을 의미하지는 않는다.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-110" class="example"><strong>Example 9.3  (증가함수와 big O)  </strong></span><span class="math inline">\(a_{n}=n\)</span>, <span class="math inline">\(b_{n}=2n\)</span>이라고 하자. 그러면 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이다. 그러나 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(e^{a_{n}}/e^{b_{n}}=e^{n}/e^{2n}=e^{-n}\rightarrow 0\)</span>이다. 따라서 <span class="math inline">\(e^{a_{n}}=o(e^{b_{n}})\)</span>이며 <span class="math inline">\(O(e^{b_{n}})\)</span>이 아니다.</p>
+<p><span id="exm:unnamed-chunk-116" class="example"><strong>Example 9.3  (증가함수와 big O)  </strong></span><span class="math inline">\(a_{n}=n\)</span>, <span class="math inline">\(b_{n}=2n\)</span>이라고 하자. 그러면 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이다. 그러나 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(e^{a_{n}}/e^{b_{n}}=e^{n}/e^{2n}=e^{-n}\rightarrow 0\)</span>이다. 따라서 <span class="math inline">\(e^{a_{n}}=o(e^{b_{n}})\)</span>이며 <span class="math inline">\(O(e^{b_{n}})\)</span>이 아니다.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-111" class="example"><strong>Example 9.4  (증가함수와 small o)  </strong></span><span class="math inline">\(a_{n}=n\)</span>, <span class="math inline">\(b_{n}=n^{2}\)</span>을 생각해보자. 그러면 <span class="math inline">\(a_{n}=o(b_{n})\)</span>이다. 그러나 <span class="math inline">\(\log(a_{n})=\log(b_{n})\)</span>이고 <span class="math inline">\(\log(b_{n})=2\log(n)\)</span>이며 <span class="math inline">\(\log(a_{n})=O\{\log(b_{n})\}\)</span>이며 <span class="math inline">\(o\{\log(b_{n})\}\)</span>이 아니다.</p>
+<p><span id="exm:unnamed-chunk-117" class="example"><strong>Example 9.4  (증가함수와 small o)  </strong></span><span class="math inline">\(a_{n}=n\)</span>, <span class="math inline">\(b_{n}=n^{2}\)</span>을 생각해보자. 그러면 <span class="math inline">\(a_{n}=o(b_{n})\)</span>이다. 그러나 <span class="math inline">\(\log(a_{n})=\log(b_{n})\)</span>이고 <span class="math inline">\(\log(b_{n})=2\log(n)\)</span>이며 <span class="math inline">\(\log(a_{n})=O\{\log(b_{n})\}\)</span>이며 <span class="math inline">\(o\{\log(b_{n})\}\)</span>이 아니다.</p>
 </div>
 
 <p>다음은 역수와 관련된 따름정리다.</p>
 
 <div class="lemma">
-<p><span id="lem:unnamed-chunk-112" class="lemma"><strong>Lemma 9.5  (역수와 small o)  </strong></span>만약 <span class="math inline">\(a_{n}\)</span>, <span class="math inline">\(b_{n}\)</span>이 0이 아닌 수열들이고 <span class="math inline">\(a_{n}=o(b_{n})\)</span>이라고 하자. 그러면 <span class="math inline">\(b_{n}^{-1}=o(a_{n}^{-1})\)</span>이다.</p>
+<p><span id="lem:unnamed-chunk-118" class="lemma"><strong>Lemma 9.5  (역수와 small o)  </strong></span>만약 <span class="math inline">\(a_{n}\)</span>, <span class="math inline">\(b_{n}\)</span>이 0이 아닌 수열들이고 <span class="math inline">\(a_{n}=o(b_{n})\)</span>이라고 하자. 그러면 <span class="math inline">\(b_{n}^{-1}=o(a_{n}^{-1})\)</span>이다.</p>
 </div>
 
+<p>Big O와 small o의 성질들을 좀 더 정리해 보겠다. 이것은 2009년 가을 Asymptotic Analysis 강의노트에서 가져은 것이다.</p>
+<ul>
+<li><p><strong>Constant in O-terms</strong>: 만약 <span class="math inline">\(C\)</span>가 양의 상수라면, <span class="math inline">\(f(x)=O(Cg(x))\)</span>는 <span class="math inline">\(f(x)=O(g(x))\)</span>와 같다. 특별히 <span class="math inline">\(f(x)=O(C)\)</span>는 <span class="math inline">\(f(x)=O(1)\)</span>과 같다.</p></li>
+<li><p><strong>Transitivity</strong>: O-estimate는 transitive한데 이 말인 즉슨 <span class="math inline">\(f(x)=O(g(x))\)</span>이고 <span class="math inline">\(g(x)=O(h(x))\)</span>이면 <span class="math inline">\(f(x)=O(h(x))\)</span>이다.</p></li>
+<li><p><strong>Multiplication of O-terms</strong>: 만약 <span class="math inline">\(i=1,2\)</span>일 때 <span class="math inline">\(f_{i}(x)=O(g_{i}(x))\)</span>이면 <span class="math inline">\(f_{1}(x)f_{2}(x)=O(g_{1}(x)g_{2}(x))\)</span>이다.</p></li>
+<li><p><strong>Pulling out factors</strong>: 만약 <span class="math inline">\(f(x)=O(g(x)h(x))\)</span>이면, <span class="math inline">\(f(x)=g(x)O(h(x))\)</span>이다. 이 성질은 다음과 같은 표현을 가능케한다. <span class="math inline">\(f(x)=x+O(x/\log x)\)</span>일 경우 이를 <span class="math inline">\(f(x)=x(1+O(1/\log x))\)</span>로 쓸 수 있는 것이다.</p></li>
+<li><p><strong>Summation of O-terms</strong>: <span class="math inline">\(i=1,2,\ldots\)</span>일 때 <span class="math inline">\(f_{i}(x)=O(g_{i}(x))\)</span>이고 <span class="math inline">\(O\)</span> 상수가 <span class="math inline">\(i\)</span>에 독립일 경우 <span class="math display">\[\sum_{i=1}^{n}f_{i}(x)=O(\sum_{i=1}^{n}|g_{i}(x)|)\]</span> 이다. 다시 말하면, <span class="math inline">\(O\)</span>들은 sigma 바깥으로 나올 수 있고 이 때 <span class="math inline">\(g\)</span>는 절대값을 씌우는 것으로 바뀐다. 이는 infinite series <span class="math inline">\(\sum_{i=1}^{\infty}f_{i}(x)\)</span>에서도 성립한다.</p></li>
+<li><p><strong>Integration of O-terms</strong>: <span class="math inline">\(f(x)\)</span>와 <span class="math inline">\(g(x)\)</span>가 유한한 구간에서 적분 가능하고 <span class="math inline">\(x\geq x_{0}\)</span>일 때 <span class="math inline">\(f(x)=O(g(x))\)</span>를 만족한다면 <span class="math display">\[\int_{x_{0}}^{x}f(y)dy=O(\int_{x_{0}}^{x}|g(y)|dy)\qquad{(x\geq x_{0})}\]</span> 을 만족한다.</p></li>
+<li><p><strong>o-estimate와 관련하여</strong>: o-estimate에서는 위에 언급된 것들 중 몇 개만 성립한다. 처음 네 개는 o-estimate에서도 성립한다. 그러나, 마지막 두 개에 대해서는 성립하지 않는다. 예를 들면, 만약 <span class="math inline">\(f(x)=e^{-x}\)</span>이고 <span class="math inline">\(g(x)=1/x^{2}\)</span>이면 <span class="math inline">\(x\rightarrow\infty\)</span>일 때 <span class="math inline">\(f(x)=o(g(x))\)</span>가 된다. 한면, 적분 <span class="math inline">\(F(x)=\int_{1}^{x}f(x)dy\)</span>와 <span class="math inline">\(G(x)=\int_{1}^{x}g(y)\)</span>는 각각 <span class="math inline">\(e^{-1}-e^{-x}\)</span>, <span class="math inline">\(1-1/x\)</span>이고 <span class="math inline">\(\lim_{x\rightarrow\infty}F(x)/G(x)=e^{-1}\)</span>을 만족한다. 따라서 <span class="math inline">\(F(x)=o(G(x))\)</span>가 성립하지 않게 된다. 이러한 점들은 o-estimate를 다루기 어렵게 만들기 되고 따라서 가능하면 o-estimate 대신 O-estimate에 대해 work하는 것을 선호하게 된다.</p></li>
+</ul>
 </div>
             </section>
 

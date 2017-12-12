@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2017-12-11">
+<meta name="date" content="2017-12-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -627,6 +627,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="convergence-in-probability" class="section level2">
 <h2><span class="header-section-number">7.2</span> 확률수렴(Convergence in probability)</h2>
+<p>많은 통계적 응용들은 모수 <span class="math inline">\(\theta\)</span>를 <span class="math inline">\(n\)</span>개의 관찰값들의 표본에 기반한 통계량 <span class="math inline">\(\hat{\theta}_{n}\)</span>으로 추정하는 것을 포함한다. 그러면 <span class="math inline">\(n\)</span>이 클 때 <span class="math inline">\(\hat{\theta}_{n}\)</span>이 <span class="math inline">\(\theta\)</span>에 어느 정도 가까워지는지를 수식화 할 수 있을까? 우리는 <span class="math inline">\(\hat{\theta}_{n}\)</span>이 <span class="math inline">\(\theta\)</span>에 거의 확실한 수렴을 한다고 주장할 수 있으나, 이것은 너무 강한 조건이다. 거의 확실한 수렴은 무한대 수열 <span class="math inline">\(\hat{\theta}_{1}(\omega), \hat{\theta}_{2}(\omega), \ldots\)</span>들의 움직임을 포함해야 하고, 이것은 표본의 크기가 <span class="math inline">\(n=1,2,\ldots\)</span>처럼 무한히 커지는 것에 대응된다. 그러나 우리는 <span class="math inline">\(n\)</span>개의 표본 크기만을 갖고 있다. 실제 던져야 할 질문은, 만약 <span class="math inline">\(n\)</span>이 충분히 크다면, <span class="math inline">\(\hat{\theta}_{n}\)</span>이 <span class="math inline">\(\theta\)</span>의 작은 오차 범위 <span class="math inline">\(\pm \epsilon\)</span>이내에 얼마나 높은 확률로 있을까?에 대한 것이다. 이것은 <strong>확률수렴(Convergence in probability)</strong>에 대한 정의를 이끈다.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-84" class="definition"><strong>Definition 7.2  (확률수렴)  </strong></span> 1. 확률변수들 <span class="math inline">\(X_{1}(\omega), X_{2}(\omega), \ldots\)</span>가 <span class="math inline">\(X(\omega)\)</span>에 확률수렴한다는 것은 각 <span class="math inline">\(\epsilon &gt; 0\)</span>에 대해 <span class="math inline">\(n\rightarrow 0\)</span>일 때 <span class="math inline">\(P(|X_{n}(\omega) - X(\omega)|\geq \epsilon)\rightarrow 0\)</span>을 의미하며, <span class="math inline">\(X_{n}\stackrel{p}{\rightarrow}X\)</span>로 쓴다.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>좀 더 일반적으로, 측도공간 <span class="math inline">\((\Omega, \mathcal{F},\mu)\)</span>위의 가측함수들 <span class="math inline">\(f_{1}(\omega),f_{2}(\omega),\ldots\)</span>이 <span class="math inline">\(f\)</span>에 측도수렴(converge in measure)한다는 것은 각 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(\mu \{ \omega : |f_{n}(\omega)-f(\omega)| \geq \epsilon \}\rightarrow 0\)</span>을 의미한다.</li>
+</ol>
+</div>
+
 </div>
             </section>
 

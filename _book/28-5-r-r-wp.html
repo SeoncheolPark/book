@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2017-12-11">
+<meta name="date" content="2017-12-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -631,8 +631,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">256</span>)
 zwp &lt;-<span class="st"> </span><span class="kw">wp</span>(z, <span class="dt">filter.number=</span><span class="dv">2</span>, <span class="dt">family=</span><span class="st">&quot;DaubExPhase&quot;</span>)
 <span class="kw">plot</span>(zwp, <span class="dt">color.force=</span><span class="ot">TRUE</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-242"></span>
-<img src="book_files/figure-html/unnamed-chunk-242-1.svg" alt="Wavelet packet coefficients of the independent Gaussian sequence z." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-248"></span>
+<img src="book_files/figure-html/unnamed-chunk-248-1.svg" alt="Wavelet packet coefficients of the independent Gaussian sequence z." width="672" />
 <p class="caption">
 FIGURE 28.3: Wavelet packet coefficients of the independent Gaussian sequence z.
 </p>
@@ -656,8 +656,8 @@ FIGURE 28.3: Wavelet packet coefficients of the independent Gaussian sequence z.
 <p>100인 값이 하나가 있고 나머지는 모두 0인 벡터는 매우 sparse하다. <code>zwp2</code>에 앞서 말한 패킷을 넣어보자.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">zwp2 &lt;-<span class="st"> </span><span class="kw">putpacket</span>(zwp, <span class="dt">level=</span><span class="dv">6</span>, <span class="dt">index=</span><span class="dv">3</span>, <span class="dt">packet=</span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dv">100</span>, <span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">53</span>)))
 <span class="kw">plot</span>(zwp2)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-244"></span>
-<img src="book_files/figure-html/unnamed-chunk-244-1.svg" alt="Wavelet packet coefficients of zwp2." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-250"></span>
+<img src="book_files/figure-html/unnamed-chunk-250-1.svg" alt="Wavelet packet coefficients of zwp2." width="672" />
 <p class="caption">
 FIGURE 28.4: Wavelet packet coefficients of zwp2.
 </p>
@@ -761,8 +761,8 @@ zwp2.nv</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">InvBasis</span>(zwp2, zwp2.nv))</code></pre></div>
 <pre><code>&gt; [1] -0.07088779  1.20759137 -0.94939909 -1.00649083 -1.28767514 -0.10820385</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">InvBasis</span>(zwp2, zwp2.nv), <span class="dt">type=</span><span class="st">&quot;o&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-246"></span>
-<img src="book_files/figure-html/unnamed-chunk-246-1.svg" alt="Inversion plotting." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-252"></span>
+<img src="book_files/figure-html/unnamed-chunk-252-1.svg" alt="Inversion plotting." width="672" />
 <p class="caption">
 FIGURE 28.5: Inversion plotting.
 </p>

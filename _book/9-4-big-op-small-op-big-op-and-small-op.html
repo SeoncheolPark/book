@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2017-12-11">
+<meta name="date" content="2017-12-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -630,7 +630,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>확률변수들의 수열 <span class="math inline">\(X_{n},n=1,2,\ldots\)</span>이 <span class="math inline">\(O_{P}(1)\)</span>인 것을 다른 말로 <strong>bounded in probability</strong>라고 부른다.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-116" class="definition"><strong>Definition 9.6  (big Op)  </strong></span>확률변수들의 수열 <span class="math inline">\(X_{n},n=1,2,\ldots\)</span>이 어떤 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math inline">\(M&gt;0, N\geq 1\)</span>이 존재해
+<span id="def:unnamed-chunk-122" class="definition"><strong>Definition 9.6  (big Op)  </strong></span>확률변수들의 수열 <span class="math inline">\(X_{n},n=1,2,\ldots\)</span>이 어떤 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math inline">\(M&gt;0, N\geq 1\)</span>이 존재해
 <span class="math display">\[\begin{equation}
 P(|X_{n}|\leq M)&gt; 1-\epsilon,\qquad{n\geq N}
 \end{equation}\]</span>
@@ -639,7 +639,7 @@ P(|X_{n}|\leq M)&gt; 1-\epsilon,\qquad{n\geq N}
 
 
 <div class="lemma">
-<span id="lem:unnamed-chunk-117" class="lemma"><strong>Lemma 9.6  </strong></span><span class="math inline">\(X_{n}=O_{P}(1)\)</span>인 것은 모든 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math inline">\(M&gt;0\)</span>이 존재해
+<span id="lem:unnamed-chunk-123" class="lemma"><strong>Lemma 9.6  </strong></span><span class="math inline">\(X_{n}=O_{P}(1)\)</span>인 것은 모든 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math inline">\(M&gt;0\)</span>이 존재해
 <span class="math display">\[\begin{equation}
 P(|X_{n}|\leq M)&gt; 1-\epsilon,\qquad{n\geq 1}
 \end{equation}\]</span>
@@ -648,13 +648,13 @@ P(|X_{n}|\leq M)&gt; 1-\epsilon,\qquad{n\geq 1}
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-118" class="definition"><strong>Definition 9.7  (small op)  </strong></span><span class="math inline">\(a_{n}\)</span>을 양수들의 수열이라고 하자. 확률변수들의 수열 <span class="math inline">\(X_{n},n=1,2,\ldots\)</span>이 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(X_{n}/a_{n}\stackrel{P}{\rightarrow}0\)</span>를 만족할 경우 <span class="math inline">\(X_{n}=o_{P}(a_{n})\)</span>이라고 한다.</p>
+<p><span id="def:unnamed-chunk-124" class="definition"><strong>Definition 9.7  (small op)  </strong></span><span class="math inline">\(a_{n}\)</span>을 양수들의 수열이라고 하자. 확률변수들의 수열 <span class="math inline">\(X_{n},n=1,2,\ldots\)</span>이 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(X_{n}/a_{n}\stackrel{P}{\rightarrow}0\)</span>를 만족할 경우 <span class="math inline">\(X_{n}=o_{P}(a_{n})\)</span>이라고 한다.</p>
 </div>
 
 <p>다음은 <span class="citation">(Polansky <a href="#ref-Polansky2011">2011</a>)</span>의 예제들이다.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-119" class="example"><strong>Example 9.5  (이산확률변수의 small op (1))  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>를 독립 이산확률변수들의 수열이라고 하고 <span class="math inline">\(X_{n}\)</span>은 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 다음과 같은 확률밀도함수를 갖는다. <span class="math display">\[
+<p><span id="exm:unnamed-chunk-125" class="example"><strong>Example 9.5  (이산확률변수의 small op (1))  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>를 독립 이산확률변수들의 수열이라고 하고 <span class="math inline">\(X_{n}\)</span>은 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 다음과 같은 확률밀도함수를 갖는다. <span class="math display">\[
 f_{n}(x) := 
 \begin{cases}
 \frac{1}{2} &amp; x\in\{0,n^{-1}\} \\
@@ -671,7 +671,7 @@ g_{n}(x) :=
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-120" class="example"><strong>Example 9.6  (이산확률변수의 small op (2))  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>를 독립 이산확률변수들의 수열이라고 하고 <span class="math inline">\(X_{n}\)</span>은 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 다음과 같은 확률밀도함수를 갖는다. <span class="math display">\[
+<p><span id="exm:unnamed-chunk-126" class="example"><strong>Example 9.6  (이산확률변수의 small op (2))  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>를 독립 이산확률변수들의 수열이라고 하고 <span class="math inline">\(X_{n}\)</span>은 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 다음과 같은 확률밀도함수를 갖는다. <span class="math display">\[
 f_{n}(x) := 
 \begin{cases}
 \frac{1}{2} &amp; x\in\{0,n^{-1}\} \\
@@ -695,12 +695,12 @@ h_{n}(x) :=
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-121" class="example"><strong>Example 9.7  (대수의 약법칙과 small op)  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>가 분포 <span class="math inline">\(F\)</span>, 평균 <span class="math inline">\(\mu\)</span>를 갖는 독립 확률변수들의 수열이라고 하자. 대수의 약법칙(weak law of large numbers)에 따라 표본평균은 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(\mu\)</span>에 확률수렴함을 안다. 따라서, Slutsky 정리에 의해 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(\bar{X}_{n}-\mu \stackrel{P}{\rightarrow}0\)</span>이다. 따라서 정의에 의해 <span class="math inline">\(\bar{X}_{n}-\mu=o_{p}(1)\)</span>이다.</p>
+<p><span id="exm:unnamed-chunk-127" class="example"><strong>Example 9.7  (대수의 약법칙과 small op)  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>가 분포 <span class="math inline">\(F\)</span>, 평균 <span class="math inline">\(\mu\)</span>를 갖는 독립 확률변수들의 수열이라고 하자. 대수의 약법칙(weak law of large numbers)에 따라 표본평균은 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(\mu\)</span>에 확률수렴함을 안다. 따라서, Slutsky 정리에 의해 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(\bar{X}_{n}-\mu \stackrel{P}{\rightarrow}0\)</span>이다. 따라서 정의에 의해 <span class="math inline">\(\bar{X}_{n}-\mu=o_{p}(1)\)</span>이다.</p>
 </div>
 
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-122" class="theorem"><strong>Theorem 9.1  (big Op 관련 정리)  </strong></span>확률변수들의 수열 <span class="math inline">\(X_{n},n=1,2,\ldots\)</span>이 있다고 할 때 다음 중 하나라도 성립하면 <span class="math inline">\(X_{n}=O_{P}(1)\)</span>이다.</p>
+<p><span id="thm:unnamed-chunk-128" class="theorem"><strong>Theorem 9.1  (big Op 관련 정리)  </strong></span>확률변수들의 수열 <span class="math inline">\(X_{n},n=1,2,\ldots\)</span>이 있다고 할 때 다음 중 하나라도 성립하면 <span class="math inline">\(X_{n}=O_{P}(1)\)</span>이다.</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(p&gt;0\)</span>이 존재해 <span class="math inline">\(E(|X_{n}|^{p}),n\geq 1\)</span>이 유계다.</p></li>
 <li><p><span class="math inline">\(n\rightarrow \infty\)</span>일 때 어떤 확률변수 <span class="math inline">\(X\)</span>에 대해 <span class="math inline">\(X_{n}\stackrel{P}{\rightarrow} X\)</span>이다.</p></li>
@@ -711,7 +711,7 @@ h_{n}(x) :=
 <p>다음은 <span class="citation">(Polansky <a href="#ref-Polansky2011">2011</a>)</span>에 있는 big O, small o, big Op와 small op 사이의 관계에 대한 정리이다.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-123" class="theorem"><strong>Theorem 9.2  (big Op와 small op 사이의 관계들)  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>과 <span class="math inline">\(\{Y_{n}\}_{n=1}^{\infty}\)</span>를 확률변수들의 수열이라고 하고 <span class="math inline">\(\{ y_{n}\}_{n=1}^{\infty}\)</span>를 실수들의 수열이라고 하자.</p>
+<p><span id="thm:unnamed-chunk-129" class="theorem"><strong>Theorem 9.2  (big Op와 small op 사이의 관계들)  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>과 <span class="math inline">\(\{Y_{n}\}_{n=1}^{\infty}\)</span>를 확률변수들의 수열이라고 하고 <span class="math inline">\(\{ y_{n}\}_{n=1}^{\infty}\)</span>를 실수들의 수열이라고 하자.</p>
 <ol style="list-style-type: decimal">
 <li><p>만약 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(X_{n}=O_{p}(n^{-a})\)</span>이고 <span class="math inline">\(Y_{n}=O_{p}(n^{-b})\)</span>이면 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(X_{n}Y_{n}=O_{p}(n^{-(a+b)})\)</span>이다.</p></li>
 <li><p>만약 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(X_{n}=O_{p}(n^{-a})\)</span>이고 <span class="math inline">\(y_{n}=o(n^{-b})\)</span>이면 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(X_{n}y_{n}=o_{p}(n^{-(a+b)})\)</span>이다.</p></li>

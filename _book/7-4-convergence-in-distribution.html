@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2017-12-11">
+<meta name="date" content="2017-12-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -627,7 +627,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="convergence-in-distribution" class="section level2">
 <h2><span class="header-section-number">7.4</span> 분포수렴(Convergence in distribution)</h2>
-<p><strong>분포수렴(Convergence in distribution)</strong>은 분포함수의 관계를 다룬다는 것에서 확률변수들의 관계를 고려하는 앞 수렴들과는 다른 타입의 수렴이라고 할 수 있다. <span class="math inline">\(X_{n}\)</span>의 분포함수 <span class="math inline">\(F_{n}(x)\)</span>가 <span class="math inline">\(X\)</span>의 분포함수 <span class="math inline">\(F(x)\)</span>로 수렴할 때 우리는 <span class="math inline">\(X_{n}\)</span>이 <span class="math inline">\(X\)</span>에 대해 분포적으로 가까워진다고 말한다. 가장 단순한 예로 <span class="math inline">\(X_{n}=1+\frac{1}{n}\)</span>이고 <span class="math inline">\(X\)</span>는 1인 경우를 생각해 볼 수 있다. 이 때 <span class="math inline">\(X_{n}\)</span>의 분포함수 <span class="math inline">\(F_{n}(x)\)</span>는 다음과 같은 분포함수 <span class="math inline">\(F(x)\)</span>로 가까워지는 것처럼 보인다.</p>
+<p><strong>분포수렴(Convergence in distribution)</strong>은 분포함수의 관계를 다룬다는 점에서 확률변수들의 관계를 고려하는 앞 수렴들과는 다른 타입의 수렴이라고 할 수 있다. <span class="math inline">\(X_{n}\)</span>의 분포함수 <span class="math inline">\(F_{n}(x)\)</span>가 <span class="math inline">\(X\)</span>의 분포함수 <span class="math inline">\(F(x)\)</span>로 수렴할 때 우리는 <span class="math inline">\(X_{n}\)</span>이 <span class="math inline">\(X\)</span>에 대해 분포적으로 가까워진다고 말한다. 가장 단순한 예로 <span class="math inline">\(X_{n}=1+\frac{1}{n}\)</span>이고 <span class="math inline">\(X\)</span>는 1인 경우를 생각해 볼 수 있다. 이 때 <span class="math inline">\(X_{n}\)</span>의 분포함수 <span class="math inline">\(F_{n}(x)\)</span>는 다음과 같은 분포함수 <span class="math inline">\(F(x)\)</span>로 가까워지는 것처럼 보인다.</p>
 <span class="math display" id="eq:distnconvex01">\[\begin{equation}
 F(x)=
 \begin{cases}
@@ -658,7 +658,7 @@ F_{n}(x)=
 <p><strong>Skorohod 표현 정리(Skorohod representation theorem)</strong>이란 분포수렴이 확률변수의 다른 수열에서 거의 확실한 수렴을 보장해 주는 것이다.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-79" class="theorem"><strong>Theorem 7.1  (Skorohod 표현 정리)  </strong></span>만약 <span class="math inline">\(X_{n} \stackrel{D}{\rightarrow} X\)</span>라면 <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>에서 정의된 확률변수들 <span class="math inline">\(Y_{n}\)</span>, <span class="math inline">\(Y\)</span>가 존재해 <span class="math inline">\(Y_{n}\)</span>가 <span class="math inline">\(X_{n}\)</span>이랑 같은 분포를 갖고 <span class="math inline">\(Y\)</span>는 <span class="math inline">\(X\)</span>랑 같은 분포를 갖으며 <span class="math inline">\(Y_{n}&#39;\)</span>는 <span class="math inline">\(Y\)</span>에 거의 확실한 수렴을 한다.</p>
+<p><span id="thm:unnamed-chunk-85" class="theorem"><strong>Theorem 7.1  (Skorohod 표현 정리)  </strong></span>만약 <span class="math inline">\(X_{n} \stackrel{D}{\rightarrow} X\)</span>라면 <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>에서 정의된 확률변수들 <span class="math inline">\(Y_{n}\)</span>, <span class="math inline">\(Y\)</span>가 존재해 <span class="math inline">\(Y_{n}\)</span>가 <span class="math inline">\(X_{n}\)</span>이랑 같은 분포를 갖고 <span class="math inline">\(Y\)</span>는 <span class="math inline">\(X\)</span>랑 같은 분포를 갖으며 <span class="math inline">\(Y_{n}&#39;\)</span>는 <span class="math inline">\(Y\)</span>에 거의 확실한 수렴을 한다.</p>
 </div>
 
 <p>이를 수식으로 다시 쓰면, 우리가 <span class="math inline">\(X_{n} \stackrel{D}{\rightarrow} X\)</span> 임을 안다면 <span class="math inline">\(Y_{n}\stackrel{D}{=}X_{n}\)</span>, <span class="math inline">\(Y\stackrel{D}{=}X\)</span> 이며 <span class="math inline">\(Y_{n}\stackrel{a.s.}{\rightarrow}Y\)</span>인 <span class="math inline">\(Y_{n}\)</span>과 <span class="math inline">\(Y\)</span>이 존재해 준다는 것을 보장해 준다는 것이다.</p>

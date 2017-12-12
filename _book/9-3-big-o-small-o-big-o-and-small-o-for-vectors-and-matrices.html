@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2017-12-11">
+<meta name="date" content="2017-12-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -630,17 +630,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><span class="math inline">\(|v|\)</span>를 벡터의 유클리드 노름으로, 즉 <span class="math inline">\(|v|=\sqrt{\sum_{j=1}^{k}v_{j}^{2}}\)</span>이라고 하자. 또한 행렬의 노름도 생각해보자. 여기서는 <strong>스펙트럴 노름(spectral norm)</strong> <span class="math inline">\(\|A\|=\{ \lambda_{\text{max}}(A^{T}A)\}^{1/2}\)</span>와 <strong>2-노름(2-norm)</strong> <span class="math inline">\(\|A\|_{2}=\{ \text{tr}(A^{T}A) \}^{1/2}\)</span>를 생각한다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-113" class="definition"><strong>Definition 9.3  (벡터에서의 big O와 small o)  </strong></span><span class="math inline">\(a_{n},n=1,2,\ldots\)</span>를 양수들의 수열이라고 하자. <span class="math inline">\(v_{n},n=1,2,\ldots\)</span>를 벡터들의 수열이라고 하자. 그러면 <span class="math inline">\(|v_{n}|/a_{n}\)</span>이 유계인 경우 <span class="math inline">\(v_{n}=O(a_{n})\)</span>이라고 한다. 그리고 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(|v_{n}|/a_{n}\rightarrow 0\)</span>인 경우 <span class="math inline">\(v_{n}=o(a_{n})\)</span>이라고 한다.</p>
+<p><span id="def:unnamed-chunk-119" class="definition"><strong>Definition 9.3  (벡터에서의 big O와 small o)  </strong></span><span class="math inline">\(a_{n},n=1,2,\ldots\)</span>를 양수들의 수열이라고 하자. <span class="math inline">\(v_{n},n=1,2,\ldots\)</span>를 벡터들의 수열이라고 하자. 그러면 <span class="math inline">\(|v_{n}|/a_{n}\)</span>이 유계인 경우 <span class="math inline">\(v_{n}=O(a_{n})\)</span>이라고 한다. 그리고 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(|v_{n}|/a_{n}\rightarrow 0\)</span>인 경우 <span class="math inline">\(v_{n}=o(a_{n})\)</span>이라고 한다.</p>
 </div>
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-114" class="definition"><strong>Definition 9.4  (행렬에서의 big O와 small o)  </strong></span><span class="math inline">\(a_{n},n=1,2,\ldots\)</span>를 양수들의 수열이라고 하자. <span class="math inline">\(A_{n},n=1,2,\ldots\)</span>를 행렬들의 수열이라고 하자. 그러면 <span class="math inline">\(\|A_{n}\|/a_{n}\)</span>이 유계인 경우 <span class="math inline">\(A_{n}=O(a_{n})\)</span>이라고 한다. 그리고 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(\|A_{n}\|/a_{n}\rightarrow 0\)</span>인 경우 <span class="math inline">\(A_{n}=o(a_{n})\)</span>이라고 한다.</p>
+<p><span id="def:unnamed-chunk-120" class="definition"><strong>Definition 9.4  (행렬에서의 big O와 small o)  </strong></span><span class="math inline">\(a_{n},n=1,2,\ldots\)</span>를 양수들의 수열이라고 하자. <span class="math inline">\(A_{n},n=1,2,\ldots\)</span>를 행렬들의 수열이라고 하자. 그러면 <span class="math inline">\(\|A_{n}\|/a_{n}\)</span>이 유계인 경우 <span class="math inline">\(A_{n}=O(a_{n})\)</span>이라고 한다. 그리고 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(\|A_{n}\|/a_{n}\rightarrow 0\)</span>인 경우 <span class="math inline">\(A_{n}=o(a_{n})\)</span>이라고 한다.</p>
 </div>
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-115" class="definition"><strong>Definition 9.5  (벡터와 행렬에서의 부등호)  </strong></span><span class="math inline">\(A\)</span>와 <span class="math inline">\(B\)</span>를 <span class="math inline">\(k \times k\)</span> 행렬이라고 하자. 그러면</p>
+<p><span id="def:unnamed-chunk-121" class="definition"><strong>Definition 9.5  (벡터와 행렬에서의 부등호)  </strong></span><span class="math inline">\(A\)</span>와 <span class="math inline">\(B\)</span>를 <span class="math inline">\(k \times k\)</span> 행렬이라고 하자. 그러면</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(A\geq B\)</span>는 <span class="math inline">\(A-B\)</span>가 nonnegative definite임을 의미한다.</p></li>
 <li><span class="math inline">\(A&gt;B\)</span>는 <span class="math inline">\(A-B\)</span>가 positive definite이다.</li>

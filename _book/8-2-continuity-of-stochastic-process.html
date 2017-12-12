@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2017-12-11">
+<meta name="date" content="2017-12-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -629,29 +629,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">8.2</span> 확률과정에서의 연속성(continuity of stochastic process)</h2>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-90" class="definition"><strong>Definition 8.1  (연속표본경로)  </strong></span>과정 <span class="math inline">\(X\)</span>가 <span class="math inline">\(t_{0}\)</span>에서 연속이라 함은 <span class="math display">\[\text{For almost all }\omega, t \rightarrow t_{0} \text{ implies } X(t,\omega) \rightarrow X(t_{0},\omega)\]</span> 를 의미한다. 과정 <span class="math inline">\(X\)</span>가 연속이라 함은 <span class="math display">\[\text{For almost all }\omega, X(\cdot, \omega) \text{ is a continuous function}\]</span> 임을 의미한다.</p>
+<p><span id="def:unnamed-chunk-96" class="definition"><strong>Definition 8.1  (연속표본경로)  </strong></span>과정 <span class="math inline">\(X\)</span>가 <span class="math inline">\(t_{0}\)</span>에서 연속이라 함은 <span class="math display">\[\text{For almost all }\omega, t \rightarrow t_{0} \text{ implies } X(t,\omega) \rightarrow X(t_{0},\omega)\]</span> 를 의미한다. 과정 <span class="math inline">\(X\)</span>가 연속이라 함은 <span class="math display">\[\text{For almost all }\omega, X(\cdot, \omega) \text{ is a continuous function}\]</span> 임을 의미한다.</p>
 </div>
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-91" class="definition"><strong>Definition 8.2  (CADLAG (CAGLAD))  </strong></span>Well-ordered set <span class="math inline">\(T\)</span>에 있는 sample function <span class="math inline">\(x\)</span>가 모든점에서 continuous from the right (left)하고 limited from the left (right)일 때 <strong>CADLAG (CAGLAD)</strong>이라고 한다. 즉, 모든 <span class="math inline">\(t_{0}\in T\)</span>에서 <span class="math inline">\(t\downarrow t_{0}\)</span>이 <span class="math inline">\(x(t) \rightarrow x(t_{0})\)</span>를 의미하고 <span class="math inline">\(t\uparrow t_{0}\)</span>일 때 <span class="math inline">\(\lim_{t\uparrow t_{0}} x(t)\)</span>가 존재하나 꼭 <span class="math inline">\(x(t_{0})\)</span>일 필요는 없는 상황임을 의미한다. 어떤 확률과정 <span class="math inline">\(X\)</span>가 CADLAG임은 그것의 almost all sample path가 CADLAG임을 의미한다.</p>
+<p><span id="def:unnamed-chunk-97" class="definition"><strong>Definition 8.2  (CADLAG (CAGLAD))  </strong></span>Well-ordered set <span class="math inline">\(T\)</span>에 있는 sample function <span class="math inline">\(x\)</span>가 모든점에서 continuous from the right (left)하고 limited from the left (right)일 때 <strong>CADLAG (CAGLAD)</strong>이라고 한다. 즉, 모든 <span class="math inline">\(t_{0}\in T\)</span>에서 <span class="math inline">\(t\downarrow t_{0}\)</span>이 <span class="math inline">\(x(t) \rightarrow x(t_{0})\)</span>를 의미하고 <span class="math inline">\(t\uparrow t_{0}\)</span>일 때 <span class="math inline">\(\lim_{t\uparrow t_{0}} x(t)\)</span>가 존재하나 꼭 <span class="math inline">\(x(t_{0})\)</span>일 필요는 없는 상황임을 의미한다. 어떤 확률과정 <span class="math inline">\(X\)</span>가 CADLAG임은 그것의 almost all sample path가 CADLAG임을 의미한다.</p>
 </div>
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-92" class="definition"><strong>Definition 8.3  (확률과정의 version)  </strong></span>Common index set <span class="math inline">\(T\)</span>를 갖는 두 개의 확률과정 <span class="math inline">\(X\)</span>와 <span class="math inline">\(Y\)</span>이 서로의 <strong>version</strong>이라 함은 <span class="math display">\[\forall t \in T, \mathbb{P}(\omega: X(t,\omega)=Y(t,\omega))=1\]</span> 임을 의미한다. 이러한 과정들을 <strong>stochastically equivalent</strong>라고도 부른다. 이는 임의의 시간대에서 <span class="math inline">\(X\)</span>와 <span class="math inline">\(Y\)</span>는 almost surely equal이라는 것이다.</p>
+<p><span id="def:unnamed-chunk-98" class="definition"><strong>Definition 8.3  (확률과정의 version)  </strong></span>Common index set <span class="math inline">\(T\)</span>를 갖는 두 개의 확률과정 <span class="math inline">\(X\)</span>와 <span class="math inline">\(Y\)</span>이 서로의 <strong>version</strong>이라 함은 <span class="math display">\[\forall t \in T, \mathbb{P}(\omega: X(t,\omega)=Y(t,\omega))=1\]</span> 임을 의미한다. 이러한 과정들을 <strong>stochastically equivalent</strong>라고도 부른다. 이는 임의의 시간대에서 <span class="math inline">\(X\)</span>와 <span class="math inline">\(Y\)</span>는 almost surely equal이라는 것이다.</p>
 </div>
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-93" class="definition"><strong>Definition 8.4  (확률과정의 구분불가능성)  </strong></span>두 개의 확률과정 <span class="math inline">\(X\)</span>와 <span class="math inline">\(Y\)</span>가 <strong>구분불가능(indistinguishable)</strong> 또는 <strong>euqivalent up to evanescense</strong>하다는 것은 <span class="math display">\[\mathbb{P}(\omega: \forall t, X(t,\omega)=Y(t,\omega))=1\]</span> 임을 의미한다. 쉽게 얘기하면 <span class="math inline">\(X\)</span>와 <span class="math inline">\(Y\)</span>의 표본 경로가 equal almost surely라는 것이다.</p>
+<p><span id="def:unnamed-chunk-99" class="definition"><strong>Definition 8.4  (확률과정의 구분불가능성)  </strong></span>두 개의 확률과정 <span class="math inline">\(X\)</span>와 <span class="math inline">\(Y\)</span>가 <strong>구분불가능(indistinguishable)</strong> 또는 <strong>euqivalent up to evanescense</strong>하다는 것은 <span class="math display">\[\mathbb{P}(\omega: \forall t, X(t,\omega)=Y(t,\omega))=1\]</span> 임을 의미한다. 쉽게 얘기하면 <span class="math inline">\(X\)</span>와 <span class="math inline">\(Y\)</span>의 표본 경로가 equal almost surely라는 것이다.</p>
 </div>
 
 <p>구분불가능성을 갖는 확률과정은 서로의 version이 되나, 그 반대는 성립하지 않는다.</p>
 <p>그렇다면 확률과정에서 왜 연속성이 이슈가 되는가? 우리는 sample path를 보통 연속인 함수로 제한하고 싶어한다. 더 나아가 미분가능할 정도로 부드러운 함수를 다루고자 하는 경우가 많다. 물론 이는 수학적인 편리함을 위해서이다.</p>
 
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-94" class="proposition"><strong>Proposition 8.1  </strong></span><span class="math inline">\(X(t,\omega)\)</span>를 실변수이며 연속 표본 경로를 갖는 연속 모수 과정이라고 하자. 그러면 모든 유한한 구간 <span class="math inline">\(I\)</span>에 대해 <span class="math inline">\(M(\omega)=\equiv \sup_{t\in I}X(t,\omega)\)</span>이고 <span class="math inline">\(m(\omega)\equiv \inf_{t\in I}X(t,\omega)\)</span>는 가측 확률변수이다.</p>
+<p><span id="prp:unnamed-chunk-100" class="proposition"><strong>Proposition 8.1  </strong></span><span class="math inline">\(X(t,\omega)\)</span>를 실변수이며 연속 표본 경로를 갖는 연속 모수 과정이라고 하자. 그러면 모든 유한한 구간 <span class="math inline">\(I\)</span>에 대해 <span class="math inline">\(M(\omega)=\equiv \sup_{t\in I}X(t,\omega)\)</span>이고 <span class="math inline">\(m(\omega)\equiv \inf_{t\in I}X(t,\omega)\)</span>는 가측 확률변수이다.</p>
 </div>
 
 <p>우리는 특정 시간에 관찰된 확률과정을 다룰 때 product <span class="math inline">\(\sigma\)</span>-field를 보통 쓴다. Product <span class="math inline">\(\sigma\)</span>-field는 countable question에 대해 답을 해 준다. 즉 어떤 measurable set <span class="math inline">\(A\)</span>가 있으면 이 때 <span class="math inline">\(x(\cdot, \omega)\in A\)</span>는 countably many indices <span class="math inline">\(t\)</span>의 <span class="math inline">\(x(t,\omega)\)</span> value들에 depend해야한다는 것이다. 이것은 모든 continuous sample path들의 class가 not product <span class="math inline">\(\sigma\)</span>-field measurable이 될 수도 있다는 것을 의미하는데, 그 이유는 <span class="math inline">\(x(\cdot, \omega)\)</span>가 <span class="math inline">\(t\)</span>에서 연속이라는 것은 모든 수열 <span class="math inline">\(t_{n}\rightarrow t\)</span>에 대해 <span class="math inline">\(x(t_{n},\omega)\rightarrow x(t,\omega)\)</span>라는 것을 의미하면 이것은 uncountably many coordinates들의 함숫값들을 포함하는 것이기 때문이다. 더 나아가 differentiable function들의 class 또한 <span class="math inline">\(\sigma\)</span>-field measurable이 아니다.</p>

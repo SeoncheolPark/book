@@ -22,13 +22,67 @@ X_{n}(\omega)=(-\omega)^{n}
 
 식 \@ref(eq:almostsureex01)과 \@ref(eq:almostsureex02)에서의 행동이 다르다고 하더라도 $\{\omega=1\}$이 확률 0을 갖는다면 다른 행동을 무시할 수 있을 것이다. 이것을 확장시키면 확률 0인 집합들을 무시하는 것으로 이해할 수 있고, **거의 확실한 수렴(Almost sure convergence)**의 정의를 이끈다.
 
+```{definition, name="거의 확실한 수렴"}
+
+1. 확률변수들 $X_{1}(\omega), X_{2}(\omega), \ldots$가 $X(\omega)$로 거의 확실한 수렴을 한다는 것은, 확률이 0인 집합을 제외한 나머지 부분에서 고정된 $\omega$에 대해 숫자들의 수열 $X_{n}(\omega)$가 $n\rightarrow\infty$함에 따라 $X(\omega)$로 수렴하는 것을 의미한다. 특별히 이것을 $X_{n}\rightarrow X a.s.$ 또는 $X_{n}\stackrel{a.s.}{\rightarrow}X$라고 쓴다.
+
+2. 임의의 측도 공간 $(\Omega, \mathcal{F}, \mu)$위의 함수들 $f_{1}(\omega), f_{2}(\omega),\ldots$의 수열이 $f(\omega)$로 거의 확실한 수렴을 한다(converges almost everywhere)는 것은 $\mu$-측도가 0인 집합 밖에 있는 모든 $\omega$에 대해 실수 수열 $f_{n}(\omega)$가 $f(\omega)$로 수렴함을 의미한다.
+
+```
+
+$\mu$가 확률측도일 때에는 convergence almost surely, 아닐 때에는 convergence almost everywhere라고 많이 부른다.
+
+```{example, name="앞선 예의 거의 확실한 수렴"}
+$(\Omega, \mathcal{F}, P)=([0,1], \mathcal{B}_{[0,1]}, \mu_{L})$이라고 정의하자. 식 \@ref(eq:almostsureex01)과 \@ref(eq:almostsureex02) 모두 확률 0인 집합 $\{\omega = 1\}$ 바깥에서 $X_{n}(\omega) \rightarrow 0$이므로 $X_{n}\stackrel{a.s.}{\rightarrow}0$이다.
+
+```
+
+위 예제는 거의 확실한 수렴을 생각할 때 $\omega$를 고정시키는 것이 큰 도움이 된다는 것을 보여준다. 한편, $X_{n}$의 거의 확실한 수렴을 보이기 위해서 underly 확률공간을 몰라도 될 때도 있다.
+
+```{example, name="확률공간을 모를때의 거의 확실한 수렴"}
+$Y(\omega)$를 임의의 확률공간에서 존재하는 유한 확률변수라고 하고 $X_{n}(\omega)=Y(\omega)/n$이라고 하자. 그러면 각 $\omega$에 대해 $Y(\omega)$는 유한한 값이므로 $n\rightarrow\infty$일 때 $Y(\omega)/n \rightarrow 0$이 된다. 그러면 모든 $\omega$에 대해 $X_{n}\stackrel{a.s.}{\rightarrow}0$이다.
+
+이번에는 $Y$가 모든 $\omega$에서 유한하다는 가정을 완화해보자. $Y(\omega)$가 확률 1로 유한하다고 가정하는 것이다. 그러면 $Y(\omega)$가 유한한 모든 $\omega$에 대해 $X_{n}(\omega) = Y(\omega)/n \rightarrow 0$이고, $X_{n}$이 $0$으로 수렴하지 않을 집합은 확률 0이다. 따라서 이 경우에도 $X_{n}\stackrel{a.s.}{\rightarrow}0$이다.
+
+```
+
+```{example, name="확률변수로의 거의 확실한 수렴"}
+$X_{1}\equiv X_{2}\equiv \ldots \equiv X_{n} \equiv \ldots \equiv X$라고 하면 $X_{n}\stackrel{a.s.}{\rightarrow}X$ 이다. $Y$는 확률 1로 유한한 값을 가지는 확률변수라 하자. 그러면 $Y(\omega)$가 유한한 값 $\omega$에 대해 $X_{n}=\{ 1+ Y(\omega) /n\}^{n} \rightarrow X(\omega) = \exp \{ Y(\omega) \}$이다. 왜냐하면 모든 유한한 상수 $a$에 대해 $(1+a/n)^{n}\rightarrow \exp(a)$기 때문이다. 따라서, $X_{n}\stackrel{a.s.}{\rightarrow}X=\exp(Y)$이다.
+
+```
+
+```{proposition, name="거의 확실한 수렴의 기본적인 성질들"}
+$X_{n}\stackrel{a.s.}{\rightarrow}X$, $Y_{n}\stackrel{a.s.}{\rightarrow}Y$라고 하자. 그러면
+
+1. 만약 $X_{n}\stackrel{a.s.}{\rightarrow}X'$이면 $P(X=X')=1$이다.
+
+2. 어떤 연속함수 $f$에 대해 $f(X_{n})\stackrel{a.s.}{\rightarrow}f(X)$이다. 실제로 $f:\mathbb{R} \rightarrow \mathbb{R}$은 불연속인 지점들의 집합 D가 $\{w:X(\omega)\in D\}\in\mathcal{F}$일 때 $P(X\in D)=0$인 보렐 함수이면 된다.
+
+3. $X_{n}\pm Y_{n}\stackrel{a.s.}{\rightarrow} X\pm Y$.
+
+4. $X_{n} Y_{n}\stackrel{a.s.}{\rightarrow} X Y$.
+
+5. 만약 $P(Y=0)=0$이면, $X_{n}/Y_{n}\stackrel{a.s.}{\rightarrow}X/Y$이다.
+
+```
+
 ## 확률수렴(Convergence in probability)
+
+많은 통계적 응용들은 모수 $\theta$를 $n$개의 관찰값들의 표본에 기반한 통계량 $\hat{\theta}_{n}$으로 추정하는 것을 포함한다. 그러면 $n$이 클 때 $\hat{\theta}_{n}$이 $\theta$에 어느 정도 가까워지는지를 수식화 할 수 있을까? 우리는 $\hat{\theta}_{n}$이 $\theta$에 거의 확실한 수렴을 한다고 주장할 수 있으나, 이것은 너무 강한 조건이다. 거의 확실한 수렴은 무한대 수열 $\hat{\theta}_{1}(\omega), \hat{\theta}_{2}(\omega), \ldots$들의 움직임을 포함해야 하고, 이것은 표본의 크기가 $n=1,2,\ldots$처럼 무한히 커지는 것에 대응된다. 그러나 우리는 $n$개의 표본 크기만을 갖고 있다. 실제 던져야 할 질문은, 만약 $n$이 충분히 크다면, $\hat{\theta}_{n}$이 $\theta$의 작은 오차 범위 $\pm \epsilon$이내에 얼마나 높은 확률로 있을까?에 대한 것이다. 이것은 **확률수렴(Convergence in probability)**에 대한 정의를 이끈다.
+
+```{definition, name="확률수렴"}
+
+1. 확률변수들 $X_{1}(\omega), X_{2}(\omega), \ldots$가 $X(\omega)$에 확률수렴한다는 것은 각 $\epsilon > 0$에 대해 $n\rightarrow 0$일 때 $P(|X_{n}(\omega) - X(\omega)|\geq \epsilon)\rightarrow 0$을 의미하며, $X_{n}\stackrel{p}{\rightarrow}X$로 쓴다.
+
+2. 좀 더 일반적으로, 측도공간 $(\Omega, \mathcal{F},\mu)$위의 가측함수들 $f_{1}(\omega),f_{2}(\omega),\ldots$이 $f$에 측도수렴(converge in measure)한다는 것은 각 $\epsilon >0$에 대해 $n\rightarrow \infty$일 때 $\mu \{ \omega : |f_{n}(\omega)-f(\omega)| \geq \epsilon \}\rightarrow 0$을 의미한다.
+
+```
 
 ## Lp 수렴(Convergence in Lp)
 
 ## 분포수렴(Convergence in distribution)
 
-**분포수렴(Convergence in distribution)**은 분포함수의 관계를 다룬다는 것에서 확률변수들의 관계를 고려하는 앞 수렴들과는 다른 타입의 수렴이라고 할 수 있다. $X_{n}$의 분포함수 $F_{n}(x)$가 $X$의 분포함수 $F(x)$로 수렴할 때 우리는 $X_{n}$이 $X$에 대해 분포적으로 가까워진다고 말한다. 가장 단순한 예로 $X_{n}=1+\frac{1}{n}$이고 $X$는 1인 경우를 생각해 볼 수 있다. 이 때 $X_{n}$의 분포함수 $F_{n}(x)$는 다음과 같은 분포함수 $F(x)$로 가까워지는 것처럼 보인다.
+**분포수렴(Convergence in distribution)**은 분포함수의 관계를 다룬다는 점에서 확률변수들의 관계를 고려하는 앞 수렴들과는 다른 타입의 수렴이라고 할 수 있다. $X_{n}$의 분포함수 $F_{n}(x)$가 $X$의 분포함수 $F(x)$로 수렴할 때 우리는 $X_{n}$이 $X$에 대해 분포적으로 가까워진다고 말한다. 가장 단순한 예로 $X_{n}=1+\frac{1}{n}$이고 $X$는 1인 경우를 생각해 볼 수 있다. 이 때 $X_{n}$의 분포함수 $F_{n}(x)$는 다음과 같은 분포함수 $F(x)$로 가까워지는 것처럼 보인다.
 
 \begin{equation}
 F(x)=

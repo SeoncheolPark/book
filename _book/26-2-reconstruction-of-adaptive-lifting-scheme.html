@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2017-12-11">
+<meta name="date" content="2017-12-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -627,7 +627,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="---reconstruction-of-adaptive-lifting-scheme" class="section level2">
 <h2><span class="header-section-number">26.2</span> 적응적 리프팅 스킴의 재구성(reconstruction of adaptive lifting scheme)</h2>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-230"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-236"></span>
 <img src="images/advmultiscale_adaplifting2.png" alt="Reconstruction with a general adaptive lifting scheme. Data in both branches of the scheme contribute to the choices of prediction and update filters." width="558" />
 <p class="caption">
 FIGURE 25.7: Reconstruction with a general adaptive lifting scheme. Data in both branches of the scheme contribute to the choices of prediction and update filters.
@@ -636,7 +636,7 @@ FIGURE 25.7: Reconstruction with a general adaptive lifting scheme. Data in both
 <p>적응적 리프팅 스킴에서 recounstruction하는 문제는 그렇게 간단하지는 않다. 스킴에서 자동적으로 역변환이 얻어지는 경우는 정말 특별한 경우이다. 역변환에서는 결정연산자 <span class="math inline">\(\tilde{D}_{j}^{U}\)</span>와 <span class="math inline">\(\tilde{D}_{j}^{P}\)</span>를 사용하는데 이는 일반적으로 <span class="math inline">\(D_{j}^{U}\)</span> 및 <span class="math inline">\(D_{j}^{P}\)</span>와는 다른 것이다. 어떤 경우에 역반환은 keeping track of the choices made for prediction and/or update filters를 해야만 보자이 되는 경우도 있다. 이것은 한 가지 단점이다.</p>
 <div id="--automatic-perfect-reconstruction" class="section level3">
 <h3><span class="header-section-number">26.2.1</span> 자동 완전 재구성(automatic perfect reconstruction)</h3>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-231"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-237"></span>
 <img src="images/advmultiscale_adaplifting3.png" alt="Perfect reconstruction without book-keeping is easily achived by letting the decision maps only depend on the input data of the corresponding prediction and update filters." width="570" />
 <p class="caption">
 FIGURE 25.8: Perfect reconstruction without book-keeping is easily achived by letting the decision maps only depend on the input data of the corresponding prediction and update filters.

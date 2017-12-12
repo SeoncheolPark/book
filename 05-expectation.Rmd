@@ -22,7 +22,7 @@
 
 지배수렴정리의 따름정리로 유계수렴정리(bounded convergence theorem, BCT)가 있다.
 
-```{theorem, name="지배수렴정리(DCT)"}
+```{theorem, name="유계수렴정리(BCT)"}
 $X_{n}$이 확률변수이고 $P\{X_{n}(\omega)\rightarrow X(\omega)\}=1$이며 각 $n$에 대해 $P\{|X_{n}|\leq c\}=1$ 일 때 ($c$는 상수), $E(X_{n})\rightarrow E(X)$이다.
 
 ```

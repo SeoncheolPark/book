@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2017-12-11">
+<meta name="date" content="2017-12-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -630,7 +630,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>우리는 <span class="math inline">\(\{ d_{j,k} \}\)</span>와 <span class="math inline">\(\{ c_{j,k} \}\)</span>를 가지고 <span class="math inline">\(\mathbf{y}\)</span>를 구할 수 있다. 이를 위해서는 <span class="math display">\[c_{j-1,2k}=\frac{(c_{j-1,2k}+d_{j-2,k})}{2}, c_{j-1,2k-1}=\frac{(c_{j-1,2k}+-d_{j-2,k})}{2}\]</span> 이 두 가지만 알고 있으면 된다.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-178" class="example"><strong>Example 19.2  (다중척도 역변환)  </strong></span>앞서 다룬 자료 <span class="math inline">\(\mathbf{y}=(1,1,7,9,2,8,8,6)\)</span>를 생각해보자. 이것의 다중척도 변환 결과는 <span class="math inline">\((c_{01},d_{0,1},d_{11},d_{12},d_{21},d_{22},d_{23},d_{24})=(42,6,14,4,0,2,6,-2)\)</span>였다. 이를 가지고 역변환을 해 보면,
+<span id="exm:unnamed-chunk-184" class="example"><strong>Example 19.2  (다중척도 역변환)  </strong></span>앞서 다룬 자료 <span class="math inline">\(\mathbf{y}=(1,1,7,9,2,8,8,6)\)</span>를 생각해보자. 이것의 다중척도 변환 결과는 <span class="math inline">\((c_{01},d_{0,1},d_{11},d_{12},d_{21},d_{22},d_{23},d_{24})=(42,6,14,4,0,2,6,-2)\)</span>였다. 이를 가지고 역변환을 해 보면,
 <span class="math display">\[\begin{eqnarray*}
 c_{12}&amp;=&amp;\frac{(42+6)}{2}=24, c_{11}=\frac{(42-6)}{2}=18,\\
 c_{24}&amp;=&amp;\frac{(24+4)}{2}=14, c_{23}=\frac{(24-4)}{2}=10, c_{22}=\frac{(18+14)}{2}=16, c_{21}=\frac{(18-14)}{2}=2,\\
