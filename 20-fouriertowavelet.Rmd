@@ -13,9 +13,15 @@ $$\int_{a}^{b}f^{2}(x)dx <\infty$$
 
 ```
 
-푸리에의 결과는 $f\in L^{2}[-\pi, \pi]$인 어떤 함수 $f$는 다음과 같이 사인함수와 코사인함수의 무합급수로 표현할 수 있다는 것이다.
+푸리에 급수는 푸리에 변환의 inversion formula이다. [@Jiang2010] 푸리에 변환은 $f\in L^{2}[-\pi, \pi]$인 어떤 함수 $f$는 다음과 같이 지수함수로 표현할 수 있다는 것이다.
+$$\hat{f}(k)=\frac{1}{2\pi}\int_{-\pi}^{\pi}f(x)e^{-ikx}dx,$$
+이 때 $k=0,\pm 1, \pm 2$ 등이고 $i=\sqrt{-1}$이다. $f$는 적분가능한 함수이다. 푸리에 변환이 주어지면 푸리에 급수로 $f$를 복원할 수 있다.
+$$f(x)=\sum_{k=-\infty}^{\infty}\hat{f}(k)e^{ikx}=\sum_{k=-N}^{N}\hat{f}(k)e^{ikx}+o(1),$$
+이때 $N$은 양의 정수이고 remaining term은 $N\rightarrow\infty$일 때 $o(1)$이다.
+
+같은 방법으로 사인함수와 코사인함수의 무합급수로 표현할 수 있다는 것이다.
 $$f(x)=\frac{1}{2}a_{0}+\sum_{j=1}^{\infty}(a_{j}\cos (jx) + b_{j}\sin (jx)),$$
-여기서 $\{ a_{0}, a_{1}, b_{1}, \ldots \}$들은 계수다.
+여기서 $\{ a_{0}, a_{1}, b_{1}, \ldots \}$들은 계수다. 
 
 ```{definition, name="직교"}
 두 함수 $f_{1},f_{2}\in L^{2}[a,b]$는 $<f_{1},f_{2}=0$일 때 **직교(orthogonal)**라고 부른다.
@@ -189,6 +195,10 @@ $$L^{2}=\cdots\oplus \mathcal{W}_{-1} \oplus \mathcal{W}_{0} \oplus \mathcal{W}_
 로 $-\infty$를 취하기도 한다. 이와 같은 표현을 $L^{2}$에서의 **직교분해(orthogonal decomposition)**으로 부른다. 이것은 즉 어떤 함수 $x\in L^{2}(\mathbb{R})$은 다음과 같이
 $$x(t)=\cdots + g_{-1}(t)+g_{0}(t)+g_{1}(t)+\cdots .$$
 $g_{j}\in\mathcal{W}_{j}$의 무한합으로 분해할 수 있다.
+
+```{r, echo=F, fig.cap='Hierarchical structure of the space V and W.', fig.align='center'}
+knitr::include_graphics("images/multiscale_spacedecomp.png")
+```
 
 ### 직교정규 기저 구성(orthonormal basis construction)
 

@@ -151,6 +151,16 @@ $$
 
 ```
 
+### 크로네커 거듭곱(Kroneckerian power)
+
+We call $p^{k}$-vector $\mathbf{a}^{\otimes k}$, the $k$-th power of the $p$-vector $\mathbf{a}$, if $\mathbf{a}^{\otimes 0}=1$ and
+$$\mathbf{a}^{\otimes k} = \mathbf{a} \otimes \cdots \otimes\mathbf{a} (\text{ k times}).$$
+In general, for any matrix $\mathbf{A}$, the Kroneckerian power is given by
+$$\mathbf{A}^{\otimes k} = \mathbf{A} \otimes \cdots \otimes\mathbf{A} (\text{ k times}).$$
+Furthermore, $\mathbf{A}^{\otimes k}\mathbf{B}^{\otimes k}=(\mathbf{A}\mathbf{B})^{\otimes k}$. In particular, it is noted that
+$$\mathbf{a}^{\otimes k}\otimes\mathbf{a}^{\otimes j}= \mathbf{a}^{\otimes (k+ j)}, \qquad{k,j\in\mathbb{N}.}$$
+The following statement makes it possible to identify where in a long vector of the Kroneckerian power a certain element of the product is situated.
+
 ### 텐서곱(tensor product)
 
 ### 데카르트 곱(Cartesian product)

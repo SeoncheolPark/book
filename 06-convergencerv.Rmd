@@ -80,6 +80,17 @@ $X_{n}\stackrel{a.s.}{\rightarrow}X$, $Y_{n}\stackrel{a.s.}{\rightarrow}Y$라고
 
 ## Lp 수렴(Convergence in Lp)
 
+추정량 $\hat{\theta}_{n}$이 모수 $\theta$에 가까운 정도를 나타내는 또 다른 측도 중 하나는 **평균제곱오차(mean squared error, MSE)**, $E(\hat{\theta}_{n}-\theta)^{2}$이다. 이것은 두 개의 벡터 $\mathbf{x},\mathbf{y}$가 어느 정도 가까운지 나타내는 측도로 $\sum_{i=1}^{k}(x_{i}-y_{i})^{2}$을 나타내는 것과 동일한 아이디어이다. 그러나 두 벡터 사이의 거리를 나타내기 위해서 제곱근을 취하는 것차럼, $\hat{\theta}_{n}$과 $\theta$의 거리를 나타내기 위해 MSE에도 제곱근을 취한다. 이것이 $L^{p}$거리의 특수한 형태인 $L^{2}$거리를 유도한다.
+
+```{definition, name="Lp거리"}
+만약 $X, Y$가 유한한 $p$차 모멘트 $(p>0)$을 갖는 확률변수들이라고 하면 $X$와 $Y$의 $L^{p}$거리는 $\{ E(|X-Y|^{p}) \}^{1/p}$로 정의한다.
+
+```
+
+```{definition, name="Lp수렴"}
+확률변수들의 수열 $X_{1},X_{2},\ldots$가 $n\rightarrow 0$일 때 $E(|X_{n}-X|^{p})\rightarrow 0$을 만족할 경우 이 수열들이 $X$에 $L^{p}$ 수렴한다고 정의한다.
+```
+
 ## 분포수렴(Convergence in distribution)
 
 **분포수렴(Convergence in distribution)**은 분포함수의 관계를 다룬다는 점에서 확률변수들의 관계를 고려하는 앞 수렴들과는 다른 타입의 수렴이라고 할 수 있다. $X_{n}$의 분포함수 $F_{n}(x)$가 $X$의 분포함수 $F(x)$로 수렴할 때 우리는 $X_{n}$이 $X$에 대해 분포적으로 가까워진다고 말한다. 가장 단순한 예로 $X_{n}=1+\frac{1}{n}$이고 $X$는 1인 경우를 생각해 볼 수 있다. 이 때 $X_{n}$의 분포함수 $F_{n}(x)$는 다음과 같은 분포함수 $F(x)$로 가까워지는 것처럼 보인다.
@@ -114,6 +125,11 @@ F_{n}(x)=
 \end{equation}
 
 로 수렴한다. 식 \@ref(eq:distnconvex01)과 식 \@ref(eq:distnconvex02)의 분포함수는 $x=1$에서 일치하지 않는다. 따라서, $F_{n}(x)$가 모든 $x$에서 $F(x)$로 수렴하는 것은 너무 강한 조건으로 보인다. 분포수렴을 정의할 때에는 앞선 예의 $x=1$처럼 불연속인 점들을 제외한 연속인 점들 $x$에서 $F_{n}(x) \rightarrow F(x)$가 되는 것으로 정의한다.
+
+```{definition, name="분포수렴"}
+$X_{n}, X$가 분포함수 $F_{n}(x), F(x)$를 갖는 확률변수들이라고 하자. 그러면 모든 연속인 점 $x$에 대해 $F_{n}(x)\rightarrow F(x)$일 경우 $X_{n}$이 $X$에 **분포수렴(converge in distribution)**한다고 정의하고 $X_{n}\stackrel{D}{\rightarrow} X$ 또는 $F_{n}\stackrel{D}{\rightarrow} F$로 쓴다.
+
+```
 
 ### Skorohod 표현 정리(Skorohod representation theorem)
 

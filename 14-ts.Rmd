@@ -77,24 +77,28 @@ $$\rho(h)=\frac{\gamma(t+h,t)}{\sqrt{\gamma(t+h,t_h)\gamma(t,t)}}=\frac{\gamma(h
 ## 시계열 회귀분석(time series regression)
 
 $x_{t},t=1,\ldots ,n$을 시계열 자료라고 하자. 그리고 이 자료가 다른 투입량 또는 독립적인 시계열 $z_{t1}, z_{t2}, \ldots ,z_{tq}$의 영향을 받는다고 하자. 이 가정은 일반적인 회귀분석에서 놓는 가정이다. 이 관계를 회귀분석 모형으로 쓰면
-\begin{equation}\label{eq:tsreg}
+\begin{equation}
 x_{t}=\beta_{1}z_{t1}+\beta_{2}z_{t2}+\ldots + \beta_{q}z_{tq}+w_{t}
+(\#eq:tsreg)
 \end{equation}
 로 놓을 수 있다. 이 때 $\beta_{1},\beta_{2}.\ldots , \beta_{q}$는 알려지지 않은 고정된 회귀계수(regression coefficients)들이고 $\{ w_{t}\}$는 i.i.d. 정규분포$(0,\sigma_{w}^{2})$를 따르는 무작위 오류나 잡음과정(noise process)이라고 놓는다.
 
-선형모형 (\@ref(eq:tsreg))은 일반적으로 벡터 $\mathcal{z}_{t}=(z_{t1},z_{t2},\ldots , z_{tq})^{T}$, $\boldsymbol{\beta}(\beta_{1},\beta_{2},\ldots ,\beta_{q})^{T}$를 써서 나타낸다. 그러면 (\@ref(eq:tsreg))은
-\begin{equation}\label{eq:tsregvec}
+선형모형 \@ref(eq:tsreg)은 일반적으로 벡터 $\mathcal{z}_{t}=(z_{t1},z_{t2},\ldots , z_{tq})^{T}$, $\boldsymbol{\beta}(\beta_{1},\beta_{2},\ldots ,\beta_{q})^{T}$를 써서 나타낸다. 그러면 (\@ref(eq:tsreg))은
+\begin{equation}
 x_{t}=\boldsymbol{\beta}^{T}\mathcal{z}_{t}+w_{t}
+(\#eq:tsregvec)
 \end{equation}
 으로 간단히 쓸 수 있다. 이 때 알려지지 않은 모수 $\boldsymbol{\beta}$의 추정은 다음 식
-\begin{equation}\label{eq:tsss}
+\begin{equation}
 Q=\sum_{t=1}^{n}w_{t}^{2}=\sum_{t=1}^{n}(x_{t}-\boldsymbol{\beta}^{T}\mathbf{z}_{t})^{2}
+(\#eq:tsss)
 \end{equation}
 를 $\beta_{1},\beta_{2},\ldots ,\beta_{q}$에 대해 풀어 얻을 수 있다. 
 
-다시 식 (\@ref(eq:tsreg))를 행렬 형태로 바꿔서 풀어보자. $n\times q$ 행렬 $Z= [\mathbf{z}_{1} | \mathbf{z}_{2} | \cdots | \mathbf{z}_{n} ]^{T}$과 $n \times 1$ 벡터 $\mathcal{x}=(x_{1},x_{2},\ldots , x_{n})^{T}$, $n \times 1$ 오차의 벡터 $\mathcal{w}=(w_{1},w_{2}, \ldots, w_{n})^{T}$를 이용해 식 (\@ref(eq:tsss))를
-\begin{equation}\label{eq:tsmatrix}
+다시 식 \@ref(eq:tsreg)를 행렬 형태로 바꿔서 풀어보자. $n\times q$ 행렬 $Z= [\mathbf{z}_{1} | \mathbf{z}_{2} | \cdots | \mathbf{z}_{n} ]^{T}$과 $n \times 1$ 벡터 $\mathcal{x}=(x_{1},x_{2},\ldots , x_{n})^{T}$, $n \times 1$ 오차의 벡터 $\mathcal{w}=(w_{1},w_{2}, \ldots, w_{n})^{T}$를 이용해 식 \@ref(eq:tsss)를
+\begin{equation}
 \mathbf{x}=Z\boldsymbol{\beta}+\mathbf{w}
+(\#eq:tsmatrix)
 \end{equation}
 로 바꿔 쓸 수 있다. 이것을 **정규방정식(normal equation)**이라고 쓴다. (\@ref(eq:tsmatrix))의 해는 $Z^{T}Z$이 nonsingular일 때
 
@@ -112,7 +116,17 @@ $$C=(Z^{T}Z)^{-1}$$
 
 은 나중에 식을 전개하기 위해 미리 정의해 둔다.
 
-(Hilbert spaces and the Projection theorem)
+선형 예측을 위해 많이 쓰는 **사영 정리(projection theorem)**을 여기에 적어둔다.
+
+
+```{theorem, name="사영 정리", label="projectiontheorem"}
+$\mathcal{M}$이 힐버트 공간 $\mathcal{H}$의 닫힌 부분 공간이고 $y$는 $\mathcal{H}$의 원소라고 하자. 그러면 $y$는
+\begin{equation}
+y=\hat{y}+z
+\end{equation}
+로 유일하게 표현할 수 있다. 이 때 $\hat{y}$는 $\mathcal{M}$에 속하며 $z$는 $\mathcal{M}$과 직교한다. 즉, 모든 $w\in\mathcal{M}$에 대해 $\langle z,w \rangle=0$이다. 더불어 점 $\hat{y}$는 $y$와 가장 가까운 점이다. 이 말인 즉슨, 모든 $w\in\mathcal{M}$에 대해 $\| y-w\|\geq \|y-\hat{y}\|$이고 등호는 $w=\hat{y}$일 때 성립한다는 말이다.
+
+```
 
 ## 차분(differencing)
 
@@ -216,62 +230,12 @@ $$x_{t}=T_{t}+S_{t}+C_{t}+I_{t}$$
 
 **결맞음(coherency)** 분석은 두 자료의 관계를 quantify하기 위해 많이들 사용한다. 신호 사이의 결맞음 추정은 중요햐며 
 
-## 스펙트럼 밀도(spetral density)
-
-**스펙트럼 밀도(spectral density)**는 기초적인 frequency domain tool 중 하나다. 스펙트럼 표현 정리(spectral representation theorem)은 정상시계열을 주기성분들로 분해하는 것에 대한 이론적 근거를 제공한다.
-
-```{definition, name="자기공분산함수의 스펙트럼 표현"}
-만약 $\{x_{t} \}$가 정상시계열이고 자기공분산 $\gamma(h)=\text{cov}(x_{t+h},x_{t})$를 갖는다면 **스펙트럼 분포(spectral distribution)**이라 불리는 유일한 단조증가 함수가 존재해 $F(-\infty)=F(-1/2)=0$이고 $F(\infty)=F(1/2)=\gamma(0)$이며
-\begin{equation}
-\gamma(h)=\int_{-1/2}^{1/2}e^{2\pi i \omega h}dF(\omega)
-(\#eq:spectraldistnfct)
-\end{equation}
-이다.
-
-```
-
-자기공분산함수가 absolutely summable일 경우 스펙트럼 분포함수는 absolutely continuous하며 $dF(\omega)=f(\omega)d\omega$이고 식 \@ref(eq:spectraldistnfct)는 스펙트럼 밀도(spectral density)를 유도한다.
-
-```{definition, name="스펙트럼 밀도"}
-자기공분산함수 $\gamma(h)$가 정상과정이며
-$$\sum_{h=-\infty}^{\infty}|\gamma(h)|<\infty$$
-를 만족한다고 하면 자기공분산함수는 다음과 같은 표현
-$$\gamma(h)=\int_{-1/2}^{1/2}e^{2\pi i \omega h}f(\omega)d\omega, h=0,\pm 1,\pm 2,\ldots$$
-을 갖고, **스펙트럼 밀도(spetral density)**는 그것의 역변환
-$$f(\omega)=\sum_{h=-\infty}^{\infty}\gamma(h)e^{-2\pi i \omega h}, -1/2 \leq \omega \leq 1/2$$
-으로 정의한다.
-
-```
-
-스펙트럼 밀도는 확률밀도처럼 $\gamma(h)$가 non-negative definite이므로
-$$f(\omega) \geq 0,\forall \omega$$
-을 만족한다. 또한 정의로부터
-$$f(\omega)=-f(\omega)$$
-이며 이는 스펙트럼 밀도함수가 우함수임을 보여준다. 이런 우함수 성질 덕분에 우리는 보통 $0<\omega \leq 1/2$인 $\omega$에 대해서만 $f(\omega)$를 그리게 된다.
-
-## 피리오도그램(periodogram)
-
-```{definition, name="이산 푸리에 변환"}
-자료 $x_{1},\ldots, x_{n}$이 주어졌을 때, **이산 푸리에 변환(discrete Fourier transform, DFT)**은
-$$d(\omega_{j})=\frac{1}{\sqrt{2}}\sum_{t=1}^{n}x_{t}e^{-2\pi i \omega_{j}t}, j=0,1,\ldots, n-1$$
-이며 이 때 **도수(빈도, frequency)** $\omega = j/n$는 **근본빈도(fundamental frequencies)** 또는 **푸리에(Fourier)**라고 부른다.
-
-```
-
-때때로 이산 푸리에 변환의 역버전을 생각하는 것이 편리할 때도 있다.
-
-```{definition, name="이산 푸리에 변환의 역버전"}
-$$x_{t}=\frac{1}{\sqrt{2}}\sum_{j=0}^{n-1}d(\omega_{j})e^{2\pi i \omega_{j}t}, t=1,\ldots, n.$$
-
-```
-
-피리오도그램은 DFT의 squared modulus다.
-
-```{definition, name="피리오도그램"}
-$$I(\omega_{j})=|d(\omega_{j})|^{2}, j=0,1,2,\ldots,n-1.$$
-
-```
-
-$I(0)=n\bar{x}^{2}$이다. 
-
 ## Self-Similar Process
+
+## 선형 필터(linear filter)
+
+이 절의 내용은 [@Shumway2010]를 참고하였다. 이전의 많은 예제들은 시계열에서 분산 또는 파워의 분포를 선형 변환을 만듬으로써 변형시킬 수 있는 가능성에 대한 힌트를 제시했다. 여기서는 선형 필터가 시계열로부터 신호를 어떻게 뽑아내는지에 대해 설명한다. 선형 필터는 시계열 자료의 스펙트럼 특성을 변형시켜 예측 가능하게끔 한다고 한다.
+
+선형필터는 특정화한 계수들 $a_{j}, j=0,\pm 1, \pm 2, \ldots$를 사용한다. 이것은 투입된 시계열 $x_{t}$를 다음 관계를 통해
+$$y_{t}=\sum_{j=-\infty}^{\infty}a_{j}x_{t-j}, \sum_{j=-\infty}^{\infty}|a_{j}| <\infty$$
+$y_{t}$라는 시계열로 변화시킨다. 통계 용어로 이 식은 convolution에 해당한다. 이 계수들은 특별히 **임펄스 응답 함수(impulse response function)**이라고 부른다.

@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2017-12-12">
+<meta name="date" content="2017-12-15">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -113,10 +113,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3" data-path="2-3-operators-and-norms.html"><a href="2-3-operators-and-norms.html"><i class="fa fa-check"></i><b>2.3</b> 연산자들과 노름(operators and norms)</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="2-3-operators-and-norms.html"><a href="2-3-operators-and-norms.html#direct-sum"><i class="fa fa-check"></i><b>2.3.1</b> 직합(direct sum)</a></li>
 <li class="chapter" data-level="2.3.2" data-path="2-3-operators-and-norms.html"><a href="2-3-operators-and-norms.html#-kronecker-product"><i class="fa fa-check"></i><b>2.3.2</b> 크로네커 곱(Kronecker product)</a></li>
-<li class="chapter" data-level="2.3.3" data-path="2-3-operators-and-norms.html"><a href="2-3-operators-and-norms.html#tensor-product"><i class="fa fa-check"></i><b>2.3.3</b> 텐서곱(tensor product)</a></li>
-<li class="chapter" data-level="2.3.4" data-path="2-3-operators-and-norms.html"><a href="2-3-operators-and-norms.html#-cartesian-product"><i class="fa fa-check"></i><b>2.3.4</b> 데카르트 곱(Cartesian product)</a></li>
-<li class="chapter" data-level="2.3.5" data-path="2-3-operators-and-norms.html"><a href="2-3-operators-and-norms.html#norm"><i class="fa fa-check"></i><b>2.3.5</b> 노름(norm)</a></li>
-<li class="chapter" data-level="2.3.6" data-path="2-3-operators-and-norms.html"><a href="2-3-operators-and-norms.html#metric"><i class="fa fa-check"></i><b>2.3.6</b> 거리(metric)</a></li>
+<li class="chapter" data-level="2.3.3" data-path="2-3-operators-and-norms.html"><a href="2-3-operators-and-norms.html#-kroneckerian-power"><i class="fa fa-check"></i><b>2.3.3</b> 크로네커 거듭곱(Kroneckerian power)</a></li>
+<li class="chapter" data-level="2.3.4" data-path="2-3-operators-and-norms.html"><a href="2-3-operators-and-norms.html#tensor-product"><i class="fa fa-check"></i><b>2.3.4</b> 텐서곱(tensor product)</a></li>
+<li class="chapter" data-level="2.3.5" data-path="2-3-operators-and-norms.html"><a href="2-3-operators-and-norms.html#-cartesian-product"><i class="fa fa-check"></i><b>2.3.5</b> 데카르트 곱(Cartesian product)</a></li>
+<li class="chapter" data-level="2.3.6" data-path="2-3-operators-and-norms.html"><a href="2-3-operators-and-norms.html#norm"><i class="fa fa-check"></i><b>2.3.6</b> 노름(norm)</a></li>
+<li class="chapter" data-level="2.3.7" data-path="2-3-operators-and-norms.html"><a href="2-3-operators-and-norms.html#metric"><i class="fa fa-check"></i><b>2.3.7</b> 거리(metric)</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="2-4-matrix-decomposition.html"><a href="2-4-matrix-decomposition.html"><i class="fa fa-check"></i><b>2.4</b> 행렬의 분해(matrix decomposition)</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="2-4-matrix-decomposition.html"><a href="2-4-matrix-decomposition.html#-eigenvalue-decomposition"><i class="fa fa-check"></i><b>2.4.1</b> 고유값 분해(eigenvalue decomposition)</a></li>
@@ -630,7 +631,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>확률론에서 부등식들은 중요한 역할을 하는데, 대부분의 일들은 다른 것들로부터 특정한 확률로 추정하는 문제들을 다루고 있기 때문이다.</p>
 
 <div class="lemma">
-<p><span id="lem:unnamed-chunk-73" class="lemma"><strong>Lemma 5.3  (모멘트로부터 꼬리확률을 추정)  </strong></span><span class="math inline">\(g\)</span>가 음이 아니고, 감소하지 않는 함수이며 <span class="math inline">\(E\{g(X)\}&lt;\infty\)</span>라고 하자. <span class="math inline">\(x&gt;0\)</span>일 때 <span class="math display">\[P(|X|&gt;x)\leq \frac{E\{g(|X|)\}}{g(x)}\]</span> 이다.</p>
+<p><span id="lem:unnamed-chunk-74" class="lemma"><strong>Lemma 5.3  (모멘트로부터 꼬리확률을 추정)  </strong></span><span class="math inline">\(g\)</span>가 음이 아니고, 감소하지 않는 함수이며 <span class="math inline">\(E\{g(X)\}&lt;\infty\)</span>라고 하자. <span class="math inline">\(x&gt;0\)</span>일 때 <span class="math display">\[P(|X|&gt;x)\leq \frac{E\{g(|X|)\}}{g(x)}\]</span> 이다.</p>
 </div>
 
 
@@ -646,7 +647,7 @@ E\{g(|X|)\} &amp;=&amp; E\{g(|X|)\}I\{|X|&gt;x\}\\
 <p><span class="math inline">\(g\)</span>를 특수하게 설정할 경우 다음 정리를 얻는다.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-75" class="theorem"><strong>Theorem 5.1  (마르코프 부등식)  </strong></span>어떤 <span class="math inline">\(r&gt;0\)</span>에 대해 <span class="math inline">\(E|X|^{r}&lt;\infty\)</span>라고 하자. 만약 <span class="math inline">\(x&gt;0\)</span>이면 다음 부등식이 성립한다. <span class="math display">\[P(|X|&gt;x)\leq \frac{E|X|^{r}}{x^{r}}.\]</span></p>
+<p><span id="thm:unnamed-chunk-76" class="theorem"><strong>Theorem 5.1  (마르코프 부등식)  </strong></span>어떤 <span class="math inline">\(r&gt;0\)</span>에 대해 <span class="math inline">\(E|X|^{r}&lt;\infty\)</span>라고 하자. 만약 <span class="math inline">\(x&gt;0\)</span>이면 다음 부등식이 성립한다. <span class="math display">\[P(|X|&gt;x)\leq \frac{E|X|^{r}}{x^{r}}.\]</span></p>
 </div>
 
 

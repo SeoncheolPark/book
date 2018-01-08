@@ -19,6 +19,10 @@ $$X:\Omega \rightarrow \mathbb{R}$$
 
 다음 그림은 $(\Omega, \mathcal{F}, P)= ((0,1), \mathcal{B}_{(0,1)}, \mu_{L})$에서의 확률변수 $X(\omega) = \frac{1}{\omega(1-\omega)}$의 **역상(inverse image)** 개념을 묘사한 것이다. 이 때 보렐 집합 $B=\{ (6.25, \infty)\cup \{4\} \}$이며, $X^{-1}(B)=\{ (0,0.2)\cup (0.8,1)\cup \{0.5\} \}$이며 이는 $\mathcal{B}_{(0,1)}$안에 있다.
 
+```{r, echo=F, fig.cap='역상의 예.', fig.align='center'}
+knitr::include_graphics("images/basic_invimage.png")
+```
+
 ```{example, name="확률변수의 예"}
 $\Omega=[0,1]$, $\mathcal{F}=\mathcal{B}_{[0,1]}$이며 $\Omega$의 부분집합이라고 하자. 그러면
 
@@ -32,20 +36,32 @@ $\Omega=[0,1]$, $\mathcal{F}=\mathcal{B}_{[0,1]}$이며 $\Omega$의 부분집합
 $$
 X_{2}^{-1}(B) := 
 \begin{cases}
-\emptyset\in\mathcal{F} & \text{if $B$가 0과 1을 모두 포함 안함} \\
-\Omega\in\mathcal{F} & \text{if $B$가 0과 1을 모두 포함} \\
-[1/2,1]\in\mathcal{F} & \text{if $B$가 1만 포함} \\
-[0,1/2]\in\mathcal{F} & \text{if $B$가 0만 포함} \\
+\emptyset\in\mathcal{F} & \text{if $B$ contains neither 0 nor 1} \\
+\Omega\in\mathcal{F} & \text{if $B$ contains both 0 and 1} \\
+[1/2,1]\in\mathcal{F} & \text{if $B$ contains 1, but not 0} \\
+[0,1/2]\in\mathcal{F} & \text{if $B$ contains 0, but not 1} \\
 \end{cases}
 $$
 이며 따라서 $X_{2}$는 $\mathcal{F}$-가측이다. $B\in\mathcal{B}$일 떄 $X_{3}^{-1}(B)=B\cap [0,1] \in \mathcal{B}_{[0,1]}\in\mathcal{F}$이므로 $X_{3}(\omega)$또한 확률변수다.
 ```
 
-```{r, echo=F, fig.cap='역상의 예.', fig.align='center'}
-knitr::include_graphics("images/basic_invimage.png")
+앞선 예제에서 $X$가 확류변수임을 보이기 위해 $X^{-1}(\mathcal{B})=\{ X^{-1}(B), B\in\mathcal{B}\}$를 계산하였다. 이 때 $\mathcal{F}$의 부분집합인 $X^{-1}(\mathcal{B})$는 $X$를 가측으로 만드는 관점에서 가장 작은 시그마-장이된다.
+
+```{definition, name="확률변수로부터 생성되는 시그마-장"}
+만약 $X$가 확률변수라면, $X$를 가측으로 만드는 가장 작은 시그마-장, 즉 $X^{-1}(\mathcal{B})=\{ X^{-1}(B), B\in\mathcal{B}\}$를 $X$로부터 생성되는 시그마-장이라 하고 $\sigma(X)$라 표기한다.
+
 ```
 
-(확률변수에 대한 설명 보충 필요)
+앞선 예제에서 확률변수 $X$에 대해 사건 $F\in \sigma(X)$을 결정할 수 있다. 예를 들면, $\sigma(X_{1})=\{ \emptyset, [0,1]  \}\subset \{ \emptyset, [0,1], [0,1/2), [1/2,1] \}=\sigma(X_{2})$이다. 이 말은 $X_{2}$가 $X_{1}$보다 $\omega$에 대해 더 많은 정보를 준다는 것을 말해준다. $X_{1}$은 어떤 사건이 일어났는지 안일어났는지만 얘기해주지만, $X_{2}$는 $\omega$가 1/2보다 큰지 작은지도 알려주는 것이다. 또한 $\sigma(X_{2})\subset\sigma(X_{3})$이므로 $X_{3}$은 $X_{2}$보다 많은 정보를 주는 것이다. 실제로 $X_{3}$은 실험에서 나온 $\omega$의 정확한 값을 알려준다.
+
+```{definition, name="보렐 측도가능과 르베그 측도가능 함수"}
+어떤 함수 $f:\mathbb{R}^{k}\rightarrow \mathbb{R}$을
+
+1. 1차원 보렐 집합 $B\in\mathcal{B}$에 대해 $f^{-1}*B$ 가 $k$차원 보렐 집할이 될 경우 **보렐 측도가능(Borel measurable)** 또는 **보렐 함수(Borel function)**이라고 부른다.
+
+2. 1차원 르베그 집합 $B\in\mathcal{B}$에 대해 $f^{-1}*B$ 가 $k$차원 르베그 집할이 될 경우 **르베그 측도가능(Lebesgue measurable)** 또는 **르베그 함수(Lebesguel function)**이라고 부른다.
+
+```
 
 ## 보렐-칸텔리 따름정리 (Borel-Cantelli lemma)
 
@@ -58,33 +74,5 @@ $$P(A_{n} i.o.)=0$$
 
 ```{lemma, name="제 2 보렐-칸텔리 따름정리"}
 **(Second Borel-Cantelli lemma)** 만약 사건 $A_{n}$들이 독립이라면 $\sum P(A_{n})=\infty$는 $P(A_{n} i.o.)=1$임을 내포한다.
-
-```
-
-## 부등식들(inequalities)
-
-확률론에서 부등식들은 중요한 역할을 하는데, 대부분의 일들은 다른 것들로부터 특정한 확률로 추정하는 문제들을 다루고 있기 때문이다.
-
-```{lemma, name="모멘트로부터 꼬리확률을 추정"}
-$g$가 음이 아니고, 감소하지 않는 함수이며 $E\{g(X)\}<\infty$라고 하자. $x>0$일 때
-$$P(|X|>x)\leq \frac{E\{g(|X|)\}}{g(x)}$$
-이다.
-
-```
-
-```{proof}
-\begin{eqnarray}
-E\{g(|X|)\} &=& E\{g(|X|)\}I\{|X|>x\}\\
-&=& g(x)EI\{|X|>x\}\\
-&=& g(x)P(|X|>x).
-\end{eqnarray}
-
-```
-
-$g$를 특수하게 설정할 경우 다음 정리를 얻는다.
-
-```{theorem, name="마르코프 부등식"}
-어떤 $r>0$에 대해 $E|X|^{r}<\infty$라고 하자. 만약 $x>0$이면 다음 부등식이 성립한다.
-$$P(|X|>x)\leq \frac{E|X|^{r}}{x^{r}}.$$
 
 ```
