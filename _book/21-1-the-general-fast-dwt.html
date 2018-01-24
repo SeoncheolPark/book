@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-01-08">
+<meta name="date" content="2018-01-24">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -249,10 +249,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="13.2" data-path="13-2-univariate-smoothing-1.html"><a href="13-2-univariate-smoothing-1.html"><i class="fa fa-check"></i><b>13.2</b> 일변량 스므딩(univariate smoothing)</a><ul>
 <li class="chapter" data-level="13.2.1" data-path="13-2-univariate-smoothing-1.html"><a href="13-2-univariate-smoothing-1.html#--representing-a-function-with-basis-expansions"><i class="fa fa-check"></i><b>13.2.1</b> 함수를 기저로 표현하기(representing a function with basis expansions)</a></li>
 </ul></li>
-<li class="chapter" data-level="13.3" data-path="13-3-soap-film-soap-film-smoothing-over-finite-domains.html"><a href="13-3-soap-film-soap-film-smoothing-over-finite-domains.html"><i class="fa fa-check"></i><b>13.3</b> 유한 도메인에서의 soap film 스므딩(soap film smoothing over finite domains)</a></li>
-<li class="chapter" data-level="13.4" data-path="13-4-vector-gams.html"><a href="13-4-vector-gams.html"><i class="fa fa-check"></i><b>13.4</b> 벡터 일반화가법모형(vector GAMs)</a></li>
-<li class="chapter" data-level="13.5" data-path="13-5-backfitting.html"><a href="13-5-backfitting.html"><i class="fa fa-check"></i><b>13.5</b> 퇴각 적합화(backfitting)</a></li>
-<li class="chapter" data-level="13.6" data-path="13-6-r-r-gam.html"><a href="13-6-r-r-gam.html"><i class="fa fa-check"></i><b>13.6</b> R 예제(R-gam)</a></li>
+<li class="chapter" data-level="13.3" data-path="13-3-b-b-spline.html"><a href="13-3-b-b-spline.html"><i class="fa fa-check"></i><b>13.3</b> B-스플라인(B-spline)</a></li>
+<li class="chapter" data-level="13.4" data-path="13-4-soap-film-soap-film-smoothing-over-finite-domains.html"><a href="13-4-soap-film-soap-film-smoothing-over-finite-domains.html"><i class="fa fa-check"></i><b>13.4</b> 유한 도메인에서의 soap film 스므딩(soap film smoothing over finite domains)</a></li>
+<li class="chapter" data-level="13.5" data-path="13-5-vector-gams.html"><a href="13-5-vector-gams.html"><i class="fa fa-check"></i><b>13.5</b> 벡터 일반화가법모형(vector GAMs)</a></li>
+<li class="chapter" data-level="13.6" data-path="13-6-backfitting.html"><a href="13-6-backfitting.html"><i class="fa fa-check"></i><b>13.6</b> 퇴각 적합화(backfitting)</a></li>
+<li class="chapter" data-level="13.7" data-path="13-7-r-r-gam.html"><a href="13-7-r-r-gam.html"><i class="fa fa-check"></i><b>13.7</b> R 예제(R-gam)</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="14-ts.html"><a href="14-ts.html"><i class="fa fa-check"></i><b>14</b> 시계열분석</a><ul>
 <li class="chapter" data-level="14.1" data-path="14-1-stationary-time-series.html"><a href="14-1-stationary-time-series.html"><i class="fa fa-check"></i><b>14.1</b> 정상시계열(stationary time series)</a></li>
@@ -661,7 +662,7 @@ d_{J-1,k}=\sum_{n}g_{n-2k}c_{J,n}
 <p>앞서 언급한 (<a href="#eq:fatherj4">(<strong>??</strong>)</a>), (<a href="#eq:motherj1">(<strong>??</strong>)</a>)을 다른 방법으로 생각해 볼 수도 있다. 예를 들면, 우리는 (<a href="#eq:fatherj4">(<strong>??</strong>)</a>)와 같은 결과를 처음에 수열 <span class="math inline">\(\{c_{J,n}\}\)</span>에 대해 <span class="math inline">\(\{h_{n}\}\)</span>이라는 필터를 적용함으로써 <span class="math display">\[c_{J-1,k}^{*}=\sum_{n}h_{n-k}c_{J,n}\]</span> 이라는 결과를 얻을 수 있다는 것이다. 이는 일반적인 convolution 식이다. 여기서 ’every other one’을 pick해 <span class="math inline">\(c_{J-1,k}=c_{J-1,2k}^{*}\)</span>을 만드는 것이다. 이 연산을 <strong>이진 데시메이션(dyadic decimation)</strong>이라고 한다(by an integer factor of 2).</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-207" class="definition"><strong>Definition 20.2  (이진 데시메이션)  </strong></span><strong>(even dyddic decimation operator)</strong> 어떤 수열 <span class="math inline">\(x_{i}\)</span>에 대한 <strong>(even) dyadic decimation operator</strong> <span class="math inline">\(\mathcal{D}_{0}\)</span>는 <span class="math display">\[(\mathcal{D}_{0}x)_{l}=x_{2l}\]</span> 로 정의한다.
+<span id="def:unnamed-chunk-209" class="definition"><strong>Definition 20.2  (이진 데시메이션)  </strong></span><strong>(even dyddic decimation operator)</strong> 어떤 수열 <span class="math inline">\(x_{i}\)</span>에 대한 <strong>(even) dyadic decimation operator</strong> <span class="math inline">\(\mathcal{D}_{0}\)</span>는 <span class="math display">\[(\mathcal{D}_{0}x)_{l}=x_{2l}\]</span> 로 정의한다.
 </div>
 
 <p>그러면 식 (<a href="#eq:fatherj4">(<strong>??</strong>)</a>)와 (<a href="#eq:motherj1">(<strong>??</strong>)</a>)는 (even) dyadic decimation operator를 활용해 <span class="math display">\[c_{J-1}=\mathcal{D}_{0}\mathcal{H}c_{J} \text{ and } d_{J-1}=\mathcal{D}_{0}\mathcal{G}c_{J}\]</span> 로 나타낼 수 있다. 이 때 <span class="math inline">\(\mathcal{H}\)</span>와 <span class="math inline">\(\mathcal{G}\)</span>는 <strong>regular filtering operation</strong>을 나타낸다. 이러한 연산자의 사용은 식의 표현을 좀 더 효율적으로 만든다.</p>

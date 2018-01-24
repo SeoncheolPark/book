@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-01-08">
+<meta name="date" content="2018-01-24">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -249,10 +249,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="13.2" data-path="13-2-univariate-smoothing-1.html"><a href="13-2-univariate-smoothing-1.html"><i class="fa fa-check"></i><b>13.2</b> 일변량 스므딩(univariate smoothing)</a><ul>
 <li class="chapter" data-level="13.2.1" data-path="13-2-univariate-smoothing-1.html"><a href="13-2-univariate-smoothing-1.html#--representing-a-function-with-basis-expansions"><i class="fa fa-check"></i><b>13.2.1</b> 함수를 기저로 표현하기(representing a function with basis expansions)</a></li>
 </ul></li>
-<li class="chapter" data-level="13.3" data-path="13-3-soap-film-soap-film-smoothing-over-finite-domains.html"><a href="13-3-soap-film-soap-film-smoothing-over-finite-domains.html"><i class="fa fa-check"></i><b>13.3</b> 유한 도메인에서의 soap film 스므딩(soap film smoothing over finite domains)</a></li>
-<li class="chapter" data-level="13.4" data-path="13-4-vector-gams.html"><a href="13-4-vector-gams.html"><i class="fa fa-check"></i><b>13.4</b> 벡터 일반화가법모형(vector GAMs)</a></li>
-<li class="chapter" data-level="13.5" data-path="13-5-backfitting.html"><a href="13-5-backfitting.html"><i class="fa fa-check"></i><b>13.5</b> 퇴각 적합화(backfitting)</a></li>
-<li class="chapter" data-level="13.6" data-path="13-6-r-r-gam.html"><a href="13-6-r-r-gam.html"><i class="fa fa-check"></i><b>13.6</b> R 예제(R-gam)</a></li>
+<li class="chapter" data-level="13.3" data-path="13-3-b-b-spline.html"><a href="13-3-b-b-spline.html"><i class="fa fa-check"></i><b>13.3</b> B-스플라인(B-spline)</a></li>
+<li class="chapter" data-level="13.4" data-path="13-4-soap-film-soap-film-smoothing-over-finite-domains.html"><a href="13-4-soap-film-soap-film-smoothing-over-finite-domains.html"><i class="fa fa-check"></i><b>13.4</b> 유한 도메인에서의 soap film 스므딩(soap film smoothing over finite domains)</a></li>
+<li class="chapter" data-level="13.5" data-path="13-5-vector-gams.html"><a href="13-5-vector-gams.html"><i class="fa fa-check"></i><b>13.5</b> 벡터 일반화가법모형(vector GAMs)</a></li>
+<li class="chapter" data-level="13.6" data-path="13-6-backfitting.html"><a href="13-6-backfitting.html"><i class="fa fa-check"></i><b>13.6</b> 퇴각 적합화(backfitting)</a></li>
+<li class="chapter" data-level="13.7" data-path="13-7-r-r-gam.html"><a href="13-7-r-r-gam.html"><i class="fa fa-check"></i><b>13.7</b> R 예제(R-gam)</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="14-ts.html"><a href="14-ts.html"><i class="fa fa-check"></i><b>14</b> 시계열분석</a><ul>
 <li class="chapter" data-level="14.1" data-path="14-1-stationary-time-series.html"><a href="14-1-stationary-time-series.html"><i class="fa fa-check"></i><b>14.1</b> 정상시계열(stationary time series)</a></li>
@@ -630,7 +631,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>We consider distance along spatial dimension as Euclidean distance and the distance in the time dimension as the minimum distance in the spatial dimension multiplied by some temporal scale factor -&gt; 이것을 <span class="math inline">\(l_{t}\)</span>라고 놓는다.</p>
 <p>이 척도 factor는 시간 domain의 어떠한 irregularity라도 유지하기 위해서라고 한다.</p>
 <p><span class="math inline">\(\delta^{min}\)</span>을 모든 노드에서의 최소 spatial edge distance, 즉 <span class="math display">\[\delta^{min}=\min \{ (\delta_{kj})_{j\in J_{k}, k\in \mathcal{N}_{1}}\}\]</span> 이라고 하자. 그리고 두 가지 경우의 시공간 네트워크를 고려하자.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-250"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-252"></span>
 <img src="images/advmultiscale_LOCAAT03.png" alt="Two spatio-temporal network examples." width="670" />
 <p class="caption">
 FIGURE 25.11: Two spatio-temporal network examples.
@@ -639,7 +640,7 @@ FIGURE 25.11: Two spatio-temporal network examples.
 <div id="case-1" class="section level3">
 <h3><span class="header-section-number">26.7.1</span> Case 1</h3>
 <p>첫번째 경우는 최초 시간에서의 엣지 구조가 시간이 지남에 따라 변하지 않고 계속 유지되는 경우다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-251"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-253"></span>
 <img src="images/advmultiscale_LOCAAT04.png" alt="Extending the spatial network to the spatio-temporal network." width="386" />
 <p class="caption">
 FIGURE 25.12: Extending the spatial network to the spatio-temporal network.

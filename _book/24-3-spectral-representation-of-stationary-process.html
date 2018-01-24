@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-01-08">
+<meta name="date" content="2018-01-24">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -249,10 +249,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="13.2" data-path="13-2-univariate-smoothing-1.html"><a href="13-2-univariate-smoothing-1.html"><i class="fa fa-check"></i><b>13.2</b> 일변량 스므딩(univariate smoothing)</a><ul>
 <li class="chapter" data-level="13.2.1" data-path="13-2-univariate-smoothing-1.html"><a href="13-2-univariate-smoothing-1.html#--representing-a-function-with-basis-expansions"><i class="fa fa-check"></i><b>13.2.1</b> 함수를 기저로 표현하기(representing a function with basis expansions)</a></li>
 </ul></li>
-<li class="chapter" data-level="13.3" data-path="13-3-soap-film-soap-film-smoothing-over-finite-domains.html"><a href="13-3-soap-film-soap-film-smoothing-over-finite-domains.html"><i class="fa fa-check"></i><b>13.3</b> 유한 도메인에서의 soap film 스므딩(soap film smoothing over finite domains)</a></li>
-<li class="chapter" data-level="13.4" data-path="13-4-vector-gams.html"><a href="13-4-vector-gams.html"><i class="fa fa-check"></i><b>13.4</b> 벡터 일반화가법모형(vector GAMs)</a></li>
-<li class="chapter" data-level="13.5" data-path="13-5-backfitting.html"><a href="13-5-backfitting.html"><i class="fa fa-check"></i><b>13.5</b> 퇴각 적합화(backfitting)</a></li>
-<li class="chapter" data-level="13.6" data-path="13-6-r-r-gam.html"><a href="13-6-r-r-gam.html"><i class="fa fa-check"></i><b>13.6</b> R 예제(R-gam)</a></li>
+<li class="chapter" data-level="13.3" data-path="13-3-b-b-spline.html"><a href="13-3-b-b-spline.html"><i class="fa fa-check"></i><b>13.3</b> B-스플라인(B-spline)</a></li>
+<li class="chapter" data-level="13.4" data-path="13-4-soap-film-soap-film-smoothing-over-finite-domains.html"><a href="13-4-soap-film-soap-film-smoothing-over-finite-domains.html"><i class="fa fa-check"></i><b>13.4</b> 유한 도메인에서의 soap film 스므딩(soap film smoothing over finite domains)</a></li>
+<li class="chapter" data-level="13.5" data-path="13-5-vector-gams.html"><a href="13-5-vector-gams.html"><i class="fa fa-check"></i><b>13.5</b> 벡터 일반화가법모형(vector GAMs)</a></li>
+<li class="chapter" data-level="13.6" data-path="13-6-backfitting.html"><a href="13-6-backfitting.html"><i class="fa fa-check"></i><b>13.6</b> 퇴각 적합화(backfitting)</a></li>
+<li class="chapter" data-level="13.7" data-path="13-7-r-r-gam.html"><a href="13-7-r-r-gam.html"><i class="fa fa-check"></i><b>13.7</b> R 예제(R-gam)</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="14-ts.html"><a href="14-ts.html"><i class="fa fa-check"></i><b>14</b> 시계열분석</a><ul>
 <li class="chapter" data-level="14.1" data-path="14-1-stationary-time-series.html"><a href="14-1-stationary-time-series.html"><i class="fa fa-check"></i><b>14.1</b> 정상시계열(stationary time series)</a></li>
@@ -629,7 +630,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>여기서 잠시 <strong>직교증분과정(orthogonal increment process)</strong>라는 것에 대해 소개하겠다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-237" class="definition"><strong>Definition 24.2  (직교증분과정)  </strong></span>두개의 다른 주파수 <span class="math inline">\(\omega\)</span>, <span class="math inline">\(\omega&#39;\)</span> <span class="math inline">\((\omega \neq \omega&#39;)\)</span>가 있다고 하자. 만약 두 개의 process <span class="math display">\[dZ(\omega)=\{Z(\omega +d\omega)-Z(\omega)\} \text{ and } dZ(\omega&#39;)=\{Z(\omega&#39; +d\omega&#39;)-Z(\omega&#39;)\}\]</span> 가 무상관<span class="math inline">\((\text{Cov}(dZ(\omega), dZ(\omega&#39;))=0)\)</span>일 때 <span class="math inline">\(dZ(\omega)\)</span>는 <strong>직교증분과정</strong>이라고 한다.</p>
+<p><span id="def:unnamed-chunk-239" class="definition"><strong>Definition 24.2  (직교증분과정)  </strong></span>두개의 다른 주파수 <span class="math inline">\(\omega\)</span>, <span class="math inline">\(\omega&#39;\)</span> <span class="math inline">\((\omega \neq \omega&#39;)\)</span>가 있다고 하자. 만약 두 개의 process <span class="math display">\[dZ(\omega)=\{Z(\omega +d\omega)-Z(\omega)\} \text{ and } dZ(\omega&#39;)=\{Z(\omega&#39; +d\omega&#39;)-Z(\omega&#39;)\}\]</span> 가 무상관<span class="math inline">\((\text{Cov}(dZ(\omega), dZ(\omega&#39;))=0)\)</span>일 때 <span class="math inline">\(dZ(\omega)\)</span>는 <strong>직교증분과정</strong>이라고 한다.</p>
 </div>
 
 <p>다시 직교과정으로 돌아가서, <span class="math inline">\(\{Z(\omega)\}\)</span>는 다음 성질들을 만족시킨다.</p>
