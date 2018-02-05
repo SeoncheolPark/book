@@ -1,6 +1,6 @@
 # 주성분분석 {#PCA}
 
-**주성분분석(principal component analysis, PCA)**란 **차원 축소(dimension reduction)**을 위해 많이 쓰이는 툴이다. 이 분야의 유명한 참고문헌으로는 [@Jolliffe2002]가 있다. 주성분분석은 차원 축소방법 중 변수를 직접적으로 변환하는 변수변환(feature transformation) 방법이다.
+**주성분분석(principal component analysis, PCA)**란 **차원 축소(dimension reduction)**을 위해 많이 쓰이는 툴이다. 이 분야의 유명한 참고문헌으로는 [@Jolliffe2002]가 있다. 주성분분석은 차원 축소방법 중 변수를 직접적으로 변환하는 변수변환(feature transformation) 방법이다. 기상학에서는 empirical orthogonal functions라고 부른다.
 
 여러 다변량 데이터셋이 갖는 문제들 중 하나는 변수가 너무 많다는 것이다. 너무 많은 변수들이 가질 수 있는 문제로는 차원의 저주(curse of dimensionality)가 알려져 있다.
 
@@ -19,6 +19,36 @@ $$\hat{\mathbf{x}}=\mathbf{W}^{T}\mathbf{y}.$$
 그리면 PCA의 목표는 다음과 같은
 $$E_{rec}=\frac{1}{n}\sum_{i=1}^{n}\| \mathbf{x}_{i}-\hat{\mathbf{x}}_{i}\|^{2}$$
 $E_{rec}$을 minimize하도록 subspace를 set하는 것이다.
+
+## 모집단 주성분들(population principal components)
+
+[@Izenman2009]를 참고하였다.
+
+다음과 같은 무작위 $r$-벡터
+$$\mathbf{X}=(X_{1},\ldots, X_{t})^{T}$$
+가 평균이 $\boldsymbol{\mu}_{X}$이고 $(r\times r)$ 공분산행렬 $\boldsymbol{\Sigma}_{XX}$를 갖는다고 가정하자. PCA는 $r$개의 correlated된 투입 변수들 $X_{1},\ldots, X_{r}$로부터 $t (\leq r)$개의 uncorrelated된 linear projection들 $\xi_{1},\ldots ,\xi_{t}$을 얻고자 하는 것이다. 이 때, $\xi_{j}$는
+$$\xi_{j}=\mathbf{b}_{j}^{T}\mathbf{X}=b_{j1}X_{1}+\ldots + b_{jr}X_{r},\qquad{j=1,\ldots , t}$$
+이다. 그리고 $\xi$들을 정보를 최소화하는 방향으로 찾고자 한다. 이 식을 $\mathbf{X}$의 **처음 $t$ principal components**라고 알려져 있다. PCA에서 정보는 original input varible들의 total variation으로 설명할 수 있다.
+$$\sum_{j=1}^{r}\text{var}(X_{j})=\text{tr}(\boldsymbol{\Sigma}_{XX}).$$
+스펙트럼 분해 정리(1장 참조)에 의해 우리는 다음과 같이 쓸 수 있다.
+$$\boldsymbol{\Sigma}_{XX}=\mathbf{U}\boldsymbol{\Lambda}\mathbf{U}^{T}, \qquad{\mathbf{U}^{T}\mathbf{U}=\mathbf{I}_{r}.}$$
+이 때 대각행렬 $\boldsymbol{\Lambda}$는 $\boldsymbol{\Sigma}$의 고유값들 $\{\lambda_{j}\}$을 대각원소들로 갖는다. 그리고 $\mathbf{U}$의 열들이 $\boldsymbol{\Sigma}_{XX}$의 고유치(eigenvector)가 된다. 그래서 총 variation은 $\text{tr}(\boldsymbol{\Sigma}_{XX})=\text{tr}(\boldsymbol{\Lambda})=\sum_{j=1}^{r}\lambda_{j}$가 된다.
+
+$j$번째 계수 벡터 $\mathbf{b}_{j}=(b_{1j},\ldots, b_{rj})^{T}$들은 다음과 같이 고른다.
+
+- $\mathbf{X}$의 처음 $t$ 선형 사영 $\xi_{j}, j=1,\ldots, t$들은 그들의 분산 $\{ \text{var}\{\xi_{j} \} \}$들을 이용해 $\text{var}\{\xi_{1} \} \geq \text{var}\{\xi_{2} \} \ldots \geq \text{var}\{\xi_{t} \} $로 순위를 매겨 결정한다.
+
+- $k<j$일 경우 $\xi_{j}$는 $\xi_{k}$와 uncorrelated이다.
+
+PCA의 집합들을 유도하는 방법은 두 가지가 있다.
+
+1. **Least-squares optimality criterion**을 활용한다.
+
+2. Variance-maximizing technique을 활용한다.
+
+### 최소제곱법으로 구하는 PCA
+
+$\mathbf{B}=(\mathbf{b}_{1},\ldots, \mathbf{b}_{t})^{T}$를 가중치의 $(t\times r)$ $(t\leq r)$ 행렬이라고 하자.
 
 ## 주성분 분석의 결과 정리(PCA summary)
 

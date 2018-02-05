@@ -211,7 +211,7 @@ $$\| \alpha \mathbf{x}\|=|\alpha| \|\mathbf{x}\|$$
 
 고유값 분해는 행렬 $A$가 $n\times n$ 정방행렬일 때만 적용 가능하다.
 
-### 스펙트럼 분해(spectral decomposition)
+### 스펙트럼 분해(spectral decomposition) {#spectraldecomposition}
 
 $p\times p$ 대칭행렬 $A$에 대한 **스펙트럼 분해(spectral decomposition)**는 다음과 같다. $p\times p$ 대칭행렬 $A$는 직교행렬 $P$에 의해 **대각화(diagonalization)**된다고 한다.
 
