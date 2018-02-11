@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-02-05">
+<meta name="date" content="2018-02-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -430,7 +430,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="30.4" data-path="30-4-pca-summary.html"><a href="30-4-pca-summary.html"><i class="fa fa-check"></i><b>30.4</b> 주성분 분석의 결과 정리(PCA summary)</a></li>
 <li class="chapter" data-level="30.5" data-path="30-5-principal-component-regression.html"><a href="30-5-principal-component-regression.html"><i class="fa fa-check"></i><b>30.5</b> 주성분 회귀분석(principal component regression)</a></li>
 <li class="chapter" data-level="30.6" data-path="30-6-pca-pca-for-multivariate-data.html"><a href="30-6-pca-pca-for-multivariate-data.html"><i class="fa fa-check"></i><b>30.6</b> 다변량 자료에서의 PCA (PCA for multivariate data)</a></li>
-<li class="chapter" data-level="30.7" data-path="30-7-pca-pca-for-functional-data.html"><a href="30-7-pca-pca-for-functional-data.html"><i class="fa fa-check"></i><b>30.7</b> 함수자료에서의 PCA (PCA for functional data)</a></li>
+<li class="chapter" data-level="30.7" data-path="30-7-pca-pca-for-functional-data.html"><a href="30-7-pca-pca-for-functional-data.html"><i class="fa fa-check"></i><b>30.7</b> 함수자료에서의 PCA (PCA for functional data)</a><ul>
+<li class="chapter" data-level="30.7.1" data-path="30-7-pca-pca-for-functional-data.html"><a href="30-7-pca-pca-for-functional-data.html#-pca-estimation-of-functional-pca"><i class="fa fa-check"></i><b>30.7.1</b> 함수자료 PCA의 적합(estimation of functional PCA)</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="31" data-path="31-CCA.html"><a href="31-CCA.html"><i class="fa fa-check"></i><b>31</b> 정준상관분석</a></li>
 <li class="chapter" data-level="32" data-path="32-SSA.html"><a href="32-SSA.html"><i class="fa fa-check"></i><b>32</b> 시간 변화도 분석</a><ul>
@@ -629,9 +631,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="-pca-pca-for-functional-data" class="section level2">
 <h2><span class="header-section-number">30.7</span> 함수자료에서의 PCA (PCA for functional data)</h2>
+<p><span class="citation">(Izenman <a href="#ref-Izenman2009">2009</a>)</span>에 있는 간단한 설명이다. 어떤 상황들에서는 우리는 함수나 또는 curve로 구성된 자료를 분석하려고 한다. 이러한 함수 자료는 종종 시간-의존적이지만 시간이 특별한 역할을 하지 않는다고 놓는다. 실제로, 다르고 독립적으로 얻어진 함수자료들은 다른 시간 point에서 기록될 것이므로 자료 자체가 equally spaced되지 않았을 가능성이 높다. 이런 경우에는 이산 점들에서 얻어진 자료들을 개별적인 함수 관찰값로 보는 것이 좋다.</p>
+<p>함수 PCA에서는 각각의 관찰된 함수들이 <strong>같은 individual들의 반복된 관찰값</strong>이라고 본다. 그리고 우리는 그들을 가지고 <strong>함수의 main feature를 묘사</strong>하고자 한다. 이것을 할 수 있는 한 가지 방법은 functional PCA를 이용하는 것이다. 여기서는 각각의 값 대신 커브를 생각하기 때문에 벡터로 표시한 관찰값들 <span class="math inline">\(\mathbf{X}_{1},\ldots , \mathbf{X}_{n}\)</span>이 일변량 함수들 <span class="math inline">\(X_{1}(t),\ldots, X_{n}(t)\)</span>로 대체된다. 여기서 <span class="math inline">\(t\)</span>는 일반적으로 시간을 의미하나 닫힌 구간 <span class="math inline">\([0,T]\)</span>에서 연속인 어떤 값들로도 바뀔 수 있다.</p>
+<p>함수적 PCA에서는 각 표본 커브들이 부드러운 평균함수 <span class="math inline">\(E\{X(t)\}=\mu(t)\)</span> 그리고 공분산 함수 <span class="math display">\[\text{cov}\{X(s),X(t)\}=\sigma(s,t)\]</span> 를 갖는 <strong>일변량 확률과정 <span class="math inline">\(X(t)\)</span>의 독립적인 실현</strong>이라고 간주한다. 이것은 <span class="math inline">\(X(t)\)</span>의 잘 알려진 Karhunen-Loeve expansion이다. 공분산 함수의 스펙트럼 분해를 통해 우리는 <span class="math inline">\(\sigma\)</span>를 고유값들 <span class="math inline">\(\{\lambda_{j}\}\)</span>와 그것에 대응되는 고유함수(eigenfunction)들 <span class="math inline">\(\{V_{j}(t)\}\)</span>를 가지고 L2 관점에서 직교인 확장으로 표현할 수 있다. 즉 <span class="math display">\[\sigma(s,t)=\sum_{j=1}^{\infty}\lambda_{j}V_{j}(s)V_{j}(t)\]</span> 로 표현할 수 있다. 여기서 고유값들은 처음 몇 개들만을 제외하고는 빠르게 0으로 간다고 가정한다. 공분산 함수는 양정치이므로, 우리는 고유값들이 양수이며 <span class="math inline">\(\lambda_{1}\geq \lambda_{2} \ldots \geq 0\)</span>으로 정렬할 수 있다. 여기서의 목표는 <span class="math inline">\(\sigma(s,t)\)</span>에서 functional variation을 나타내는 처음 몇 개의 부분을 찾는 것으로, 고유치는 각각의 component들이 total variance를 얼마나 설명해주는지를 말해준다.</p>
+<p>무작위 커브 <span class="math inline">\(X(t)\)</span>는 다음과 같이 표현할 수 있다. <span class="math display">\[X(t)=\mu(t) + \sum_{j=1}^{\infty}\xi_{j}V_{j}(t).\]</span> 여기서 계수 <span class="math inline">\(\xi_{j}\)</span>는 다음과 같은 스칼라 확률변수이다.(<strong>j번째 functional PC score</strong>이다.) <span class="math display">\[\xi_{j} =\int [X(t)-\mu(t)]V_{j}(t)dt.\]</span> 이 때 <span class="math inline">\(E\{xi_{j}\}=0\)</span>, <span class="math inline">\(\text{var}\{\xi_{j}\}=\lambda_{j}\)</span>, <span class="math inline">\(\sum_{j}\lambda_{j}&lt;\infty\)</span> 그리고 <span class="math inline">\(\text{cov}\{\xi_{j},\xi_{k}\}=0,j\neq k\)</span>이다. 고유함수들 <span class="math inline">\(\{V_{j}(t) \}\)</span> (<strong>PC 함수라고도 부른다</strong>)은 다음을 만족한다. <span class="math display">\[\int_{[0,T]} [V_{j}(t)]^{2}dt=1, \qquad{\int_{[0,T]} V_{j}(t)V_{k}(t)dt=0, j\neq k. }\]</span> 여기서 적분은 periodic일 수 있다. <span class="math inline">\(X(t)-\mu(t)\)</span>는 각각의 곡선들이 uncorrelated random amplitude를 갖는 직교 곡선들의 유한한 합으로 생각할 수 있다.</p>
+<p>과학적으로는 함수 자료임이 알려졌다고 하더라도 실제로는 표본을 통해 유한한 양의 지식만을 알고 있다. 따라서 평균 곡선 <span class="math inline">\(\mu(t)\)</span>와 공분산 함수 <span class="math inline">\(\sigma\)</span>를 추정하는 것은 <span class="math inline">\(n\)</span>개의 표본 곡선들의 collection들 <span class="math inline">\(X_{1}(t),\ldots, X_{n}(t)\)</span>로부터 기반한다. 이 때 <span class="math inline">\(i\)</span>번째 곡선 <span class="math inline">\(X_{i}(t)\)</span>는 <span class="math inline">\(X_{i}(t)=\mu(t)+\sum_{j}\xi_{ij}V_{j}(t)\)</span>이다. <span class="math inline">\(i\)</span>번째 곡선의 <span class="math inline">\(k\)</span>번째 점은 <span class="math inline">\(X_{ik}=X_{i}(t_{k})\)</span>이다.</p>
+<p>이러한 functional PCA를 적합하는 방법으로는 각각의 표본 곡선들을 spline이나 local-linear smoother로 부드럽게 만든 후 적합하게 되며 regularization을 사용하기도 한다.</p>
+<div id="-pca-estimation-of-functional-pca" class="section level3">
+<h3><span class="header-section-number">30.7.1</span> 함수자료 PCA의 적합(estimation of functional PCA)</h3>
+<p>L2관점에서 fPCA를 하는 것은 eigneproblem을 푸는 것과 같다고 한다.</p>
 
 </div>
+</div>
 <!-- </div> -->
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-Izenman2009">
+<p>Izenman, Alan J. 2009. <em>Modern Multivariate Statistical Techniques: Regression, Classification, and Manifold Learning</em>. Springer Science; Business Media.</p>
+</div>
+</div>
             </section>
 
           </div>

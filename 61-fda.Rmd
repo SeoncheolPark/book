@@ -1,0 +1,19 @@
+# 함수추정 {#functionestimation}
+
+## 함수를 만들 때 기저시스템을 어떻게 특정할 것인가(how to specify basis systems for building functions)
+
+우리는 어떤 함수 $x(t)$를 기저함수들(functional building blocks) $\phi_{k}$들의 선형 결합으로 표현할 수 있다. 이를 **basis function expansion**이라고 부른다.
+$$x(t)=\sum_{k=1}^{K}c_{k}\phi_{k}(t)=\mathbf{c}'\phi(t).$$
+여기서 $c_{1},\ldots, c_{K}$를 확장의 계수(coefficient)라고 부른다. 이 때 $\phi$는 $K$개의 기저함수들을 갖고 있다. 만약 우리가 $N$개의 함수 표본을 갖고 있다면 위의 행렬 표현은
+$$\mathbf{x}(t)=\mathbf{C}\phi(t)$$
+가 된다. 이 때 $\mathbf{x}(t)$는 $x_{i}(t)$를 갖고있는 길이 $N$인 벡터고, 계수 행렬 $\mathbf{C}$는 $(N\times K)$ 행렬이다.
+
+1. 다항함수 기저(polynomial basis): 기속도 등을 모델링할 때 좋으나 함수 모양이 복잡할 경우 그 쓰임새가 제한된다.
+
+2. 스플라인 기저(splines basis)
+
+3. 푸리에 수열 기저(Fourier series basis)
+
+## 함수-함수 회귀분석(function-on-function regression)
+
+함수 다발과 함수 다발 사이에 회귀분석을 하는 것이다.

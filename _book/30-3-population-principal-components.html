@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-02-05">
+<meta name="date" content="2018-02-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -430,7 +430,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="30.4" data-path="30-4-pca-summary.html"><a href="30-4-pca-summary.html"><i class="fa fa-check"></i><b>30.4</b> 주성분 분석의 결과 정리(PCA summary)</a></li>
 <li class="chapter" data-level="30.5" data-path="30-5-principal-component-regression.html"><a href="30-5-principal-component-regression.html"><i class="fa fa-check"></i><b>30.5</b> 주성분 회귀분석(principal component regression)</a></li>
 <li class="chapter" data-level="30.6" data-path="30-6-pca-pca-for-multivariate-data.html"><a href="30-6-pca-pca-for-multivariate-data.html"><i class="fa fa-check"></i><b>30.6</b> 다변량 자료에서의 PCA (PCA for multivariate data)</a></li>
-<li class="chapter" data-level="30.7" data-path="30-7-pca-pca-for-functional-data.html"><a href="30-7-pca-pca-for-functional-data.html"><i class="fa fa-check"></i><b>30.7</b> 함수자료에서의 PCA (PCA for functional data)</a></li>
+<li class="chapter" data-level="30.7" data-path="30-7-pca-pca-for-functional-data.html"><a href="30-7-pca-pca-for-functional-data.html"><i class="fa fa-check"></i><b>30.7</b> 함수자료에서의 PCA (PCA for functional data)</a><ul>
+<li class="chapter" data-level="30.7.1" data-path="30-7-pca-pca-for-functional-data.html"><a href="30-7-pca-pca-for-functional-data.html#-pca-estimation-of-functional-pca"><i class="fa fa-check"></i><b>30.7.1</b> 함수자료 PCA의 적합(estimation of functional PCA)</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="31" data-path="31-CCA.html"><a href="31-CCA.html"><i class="fa fa-check"></i><b>31</b> 정준상관분석</a></li>
 <li class="chapter" data-level="32" data-path="32-SSA.html"><a href="32-SSA.html"><i class="fa fa-check"></i><b>32</b> 시간 변화도 분석</a><ul>
@@ -659,6 +661,9 @@ E\{ (\mathbf{X}-\boldsymbol{\mu}-\mathbf{A}\boldsymbol{\xi})^{T}(\mathbf{X}-\bol
 E\{ (\mathbf{X}-\boldsymbol{\mu}-\mathbf{ABX})^{T}(\mathbf{X}-\boldsymbol{\mu}-\mathbf{ABX}) \}
 \tag{30.3}
 \end{equation}\]</span>
+<p>만약 <span class="math inline">\(t=1\)</span>일 경우 식 <a href="30-3-population-principal-components.html#eq:PCAcriterion2">(30.3)</a>는 최소자승 문제로 쓸 수 있다. <span class="math display">\[\min_{\boldsymbol{\mu},\mathbf{A},\mathbf{B}}E\sum_{j=1}^{r}(X_{j}-\mu_{j}-a_{j1}\mathbf{b}_{1}^{T}\mathbf{X})^{2},\]</span> 여기서 <span class="math inline">\(\boldsymbol{\mu}=(\mu_{1},\ldots, \mu_{r})^{T}\)</span>, <span class="math inline">\(\mathbf{A}=\mathbf{a}_{1}=(a_{11},\ldots, a_{r}1)^{T}\)</span>, <span class="math inline">\(\mathbf{B}=\mathbf{b}_{1}^{T}\)</span>이다.</p>
+<p>(최소화하는 방법 소개)</p>
+<p>식 <a href="30-3-population-principal-components.html#eq:PCAcriterion2">(30.3)</a>는 <strong>reduced-rank rregression solution</strong>으로 최소화할 수 있고, 결과는 다음과 같다. <span class="math display">\[\mathbf{A}^{(t)}=(\mathbf{v}_{1},\ldots, \mathbf{v}_{t})=\mathbf{B}^{(t)T},\]</span> <span class="math display">\[\boldsymbol{\mu}^{(t)}=(\mathbf{I}_{r}-\mathbf{A}^{(t)}\mathbf{B}^{(t)})\boldsymbol{\mu}_{X},\]</span> 여기서 <span class="math inline">\(\mathbf{v}_{j}=\mathbf{v}_{j}(\boldsymbol{\Sigma}_{XX})\)</span>는 <span class="math inline">\(j\)</span>번째 큰 고유값에 대응되는 고유벡터들이다. 그러면 원래 자료의 가장 최고의 rank-<span class="math inline">\(t\)</span> 근사는 다음과 같다. <span class="math display">\[\hat{\mathbf{X}}^{(t)}=\boldsymbol{\mu}^{(t)}+\mathbf{C}^{(t)}\mathbf{X}=\boldsymbol{\mu}_{X}+\mathbf{C}^{(t)}(\mathbf{X}-\boldsymbol{\mu}),\]</span> 여기서 <span class="math display">\[\mathbf{C}^{(t)}=\mathbf{A}^{(t)}\mathbf{B}^{(t)}=\sum_{j=1}^{t}\mathbf{v}_{j}\mathbf{v}_{j}^{T}\]</span> 는 rank <span class="math inline">\(t\)</span> principal component case의 reduced-rank regression coefficient matrix이다. 식 <a href="30-3-population-principal-components.html#eq:PCAcriterion2">(30.3)</a>의 최소값은</p>
 </div>
 </div>
 <h3> References</h3>

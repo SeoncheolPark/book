@@ -1,0 +1,5 @@
+# 경험적 모드 분해 {#EMD}
+
+**경험적 모드 분해(emprical mode decomposition, EMD)**는 신호를 유한한 숫자의 기저함수들로 근사하고 싶을 때 사용할 수 있는 방법이다. 기존 방법으로는 Fourier-based spectral analysis, wavelet analysis 등이 있는데, 신호가 비정상적이고 nonlinear할때에는 잘 작동하지 않는다고 한다. (PCA 또한 empirical한 basis를 갖는다고 한다.)
+
+시간에 따라 변하는 주파수는 Hilbert transform으로 정의할 수 있다고 한다.

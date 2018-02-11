@@ -66,6 +66,21 @@ E\{ (\mathbf{X}-\boldsymbol{\mu}-\mathbf{ABX})^{T}(\mathbf{X}-\boldsymbol{\mu}-\
 (\#eq:PCAcriterion2)
 \end{equation}
 
+만약 $t=1$일 경우 식 \@ref(eq:PCAcriterion2)는 최소자승 문제로 쓸 수 있다.
+$$\min_{\boldsymbol{\mu},\mathbf{A},\mathbf{B}}E\sum_{j=1}^{r}(X_{j}-\mu_{j}-a_{j1}\mathbf{b}_{1}^{T}\mathbf{X})^{2},$$
+여기서 $\boldsymbol{\mu}=(\mu_{1},\ldots, \mu_{r})^{T}$, $\mathbf{A}=\mathbf{a}_{1}=(a_{11},\ldots, a_{r}1)^{T}$, $\mathbf{B}=\mathbf{b}_{1}^{T}$이다.
+
+(최소화하는 방법 소개)
+
+식 \@ref(eq:PCAcriterion2)는 **reduced-rank rregression solution**으로 최소화할 수 있고, 결과는 다음과 같다.
+$$\mathbf{A}^{(t)}=(\mathbf{v}_{1},\ldots, \mathbf{v}_{t})=\mathbf{B}^{(t)T},$$
+$$\boldsymbol{\mu}^{(t)}=(\mathbf{I}_{r}-\mathbf{A}^{(t)}\mathbf{B}^{(t)})\boldsymbol{\mu}_{X},$$
+여기서 $\mathbf{v}_{j}=\mathbf{v}_{j}(\boldsymbol{\Sigma}_{XX})$는 $j$번째 큰 고유값에 대응되는 고유벡터들이다. 그러면 원래 자료의 가장 최고의 rank-$t$ 근사는 다음과 같다.
+$$\hat{\mathbf{X}}^{(t)}=\boldsymbol{\mu}^{(t)}+\mathbf{C}^{(t)}\mathbf{X}=\boldsymbol{\mu}_{X}+\mathbf{C}^{(t)}(\mathbf{X}-\boldsymbol{\mu}),$$
+여기서
+$$\mathbf{C}^{(t)}=\mathbf{A}^{(t)}\mathbf{B}^{(t)}=\sum_{j=1}^{t}\mathbf{v}_{j}\mathbf{v}_{j}^{T}$$
+는 rank $t$ principal component case의 reduced-rank regression coefficient matrix이다. 식 \@ref(eq:PCAcriterion2)의 최소값은 
+
 ## 주성분 분석의 결과 정리(PCA summary)
 
 박창이 교수님 외 R을 이용한 데이터마이닝 책을 참고하였다. 주성분 분석의 간단한 결과 요약은 다음과 같다.
@@ -103,3 +118,36 @@ $$f_{i}=\sum_{j=1}^{p}\beta_{j}x_{ij}, i=1,\ldots, N.$$
 
 ## 함수자료에서의 PCA (PCA for functional data)
 
+[@Izenman2009]에 있는 간단한 설명이다. 어떤 상황들에서는 우리는 함수나 또는 curve로 구성된 자료를 분석하려고 한다. 이러한 함수 자료는 종종 시간-의존적이지만 시간이 특별한 역할을 하지 않는다고 놓는다. 실제로, 다르고 독립적으로 얻어진 함수자료들은 다른 시간 point에서 기록될 것이므로 자료 자체가 equally spaced되지 않았을 가능성이 높다. 이런 경우에는 이산 점들에서 얻어진 자료들을 개별적인 함수 관찰값로 보는 것이 좋다.
+
+함수 PCA에서는 각각의 관찰된 함수들이 **같은 individual들의 반복된 관찰값**이라고 본다. 그리고 우리는 그들을 가지고 **함수의 main feature를 묘사**하고자 한다. 이것을 할 수 있는 한 가지 방법은 functional PCA를 이용하는 것이다. 여기서는 각각의 값 대신 커브를 생각하기 때문에 벡터로 표시한 관찰값들 $\mathbf{X}_{1},\ldots , \mathbf{X}_{n}$이 일변량 함수들 $X_{1}(t),\ldots, X_{n}(t)$로 대체된다. 여기서 $t$는 일반적으로 시간을 의미하나 닫힌 구간 $[0,T]$에서 연속인 어떤 값들로도 바뀔 수 있다.
+
+함수적 PCA에서는 각 표본 커브들이 부드러운 평균함수 $E\{X(t)\}=\mu(t)$ 그리고 공분산 함수
+$$\text{cov}\{X(s),X(t)\}=\sigma(s,t)$$
+를 갖는 **일변량 확률과정 $X(t)$의 독립적인 실현**이라고 간주한다. 이것은 $X(t)$의 잘 알려진 Karhunen-Loeve expansion이다. 공분산 함수의 스펙트럼 분해를 통해 우리는 $\sigma$를 고유값들 $\{\lambda_{j}\}$와 그것에 대응되는 고유함수(eigenfunction)들 $\{V_{j}(t)\}$를 가지고 L2 관점에서 직교인 확장으로 표현할 수 있다. 즉
+$$\sigma(s,t)=\sum_{j=1}^{\infty}\lambda_{j}V_{j}(s)V_{j}(t)$$
+로 표현할 수 있다. 여기서 고유값들은 처음 몇 개들만을 제외하고는 빠르게 0으로 간다고 가정한다. 공분산 함수는 양정치이므로, 우리는 고유값들이 양수이며 $\lambda_{1}\geq \lambda_{2} \ldots \geq 0$으로 정렬할 수 있다. 여기서의 목표는 $\sigma(s,t)$에서 functional variation을 나타내는 처음 몇 개의 부분을 찾는 것으로, 고유치는 각각의 component들이 total variance를 얼마나 설명해주는지를 말해준다.
+
+무작위 커브 $X(t)$는 다음과 같이 표현할 수 있다.
+$$X(t)=\mu(t) + \sum_{j=1}^{\infty}\xi_{j}V_{j}(t).$$
+여기서 계수 $\xi_{j}$는 다음과 같은 스칼라 확률변수이다.(**j번째 functional PC score**이다.)
+$$\xi_{j} =\int [X(t)-\mu(t)]V_{j}(t)dt.$$
+이 때 $E\{xi_{j}\}=0$, $\text{var}\{\xi_{j}\}=\lambda_{j}$, $\sum_{j}\lambda_{j}<\infty$ 그리고 $\text{cov}\{\xi_{j},\xi_{k}\}=0,j\neq k$이다. 고유함수들 $\{V_{j}(t) \}$ (**PC 함수라고도 부른다**)은 다음을 만족한다.
+$$\int_{[0,T]} [V_{j}(t)]^{2}dt=1, \qquad{\int_{[0,T]} V_{j}(t)V_{k}(t)dt=0, j\neq k. }$$
+여기서 적분은 periodic일 수 있다. $X(t)-\mu(t)$는 각각의 곡선들이 uncorrelated random amplitude를 갖는 직교 곡선들의 유한한 합으로 생각할 수 있다.
+
+과학적으로는 함수 자료임이 알려졌다고 하더라도 실제로는 표본을 통해 유한한 양의 지식만을 알고 있다. 따라서 평균 곡선 $\mu(t)$와 공분산 함수 $\sigma$를 추정하는 것은 $n$개의 표본 곡선들의 collection들 $X_{1}(t),\ldots, X_{n}(t)$로부터 기반한다. 이 때 $i$번째 곡선 $X_{i}(t)$는 $X_{i}(t)=\mu(t)+\sum_{j}\xi_{ij}V_{j}(t)$이다. $i$번째 곡선의 $k$번째 점은 $X_{ik}=X_{i}(t_{k})$이다.
+
+이러한 functional PCA를 적합하는 방법으로는 각각의 표본 곡선들을 spline이나 local-linear smoother로 부드럽게 만든 후 적합하게 되며 regularization을 사용하기도 한다.
+
+### 함수자료 PCA의 적합(estimation of functional PCA)
+
+L2관점에서 fPCA를 하는 것은 eigneproblem을 푸는 것과 같다고 한다. FPCA를 하는 것에는 다음과 같은 방법들이 있다.
+
+1. **Discretizing the functions**: equally spcaed grid point $t_{1},\ldots , t_{m}$을 생각하고 covariance matrix  $\mathbf{V}^{*}$를 $\mathbf{V}(t_{i},t_{j})$로 나타낸 다음 다변량 PCA를 $\mathbf{V}^{*}$에 적합, smoothes PC를 얻기 위해 interpolation을 추가로 한다.
+
+2. **Basis expansion of the functions**: $y_{i}(t)=\sum_{j=1}^{K}c_{ij}\phi_{k}(t)$라고 호자. $\Phi$를 orthonormal basis의 집합이라고 하자. 그리고 $\mathbf{C}$를 $(n\time K)$ coefficient matrix라고 하자. 그러면 $\mathbf{Y}=\mathbf{C}\Phi$이고 표본 공분산 행렬은 $\mathbf{V}=\frac{1}{n}\Phi^{T}\mathbf{C}^{T}\mathbf{C}\Phi$로 쓸 수 있다. 이를 이용하는 방법은 패키지 `FDA`에서 구현되어 있다.
+
+3. **Smoothing the covariance kernel**: 이 방법은 `PACE` 패키지에 구현되어있다.
+
+4. **Regularized principal components**
