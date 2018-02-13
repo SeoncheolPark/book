@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-02-11">
+<meta name="date" content="2018-02-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -647,19 +647,19 @@ FIGURE 20.13: Wavelet packet coefficients of the independent Gaussian sequence z
 <p>위 그림은 독립 가우스 수열 <span class="math inline">\(\mathbf{z}\)</span>에 대해 웨이블릿 계수들을 구한 결과를 보여준다. 원 시계열은 맨 아래쪽에 있다. 이것의 scale은 8로 정했다. 그리고 한 줄씩 위로 올라가면서 scale(=resolution level)을 1씩 줄였을 때의 결과를 보여준다. 웨이블릿 패킷을 수직 점선으로 구분해 놓았다. 각 스케일 마다 첫 번째 웨이블릿은 scaling function coefficient들에 대응된다. 그래서 시계열로 표현했는데 이는 스케일 함수 계수들을 웟ㄴ 시계열의 연속적인 coarsening이라고 생각할 수 있기 때문이다. Regular wavelet coefficient들은 각 스케일마다 두 번째 패킷에 위치하도록 했다.</p>
 <p>여기서 스케일 6에 있는 네 번째 패킷 (packet 3임, 0, 1, 2 순서로 번호를 매기므로)을 100인 값이 하나가 있고 나머지는 모두 0인 패킷으로 교체해보자. 우선 현재 있는 패킷 값을 얻으려면 <code>getpacket</code> 함수를 이용한다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getpacket</span>(zwp, <span class="dt">level=</span><span class="dv">6</span>, <span class="dt">index=</span><span class="dv">3</span>)</code></pre></div>
-<pre><code>&gt;  [1] -0.41332226  0.55343257  1.19633418 -0.52770541 -1.15663784
-&gt;  [6] -1.04810772  0.92786491  1.57446878  0.46238875  1.52993662
-&gt; [11]  0.02836575  1.40704495 -0.35637710 -2.88346662 -0.25474573
-&gt; [16]  2.73569305  0.68634602 -0.55194331  0.32394810  1.19708643
-&gt; [21]  0.41907138  2.34975011 -1.78099306 -0.95218924 -0.28964844
-&gt; [26]  0.03909449  0.84384670 -0.95066842 -0.43338133 -0.30712395
-&gt; [31]  0.41234755 -0.98790752 -0.58321934 -0.67392576  1.21514450
-&gt; [36]  0.13978037 -1.00967123 -2.48478225  0.11738997  0.27277773
-&gt; [41]  0.93067580  3.07764788  0.19477792 -1.04467292  0.41623369
-&gt; [46] -0.11694123  1.16982998 -0.50328782 -0.12028166 -1.13532737
-&gt; [51]  1.45914171  0.61604714 -1.20609924 -0.74302075  0.31246229
-&gt; [56]  0.57617788 -0.56582079  1.58921116 -1.42046150 -0.07434141
-&gt; [61]  0.27488849  0.02524302  0.03991063 -0.79254752</code></pre>
+<pre><code>&gt;  [1] -0.53277024 -1.40674547  2.44572258 -0.01948983  0.65389542
+&gt;  [6] -0.06561380 -0.88987100 -2.06508837  0.04481918  1.13933010
+&gt; [11]  0.39724859 -0.43427913 -0.47375517  1.17223937  1.01463367
+&gt; [16]  0.03786255 -1.14204618 -2.43863605  0.51153084 -0.27418067
+&gt; [21]  1.43388108  0.62206160 -0.47628515  1.03396198 -0.84270687
+&gt; [26]  0.39891296 -1.43178960 -0.25888691 -1.01174298  1.22136010
+&gt; [31]  2.32034880 -0.76071727 -0.71666924 -0.49830470 -0.34486337
+&gt; [36] -0.81162177 -1.04159630  1.30492329  0.80339235 -2.57531859
+&gt; [41]  0.47714126  0.75397618 -0.51983257  0.23580741 -0.45471797
+&gt; [46]  1.25902097  1.01563742 -0.37112613 -1.08462475  0.57816635
+&gt; [51] -0.15260558 -0.24833248  1.12621870  0.70471519 -0.76748319
+&gt; [56]  0.10238954  2.01013544 -0.68059939 -2.44033279  1.50659411
+&gt; [61] -1.39353363  0.39176457 -0.91301223  2.02008211</code></pre>
 <p>100인 값이 하나가 있고 나머지는 모두 0인 벡터는 매우 sparse하다. <code>zwp2</code>에 앞서 말한 패킷을 넣어보자.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">zwp2 &lt;-<span class="st"> </span><span class="kw">putpacket</span>(zwp, <span class="dt">level=</span><span class="dv">6</span>, <span class="dt">index=</span><span class="dv">3</span>, <span class="dt">packet=</span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dv">100</span>, <span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">53</span>)))
 <span class="kw">plot</span>(zwp2)</code></pre></div>
@@ -673,89 +673,114 @@ FIGURE 20.14: Wavelet packet coefficients of zwp2.
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">zwp2.nv &lt;-<span class="st"> </span><span class="kw">MaNoVe</span>(zwp2)
 zwp2.nv</code></pre></div>
 <pre><code>&gt; Level:  6  Packet:  3 
-&gt; Level:  4  Packet:  0 
-&gt; Level:  4  Packet:  1 
-&gt; Level:  3  Packet:  4 
+&gt; Level:  4  Packet:  8 
+&gt; Level:  3  Packet:  8 
+&gt; Level:  3  Packet:  9 
 &gt; Level:  3  Packet:  11 
-&gt; Level:  3  Packet:  12 
-&gt; Level:  3  Packet:  13 
-&gt; Level:  3  Packet:  17 
-&gt; Level:  2  Packet:  11 
-&gt; Level:  2  Packet:  13 
-&gt; Level:  2  Packet:  21 
-&gt; Level:  2  Packet:  29 
-&gt; Level:  2  Packet:  38 
-&gt; Level:  2  Packet:  40 
-&gt; Level:  2  Packet:  43 
+&gt; Level:  2  Packet:  3 
+&gt; Level:  2  Packet:  10 
+&gt; Level:  2  Packet:  25 
+&gt; Level:  2  Packet:  26 
+&gt; Level:  2  Packet:  27 
+&gt; Level:  2  Packet:  36 
+&gt; Level:  2  Packet:  41 
 &gt; Level:  2  Packet:  45 
-&gt; Level:  2  Packet:  47 
-&gt; Level:  1  Packet:  21 
+&gt; Level:  1  Packet:  0 
+&gt; Level:  1  Packet:  4 
+&gt; Level:  1  Packet:  9 
+&gt; Level:  1  Packet:  10 
+&gt; Level:  1  Packet:  12 
+&gt; Level:  1  Packet:  15 
+&gt; Level:  1  Packet:  17 
+&gt; Level:  1  Packet:  19 
+&gt; Level:  1  Packet:  23 
 &gt; Level:  1  Packet:  24 
+&gt; Level:  1  Packet:  25 
 &gt; Level:  1  Packet:  28 
-&gt; Level:  1  Packet:  30 
 &gt; Level:  1  Packet:  31 
-&gt; Level:  1  Packet:  34 
-&gt; Level:  1  Packet:  38 
-&gt; Level:  1  Packet:  39 
-&gt; Level:  1  Packet:  41 
+&gt; Level:  1  Packet:  49 
 &gt; Level:  1  Packet:  56 
-&gt; Level:  1  Packet:  61 
-&gt; Level:  1  Packet:  62 
-&gt; Level:  1  Packet:  63 
-&gt; Level:  1  Packet:  65 
+&gt; Level:  1  Packet:  59 
+&gt; Level:  1  Packet:  74 
 &gt; Level:  1  Packet:  75 
-&gt; Level:  1  Packet:  79 
-&gt; Level:  1  Packet:  83 
+&gt; Level:  1  Packet:  77 
+&gt; Level:  1  Packet:  80 
+&gt; Level:  1  Packet:  81 
 &gt; Level:  1  Packet:  85 
+&gt; Level:  1  Packet:  86 
+&gt; Level:  1  Packet:  87 
 &gt; Level:  1  Packet:  88 
+&gt; Level:  1  Packet:  89 
 &gt; Level:  1  Packet:  92 
-&gt; Level:  0  Packet:  40 
-&gt; Level:  0  Packet:  41 
-&gt; Level:  0  Packet:  50 
-&gt; Level:  0  Packet:  51 
+&gt; Level:  0  Packet:  2 
+&gt; Level:  0  Packet:  3 
+&gt; Level:  0  Packet:  4 
+&gt; Level:  0  Packet:  5 
+&gt; Level:  0  Packet:  6 
+&gt; Level:  0  Packet:  7 
+&gt; Level:  0  Packet:  10 
+&gt; Level:  0  Packet:  11 
+&gt; Level:  0  Packet:  16 
+&gt; Level:  0  Packet:  17 
+&gt; Level:  0  Packet:  22 
+&gt; Level:  0  Packet:  23 
+&gt; Level:  0  Packet:  26 
+&gt; Level:  0  Packet:  27 
+&gt; Level:  0  Packet:  28 
+&gt; Level:  0  Packet:  29 
+&gt; Level:  0  Packet:  32 
+&gt; Level:  0  Packet:  33 
+&gt; Level:  0  Packet:  36 
+&gt; Level:  0  Packet:  37 
+&gt; Level:  0  Packet:  44 
+&gt; Level:  0  Packet:  45 
+&gt; Level:  0  Packet:  52 
+&gt; Level:  0  Packet:  53 
+&gt; Level:  0  Packet:  54 
+&gt; Level:  0  Packet:  55 
 &gt; Level:  0  Packet:  58 
 &gt; Level:  0  Packet:  59 
-&gt; Level:  0  Packet:  64 
-&gt; Level:  0  Packet:  65 
-&gt; Level:  0  Packet:  66 
-&gt; Level:  0  Packet:  67 
-&gt; Level:  0  Packet:  70 
-&gt; Level:  0  Packet:  71 
-&gt; Level:  0  Packet:  72 
-&gt; Level:  0  Packet:  73 
-&gt; Level:  0  Packet:  74 
-&gt; Level:  0  Packet:  75 
+&gt; Level:  0  Packet:  60 
+&gt; Level:  0  Packet:  61 
 &gt; Level:  0  Packet:  80 
 &gt; Level:  0  Packet:  81 
+&gt; Level:  0  Packet:  82 
+&gt; Level:  0  Packet:  83 
+&gt; Level:  0  Packet:  84 
+&gt; Level:  0  Packet:  85 
+&gt; Level:  0  Packet:  86 
+&gt; Level:  0  Packet:  87 
+&gt; Level:  0  Packet:  96 
+&gt; Level:  0  Packet:  97 
 &gt; Level:  0  Packet:  114 
 &gt; Level:  0  Packet:  115 
+&gt; Level:  0  Packet:  116 
+&gt; Level:  0  Packet:  117 
 &gt; Level:  0  Packet:  120 
 &gt; Level:  0  Packet:  121 
-&gt; Level:  0  Packet:  128 
-&gt; Level:  0  Packet:  129 
-&gt; Level:  0  Packet:  132 
-&gt; Level:  0  Packet:  133 
-&gt; Level:  0  Packet:  134 
-&gt; Level:  0  Packet:  135 
-&gt; Level:  0  Packet:  144 
-&gt; Level:  0  Packet:  145 
-&gt; Level:  0  Packet:  146 
-&gt; Level:  0  Packet:  147 
-&gt; Level:  0  Packet:  148 
-&gt; Level:  0  Packet:  149 
+&gt; Level:  0  Packet:  122 
+&gt; Level:  0  Packet:  123 
+&gt; Level:  0  Packet:  124 
+&gt; Level:  0  Packet:  125 
+&gt; Level:  0  Packet:  126 
+&gt; Level:  0  Packet:  127 
+&gt; Level:  0  Packet:  152 
+&gt; Level:  0  Packet:  153 
 &gt; Level:  0  Packet:  156 
 &gt; Level:  0  Packet:  157 
-&gt; Level:  0  Packet:  164 
-&gt; Level:  0  Packet:  165 
+&gt; Level:  0  Packet:  158 
+&gt; Level:  0  Packet:  159 
 &gt; Level:  0  Packet:  168 
 &gt; Level:  0  Packet:  169 
-&gt; Level:  0  Packet:  178 
-&gt; Level:  0  Packet:  179 
 &gt; Level:  0  Packet:  186 
-&gt; Level:  0  Packet:  187</code></pre>
+&gt; Level:  0  Packet:  187 
+&gt; Level:  0  Packet:  188 
+&gt; Level:  0  Packet:  189 
+&gt; Level:  0  Packet:  190 
+&gt; Level:  0  Packet:  191</code></pre>
 <p><span class="math inline">\((6,3)\)</span>이 basis element로 선택된 것을 확인할 수 있다. 왜냐면 이것이 extremely sparse하기 때문이다. 이 새로 선택된 <code>zwp2.nv</code>의 기저는 <code>InvBasis(zwp2, zwp2.nv)</code> 명령어를 통해 불러올 수 있다고 한다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">InvBasis</span>(zwp2, zwp2.nv))</code></pre></div>
-<pre><code>&gt; [1] -0.3705884 -0.9462687 -0.5237964 -1.1902178 -0.2451311  2.3794368</code></pre>
+<pre><code>&gt; [1]  0.8477162 -0.3896227  1.2503852  0.5174550  0.9805033  1.6354299</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">InvBasis</span>(zwp2, zwp2.nv), <span class="dt">type=</span><span class="st">&quot;o&quot;</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-230"></span>
 <img src="book_files/figure-html/unnamed-chunk-230-1.svg" alt="Inversion plotting." width="672" />

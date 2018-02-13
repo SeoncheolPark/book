@@ -79,7 +79,15 @@ $$\boldsymbol{\mu}^{(t)}=(\mathbf{I}_{r}-\mathbf{A}^{(t)}\mathbf{B}^{(t)})\bolds
 $$\hat{\mathbf{X}}^{(t)}=\boldsymbol{\mu}^{(t)}+\mathbf{C}^{(t)}\mathbf{X}=\boldsymbol{\mu}_{X}+\mathbf{C}^{(t)}(\mathbf{X}-\boldsymbol{\mu}),$$
 여기서
 $$\mathbf{C}^{(t)}=\mathbf{A}^{(t)}\mathbf{B}^{(t)}=\sum_{j=1}^{t}\mathbf{v}_{j}\mathbf{v}_{j}^{T}$$
-는 rank $t$ principal component case의 reduced-rank regression coefficient matrix이다. 식 \@ref(eq:PCAcriterion2)의 최소값은 
+는 rank $t$ principal component case의 reduced-rank regression coefficient matrix이다. 식 \@ref(eq:PCAcriterion2)의 최소값은 $\sum_{j=t+1}^{r}\lambda_{j}$로 $\boldsymbol{\Sigma}_{XX}$의 가장 작은 $r-t$ 고유값들의 합이 된다.
+
+이러한 결과를 다음과 같이 생각하는 것이 도움이 될 수도 있다. $\mathbf{V}=(\mathbf{v}_{1},\ldots, \mathbf{v}_{r})$은 $(r\times r)$ 행렬로 column들이 $\boldsymbol{\Sigma}_{XX}$의 ordered eigenvector들의 complete set을 만든다고 가정해보자. $\mathbf{X}$의 가장 정밀한 rank-$t$ 최소자승 reconstruction은 두개의 linear maps $L'\circ L$의 합성으로 얻을 수 있다. 첫 번째 맵 $L:\mathbb{R}^{r} \rightarrow \mathbb{R}^{t}$는 $\mathbf{V}$의 첫 $t$ 개의 열들을 $\mathbf{X}$의 $t$ linear projection을 형성하는데 사용한다. 두 번째 맵 $L':\mathbb{R}^{t}\rightarrow \mathbb{R}^{r}$은 같은 $\mathbf{V}$의 첫 $t$ 개의 열들을 $\mathbf{X}$의 선형 재구성을 만드는 데 사용한다.
+
+$\mathbf{X}$의 처음 $t$ 주성분들은 (이것들을 또한 Karhunen-Lo$\grave{e}$ve 변환으로 부르기도 함) $\xi_{1},\ldots, \xi_{t}$의 선형 사영들로 주어지며,
+$$\xi_{j}=\mathbf{v}_{k}^{T}\mathbf{X}, \qquad{j=1,\ldots, t}$$
+이다. $\xi_{i}$와 $\xi_{j}$ 사이의 공분산은
+$$\text{cov}(\xi_{i},\xi_{j})=\text{cov}(\mathbf{v}_{i}^{T}\mathbf{X}, \mathbf{v}_{j}^{T}\mathbf{X})=\mathbf{v}_{i}^{T}\boldsymbol{\Sigma}_{XX}\mathbf{v}_{j}=\lambda_{j}\mathbf{v}_{i}^{T}\mathbf{v}_{j}=\delta_{ij}\lambda_{j}$$
+이고 $\delta_{ij}$는 크로네커 델타이다.
 
 ## 주성분 분석의 결과 정리(PCA summary)
 

@@ -54,6 +54,8 @@ $$P \{ x_{t_{1}} <c_{1}, \ldots , x_{t_{k}} \leq c_{k}\}=P \{ x_{t_{1+h}} <c_{1}
 
 ```
 
+비정상 시계열 자료는 다루기 어려우므로 보통 분석하기 쉬운 정상성 시계열 자료로 변환해서 분석한다. 
+
 ```{definition, name="자기공분산함수"}
 정상시계열의 **자기공분산함수(autocovariance function)**는
 $$\gamma(h)=Cov(x_{t+h}, x_{t})=E[(x_{t+h}-\mu)(x_{t}-\mu)]$$
@@ -64,7 +66,7 @@ $$\gamma(h)=Cov(x_{t+h}, x_{t})=E[(x_{t+h}-\mu)(x_{t}-\mu)]$$
 ```{definition, name="자기상관함수"}
 정상시계열의 **자기상관함수(autocorrelation function)**는
 $$\rho(h)=\frac{\gamma(t+h,t)}{\sqrt{\gamma(t+h,t_h)\gamma(t,t)}}=\frac{\gamma(h)}{\gamma(0)}$$
-이다.
+이다. 이는 $h$ 기간 떨어진 값들의 상관계수를 의미한다. 특별히 서로 다른 두 시점의 중간에 있는 값들의 영향을 제외시킨 상관계수를 **부분자기상관함수(partial ACF)**라고 부른다.
 
 ```
 
@@ -185,6 +187,8 @@ acf(MAsim01); acf(MAsim02); pacf(MAsim01); pacf(MAsim02)
 ```
 
 ### ARMA 모형(ARMA models)
+
+비정상 시계열 모형 중 하나로, 차분이나 변환을 통해 AR, MA 또는 이 둘을 합한 ARMA 모형으로 정상화 시켜 모델링한다.
 
 It also possible to obtain a homogeneous difference equation directly in terms of $\gamma(h)$. First, we write
 \begin{eqnarray}

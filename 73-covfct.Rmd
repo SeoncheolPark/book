@@ -46,7 +46,7 @@ $$
 
 ## 공분산함수의 성질(properties of covariance functions)
 
-여기서부터는 공분산함수(covariance function) $C(\mathbf{h})$의 성질에 대해 다루겠다.
+여기서부터는 공분산함수(covariance function) $C(\mathbf{h})$의 성질에 대해 다루겠다. 표본이 하나인 경우, 자기공분산을 추정하기 위해서는 공분산 구조에 약정상성이나 등방성 등과 같은 가정을 만들어야 한다.
 
 - $C(\mathbf{0}) \geq 0$ (분산이 음이 아님)
 
@@ -61,6 +61,14 @@ $$
 ### 등방성(isotropy)
 
 $C(\mathbf{h})=C_{0}(\|\mathbf{h}\|)$인(or $\gamma(\mathbf{h})=\gamma_{0}(\|\mathbf{h}\|)$) $C_{0}$가 존재할 경우 이 공간과정이 $Z(\mathbf{s})$를 **등방성(isotropy)**을 갖는다라고 한다. 이것은 $d$차원에서 정의한 $\mathbf{h}$ 1차원인 거리에만 의존하는 공분산함수로 표현 가능하다는 것이다.
+
+#### 약등방성(weakly isotropy)
+
+(전미경 교수님 강의노트) 어떤 임의장 $Z$가 유한한 이차 모멘트를 갖고, 평균함수가 상수이고 공분산 함수가
+$$Cov(Z(\mathbf{s}_{1}), Z(\mathbf{s}_{2}))=C(|\mathbf{s}_{1},\mathbf{s}_{2}|)$$
+인 경우 **약등방성(weakly isotropy)**를 갖는다고 한다. 즉 등방성은 공분산이 전이 불변, 회전 불변이라는 것을 의미한다.
+
+- 만약 어떤 임의장이 등방성을 가지면 그것은 정상(stationary)이라고 한다.
 
 ### 동질성(homogeneous)
 

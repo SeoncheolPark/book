@@ -2,11 +2,12 @@
 
 연속자료의 **공간과정(spatial process)**은 다음과 같이 나타낸다.
 $$\{Z (\mathbf{s}), \mathbf{s} \in \mathcal{D} \subset \mathbb{R}^{d} \} .$$
-여기서 $\mathbf{s}$는 위치(location)이며 $d$차원 자료이다. $d$는 2차원일 수도 있고 고도를 고려하면 3차원일 수도 있다. $Z(\mathbf{s})$는 $\mathbf{s}$에서의 확률변수를 나타낸다.
+여기서 $\mathbf{s}$는 위치(location)이며 $d$차원 자료이다. $d$는 2차원일 수도 있고 고도를 고려하면 3차원일 수도 있다. $Z(\mathbf{s})$는 $\mathbf{s}$에서의 확률변수를 나타낸다. 비슷한 방식으로 시공간 과정(또는 무작위장)을 정의할 수 있다.
+$$\{Z(\mathbf{s},t),  \mathbf{s} \in \mathcal{D} \subset \mathbb{R}^{d}, t\in\mathbb{R}\}.$$
 
 만약 이산자료라면
 $$\{Z (\mathbf{s}), \mathbf{s} \in \mathcal{D} \subset \mathbb{Z}^{d} \} $$
-로 바뀐다.
+로 바뀐다. 
 
 점 패턴 자료의 경우에는 굳이 표현하자면
 $$\{ (\mathbf{s}_{1},z(\mathbf{s}_{1})), \cdots , (\mathbf{s}_{n},z(\mathbf{s}_{n}))  \} $$
@@ -15,13 +16,11 @@ $$\{ (\mathbf{s}_{1},z(\mathbf{s}_{1})), \cdots , (\mathbf{s}_{n},z(\mathbf{s}_{
 다음은 $Z(\mathbf{s})$의 평균과 분산을 생각해보자.
 $$\text{mean function}:\mu(\mathbf{s})=E(z(\mathbf{s}))$$
 $$\text{covariance function}: C(\mathbf{s}_{1},\mathbf{s}_{2})=E(Z(\mathbf{s}_{1}-\mu(\mathbf{s}_{1})))(Z(\mathbf{s}_{2}-\mu(\mathbf{s}_{2}))).$$
-우리의 관심사는 $C(\mathbf{s}_{1},\mathbf{s}_{2})$이다(공간 변화 모델링, spatial variation modeling).
+우리의 관심사는 $C(\mathbf{s}_{1},\mathbf{s}_{2})$이다(공간 변화 모델링, spatial variation modeling). 이것은 때때로 **자기공분산(autocovariance)**이라 불리우는데 만약 표본이 1이면 자기자신의 공분산이 되기 때문이다.
 
 그렇다면 우리는 왜 이러한 공간 변화(sptaial variation)를 고려해야 하는가? 간단한 회귀분석의 예를 들면
 
-\begin{equation}
-\mathbf{y}=\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\epsilon}, \qquad{\epsilon_{i} \sim (0, \sigma^{2}\Sigma_{0})}
-\end{equation}
+$$\mathbf{y}=\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\epsilon}, \qquad{\epsilon_{i} \sim (0, \sigma^{2}\Sigma_{0})}$$
 
 으로 식을 쓸 수 있다. 그런데 여기서 오차항을 $\epsilon_{i} \stackrel{\text{iid}}{\sim} (0, \sigma^{2})$이라고 놓고 모델링을 하면 일치성(consistency)은 만족하나 효율성(efficiency)이 깨지는 결과를 얻는다. 즉 추론(inference)를 하기 위해서 변동(variability)을 구할 때 이것이 커지므로 신뢰구간(confidence interval)도 커지고 부정확한 검정(test) 결과를 주는 것이다.
 
@@ -33,14 +32,14 @@ $$\text{covariance function}: C(\mathbf{s}_{1},\mathbf{s}_{2})=E(Z(\mathbf{s}_{1
 
 이것은
 $$(Z(\mathbf{s}_{1}), \cdots , Z(\mathbf{s}_{k})) \stackrel{\mathcal{D}}{=} (Z(\mathbf{s}_{1}+\mathbf{h}), \cdots , Z(\mathbf{s}_{k}+\mathbf{h}))$$
-으로 $\mathbf{h}$만큼 장소가 변해도 분포가 동일하다는 것이다. 또한 $\mathbf{s}_{1}, \cdots , \mathbf{s}_{k}, \mathbf{s}_{1}+\mathbf{h}, \cdots , \mathbf{s}_{k}+\mathbf{h} \in \mathcal{D}$ 라는 가정이 필요하다.
+으로 $\mathbf{h}$만큼 장소가 변해도 분포가 동일하다는 것이다. 즉 확률분포가 **전이 불변(translation invariant)**라는 것이다. 또한 $\mathbf{s}_{1}, \cdots , \mathbf{s}_{k}, \mathbf{s}_{1}+\mathbf{h}, \cdots , \mathbf{s}_{k}+\mathbf{h} \in \mathcal{D}$ 라는 가정이 필요하다.
 
 ### 약정상성(second order stationary, weakly stationary)
 
 이것은
 $$\mu(\mathbf{s})=\mu \text{ (mean function이 상수)}$$
 $$C(\mathbf{s}_{1},\mathbf{s}_{2})=C_{0}(\mathbf{s}_{1}-\mathbf{s}_{2})$$
-두 가지 조건을 만족하는 것이다. 두 번째 조건은 covariance function이 distribution에 depend하는 어떤 함수 $C_{0}$로 표현된다는 것이다. $C \in \mathbb{R}^{d}\times \mathbb{R}^{d}$, $C_{0} \in \mathbb{R}^{d}$라는 점에서 두 함수는 다른 함수이다.
+두 가지 조건을 만족하는 것이다. 두 번째 조건은 covariance function이 distribution에 depend하는 어떤 함수 $C_{0}$로 표현된다는 것이다. $C \in \mathbb{R}^{d}\times \mathbb{R}^{d}$, $C_{0} \in \mathbb{R}^{d}$라는 점에서 두 함수는 다른 함수이다. 이 조건은 공분산이 전이 불변이라는 것이다.
 
 이것을 만족하는 예는 **가우스 과정(Gaussian process, GP)**, **가우스 임의장(Gaussian random field, GRF)**이 있다. 보통 $\mathbf{s}$가 1차원이면 주로 과정(process), 2차원이면 주로 장(field)이라고 부른다.
 

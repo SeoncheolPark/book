@@ -135,6 +135,11 @@ $$H:\frac{\nabla^{2}S_{n}(\boldsymbol{\theta}*)}{n} \stackrel{P}{\rightarrow} H(
 $$S_{n}'(\boldsymbol{\theta})=S_{n}'(\hat{\boldsymbol{\theta}})+S_{n}''(\boldsymbol{\theta}*)(\hat{\boldsymbol{\theta}}-\boldsymbol{\theta})$$
 를 만든다 (mean value theorem에 의해 등호 성립). 이때 $S_{n}'(\hat{\boldsymbol{\theta}})$은 minimization 문제이므로 0이 된다. $S_{n}''(\boldsymbol{\theta}*)$는 $H$에 해당된다. 따라서 $S_{n}'(\boldsymbol{\theta})$의 분포만 알아내면 되는 것이다. 이러한 방법을 "Sandwich method"라고 한다. 자세한 내용은  [(Fuentes, 2007)](http://www.stat.ncsu.edu/people/fuentes/courses/st790m/) 강좌의 4장을 보면 된다.
 
+## 비등방성 자료의 변동도(directional variogram)
+
+몇몇 비등방성 자료에 대해서는 방향에 따라 다른 변동도를 주는 경우가 있다. 만약 $Z$가 기하학적 비등방성을 갖는다고 가정해보자. 즉, 어떤 행렬 $V$가 존재해 $Z(V\mathbf{x})$가 비등방성 자료가 되는 것이다.
+
+
 ## R 예제(R-variogramest)
 
 이제 실제 R 예제에 대해 살펴보자.

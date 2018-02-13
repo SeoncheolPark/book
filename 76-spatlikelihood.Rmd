@@ -63,7 +63,7 @@ MLE 추정 방법의 기본 골자는 다음과 같다.
 $$
 \begin{aligned}
 l(\boldsymbol{\beta},\sigma^{2}, \boldsymbol{\rho})=&\log f(\mathbf{Z};\boldsymbol{\beta},\sigma^{2},\boldsymbol{\rho})\\
-&\varpropto -\frac{1}{2}\log |\sigma^{2}V(\boldsymbol{\beta})| -\frac{1}{2\sigma^{2}}(\mathbf{Z}-\mathbf{X}\boldsymbol{\beta})^{T}V^{-1}(\boldsymbol{\rho})(\mathbf{Z}-\mathbf{X}\boldsymbol{\beta})\\
+&\varpropto -\frac{1}{2}\log |\sigma^{2}V(\boldsymbol{\rho})| -\frac{1}{2\sigma^{2}}(\mathbf{Z}-\mathbf{X}\boldsymbol{\beta})^{T}V^{-1}(\boldsymbol{\rho})(\mathbf{Z}-\mathbf{X}\boldsymbol{\beta})\\
 \end{aligned}
 $$
 위 식에서 각 모수들에 대해 미분을 하자.
@@ -182,13 +182,15 @@ $$|\Sigma | = \prod_{i=1}^{n}l_{ii}^{2}$$
 
 - **Tapering**
 
-**Tapering**의 의미는 '잘라내다'라는 뜻으로, 공대나 time series 등에서 많이 사용된다고 한다. Tapering을 지칭하는 경우는 data에 tapering을 하는 경우와 covariance에 tapering을 하는 경우 두 가지가 있는데, 여기서는 covariance matrix에 tapering을 하는 것을 의미한다.
+**Tapering**의 의미는 '잘라내다'라는 뜻으로, 공대나 time series 등에서 많이 사용된다고 한다. Tapering을 지칭하는 경우는 data에 tapering을 하는 경우와 covariance에 tapering을 하는 경우 두 가지가 있는데, 여기서는 covariance matrix에 tapering을 하는 것을 의미한다. 큰 자료를 다룰 때, 공분산 행렬 또한 매우 커지므로 역행렬을 계산하기 힘들어진다. 그래서 공분산 행렬의 각 원소에 compactly supported된 공분산 함수를 곱해 공분산함수를 좀 더 sparse하게 만드는 데 tapering의 목적이 있다. 그러나 sparse하게 변경된 공분산 행렬은 positive definiteness를 유지해야 한다.
 
 $C_{T}(h)$가 compact support (compact support가 아니면 곱해줘도 0이 안되어 computational gain이 없다)를 갖는 isotropic correlation function이라고 하자. Tapered covariance function $\tilde{C}(h)$는
 $$\tilde{C}(h)=C(h)\cdot C_{T}(h)$$
 로 정의된다. 여기서 곱은 elementwise product (Hadamard, Schur) 인 것 같다(전미경 교수님 노트 참고).
 
 Tapered covariance matrix는 block-diagonal 형태가 되며 이런 행렬의 경우 inverse나 determinant를 더 빨리 계산하는 알고리즘들이 이미 있다고 한다. 물론 $\tilde{C}(h)$ 또한 nonnegative definite covariance인지와 같은 thoery를 justify해야 한다. 그러나 거의 일반적으로 tapering해도 nonnegative definite covariance가 그대로 유지된다고 한다. 한편 tapering을 쓰면 surface가 original보다 좀 더 wiggle해짐이 알려져 있다(sol 찾을 시 조심해야).
+
+공분산을 국소 이웃들에만 제한하는 것은 새로운 방법은 아니다. 이런 테이퍼링 개념은 수치적 날씨 예측에도 사용되어졌고 앙상블 칼만 필터링에도 사용되어졌다고 한다. 이것과 관련된 수학적 테크닉은 [@Kaufman2008]을 참고하기 바란다.
 
 ## 근사 가능도(approximate Likelihood)
 

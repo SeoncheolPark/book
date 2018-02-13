@@ -2,6 +2,8 @@
 
 이 문서에서는 지금까지 다뤘던 추정 방법들을 가지고 **공간 예측(spatial prediction)**을 하는 방법들에 대해 다루겠다. 공간 예측을 다른 말로 **크리깅(Kriging)**이라 부른다.
 
+어떤 정사각형 공간에 공간적 상관관계를 가지는 자료들이 놓여있다고 가정해보자. 몇 개의 장소가 관측되어있지 않다고 했을 때, 그 결측된 장소에 대한 가장 최선의 추축은 무엇인가? 이러한 물음이 크리깅 컨셉을 생각하게 한다. 크리깅은 다른 말로 **최소 선형 불편 예측(best linear unbiased prediction, BLUP)**라고도 하는데, 그 장소에서 예측한 값들은 다른 장소에서 예측한 값들의 선형 결합이 된다. 이런 선형 결합의 계수를 결정하기 위해서 공분산이 중요한 역할을 하게 된다.
+
 ## 공간 예측(spatial prediction)
 
 $Z(\mathbf{s})$를 spatial process라고 하자. 목표는 $n$개의 관측값(data) $\{ Z(\mathbf{s}_{1}), \cdots  Z(\mathbf{s}_{n}) \}$을 이용해 관측되어지지 않은 장소 $\mathbf{s}_{0}$의 $Z(\mathbf{s}_{0})$을 predict하는 것이다. 그런데 **문제는 $Z(\mathbf{s}_{0})$또한 확률변수라는 것이다**(그래서 predict라는 말을 쓴다고 한다).
@@ -224,7 +226,7 @@ Universal kriging 이외에 다른 방법들은 간단히 소개만 하고 넘�
 
 - **Simple kriging**: $\mathbf{x}_{0}^{T}\boldsymbol{\beta} \rightarrow \boldsymbol{\mu}$
 $$\hat{Z}_{0}=\hat{\boldsymbol{\mu}}+\mathbf{T}^{T}\boldsymbol{\Sigma}^{-1}(\mathbf{Z}-\hat{\boldsymbol{\mu}}\cdot \mathbf{1}), \hat{\mathbf{\mu}}=\bar{\mathbf{Z}}.$$
-여전히 covariance parameter들은 안다고 가정한다.
+여전히 covariance parameter들은 안다고 가정한다. 특히 평균은 알려져 있다고 가정하거나 0이라고 놓는다.
 
 - **Ordinary kriging**: $\mathbf{x}_{0}^{T}\boldsymbol{\beta} \rightarrow \boldsymbol{\mu}$
 $$\hat{Z}_{0}=\tilde{\boldsymbol{\mu}}+\mathbf{T}^{T}\boldsymbol{\Sigma}^{-1}(\mathbf{Z}-\tilde{\boldsymbol{\mu}}\cdot \mathbf{1}), \tilde{\boldsymbol{\mu}}=(\mathbf{1}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{1})^{-1}\mathbf{1}^{T}\boldsymbol{\Sigma}^{-1}\mathbf{Z}.$$
