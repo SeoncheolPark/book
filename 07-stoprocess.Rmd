@@ -4,6 +4,8 @@
 
 ## 확률과정이란?(stochastic process)
 
+[@Lindgren2012]에 있는 그림이다.
+
 ```{r, echo=F, fig.cap='Overview of the threee types of worlds in which our processes live.', fig.align='center'}
 knitr::include_graphics("images/basic_stprocess.png")
 ```

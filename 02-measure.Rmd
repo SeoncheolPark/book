@@ -96,3 +96,40 @@ $f_{n}$들은 유한히 많은 점들을 제외하고 모두 연속이므로 리
 ```
 
 ## 라돈-니코딤 정리(Radon-Nykodim theorem)
+
+## 다양한 측도들(various measures)
+
+### 보렐 측도(Borel measure)
+
+$X$가 위상공간(topological space)이라고 가정해보자. 쉽게 생각하자면 $X=\mathbb{R}^{n}$이고 standard topolog를 갖는다고 생각하면 편하다.
+
+```{definition, name="측도가 보렐"}
+$X$ 위의 어떤 측도 $\mu$가 모든 열린 공간이 $\mu$-가측일 경우 **보렐(Borel)**이라고 한다.
+
+```
+
+보렐 $\sigma$-체는 열린 공간을 포함하는 가장 작은 $\sigma$-체이다. 이 $\sigma$-체에 속하는 집합을 **보렐 집합(Borel set)**이라고 한다.
+
+```{definition, name="보렐 측도"}
+모든 보렐 부분집합이 가측일 경우 **보렐 측도(Borel measure)**를 구성할 수 있다.
+
+```
+
+```{definition, name="보렐 정칙"}
+어떤 측도 $\mu$가 보렐이고 모든 $A\subset X$에 대해 보렐 $B\subset X$가 존재해 $A\subset B$이고 $\mu(A)=\mu(B)$이면 이 측도를 **보렐 정칙(Borel regular)**라고 부른다.
+
+```
+
+### 라돈 측도(Radon measure)
+
+```{definition, name="국소 컴팩트"}
+어떤 측도 $\mu$가 $K$가 compact일 때 $\mu(K)\infty$일 경우 이 측도를 **국소 컴팩트(locally compact)**라고 한다.
+
+```
+
+```{definition, name="국소 컴팩트"}
+$\mathbb{R}^{n}$에서의 **라돈 측도**는 보렐 정칙이고 국소 컴팩트한 측도를 말한다.
+  
+```
+
+

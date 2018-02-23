@@ -141,14 +141,12 @@ $$c\nu =\sqrt{\pi}2^{-(\nu-2)/2}\Gamma(\frac{\nu+1}{2})^{-1}$$
 \end{equation}
 
 여기서 $F$는 $Z(x), x\in\mathcal{X}$의 cdf를 의미한다. (준)변동도와는 달리, F-매도그램은 $F\{Z(x)\} \sim U(0,1)$이므로 잘 정의가 되며 기댓값은 $1/2$을 갖는다. 또한 F-매도그램은 **극단계수함수(extremal coefficient function)**와 강한 연관성을 갖기 때문에 공간 극단값 분석시 유용하다. 극단계수함수는
-\begin{equation}
-\theta : h \rightarrow E[\max \{ Y(x),Y(x+h) \}]
-\end{equation}
-\begin{eqnarray}
+$$\theta : h \rightarrow E[\max \{ Y(x),Y(x+h) \}]$$
+\begin{align}
 P\{Z(x+h)\leq z | Z(x)\leq z\}&=&P\{Z(x+h)\leq z\}^{\theta(h)-1}\nonumber\\
 &=&
 \begin{cases}
 1 & \text{perfect dependence}\\
 P\{Z(x+h)\leq z\} & \text{independence}
 \end{cases}
-\end{eqnarray}
+\end{align}
