@@ -4,7 +4,7 @@
 
 # 일변량 극단값 이론 {#uGEVtheory}
 
-이 장은 일변량 극단값 분포 이론과 모델링에 관한 내용을 담고 있다. 특히
+이 장은 일변량 극단값 분포 이론과 모델링에 관한 내용을 담고 있다. 특히 부분 최댓값
 $$M_{n}=\max\{X_{1},\ldots,X_{n}\}$$
 의 통계적 움직임에 초점을 맞출 것이다. 여기서 $X_{1},\ldots,X_{n}$은 $F$라는 분포함수를 갖는 독립 확률변수의 수열이다. 일반적으로 $X_{i}$는 일정한 시간 스케일(예: 시간별, 일별, 월별 등)을 갖고 측정된 어떤 (확률)과정의 값들을 나타낸다. 정리하면 $M_{n}$은 $n$ 시간 단위의 관측값 중 최대값을 나타낸다.
 
@@ -49,6 +49,29 @@ $$\textbf{와이블(Weibull): }G(z)=
 
 ```
 
+앞선 정리의 증명 스케치는 [@Coles2001] 50쪽에 잘 나와있다. 또한 증명을 위해 [@Leadbetter1983]을 참고하면 좋다. 증명을 위해서 다음과 같이 **최대안정성(max-stablity)**을 정의한다.
+
+```{definition, name="최대안정성"}
+모든 $n=2,3,\ldots,$에서 상수들 $\alpha_{n}>0$, $\beta_{n}$이 존재해 
+$$G^{n}(\alpha_{n}z+\beta_{n})=G(z)$$
+일 경우 분포 G를 **최대안정(max-stable)**하다고 부른다. 즉 $G$에 거듭제곱을 하는 것은 단지 위치모수와 척도모수의 변화만 야기한다는 것이다.
+
+```
+
+최대안정성과 일반화 극단값 분포 사이에는 다음과 같은 정리가 있다.
+
+```{corollary}
+어떤 분포가 최대안정한 것은 분포가 일반화 극단값 분포임과 동치이다. [@Coles2001]
+
+```
+
+```{proof}
+[@Coles2001]에 따르면 GEV가 정말로 최대안정임을 보이는 것은 simple algebra로 가능하다고 한다. 그러나 역을 위해서는 함수해석 지식을 요구로 한다.
+
+```
+
+최대안정성의 패러다임은 다음과 같다. 유한한 $n$개의 블록 최댓값을 모델하고 그것의 최대안정 (극한) 분포를 사용하고, 자료의 temporal scale을 넘는 곳까지 외삽할 수 있게 한다.
+
 ```{r, message=FALSE, echo=F}
 library(evd) #rgev를 위해 필요
 ```
@@ -87,7 +110,75 @@ $$a_{n}=(2\log n)^{-0.5}, b_{n}=(2\log n)^{0.5}-0.5(2\log n)^{-0.5}(\log\log n +
 
 $M_{n}$의 수렴속도를 체크하는 것은 중요한 일이다. 왜냐면 우리는 일반화 극단값 분포를 유한개의 표본 최대값들의 점근 분포로 생각하고 사용할 것이기 때문이다. 결국 일반화 극단값 분포를 사용하기 위해 얼마나 많은 데이터가 필요할 것인가라는 문제는 $M_{n}$의 수렴속도와 관계된다.
 
-## Domain of attraction
+## 흡인영역(domain of attraction)
+
+이 부분은 [@Huser2013]을 참고하였다. Extremal types 정리는 i.i.d 확률변소의 renormalized maxima의 가능한 세 개의 극한 법칙을 구분해준다. 더 나아가, 만약 수열 $a_{n}>0$, $b_{n}\in\mathbb{R}$이 존재해 $(M_{n}-b_{n})/a_{n}$이 non-degenerate 분포함수 G에 수렴한다면, G는 affine 변환(아핀 변환은 직선을 보존하며, 나아가 직선 위의 점들의 내분비, 외분비를 보존한다. 예를 들어 선분과 그의 중점은 변환 후 여전히 선분과 중점이다.)에 의해 유일하게 정의된다. 다시 말하면, 만약 다음과 같은 수열 $a_{n}'>0$, $b_{n'}\in\mathbb{R}$이 존재해 $(M_{n}-b_{n}')/a_{n}'\stackrel{D}{\rightarrow}G'$라면 $G$와 $G'$는 항상 같은 타입이어야 한다는 것이다. 따라서 우리는 어떤 분포의 최대값이 특별한 극한 법칙으로 흡인되는지에 따라 분포의 class들을 **흡인영역(domain of attraction, MDA)**으로 정의할 수 있다.
+
+```{definition, name="흡인영역"}
+확률변수 $Y$에 대해 다음과 같은 상수 $a_{n}>0$, $b_{n}\in\mathbb{R}$가 존재해 $(M_{n}-b_{n})/a_{n}\stackrel{D}{\rightarrow}G$가 될 경우 우리는 $Y$가 극단값 분포 $G$의 **흡인영역(domain of attraction, MDA)**에 속한다고 하고 $Y\in\text{MDA}(G)$라고 쓴다.
+
+```
+
+이 흡인영역을 묘사하는 것에 대해서는 그동안 많은 연구가 진행되어왔다. **tail-equivalent distributions**라는 개념은 세 가지 타입의 극단값 분포의 MDA를 묘사하기 전에 먼제 설명하는 것이 필요하다.
+
+```{definition, name="Tail equivalence"}
+두 분포함수 $F_{1}$, $F_{2}$가 같은 right endpoint $y_{F_{1}}=y_{F_{2}}=y_{F}$를 갖고 어떤 양의 상수 $0<c<\infty$에 대해
+$$\lim_{y\rightarrow y_{F}}\frac{1-F_{1}(y)}{1-F_{2}(y)}=c$$
+를 만족할 경우 두 분포함수는 **tail-equivalent**하다고 한다.
+
+```
+
+각각의 MDA은 tail-equivalence에 대해 닫혀있다. 즉 $F_{1}$, $F_{2}$가 tail-equivalent이면 $F_{1}\in \text{MDA}(G)$는 $F_{2}\in \text{MDA}(G)$와 동치다. 즉 MDA는 riaght tail이 right end point에서 같은비율로 감소하는 분포들로 구성된다.
+
+```{theorem, name="MDA의 chracterization"}
+$F$가 upper endpoint $y_{F}$를 갖는 분포함수라고 하자. 그리고 $\sim$을 asymptotic equivalence를 나타내는 기호라고 하자. 그러면 어떤 $\alpha >0$과 $K\in\mathbb{R}$에 대해 다음 설정들은 참이 된다.
+
+- $F\in\text{MDA}(\Phi_{\alpha})$는 $y\rightarrow y_{F}=\infty$임에 따라 $1-F(y)\sim Ky^{-\alpha}$임과 동치다.
+
+- $F\in\text{MDA}(\Psi_{\alpha})$는 $y\rightarrow y_{F}<\infty$임에 따라 $1-F(y)\sim K(y_{F}-y)^{-\alpha}$임과 동치다.
+
+- $F\in\text{MDA}(\Lambda)$는 $F(y)$가 $1-F(y)=c(y)\exp[-\int_{z}^{y}\{1/a(t)\}dt], z<y<y_{F}$를 만족하는 표현을 갖도록 하는 어떤 $z<y_{F}\leq \infty$가 존재함과 동치다. 여기서 $c$는 가측함수이며 $y\rightarrow y_{F}$일 때 $c(y)\rightarrow c>0$이고, $a(y)$는 양의 값을 갖는 (르베그 측도에 대해) absolutely continubous functions이고 density $a'(y)$가 $\lim_{y\rightarrow y_{F}}a'(y)=0$이다.
+
+```
+
+Right endpoint에서 충분해 부드러운 분포의 경우에는 von Mises가 $(M_{n}-b_{n})/a_{n}\rightarrow Z \sim \text{GEV}(0,1,\xi)$로 수렴하는 충분조건들을 발표했다. 이것은 극한 분포의 타입과 normalizing 상수들 $a_{n}>0$, $b_{n}$을 결정하는 데 큰 도움을 준다. 이러한 조건들은 알려진 분포들을 다른 MDA로 분류하는 데 사용된다.
+
+```{proposition, name="von Mises conditions"}
+$F$가 right endpoint $y_{F}$를 갖는 분포함수고 $z<y_{F}$가 존재해 $F$가 $(z,y_{F})$에서 두번 미분가능하다고 가정하자. $f=F'$가 $(z,y_{F})$에서 $F$의 밀도라고 하자. 실수들의 수열 $b_{n}=F^{\leftarrow}(1-1/n)과 $a_{n}=r(b_{n})$을 정의하자. 이 때 $r(y)=\{1-F(y)\}/f(y)$가 $F$의 reciprocal harzard function이다. 더 나아가 $\xi=\lim_{y\rightarrow y_{F}}r'(y)$라고 하자. 그러면 $(M_{n}-b_{n})/a_{n}\stackrel{D}{\rightarrow} Z\sim \text{GEV}(0,1,\xi)$이다. 즉 $\xi>0$이면 $F\in \text{MDA}(\Phi_{1/\xi})$이고 $\xi<0$이면 $F\in MDA(\Psi_{-1/\xi})$이고 $\xi\rightarrow 0$이면 $F\in \text{MDA}(\Lambda)$이다.
+
+```
+
+다음은 [@Huser2013]에 있는 흡인영역에 따른 분포들의 분류다.
+
+- $F\in\text{MDA}(\Phi_{\alpha})$: 이들은 Fr\'{e}chet 분포의 MDA이며 Fr\'{e}chet, Pareto, Cauchy, Log0gamma, Student-t 분포 등이 속한다.
+
+- $F\in\text{MDA}(\Psi_{\alpha})$: 이들은 reversed Weibull 분포의 MDA이며 Uniform, Beta 그리고 $y_{F}<\infty$에서 power-law behavior를 갖는 모든 분포들이 속한다.
+
+- $F\in\text{MDA}(\Lambda)$: 이들은 Gumbel 분포의 MDA이며 Normal, Gamma, Log-normal, Weibull, Exponential 그리고 모든 tail-equivalent distn들이 속한다.
+
+그러나 maxima의 non-degenerate limiting distribution으로 이끄는 affine normalization이 항상 존재하지 않을 수도 있음을 항상 생각해야한다. 즉 어느 흡인영역에도 속하지 않는 분포가 존재한다는 것이다. 포아송, Geometric, negative binomial 분포 등이 대표적이다. 이러한 분포들은 right tail에서 not well-behaved하는 분포라고 생각하면 된다.
+
+다음에 나오는 결과들은 non-degenerate 분포로의 maxima의 convergence는 right endpoint에서 어떤 continuity condition을 갖을 때에만 일어날 수 있으며, 이런 조건은 앞서 언급한 이산분포에서는 만족하지 못하는 것들이다.
+
+```{proposition}
+$u_{n}$이 실수들의 수열이라고 하자. 그러면 모든 $0\leq \lambda \leq \infty$에 대해 두 가정이 동치이다.
+
+1. $n\{1-F(u_{n}) \}\rightarrow \lambda$.
+
+2. $P(M_{n}\leq u_{n}) \rightarrow \exp(-\lambda).$
+
+```
+
+```{theorem, name="Right endpoint에서의 continuity"}
+$0<\lambda <\infty$라고 하자. 그러면 $n\{1-F(u_{n})\}\rightarrow\lambda$와 
+$$\lim_{y\rightarrow y_{F}}\frac{\{1-F(y)\}}{(1-F_{y_{\cdot}})}=1$$
+을 동치로 만드는 수열 $u_{n}$이 존재한다. 이 때 $F_{y_{\cdot}}=\lim_{x\uparrow y }F(x)$이다.
+
+```
+
+$\mathbb{Z}$에서 정의된 무한대의 rightendpoint를 갖는 분포에 대해 조건 $\lim_{y\rightarrow y_{F}}\frac{\{1-F(y)\}}{(1-F_{y_{\cdot}})}=1$은 $k\rightarrow \infty$일 때 $\frac{1-F(k)}{1-F(k-1)}\rightarrow 1$로 바꿀 수 있다. 포아송 분포의 경우에는 이 극한이 0이되며, maxima가 수렴하는 것을 막게 된다. 
+
+Non-degenerate limit distribution for maxima가 존재하지 않는 또 다른 예로 super-heavy-tailed 분포가 있다. 예를 들어 분포함수 $F(y)=1-1/\log(y), y>e$는 매우 천천히 감소하여 적당한 linear normalizing constants $a_{n}>0$, $b_{n}$을 찾을 수 없을지도 모른다.
 
 ## 일반화 극단값 분포(generalized extreme value distribution)
 
@@ -96,22 +187,6 @@ $M_{n}$의 수렴속도를 체크하는 것은 중요한 일이다. 왜냐면 �
 그런데 이렇게 족 별로 따로 나누어 분석하는 것은 두 가지 문제점을 지닌다. 첫째, 데이터를 보고 어떤 족으로 분석하는 것이 적절한지 미리 정해야 한다. 둘째, 이러한 결정 후에는 이 결정이 맞다는 전제 하에 추론이 진행되고 이 선택이 가지는 불확실성을 배제하게 된다. 따라서 일반적으로는 앞 정리에 나왔던 식을 재구성하여 다음과 같이 하나의 함수로 표현하여 분석하게 된다.
 $$G(z)=\exp\{-[1+\xi(\frac{z-\mu}{\sigma})]^{-1/\xi}\}.$$
 이 때 $\{z: 1+\xi(z-\mu)/sigma >0\}$이며 $-\infty < \mu < \infty$, $\sigma >0$ 그리고 $-\infty <\xi <\infty$를 만족한다. 이 분포를 **일반화 극단값 분포(generalized extreme value distribution)**이라고 부른다. 여기서 $\mu$는 **위치모수(location parameter)**, $\sigma$는 **척도모수(scale parameter)**, 그리고 $\xi$는 **형태모수(shape parameter)**라고 한다. 특히 $\xi$는 이 분포가 굼벨족($\xi=0$), 프레셰족($\xi>0$) 또는 와이블족($\xi<0$)이 될지 결정하는 역할을 한다.
-
-## 최대안정성(max-stablity)
-
-```{definition, name="최대안정성"}
-모든 $n=2,3,\ldots,$에서 상수들 $\alpha_{n}>0$, $\beta_{n}$이 존재해 
-$$G^{n}(\alpha_{n}z+\beta_{n})=G(z)$$
-일 경우 분포 G를 **최대안정(max-stable)**하다고 부른다. 즉 $G$에 거듭제곱을 하는 것은 단지 위치모수와 척도모수의 변화만 야기한다는 것이다.
-
-```
-
-최대안정성과 일반화 극단값 분포 사이에는 다음과 같은 정리가 있다.
-
-```{corollary}
-어떤 분포가 최대안정한 것은 분포가 일반화 극단값 분포임과 동치이다. [@Coles2001]
-
-```
 
 ## 복귀 수준(return level)
 

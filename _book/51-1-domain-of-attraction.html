@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-02-23">
+<meta name="date" content="2018-03-08">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -594,13 +594,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="part"><span><b>VIII Extreme Value Statistics</b></span></li>
 <li class="chapter" data-level="51" data-path="51-uGEVtheory.html"><a href="51-uGEVtheory.html"><i class="fa fa-check"></i><b>51</b> 일변량 극단값 이론</a><ul>
-<li class="chapter" data-level="51.1" data-path="51-1-domain-of-attraction.html"><a href="51-1-domain-of-attraction.html"><i class="fa fa-check"></i><b>51.1</b> Domain of attraction</a></li>
+<li class="chapter" data-level="51.1" data-path="51-1-domain-of-attraction.html"><a href="51-1-domain-of-attraction.html"><i class="fa fa-check"></i><b>51.1</b> 흡인영역(domain of attraction)</a></li>
 <li class="chapter" data-level="51.2" data-path="51-2-generalized-extreme-value-distribution.html"><a href="51-2-generalized-extreme-value-distribution.html"><i class="fa fa-check"></i><b>51.2</b> 일반화 극단값 분포(generalized extreme value distribution)</a></li>
-<li class="chapter" data-level="51.3" data-path="51-3-max-stablity.html"><a href="51-3-max-stablity.html"><i class="fa fa-check"></i><b>51.3</b> 최대안정성(max-stablity)</a></li>
-<li class="chapter" data-level="51.4" data-path="51-4-return-level.html"><a href="51-4-return-level.html"><i class="fa fa-check"></i><b>51.4</b> 복귀 수준(return level)</a></li>
-<li class="chapter" data-level="51.5" data-path="51-5-inference-in-extreme-value-statistics.html"><a href="51-5-inference-in-extreme-value-statistics.html"><i class="fa fa-check"></i><b>51.5</b> 극단값 분포에서의 추론(inference in extreme value statistics)</a></li>
-<li class="chapter" data-level="51.6" data-path="51-6-mle-in-extreme-value-statistics.html"><a href="51-6-mle-in-extreme-value-statistics.html"><i class="fa fa-check"></i><b>51.6</b> 극단값 분포에서의 최대가능도추정(mle in extreme value statistics)</a></li>
-<li class="chapter" data-level="51.7" data-path="51-7-profile-likelihood-in-extreme-value-statistics.html"><a href="51-7-profile-likelihood-in-extreme-value-statistics.html"><i class="fa fa-check"></i><b>51.7</b> 극단값 분포에서의 프로파일 가능도(profile likelihood in extreme value statistics)</a></li>
+<li class="chapter" data-level="51.3" data-path="51-3-return-level.html"><a href="51-3-return-level.html"><i class="fa fa-check"></i><b>51.3</b> 복귀 수준(return level)</a></li>
+<li class="chapter" data-level="51.4" data-path="51-4-inference-in-extreme-value-statistics.html"><a href="51-4-inference-in-extreme-value-statistics.html"><i class="fa fa-check"></i><b>51.4</b> 극단값 분포에서의 추론(inference in extreme value statistics)</a></li>
+<li class="chapter" data-level="51.5" data-path="51-5-mle-in-extreme-value-statistics.html"><a href="51-5-mle-in-extreme-value-statistics.html"><i class="fa fa-check"></i><b>51.5</b> 극단값 분포에서의 최대가능도추정(mle in extreme value statistics)</a></li>
+<li class="chapter" data-level="51.6" data-path="51-6-profile-likelihood-in-extreme-value-statistics.html"><a href="51-6-profile-likelihood-in-extreme-value-statistics.html"><i class="fa fa-check"></i><b>51.6</b> 극단값 분포에서의 프로파일 가능도(profile likelihood in extreme value statistics)</a></li>
 </ul></li>
 <li class="chapter" data-level="52" data-path="52-pot.html"><a href="52-pot.html"><i class="fa fa-check"></i><b>52</b> 분계점 방법들</a><ul>
 <li class="chapter" data-level="52.1" data-path="52-1-generalized-pareto-distribution.html"><a href="52-1-generalized-pareto-distribution.html"><i class="fa fa-check"></i><b>52.1</b> 일반화 파레토 분포(generalized pareto distribution)</a></li>
@@ -641,7 +640,66 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="domain-of-attraction" class="section level2">
-<h2><span class="header-section-number">51.1</span> Domain of attraction</h2>
+<h2><span class="header-section-number">51.1</span> 흡인영역(domain of attraction)</h2>
+<p>이 부분은 <span class="citation">(Huser <a href="#ref-Huser2013">2013</a>)</span>을 참고하였다. Extremal types 정리는 i.i.d 확률변소의 renormalized maxima의 가능한 세 개의 극한 법칙을 구분해준다. 더 나아가, 만약 수열 <span class="math inline">\(a_{n}&gt;0\)</span>, <span class="math inline">\(b_{n}\in\mathbb{R}\)</span>이 존재해 <span class="math inline">\((M_{n}-b_{n})/a_{n}\)</span>이 non-degenerate 분포함수 G에 수렴한다면, G는 affine 변환(아핀 변환은 직선을 보존하며, 나아가 직선 위의 점들의 내분비, 외분비를 보존한다. 예를 들어 선분과 그의 중점은 변환 후 여전히 선분과 중점이다.)에 의해 유일하게 정의된다. 다시 말하면, 만약 다음과 같은 수열 <span class="math inline">\(a_{n}&#39;&gt;0\)</span>, <span class="math inline">\(b_{n&#39;}\in\mathbb{R}\)</span>이 존재해 <span class="math inline">\((M_{n}-b_{n}&#39;)/a_{n}&#39;\stackrel{D}{\rightarrow}G&#39;\)</span>라면 <span class="math inline">\(G\)</span>와 <span class="math inline">\(G&#39;\)</span>는 항상 같은 타입이어야 한다는 것이다. 따라서 우리는 어떤 분포의 최대값이 특별한 극한 법칙으로 흡인되는지에 따라 분포의 class들을 <strong>흡인영역(domain of attraction, MDA)</strong>으로 정의할 수 있다.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-349" class="definition"><strong>Definition 51.3  (흡인영역)  </strong></span>확률변수 <span class="math inline">\(Y\)</span>에 대해 다음과 같은 상수 <span class="math inline">\(a_{n}&gt;0\)</span>, <span class="math inline">\(b_{n}\in\mathbb{R}\)</span>가 존재해 <span class="math inline">\((M_{n}-b_{n})/a_{n}\stackrel{D}{\rightarrow}G\)</span>가 될 경우 우리는 <span class="math inline">\(Y\)</span>가 극단값 분포 <span class="math inline">\(G\)</span>의 <strong>흡인영역(domain of attraction, MDA)</strong>에 속한다고 하고 <span class="math inline">\(Y\in\text{MDA}(G)\)</span>라고 쓴다.</p>
+</div>
+
+<p>이 흡인영역을 묘사하는 것에 대해서는 그동안 많은 연구가 진행되어왔다. <strong>tail-equivalent distributions</strong>라는 개념은 세 가지 타입의 극단값 분포의 MDA를 묘사하기 전에 먼제 설명하는 것이 필요하다.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-350" class="definition"><strong>Definition 51.4  (Tail equivalence)  </strong></span>두 분포함수 <span class="math inline">\(F_{1}\)</span>, <span class="math inline">\(F_{2}\)</span>가 같은 right endpoint <span class="math inline">\(y_{F_{1}}=y_{F_{2}}=y_{F}\)</span>를 갖고 어떤 양의 상수 <span class="math inline">\(0&lt;c&lt;\infty\)</span>에 대해 <span class="math display">\[\lim_{y\rightarrow y_{F}}\frac{1-F_{1}(y)}{1-F_{2}(y)}=c\]</span> 를 만족할 경우 두 분포함수는 <strong>tail-equivalent</strong>하다고 한다.</p>
+</div>
+
+<p>각각의 MDA은 tail-equivalence에 대해 닫혀있다. 즉 <span class="math inline">\(F_{1}\)</span>, <span class="math inline">\(F_{2}\)</span>가 tail-equivalent이면 <span class="math inline">\(F_{1}\in \text{MDA}(G)\)</span>는 <span class="math inline">\(F_{2}\in \text{MDA}(G)\)</span>와 동치다. 즉 MDA는 riaght tail이 right end point에서 같은비율로 감소하는 분포들로 구성된다.</p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-351" class="theorem"><strong>Theorem 51.2  (MDA의 chracterization)  </strong></span><span class="math inline">\(F\)</span>가 upper endpoint <span class="math inline">\(y_{F}\)</span>를 갖는 분포함수라고 하자. 그리고 <span class="math inline">\(\sim\)</span>을 asymptotic equivalence를 나타내는 기호라고 하자. 그러면 어떤 <span class="math inline">\(\alpha &gt;0\)</span>과 <span class="math inline">\(K\in\mathbb{R}\)</span>에 대해 다음 설정들은 참이 된다.</p>
+<ul>
+<li><p><span class="math inline">\(F\in\text{MDA}(\Phi_{\alpha})\)</span>는 <span class="math inline">\(y\rightarrow y_{F}=\infty\)</span>임에 따라 <span class="math inline">\(1-F(y)\sim Ky^{-\alpha}\)</span>임과 동치다.</p></li>
+<li><p><span class="math inline">\(F\in\text{MDA}(\Psi_{\alpha})\)</span>는 <span class="math inline">\(y\rightarrow y_{F}&lt;\infty\)</span>임에 따라 <span class="math inline">\(1-F(y)\sim K(y_{F}-y)^{-\alpha}\)</span>임과 동치다.</p></li>
+<li><span class="math inline">\(F\in\text{MDA}(\Lambda)\)</span>는 <span class="math inline">\(F(y)\)</span>가 <span class="math inline">\(1-F(y)=c(y)\exp[-\int_{z}^{y}\{1/a(t)\}dt], z&lt;y&lt;y_{F}\)</span>를 만족하는 표현을 갖도록 하는 어떤 <span class="math inline">\(z&lt;y_{F}\leq \infty\)</span>가 존재함과 동치다. 여기서 <span class="math inline">\(c\)</span>는 가측함수이며 <span class="math inline">\(y\rightarrow y_{F}\)</span>일 때 <span class="math inline">\(c(y)\rightarrow c&gt;0\)</span>이고, <span class="math inline">\(a(y)\)</span>는 양의 값을 갖는 (르베그 측도에 대해) absolutely continubous functions이고 density <span class="math inline">\(a&#39;(y)\)</span>가 <span class="math inline">\(\lim_{y\rightarrow y_{F}}a&#39;(y)=0\)</span>이다.</li>
+</ul>
+</div>
+
+<p>Right endpoint에서 충분해 부드러운 분포의 경우에는 von Mises가 <span class="math inline">\((M_{n}-b_{n})/a_{n}\rightarrow Z \sim \text{GEV}(0,1,\xi)\)</span>로 수렴하는 충분조건들을 발표했다. 이것은 극한 분포의 타입과 normalizing 상수들 <span class="math inline">\(a_{n}&gt;0\)</span>, <span class="math inline">\(b_{n}\)</span>을 결정하는 데 큰 도움을 준다. 이러한 조건들은 알려진 분포들을 다른 MDA로 분류하는 데 사용된다.</p>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-352" class="proposition"><strong>Proposition 51.1  (von Mises conditions)  </strong></span><span class="math inline">\(F\)</span>가 right endpoint <span class="math inline">\(y_{F}\)</span>를 갖는 분포함수고 <span class="math inline">\(z&lt;y_{F}\)</span>가 존재해 <span class="math inline">\(F\)</span>가 <span class="math inline">\((z,y_{F})\)</span>에서 두번 미분가능하다고 가정하자. <span class="math inline">\(f=F&#39;\)</span>가 <span class="math inline">\((z,y_{F})\)</span>에서 <span class="math inline">\(F\)</span>의 밀도라고 하자. 실수들의 수열 $b_{n}=F^{}(1-1/n)과 <span class="math inline">\(a_{n}=r(b_{n})\)</span>을 정의하자. 이 때 <span class="math inline">\(r(y)=\{1-F(y)\}/f(y)\)</span>가 <span class="math inline">\(F\)</span>의 reciprocal harzard function이다. 더 나아가 <span class="math inline">\(\xi=\lim_{y\rightarrow y_{F}}r&#39;(y)\)</span>라고 하자. 그러면 <span class="math inline">\((M_{n}-b_{n})/a_{n}\stackrel{D}{\rightarrow} Z\sim \text{GEV}(0,1,\xi)\)</span>이다. 즉 <span class="math inline">\(\xi&gt;0\)</span>이면 <span class="math inline">\(F\in \text{MDA}(\Phi_{1/\xi})\)</span>이고 <span class="math inline">\(\xi&lt;0\)</span>이면 <span class="math inline">\(F\in MDA(\Psi_{-1/\xi})\)</span>이고 <span class="math inline">\(\xi\rightarrow 0\)</span>이면 <span class="math inline">\(F\in \text{MDA}(\Lambda)\)</span>이다.</p>
+</div>
+
+<p>다음은 <span class="citation">(Huser <a href="#ref-Huser2013">2013</a>)</span>에 있는 흡인영역에 따른 분포들의 분류다.</p>
+<ul>
+<li><p><span class="math inline">\(F\in\text{MDA}(\Phi_{\alpha})\)</span>: 이들은 Fr'{e}chet 분포의 MDA이며 Fr'{e}chet, Pareto, Cauchy, Log0gamma, Student-t 분포 등이 속한다.</p></li>
+<li><p><span class="math inline">\(F\in\text{MDA}(\Psi_{\alpha})\)</span>: 이들은 reversed Weibull 분포의 MDA이며 Uniform, Beta 그리고 <span class="math inline">\(y_{F}&lt;\infty\)</span>에서 power-law behavior를 갖는 모든 분포들이 속한다.</p></li>
+<li><p><span class="math inline">\(F\in\text{MDA}(\Lambda)\)</span>: 이들은 Gumbel 분포의 MDA이며 Normal, Gamma, Log-normal, Weibull, Exponential 그리고 모든 tail-equivalent distn들이 속한다.</p></li>
+</ul>
+<p>그러나 maxima의 non-degenerate limiting distribution으로 이끄는 affine normalization이 항상 존재하지 않을 수도 있음을 항상 생각해야한다. 즉 어느 흡인영역에도 속하지 않는 분포가 존재한다는 것이다. 포아송, Geometric, negative binomial 분포 등이 대표적이다. 이러한 분포들은 right tail에서 not well-behaved하는 분포라고 생각하면 된다.</p>
+<p>다음에 나오는 결과들은 non-degenerate 분포로의 maxima의 convergence는 right endpoint에서 어떤 continuity condition을 갖을 때에만 일어날 수 있으며, 이런 조건은 앞서 언급한 이산분포에서는 만족하지 못하는 것들이다.</p>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-353" class="proposition"><strong>Proposition 51.2  </strong></span><span class="math inline">\(u_{n}\)</span>이 실수들의 수열이라고 하자. 그러면 모든 <span class="math inline">\(0\leq \lambda \leq \infty\)</span>에 대해 두 가정이 동치이다.</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(n\{1-F(u_{n}) \}\rightarrow \lambda\)</span>.</p></li>
+<li><span class="math inline">\(P(M_{n}\leq u_{n}) \rightarrow \exp(-\lambda).\)</span></li>
+</ol>
+</div>
+
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-354" class="theorem"><strong>Theorem 51.3  (Right endpoint에서의 continuity)  </strong></span><span class="math inline">\(0&lt;\lambda &lt;\infty\)</span>라고 하자. 그러면 <span class="math inline">\(n\{1-F(u_{n})\}\rightarrow\lambda\)</span>와 <span class="math display">\[\lim_{y\rightarrow y_{F}}\frac{\{1-F(y)\}}{(1-F_{y_{\cdot}})}=1\]</span> 을 동치로 만드는 수열 <span class="math inline">\(u_{n}\)</span>이 존재한다. 이 때 <span class="math inline">\(F_{y_{\cdot}}=\lim_{x\uparrow y }F(x)\)</span>이다.</p>
+</div>
+
+<p><span class="math inline">\(\mathbb{Z}\)</span>에서 정의된 무한대의 rightendpoint를 갖는 분포에 대해 조건 <span class="math inline">\(\lim_{y\rightarrow y_{F}}\frac{\{1-F(y)\}}{(1-F_{y_{\cdot}})}=1\)</span>은 <span class="math inline">\(k\rightarrow \infy\)</span>일 때 <span class="math inline">\(\frac{1-F(k)}{1-F(k-1)}\rightarrow 1\)</span>로 바꿀 수 있다. 포아송 분포의 경우에는 이 극한이 0이되며, maxima가 수렴하는 것을 막게 된다.</p>
+<p>Non-degenerate limit distribution for maxima가 존재하지 않는 또 다른 예로 super-heavy-tailed 분포가 있다. 예를 들어 분포함수 <span class="math inline">\(F(y)=1-1/\log(y), y&gt;e\)</span>는 매우 천천히 감소하여 적당한 linear normalizing constants <span class="math inline">\(a_{n}&gt;0\)</span>, <span class="math inline">\(b_{n}\)</span>을 찾을 수 없을지도 모른다.</p>
+</div>
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-Huser2013">
+<p>Huser, Raphaël. 2013. “Statistical Modeling and Inference for Spatio-Temporal Extremes.” PhD thesis, École Polytechnique Fédérale de Lausanne.</p>
+</div>
 </div>
             </section>
 

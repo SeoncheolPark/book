@@ -77,16 +77,18 @@ $$f(\mathbf{t})=\sum_{l\in\mathcal{D}_{r}}d_{l}\psi_{l}(\mathcal{t})+\sum_{k\in\
 각 $i_{r}$에 대해 $n_{r}$개의 이웃이 존재하고 이들의 인덱스들은 $J_{r}$에 저장되어 있다고 하자. $c_{j}, j\in J_{r}$은 $c_{i_{r}}$의 근사를 구성하기 위해 사용될 것이다. 제거될 점 $i_{r}$ 각각은 길이 $|J_{r}|$인 두 벡터 $\mathbf{a}^{i_{r}}, \mathbf{b}^{i_{r}}$의 정의를 필요로 한다. (여기서 잠시 혼동을 막기 위해 $i_{r}$을 $i$로, $J_{r}$을 $J$로 표기하자. 그리고 $r$의 뜻은 다중해상도에서 $r$번째 단계라는 뜻이다.)
 
 **Predict** 상세계수 $d_{i}$는 제거될 점 $i$와 그 주변의 이웃들 $j\in J$의 weighted sum과의 차이로 얻어진다.
-\begin{equation}\label{eq:LOCAATforwardpre}
+\begin{equation}
 d_{i}=c_{ri}-\sum_{j\in J}a_{j}c_{rj}.
+(\#eq:LOCAATforwardpre)
 \end{equation}
 **이 때 weight vector $\mathbf{a}^{i}$는 어떤 리프팅 전략을 쓰느냐에 따라 달라진다.** 이 말은 $i$와 $\in J$ 사이에 어떤 거리(ex. 유클리드 거리)를 정해놓고 이 거리가 클수록 weight를 적게 주는 것이다.
 $$\mathbf{a}^{i}=\{ \frac{1/\text{dist}_{j}}{\sum_{j\in J}1/\text{dist}_{j}}\}, \forall j\in J.$$
 그리고(아마 당연하게도) $\sum_{j\in J} a_{j}=1$이다.
 
 **Update** 제거된 점 $i$에서 상셰계수를 얻은 후에 이웃들의 값은 다음과 값이 업데이트된다.
-\begin{equation}\label{eq:LOCAATforwardup}
+\begin{equation}
 c_{rj}:=c_{rj}+d_{i}b_{j},\forall j\in J.
+(\#eq:LOCAATforwardup)
 \end{equation}
 (이 때 $\mathbf{b}^{i}$를 어떻게 정의할 지에 대해서는 생각해야 한다.) LOCAAT에서는 다음 레벨의 척도함수 계수는 다음과 같이
 $$c_{r-1,j}=c_{r,j},\forall j \in \mathcal{S}_{r-1}$$

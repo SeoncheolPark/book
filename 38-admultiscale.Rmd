@@ -25,7 +25,8 @@
 \end{equation}
 
 \begin{equation}
-    s_{j+1,2k}=s_{j,k}-\frac{d_{j,k}}{2}\label{eq:four}
+    s_{j+1,2k}=s_{j,k}-\frac{d_{j,k}}{2}
+    (\#eq:four)
 \end{equation}
 
 식 (\@ref(eq:four))를 이항하여 정리하면 다음과 같은 식을 얻는다.

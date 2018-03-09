@@ -8,38 +8,43 @@
 
 다음과 같은 함수 $f(x)\in L^{2}(\mathbb{R})$이 있다고 하자. 그러면 레벨 $J$의 웨이블릿 계수로부터 레벨 $J-1$의 웨이블릿 계수를 어떻게 구할 수 있을까? 일단 다시한 번 $J-1$ 레벨의 척도웨이블릿 (또는 부웨이블릿) $c$를 구하는 방법에 대해 생각해보자.
 
-\begin{equation}\label{eq:fatherj1}
+\begin{equation}
 c_{J-1,k}=\int_{\mathbb{R}}f(x)\phi_{J-1,k}(x)dx
+(\#eq:fatherj1)
 \end{equation}
 
 왜냐하면 $\{ \phi_{J-1,k(x)}\}_{k}$가 $V_{j-1}$의 직교정규기저이기 때문이다. (?) ($\phi$: 척도함수 또는 부웨이블릿) 이제 $J-1$ 레벨의 $\phi_{J-1,k}(x)$를 $\phi_{J,l}(x)$와 dilation eqn $\phi(x)=\sum_{n\in\mathbb{Z}}h_{n}\phi_{1n}(x)$를 이용해 나타내보자.
 
-\begin{eqnarray}\label{eq:fatherj2}
+\begin{eqnarray}
 \phi_{J-1,k}(x)&=&s^{(J-1)/2}\phi(2^{J-1}x-k)\nonumber\\
 &=&2^{(J-1)/2}\sum_{n}h_{n}\phi_{1,n}(2^{J-1}x-k)\nonumber\\
 &=&2^{(J-1)/2}\sum_{n}h_{n}2^{1/2}\phi\{2(2^{J-1}x-k)-n\}\nonumber\\
 &=&2^{J/2}\sum_{n}h_{n}\phi(2^{J}x-2k-n)\nonumber\\ 
 &=&\sum_{n}h_{n}\phi_{J,n+2k}(x).
+(\#eq:fatherj2)
 \end{eqnarray}
 
 이 때 위 식에 (\@ref(eq:fatherj1))을 넣으면
 
-\begin{eqnarray}\label{eq:fatherj3}
+\begin{eqnarray}
 c_{J-1,k}&=&\int_{\mathbb{R}}f(x)\sum_{n}h_{n}\phi_{J,n+2k}(x)dx\nonumber\\
 &=&\sum_{n}h_{n}\int_{\mathbb{R}}f(x)\phi_{J,n+2k}(x)dx\nonumber\\
 &+&\sum_{n}h_{n}c_{J,n+2k}
+(\#eq:fatherj3)
 \end{eqnarray}
 
 이며, 약간 re-arrange하면
 
-\begin{equation}\label{eq:fatherj4}
+\begin{equation}
 c_{J-1,k}=\sum_{n}h_{n-2k}c_{J,n}
+(\#eq:fatherj4)
 \end{equation}
 
 으로 쓸 수 있다. 같은원리로
 
-\begin{equation}\label{eq:motherj1}
+\begin{equation}
 d_{J-1,k}=\sum_{n}g_{n-2k}c_{J,n}
+(\#eq:motherj1)
 \end{equation}
 
 을 얻을 수 있다고 한다.

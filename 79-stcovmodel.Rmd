@@ -6,7 +6,9 @@ R package `CompRandFld`에 있는 시공간 공분산모형들을 정리하였�
 
 ### Non-Separable models
 
-1. `geniting` (non-separable space-time model)
+1. `geniting` (non-separable space-time model): [@Gneiting2002]에 등장한 시공간 상관관계 함수로, [@Montero2015] 7장 10절에 나온 정보에 따르면 기존 [@Cressie1999]의 방법은 파워풀하나 $d$-variate 푸리에 적분이 알려진 닫힌 형태의 해가 존재하는 매우 작은 함수 class에서만 사용할 수 있다는 단점이 있었다. [@Gneiting2002]는 [@Cressie1999]와 같은 방법을 적용하되, 앞에서 언급한 한계를 피하고 일반적으로 유효한 시공간 상관관계 모형을 제공하고자 했다.
+
+그래서 그는 푸리에 변환을 쓰지 않고 시공간 공분산함수의 모수 구성을 시공간 정의역에서 바로 하는 방법을 생각하였다.
 
 2. `gneiting_GC` (non-separable space-time model with great circle distances)
 

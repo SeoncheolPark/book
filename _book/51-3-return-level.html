@@ -25,14 +25,14 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-02-14">
+<meta name="date" content="2018-03-08">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="51-2-max-stablity.html">
+<link rel="prev" href="51-2-generalized-extreme-value-distribution.html">
 <link rel="next" href="51-4-inference-in-extreme-value-statistics.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -161,6 +161,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.3" data-path="3-3-properties-of-lebesgue-measure.html"><a href="3-3-properties-of-lebesgue-measure.html"><i class="fa fa-check"></i><b>3.3</b> 르베츠 측도의 성질(properties of Lebesgue measure)</a></li>
 <li class="chapter" data-level="3.4" data-path="3-4-probability-measure.html"><a href="3-4-probability-measure.html"><i class="fa fa-check"></i><b>3.4</b> 확률측도(probability measure)</a></li>
 <li class="chapter" data-level="3.5" data-path="3-5-radon-nykodim-theorem.html"><a href="3-5-radon-nykodim-theorem.html"><i class="fa fa-check"></i><b>3.5</b> 라돈-니코딤 정리(Radon-Nykodim theorem)</a></li>
+<li class="chapter" data-level="3.6" data-path="3-6-various-measures.html"><a href="3-6-various-measures.html"><i class="fa fa-check"></i><b>3.6</b> 다양한 측도들(various measures)</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="3-6-various-measures.html"><a href="3-6-various-measures.html#-borel-measure"><i class="fa fa-check"></i><b>3.6.1</b> 보렐 측도(Borel measure)</a></li>
+<li class="chapter" data-level="3.6.2" data-path="3-6-various-measures.html"><a href="3-6-various-measures.html#-radon-measure"><i class="fa fa-check"></i><b>3.6.2</b> 라돈 측도(Radon measure)</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="4-basicprob.html"><a href="4-basicprob.html"><i class="fa fa-check"></i><b>4</b> 기초 확률론</a><ul>
 <li class="chapter" data-level="4.1" data-path="4-1-sample-space-and-events.html"><a href="4-1-sample-space-and-events.html"><i class="fa fa-check"></i><b>4.1</b> 표본공간과 사건(sample space and events)</a></li>
@@ -590,8 +594,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="part"><span><b>VIII Extreme Value Statistics</b></span></li>
 <li class="chapter" data-level="51" data-path="51-uGEVtheory.html"><a href="51-uGEVtheory.html"><i class="fa fa-check"></i><b>51</b> 일변량 극단값 이론</a><ul>
-<li class="chapter" data-level="51.1" data-path="51-1-generalized-extreme-value-distribution.html"><a href="51-1-generalized-extreme-value-distribution.html"><i class="fa fa-check"></i><b>51.1</b> 일반화 극단값 분포(generalized extreme value distribution)</a></li>
-<li class="chapter" data-level="51.2" data-path="51-2-max-stablity.html"><a href="51-2-max-stablity.html"><i class="fa fa-check"></i><b>51.2</b> 최대안정성(max-stablity)</a></li>
+<li class="chapter" data-level="51.1" data-path="51-1-domain-of-attraction.html"><a href="51-1-domain-of-attraction.html"><i class="fa fa-check"></i><b>51.1</b> 흡인영역(domain of attraction)</a></li>
+<li class="chapter" data-level="51.2" data-path="51-2-generalized-extreme-value-distribution.html"><a href="51-2-generalized-extreme-value-distribution.html"><i class="fa fa-check"></i><b>51.2</b> 일반화 극단값 분포(generalized extreme value distribution)</a></li>
 <li class="chapter" data-level="51.3" data-path="51-3-return-level.html"><a href="51-3-return-level.html"><i class="fa fa-check"></i><b>51.3</b> 복귀 수준(return level)</a></li>
 <li class="chapter" data-level="51.4" data-path="51-4-inference-in-extreme-value-statistics.html"><a href="51-4-inference-in-extreme-value-statistics.html"><i class="fa fa-check"></i><b>51.4</b> 극단값 분포에서의 추론(inference in extreme value statistics)</a></li>
 <li class="chapter" data-level="51.5" data-path="51-5-mle-in-extreme-value-statistics.html"><a href="51-5-mle-in-extreme-value-statistics.html"><i class="fa fa-check"></i><b>51.5</b> 극단값 분포에서의 최대가능도추정(mle in extreme value statistics)</a></li>
@@ -641,7 +645,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>한 가지 방법으로 <strong>복귀 수준(return level)</strong>이라는 것이 있다. <strong>n-복귀 수준</strong>은 우리가 매 <span class="math inline">\(n\)</span>년마다 한 번꼴로 초과될 것으로 기대되는 값이다. 다시 말하면 어떤 특정한 해에 그런 강도의 사건을 마주칠 확률이 <span class="math inline">\(\frac{1}{n}\)</span> 정도 될 때 <span class="math inline">\(n\)</span>-복귀 수준이 된다. 분위수(quantile)로 봤을 때에는 <span class="math inline">\(1-\frac{1}{n}\)</span>분위수에 대응되는 사건이다.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-337" class="example"><strong>Example 51.3  (복귀 수준)  </strong></span>20년 복귀 수준은 매 20년마다 최대 수준이 한 번꼴로 초과할 것으로 기대되는 수준에 대응된다. 이것은 매 년 <span class="math inline">\(\frac{1}{20}=0.05\)</span>의 확률로 그러한 사건이 마주칠 것으로 기대되며 <span class="math inline">\(1-\frac{1}{20}=0.95\)</span>의 분위수에 대응된다.</p>
+<p><span id="exm:unnamed-chunk-355" class="example"><strong>Example 51.3  (복귀 수준)  </strong></span>20년 복귀 수준은 매 20년마다 최대 수준이 한 번꼴로 초과할 것으로 기대되는 수준에 대응된다. 이것은 매 년 <span class="math inline">\(\frac{1}{20}=0.05\)</span>의 확률로 그러한 사건이 마주칠 것으로 기대되며 <span class="math inline">\(1-\frac{1}{20}=0.95\)</span>의 분위수에 대응된다.</p>
 </div>
 
 <p>일반적으로 많이 쓰이는 복귀 수준은 <span class="math inline">\(20, 50, 100\)</span>년 정도이다.</p>
@@ -652,7 +656,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="51-2-max-stablity.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="51-2-generalized-extreme-value-distribution.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="51-4-inference-in-extreme-value-statistics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-02-14">
+<meta name="date" content="2018-03-08">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -161,6 +161,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.3" data-path="3-3-properties-of-lebesgue-measure.html"><a href="3-3-properties-of-lebesgue-measure.html"><i class="fa fa-check"></i><b>3.3</b> 르베츠 측도의 성질(properties of Lebesgue measure)</a></li>
 <li class="chapter" data-level="3.4" data-path="3-4-probability-measure.html"><a href="3-4-probability-measure.html"><i class="fa fa-check"></i><b>3.4</b> 확률측도(probability measure)</a></li>
 <li class="chapter" data-level="3.5" data-path="3-5-radon-nykodim-theorem.html"><a href="3-5-radon-nykodim-theorem.html"><i class="fa fa-check"></i><b>3.5</b> 라돈-니코딤 정리(Radon-Nykodim theorem)</a></li>
+<li class="chapter" data-level="3.6" data-path="3-6-various-measures.html"><a href="3-6-various-measures.html"><i class="fa fa-check"></i><b>3.6</b> 다양한 측도들(various measures)</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="3-6-various-measures.html"><a href="3-6-various-measures.html#-borel-measure"><i class="fa fa-check"></i><b>3.6.1</b> 보렐 측도(Borel measure)</a></li>
+<li class="chapter" data-level="3.6.2" data-path="3-6-various-measures.html"><a href="3-6-various-measures.html#-radon-measure"><i class="fa fa-check"></i><b>3.6.2</b> 라돈 측도(Radon measure)</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="4-basicprob.html"><a href="4-basicprob.html"><i class="fa fa-check"></i><b>4</b> 기초 확률론</a><ul>
 <li class="chapter" data-level="4.1" data-path="4-1-sample-space-and-events.html"><a href="4-1-sample-space-and-events.html"><i class="fa fa-check"></i><b>4.1</b> 표본공간과 사건(sample space and events)</a></li>
@@ -590,8 +594,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="part"><span><b>VIII Extreme Value Statistics</b></span></li>
 <li class="chapter" data-level="51" data-path="51-uGEVtheory.html"><a href="51-uGEVtheory.html"><i class="fa fa-check"></i><b>51</b> 일변량 극단값 이론</a><ul>
-<li class="chapter" data-level="51.1" data-path="51-1-generalized-extreme-value-distribution.html"><a href="51-1-generalized-extreme-value-distribution.html"><i class="fa fa-check"></i><b>51.1</b> 일반화 극단값 분포(generalized extreme value distribution)</a></li>
-<li class="chapter" data-level="51.2" data-path="51-2-max-stablity.html"><a href="51-2-max-stablity.html"><i class="fa fa-check"></i><b>51.2</b> 최대안정성(max-stablity)</a></li>
+<li class="chapter" data-level="51.1" data-path="51-1-domain-of-attraction.html"><a href="51-1-domain-of-attraction.html"><i class="fa fa-check"></i><b>51.1</b> 흡인영역(domain of attraction)</a></li>
+<li class="chapter" data-level="51.2" data-path="51-2-generalized-extreme-value-distribution.html"><a href="51-2-generalized-extreme-value-distribution.html"><i class="fa fa-check"></i><b>51.2</b> 일반화 극단값 분포(generalized extreme value distribution)</a></li>
 <li class="chapter" data-level="51.3" data-path="51-3-return-level.html"><a href="51-3-return-level.html"><i class="fa fa-check"></i><b>51.3</b> 복귀 수준(return level)</a></li>
 <li class="chapter" data-level="51.4" data-path="51-4-inference-in-extreme-value-statistics.html"><a href="51-4-inference-in-extreme-value-statistics.html"><i class="fa fa-check"></i><b>51.4</b> 극단값 분포에서의 추론(inference in extreme value statistics)</a></li>
 <li class="chapter" data-level="51.5" data-path="51-5-mle-in-extreme-value-statistics.html"><a href="51-5-mle-in-extreme-value-statistics.html"><i class="fa fa-check"></i><b>51.5</b> 극단값 분포에서의 최대가능도추정(mle in extreme value statistics)</a></li>
@@ -640,7 +644,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>일반화 극단값 분포에 최대가능도추정을 적용하기 전에 일반적인 가능도 관련 이론에 대해 정리해보자.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-338" class="definition"><strong>Definition 51.3  (가능도와 최대가능도추정량)  </strong></span><span class="math inline">\(y\)</span>가 자료이고 이 자료가 다음과 같은 모수 <span class="math inline">\(\theta\)</span>로 정의되는 확률변수 <span class="math inline">\(Y \sim f(y;\theta)\)</span>의 실현(realization)이라고 하자. 이때 <strong>가능도(likelihood, 우도)</strong>와 로그 가능도는 <span class="math display">\[L(\theta)=L(\theta;y)=f_{Y}(y;\theta), l(\theta)=\log L(\theta), \theta \in \Omega_{\theta}\]</span> 로 정의된다.</p>
+<p><span id="def:unnamed-chunk-356" class="definition"><strong>Definition 51.5  (가능도와 최대가능도추정량)  </strong></span><span class="math inline">\(y\)</span>가 자료이고 이 자료가 다음과 같은 모수 <span class="math inline">\(\theta\)</span>로 정의되는 확률변수 <span class="math inline">\(Y \sim f(y;\theta)\)</span>의 실현(realization)이라고 하자. 이때 <strong>가능도(likelihood, 우도)</strong>와 로그 가능도는 <span class="math display">\[L(\theta)=L(\theta;y)=f_{Y}(y;\theta), l(\theta)=\log L(\theta), \theta \in \Omega_{\theta}\]</span> 로 정의된다.</p>
 <p><strong>최대가능도추정량(maximum likelihood estimate, MLE)</strong>은 <span class="math display">\[l(\hat{\theta})\geq l(\theta), \forall \theta \in \Omega_{\theta}\]</span> 을 만족시키는 <span class="math inline">\(\hat{\theta}\)</span>이다. 많은 경우 <span class="math inline">\(\hat{\theta}\)</span>는 유일하며 다음과 같은 <strong>점수방정식(score equation, 또는 가능도방정식)</strong> <span class="math display">\[\frac{\partial l(\theta)}{\partial \theta}=0\]</span> 을 만족한다. 만약 <span class="math inline">\(\theta\)</span>가 <span class="math inline">\(p \times 1\)</span> 벡터라면 점수방정식 또한 <span class="math inline">\(p \times 1\)</span> 벡터가 된다.</p>
 <p><strong>관측정보행렬(observed information matrix)</strong>는 점수방정식을 한 번 더 미분한 것이다. <span class="math display">\[J(\theta)=-\frac{\partial^{2}l(\theta)}{\partial \theta \partial \theta^{T}}.\]</span> 만약 <span class="math inline">\(\theta\)</span>가 <span class="math inline">\(p \times 1\)</span> 벡터라면 <span class="math inline">\(J(\theta)\)</span>는 <span class="math inline">\(p \times p\)</span> 행렬이 된다.</p>
 <p><strong>가능도 통계량(likelihood ratio statistic, 윌크스의 통계량)</strong>은 <span class="math display">\[W(\theta)=2\{l(\hat{\theta})-l(\theta)\}\geq 0\]</span> 이다.</p>
@@ -650,7 +654,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>실제로는 <span class="math inline">\(\theta\)</span>를 <strong>흥미있는 모수들(interest parameters)</strong> <span class="math inline">\(\psi_{q\times 1}\)</span>와 <strong>장애모수들(nuisance parameters)</strong> <span class="math inline">\(\lambda_{p-q\times 1}\)</span>로 나누어 분석하게 된다. <span class="math inline">\(\hat{\lambda}_{\psi}\)</span>를 <span class="math inline">\(\psi\)</span>가 고정되어 있을 때 <span class="math inline">\(\lambda\)</span>의 최대가능도추정량이라고 하자. 그러면 <strong>일반화가능도통계량(generalized likelihood ratio statistic)</strong>을 <span class="math display">\[W_{p}(\psi)=2\{l(\hat{\psi},\hat{\lambda})-l(\psi,\hat{\lambda}_{\psi})\}=2\{l(\hat{\theta})-l(\hat{\theta}_{\psi})\}\]</span> 로 정의한다. 이 때 다음과 같은 통계량을 정의할 수 있다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-339" class="definition"><strong>Definition 51.4  (일반화가능도통계량)  </strong></span><strong>일반화가능도통계량(generalized likelihood ratio statistic)</strong>은 <span class="math display">\[W_{p}(\psi)=2\{l(\hat{\psi},\hat{\lambda})-l(\psi,\hat{\lambda}_{\psi})\}=2\{l(\hat{\theta})-l(\hat{\theta}_{\psi})\}\]</span> 이다.</p>
+<p><span id="def:unnamed-chunk-357" class="definition"><strong>Definition 51.6  (일반화가능도통계량)  </strong></span><strong>일반화가능도통계량(generalized likelihood ratio statistic)</strong>은 <span class="math display">\[W_{p}(\psi)=2\{l(\hat{\psi},\hat{\lambda})-l(\psi,\hat{\lambda}_{\psi})\}=2\{l(\hat{\theta})-l(\hat{\theta}_{\psi})\}\]</span> 이다.</p>
 </div>
 
 <p>만약 <span class="math inline">\(\psi^{0}\)</span>이 정칙모형(regular model)의 자료로부터 얻은 <span class="math inline">\(\psi\)</span>값이라고 하면 앞선 정의에 의해 <span class="math display">\[W_{p}(\psi) \stackrel{\cdot}{\sim} \xi_{q}^{2}, \qquad{for large n}\]</span> 이 된다. <span class="math inline">\(\psi^{0}\)</span>에 대한 신뢰구간(confidence interval)과 검정은 이것에 기초해서 만들게 된다.</p>
