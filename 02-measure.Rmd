@@ -132,4 +132,23 @@ $\mathbb{R}^{n}$에서의 **라돈 측도**는 보렐 정칙이고 국소 컴팩
   
 ```
 
+## 적분 기호의 사용(the use of measure notation)
+
+적분 기호를 사용하는 것은 나에게도 매우 혼란스러운 일이나, [다음의 답변내용](https://math.stackexchange.com/questions/5230/notation-question-integrating-against-a-measure) 을 번역해 정리해 두기로 한다.
+
+$\int f d\mu$, $\int f(x)\mu(dx)$, $\int f(x) d\mu(x)$는 매우 흔하고 같은 의미를 지닌다고 한다. 만약 $\mu$가 확률측도라면 $\mathbb{E}_{\mu}[f]$로도 자주 쓰고, 또는 측도에 혼란이 없을 경우에는 생략하여 $\mathbb{E}[f]$로 쓰기도 한다고 한다.
+
+$\mu(dx)$나 $d\mu(x)$ 또한 차이가 없지만, 후자가 $\int f d\mu$와 같이 사용할 때는 좀 더 일관성이 있지만, 일반적으로는 전자를 좀 더 많이 사용한다고 한다. 전자를 좀 더 많이 사용하게 될 때에는 특히 다변수인 경우에 그러하다. 예를 들면 커널 $\mu(x,A)$는 $x$에 대해 measurable 함수이고 $A$는 measure이다. 우리는 $\int f(x,y)\mu(x,dy)$와 같이 쓸 수 있으나, $\int f(x,y)d\mu(x,y)$는 혼란스럽다.
+
+정리하면 다음과 같다.
+```{definition, name="다양한 측도 표현"}
+$(E,\mathcal{E})$의 측도 $m$과 $f\in\mathcal{E}$에 대해 $m$에 대한 적분 $f$는 다음과 같은 notation들로 쓸 수 있다.
+$$\int f dm, \int f(x)dm(x), \int f(x)m(dx), m(f), \langle m, f \rangle.$$
+그리고 특별히 $E$가 유클리드 공간의 부분집합이고 $m$이 르베그 측도면 $\int f(x)dx$로 쓸 수 있다.
+
+```
+
+표현 $\mu(dx)$에서 $dx$는 실수직선 상에서의 무한히 작은 "chunk"를 나타낸다고 생각할 수 있고, 그 때 $\mu(dx)$는 그것의 측도가 된다고 한다. 예를 득어 $F$는 right-continuous and increasing이고 $f$는 연속이라고 하자. $\mu$는 $F$와 연관된 Lebesgue-Stiltjes measure라고 하자. 즉 $\mu((a,b])=F(b)-F(a)$이다. $\{x_{j} \}_{j=1}^{n}$은 어떤 구간 $I$를 나눈 부분이고 $\Delta x_{j}=(x_{j-1}, x_{j}]$라고 하자. 그러면
+$$\int_{I}f(x)\mu(dx)=\lim_{n\rightarrow\infty}\sum_{j=1}^{n}f(x_{j})\mu(\Delta x_{j}).$$
+이는 partition의 mesh가 zero로 가는 경우에 성립한다. 이런 상황에서 $\mu(dx)$는 양쪽의 notation consistent를 보장해준다. 즉 $\mu(dx)$, $d\mu(x)$를 쓰던 결과는 같다.
 

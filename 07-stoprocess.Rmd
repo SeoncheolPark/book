@@ -99,6 +99,30 @@ F_{n}(x)=\frac{1}{n}\sum_{i=1}^{n}1_{(X_{i}\leq x)}, -\infty < x < \infty.
 
 ## 포아송과정(Poisson process)
 
+## 포아송 무작위 측도들(Poisson random measures)
+
+다음 [사이트](http://www.math.wisc.edu/~kurtz/735/main735.pdf)의 9장을 참고하였다. [@Mikhail2014] 또한 참고할만하다. $(E,\mathcal{E})$를 가측공간이라고 하고, $\nu$를 $\mathcal{E}$에서의 $\sigma$-finite 측도라고 하자. $\mathcal{N}(E)$는 $E$에서의 counting measure의 collection이라고 하자, 즉 음이 아닌 정수값들의 측도이다. $\xi$는 만약 각각의 $\omega \in \Omega$에서 $\xi(\omega, \cdot)\in\mathcal{N}(E)$이고 각각의 $A\in\mathcal{E}$에서 $\xi(A)$가 $\mathbb{N}\cup\{\infty\}$의 값을 갖는 확률변수일 때 확률공간 $(\Omega, \mathcal{F}, P)$에서의 $\mathcal{N}(E)$-확률변수다. 편의를 위해 $\xi(\omega, A)$대신 $\xi(A)$라고 쓰자.
+
+```{definition, name="포아송 무작위 측도"}
+어떤 $\mathcal{N}(E)$-확률변수가
+
+1. 각각의 $A\in\mathcal{E}$에 대해 $\xi(A)\sim \text{Poisson}(\nu(A))$이다.
+
+2. 만약 $A_{1},A_{},\ldots \in \mathcal{E}$가 disjoint이면 $\xi(A_{1}), \xi(A_{2}),\ldots $는 독립인 확률변수이다.
+
+를 만족하면 **평균측도(mean measure)** $\nu$를 갖는 **포아송 무작위 측도(Poisson random measure)**이다. 
+
+```
+
+$\nu$는 $\xi$가 존재할 경우 $\xi$의 분포를 결정한다. 먼저 $\nu$가 유한하게 존재한다면 $\nu$가 $\sigma$-finite한 것으로 고려한다.
+
+```{proposition}
+$\nu$가 $(E,\mathcal{E})$에서의 측도이고 $\nu(E)<\infty$라고 하자. 그러면 평균측도 $\nu$를 갖는 포아송 무작위 측도가 존재한다.
+
+```
+
+평균측도를 다른 말로 intensity measure라고 부르기도 한다. 
+
 ## 브라운운동(Brownian motion)
 
 ```{definition, name="저차원에서의 브라운운동"}

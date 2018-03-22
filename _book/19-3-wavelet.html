@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-03-08">
+<meta name="date" content="2018-03-22">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -165,6 +165,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.6.1" data-path="3-6-various-measures.html"><a href="3-6-various-measures.html#-borel-measure"><i class="fa fa-check"></i><b>3.6.1</b> 보렐 측도(Borel measure)</a></li>
 <li class="chapter" data-level="3.6.2" data-path="3-6-various-measures.html"><a href="3-6-various-measures.html#-radon-measure"><i class="fa fa-check"></i><b>3.6.2</b> 라돈 측도(Radon measure)</a></li>
 </ul></li>
+<li class="chapter" data-level="3.7" data-path="3-7-the-use-of-measure-notation.html"><a href="3-7-the-use-of-measure-notation.html"><i class="fa fa-check"></i><b>3.7</b> 적분 기호의 사용(the use of measure notation)</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="4-basicprob.html"><a href="4-basicprob.html"><i class="fa fa-check"></i><b>4</b> 기초 확률론</a><ul>
 <li class="chapter" data-level="4.1" data-path="4-1-sample-space-and-events.html"><a href="4-1-sample-space-and-events.html"><i class="fa fa-check"></i><b>4.1</b> 표본공간과 사건(sample space and events)</a></li>
@@ -205,11 +206,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.3" data-path="8-3-separable-random-functions.html"><a href="8-3-separable-random-functions.html"><i class="fa fa-check"></i><b>8.3</b> 분리가능한 무작위 함수들(separable random functions)</a></li>
 <li class="chapter" data-level="8.4" data-path="8-4-empirical-process.html"><a href="8-4-empirical-process.html"><i class="fa fa-check"></i><b>8.4</b> 경험과정(empirical process)</a></li>
 <li class="chapter" data-level="8.5" data-path="8-5-poisson-process.html"><a href="8-5-poisson-process.html"><i class="fa fa-check"></i><b>8.5</b> 포아송과정(Poisson process)</a></li>
-<li class="chapter" data-level="8.6" data-path="8-6-brownian-motion.html"><a href="8-6-brownian-motion.html"><i class="fa fa-check"></i><b>8.6</b> 브라운운동(Brownian motion)</a><ul>
-<li class="chapter" data-level="8.6.1" data-path="8-6-brownian-motion.html"><a href="8-6-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>8.6.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+<li class="chapter" data-level="8.6" data-path="8-6-poisson-random-measures.html"><a href="8-6-poisson-random-measures.html"><i class="fa fa-check"></i><b>8.6</b> 포아송 무작위 측도들(Poisson random measures)</a></li>
+<li class="chapter" data-level="8.7" data-path="8-7-brownian-motion.html"><a href="8-7-brownian-motion.html"><i class="fa fa-check"></i><b>8.7</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="8-7-brownian-motion.html"><a href="8-7-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>8.7.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="8.7" data-path="8-7-martingale.html"><a href="8-7-martingale.html"><i class="fa fa-check"></i><b>8.7</b> 마팅게일(martingale)</a></li>
-<li class="chapter" data-level="8.8" data-path="8-8-markov-chain.html"><a href="8-8-markov-chain.html"><i class="fa fa-check"></i><b>8.8</b> 마르코프 체인(Markov chain)</a></li>
+<li class="chapter" data-level="8.8" data-path="8-8-martingale.html"><a href="8-8-martingale.html"><i class="fa fa-check"></i><b>8.8</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="8.9" data-path="8-9-markov-chain.html"><a href="8-9-markov-chain.html"><i class="fa fa-check"></i><b>8.9</b> 마르코프 체인(Markov chain)</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="9-bigOsmallo.html"><a href="9-bigOsmallo.html"><i class="fa fa-check"></i><b>9</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="9.1" data-path="9-1-big-o-small-o-big-o-and-small-o.html"><a href="9-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>9.1</b> Big O와 small o (big O and small o)</a></li>
@@ -604,21 +606,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="52" data-path="52-pot.html"><a href="52-pot.html"><i class="fa fa-check"></i><b>52</b> 분계점 방법들</a><ul>
 <li class="chapter" data-level="52.1" data-path="52-1-generalized-pareto-distribution.html"><a href="52-1-generalized-pareto-distribution.html"><i class="fa fa-check"></i><b>52.1</b> 일반화 파레토 분포(generalized pareto distribution)</a></li>
 </ul></li>
-<li class="chapter" data-level="53" data-path="53-spatextremes.html"><a href="53-spatextremes.html"><i class="fa fa-check"></i><b>53</b> 공간 극단값 이론과 최대안정과정</a><ul>
-<li class="chapter" data-level="53.1" data-path="53-1-max-stable-process.html"><a href="53-1-max-stable-process.html"><i class="fa fa-check"></i><b>53.1</b> 최대안정과정(max-stable process)</a><ul>
-<li class="chapter" data-level="53.1.1" data-path="53-1-max-stable-process.html"><a href="53-1-max-stable-process.html#smith-smith-model"><i class="fa fa-check"></i><b>53.1.1</b> Smith 모형(Smith model)</a></li>
-<li class="chapter" data-level="53.1.2" data-path="53-1-max-stable-process.html"><a href="53-1-max-stable-process.html#schlather-schlather-model"><i class="fa fa-check"></i><b>53.1.2</b> Schlather 모형(Schlather model)</a></li>
-<li class="chapter" data-level="53.1.3" data-path="53-1-max-stable-process.html"><a href="53-1-max-stable-process.html#brown-resnick-brown-resnick-model"><i class="fa fa-check"></i><b>53.1.3</b> Brown-Resnick 모형(Brown-Resnick model)</a></li>
-<li class="chapter" data-level="53.1.4" data-path="53-1-max-stable-process.html"><a href="53-1-max-stable-process.html#-t-extremal-t-model"><i class="fa fa-check"></i><b>53.1.4</b> 극단-t 모형(extremal-t model)</a></li>
+<li class="chapter" data-level="53" data-path="53-mevtheory.html"><a href="53-mevtheory.html"><i class="fa fa-check"></i><b>53</b> 다변량 극단값 이론</a><ul>
+<li class="chapter" data-level="53.1" data-path="53-1-copula.html"><a href="53-1-copula.html"><i class="fa fa-check"></i><b>53.1</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="53.2" data-path="53-2-limiting-standardization.html"><a href="53-2-limiting-standardization.html"><i class="fa fa-check"></i><b>53.2</b> 극단 정규화(limiting standardization)</a></li>
 </ul></li>
-<li class="chapter" data-level="53.2" data-path="53-2-spatial-dependence-of-extremes.html"><a href="53-2-spatial-dependence-of-extremes.html"><i class="fa fa-check"></i><b>53.2</b> 극단값의 공간 종속성(spatial dependence of extremes)</a></li>
+<li class="chapter" data-level="54" data-path="54-timeextremes.html"><a href="54-timeextremes.html"><i class="fa fa-check"></i><b>54</b> 정상시계열에서의 극단값들</a></li>
+<li class="chapter" data-level="55" data-path="55-spatextremes.html"><a href="55-spatextremes.html"><i class="fa fa-check"></i><b>55</b> 공간 극단값 이론과 최대안정과정</a><ul>
+<li class="chapter" data-level="55.1" data-path="55-1-max-stable-process.html"><a href="55-1-max-stable-process.html"><i class="fa fa-check"></i><b>55.1</b> 최대안정과정(max-stable process)</a><ul>
+<li class="chapter" data-level="55.1.1" data-path="55-1-max-stable-process.html"><a href="55-1-max-stable-process.html#smith-smith-model"><i class="fa fa-check"></i><b>55.1.1</b> Smith 모형(Smith model)</a></li>
+<li class="chapter" data-level="55.1.2" data-path="55-1-max-stable-process.html"><a href="55-1-max-stable-process.html#schlather-schlather-model"><i class="fa fa-check"></i><b>55.1.2</b> Schlather 모형(Schlather model)</a></li>
+<li class="chapter" data-level="55.1.3" data-path="55-1-max-stable-process.html"><a href="55-1-max-stable-process.html#brown-resnick-brown-resnick-model"><i class="fa fa-check"></i><b>55.1.3</b> Brown-Resnick 모형(Brown-Resnick model)</a></li>
+<li class="chapter" data-level="55.1.4" data-path="55-1-max-stable-process.html"><a href="55-1-max-stable-process.html#-t-extremal-t-model"><i class="fa fa-check"></i><b>55.1.4</b> 극단-t 모형(extremal-t model)</a></li>
 </ul></li>
-<li class="chapter" data-level="54" data-path="54-maxstableRF.html"><a href="54-maxstableRF.html"><i class="fa fa-check"></i><b>54</b> 최대안정 임의장</a><ul>
-<li class="chapter" data-level="54.1" data-path="54-1-brown-resnick-brown-resnick-random-fields.html"><a href="54-1-brown-resnick-brown-resnick-random-fields.html"><i class="fa fa-check"></i><b>54.1</b> Brown-Resnick 임의장(Brown-Resnick random fields)</a></li>
-<li class="chapter" data-level="54.2" data-path="54-2-extremal-gaussian-extremal-gaussian-random-fields.html"><a href="54-2-extremal-gaussian-extremal-gaussian-random-fields.html"><i class="fa fa-check"></i><b>54.2</b> Extremal-Gaussian 임의장(extremal-Gaussian random fields)</a></li>
-<li class="chapter" data-level="54.3" data-path="54-3-extremal-t-extremal-t-random-fields.html"><a href="54-3-extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>54.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
+<li class="chapter" data-level="55.2" data-path="55-2-spatial-dependence-of-extremes.html"><a href="55-2-spatial-dependence-of-extremes.html"><i class="fa fa-check"></i><b>55.2</b> 극단값의 공간 종속성(spatial dependence of extremes)</a></li>
 </ul></li>
-<li class="chapter" data-level="55" data-path="55-references.html"><a href="55-references.html"><i class="fa fa-check"></i><b>55</b> References</a></li>
+<li class="chapter" data-level="56" data-path="56-maxstableRF.html"><a href="56-maxstableRF.html"><i class="fa fa-check"></i><b>56</b> 최대안정 임의장</a><ul>
+<li class="chapter" data-level="56.1" data-path="56-1-brown-resnick-brown-resnick-random-fields.html"><a href="56-1-brown-resnick-brown-resnick-random-fields.html"><i class="fa fa-check"></i><b>56.1</b> Brown-Resnick 임의장(Brown-Resnick random fields)</a></li>
+<li class="chapter" data-level="56.2" data-path="56-2-extremal-gaussian-extremal-gaussian-random-fields.html"><a href="56-2-extremal-gaussian-extremal-gaussian-random-fields.html"><i class="fa fa-check"></i><b>56.2</b> Extremal-Gaussian 임의장(extremal-Gaussian random fields)</a></li>
+<li class="chapter" data-level="56.3" data-path="56-3-extremal-t-extremal-t-random-fields.html"><a href="56-3-extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>56.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
+</ul></li>
+<li class="chapter" data-level="57" data-path="57-references.html"><a href="57-references.html"><i class="fa fa-check"></i><b>57</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
 
@@ -646,7 +653,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>푸리에 해석에서의 주파수와는 달리, 웨이블릿 해석에서는 <strong>척도(scale)</strong>가 중요한 역할을 한다. 척도가 큰 창(window)을 통해서 신호를 관찰하면, 그 신호의 전반적인 특징을 관찰할 수 있다. 즉 웨이블릿이라는 창을 사용해서 신호를 분석하면 신호의 전체적인 모습뿐 아니라 세부적인 모습까지도 분석할 수 있다. 따라서 신호가 가지고 있는 비정상적(nonstationry) 성질들을 나타내는 데 웨이블릿이 유용하다. 예를 들어, 푸리에 해석에서는 신호의 불연속성, 단절(rupture) 등을 잘 식별할 수 없지만 웨이블릿 해석을 사용하면 식별이 가능하다. 이는 웨이블릿이 단순히 신호의 자세한 부분까지를 반영하기 때문이 아니라 신호가 변화하는 부분을 잘 나타내기 때문이다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-189" class="definition"><strong>Definition 19.4  (웨이블릿)  </strong></span><strong>웨이블릿(wavelet)</strong> <span class="math inline">\(\psi(t)\)</span>는 실변수함수로, localized waveform을 갖으며</p>
+<p><span id="def:unnamed-chunk-192" class="definition"><strong>Definition 19.4  (웨이블릿)  </strong></span><strong>웨이블릿(wavelet)</strong> <span class="math inline">\(\psi(t)\)</span>는 실변수함수로, localized waveform을 갖으며</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(\int_{-\infty}^{\infty}\psi(t)dt=0\)</span></p></li>
 <li><p><span class="math inline">\(\int_{-\infty}^{\infty}\psi(t)^{2}dt=1\)</span></p></li>
@@ -656,7 +663,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-190" class="example"><strong>Example 19.1  (Haar 웨이블릿)  </strong></span><strong>Haar 웨이블릿(Haar wavelet)</strong>은</p>
+<p><span id="exm:unnamed-chunk-193" class="example"><strong>Example 19.1  (Haar 웨이블릿)  </strong></span><strong>Haar 웨이블릿(Haar wavelet)</strong>은</p>
 <span class="math display">\[\begin{equation} 
 \psi(t) \equiv
   \begin{cases}
@@ -668,8 +675,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>으로 정의된다.</p>
 </div>
 
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-191"></span>
-<img src="book_files/figure-html/unnamed-chunk-191-1.svg" alt="Haar wavelet function." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-194"></span>
+<img src="book_files/figure-html/unnamed-chunk-194-1.svg" alt="Haar wavelet function." width="672" />
 <p class="caption">
 FIGURE 19.1: Haar wavelet function.
 </p>

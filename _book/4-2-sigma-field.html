@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-03-08">
+<meta name="date" content="2018-03-22">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -165,6 +165,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.6.1" data-path="3-6-various-measures.html"><a href="3-6-various-measures.html#-borel-measure"><i class="fa fa-check"></i><b>3.6.1</b> 보렐 측도(Borel measure)</a></li>
 <li class="chapter" data-level="3.6.2" data-path="3-6-various-measures.html"><a href="3-6-various-measures.html#-radon-measure"><i class="fa fa-check"></i><b>3.6.2</b> 라돈 측도(Radon measure)</a></li>
 </ul></li>
+<li class="chapter" data-level="3.7" data-path="3-7-the-use-of-measure-notation.html"><a href="3-7-the-use-of-measure-notation.html"><i class="fa fa-check"></i><b>3.7</b> 적분 기호의 사용(the use of measure notation)</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="4-basicprob.html"><a href="4-basicprob.html"><i class="fa fa-check"></i><b>4</b> 기초 확률론</a><ul>
 <li class="chapter" data-level="4.1" data-path="4-1-sample-space-and-events.html"><a href="4-1-sample-space-and-events.html"><i class="fa fa-check"></i><b>4.1</b> 표본공간과 사건(sample space and events)</a></li>
@@ -205,11 +206,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.3" data-path="8-3-separable-random-functions.html"><a href="8-3-separable-random-functions.html"><i class="fa fa-check"></i><b>8.3</b> 분리가능한 무작위 함수들(separable random functions)</a></li>
 <li class="chapter" data-level="8.4" data-path="8-4-empirical-process.html"><a href="8-4-empirical-process.html"><i class="fa fa-check"></i><b>8.4</b> 경험과정(empirical process)</a></li>
 <li class="chapter" data-level="8.5" data-path="8-5-poisson-process.html"><a href="8-5-poisson-process.html"><i class="fa fa-check"></i><b>8.5</b> 포아송과정(Poisson process)</a></li>
-<li class="chapter" data-level="8.6" data-path="8-6-brownian-motion.html"><a href="8-6-brownian-motion.html"><i class="fa fa-check"></i><b>8.6</b> 브라운운동(Brownian motion)</a><ul>
-<li class="chapter" data-level="8.6.1" data-path="8-6-brownian-motion.html"><a href="8-6-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>8.6.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+<li class="chapter" data-level="8.6" data-path="8-6-poisson-random-measures.html"><a href="8-6-poisson-random-measures.html"><i class="fa fa-check"></i><b>8.6</b> 포아송 무작위 측도들(Poisson random measures)</a></li>
+<li class="chapter" data-level="8.7" data-path="8-7-brownian-motion.html"><a href="8-7-brownian-motion.html"><i class="fa fa-check"></i><b>8.7</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="8-7-brownian-motion.html"><a href="8-7-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>8.7.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="8.7" data-path="8-7-martingale.html"><a href="8-7-martingale.html"><i class="fa fa-check"></i><b>8.7</b> 마팅게일(martingale)</a></li>
-<li class="chapter" data-level="8.8" data-path="8-8-markov-chain.html"><a href="8-8-markov-chain.html"><i class="fa fa-check"></i><b>8.8</b> 마르코프 체인(Markov chain)</a></li>
+<li class="chapter" data-level="8.8" data-path="8-8-martingale.html"><a href="8-8-martingale.html"><i class="fa fa-check"></i><b>8.8</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="8.9" data-path="8-9-markov-chain.html"><a href="8-9-markov-chain.html"><i class="fa fa-check"></i><b>8.9</b> 마르코프 체인(Markov chain)</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="9-bigOsmallo.html"><a href="9-bigOsmallo.html"><i class="fa fa-check"></i><b>9</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="9.1" data-path="9-1-big-o-small-o-big-o-and-small-o.html"><a href="9-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>9.1</b> Big O와 small o (big O and small o)</a></li>
@@ -604,21 +606,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="52" data-path="52-pot.html"><a href="52-pot.html"><i class="fa fa-check"></i><b>52</b> 분계점 방법들</a><ul>
 <li class="chapter" data-level="52.1" data-path="52-1-generalized-pareto-distribution.html"><a href="52-1-generalized-pareto-distribution.html"><i class="fa fa-check"></i><b>52.1</b> 일반화 파레토 분포(generalized pareto distribution)</a></li>
 </ul></li>
-<li class="chapter" data-level="53" data-path="53-spatextremes.html"><a href="53-spatextremes.html"><i class="fa fa-check"></i><b>53</b> 공간 극단값 이론과 최대안정과정</a><ul>
-<li class="chapter" data-level="53.1" data-path="53-1-max-stable-process.html"><a href="53-1-max-stable-process.html"><i class="fa fa-check"></i><b>53.1</b> 최대안정과정(max-stable process)</a><ul>
-<li class="chapter" data-level="53.1.1" data-path="53-1-max-stable-process.html"><a href="53-1-max-stable-process.html#smith-smith-model"><i class="fa fa-check"></i><b>53.1.1</b> Smith 모형(Smith model)</a></li>
-<li class="chapter" data-level="53.1.2" data-path="53-1-max-stable-process.html"><a href="53-1-max-stable-process.html#schlather-schlather-model"><i class="fa fa-check"></i><b>53.1.2</b> Schlather 모형(Schlather model)</a></li>
-<li class="chapter" data-level="53.1.3" data-path="53-1-max-stable-process.html"><a href="53-1-max-stable-process.html#brown-resnick-brown-resnick-model"><i class="fa fa-check"></i><b>53.1.3</b> Brown-Resnick 모형(Brown-Resnick model)</a></li>
-<li class="chapter" data-level="53.1.4" data-path="53-1-max-stable-process.html"><a href="53-1-max-stable-process.html#-t-extremal-t-model"><i class="fa fa-check"></i><b>53.1.4</b> 극단-t 모형(extremal-t model)</a></li>
+<li class="chapter" data-level="53" data-path="53-mevtheory.html"><a href="53-mevtheory.html"><i class="fa fa-check"></i><b>53</b> 다변량 극단값 이론</a><ul>
+<li class="chapter" data-level="53.1" data-path="53-1-copula.html"><a href="53-1-copula.html"><i class="fa fa-check"></i><b>53.1</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="53.2" data-path="53-2-limiting-standardization.html"><a href="53-2-limiting-standardization.html"><i class="fa fa-check"></i><b>53.2</b> 극단 정규화(limiting standardization)</a></li>
 </ul></li>
-<li class="chapter" data-level="53.2" data-path="53-2-spatial-dependence-of-extremes.html"><a href="53-2-spatial-dependence-of-extremes.html"><i class="fa fa-check"></i><b>53.2</b> 극단값의 공간 종속성(spatial dependence of extremes)</a></li>
+<li class="chapter" data-level="54" data-path="54-timeextremes.html"><a href="54-timeextremes.html"><i class="fa fa-check"></i><b>54</b> 정상시계열에서의 극단값들</a></li>
+<li class="chapter" data-level="55" data-path="55-spatextremes.html"><a href="55-spatextremes.html"><i class="fa fa-check"></i><b>55</b> 공간 극단값 이론과 최대안정과정</a><ul>
+<li class="chapter" data-level="55.1" data-path="55-1-max-stable-process.html"><a href="55-1-max-stable-process.html"><i class="fa fa-check"></i><b>55.1</b> 최대안정과정(max-stable process)</a><ul>
+<li class="chapter" data-level="55.1.1" data-path="55-1-max-stable-process.html"><a href="55-1-max-stable-process.html#smith-smith-model"><i class="fa fa-check"></i><b>55.1.1</b> Smith 모형(Smith model)</a></li>
+<li class="chapter" data-level="55.1.2" data-path="55-1-max-stable-process.html"><a href="55-1-max-stable-process.html#schlather-schlather-model"><i class="fa fa-check"></i><b>55.1.2</b> Schlather 모형(Schlather model)</a></li>
+<li class="chapter" data-level="55.1.3" data-path="55-1-max-stable-process.html"><a href="55-1-max-stable-process.html#brown-resnick-brown-resnick-model"><i class="fa fa-check"></i><b>55.1.3</b> Brown-Resnick 모형(Brown-Resnick model)</a></li>
+<li class="chapter" data-level="55.1.4" data-path="55-1-max-stable-process.html"><a href="55-1-max-stable-process.html#-t-extremal-t-model"><i class="fa fa-check"></i><b>55.1.4</b> 극단-t 모형(extremal-t model)</a></li>
 </ul></li>
-<li class="chapter" data-level="54" data-path="54-maxstableRF.html"><a href="54-maxstableRF.html"><i class="fa fa-check"></i><b>54</b> 최대안정 임의장</a><ul>
-<li class="chapter" data-level="54.1" data-path="54-1-brown-resnick-brown-resnick-random-fields.html"><a href="54-1-brown-resnick-brown-resnick-random-fields.html"><i class="fa fa-check"></i><b>54.1</b> Brown-Resnick 임의장(Brown-Resnick random fields)</a></li>
-<li class="chapter" data-level="54.2" data-path="54-2-extremal-gaussian-extremal-gaussian-random-fields.html"><a href="54-2-extremal-gaussian-extremal-gaussian-random-fields.html"><i class="fa fa-check"></i><b>54.2</b> Extremal-Gaussian 임의장(extremal-Gaussian random fields)</a></li>
-<li class="chapter" data-level="54.3" data-path="54-3-extremal-t-extremal-t-random-fields.html"><a href="54-3-extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>54.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
+<li class="chapter" data-level="55.2" data-path="55-2-spatial-dependence-of-extremes.html"><a href="55-2-spatial-dependence-of-extremes.html"><i class="fa fa-check"></i><b>55.2</b> 극단값의 공간 종속성(spatial dependence of extremes)</a></li>
 </ul></li>
-<li class="chapter" data-level="55" data-path="55-references.html"><a href="55-references.html"><i class="fa fa-check"></i><b>55</b> References</a></li>
+<li class="chapter" data-level="56" data-path="56-maxstableRF.html"><a href="56-maxstableRF.html"><i class="fa fa-check"></i><b>56</b> 최대안정 임의장</a><ul>
+<li class="chapter" data-level="56.1" data-path="56-1-brown-resnick-brown-resnick-random-fields.html"><a href="56-1-brown-resnick-brown-resnick-random-fields.html"><i class="fa fa-check"></i><b>56.1</b> Brown-Resnick 임의장(Brown-Resnick random fields)</a></li>
+<li class="chapter" data-level="56.2" data-path="56-2-extremal-gaussian-extremal-gaussian-random-fields.html"><a href="56-2-extremal-gaussian-extremal-gaussian-random-fields.html"><i class="fa fa-check"></i><b>56.2</b> Extremal-Gaussian 임의장(extremal-Gaussian random fields)</a></li>
+<li class="chapter" data-level="56.3" data-path="56-3-extremal-t-extremal-t-random-fields.html"><a href="56-3-extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>56.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
+</ul></li>
+<li class="chapter" data-level="57" data-path="57-references.html"><a href="57-references.html"><i class="fa fa-check"></i><b>57</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
 
@@ -644,7 +651,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>앞서 표본공간 <span class="math inline">\(\Omega\)</span>의 임의의 부분집합인 사건을 생각했는데, 그러면 이 사건들의 집합 <span class="math inline">\(\mathcal{F}\)</span>에 대해서도 생각해 볼 수 있을 것이다. 그리고 사건들의 집합이 가져야 할 바람직한 성질들을 잘 정의하기 위해 시그마-체라는 개념을 도입한다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-49" class="definition"><strong>Definition 4.3  (대수(체))  </strong></span>어떤 집합(set) <span class="math inline">\(\Omega\)</span>의 non-empty collection (즉 <span class="math inline">\(\Omega\)</span>의 subset들의 모임)을 <span class="math inline">\(\mathcal{F}\)</span>라고 하자. 그러면 <span class="math inline">\(\mathcal{F}\)</span>가</p>
+<p><span id="def:unnamed-chunk-50" class="definition"><strong>Definition 4.3  (대수(체))  </strong></span>어떤 집합(set) <span class="math inline">\(\Omega\)</span>의 non-empty collection (즉 <span class="math inline">\(\Omega\)</span>의 subset들의 모임)을 <span class="math inline">\(\mathcal{F}\)</span>라고 하자. 그러면 <span class="math inline">\(\mathcal{F}\)</span>가</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(\Omega \in \mathcal{F}\)</span> (또는 <span class="math inline">\(\emptyset \in \mathcal{F}\)</span>)</p></li>
 <li><p><span class="math inline">\(A \in \mathcal{F}\)</span>이면 <span class="math inline">\(A^{C} \in \mathcal{F}\)</span>,</p></li>
@@ -656,7 +663,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>시그마-체는 앞선 대수의 정의에서 두 번째 조건이 조금 바뀐 것이다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-50" class="definition"><strong>Definition 4.4  (시그마-체)  </strong></span>어떤 집합(set) <span class="math inline">\(\Omega\)</span>의 non-empty collection을 <span class="math inline">\(\mathcal{F}\)</span>라고 할 때, <span class="math inline">\(\mathcal{F}\)</span>가</p>
+<p><span id="def:unnamed-chunk-51" class="definition"><strong>Definition 4.4  (시그마-체)  </strong></span>어떤 집합(set) <span class="math inline">\(\Omega\)</span>의 non-empty collection을 <span class="math inline">\(\mathcal{F}\)</span>라고 할 때, <span class="math inline">\(\mathcal{F}\)</span>가</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(\Omega \in \mathcal{F}\)</span> (또는 <span class="math inline">\(\emptyset \in \mathcal{F}\)</span>)</p></li>
 <li><p><span class="math inline">\(A \in \mathcal{F}\)</span>이면 <span class="math inline">\(A^{C} \in \mathcal{F}\)</span>,</p></li>
@@ -668,7 +675,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>다음은 체와 시그마-체에 대한 간단한 사실들이다.</p>
 
 <div class="corollary">
-<p><span id="cor:unnamed-chunk-51" class="corollary"><strong>Corollary 4.1  (시그마-체에 대한 사실들)  </strong></span>1. 모든 체는 finite union에 대해 닫혀있다. 또한 같은 논리를 적용해 finite intersection에 대해서도 닫혀있다.</p>
+<p><span id="cor:unnamed-chunk-52" class="corollary"><strong>Corollary 4.1  (시그마-체에 대한 사실들)  </strong></span>1. 모든 체는 finite union에 대해 닫혀있다. 또한 같은 논리를 적용해 finite intersection에 대해서도 닫혀있다.</p>
 <ol start="2" style="list-style-type: decimal">
 <li><p>모든 시그마-체 <span class="math inline">\(\mathcal{F}\)</span>는 countable intersection에 대해서도 닫혀있다. 즉, <span class="math display">\[A_{1}, A_{2}, \ldots  \in \mathcal{F} \text{, then }  \bigcap_{i=1}^{\infty}A_{i} = (\bigcap_{i=1}^{\infty}A_{i}^{C})^{C} \in \mathcal{F}.\]</span> 물론 모든 <span class="math inline">\(A_{1}^{C}, A_{2}^{C},\ldots\)</span> 또한 <span class="math inline">\(A_{1}^{C}, A_{2}^{C}, \ldots \in \mathcal{F}\)</span> 이다.</p></li>
 <li><span class="math inline">\(\mathcal{F}\)</span>가 non-void일 경우에는 모든 체 또는 시그마-체가 <span class="math inline">\(A\)</span>를 포함하고 있으면 <span class="math inline">\(A^{C}\)</span> 또한 포함하고 있기 때문에 <span class="math inline">\(\Omega=A \cup A^{C}\)</span>와 <span class="math inline">\(\emptyset=\Omega^{C}\)</span> 또한 <span class="math inline">\(\mathcal{F}\)</span>에 포함되어 있다. 따라서 첫 번째 조건을 생략해도 된다.</li>
@@ -677,7 +684,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-52" class="example"><strong>Example 4.5  (시그마-체의 예)  </strong></span>- 어떤 집합 <span class="math inline">\(\Omega\)</span>에 대해, <span class="math inline">\(\{\emptyset, \Omega\}\)</span>는 시그마-체가 된다. 이 시그마-체는 <span class="math inline">\(\Omega\)</span>의 부분집합으로 만들 수 있는 가장 작은 시그마-체이다.</p>
+<p><span id="exm:unnamed-chunk-53" class="example"><strong>Example 4.5  (시그마-체의 예)  </strong></span>- 어떤 집합 <span class="math inline">\(\Omega\)</span>에 대해, <span class="math inline">\(\{\emptyset, \Omega\}\)</span>는 시그마-체가 된다. 이 시그마-체는 <span class="math inline">\(\Omega\)</span>의 부분집합으로 만들 수 있는 가장 작은 시그마-체이다.</p>
 <ul>
 <li><p><span class="math inline">\(\Omega\)</span>의 멱집합(power set, 어떤 집합의 모든 부분집합을 모은 집합) 또한 시그마-체이며 이는 <span class="math inline">\(\Omega\)</span>의 부분집합으로 만들 수 있는 가장 큰 시그마-체이다.</p></li>
 <li><span class="math inline">\(A\in\Omega\)</span>일 때 collection <span class="math inline">\(\{\emptyset, A, A^{C}, \Omega\}\)</span> 또한 간단히 만들 수 있는 시그마-체의 예다.</li>
@@ -686,12 +693,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-53" class="example"><strong>Example 4.6  (체이나 시그마-체가 아닌 예)  </strong></span>다음은 <span class="math inline">\(\mathcal{F}\)</span>가 체이나 시그마-체가 아닌 예이다. <span class="math inline">\(\Omega=(0,1]\)</span>이고, <span class="math inline">\(\mathcal{F}\)</span>는 <span class="math inline">\(\emptyset\)</span>과 모든 <span class="math display">\[(a,b], \qquad{a,b\in\mathbb{Q}, a,b\in [0,1], a&lt;b}\]</span> 와 <span class="math inline">\((a,b]\)</span>의 모든 finite union을 포함한다고 하자. 그리고 <span class="math inline">\([z]\)</span>를 z와 가장 가까운 정수로 반올림해주는 연산자라고 하자. 그러면 정의에 의해 <span class="math inline">\(\mathcal{F}\)</span>는 체가 된다. 그러나 <span class="math inline">\(A_{n}=(a_{n},1]\)</span>, <span class="math inline">\(a_{n}=\frac{10^{n}}{[10^{n}\pi]}\)</span>라고 하면 <span class="math display">\[A_{n}\in\mathcal{F} \text{but } \cup_{n=1}^{\infty}A_{n}=(\pi,1]\notin \mathcal{F}\]</span> 이다. 따라서 <span class="math inline">\(\mathcal{F}\)</span>는 시그마-체가 아니다.</p>
+<p><span id="exm:unnamed-chunk-54" class="example"><strong>Example 4.6  (체이나 시그마-체가 아닌 예)  </strong></span>다음은 <span class="math inline">\(\mathcal{F}\)</span>가 체이나 시그마-체가 아닌 예이다. <span class="math inline">\(\Omega=(0,1]\)</span>이고, <span class="math inline">\(\mathcal{F}\)</span>는 <span class="math inline">\(\emptyset\)</span>과 모든 <span class="math display">\[(a,b], \qquad{a,b\in\mathbb{Q}, a,b\in [0,1], a&lt;b}\]</span> 와 <span class="math inline">\((a,b]\)</span>의 모든 finite union을 포함한다고 하자. 그리고 <span class="math inline">\([z]\)</span>를 z와 가장 가까운 정수로 반올림해주는 연산자라고 하자. 그러면 정의에 의해 <span class="math inline">\(\mathcal{F}\)</span>는 체가 된다. 그러나 <span class="math inline">\(A_{n}=(a_{n},1]\)</span>, <span class="math inline">\(a_{n}=\frac{10^{n}}{[10^{n}\pi]}\)</span>라고 하면 <span class="math display">\[A_{n}\in\mathcal{F} \text{but } \cup_{n=1}^{\infty}A_{n}=(\pi,1]\notin \mathcal{F}\]</span> 이다. 따라서 <span class="math inline">\(\mathcal{F}\)</span>는 시그마-체가 아니다.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-54" class="example"><strong>Example 4.7  (표본공간이 셀 수 있는 집합이면 멱집합이 사건들의 집합)  </strong></span>표본공간 <span class="math inline">\(\Omega\)</span>가 셀 수 있는 집합, 예를 들면 <span class="math inline">\(\{0,1,2,\ldots, \}\)</span>라고 가정하자. 그리고 이 때 사건들의 집합 <span class="math inline">\(\mathcal{F}\)</span>가 모든 singleton <span class="math inline">\(\omega_{i}, i=1,2,\ldots\)</span>들을 포함하는 시그마-체가 되길 원한다고 가정하자. 그러면 <span class="math inline">\(\Omega\)</span>의 모든 부분집합 <span class="math inline">\(E\)</span>는 <span class="math inline">\(\cup_{i=1}^{\infty}\omega_{i}\)</span>로 만들 수 있다. 즉 singleton들의 countable union으로 만들 수 있다. 그리고 countable union에 대해 시그마-체가 닫혀있기 때문에, <span class="math inline">\(\mathcal{F}\)</span>가 <span class="math inline">\(\Omega\)</span>의 어떤 부분집합 <span class="math inline">\(E\)</span>들을 모두 포함한다는 결론에 이른다. 즉, <strong>표본공간이 셀 수 있는 집합이면, 우리는 항상 멱집합을 사건들의 집합으로 써야 한다.</strong></p>
+<p><span id="exm:unnamed-chunk-55" class="example"><strong>Example 4.7  (표본공간이 셀 수 있는 집합이면 멱집합이 사건들의 집합)  </strong></span>표본공간 <span class="math inline">\(\Omega\)</span>가 셀 수 있는 집합, 예를 들면 <span class="math inline">\(\{0,1,2,\ldots, \}\)</span>라고 가정하자. 그리고 이 때 사건들의 집합 <span class="math inline">\(\mathcal{F}\)</span>가 모든 singleton <span class="math inline">\(\omega_{i}, i=1,2,\ldots\)</span>들을 포함하는 시그마-체가 되길 원한다고 가정하자. 그러면 <span class="math inline">\(\Omega\)</span>의 모든 부분집합 <span class="math inline">\(E\)</span>는 <span class="math inline">\(\cup_{i=1}^{\infty}\omega_{i}\)</span>로 만들 수 있다. 즉 singleton들의 countable union으로 만들 수 있다. 그리고 countable union에 대해 시그마-체가 닫혀있기 때문에, <span class="math inline">\(\mathcal{F}\)</span>가 <span class="math inline">\(\Omega\)</span>의 어떤 부분집합 <span class="math inline">\(E\)</span>들을 모두 포함한다는 결론에 이른다. 즉, <strong>표본공간이 셀 수 있는 집합이면, 우리는 항상 멱집합을 사건들의 집합으로 써야 한다.</strong></p>
 </div>
 
 </div>

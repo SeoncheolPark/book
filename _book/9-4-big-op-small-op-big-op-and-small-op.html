@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-03-08">
+<meta name="date" content="2018-03-22">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -165,6 +165,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.6.1" data-path="3-6-various-measures.html"><a href="3-6-various-measures.html#-borel-measure"><i class="fa fa-check"></i><b>3.6.1</b> 보렐 측도(Borel measure)</a></li>
 <li class="chapter" data-level="3.6.2" data-path="3-6-various-measures.html"><a href="3-6-various-measures.html#-radon-measure"><i class="fa fa-check"></i><b>3.6.2</b> 라돈 측도(Radon measure)</a></li>
 </ul></li>
+<li class="chapter" data-level="3.7" data-path="3-7-the-use-of-measure-notation.html"><a href="3-7-the-use-of-measure-notation.html"><i class="fa fa-check"></i><b>3.7</b> 적분 기호의 사용(the use of measure notation)</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="4-basicprob.html"><a href="4-basicprob.html"><i class="fa fa-check"></i><b>4</b> 기초 확률론</a><ul>
 <li class="chapter" data-level="4.1" data-path="4-1-sample-space-and-events.html"><a href="4-1-sample-space-and-events.html"><i class="fa fa-check"></i><b>4.1</b> 표본공간과 사건(sample space and events)</a></li>
@@ -205,11 +206,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.3" data-path="8-3-separable-random-functions.html"><a href="8-3-separable-random-functions.html"><i class="fa fa-check"></i><b>8.3</b> 분리가능한 무작위 함수들(separable random functions)</a></li>
 <li class="chapter" data-level="8.4" data-path="8-4-empirical-process.html"><a href="8-4-empirical-process.html"><i class="fa fa-check"></i><b>8.4</b> 경험과정(empirical process)</a></li>
 <li class="chapter" data-level="8.5" data-path="8-5-poisson-process.html"><a href="8-5-poisson-process.html"><i class="fa fa-check"></i><b>8.5</b> 포아송과정(Poisson process)</a></li>
-<li class="chapter" data-level="8.6" data-path="8-6-brownian-motion.html"><a href="8-6-brownian-motion.html"><i class="fa fa-check"></i><b>8.6</b> 브라운운동(Brownian motion)</a><ul>
-<li class="chapter" data-level="8.6.1" data-path="8-6-brownian-motion.html"><a href="8-6-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>8.6.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+<li class="chapter" data-level="8.6" data-path="8-6-poisson-random-measures.html"><a href="8-6-poisson-random-measures.html"><i class="fa fa-check"></i><b>8.6</b> 포아송 무작위 측도들(Poisson random measures)</a></li>
+<li class="chapter" data-level="8.7" data-path="8-7-brownian-motion.html"><a href="8-7-brownian-motion.html"><i class="fa fa-check"></i><b>8.7</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="8-7-brownian-motion.html"><a href="8-7-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>8.7.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="8.7" data-path="8-7-martingale.html"><a href="8-7-martingale.html"><i class="fa fa-check"></i><b>8.7</b> 마팅게일(martingale)</a></li>
-<li class="chapter" data-level="8.8" data-path="8-8-markov-chain.html"><a href="8-8-markov-chain.html"><i class="fa fa-check"></i><b>8.8</b> 마르코프 체인(Markov chain)</a></li>
+<li class="chapter" data-level="8.8" data-path="8-8-martingale.html"><a href="8-8-martingale.html"><i class="fa fa-check"></i><b>8.8</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="8.9" data-path="8-9-markov-chain.html"><a href="8-9-markov-chain.html"><i class="fa fa-check"></i><b>8.9</b> 마르코프 체인(Markov chain)</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="9-bigOsmallo.html"><a href="9-bigOsmallo.html"><i class="fa fa-check"></i><b>9</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="9.1" data-path="9-1-big-o-small-o-big-o-and-small-o.html"><a href="9-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>9.1</b> Big O와 small o (big O and small o)</a></li>
@@ -604,21 +606,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="52" data-path="52-pot.html"><a href="52-pot.html"><i class="fa fa-check"></i><b>52</b> 분계점 방법들</a><ul>
 <li class="chapter" data-level="52.1" data-path="52-1-generalized-pareto-distribution.html"><a href="52-1-generalized-pareto-distribution.html"><i class="fa fa-check"></i><b>52.1</b> 일반화 파레토 분포(generalized pareto distribution)</a></li>
 </ul></li>
-<li class="chapter" data-level="53" data-path="53-spatextremes.html"><a href="53-spatextremes.html"><i class="fa fa-check"></i><b>53</b> 공간 극단값 이론과 최대안정과정</a><ul>
-<li class="chapter" data-level="53.1" data-path="53-1-max-stable-process.html"><a href="53-1-max-stable-process.html"><i class="fa fa-check"></i><b>53.1</b> 최대안정과정(max-stable process)</a><ul>
-<li class="chapter" data-level="53.1.1" data-path="53-1-max-stable-process.html"><a href="53-1-max-stable-process.html#smith-smith-model"><i class="fa fa-check"></i><b>53.1.1</b> Smith 모형(Smith model)</a></li>
-<li class="chapter" data-level="53.1.2" data-path="53-1-max-stable-process.html"><a href="53-1-max-stable-process.html#schlather-schlather-model"><i class="fa fa-check"></i><b>53.1.2</b> Schlather 모형(Schlather model)</a></li>
-<li class="chapter" data-level="53.1.3" data-path="53-1-max-stable-process.html"><a href="53-1-max-stable-process.html#brown-resnick-brown-resnick-model"><i class="fa fa-check"></i><b>53.1.3</b> Brown-Resnick 모형(Brown-Resnick model)</a></li>
-<li class="chapter" data-level="53.1.4" data-path="53-1-max-stable-process.html"><a href="53-1-max-stable-process.html#-t-extremal-t-model"><i class="fa fa-check"></i><b>53.1.4</b> 극단-t 모형(extremal-t model)</a></li>
+<li class="chapter" data-level="53" data-path="53-mevtheory.html"><a href="53-mevtheory.html"><i class="fa fa-check"></i><b>53</b> 다변량 극단값 이론</a><ul>
+<li class="chapter" data-level="53.1" data-path="53-1-copula.html"><a href="53-1-copula.html"><i class="fa fa-check"></i><b>53.1</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="53.2" data-path="53-2-limiting-standardization.html"><a href="53-2-limiting-standardization.html"><i class="fa fa-check"></i><b>53.2</b> 극단 정규화(limiting standardization)</a></li>
 </ul></li>
-<li class="chapter" data-level="53.2" data-path="53-2-spatial-dependence-of-extremes.html"><a href="53-2-spatial-dependence-of-extremes.html"><i class="fa fa-check"></i><b>53.2</b> 극단값의 공간 종속성(spatial dependence of extremes)</a></li>
+<li class="chapter" data-level="54" data-path="54-timeextremes.html"><a href="54-timeextremes.html"><i class="fa fa-check"></i><b>54</b> 정상시계열에서의 극단값들</a></li>
+<li class="chapter" data-level="55" data-path="55-spatextremes.html"><a href="55-spatextremes.html"><i class="fa fa-check"></i><b>55</b> 공간 극단값 이론과 최대안정과정</a><ul>
+<li class="chapter" data-level="55.1" data-path="55-1-max-stable-process.html"><a href="55-1-max-stable-process.html"><i class="fa fa-check"></i><b>55.1</b> 최대안정과정(max-stable process)</a><ul>
+<li class="chapter" data-level="55.1.1" data-path="55-1-max-stable-process.html"><a href="55-1-max-stable-process.html#smith-smith-model"><i class="fa fa-check"></i><b>55.1.1</b> Smith 모형(Smith model)</a></li>
+<li class="chapter" data-level="55.1.2" data-path="55-1-max-stable-process.html"><a href="55-1-max-stable-process.html#schlather-schlather-model"><i class="fa fa-check"></i><b>55.1.2</b> Schlather 모형(Schlather model)</a></li>
+<li class="chapter" data-level="55.1.3" data-path="55-1-max-stable-process.html"><a href="55-1-max-stable-process.html#brown-resnick-brown-resnick-model"><i class="fa fa-check"></i><b>55.1.3</b> Brown-Resnick 모형(Brown-Resnick model)</a></li>
+<li class="chapter" data-level="55.1.4" data-path="55-1-max-stable-process.html"><a href="55-1-max-stable-process.html#-t-extremal-t-model"><i class="fa fa-check"></i><b>55.1.4</b> 극단-t 모형(extremal-t model)</a></li>
 </ul></li>
-<li class="chapter" data-level="54" data-path="54-maxstableRF.html"><a href="54-maxstableRF.html"><i class="fa fa-check"></i><b>54</b> 최대안정 임의장</a><ul>
-<li class="chapter" data-level="54.1" data-path="54-1-brown-resnick-brown-resnick-random-fields.html"><a href="54-1-brown-resnick-brown-resnick-random-fields.html"><i class="fa fa-check"></i><b>54.1</b> Brown-Resnick 임의장(Brown-Resnick random fields)</a></li>
-<li class="chapter" data-level="54.2" data-path="54-2-extremal-gaussian-extremal-gaussian-random-fields.html"><a href="54-2-extremal-gaussian-extremal-gaussian-random-fields.html"><i class="fa fa-check"></i><b>54.2</b> Extremal-Gaussian 임의장(extremal-Gaussian random fields)</a></li>
-<li class="chapter" data-level="54.3" data-path="54-3-extremal-t-extremal-t-random-fields.html"><a href="54-3-extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>54.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
+<li class="chapter" data-level="55.2" data-path="55-2-spatial-dependence-of-extremes.html"><a href="55-2-spatial-dependence-of-extremes.html"><i class="fa fa-check"></i><b>55.2</b> 극단값의 공간 종속성(spatial dependence of extremes)</a></li>
 </ul></li>
-<li class="chapter" data-level="55" data-path="55-references.html"><a href="55-references.html"><i class="fa fa-check"></i><b>55</b> References</a></li>
+<li class="chapter" data-level="56" data-path="56-maxstableRF.html"><a href="56-maxstableRF.html"><i class="fa fa-check"></i><b>56</b> 최대안정 임의장</a><ul>
+<li class="chapter" data-level="56.1" data-path="56-1-brown-resnick-brown-resnick-random-fields.html"><a href="56-1-brown-resnick-brown-resnick-random-fields.html"><i class="fa fa-check"></i><b>56.1</b> Brown-Resnick 임의장(Brown-Resnick random fields)</a></li>
+<li class="chapter" data-level="56.2" data-path="56-2-extremal-gaussian-extremal-gaussian-random-fields.html"><a href="56-2-extremal-gaussian-extremal-gaussian-random-fields.html"><i class="fa fa-check"></i><b>56.2</b> Extremal-Gaussian 임의장(extremal-Gaussian random fields)</a></li>
+<li class="chapter" data-level="56.3" data-path="56-3-extremal-t-extremal-t-random-fields.html"><a href="56-3-extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>56.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
+</ul></li>
+<li class="chapter" data-level="57" data-path="57-references.html"><a href="57-references.html"><i class="fa fa-check"></i><b>57</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
 
@@ -644,7 +651,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>확률변수들의 수열 <span class="math inline">\(X_{n},n=1,2,\ldots\)</span>이 <span class="math inline">\(O_{P}(1)\)</span>인 것을 다른 말로 <strong>bounded in probability</strong>라고 부른다.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-135" class="definition"><strong>Definition 9.6  (big Op)  </strong></span>확률변수들의 수열 <span class="math inline">\(X_{n},n=1,2,\ldots\)</span>이 어떤 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math inline">\(M&gt;0, N\geq 1\)</span>이 존재해
+<span id="def:unnamed-chunk-138" class="definition"><strong>Definition 9.6  (big Op)  </strong></span>확률변수들의 수열 <span class="math inline">\(X_{n},n=1,2,\ldots\)</span>이 어떤 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math inline">\(M&gt;0, N\geq 1\)</span>이 존재해
 <span class="math display">\[\begin{equation}
 P(|X_{n}|\leq M)&gt; 1-\epsilon,\qquad{n\geq N}
 \end{equation}\]</span>
@@ -653,7 +660,7 @@ P(|X_{n}|\leq M)&gt; 1-\epsilon,\qquad{n\geq N}
 
 
 <div class="lemma">
-<span id="lem:unnamed-chunk-136" class="lemma"><strong>Lemma 9.6  </strong></span><span class="math inline">\(X_{n}=O_{P}(1)\)</span>인 것은 모든 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math inline">\(M&gt;0\)</span>이 존재해
+<span id="lem:unnamed-chunk-139" class="lemma"><strong>Lemma 9.6  </strong></span><span class="math inline">\(X_{n}=O_{P}(1)\)</span>인 것은 모든 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math inline">\(M&gt;0\)</span>이 존재해
 <span class="math display">\[\begin{equation}
 P(|X_{n}|\leq M)&gt; 1-\epsilon,\qquad{n\geq 1}
 \end{equation}\]</span>
@@ -662,13 +669,13 @@ P(|X_{n}|\leq M)&gt; 1-\epsilon,\qquad{n\geq 1}
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-137" class="definition"><strong>Definition 9.7  (small op)  </strong></span><span class="math inline">\(a_{n}\)</span>을 양수들의 수열이라고 하자. 확률변수들의 수열 <span class="math inline">\(X_{n},n=1,2,\ldots\)</span>이 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(X_{n}/a_{n}\stackrel{P}{\rightarrow}0\)</span>를 만족할 경우 <span class="math inline">\(X_{n}=o_{P}(a_{n})\)</span>이라고 한다.</p>
+<p><span id="def:unnamed-chunk-140" class="definition"><strong>Definition 9.7  (small op)  </strong></span><span class="math inline">\(a_{n}\)</span>을 양수들의 수열이라고 하자. 확률변수들의 수열 <span class="math inline">\(X_{n},n=1,2,\ldots\)</span>이 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(X_{n}/a_{n}\stackrel{P}{\rightarrow}0\)</span>를 만족할 경우 <span class="math inline">\(X_{n}=o_{P}(a_{n})\)</span>이라고 한다.</p>
 </div>
 
 <p>다음은 <span class="citation">(Polansky <a href="#ref-Polansky2011">2011</a>)</span>의 8장의 예제들이다.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-138" class="example"><strong>Example 9.5  (이산확률변수의 small op (1))  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>를 독립 이산확률변수들의 수열이라고 하고 <span class="math inline">\(X_{n}\)</span>은 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 다음과 같은 확률밀도함수를 갖는다. <span class="math display">\[
+<p><span id="exm:unnamed-chunk-141" class="example"><strong>Example 9.5  (이산확률변수의 small op (1))  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>를 독립 이산확률변수들의 수열이라고 하고 <span class="math inline">\(X_{n}\)</span>은 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 다음과 같은 확률밀도함수를 갖는다. <span class="math display">\[
 f_{n}(x) := 
 \begin{cases}
 \frac{1}{2} &amp; x\in\{0,n^{-1}\} \\
@@ -685,7 +692,7 @@ g_{n}(x) :=
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-139" class="example"><strong>Example 9.6  (이산확률변수의 small op (2))  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>를 독립 이산확률변수들의 수열이라고 하고 <span class="math inline">\(X_{n}\)</span>은 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 다음과 같은 확률밀도함수를 갖는다. <span class="math display">\[
+<p><span id="exm:unnamed-chunk-142" class="example"><strong>Example 9.6  (이산확률변수의 small op (2))  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>를 독립 이산확률변수들의 수열이라고 하고 <span class="math inline">\(X_{n}\)</span>은 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 다음과 같은 확률밀도함수를 갖는다. <span class="math display">\[
 f_{n}(x) := 
 \begin{cases}
 \frac{1}{2} &amp; x\in\{0,n^{-1}\} \\
@@ -709,12 +716,12 @@ h_{n}(x) :=
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-140" class="example"><strong>Example 9.7  (대수의 약법칙과 small op)  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>가 분포 <span class="math inline">\(F\)</span>, 평균 <span class="math inline">\(\mu\)</span>를 갖는 독립 확률변수들의 수열이라고 하자. 대수의 약법칙(weak law of large numbers)에 따라 표본평균은 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(\mu\)</span>에 확률수렴함을 안다. 따라서, Slutsky 정리에 의해 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(\bar{X}_{n}-\mu \stackrel{P}{\rightarrow}0\)</span>이다. 따라서 정의에 의해 <span class="math inline">\(\bar{X}_{n}-\mu=o_{p}(1)\)</span>이다.</p>
+<p><span id="exm:unnamed-chunk-143" class="example"><strong>Example 9.7  (대수의 약법칙과 small op)  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>가 분포 <span class="math inline">\(F\)</span>, 평균 <span class="math inline">\(\mu\)</span>를 갖는 독립 확률변수들의 수열이라고 하자. 대수의 약법칙(weak law of large numbers)에 따라 표본평균은 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(\mu\)</span>에 확률수렴함을 안다. 따라서, Slutsky 정리에 의해 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(\bar{X}_{n}-\mu \stackrel{P}{\rightarrow}0\)</span>이다. 따라서 정의에 의해 <span class="math inline">\(\bar{X}_{n}-\mu=o_{p}(1)\)</span>이다.</p>
 </div>
 
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-141" class="theorem"><strong>Theorem 9.1  (big Op 관련 정리)  </strong></span>확률변수들의 수열 <span class="math inline">\(X_{n},n=1,2,\ldots\)</span>이 있다고 할 때 다음 중 하나라도 성립하면 <span class="math inline">\(X_{n}=O_{P}(1)\)</span>이다.</p>
+<p><span id="thm:unnamed-chunk-144" class="theorem"><strong>Theorem 9.1  (big Op 관련 정리)  </strong></span>확률변수들의 수열 <span class="math inline">\(X_{n},n=1,2,\ldots\)</span>이 있다고 할 때 다음 중 하나라도 성립하면 <span class="math inline">\(X_{n}=O_{P}(1)\)</span>이다.</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(p&gt;0\)</span>이 존재해 <span class="math inline">\(E(|X_{n}|^{p}),n\geq 1\)</span>이 유계다.</p></li>
 <li><p><span class="math inline">\(n\rightarrow \infty\)</span>일 때 어떤 확률변수 <span class="math inline">\(X\)</span>에 대해 <span class="math inline">\(X_{n}\stackrel{P}{\rightarrow} X\)</span>이다.</p></li>
@@ -725,22 +732,22 @@ h_{n}(x) :=
 <p>다음은 <span class="citation">(Polansky <a href="#ref-Polansky2011">2011</a>)</span>에 있는 big Op 관련 예제다.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-142" class="example"><strong>Example 9.8  (조건부 분포와 BigOp)  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>와 <span class="math inline">\(\{ Y_{n} \}_{n=1}^{\infty}\)</span>가 확률변수의 수열이라고 하자. <span class="math inline">\(Y_{n}\)</span>은 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 <span class="math inline">\(\text{Poisson}(\theta)\)</span> 확률변수를 따른다고 하자. <span class="math inline">\(Y_{n}\)</span>을 conditioning했을 때 <span class="math inline">\(X_{n}\)</span>의 조건부 분포는 <span class="math inline">\(\text{Uniform}\{1,2,\ldots, Y_{n}\}\)</span> 분포를 따른다고 하자. 그러면 <span class="math inline">\(X_{n}Y_{n}^{-1}\)</span>은 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에 대해 <span class="math inline">\(P(0\leq X_{n}Y_{n}^{-1}\leq 1)=1\)</span>이 된다. <span class="math inline">\(\varepsilon &gt;0\)</span>이라고 하고 <span class="math inline">\(b_{\varepsilon}=1\)</span>이라고 해보자. 그러면 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에 대해 <span class="math inline">\(P(|X_{n}Y_{n}^{-1}|\leq b_{\varepsilon})=1\)</span>이고 Helly and Bray의 정리에 의해 <span class="math inline">\(|X_{n}Y_{n}^{-1}|\)</span>는 bounded in probability가 된다. 정의에 의해 <span class="math inline">\(X_{n}Y_{n}^{-1}=O_{p}(1)\)</span>이며 <span class="math inline">\(X_{n}=O_{p}(Y_{n})\)</span>이다.</p>
+<p><span id="exm:unnamed-chunk-145" class="example"><strong>Example 9.8  (조건부 분포와 BigOp)  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>와 <span class="math inline">\(\{ Y_{n} \}_{n=1}^{\infty}\)</span>가 확률변수의 수열이라고 하자. <span class="math inline">\(Y_{n}\)</span>은 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 <span class="math inline">\(\text{Poisson}(\theta)\)</span> 확률변수를 따른다고 하자. <span class="math inline">\(Y_{n}\)</span>을 conditioning했을 때 <span class="math inline">\(X_{n}\)</span>의 조건부 분포는 <span class="math inline">\(\text{Uniform}\{1,2,\ldots, Y_{n}\}\)</span> 분포를 따른다고 하자. 그러면 <span class="math inline">\(X_{n}Y_{n}^{-1}\)</span>은 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에 대해 <span class="math inline">\(P(0\leq X_{n}Y_{n}^{-1}\leq 1)=1\)</span>이 된다. <span class="math inline">\(\varepsilon &gt;0\)</span>이라고 하고 <span class="math inline">\(b_{\varepsilon}=1\)</span>이라고 해보자. 그러면 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에 대해 <span class="math inline">\(P(|X_{n}Y_{n}^{-1}|\leq b_{\varepsilon})=1\)</span>이고 Helly and Bray의 정리에 의해 <span class="math inline">\(|X_{n}Y_{n}^{-1}|\)</span>는 bounded in probability가 된다. 정의에 의해 <span class="math inline">\(X_{n}Y_{n}^{-1}=O_{p}(1)\)</span>이며 <span class="math inline">\(X_{n}=O_{p}(Y_{n})\)</span>이다.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-143" class="example"><strong>Example 9.9  (균등분포에서의 BigOp)  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>가 독립 확률변수들의 수열이며 <span class="math inline">\(X_{n}\)</span>은 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 <span class="math inline">\(\text{Uniform}(-n^{-1},1+n^{-1})\)</span>분포를 따른다고 하자. <span class="math inline">\(\varepsilon&gt;0\)</span>이라고 하고 양의 실수 <span class="math inline">\(b_{\varepsilon}=2\)</span>가 있다고 하자. 그러면 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 <span class="math inline">\(P(|X_{n}|\leq b_{\varepsilon})=1\)</span>이다. 그러면 정의에 의해 <span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>는 bounded in probability이며 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(X_{n}=O_{p}(1)\)</span>이다.</p>
+<p><span id="exm:unnamed-chunk-146" class="example"><strong>Example 9.9  (균등분포에서의 BigOp)  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>가 독립 확률변수들의 수열이며 <span class="math inline">\(X_{n}\)</span>은 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 <span class="math inline">\(\text{Uniform}(-n^{-1},1+n^{-1})\)</span>분포를 따른다고 하자. <span class="math inline">\(\varepsilon&gt;0\)</span>이라고 하고 양의 실수 <span class="math inline">\(b_{\varepsilon}=2\)</span>가 있다고 하자. 그러면 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 <span class="math inline">\(P(|X_{n}|\leq b_{\varepsilon})=1\)</span>이다. 그러면 정의에 의해 <span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>는 bounded in probability이며 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(X_{n}=O_{p}(1)\)</span>이다.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-144" class="example"><strong>Example 9.10  (정규분포에서의 BigOp)  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>가 독립 확률변수들의 수열이며 <span class="math inline">\(X_{n}\)</span>은 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 <span class="math inline">\(\mathcal{N}(0,n^{-1})\)</span>을 따른다고 하자. <span class="math inline">\(\varepsilon &gt;0\)</span>이고 <span class="math inline">\(b\)</span>가 어떤 양의 실수라고 하자. 그러면 <span class="math display">\[\lim_{n\rightarrow\infty}P(|X_{n}|&lt;b)=\lim_{n\rightarrow\infty}P(|Z|\leq n^{1/2}b)=1\]</span> 이 된다. 이 때 <span class="math inline">\(Z\)</span>는 표준정규분포를 따르는 확률변수이다. 그러면 양의 실수 <span class="math inline">\(b_{\varepsilon}\)</span>과 양의 정수 <span class="math inline">\(n_{\varepsilon}\)</span>이 존재해 모든 <span class="math inline">\(n&gt;n_{\varepsilon}\)</span>인 모든 <span class="math inline">\(n\)</span>에서 <span class="math inline">\(P(|X_{n}|\leq b_{\varepsilon})&gt;1-\varepsilon\)</span>이며 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(X_{n}=O_{p}(1)\)</span>이다.</p>
+<p><span id="exm:unnamed-chunk-147" class="example"><strong>Example 9.10  (정규분포에서의 BigOp)  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>가 독립 확률변수들의 수열이며 <span class="math inline">\(X_{n}\)</span>은 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 <span class="math inline">\(\mathcal{N}(0,n^{-1})\)</span>을 따른다고 하자. <span class="math inline">\(\varepsilon &gt;0\)</span>이고 <span class="math inline">\(b\)</span>가 어떤 양의 실수라고 하자. 그러면 <span class="math display">\[\lim_{n\rightarrow\infty}P(|X_{n}|&lt;b)=\lim_{n\rightarrow\infty}P(|Z|\leq n^{1/2}b)=1\]</span> 이 된다. 이 때 <span class="math inline">\(Z\)</span>는 표준정규분포를 따르는 확률변수이다. 그러면 양의 실수 <span class="math inline">\(b_{\varepsilon}\)</span>과 양의 정수 <span class="math inline">\(n_{\varepsilon}\)</span>이 존재해 모든 <span class="math inline">\(n&gt;n_{\varepsilon}\)</span>인 모든 <span class="math inline">\(n\)</span>에서 <span class="math inline">\(P(|X_{n}|\leq b_{\varepsilon})&gt;1-\varepsilon\)</span>이며 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(X_{n}=O_{p}(1)\)</span>이다.</p>
 </div>
 
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-145" class="theorem"><strong>Theorem 9.2  (분포수렴이면 BigOp가 됨)  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>와 <span class="math inline">\(\{ Y_{n} \}_{n=1}^{\infty}\)</span>가 확률변수의 수열이고 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(X\)</span>로 분포수렴한다고 하자. 그러면 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(X_{n}=O_{p}(1)\)</span>이다.</p>
+<p><span id="thm:unnamed-chunk-148" class="theorem"><strong>Theorem 9.2  (분포수렴이면 BigOp가 됨)  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>와 <span class="math inline">\(\{ Y_{n} \}_{n=1}^{\infty}\)</span>가 확률변수의 수열이고 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(X\)</span>로 분포수렴한다고 하자. 그러면 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(X_{n}=O_{p}(1)\)</span>이다.</p>
 </div>
 
 
@@ -751,12 +758,12 @@ h_{n}(x) :=
 <p>다음은 <span class="citation">(Polansky <a href="#ref-Polansky2011">2011</a>)</span>에 있는 big Op와 small op 사이의 관계에 대한 정리이다.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-147" class="theorem"><strong>Theorem 9.3  (small op가 big Op보다 강한 조건)  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>와 <span class="math inline">\(\{ Y_{n} \}_{n=1}^{\infty}\)</span>가 확률변수의 수열이라고 하자. 만약 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(X_{n}=o_{p}(Y_{n})\)</span>이라면 <span class="math inline">\(X_{n}=O_{p}(Y_{n})\)</span>또한 성립한다.</p>
+<p><span id="thm:unnamed-chunk-150" class="theorem"><strong>Theorem 9.3  (small op가 big Op보다 강한 조건)  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>와 <span class="math inline">\(\{ Y_{n} \}_{n=1}^{\infty}\)</span>가 확률변수의 수열이라고 하자. 만약 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(X_{n}=o_{p}(Y_{n})\)</span>이라면 <span class="math inline">\(X_{n}=O_{p}(Y_{n})\)</span>또한 성립한다.</p>
 </div>
 
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-148" class="theorem"><strong>Theorem 9.4  (big Op와 small op 사이의 관계들)  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>과 <span class="math inline">\(\{Y_{n}\}_{n=1}^{\infty}\)</span>를 확률변수들의 수열이라고 하고 <span class="math inline">\(\{ y_{n}\}_{n=1}^{\infty}\)</span>를 실수들의 수열이라고 하자.</p>
+<p><span id="thm:unnamed-chunk-151" class="theorem"><strong>Theorem 9.4  (big Op와 small op 사이의 관계들)  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>과 <span class="math inline">\(\{Y_{n}\}_{n=1}^{\infty}\)</span>를 확률변수들의 수열이라고 하고 <span class="math inline">\(\{ y_{n}\}_{n=1}^{\infty}\)</span>를 실수들의 수열이라고 하자.</p>
 <ol style="list-style-type: decimal">
 <li><p>만약 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(X_{n}=O_{p}(n^{-a})\)</span>이고 <span class="math inline">\(Y_{n}=O_{p}(n^{-b})\)</span>이면 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(X_{n}Y_{n}=O_{p}(n^{-(a+b)})\)</span>이다.</p></li>
 <li><p>만약 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(X_{n}=O_{p}(n^{-a})\)</span>이고 <span class="math inline">\(y_{n}=o(n^{-b})\)</span>이면 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(X_{n}y_{n}=o_{p}(n^{-(a+b)})\)</span>이다.</p></li>
