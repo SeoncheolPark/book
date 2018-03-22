@@ -238,7 +238,36 @@ $$f(x)=e^{\mu_{2}(S)-\mu_{1}S}\prod_{\xi\in x}\frac{\rho_{1}(\xi)}{\rho_{2}(\xi)
 
 ```
 
-### 표시된 포아송과정(marked Poisson process)
+```{proof}
+1의 증명: ($\Leftarrow$) 만약  $\rho_{1}\neq \rho_{2}$라고 가정해보자. $F=\{x: \lim_{m}\sum_{i=1}^{m}\frac{n(x\cap A_{i})}{m} =\rho_{i} \}$ with $|A_{i}|=1$이라고 해보자. 그러면 $P(X_{1}\in F)=1$이나 $P(X_{2}\in F)=0$이다.
+
+2의 증명: [포아송 점과정과 관련된 성질들]로부터 바로 유도된다고 한다.
+
+```
+
+## 표시된 포아송과정(marked Poisson process)
 
 $X=\{ (\xi, m_{\xi}), \xi \in Y \}$라고 하자.
+
+```{definition, name="표시된 포아송과정"}
+$Y \sim \text{Poisson}(T,\phi)$, $phi$는 $Y$가 conditioned 되어있을 때 locally integrable intensity function이라고 하자. 그리고 marks $\{m_{\xi}, \xi\in Y\}$가 상호독립이라고 하자. 그러면 $X$는 **표시된 포아송과정(marked Poisson process)**라고 부른다. 만약 marks가 identically distributed with a common distribution $Q$일 경우 $Q$는 **표시 분포(mark distribution)**이라고 부른다.
+
+```
+
+```{proposition, name="표시된 포아송과정의 성질"}
+$X$ 가 $M\subset \mathbb{R}^{p}$인 표시된 포아송 과정이고 $Y\sim \text{Poisson}(T,\phi)$라고 하자. $Y$에 대해 conditioned 되었을 때, 각각의 mark $m_{\xi}$는 이산 또는 연속 밀도 $p_{\xi}$를 갖고 이것은 $Y\backslash\xi$에 의존하지 않는다. $\rho(\xi, m)=\phi(\xi)p_{\xi}(m)$이라고 하자. 그러면
+
+1. $X\sim \text{Poisson}(T\times M, rho)$.
+
+2. 만약 $M$에서의 밀도가 $\kappa(m)=\int_{T}\rho(\xi, m)d\xi$로 정의되고 이것이 locally integrable하면, $\{m_{\xi}:\xi \in Y \}\sim \text{Poisson}(M,\kappa)$이다.
+
+```
+
+### 포아송과정의 점의 무작위 독립 이동(random independent displacements of the points in a Poisson process)
+
+여기서 말하는 내용은 새로운 point process를 만들어 기존 point process 내용에 뭔가를 추가하고자 하는 것이다. $Y^{*}=\{\xi + m_{\xi}: \xi \in Y\}$를 **무작위 독립 이동(random independent displacements)**로 얻어졌다고 가정해보자. 이 때 $Y\sim \text{Poisson}(\mathbb{R}^{d}, \rho)$이고 $Y$에 대해 conditioned되었을 때 $m_{\xi}$는 독립이고 각각의 분포 $\rho_{\xi}$는 $Y\backslash\xi$에 의존하지 않는다고 해보자. $X^{*}$를 표시된 점 $(\xi, \xi+m_{\xi})$를 갖는 표시된 점과정이라고 해보자. 그러면 $\rho^{*}$가 locally integrable일 때 $Y^{*}$는 포아송 점과정이고 그것의 intensity function은
+$$\rho^{*}(\eta)=\int\rho(\xi)p_{\xi}(\eta-\xi)d\xi$$
+이다.
+
+
 

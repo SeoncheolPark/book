@@ -284,4 +284,23 @@ $$\mathbf{Y}(\mathbf{s})=h(\mathbf{Z}(\mathbf{s}))$$
 $$P(Z(s_{0})>c |\mathbf{Z})=E(I(Z(s_{0})>c)|\mathbf{Z})=P(Y(s_{0})|\mathbf{Z})$$
 에 대해 알고싶어한다.
 
-한 가지 방법은 indicator observation $(0,1)$로 크리깅하는 것이다.
+한 가지 방법은 indicator observation $(0,1)$로 크리깅하는 것이다. Ordinary kriging에 의해
+$$\hat{P}(Z(s_{0})>c|\mathbf{Z})=\hat{mu}_{Y}+\mathcal{T}_{Y}^{T}\Sigma_{Y}^{-1}(\mathbf{Y}-\hat{\mu}_{Y}\mathbf{1})$$
+식이 성립한다. $\hat{\mathcal{T}}_{Y}$, $\hat{\Sigma}_{Y}$ 대신 $\hat{\mathcal{T}}_{Z}$, $\hat{\Sigma}_{Z}$와의 관게를 이용해 바꿔넣기도 한다고 한다. 그리고 $c$는 보통 분위수를 threshold로 잡게끔 한다고 한다. 또한 예를 들면 $P(Z(s_{0})>0.1)>P(Z(s_{0})>0.2)$가 안되거나 음의 확률이 나올 수 있어 잘 correction을 해 주어야 한다. 더불어 extreme quantile에 대해 잘 작동하지 않으므로 따로 모델링하거나 아예 다른 방법(분위수 회귀분석 등)을 쓰기도 한다고 한다.
+
+Indicator kriging은 image segmentation 시 clustering 대용으로 쓸 수 있다고 한다.
+
+- **Disjunctive kriging**
+
+이 방법은 trans-Gaussian과 비슷하게 Gaussian이 아닐 시 쓰는 방법이라고 한다. 지금까지의 결과로 best predictor는 conditional mean임을 안다. 그런데 특히 Gaussian일 때에는 이 predictor가 선형이면서 간단하게 된다. 그러나 그렇지 않을 경우에는 어떻게 할 것인가? Disjuntive kriging에서는 좀 더 일반화시켜 문제를 풀려고 하는 것이다.
+
+$E(Z(s_{0})|Z(s_{1}),\ldots , Z(s_{n}))$을 $Z(s_{1}), \ldots, Z(s_{n})$에 의해 span되는 공간(기댓값을 노름으로 생각하는 공간)으로의 orthogonal projection이라고 하자. 그리고 다음과 같은 가법모형을 고려하는 것이다.
+$$\hat{Z}(s_{0})=\sum_{i=1}^{n}f_{i}(Z(s_{i})).$$
+물론 이 방법은 당연히 좀 더 일반화된 방법이나 $\hat{f}_{i}$을 찾는게 어렵다는 문제점이 있다. 이 방법은
+$$E(Z(s_{0})|Z(s_{j}))=\sum_{i=1}^{n}E(f_{i}(Z(s_{i}))|Z(s_{j})), \qquad{j=1,\ldots, n}$$
+을 만족하는 $f_{i}$들을 찾는 것이다.
+
+Best predictor $E(Z(s_{0})|Z(s_{1}),\ldots ,Z(s_{n}))$은 $(Z(s_{1}),\ldots ,Z(s_{n}))$의 결합분포를 계산하여야 한다. 그러나 $E(Z(s_{0})|Z(s_{j}))$는 이변량 구조만 알면 되므로 좀 더 간단해지는 장점이 있다고 한다. $f_{i}$의 후보가 너무 많은 문제의 한 가지 해결책을 Hermite polynomial을 기저로 하는 애들로 $f_{i}$를 표현하는 방법이 있다. 이 방법을 쓰면 Hermite polynomial의 계수만 찾으면 된다.
+
+
+

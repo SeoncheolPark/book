@@ -588,7 +588,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="49.2.2" data-path="49-2-poisson-point-process.html"><a href="49-2-poisson-point-process.html#-superpositioning-and-thinning"><i class="fa fa-check"></i><b>49.2.2</b> 중첩과 세선화(superpositioning and thinning)</a></li>
 <li class="chapter" data-level="49.2.3" data-path="49-2-poisson-point-process.html"><a href="49-2-poisson-point-process.html#-simulation-of-poisson-processes"><i class="fa fa-check"></i><b>49.2.3</b> 포아송과정의 시뮬레이션(simulation of Poisson processes)</a></li>
 <li class="chapter" data-level="49.2.4" data-path="49-2-poisson-point-process.html"><a href="49-2-poisson-point-process.html#--density-of-poisson-point-processes"><i class="fa fa-check"></i><b>49.2.4</b> 포아송 점과정의 밀도(density of Poisson point processes)</a></li>
-<li class="chapter" data-level="49.2.5" data-path="49-2-poisson-point-process.html"><a href="49-2-poisson-point-process.html#-marked-poisson-process"><i class="fa fa-check"></i><b>49.2.5</b> 표시된 포아송과정(marked Poisson process)</a></li>
+</ul></li>
+<li class="chapter" data-level="49.3" data-path="49-3-marked-poisson-process.html"><a href="49-3-marked-poisson-process.html"><i class="fa fa-check"></i><b>49.3</b> 표시된 포아송과정(marked Poisson process)</a><ul>
+<li class="chapter" data-level="49.3.1" data-path="49-3-marked-poisson-process.html"><a href="49-3-marked-poisson-process.html#----random-independent-displacements-of-the-points-in-a-poisson-process"><i class="fa fa-check"></i><b>49.3.1</b> 포아송과정의 점의 무작위 독립 이동(random independent displacements of the points in a Poisson process)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="50" data-path="50-summaryPP.html"><a href="50-summaryPP.html"><i class="fa fa-check"></i><b>50</b> 점과정의 요약통계</a><ul>
@@ -651,13 +653,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><span class="math inline">\(X\)</span>를 <span class="math inline">\(S=\mathbb{R}^{d}\)</span>에서의 점과정이라고 하자. <span class="math inline">\(N(B)\)</span>가 <span class="math inline">\(B\subset S\)</span>에서 무작위 셀 수 있는 변수들의 1차 및 2차 성질들은 <strong>강도측도(intensity measure)</strong>와 <strong>이차계승적률측도(second order moment factorial moment measure)</strong>라고 부른다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-341" class="definition"><strong>Definition 50.1  (강도측도)  </strong></span><span class="math inline">\(\mathbb{R}^{d}\)</span>에서의 <strong>강도측도(intensity measure)</strong> <span class="math inline">\(\mu\)</span>는 <span class="math display">\[\mu(B)=E[N(B)], B\subset \mathbb{R}^{d}\]</span> 로 정의하고 <span class="math inline">\(\mathbb{R}^{d}\times \mathbb{R}^{d}\)</span> <strong>이차계승적률측도(second order moment factorial moment measure)</strong> <span class="math inline">\(\alpha^{(2)}\)</span>는 <span class="math display">\[\alpha^{(2)}(C)=E \sum_{\xi, \eta \in X}^{\neq} I_{[(\xi, \eta)\in C]}, C\subseteq \mathbb{R}^{d}\times \mathbb{R}^{d}\]</span> 로 정의한다.</p>
+<p><span id="def:unnamed-chunk-344" class="definition"><strong>Definition 50.1  (강도측도)  </strong></span><span class="math inline">\(\mathbb{R}^{d}\)</span>에서의 <strong>강도측도(intensity measure)</strong> <span class="math inline">\(\mu\)</span>는 <span class="math display">\[\mu(B)=E[N(B)], B\subset \mathbb{R}^{d}\]</span> 로 정의하고 <span class="math inline">\(\mathbb{R}^{d}\times \mathbb{R}^{d}\)</span> <strong>이차계승적률측도(second order moment factorial moment measure)</strong> <span class="math inline">\(\alpha^{(2)}\)</span>는 <span class="math display">\[\alpha^{(2)}(C)=E \sum_{\xi, \eta \in X}^{\neq} I_{[(\xi, \eta)\in C]}, C\subseteq \mathbb{R}^{d}\times \mathbb{R}^{d}\]</span> 로 정의한다.</p>
 </div>
 
 <p>일반적인 집합 <span class="math inline">\(S\)</span>에 대해 측도는 <span class="math display">\[E(N(B_{1})N(B_{2}))=\alpha^{(2)}(B_{1}\times B_{2}) + \mu (B_{1} \int B_{2}), B_{1}, B_{2}\subseteq \mathbb{R}^{d}\]</span> 와 같이 정의된다고 한다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-342" class="definition"><strong>Definition 50.2  (강도함수)  </strong></span><span class="math inline">\(\rho\)</span>가 존재하여 <span class="math display">\[\mu(B)=\int_{B}\rho(\xi)d\xi\]</span> 를 만족한다면, <span class="math inline">\(\rho\)</span>를 <strong>강도함수(intensity function)</strong>라고 한다.</p>
+<p><span id="def:unnamed-chunk-345" class="definition"><strong>Definition 50.2  (강도함수)  </strong></span><span class="math inline">\(\rho\)</span>가 존재하여 <span class="math display">\[\mu(B)=\int_{B}\rho(\xi)d\xi\]</span> 를 만족한다면, <span class="math inline">\(\rho\)</span>를 <strong>강도함수(intensity function)</strong>라고 한다.</p>
 </div>
 
 

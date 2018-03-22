@@ -1,0 +1,12 @@
+# 가우스과정의 시뮬레이션 {#simGaussian}
+
+여기서는 $\mathbf{Z}\sim \mathcal{N}(0,\Sigma)$를 따르는 $Z(s_{1}),\ldots, Z(s_{n})^{T}$를 생성하는 방법에 대해 다룬다.
+
+### Direct method (Exact)
+
+이 방법은 근사 방법들이 아니다.
+
+1. Cholesky decomposition: $\Sigma$가 symmetric이고 positive definite matrix이므로
+$$\Sigma =LL^{T}$$
+로 쓸 수 있다. 여기서 $L$: lower triangular matrix이며 standard normal을 생성할 수 있다는 가정 하에 다음과 같이 얻을 수 있다.
+$$\mathbf{Z}=\mathbf{LW}, \mathbf{W}\sim\mathcal{N}(0,\mathbf{I}), \text{var}(\mathbf{Z})=\mathbf{L}\text{var}(\mathbf{w})\mathbf{L}^{T}=\boldsymbol{\Sigma}$$
