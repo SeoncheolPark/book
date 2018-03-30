@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>통계공부와 관련된 글들</title>
   <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-03-22">
+<meta name="date" content="2018-03-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -610,6 +610,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="53" data-path="53-pot.html"><a href="53-pot.html"><i class="fa fa-check"></i><b>53</b> 분계점 방법들</a><ul>
 <li class="chapter" data-level="53.1" data-path="53-1-generalized-pareto-distribution.html"><a href="53-1-generalized-pareto-distribution.html"><i class="fa fa-check"></i><b>53.1</b> 일반화 파레토 분포(generalized pareto distribution)</a></li>
+<li class="chapter" data-level="53.2" data-path="53-2-modeling-threshold-excesses.html"><a href="53-2-modeling-threshold-excesses.html"><i class="fa fa-check"></i><b>53.2</b> 분계 초과의 모델링(modeling threshold excesses)</a><ul>
+<li class="chapter" data-level="53.2.1" data-path="53-2-modeling-threshold-excesses.html"><a href="53-2-modeling-threshold-excesses.html#-threshold-selection"><i class="fa fa-check"></i><b>53.2.1</b> 분계점 선택(threshold selection)</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="54" data-path="54-mevtheory.html"><a href="54-mevtheory.html"><i class="fa fa-check"></i><b>54</b> 다변량 극단값 이론</a><ul>
 <li class="chapter" data-level="54.1" data-path="54-1-copula.html"><a href="54-1-copula.html"><i class="fa fa-check"></i><b>54.1</b> 코퓰라(copula)</a></li>
@@ -688,10 +691,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
 "instapper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -720,9 +724,11 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

@@ -19,12 +19,36 @@ $$\alpha^{(2)}(C)=E \sum_{\xi, \eta \in X}^{\neq} I_{[(\xi, \eta)\in C]}, C\subs
 $$E(N(B_{1})N(B_{2}))=\alpha^{(2)}(B_{1}\times B_{2}) + \mu (B_{1} \int B_{2}), B_{1}, B_{2}\subseteq \mathbb{R}^{d}$$
 와 같이 정의된다고 한다.
 
-
 ```{definition, name="강도함수"}
 $\rho$가 존재하여 
 $$\mu(B)=\int_{B}\rho(\xi)d\xi$$
-를 만족한다면, $\rho$를 **강도함수(intensity function)**라고 한다.
+를 만족한다면, $\rho$를 **강도함수(intensity function)**라고 한다. 즉 $\rho(\xi)d\xi$는 중심 $\xi$에서 $d\xi$만큼 볼륨을 가지는 지역에서 point가 존재할 확률이다.
 
 ```
 
+```{definition, name="2차 곱 밀도"}
+만약 2차 팩토리얼 모멘트 측도 $\alpha^{(2)}$가
+$$\alpha^{(2)}(C)=\int \int \mathbf{1}[(\xi,\eta)\in C]\rho^{(2)}(\xi,\eta)d\xi d\eta, \qquad{C\subset \mathbb{R}^{d}\times\mathbb{R}^{d}}$$
+로 쓸 수 있을 때 $\rho^{(2)}$는 음이 아닌 함수이며 **2차 곱 밀도(second order product density)**라고 부른다. 직관적으로 $\rho^{(2)}(\xi, \eta)d\xi d\eta$는 $X$로부터 얻어진 두 개의 점들이 동시에 두 개의 작은 지역에 떨어질 확률(일종의 interaction)을 나타낸다.
 
+```
+
+$\rho$가 상수함수이면 homogeneous, 상수가 아닐 경우 inhomogeneous라고 부른다.
+
+```{definition, name="짝 상관계수 함수"}
+만약 $\rho$, $\rho^{(2)}$가 존재할 때, **짝 상관계수 함수(pair correlation function)**은
+$$g(\xi,\eta)=\frac{\rho^{(2)}(\xi,\eta)}{\rho(\xi)\rho(\eta)}$$
+로 정의된다.
+
+```
+
+```{remark}
+1. Poisson일 경우에는 $g(\xi,\eta)=1$이다. 즉 점들이 생기는 사건이 대략 독립이다.
+
+2. $g(\xi,\eta)>1$인 경우는 각각 나올 확률보다 동시에 나올 확률이 높은 것이다.
+
+3. $g(\xi,\eta)<1$는 2와 반대다.
+
+4. $X$가 정상(stationary)이면 $g$는 translation invariant이다. 즉 $g(\xi, \eta)=g(\xi-\eta)$인 것이다. 그러나 $g$가 translaton invariant라고 해서 $X$가 stationary인 것은 아닌데, 이에 대한 예로 log Gaussian Cox Process가 있다.
+
+```

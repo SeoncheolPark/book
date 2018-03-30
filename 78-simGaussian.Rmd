@@ -2,11 +2,79 @@
 
 여기서는 $\mathbf{Z}\sim \mathcal{N}(0,\Sigma)$를 따르는 $Z(s_{1}),\ldots, Z(s_{n})^{T}$를 생성하는 방법에 대해 다룬다.
 
-### Direct method (Exact)
+## Direct method (Exact)
 
 이 방법은 근사 방법들이 아니다.
 
 1. Cholesky decomposition: $\Sigma$가 symmetric이고 positive definite matrix이므로
-$$\Sigma =LL^{T}$$
+$$\boldsymbol{\Sigma} =LL^{T}$$
 로 쓸 수 있다. 여기서 $L$: lower triangular matrix이며 standard normal을 생성할 수 있다는 가정 하에 다음과 같이 얻을 수 있다.
 $$\mathbf{Z}=\mathbf{LW}, \mathbf{W}\sim\mathcal{N}(0,\mathbf{I}), \text{var}(\mathbf{Z})=\mathbf{L}\text{var}(\mathbf{w})\mathbf{L}^{T}=\boldsymbol{\Sigma}$$
+
+2. SVD: symmetric이고 positive deifinite인 행렬 $\boldsymbol{\Sigma}$에 대해
+$$\boldsymbol{\Sigma}=\mathbf{UAU}^{T}$$
+임을 안다. 이 때 $\mathbf{A}$는 eigenvalue들의 diagonal matrix이며 $\mathbf{U}\mathbf{U}^{T}=\mathbf{I}$, $\mathbf{U}^{T}\mathbf{U}=\mathbf{I}$이고 $\mathbf{U}$의 column이 normalized eigenvector들로 구성된다. 좀 더 일반적으로
+$$\mathbf{Z}=\mathbf{U}\boldsymbol{\Lambda}^{T}\mathbf{W}$$
+이고 $\text{var}(\mathbf{Z})=\mathbf{U}\boldsymbol{\Lambda}^{\frac{1}{2}}\text{var}(\mathbf{W})(\mathbf{U}\boldsymbol{\Lambda}^{\frac{1}{2}})^{T}=\boldsymbol{\Sigma}$이다.
+
+그러나 일반적으로 Cholesky와 SVD는 $n$이 커지면 계산 시간이 오래 걸리게 된다. 이를 해결하기 위해 몇가지 방법들을 소개한다.
+
+## Circulant embedding methods
+
+[@Chan1997]은 regular lattice 자료인 경우 circulant matrix를 사용하는 방법을 제안했다. 원하는 행렬보다 더 큰 행렬을 만들고(closed-form 가능한 것으로) 그 후에 sub-sampling을 하는 것이다. $d=1$일 때에는 exact, $d>1$일 때에는 근사 방법이다.
+
+$d=1$인 경우 $(Z(s_{0}), Z(\frac{1}{n}),\ldots, Z(\frac{n-1}{n}))\sim\mathcal{N}(\mathbf{0},\boldsymbol{\Sigma})$를 생성하고 싶다고 하자. 특별히 $\Sigma=C(u)$라고 하자. 그러면 
+
+$$
+\boldsymbol{\Sigma}=
+\begin{bmatrix}
+C(0) & C(\frac{1}{n}) & C(\frac{2}{n}) &  &  \\
+C(\frac{1}{n}) & \ddots & \ddots & \ddots &  \\
+ & \ddots & \ddots & \ddots & C(\frac{2}{n}) \\
+ &  & \ddots & \ddots & C(\frac{1}{n}) \\
+ &  &  & C(\frac{1}{n}) & C(0) \\
+\end{bmatrix}
+$$
+와 같이 Toeplitz 행렬을 만들 수 있다.
+
+1. $\boldsymbol{\Sigma}$으로 $m\times m (>n)$ circulant covariance matrix (이것은 FFT로 closed form expression이 있음) $\mathbf{G}$를 만든다. ($m$은 dyadic이고 $m \geq 2(n-1)$이다.)
+
+$$
+\mathbf{G}=
+\begin{bmatrix}
+g_{0} & g_{1} & \cdots & g_{n-1}\\
+g_{n-1} & g_{0} & \cdots & g_{n-2}\\
+ & \ddots & \ddots & \vdots\\
+ &  & \cdots & g_{0}\\
+\end{bmatrix}
+$$
+이고 $g_{j}$는 다음과 같다.
+$$
+g_{j}
+\begin{cases}
+C(\frac{j}{n}) & \text{if } 0 \leq j \leq \frac{m}{2} \\
+C(\frac{m-j}{n}) & \text{if } x \frac{m}{2} \leq j \leq m-1
+\end{cases}.
+$$
+이 방법은 1차원일 경우 항상 유효한 공분산 행렬(nonnegative definite)을 보장해 주지만, 차원이 1보다 클 경우 nonnegative definite를 만들기 위해 추가적인 근사가 들어간다. 이것은 추후에 설명하기로 한다.
+
+2. FFT를 써서 
+$$\mathbf{G}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{*}, \mathbf{Q}\mathbf{Q}^{*}=\mathbf{I}=\mathbf{Q}^{*}\mathbf{Q} \qquad{\text{unitary}}$$
+를 만족하는 $\mathbf{Q}$와 $\boldsymbol{\Lambda}$를 찾는다. 이 때 $\boldsymbol{\Lambda}=\{\lambda_{1},\ldots,\lambda_{m} \}$이다. Circulant이면 $\mathbf{Q}, \boldsymbol{\lambda}$를 쉽게 찾을 수 있다고 한다. 추가적으로 $\lambda_{k}=\sum_{j=0}^{m-1}g_{j}\exp\{ -\frac{2\pi i j k}{m} \}$, $\mathbf{Q}=\{Q_{j,k}\}$, $Q_{j,k}=\frac{1}{\sqrt{m}}\exp\{-\frac{\pi i j k}{m}\}$이라고 한다. 여기서 $i$는 모두 복소수이다.
+
+3. $\mathbf{Z}_{j}=\mathbf{Q}\boldsymbol{\Lambda}^{\frac{1}{2}}\mathbf{Q}^{*}\mathbf{W}, \mathbf{W}\sim\mathcal{N}(\mathbf{0}, \mathbf{I}), \text{var}(\mathbf{Z}_{0})=\mathbf{G}$로 얻을 수 있다. 여기서 $\mathbf{Z}_{0}$중 처음 $n$개의 표본을, $\mathbf{G}$에서는 처음 $n\times n$행렬을 취하면 된다.
+
+그러면 1차원이 아닐 때의 대처 방법에 대해 알아보자. 이때는 **block circulant matrix**를 $\boldsymbol{\Sigma}$를 얻기 위한 공분산 행렬로 사용한다. 이것은 **periodic random field**의 공분산으로 볼 수 있다. 둘레를 $\mathbf{R}$이라고 하면 $\mathbf{Z}(\mathbf{s})=\mathbf{Z}(\mathbf{s+R})$이 된다고 한다. 즉 2차원에서 이것은 torus 위에서 정의되는 임의장이 된다. Block circulant matrix 또한 푸리에 변환을 통해 쉽게 $\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{*}$ 식의 변환이 가능하다고 한다. 그러나 [@Chan1997]의 방법은 $m$이 매우 크지 않은 이상 $\mathbf{G}$의 non-negative definiteness를 보장해 주지 못한다. non-negative definiteness를 다루는 방법 중 하나로 다음과 같은 방법이 있다.
+$$\mathbf{G}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{*}=\mathbf{Q}(\boldsymbol{\Lambda}_{+}-\boldsymbol{\Lambda}_{-})\mathbf{Q}^{*}$$
+라고 할 때 근사를 더 좋게 하는 scaling factor $\rho$를 이용해
+$$\tilde{\mathbf{G}}=\rho^{2}\mathbf{Q}\boldsymbol{\Lambda}_{+}\mathbf{Q}^{*}$$
+로 놓는 것이다. 이 때 $\rho$의 선택으로는 $\rho_{1}=\frac{\text{tr}(\boldsymbol{\Lambda})}{\text{tr}(\boldsymbol{\Lambda})_{+}}$ ($\boldsymbol{\Lambda}_{-}$를 무시함으로써 생기는 distributional error를 최소화 하는 것), $\rho_{1}=(\frac{\text{tr}(\boldsymbol{\Lambda})}{\text{tr}(\boldsymbol{\Lambda})_{+}})^{\frac{1}{2}}$ (1차원 marginal variance가 같도록 하는 것) 등이 있다.
+
+## Simulation of Fractional Browninan Surfaces
+
+앞선 circulant embedding methods의 방법은 stationary Gaussian인 lattice model에서만 된다는 문제점이 있다. 그렇다면 nonstationary이면서 size가 큰 경우(작으면 direct 방법을 쓰면 됨)에는 어떤 방법을 쓸 수 있을까? 그에 대한 해결책 중의 하나로 [@Stein2002]가 제안한 방법이 있다. 
+
+**Fractional Brownian surfaces**는 $\text{var}(\mathbf{Z}(\mathbf{X})-\mathbf{Z}(\mathbf{Y})) \propto |\mathbf{X}-\mathbf{Y}|^{\alpha} \propto \in (0,2)$인 class들로 intrinsic stationary하다. 이 fractional Brownian surfaces는 time series의 long memory, fractal dimension ($d+1-\frac{\alpha}{2}$)와 관련이 있다고 한다. 예를 들면 
+$\text{Cov}(\mathbf{Z}(\mathbf{X}),\mathbf{Z}(\mathbf{Y}))\propto |\mathbf{X}|^{\alpha} + |\mathbf{Y}|^{\alpha} - |\mathbf{X-Y}|^{\alpha} $인 것이 이 클래스에 속하게 된다.
+
+아이디어는 다음과 같다. $\mathbb{R}$에서 연속이고 isotropic covariance (positive definite를 의미) functions의 클래스인 $\mathcal{D}_{d}$의 원소 $K\in\mathcal{D}_{d}$를 찾고자 하는 것이다.
