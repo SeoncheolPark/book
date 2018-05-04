@@ -48,7 +48,7 @@ $$m:\mathcal{M}\rightarrow [0,\infty], \mathcal{M}\subseteq\mathcal{P}(\mathbb{R
 
 정리하면, 만족스러운 적분이론을 얻기 위해 우리는 $\mathbb{R}^{n}$에서의 충분히 큰 subset들의 class에 대해 잘 정의되는 측도를 구성하고자 한다. 그러면 여기서 리만 적분으로는 불충분한 점들을 몇 가지 짚고 넘어가고자 한다.
 
-## 리만 적분의 한계정
+## 리만 적분의 한계정(limitation of Riemman integral)
 
 우선, 리만 적분이 가능하려면, '대부분의' 작은 interval에서 $\max f - \min f$가 매우 작아야한다. 즉, 리만 적분 가능성은 함수의 연속성과 관련이 있다. 실제로 함수 $f$가 리만 적분 가능하려면 $f$가 거의 모든 지점에서 연속이어야 한다(이는 필요충분조건이다).
 

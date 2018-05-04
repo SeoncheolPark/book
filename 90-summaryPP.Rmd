@@ -52,3 +52,19 @@ $$g(\xi,\eta)=\frac{\rho^{(2)}(\xi,\eta)}{\rho(\xi)\rho(\eta)}$$
 4. $X$가 정상(stationary)이면 $g$는 translation invariant이다. 즉 $g(\xi, \eta)=g(\xi-\eta)$인 것이다. 그러나 $g$가 translaton invariant라고 해서 $X$가 stationary인 것은 아닌데, 이에 대한 예로 log Gaussian Cox Process가 있다.
 
 ```
+
+```{proposition}
+$h_{1}:\mathbb{R}^{d}\rightarrow [0,\infty)$, $h_{2}:\mathbb{R}^{d}\times \mathbb{R}^{d}\rightarrow [0,\infty)$라고 하자. $X$는 intensity function $\rho$를 갖고 second order density $\rho^{(2)}$를 갖는다고 하자. 그러면
+$$E\sum_{\xi\in X}h_{1}(\xi)=\int h_{1}(\xi)\rho(\xi)d\xi,$$
+$$E\sum_{\xi,\eta\in X}^{\neq}h_{2}(\xi,\eta)=\int\int h_{1}(\xi,\eta)\rho^{(2)}(\xi,\eta)d\xi d\eta$$
+이다.
+
+```
+
+```{proposition}
+ $X$는 intensity function $\rho$를 갖고 second order density $\rho^{(2)}$를 갖는다고 하자. $X_{\text{thin}}$은 $X$의 retention probability $p(\xi)$에 대한 independent thinning이라고 하자. 그러면 $\rho_{\text{thin}}(\xi)=p(\xi)\rho(\xi)$, $\rho_{\text{thin}}^{(2)}(\xi,\eta)=p(\xi)p(\eta)p^{(2)}(\xi,\eta)$가 되며 $g_{\text{thin}}=g$이다.
+
+```
+
+
+

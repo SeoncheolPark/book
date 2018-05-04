@@ -40,6 +40,23 @@ x_{t}=U_{1}\cos(2\pi\omega t) + U_{2}\sin(2\pi\omega t)
 
 앞선 랜덤과정(random process)는 진동수 $\omega$를 모수로 하여 표현할 수 있다. $\omega=1$일 경우 이 시계열은 1 시간 단위 당 1 사이클을 갖게 된다. 일반적으로 어떤 주기를 결정하기 위해선 적어도 두 개의 관측점이 필요한다. 그래서 가장 관심이 있는 높은 주기는 1 점당 0.5 주기가 되는데 이를 **중첩 주파수(folding frequency)**라고 부른다. 그런데 높은 진동수는 낮은 진동수에서도 나타나는데 이를 **앨리어싱(aliasing)**이라고 한다.
 
+이번엔 다양한 진동수와 진폭을 갖는 주기 수열들의 혼합으로 식 \@ref(eq:periodrp)를 일반화시켜보자.
+\begin{equation}
+x_{t}=\sum_{k=1}^{q}[U_{1l}\cos(2\pi\omega_{k} t) + U_{k2}\sin(2\pi\omega_{k} t)].
+(\#eq:periodrpg)
+\end{equation}
+이때 $U_{k1},U_{k2},\ldots, k=1,\ldots, q$는 평균이 0이고 분산이 $\sigma_{k}^{2}$인 독립인 확률변수이고 $\omega_{k}$는 서로 다른 주파수를 나타낸다. 식 \@ref(eq:periodrpg)는 과정을 분산이 $\sigma_{k}^{2}$, 주파수가 $\omega_{k}$인 독립 성분들의 합으로 나타내는 것이다. 이때 이 과정의 공분산은 다음과 같이 표현할 수 있다고 한다.
+\begin{equation}
+\gamma(h)=\sum_{k=1}^{q}\sigma_{k}^{2}\cos(2\pi \omega_{k}h).
+(\#eq:periodrpautocov)
+\end{equation}
+이 표현으로부터 공분산함수는 주기성분들에 분산 $\sigma_{k}^{2}$에 비례하는 가중치의 합으로 표현됨을 알 수 있다. 따라서, $x_{t}$가 평균이 0이고 분산이
+\begin{equation}
+\gamma(0)=E(x_{t}^{2})=\sum_{k=1}^{q}\sigma_{k}^{2}
+(\#eq:periodrpvar)
+\end{equation}
+인 정상과정이라면 이 분산은 각 성분들의 분산의 합임을 알 수 있다.
+
 ```{r, fig.align='center', echo=FALSE, warning=FALSE, message=FALSE, results='hide', fig.cap = 'Periodic components and their sums.'}
 x1 = 2*cos(2*pi*1:100*6/100) + 3*sin(2*pi*1:100*6/100)
 x2 = 4*cos(2*pi*1:100*10/100) + 5*sin(2*pi*1:100*10/100)
@@ -52,7 +69,26 @@ plot.ts(x3, ylim=c(-10,10), main=expression(omega==40/100~~~A^2==85))
 plot.ts(x, ylim=c(-16,16), main="sum")
 ```
 
-(피리오도그램 추정 예제)
+다음 예제는 식 \@ref(eq:periodrpg)에서 $q=3$일때의 예제다. 
+
+```{example, name="주기 시계열"}
+$t=1,\ldots,100$까지 다음의 수열들을 생성해보자.
+$$x_{t1}=2\cos (2\pi t 6/100) +3\sin (2\pi t 6 / 100)$$
+$$x_{t2}=4\cos (2\pi t 10/100) +5\sin (2\pi t 10 / 100)$$
+$$x_{t3}=6\cos (2\pi t 40/100) +7\sin (2\pi t 40 / 100)$$
+이들의 시계열들은 위 그림에 나타나있다. $x_{t1}$의 진폭은 $2^{2}+3^{2}=13$이다. 따라서 $x_{t1}$의 최대, 최소값은 $\pm \sqrt{13}=\pm 3.61$이다.
+마지막으로
+$$x_{t}=x_{t1}+x_{t2}+x_{t3}$$
+을 고려해본다. 이것의 그림은 위 그림의 오른쪽 아래에 있다. 스펙트럼 분석의 역할은 이렇게 섞여있는 주기 성분들을 분류하고 그들의 상대적 기여도를 계산하는 것이다.
+
+```
+
+```{r, fig.align='center', echo=FALSE, warning=FALSE, message=FALSE, results='hide', fig.cap = 'Periodogram of the above data.'}
+P = abs(2*fft(x)/100)^2; Fr = 0:99/100
+plot(Fr, P, type="o", xlab="frequency", ylab="periodogram")
+```
+
+앞선 예제의 피리오도그램을 계산해보자. 참고로 scaled periodogram은 다음과 같이 계산된다.
 
 ## 스펙트럼 밀도(spetral density)
 
@@ -166,7 +202,9 @@ $$f(\omega)=\sum_{h=-\infty}^{\infty}\gamma(h)e^{-2\pi i \omega h}$$
 
 ```
 
-선형 과정이 가장 기본적인 도구이므로, 이러한 과정의 스펙트럼을 조사해 보는 것도 흥미로운 일이다. 
+선형 과정이 가장 기본적인 도구이므로, 이러한 과정의 스펙트럼을 조사해 보는 것도 흥미로운 일이다.
+
+## 선형 필터들(linear filters)
 
 ## 주기가 있는 시계열의 회귀분석(using regression to discover a periodic signal)
 

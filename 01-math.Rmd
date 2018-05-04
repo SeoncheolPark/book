@@ -395,7 +395,57 @@ $$\phi(r)=\frac{1}{\sqrt{1+(\epsilon r)^{2}}}$$
 
 이 부분은 전체적으로 [@Shima2016]의 정의와 내용들을 따라간다.
 
+### 군과 장(group and fields)
+
+수학에서 **군(group)**은 연산과 함께 정의되는 원소들의 집합으로 원소들이 closure, associativity, identity and invertability를 만족해야 한다. 대충 말해서 **장(field)**은 합, 차, 곱, 몫의 개념을 갖고 있는 대수적 구조이다.
+
 ### 벡터 공간(vector space)
+
+벡터 공간은 덧셈과 곱셈을 적용할 수 있는 수학적 실재(mathematical entity)들의 집합이다. 예를 들면 숫자 공간 $\mathbb{R}$, $\mathbb{C}$ 등은 벡터 공간이 된다. 숫자 뿐만 아니라 함수, 다항식, 선형 연산자, 벡터 등등이 수학적 실재가 될 수 있다.
+
+```{r, echo=F, fig.cap='벡터 공간은 다양한 종류의 수학적 실재로부터 만들어진다.', fig.align='center'}
+knitr::include_graphics("images/math_vectorspace.png")
+```
+
+```{definition, name="벡터 공간"}
+**벡터 공간(vector space)** $V$는 다음 공리들을 만족하는 원소들 $\mathbf{x}$ (벡터라 부른다)의 collection이다.
+
+1. $V$는 덧셈 하에서 교환 가능한 가환군(commutative group, 교환 법칩이 성립하는 군)이다.
+    i. $\mathbf{x}+\mathbf{y}=\mathbf{y}+\mathbf{x}\in V$ for any $\mathbf{x},\mathbf{y}\in V$ (closure)
+    ii. $\mathbf{x} + (\mathbf{y}+\mathbf{z}) = (\mathbf{x} + \mathbf{y}) + \mathbf{z}\in V$ for any $\mathbf{x},\mathbf{y}, \mathbf{z}\in V$ (associativity)
+    iii. 다음과 같은 $\mathbf{0}$벡터(항등원)가 존재해 모든 $\mathbf{x}\in V$에 대해 $\mathbf{x}+\mathbf{0}=\mathbf{x}$를 만족한다. (identity)
+    iv. 다음과 같은 덧셈에 대한 역원 $-\mathbf{x}$이 존재해 $\mathbf{x}+(-\mathbf{x})=\mathbf{0}$이 된다. (invertibility)
+    
+2. $V$는 어떤 장 $\mathbb{F}$에 대해 다음의 공리를 만족하며, 이런 원소들을 **스칼라(scalar)**라고 부른다.
+    i. $V$는 스칼라 곱에 대해 닫혀 있다.
+    $$\alpha \mathbf{x} \in V \text{ for arbitrary } \mathbf{x} \in V, \alpha \in \mathbb{F}.$$
+    ii. 스칼라 곱은 $V$와 $\mathbb{F}$의 원소들에 대해 **분배가능(distributive)**하다.
+    $$\alpha(\mathbf{x}+\mathbf{y})=\alpha\mathbf{x}+ \alpha\mathbf{y}\in V, (\alpha+\beta)\mathbf{x}=\alpha\mathbf{x}+\beta\mathbf{y}\in V.$$
+    iii. 스칼라 곱은 결합법칙이 성립한다. $\alpha(\beta\mathbf{x})=\beta(\alpha \mathbf{x}).$
+    iv. Zero scalar $0\in\mathbb{F}$에 대한 곱은 항등원 $0\mathbf{x}=\mathbf{0}\in V$을 생산한다.
+    v. Unit scalar $1 \in \mathbb{F}$는 $1\mathbf{x}=\mathbf{x}$ 성질을 갖는다.
+```
+
+여기서부터는 벡터 공간의 주요 성질들에 대해 다룬다.
+
+#### 내적(inner product)
+
+```{definition, name="내적"}
+내적은 $\mathbf{x}$, $\mathbf{y}$의 순서쌍을 스칼라(좀 더 일반적으로는 복소수)에 mapping하는 것이고 $\langle\mathbf{x},\mathbf{y}\rangle$로 쓴다. 이 mapping은 다음 규칙들을 만족해야 한다.
+
+1. $\langle\mathbf{x},\mathbf{y}\rangle = \langle\mathbf{y},\mathbf{x}\rangle^{*}$. (여기서 별표는 complex conjugate를 의미한다.)
+
+2. $\langle\alpha\mathbf{x}+\beta\mathbf{y}, \mathbf{z}\rangle = \alpha^{*}\langle\mathbf{x},\mathbf{z}\rangle+\beta^{*}\langle\mathbf{y},\mathbf{z}\rangle$ (여기서 $\alpha$, $\beta$는 어떤 복소수이다.)
+
+3. 모든 $\mathbf{x}$에 대해 $\langle\mathbf{x},\mathbf{x}\rangle \geq 0$이다.
+
+4. $\langle\mathbf{x},\mathbf{x}\rangle = 0$은 $\mathbf{x}=\mathbf{0}$과 필요충분조건이다.
+
+```
+
+특별히 내적을 갖고 있는 벡터 공간을 **내적 공간(inner product space)**이라고 부른다.
+
+#### 정규직교성(orthogonality)
 
 #### 완비 벡터 공간(complete vector spaces)
 
@@ -411,6 +461,11 @@ $$\phi(r)=\frac{1}{\sqrt{1+(\epsilon r)^{2}}}$$
 
 ```
 
+```{definition, name="벡터 공간의 완비성"}
+만약 어떤 벡터 공간의 모든 코시 수열이 수렴한다면, 우리는 그 공간을 **완비(complete)**라고 부른다.
+
+```
+
 ### 위상공간(topological space)
 
 ### 분해 가능 공간(separable space)
@@ -420,7 +475,13 @@ Countable dense subset을 포함하는 위상공간(topological space)을 **분�
 ### 노름 공간(normed space)
 
 ```{definition, name="노름 공간"}
-원소들에 일종의 '길이' 또는 '크기'가 부여된 벡터 공간 $V$을 **노름 공간(normed space)**라고 한다.
+원소들에 일종의 '길이' 또는 '크기'가 부여된 벡터 공간 $V$을 **노름 공간(normed space)**라고 한다. 노름은 벡터 공간 $V$ 위에서의 실수 함수로 $\| \|$로 표시하며
+
+1. 모든 $\lambda\in\mathbb{F}$와 $x\in V$에 대해 $\|\lambda \mathbf{x}\| = |\lambda|\|\mathbf{x}\|$
+  
+2. $\|\mathbf{x} +\mathbf{y}\| \leq \|\mathbf{x}\| +\|\mathbf{y}\|#
+  
+3. $\|\mathbf{x}\|=0$이라는 것은 $\mathbf{x}=0$과 동치다.
 
 ```
 
@@ -442,6 +503,8 @@ Inner product spaces들 중 완비가 아닌 공간들을 **원-힐버트 공간
 
 ### 힐버트 공간(Hilbert space)
 
+모든 힐버트 공간은 함수가 무한차원 공간의 점으로서 간주될 수 있도록 하는 수단을 제공해 준다. 이런 기하학적인 관점의 쓰임새는 우리가 기초 선형대수에서 정의했던 길이, 직교정규, 그리고 원소들의 선형 결합 개념들을 좀 더 추상적인 수학적 공간에 일반화시킬 수 있다는 것이다. 이런 기하학적 관점에 가장 핵심이 되는 개념은 공간의 **기저(basis)**다. 힐버트 공간과 함께, 무한차원 공간에서 기저의 기초적 성질들을 복습해 보기로 한다.
+
 ```{definition, name="힐버트 공간"}
 A complete normed space endowed with inner product is called a **Hilbert space**
 
@@ -452,6 +515,14 @@ A complete normed space endowed with inner product is called a **Hilbert space**
 ```{r, echo=F, fig.cap='Metric vector space로부터 힐버트 공간까지의 관계.', fig.align='center'}
 knitr::include_graphics("images/math_Hilbertspacemap.png")
 ```
+
+벡터 공간(유한이어도 되고 무한이어도 된다)이 주어졌을 때, 벡터의 직교정규 집합은 만약 이것이 **완비(complete)**일 때에만 기저로서 작동한다. 만약 한 번 기저를 얻는다면, 그 공간의 벡터는 직교정규 벡터들의 선형 결합으로 분해할 수 있다. 그러나 무한히 많은 직교정규 기저로부터의 무한차원 공간에서 기저를 만들고자 할 때 한 가지 주의해야 할 점은 벡터들의 집합이 완비성을 만족하는지 체크해야 한다는 것이다. 이 주의점은 어떤 공간의 벡터들의 무한 합이 수렴하더라도, 그 극한이 같은 벡터 공간 안에 포함되지 않을 수 있다는 사실로부터 야기된다. 즉 이 극한은원래 공간으로부터 빗나가게 할 수 있게 한다. 이런 경우에는 벡터들의 집합이 무한차원 공간의 기저로써 더이상 작동하지 않는 것을 의미한다.
+
+이러한 점을 좀 더 자세히 살펴보기 위해, 힐버트 공간 $V$에서의 직교정규 벡터들의 무한집합 $\{ e_{i}\}$에 대해 생각해보자. 그 다음에 우리는 한 개의 벡터 $\mathbf{x}\in V$를 골라 $e_{i}$의 내적을 계산한다. 그러면 $\mathbf{x}$ 는 다음과 같이 표현된다.
+$$c_{i}\langle e_{i},\mathbf{x} \rangle \in \mathbb{C}.$$
+무한 수열 $\{c_{i}\}$와 $\{e_{i}\}$의 처음 $n$항을 사용해 우리는 다음과 같이 유한합
+$$\sum_{i=1}^{n}c_{i}e_{i} \equiv \mathbf{x}_{n}$$
+을 정의할 수 있다.
 
 힐버트 공간의 대표적인 예로, $L^{p}$ 공간이 있다.
 

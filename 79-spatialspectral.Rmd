@@ -1,0 +1,185 @@
+# 공간통계학에서의 스펙트럼 방법들 {#spatialspectral}
+
+**주파수 영역(frequency domain)**은 주기(sine, cosine 등)를 따라 과정(process)을 분해하는 것이다.
+
+## 복소 확률 변수들(complex-valued random variables)
+
+$Z=U+iV$, $U ,V$는 실수값을 갖는 확률변수라고 하자. 그러면 $Z$는 **복소 확률 변수(complex-valued random variable)**이 된다. $E(Z)=E(U)+iE(V)$, $\text{var}(Z)=E((Z-E(Z))(\overline{Z-E(Z)}))$, $\text{cov}(Z,W)=E((Z-E(Z))(\overline{(W-E(W))}))$이다.
+
+### 복소 정규분포(complex normal distribution)
+
+어떤 복소 확률 변수가 **복소 정규분포(complex normal distribution)**를 따른다는 것을 기호로는 $X\sim \mathcal{N}^{c}(\mu,\Sigma)$로 쓰며 $\mathbf{x}=(x_{1},\ldots, x_{n})^{T}$라고 할 때
+$$
+\begin{pmatrix}
+\text{Re}(X) \\
+\text{Im}(X)
+\end{pmatrix}
+\sim
+\mathcal{N}_{2n}
+\Bigg(
+\begin{pmatrix}
+\text{Re}(\mu) \\
+\text{Im}(\mu)
+\end{pmatrix},
+\frac{1}{2}
+\begin{pmatrix}
+\text{Re}(\Sigma) & -\text{Im}(\Sigma) \\
+\text{Im}(\Sigma) & \text{Re}(\Sigma)
+\end{pmatrix}
+\Bigg)
+$$
+를 만족할 때 복소 정규분포가 된다. 복소 정규분포의 성질은 다음과 같다. $E(X)=\mu$, $E((X-\mu)(\overline{X-\mu})^{T})$, $E((X-\mu)(X-\mu)^{T})=0$이다. 만약 $\Sigma$가 대각행렬이면 $X_{1},\ldots , X_{n}$은 독립이다. 그리고 $n=1$일 때에는 $\text{Re}(X)\sim \mathcal{N}(\text{Re}(\mu), \frac{1}{2}\sigma^{2})$, $\text{Im}(X)\sim \mathcal{N}(\text{Im}(\mu), \frac{1}{2}\sigma^{2})$ 이며 $\text{Re}(X) \perp \text{Im}(X)$이다.
+
+### 복소값을 갖는 공간과정(complex-values spatial process)
+
+**복소값을 갖는 공간과정(complex-values spatial process)**는 $Z(s)=U(x)+iV(s)$이며 $U,V$는 실수값을 갖는 공간과정이다. 만약 $U$와 $V$가 **joint stationary**(각각이 stationary이고 joint의 covariance도 stationary를 만족하는 경우)이고 $\text{cov}(U(s),V(t))=C_{0}(s-t)$로 표현이 되면 $Z(s)$는 **약정상성(weakly stationary)**을 갖는다고 말한다.
+
+정상성을 갖는 공분산 함수는 $C(h)=\text{cov}(Z(s+h),Z(s))$가 되고 $C(-h)=\overline{C(h)}$가 되며 $C(h)$는 $\sum_{j}\sum_{k}c_{j}\overline{c}_{k}C(s_{j}-s_{k})\geq 0$ (real, positive definiteness)를 만족한다.
+
+## 공간과정의 스펙트럼 표현(spectral representation of a spatial process)
+
+$Z_{1}, \ldots, Z_{n}$은 평균이 0인 복소 확률변수이며 $j\neq k$일 경우 $E(Z_{j}\overline{Z}_{k})=0$가 되며 $E|Z_{j}|^{2}=f_{j}$이다. 그러면
+$$Z(\mathbf{s})=\sum_{k=1}^{n}Z_{k}e^{i\boldsymbol{\omega}_{k}^{T}\mathbf{s}},\qquad{\boldsymbol{\omega}_{1},\ldots, \boldsymbol{\omega}_{n}\in\mathbb{R}^{d}, \mathbf{s}\in\mathbb{R}^{d}}$$
+로 표현할 수 있다. 여기서
+
+- $\sum$은 decomposition을 나타낸다.
+
+- $Z_{k}$는 weight amplitude contribution 
+
+- $e^{i\boldsymbol{\omega}_{k}^{T}\mathbf{s}}=\cos(\boldsymbol{\omega}_{k}^{T}\mathbf{s})+i\sin (\boldsymbol{\omega}_{k}}^{T}\mathbf{s})$
+
+- $\boldsymbol{\omega}_{k}$들이 frequency에 해당한다.
+
+그러면 이에 대응되는 covariance function은 $C(\mathbf{h})=\sum_{k=1}^{n}f_{k}e^{i\boldsymbol{\omega}_{k}^{T}\mathbf{h}}$가 된다. 이것들은 뒤에 나올 정리의 근사에 해당된다.
+
+### 약정상과정의 스펙트럼 표현 정리(spectral representation theorem for weakly stationary process)
+
+모든 mean-square continuous weakly stationary process $Z(\mathbf{s})$에 대해 orthogonal increments를 갖는 어떤 프로세스 $Y(\boldsymbol{\omega})$가 존재해
+$$Z(\mathbf{s})=\int e^{i\boldsymbol{\omega}_{k}^{T}\mathbf{s}}dY(\boldsymbol{\omega})$$
+로 쓸 수 있고 orthogonal increment들이 존재해 $j\neq k \neq l \neq m$일 때
+$$\text{Cov}(Y(\boldsymbol{\omega}_{j})-Y(\boldsymbol{\omega}_{k}), Y(\boldsymbol{\omega}_{l})-Y(\boldsymbol{\omega}_{m}))=0$$
+이 된다. 즉 차이들 $Y(\boldsymbol{\omega}_{j})-Y(\boldsymbol{\omega}_{k})$와 $Y(\boldsymbol{\omega}_{l})-Y(\boldsymbol{\omega}_{m})$이 uncorrelated 되어있는 것이다.
+
+우리가 만약 $F$를
+$$E[|dY(\boldsymbol{\omega})|^{2} ]=F(d\boldsymbol{\omega}),$$
+$|F(d\boldsymbol{\omega})|<\infty, \forall \boldsymbol{\omega}$로 정의하고 positive finite measure라고 하자. 만약 $F$가 르베그 측도에 대해 밀도 $f$를 갖게 된다면, 이 $f$를 **스펙트럼 밀도(spectral density)**라고 부르게 된다. 스펙트럼 밀도가 존재할 때, 만약 공분산 함수 $C$가 연속 함수이면 다음의 푸리에 inversion 식을 갖는다.
+$$f(\boldsymbol{\omega}=\frac{1}{(2\pi)^{d}}\int_{\mathbb{R}^{d}}\exp(-i\boldsymbol{\omega}^{t}\mathbf{s})C(\mathbf{s})d\mathbf{s}.$$
+그리고 분산
+$$C(\mathbf{0})=\int f(\boldsymbol{\omega})d\boldsymbol{\omega} $$
+은 total power에 해당한다. $C(\mathbf{0})$은 스케일링을 해줘야만 1이 된다.
+
+## 공분산 함수들의 스펙트럼 분포(some spectral densities of covariance functions)
+
+우리가 앞서 배운 공분산 함수들은 스펙트럼 버전이 존재한다.
+
+1. Matern model
+
+$$C(\mathbf{h})=\frac{\sigma^{2}2^{1-\alpha}}{\Gamma(\alpha)}(\frac{\|\mathbf{h}\|}{\phi})^{\alpha}K_{\alpha}(\frac{\|\mathbf{h}\|}{\phi})$$
+로 정의된 Matern covariance 함수의 스펙트럼 버전은
+$$f(\boldsymbol{\omega})=\frac{\sigma^{2}\Gamma(\alpha+\frac{d}{2})}{\Gamma(\alpha)\pi^{\frac{d}{2}}}(\frac{1}{\phi})^{2\alpha}(\frac{1}{\phi})^{2}+|\boldsymbol{\omega}|^{2})^{-(\alpha+\frac{d}{2})}$$
+로 나타낼 수 있다고 한다. Parametrization을 어떻게 하느냐에 따라 결과가 달라진다. 다른 spectral version을 확인해보려면[@Gelfand2010]의 5장을 참고하길 바란다.
+
+## 깨진 패턴(aliasing)
+
+신호 처리에서 **에일리어싱(aliasing)**은 표본화를 하는 가운데 각기 다른 신호를 구분해내지 못하는 현상을 가리킨다. 차원 $d=1$이고 $Z(\mathbf{s})$가 공분산 함수 $C_{Z}(\cdot)$을 가지는 약정상과정이고 이것의 스펙트럼 함수를 $f_{Z}(\cdot)$이라고 하자. 그러면 $C_{Z}:\mathbb{R}\rightarrow\mathbb{R}_{+}$, $f_{Z}:\mathbb{R}\rightarrow\mathbb{R}_{+}$가 된다. $Z(\mathbf{s})$가 등간격 $\delta$만큼 떨어진 거리에서 관찰되었다고 하자. 그리고 격자 과정 $Y_{j}\equiv (\delta_{j}),j=0\pm 1, \pm2 \ldots$를 정의한다. 그러면 $Y_{j}$의 공분산함수는
+$$C_{Y}(k)=\text{Cov}(Y_{j+k},Y_{j}=\text{Cov}(Z(\delta(j+k)), Z(\delta(j)))= C_{Z}(\delta_{k})$$
+가 된다. 또한 $C_{Z}:\mathbb{Z}\rightarrow\mathbb{R}_{+}$이다. 이때 $f_{Y}(\omega)$과 $f_{Z}(\omega)$와의 관계는 어떻게 되는가? 그 관계를 살펴보기 전에 $\{g_{k}\}, k=0,\pm 1, \ldots$에 이산 푸리에 변환을 적용해본다. 그러면 다음을 얻는다.
+$$\hat{g}(\omega)=\frac{1}{2\pi}\sum_{k=-\infty}^{\infty}g_{k}e^{-i\omega k}, \qquad{\omega \in [-\pi, \pi].}$$
+이때 $g_{k}=\int_{-\pi}^{\pi}e^{i\omega k }\hat{g}(\omega)d\omega$가 된다. 그리고 $g_{k}$를 $C_{Y}(k)$로 대체한다면 inversion formula를 통해
+$$f_{Y}(\omega)=\frac{1}{2\pi}\sum_{k=\infty}^{\infty}C_{Y}(k)e^{-i\omega k}, \qquad{\omega \in [-\pi, \pi]},$$
+lattice process의 공분산 함수는
+$$C_{Y}(k)=\int_{-\pi}^{\pi}e^{i\omega k}f_{Y}(\omega)d\omega$$
+가 되고
+$$f_{Z}(\omega)=\frac{1}{(2\pi)^{d}}\int e^{-i\boldsymbol{\omega}^{T}\mathbf{s}}C(\mathbf{s})d\mathbf{s}$$
+인데 편의상 $d=1$일 경우 연속 과정의 공분산함수는
+$$C_{Z}(\mathbf{s})=\int_{\mathbb{R}}e^{i\mathbf{s}\omega}f(\omega)d\omega $$
+가 된다. 한편 1차원에서
+$$f_{Y}(\omega)=\frac{1}{\delta}\sum_{j=-\infty}^{\infty}f_{Z}(\frac{\omega + 2\pi j }{\delta}), \qquad{\omega \in [-\pi, \pi]}$$
+이고 일반적인 $d$차원에서는
+$$f_{Y}(\omega)=\frac{1}{\delta^{d}}\sum_{J\in\mathbb{Z}^{d}}f_{Z}(\frac{\omega + 2\pi J}{\delta})$$
+임을 보일 수 있다고 한다. 즉 $f_{Y}(\omega)$는 $f_{Z}(\omega)$와 $\frac{\omega}{\delta}=0$ (즉 $j=0$)에서 뿐만 아니라 다음의 주파수들
+$$(\frac{\omega}{\delta}\pm \frac{2\pi}{\delta}, \ldots , \frac{\omega}{\delta}\pm 2\cdot\frac{2\pi}{\delta},\ldots)$$
+에 대해 모두 의존하게 된다. 따라서 우리는 $\frac{\omega}{\delta}$를 $\{\frac{\omega}{\delta}+ \frac{2\pi j}{\delta} \}_{j\neq 0}$과 깨진 패턴을 이룬다고 말한다. 즉 $\{\frac{\omega}{\delta}+ \frac{2\pi j}{\delta} \}_{j\neq 0}$를 $\frac{\omega}{\delta}$와 같은 것으로 본다는 것이다. 이 때 lower frequency와 alias를 이루지 않는 가장 높은 주파수를 **Nyquist frequency**라고 한다. 앞선 예에서 Nyquist frequency는 $\frac{\pi}{\delta}$가 된다. 즉 이것보다 큰 주파수 정보는 잡지 못하는 것이다.
+
+참고로 공간자료에서 lag가 큰 것은 frequency domain에서 frequency가 작은 것, lag가 작은 것은 frequency domain에서 frequency가 큰 것에 대응된다고 한다. 그리고 irregular할 때 스펙트럼 domain은 잘 고려되지 않는다고 한다.
+
+## 스펙트럼 밀도의 추정(estimation of spectral density)
+
+### 이산 푸리에 변환(discrete Fourier transform in spatial statistics)
+
+다음과 같이 사용 가능한 자료 $\{Z(\mathbf{J}) \}_{\mathbf{J}\in T_{n}}$, $T_{n}=\{ 1,2,\ldots, n\}^{d}$ $(\delta=1)$이 있다고 하자. 이것의 공분산 함수는 $\text{Cov}(h)=E(Z(s+h)-\mu)(Z(s)-\mu)$이고 추정량은 $\hat{C}(h)=\Sigma(Z(s+h)-\bar{Z})(Z(s)-\bar{Z})$이다.
+
+이 때 이 자료의 **이산 푸리에 변환(discrete Fourier transform, DFT)**는
+$$D(\omega)=\sum_{\mathbf{J}\in T_{n}}Z(\mathbf{J})e^{-i\boldsymbol{\omega}^{T}\mathbf{J}}, \qquad{\boldsymbol{\omega}\in[-\pi,\pi]^{d}}$$
+이다. 이 때 $\omega = \frac{2\pi k}{n}, K\in \{ -\lfloor\frac{(n+1)}{2}\rfloor,\ldots, 0,\ldots, n-\lfloor\frac{n}{2}\rfloor  \}^{d}$를 **푸리에 주파수(Fourier frequency)**라고 부른다. (대충 $[-\pi,\pi]^{d}$안에 들어가게 하기 위함) 이 푸리에 주파수를 더 빨리 계산할 수 있도록 하는 방법으로 FFT라는 것이 있다.
+
+### 비모수적 방법-피리오도그램(nonparametric estimate - periodogram)
+
+$Y(\mathbf{J})\equiv Z(\delta \mathbf{J})$라고 할 때 (관찰값이 discrete일 경우) lattice process $f_{Y}(\boldsymbol{\omega})$의 비모수적 추정(periodogram)은 다음과 같다.
+
+```{definition, name="공간통계에서의 피리오도그램"}
+공간통계에서의 **피리오도그램(periodogram)**의 정의는 다음과 같다.
+$$I(\boldsymbol{\omega})=\frac{1}{(2\pi n)^{-d}}|D(\boldsymbol{\omega})|^{2}=D(\boldsymbol{\omega}D(\boldsymbol{\omega})), \qquad{\boldsymbol{\omega}\in[-\pi,\pi]^{d}}.$$
+
+```
+
+피리오도그램은 $f_{Y}(\boldsymbol{\omega})$에 대한 특별한 형태 가정을 하지 않고 있다. $(\boldsymbol{\omega})$가 유용한 추정량인지 보려면, 불편성(unbiased), 일치성(consistency), 이것의 점근 분포 등을 살펴보아야 한다. 실제로 $(\boldsymbol{\omega})$는 일치추정량은 아니다.
+
+## Increasing domain assumptions에서의 피리오도그램의 성질(properties of periodograms unber increasing domain assumptions)
+
+자료가 늘어남에 따라 자료 사이의 거리가 늘어나는 것이 아닌, 자료 사이의 거리는 고정되어있고 정의역이 늘어난다는 가정을 **increasing domain assumptions**라고 한다. 이러한 가정의 장점으로는 시계열분석의 연구를 가져올 수 있다는 점이 있다. $Y(\mathbf{J})\equiv Z(\delta \mathbf{J})=Z(\mathbf{J})$가 lattice process라고 하자. 이 때 $Z$는 공분산함수 $C_{Z}(\mathbf{u}), u\in \mathbb{R}^{d}$, 스펙트럼 함수 $f_{Z}(\boldsymbol{\omega}), \boldsymbol{\omega}\in\mathbb{R}^{d}$를 갖는다. 마찬가지로 $Y(\mathbf{J})$또한 공분산함수 $C_{Z}(\mathbf{u}), \mathbf{u}\in\mathbb{Z}^{d}$, 스펙트럼 밀도 $f_{Y}(\boldsymbol{\omega}), \boldsymbol{\omega}\in (-\pi,\pi]^{d}$를 갖는다고 하자. 그러면
+$$f_{Y}(\boldsymbol{\omega}) = \frac{1}{\delta^{d}}\sum_{\mathbf{J}\in \mathbb{Z}^{d}}f_{Z}(\frac{\boldsymbol{\omega}+2\pi \mathbf{J}}{\delta})$$
+로 표현할 수 있다고 한다. $\mathbf{J}$가 커질 때 밀도함수는 0으로 수렴하므로 위의 식의 유한한 항만 고려해도 된다. 
+
+$d=1$인 경우 정확히 시계열 분석과 같아진다. $d=1$이라고 해보자. 그리고 $(Z(1),\ldots , Z(n))=(Y(1),\ldots , Y(n))$은 다변량 가우스 분포를 따른다고 하자. 추가적으로 평균은 0이라고 해보자. 그러면 이 때 $D(\omega)$는 복소 정규분포를 따르고 $E(D(\omega))=0$, $\text{Var}(D(\omega))=\int_{-\pi}^{\pi}\frac{\sin^{2}(\frac{(\alpha-\omega)n}{2})}{\sin^{2}(\frac{\alpha-\omega}{2})}f_{Y}(\alpha)d\alpha$를 따른다. 이 때 $\alpha$는 $\omega$가 제일 높은 값으로, Fejer kernel에 해당한다고 한다. 이를 점근 분포로 나타내면
+$$D(\omega) \sim \mathcal{N}^{C}(0,2\pi n f_{Y}(\omega)), \qquad{\omega\neq 0}$$
+$$\text{Var}(D(\omega))\sim 2\pi n f_{Y}(\omega), \qquad{\omega\neq 0}$$
+이 된다. 사실 $n$이 있기 때문에 엄밀한 의미의 점근 분포는 아니다. 그리고 $n\rightarrow \infty$일 때 $\omega_{k}=\frac{2\pi k}{n}, \omega_{k'}=\frac{2\pi k'}{n}$이 다른 주파수인 경우 $\{ D(\frac{2\pi k}{n})\}$은 asymptotically independent라고 한다.
+
+피리오도그램이 $I(\boldsymbol{\omega})=\frac{1}{(2\pi n)^{-d}}|D(\boldsymbol{\omega})|^{2}, \qquad{\boldsymbol{\omega}\in[-\pi,\pi]^{d}}$으로 정의되는 이유는 $d=1$일 때 생각해보면 $E(I_{n}(\omega))=\frac{1}{2\pi n}E|D(\omega)|^{2}= \frac{1}{2\pi n}\text{Var}|D(\omega)|^{2} \sim f_{Y}(\omega)$이므로 피리오도그램은 스펙트럼 밀도에 대한 점근적 불편추정량이 된다. 확률변수가 독립이면 확률변수의 함수도 독립이므로,
+$$\text{Var}(I_{n}(\omega)) = f_{Y}(\omega)^{2} + \mathcal{o}(1), \qquad{\omega_{k}=\frac{2\pi k}{n}, \omega_{k}\neq 0}$$
+$$\text{Cov}(I_{n}(\omega_{k}),I_{n}(\omega_{k'}))=\mathcal{o}(1)$$
+이 되어 피리오도그램 또한 asymptotically independent이다. ($\omega=0$일 때에는 따로 증명해줘야 한다.)
+
+앞서 말했듯이 피리오도그램은 일치추정량이 아니다. 일치추정량이 되려면 $\text{Var}(I_{n}(u))\stackrel{n\rightarrow\infty}{\rightarrow}0$이어야 한다. 그런데 왜 피리오도그램을 쓰는가? 그 이유는
+
+1. 피리오도그램을 가지고 일치추정량을 만들 수 있고
+
+2. 피리오도그램이 갖고 있는 좋은 성질들을 활용하기 위함
+
+이라고 한다.
+
+실제로 피리오도그램은 wiggly하게 나오는 경우가 많아 Nadayara-Watson kernel smoother로 스므딩을 한 **smoothed periodogram**을 쓰기도 한다.
+$$\hat{I}(\omega_{k})=\sum K_{h}(\omega_{J},\omega_{k})I_{n}(\omega_{J}).$$
+이는 일치추정량이 된다고 한다.
+
+### 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)
+
+피리오도그램을 공분산의 푸리에 주파수로 볼 수도 있다. $Y$의 스펙트럼 밀도에 대해 다시 복습해보자.
+$$f_{Y}(\omega)=\frac{1}{2\pi}\sum_{-\infty}^{\infty}e^{-i\omega u}C_{Y}(u).$$
+이것의 truncated version은 다음과 같다.
+$$\hat{f}_{Y}(\omega)=\frac{1}{2\pi}\sum_{-n}^{n}e^{-i\omega u}\hat{C}_{Y}(u).$$
+이 때 $\hat{C}_{Y}(u)$는 평균 0이고 lag $u$인 공분산의 표본 버전으로 다음과 같다.
+$$\hat{C}_{Y}(u)=\frac{1}{n}\sum_{1\leq k, k+u\leq n}Y(u+k)Y(k).$$
+이 때 $I_{n}(\omega)=\frac{1}{2\pi n}|\sum_{j=1}^{n}Y(j)e^{-i\omega j}|^{2}$으로 피리오드그램은 스펙트럼 밀도의 추정값이다.
+
+### 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)
+
+이제부터는 스펙트럼 밀도 모수 모형과 그 추정에 대해 살펴보기로 하자. 스펙트럼 밀도를 추정하는 것은 스펙트럼 밀도를 이용해 공분산 모수들을 추정하는 것과 동치이다. 즉 $I_{n}(\omega_{k})$ $(\omega_{k}$는 푸리에 주파수)와 $f_{Y}(\omega, \theta)$를 매칭시켜서 $\theta$를 계산하는 것이다.
+
+가중 최소자승법은 $\text{Var}I_{n}(\omega_{k})\sim f_{Y}^{2}(\omega_{k})+\mathcal{o}(1)$을 이용해
+$$\hat{\theta}=\text{argmin}_{\theta}\sum\frac{1}{f(\omega_{k};\theta)}(I_{n}(\omega_{k})-f(\omega_{k};\theta))^{2}$$
+으로 추정하는 것이다. 그러나 분포에도 $\theta$가 있어 비선형 최적화 문제가 되므로 이 방법은 많이 안쓰고 대신 다음에 나올 가능도 기반 방법을 이용한 스펙트럼 밀도 추정 방법을 주로 이용한다.
+
+### 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)
+
+[@Whittle1954]는 가우스 과정의 negative log-likelihood의 근사로서 Whittle-likelihood를 제안하였다. Whittle-likelihood의 기본적인 아이디어는 $f$가 lattice process라고 할 때 적분을 다음과 같이 근사하는 것이다.
+\begin{align*} 
+-l(\theta) &\approx \int_{-\pi}^{\pi}(\log f_{Y}(\omega; \theta) + \frac{I_{n}(\omega)}{f_{Y}(\omega;\theta)})d\omega \\ 
+ &\approx \sum_{k}(\log f_{Y}(\frac{2\pi k}{n};\theta) + \frac{I_{n}(\omega)}{f_{Y}(\frac{2\pi k}{n};\theta)})
+\end{align*}
+그러면 이 때의 추정량은 위의 -log likelihood를 최소화하여 얻을 수 있다.
+$$\hat{\theta}=\text{argmin}_{\theta}\sum_{k}(\log f(\frac{2\pi k}{n};\theta)+ \frac{I_{n}(\omega)}{f_{Y}(\frac{2\pi k}{n};\theta)})$$
+이것은 consistent하고 점근적 분포를 갖고 있음이 알려져 있다. 그러나 공분산 행렬의 고유치가 nice하게 움직이는(well-defined) 특별한 class의 f에서만 이것이 성립한다고 한다.
+
+## 인필 점근 하에서의 피리오도그램의 성질들(properties of periodogram under infill asymptotics)
