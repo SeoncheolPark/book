@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-05-04">
+<meta name="date" content="2018-07-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -566,10 +566,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="44.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html"><i class="fa fa-check"></i><b>44.5</b> 스펙트럼 밀도의 추정(estimation of spectral density)</a><ul>
 <li class="chapter" data-level="44.5.1" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--discrete-fourier-transform-in-spatial-statistics"><i class="fa fa-check"></i><b>44.5.1</b> 이산 푸리에 변환(discrete Fourier transform in spatial statistics)</a></li>
 <li class="chapter" data-level="44.5.2" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--nonparametric-estimate---periodogram"><i class="fa fa-check"></i><b>44.5.2</b> 비모수적 방법-피리오도그램(nonparametric estimate - periodogram)</a></li>
-<li class="chapter" data-level="44.5.3" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.5.3</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
-<li class="chapter" data-level="44.5.4" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.5.4</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
-<li class="chapter" data-level="44.5.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.5.5</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
 </ul></li>
+<li class="chapter" data-level="44.6" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><i class="fa fa-check"></i><b>44.6</b> Increasing domain assumptions에서의 피리오도그램의 성질(properties of periodograms unber increasing domain assumptions)</a><ul>
+<li class="chapter" data-level="44.6.1" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.6.1</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
+<li class="chapter" data-level="44.6.2" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.6.2</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
+<li class="chapter" data-level="44.6.3" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.6.3</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
+</ul></li>
+<li class="chapter" data-level="44.7" data-path="44-7-properties-of-periodogram-under-infill-asymptotics.html"><a href="44-7-properties-of-periodogram-under-infill-asymptotics.html"><i class="fa fa-check"></i><b>44.7</b> 인필 점근 하에서의 피리오도그램의 성질들(properties of periodogram under infill asymptotics)</a></li>
 </ul></li>
 <li class="part"><span><b>VI Spatio-Tempral Statistics</b></span></li>
 <li class="chapter" data-level="45" data-path="45-spatiotemporal.html"><a href="45-spatiotemporal.html"><i class="fa fa-check"></i><b>45</b> 시공간 통계학</a><ul>
@@ -682,7 +685,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>최대안정과정은 GEV 분포와 같은 극단값 분포를 공간 상황에서 설명할 수 있게끔 하는 역할을 한다. 앞서 나왔던 <strong>최대안정(max-stable)</strong>의 정의를 다시 살펴보자. 이번엔 <span class="citation">(Dey and Yan <a href="#ref-Dey2015">2015</a>)</span> 버전이다.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-384" class="definition"><strong>Definition 58.1  (최대안정과정의 다른 정의)  </strong></span><span class="math inline">\(Z_{1}, Z_{2},\ldots\)</span>를 확률과정 <span class="math inline">\(\{Z(x):x\in\mathcal{X} \}\)</span>의 독립인 copy들의 수열이라고 하자. 만약 각각의 <span class="math inline">\(n, (n\geq 1)\)</span>에 대해 다음과 같은 <span class="math inline">\(a_{n}&gt;0\)</span>, <span class="math inline">\(b_{n}\in\mathbb{R}\)</span>이 존재해 다음
+<span id="def:unnamed-chunk-385" class="definition"><strong>Definition 58.1  (최대안정과정의 다른 정의)  </strong></span><span class="math inline">\(Z_{1}, Z_{2},\ldots\)</span>를 확률과정 <span class="math inline">\(\{Z(x):x\in\mathcal{X} \}\)</span>의 독립인 copy들의 수열이라고 하자. 만약 각각의 <span class="math inline">\(n, (n\geq 1)\)</span>에 대해 다음과 같은 <span class="math inline">\(a_{n}&gt;0\)</span>, <span class="math inline">\(b_{n}\in\mathbb{R}\)</span>이 존재해 다음
 <span class="math display">\[\begin{equation}
 \frac{\max_{i=1,\ldots ,n}Z_{i}-b_{n}}{a_{n}}\stackrel{d}{=}Z
 \end{equation}\]</span>
@@ -692,7 +695,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>다음은 <span class="citation">(De Haan <a href="#ref-DeHaan1984">1984</a>)</span>에 나오는 정리이다.</p>
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-385" class="theorem"><strong>Theorem 58.1  (최대안정과정 관련 정리)  </strong></span><span class="math inline">\(Y_{1}, Y_{2},\ldots\)</span>를 continuous sample path를 갖는 <span class="math inline">\(\{Y(x):x\in\mathcal{X} \}\)</span>의 독립인 copy들의 수열이라고 하자. 만약 연속함수 <span class="math inline">\(c_{n}&gt;0, d_{n}\in\mathbb{R}\)</span>이 존재해 극한과정(limiting process) <span class="math inline">\(\{Z(x): x\in\mathcal{X}\}\)</span>에 수렴한다면, 즉
+<span id="thm:unnamed-chunk-386" class="theorem"><strong>Theorem 58.1  (최대안정과정 관련 정리)  </strong></span><span class="math inline">\(Y_{1}, Y_{2},\ldots\)</span>를 continuous sample path를 갖는 <span class="math inline">\(\{Y(x):x\in\mathcal{X} \}\)</span>의 독립인 copy들의 수열이라고 하자. 만약 연속함수 <span class="math inline">\(c_{n}&gt;0, d_{n}\in\mathbb{R}\)</span>이 존재해 극한과정(limiting process) <span class="math inline">\(\{Z(x): x\in\mathcal{X}\}\)</span>에 수렴한다면, 즉
 <span class="math display">\[\begin{equation}
 \frac{\max_{i=1,\ldots, n}Y_{i}(x)-d_{n}(x)}{c_{n}(x)}\rightarrow Z(x), x\in\mathcal{X}, n\rightarrow \infty 
 \end{equation}\]</span>
@@ -703,7 +706,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>공간 극단값 이론에서 최대안정과정을 고려하는 이유는 다음과 같다. <span class="math inline">\(n\)</span>개의 독립 반복에서 극한과정(limiting process) <span class="math inline">\(\{Z(x): x\in\mathcal{X}\}\)</span>이 <span class="math inline">\(n\)</span>이 충분히 클 때 <strong>부분 최대 과정(partial maxima process)</strong>을 모델링 할 좋은 후보라고 여겨지기 때문이다.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-386" class="definition"><strong>Definition 58.2  (부분 최대 과정)  </strong></span>(margin이 unit Fréchet <span class="math inline">\((F(z)=\exp(-1/z))\)</span>이라고 가정하자.) 이러한 경우에
+<span id="def:unnamed-chunk-387" class="definition"><strong>Definition 58.2  (부분 최대 과정)  </strong></span>(margin이 unit Fréchet <span class="math inline">\((F(z)=\exp(-1/z))\)</span>이라고 가정하자.) 이러한 경우에
 <span class="math display">\[\begin{equation}
 \max_{i=1,\ldots , n}n^{-1}Z_{i}(\cdot) \stackrel{d}{=} Z(\cdot), n\geq 1
 \end{equation}\]</span>
@@ -713,7 +716,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>이 때 놀랍게도 최대안정과정에서 <strong>spectral characterization</strong> (뜻 찾아보기)를 얻는 것이 가능하다고 한다.</p>
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-387" class="theorem"><strong>Theorem 58.2  (최대안정과정의 spectral characterization)  </strong></span>(<span class="citation">(De Haan <a href="#ref-DeHaan1984">1984</a>)</span>의 characterization) <span class="math inline">\(\{ (\xi_{i}, U_{i})\}_{i \geq 1}\)</span>을 <span class="math inline">\((0,\infty ] \times \mathbb{R}^{d}\)</span>에서 (intensity <span class="math inline">\(d\Lambda (\xi, u)=\xi^{-2}d\xi\nu(du), \nu\)</span>는 <span class="math inline">\(\mathbb{R}^{d}\)</span>에서 <span class="math inline">\(\sigma\)</span>-finite measure)의 <strong>Poisson point process</strong>의 점들이라고 하자. 그리고 <span class="math inline">\(\{Z(x) \}_{x\in\mathbb{R}^{d}}\)</span>는 unit Fréchet margin을 가지는 최대안정과정이라고 가정하고 continuous sample path에서
+<span id="thm:unnamed-chunk-388" class="theorem"><strong>Theorem 58.2  (최대안정과정의 spectral characterization)  </strong></span>(<span class="citation">(De Haan <a href="#ref-DeHaan1984">1984</a>)</span>의 characterization) <span class="math inline">\(\{ (\xi_{i}, U_{i})\}_{i \geq 1}\)</span>을 <span class="math inline">\((0,\infty ] \times \mathbb{R}^{d}\)</span>에서 (intensity <span class="math inline">\(d\Lambda (\xi, u)=\xi^{-2}d\xi\nu(du), \nu\)</span>는 <span class="math inline">\(\mathbb{R}^{d}\)</span>에서 <span class="math inline">\(\sigma\)</span>-finite measure)의 <strong>Poisson point process</strong>의 점들이라고 하자. 그리고 <span class="math inline">\(\{Z(x) \}_{x\in\mathbb{R}^{d}}\)</span>는 unit Fréchet margin을 가지는 최대안정과정이라고 가정하고 continuous sample path에서
 <span class="math display">\[\begin{equation}
 \{Z(x)\}_{x\in\mathbb{R}^{d}}\stackrel{d}{=}\{\max_{i\geq 1}\xi_{i}f_{x}(U_{i})\}_{x\in\mathbb{R}^{d}}
 \end{equation}\]</span>
@@ -724,7 +727,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>를 만족한다.</p>
 </div>
 
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-388"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-389"></span>
 <img src="images/spatextremes_002.png" alt="de Haans characterization." width="166" />
 <p class="caption">
 FIGURE 58.1: de Haans characterization.
@@ -733,10 +736,10 @@ FIGURE 58.1: de Haans characterization.
 <p>이 그림은 de Haan’s characterization을 묘사한 것인데 <span class="math inline">\(\{\xi_{i}\}_{i\geq 1}\)</span>이 storm ferocities (아마도 발생 유무를 표시하는 Poisson point process인 듯 하다), <span class="math inline">\(\{\xi_{i}\}_{i\geq 1}\)</span>는 storm centers, 그리고 <span class="math inline">\(\xi_{i}f_{x}(U_{i})\)</span>은 <span class="math inline">\(i\)</span>번째 storm의 <span class="math inline">\(x\)</span>지점에서 강수량을 나타낸다고 볼 수 있다. 각각의 함수가 storm event를 묘사한 것일 때, 최대값들을 이은 검은 곡선이 최대안정과정이 되는 것이다.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-389" class="theorem"><strong>Theorem 58.3  (unit Fréchet margin을 가지는 최대안정과정)  </strong></span>(<span class="citation">(Schlather <a href="#ref-Schlather2002">2002</a>)</span>의 characterization) <span class="math inline">\(\{ (\xi_{i}, U_{i})\}_{i \geq 1}\)</span>이 <span class="math inline">\((0,\infty ]\)</span>에서 intensity <span class="math inline">\(d \Lambda (\xi)=\xi^{-2}d\xi\)</span>를 갖는 <strong>Poisson point process</strong>의 점들이고 <span class="math inline">\(Y_{1},Y_{2},\ldots\)</span>를 <span class="math inline">\(E[Y(x)]=1, \forall x \in \mathbb{R}^{d}\)</span> 이고 non-negative continous sample path stochastic process <span class="math inline">\(\{ Y(x)\}\)</span>의 independent copy들이라고 하자. 이때 <span class="math inline">\(Y_{i}\)</span>들은 <span class="math inline">\(\{ \xi_{i}\}_{i \geq 1}\)</span>와 독립이다. 그러면 <span class="math display">\[ \{ Z(x)\}_{x\in\mathbb{R}^{d}}:=\{\max_{i\geq 1} \xi_{i}Y_{i}(x) \}_{x\in \mathbb{R}^{d}}\]</span> 는 unit Fréchet margin을 가지는 최대안정과정이다.</p>
+<p><span id="thm:unnamed-chunk-390" class="theorem"><strong>Theorem 58.3  (unit Fréchet margin을 가지는 최대안정과정)  </strong></span>(<span class="citation">(Schlather <a href="#ref-Schlather2002">2002</a>)</span>의 characterization) <span class="math inline">\(\{ (\xi_{i}, U_{i})\}_{i \geq 1}\)</span>이 <span class="math inline">\((0,\infty ]\)</span>에서 intensity <span class="math inline">\(d \Lambda (\xi)=\xi^{-2}d\xi\)</span>를 갖는 <strong>Poisson point process</strong>의 점들이고 <span class="math inline">\(Y_{1},Y_{2},\ldots\)</span>를 <span class="math inline">\(E[Y(x)]=1, \forall x \in \mathbb{R}^{d}\)</span> 이고 non-negative continous sample path stochastic process <span class="math inline">\(\{ Y(x)\}\)</span>의 independent copy들이라고 하자. 이때 <span class="math inline">\(Y_{i}\)</span>들은 <span class="math inline">\(\{ \xi_{i}\}_{i \geq 1}\)</span>와 독립이다. 그러면 <span class="math display">\[ \{ Z(x)\}_{x\in\mathbb{R}^{d}}:=\{\max_{i\geq 1} \xi_{i}Y_{i}(x) \}_{x\in \mathbb{R}^{d}}\]</span> 는 unit Fréchet margin을 가지는 최대안정과정이다.</p>
 </div>
 
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-390"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-391"></span>
 <img src="images/spatextremes_004.png" alt="Schlathers characterization" width="164" />
 <p class="caption">
 FIGURE 58.2: Schlathers characterization

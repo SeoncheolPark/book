@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-05-04">
+<meta name="date" content="2018-07-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -566,10 +566,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="44.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html"><i class="fa fa-check"></i><b>44.5</b> 스펙트럼 밀도의 추정(estimation of spectral density)</a><ul>
 <li class="chapter" data-level="44.5.1" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--discrete-fourier-transform-in-spatial-statistics"><i class="fa fa-check"></i><b>44.5.1</b> 이산 푸리에 변환(discrete Fourier transform in spatial statistics)</a></li>
 <li class="chapter" data-level="44.5.2" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--nonparametric-estimate---periodogram"><i class="fa fa-check"></i><b>44.5.2</b> 비모수적 방법-피리오도그램(nonparametric estimate - periodogram)</a></li>
-<li class="chapter" data-level="44.5.3" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.5.3</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
-<li class="chapter" data-level="44.5.4" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.5.4</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
-<li class="chapter" data-level="44.5.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.5.5</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
 </ul></li>
+<li class="chapter" data-level="44.6" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><i class="fa fa-check"></i><b>44.6</b> Increasing domain assumptions에서의 피리오도그램의 성질(properties of periodograms unber increasing domain assumptions)</a><ul>
+<li class="chapter" data-level="44.6.1" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.6.1</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
+<li class="chapter" data-level="44.6.2" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.6.2</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
+<li class="chapter" data-level="44.6.3" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.6.3</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
+</ul></li>
+<li class="chapter" data-level="44.7" data-path="44-7-properties-of-periodogram-under-infill-asymptotics.html"><a href="44-7-properties-of-periodogram-under-infill-asymptotics.html"><i class="fa fa-check"></i><b>44.7</b> 인필 점근 하에서의 피리오도그램의 성질들(properties of periodogram under infill asymptotics)</a></li>
 </ul></li>
 <li class="part"><span><b>VI Spatio-Tempral Statistics</b></span></li>
 <li class="chapter" data-level="45" data-path="45-spatiotemporal.html"><a href="45-spatiotemporal.html"><i class="fa fa-check"></i><b>45</b> 시공간 통계학</a><ul>
@@ -684,7 +687,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ol style="list-style-type: decimal">
 <li>시간의 추이와 관계 없이 평균이 불변한다.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-163"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-164"></span>
 <img src="images/basic_mean_nonstationary.png" alt="Time invariant mean." width="293" />
 <p class="caption">
 FIGURE 15.1: Time invariant mean.
@@ -693,7 +696,7 @@ FIGURE 15.1: Time invariant mean.
 <ol start="2" style="list-style-type: decimal">
 <li>시간의 추이와 관계 없이 분산이 불변한다.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-164"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-165"></span>
 <img src="images/basic_var_nonstationary.png" alt="Time invariant variance." width="288" />
 <p class="caption">
 FIGURE 15.2: Time invariant variance.
@@ -702,7 +705,7 @@ FIGURE 15.2: Time invariant variance.
 <ol start="3" style="list-style-type: decimal">
 <li>시간의 추이와 관계 없이 공분산이 불변한다.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-165"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-166"></span>
 <img src="images/basic_cov_nonstationary.png" alt="Time invariant covariance." width="283" />
 <p class="caption">
 FIGURE 15.3: Time invariant covariance.
@@ -710,7 +713,7 @@ FIGURE 15.3: Time invariant covariance.
 </div>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-166" class="definition"><strong>Definition 15.1  (강정상성)  </strong></span>시계열 <span class="math inline">\(\{ x_{t}\}\)</span>가 있을 때 두 collection</p>
+<p><span id="def:unnamed-chunk-167" class="definition"><strong>Definition 15.1  (강정상성)  </strong></span>시계열 <span class="math inline">\(\{ x_{t}\}\)</span>가 있을 때 두 collection</p>
 <p><span class="math display">\[\{ x_{t_{1}}, x_{t_{2}}, \cdots  x_{t_{k}}\}, \{ x_{t_{1+h}}, x_{t_{2+h}}, \cdots  x_{t_{k+h}}\}\]</span></p>
 <p>가 identical하다면, 즉 모든 <span class="math inline">\(k=1,2,\ldots\)</span>, 모든 숫자 <span class="math inline">\(c_{1},c_{2},\ldots , c_{k}\)</span> 그리고 <span class="math inline">\(h=0, \pm 1, \pm 2,\ldots\)</span>에 대해</p>
 <p><span class="math display">\[P \{ x_{t_{1}} &lt;c_{1}, \ldots , x_{t_{k}} \leq c_{k}\}=P \{ x_{t_{1+h}} &lt;c_{1}, \ldots , x_{t_{k+h}} \leq c_{k}\}\]</span></p>
@@ -721,7 +724,7 @@ FIGURE 15.3: Time invariant covariance.
 <p>그러나 강정상성의 정의는 대부분의 응용에서 너무 강한 조건인데, 특히 single data set으로부터 강정상성을 assess하기 어렵다고 한다. 시계열에서는 series의 첫 두 moment에만 관련된 약정상성을 생각하여 조건을 부드럽게 한다. <span class="citation">(Huser <a href="#ref-Huser2013">2013</a>)</span>에 따르면 강정상성과 달리 약정상성은 처음 2개의 모멘트에서만 temporal homogeneity가 성립함을 가정하는 것이다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-167" class="definition"><strong>Definition 15.2  (약정상성)  </strong></span>시계열 <span class="math inline">\(x_{t}\)</span>가 finite variance를 갖는 process이며</p>
+<p><span id="def:unnamed-chunk-168" class="definition"><strong>Definition 15.2  (약정상성)  </strong></span>시계열 <span class="math inline">\(x_{t}\)</span>가 finite variance를 갖는 process이며</p>
 <ol style="list-style-type: decimal">
 <li><p>평균함수 <span class="math inline">\(\mu_{t}\)</span>가 상수이며 시간에 따라 변하지 않고</p></li>
 <li><p>자기공분산함수 <span class="math inline">\(\gamma(s,t)\)</span>가 이들의 차이 <span class="math inline">\(|s-t|\)</span>에만 depend할 때</p></li>
@@ -732,12 +735,12 @@ FIGURE 15.3: Time invariant covariance.
 <p>비정상 시계열 자료는 다루기 어려우므로 보통 분석하기 쉬운 정상성 시계열 자료로 변환해서 분석한다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-168" class="definition"><strong>Definition 15.3  (자기공분산함수)  </strong></span>정상시계열의 <strong>자기공분산함수(autocovariance function)</strong>는 <span class="math display">\[\gamma(h)=Cov(x_{t+h}, x_{t})=E[(x_{t+h}-\mu)(x_{t}-\mu)]\]</span> 로 정의된다.</p>
+<p><span id="def:unnamed-chunk-169" class="definition"><strong>Definition 15.3  (자기공분산함수)  </strong></span>정상시계열의 <strong>자기공분산함수(autocovariance function)</strong>는 <span class="math display">\[\gamma(h)=Cov(x_{t+h}, x_{t})=E[(x_{t+h}-\mu)(x_{t}-\mu)]\]</span> 로 정의된다.</p>
 </div>
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-169" class="definition"><strong>Definition 15.4  (자기상관함수)  </strong></span>정상시계열의 <strong>자기상관함수(autocorrelation function)</strong>는 <span class="math display">\[\rho(h)=\frac{\gamma(t+h,t)}{\sqrt{\gamma(t+h,t_h)\gamma(t,t)}}=\frac{\gamma(h)}{\gamma(0)}\]</span> 이다. 이는 <span class="math inline">\(h\)</span> 기간 떨어진 값들의 상관계수를 의미한다. 특별히 서로 다른 두 시점의 중간에 있는 값들의 영향을 제외시킨 상관계수를 <strong>부분자기상관함수(partial ACF)</strong>라고 부른다.</p>
+<p><span id="def:unnamed-chunk-170" class="definition"><strong>Definition 15.4  (자기상관함수)  </strong></span>정상시계열의 <strong>자기상관함수(autocorrelation function)</strong>는 <span class="math display">\[\rho(h)=\frac{\gamma(t+h,t)}{\sqrt{\gamma(t+h,t_h)\gamma(t,t)}}=\frac{\gamma(h)}{\gamma(0)}\]</span> 이다. 이는 <span class="math inline">\(h\)</span> 기간 떨어진 값들의 상관계수를 의미한다. 특별히 서로 다른 두 시점의 중간에 있는 값들의 영향을 제외시킨 상관계수를 <strong>부분자기상관함수(partial ACF)</strong>라고 부른다.</p>
 </div>
 
 <ul>

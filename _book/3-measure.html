@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-05-04">
+<meta name="date" content="2018-07-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -566,10 +566,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="44.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html"><i class="fa fa-check"></i><b>44.5</b> 스펙트럼 밀도의 추정(estimation of spectral density)</a><ul>
 <li class="chapter" data-level="44.5.1" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--discrete-fourier-transform-in-spatial-statistics"><i class="fa fa-check"></i><b>44.5.1</b> 이산 푸리에 변환(discrete Fourier transform in spatial statistics)</a></li>
 <li class="chapter" data-level="44.5.2" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--nonparametric-estimate---periodogram"><i class="fa fa-check"></i><b>44.5.2</b> 비모수적 방법-피리오도그램(nonparametric estimate - periodogram)</a></li>
-<li class="chapter" data-level="44.5.3" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.5.3</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
-<li class="chapter" data-level="44.5.4" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.5.4</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
-<li class="chapter" data-level="44.5.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.5.5</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
 </ul></li>
+<li class="chapter" data-level="44.6" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><i class="fa fa-check"></i><b>44.6</b> Increasing domain assumptions에서의 피리오도그램의 성질(properties of periodograms unber increasing domain assumptions)</a><ul>
+<li class="chapter" data-level="44.6.1" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.6.1</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
+<li class="chapter" data-level="44.6.2" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.6.2</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
+<li class="chapter" data-level="44.6.3" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.6.3</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
+</ul></li>
+<li class="chapter" data-level="44.7" data-path="44-7-properties-of-periodogram-under-infill-asymptotics.html"><a href="44-7-properties-of-periodogram-under-infill-asymptotics.html"><i class="fa fa-check"></i><b>44.7</b> 인필 점근 하에서의 피리오도그램의 성질들(properties of periodogram under infill asymptotics)</a></li>
 </ul></li>
 <li class="part"><span><b>VI Spatio-Tempral Statistics</b></span></li>
 <li class="chapter" data-level="45" data-path="45-spatiotemporal.html"><a href="45-spatiotemporal.html"><i class="fa fa-check"></i><b>45</b> 시공간 통계학</a><ul>
@@ -690,16 +693,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><strong>리만 적분(Riemman integral)</strong>에서는 interval (또는 rectangle, cube 등등)들의 size만 측도(measure)하면 된다.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-37" class="example"><strong>Example 3.1  (정의역과 치역이 1차원인 함수에서의 리만 적분)  </strong></span><span class="math inline">\(f\)</span>를 <span class="math inline">\(\mathbb{R}\)</span>에서 정의된 함수고 정의역이 <span class="math inline">\([a,b]\)</span>라고 하자. 그러면 우리는 구간 <span class="math inline">\([a,b]\)</span>를 더 잘게, <span class="math inline">\([x_{0}=a,x_{1}], [x_{1},x_{2}],\ldots, [x_{n-1},x_{n}=b]\)</span>로 나누고 적분을 다음 값으로 근사한다. <span class="math display">\[\sum_{i=1}^{n}f(x_{i})|x_{i}-x_{i-1}|.\]</span> 이 합의 극합이 적분값이 되며 우리는 이 적분을 리만 적분이라고 부른다. 여기서는 <span class="math inline">\(\mathbb{R}\)</span>에서의 집합들의 크기(size)를 측도하기 위해 interval을 사용하였다.</p>
+<p><span id="exm:unnamed-chunk-38" class="example"><strong>Example 3.1  (정의역과 치역이 1차원인 함수에서의 리만 적분)  </strong></span><span class="math inline">\(f\)</span>를 <span class="math inline">\(\mathbb{R}\)</span>에서 정의된 함수고 정의역이 <span class="math inline">\([a,b]\)</span>라고 하자. 그러면 우리는 구간 <span class="math inline">\([a,b]\)</span>를 더 잘게, <span class="math inline">\([x_{0}=a,x_{1}], [x_{1},x_{2}],\ldots, [x_{n-1},x_{n}=b]\)</span>로 나누고 적분을 다음 값으로 근사한다. <span class="math display">\[\sum_{i=1}^{n}f(x_{i})|x_{i}-x_{i-1}|.\]</span> 이 합의 극합이 적분값이 되며 우리는 이 적분을 리만 적분이라고 부른다. 여기서는 <span class="math inline">\(\mathbb{R}\)</span>에서의 집합들의 크기(size)를 측도하기 위해 interval을 사용하였다.</p>
 </div>
 
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-38"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-39"></span>
 <img src="images/measure_Riemann1d.png" alt="1차원 공간의 정의역을 자르는 방법." width="201" />
 <p class="caption">
 FIGURE 3.1: 1차원 공간의 정의역을 자르는 방법.
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-39"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-40"></span>
 <img src="images/measure_Riemann2d.png" alt="2차원 공간의 정의역을 자르는 방법. 이 경우에는 사각형의 면적이 집합의 크기가 된다." width="249" />
 <p class="caption">
 FIGURE 3.2: 2차원 공간의 정의역을 자르는 방법. 이 경우에는 사각형의 면적이 집합의 크기가 된다.

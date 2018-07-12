@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-05-04">
+<meta name="date" content="2018-07-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -566,10 +566,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="44.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html"><i class="fa fa-check"></i><b>44.5</b> 스펙트럼 밀도의 추정(estimation of spectral density)</a><ul>
 <li class="chapter" data-level="44.5.1" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--discrete-fourier-transform-in-spatial-statistics"><i class="fa fa-check"></i><b>44.5.1</b> 이산 푸리에 변환(discrete Fourier transform in spatial statistics)</a></li>
 <li class="chapter" data-level="44.5.2" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--nonparametric-estimate---periodogram"><i class="fa fa-check"></i><b>44.5.2</b> 비모수적 방법-피리오도그램(nonparametric estimate - periodogram)</a></li>
-<li class="chapter" data-level="44.5.3" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.5.3</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
-<li class="chapter" data-level="44.5.4" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.5.4</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
-<li class="chapter" data-level="44.5.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.5.5</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
 </ul></li>
+<li class="chapter" data-level="44.6" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><i class="fa fa-check"></i><b>44.6</b> Increasing domain assumptions에서의 피리오도그램의 성질(properties of periodograms unber increasing domain assumptions)</a><ul>
+<li class="chapter" data-level="44.6.1" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.6.1</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
+<li class="chapter" data-level="44.6.2" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.6.2</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
+<li class="chapter" data-level="44.6.3" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.6.3</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
+</ul></li>
+<li class="chapter" data-level="44.7" data-path="44-7-properties-of-periodogram-under-infill-asymptotics.html"><a href="44-7-properties-of-periodogram-under-infill-asymptotics.html"><i class="fa fa-check"></i><b>44.7</b> 인필 점근 하에서의 피리오도그램의 성질들(properties of periodogram under infill asymptotics)</a></li>
 </ul></li>
 <li class="part"><span><b>VI Spatio-Tempral Statistics</b></span></li>
 <li class="chapter" data-level="45" data-path="45-spatiotemporal.html"><a href="45-spatiotemporal.html"><i class="fa fa-check"></i><b>45</b> 시공간 통계학</a><ul>
@@ -682,7 +685,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>앞서 등장한 <span class="math inline">\(\lambda^{u}=\sigma \sqrt{2 \log n}\)</span>을 특별히 <strong>만능 임계화(universal Thresholding)</strong>라고 한다. 실제로는 <span class="math inline">\(\sigma\)</span>를 모르므로 <span class="math inline">\(\hat{\sigma}\)</span>를 사용한다.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-254" class="theorem"><strong>Theorem 23.1  (만능 임계화)  </strong></span><span class="math inline">\(X_{1},\cdots , X_{n}\)</span>을 <span class="math inline">\(EX_{i}=0, EX_{i}^{2}=1, EX_{i}X_{i+k}=\gamma(k)\)</span>인 stationary Gaussian process (Lag-k covariance structure를 갖는 Gaussian process)라고 하고 특별히 <span class="math inline">\(X_{(n)}=\max \{ X_{i} \}\)</span>라 하자. 만약 <span class="math inline">\(\lim_{k \rightarrow \infty} \gamma (k) =0\)</span>이면, <span class="math display">\[\frac{X_{(n)}}{\sqrt{2 \log n}} \rightarrow 1 \text{ as } n \rightarrow \infty\]</span> 이다.</p>
+<p><span id="thm:unnamed-chunk-255" class="theorem"><strong>Theorem 23.1  (만능 임계화)  </strong></span><span class="math inline">\(X_{1},\cdots , X_{n}\)</span>을 <span class="math inline">\(EX_{i}=0, EX_{i}^{2}=1, EX_{i}X_{i+k}=\gamma(k)\)</span>인 stationary Gaussian process (Lag-k covariance structure를 갖는 Gaussian process)라고 하고 특별히 <span class="math inline">\(X_{(n)}=\max \{ X_{i} \}\)</span>라 하자. 만약 <span class="math inline">\(\lim_{k \rightarrow \infty} \gamma (k) =0\)</span>이면, <span class="math display">\[\frac{X_{(n)}}{\sqrt{2 \log n}} \rightarrow 1 \text{ as } n \rightarrow \infty\]</span> 이다.</p>
 </div>
 
 <p>위 정리는 n Gaussian 확률 변수들 중 가장 큰 것은(독립일 필요는 없다) 대략 <span class="math inline">\(\sqrt{2 \log n}\)</span> 사이즈라는 것이다. 이 정리에 비추어 만능 임계화를 생각하면 이 임계화는 오차(error)가 Gaussian random variable을 따르는 것이라면 모두 다 임계화하겠다는 뜻으로 해석할 수 있다. 이 방법은 이론적으로는 완벽해 보이기는 하나 너무나 많은 잡음(noise)을 줄이는 underfit한 임계화이다. 결국 SURE와 같은 실용적인 임계화 방법을 생각하게 된 것이다. 이 얘기는 추후에 다시 나올 것이다.</p>

@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-05-04">
+<meta name="date" content="2018-07-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -566,10 +566,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="44.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html"><i class="fa fa-check"></i><b>44.5</b> 스펙트럼 밀도의 추정(estimation of spectral density)</a><ul>
 <li class="chapter" data-level="44.5.1" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--discrete-fourier-transform-in-spatial-statistics"><i class="fa fa-check"></i><b>44.5.1</b> 이산 푸리에 변환(discrete Fourier transform in spatial statistics)</a></li>
 <li class="chapter" data-level="44.5.2" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--nonparametric-estimate---periodogram"><i class="fa fa-check"></i><b>44.5.2</b> 비모수적 방법-피리오도그램(nonparametric estimate - periodogram)</a></li>
-<li class="chapter" data-level="44.5.3" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.5.3</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
-<li class="chapter" data-level="44.5.4" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.5.4</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
-<li class="chapter" data-level="44.5.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.5.5</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
 </ul></li>
+<li class="chapter" data-level="44.6" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><i class="fa fa-check"></i><b>44.6</b> Increasing domain assumptions에서의 피리오도그램의 성질(properties of periodograms unber increasing domain assumptions)</a><ul>
+<li class="chapter" data-level="44.6.1" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.6.1</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
+<li class="chapter" data-level="44.6.2" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.6.2</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
+<li class="chapter" data-level="44.6.3" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.6.3</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
+</ul></li>
+<li class="chapter" data-level="44.7" data-path="44-7-properties-of-periodogram-under-infill-asymptotics.html"><a href="44-7-properties-of-periodogram-under-infill-asymptotics.html"><i class="fa fa-check"></i><b>44.7</b> 인필 점근 하에서의 피리오도그램의 성질들(properties of periodogram under infill asymptotics)</a></li>
 </ul></li>
 <li class="part"><span><b>VI Spatio-Tempral Statistics</b></span></li>
 <li class="chapter" data-level="45" data-path="45-spatiotemporal.html"><a href="45-spatiotemporal.html"><i class="fa fa-check"></i><b>45</b> 시공간 통계학</a><ul>
@@ -681,7 +684,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">8.9</span> 마르코프 체인(Markov chain)</h2>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-127" class="definition"><strong>Definition 8.10  (마르코프 체인)  </strong></span><strong>마르코프 체인(Markov chain)</strong>이란</p>
+<p><span id="def:unnamed-chunk-128" class="definition"><strong>Definition 8.10  (마르코프 체인)  </strong></span><strong>마르코프 체인(Markov chain)</strong>이란</p>
 <p><span class="math display">\[P(X_{n+1}=X|X_{1}=x_{1}, X_{2}=x_{2}, \ldots , X_{n}=x_{n})=P(X_{n+1}=x|X_{n}=x_{n})\]</span></p>
 <p>을 만족하는 확률변수들의 수열 <span class="math inline">\(X_{1},X_{2},\ldots\)</span>를 일컫는다. 여기서<span class="math inline">\(x_{i}\)</span>들은 countable set <span class="math inline">\(S\)</span>에서 뽑힌 값들이며 <span class="math inline">\(S\)</span>를 체인의 state space라고 부른다.</p>
 </div>

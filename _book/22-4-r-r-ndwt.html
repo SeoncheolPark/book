@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-05-04">
+<meta name="date" content="2018-07-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -566,10 +566,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="44.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html"><i class="fa fa-check"></i><b>44.5</b> 스펙트럼 밀도의 추정(estimation of spectral density)</a><ul>
 <li class="chapter" data-level="44.5.1" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--discrete-fourier-transform-in-spatial-statistics"><i class="fa fa-check"></i><b>44.5.1</b> 이산 푸리에 변환(discrete Fourier transform in spatial statistics)</a></li>
 <li class="chapter" data-level="44.5.2" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--nonparametric-estimate---periodogram"><i class="fa fa-check"></i><b>44.5.2</b> 비모수적 방법-피리오도그램(nonparametric estimate - periodogram)</a></li>
-<li class="chapter" data-level="44.5.3" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.5.3</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
-<li class="chapter" data-level="44.5.4" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.5.4</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
-<li class="chapter" data-level="44.5.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.5.5</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
 </ul></li>
+<li class="chapter" data-level="44.6" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><i class="fa fa-check"></i><b>44.6</b> Increasing domain assumptions에서의 피리오도그램의 성질(properties of periodograms unber increasing domain assumptions)</a><ul>
+<li class="chapter" data-level="44.6.1" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.6.1</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
+<li class="chapter" data-level="44.6.2" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.6.2</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
+<li class="chapter" data-level="44.6.3" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.6.3</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
+</ul></li>
+<li class="chapter" data-level="44.7" data-path="44-7-properties-of-periodogram-under-infill-asymptotics.html"><a href="44-7-properties-of-periodogram-under-infill-asymptotics.html"><i class="fa fa-check"></i><b>44.7</b> 인필 점근 하에서의 피리오도그램의 성질들(properties of periodogram under infill asymptotics)</a></li>
 </ul></li>
 <li class="part"><span><b>VI Spatio-Tempral Statistics</b></span></li>
 <li class="chapter" data-level="45" data-path="45-spatiotemporal.html"><a href="45-spatiotemporal.html"><i class="fa fa-check"></i><b>45</b> 시공간 통계학</a><ul>
@@ -705,16 +708,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>대칭 chirp 함수를 <span class="math display">\[y(x)=\sin(\pi/x)\]</span> 로 정의한다. 이 때 <span class="math inline">\(x=\epsilon &#39; +(-1,-1,+\delta,-1+2\delta, \ldots, 1-2\delta)\)</span>이며 <span class="math inline">\(\epsilon &#39; =10^{-5}\)</span>이며 <span class="math inline">\(\delta=1/512\)</span>이다. 이 함수의 그림은 다음과 같다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw">simchirp</span>()
 <span class="kw">plot</span>(y, <span class="dt">type=</span><span class="st">&#39;l&#39;</span>, <span class="dt">xlab=</span><span class="st">&quot;Time&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Chirp value&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-237"></span>
-<img src="book_files/figure-html/unnamed-chunk-237-1.svg" alt="Simulated chirp signal." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-238"></span>
+<img src="book_files/figure-html/unnamed-chunk-238-1.svg" alt="Simulated chirp signal." width="672" />
 <p class="caption">
 FIGURE 21.7: Simulated chirp signal.
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ywd &lt;-<span class="st"> </span><span class="kw">wd</span>(y<span class="op">$</span>y, <span class="dt">filter.number=</span><span class="dv">2</span>, <span class="dt">family=</span><span class="st">&quot;DaubExPhase&quot;</span>)
 <span class="kw">plot</span>(ywd, <span class="dt">scaling=</span><span class="st">&quot;by.level&quot;</span>, <span class="dt">main=</span><span class="st">&quot;&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-238"></span>
-<img src="book_files/figure-html/unnamed-chunk-238-1.svg" alt="Discrete wavelet coefficients of simulated chirp signal." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-239"></span>
+<img src="book_files/figure-html/unnamed-chunk-239-1.svg" alt="Discrete wavelet coefficients of simulated chirp signal." width="672" />
 <p class="caption">
 FIGURE 21.8: Discrete wavelet coefficients of simulated chirp signal.
 </p>
@@ -723,8 +726,8 @@ FIGURE 21.8: Discrete wavelet coefficients of simulated chirp signal.
 &gt;  [8] 7.484166 8.769223 4.756466</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ywd &lt;-<span class="st"> </span><span class="kw">wd</span>(y<span class="op">$</span>y, <span class="dt">filter.number=</span><span class="dv">2</span>, <span class="dt">family=</span><span class="st">&quot;DaubExPhase&quot;</span>, <span class="dt">type=</span><span class="st">&quot;station&quot;</span>)
 <span class="kw">plot</span>(ywd, <span class="dt">scaling=</span><span class="st">&quot;by.level&quot;</span>, <span class="dt">main=</span><span class="st">&quot;&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-239"></span>
-<img src="book_files/figure-html/unnamed-chunk-239-1.svg" alt="Time-ordered non-decimated wavelet coefficients of simulated chirp signal." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-240"></span>
+<img src="book_files/figure-html/unnamed-chunk-240-1.svg" alt="Time-ordered non-decimated wavelet coefficients of simulated chirp signal." width="672" />
 <p class="caption">
 FIGURE 21.9: Time-ordered non-decimated wavelet coefficients of simulated chirp signal.
 </p>
@@ -733,8 +736,8 @@ FIGURE 21.9: Time-ordered non-decimated wavelet coefficients of simulated chirp 
 &gt;  [8] 11.736733 13.175435  7.737538</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ywst &lt;-<span class="st"> </span><span class="kw">wst</span>(y<span class="op">$</span>y, <span class="dt">filter.number=</span><span class="dv">2</span>, <span class="dt">family=</span><span class="st">&quot;DaubExPhase&quot;</span>)
 <span class="kw">plot</span>(ywst, <span class="dt">scaling=</span><span class="st">&quot;by.level&quot;</span>, <span class="dt">main=</span><span class="st">&quot;&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-240"></span>
-<img src="book_files/figure-html/unnamed-chunk-240-1.svg" alt="Packet-ordered non-decimated wavelet coefficients of simulated chirp signal." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-241"></span>
+<img src="book_files/figure-html/unnamed-chunk-241-1.svg" alt="Packet-ordered non-decimated wavelet coefficients of simulated chirp signal." width="672" />
 <p class="caption">
 FIGURE 21.10: Packet-ordered non-decimated wavelet coefficients of simulated chirp signal.
 </p>

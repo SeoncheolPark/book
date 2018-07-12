@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-05-04">
+<meta name="date" content="2018-07-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -566,10 +566,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="44.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html"><i class="fa fa-check"></i><b>44.5</b> 스펙트럼 밀도의 추정(estimation of spectral density)</a><ul>
 <li class="chapter" data-level="44.5.1" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--discrete-fourier-transform-in-spatial-statistics"><i class="fa fa-check"></i><b>44.5.1</b> 이산 푸리에 변환(discrete Fourier transform in spatial statistics)</a></li>
 <li class="chapter" data-level="44.5.2" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--nonparametric-estimate---periodogram"><i class="fa fa-check"></i><b>44.5.2</b> 비모수적 방법-피리오도그램(nonparametric estimate - periodogram)</a></li>
-<li class="chapter" data-level="44.5.3" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.5.3</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
-<li class="chapter" data-level="44.5.4" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.5.4</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
-<li class="chapter" data-level="44.5.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.5.5</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
 </ul></li>
+<li class="chapter" data-level="44.6" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><i class="fa fa-check"></i><b>44.6</b> Increasing domain assumptions에서의 피리오도그램의 성질(properties of periodograms unber increasing domain assumptions)</a><ul>
+<li class="chapter" data-level="44.6.1" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.6.1</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
+<li class="chapter" data-level="44.6.2" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.6.2</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
+<li class="chapter" data-level="44.6.3" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.6.3</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
+</ul></li>
+<li class="chapter" data-level="44.7" data-path="44-7-properties-of-periodogram-under-infill-asymptotics.html"><a href="44-7-properties-of-periodogram-under-infill-asymptotics.html"><i class="fa fa-check"></i><b>44.7</b> 인필 점근 하에서의 피리오도그램의 성질들(properties of periodogram under infill asymptotics)</a></li>
 </ul></li>
 <li class="part"><span><b>VI Spatio-Tempral Statistics</b></span></li>
 <li class="chapter" data-level="45" data-path="45-spatiotemporal.html"><a href="45-spatiotemporal.html"><i class="fa fa-check"></i><b>45</b> 시공간 통계학</a><ul>
@@ -684,18 +687,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><span class="math inline">\(X\)</span>가 위상공간(topological space)이라고 가정해보자. 쉽게 생각하자면 <span class="math inline">\(X=\mathbb{R}^{n}\)</span>이고 standard topolog를 갖는다고 생각하면 편하다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-42" class="definition"><strong>Definition 3.2  (측도가 보렐)  </strong></span><span class="math inline">\(X\)</span> 위의 어떤 측도 <span class="math inline">\(\mu\)</span>가 모든 열린 공간이 <span class="math inline">\(\mu\)</span>-가측일 경우 <strong>보렐(Borel)</strong>이라고 한다.</p>
+<p><span id="def:unnamed-chunk-43" class="definition"><strong>Definition 3.2  (측도가 보렐)  </strong></span><span class="math inline">\(X\)</span> 위의 어떤 측도 <span class="math inline">\(\mu\)</span>가 모든 열린 공간이 <span class="math inline">\(\mu\)</span>-가측일 경우 <strong>보렐(Borel)</strong>이라고 한다.</p>
 </div>
 
 <p>보렐 <span class="math inline">\(\sigma\)</span>-체는 열린 공간을 포함하는 가장 작은 <span class="math inline">\(\sigma\)</span>-체이다. 이 <span class="math inline">\(\sigma\)</span>-체에 속하는 집합을 <strong>보렐 집합(Borel set)</strong>이라고 한다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-43" class="definition"><strong>Definition 3.3  (보렐 측도)  </strong></span>모든 보렐 부분집합이 가측일 경우 <strong>보렐 측도(Borel measure)</strong>를 구성할 수 있다.</p>
+<p><span id="def:unnamed-chunk-44" class="definition"><strong>Definition 3.3  (보렐 측도)  </strong></span>모든 보렐 부분집합이 가측일 경우 <strong>보렐 측도(Borel measure)</strong>를 구성할 수 있다.</p>
 </div>
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-44" class="definition"><strong>Definition 3.4  (보렐 정칙)  </strong></span>어떤 측도 <span class="math inline">\(\mu\)</span>가 보렐이고 모든 <span class="math inline">\(A\subset X\)</span>에 대해 보렐 <span class="math inline">\(B\subset X\)</span>가 존재해 <span class="math inline">\(A\subset B\)</span>이고 <span class="math inline">\(\mu(A)=\mu(B)\)</span>이면 이 측도를 <strong>보렐 정칙(Borel regular)</strong>라고 부른다.</p>
+<p><span id="def:unnamed-chunk-45" class="definition"><strong>Definition 3.4  (보렐 정칙)  </strong></span>어떤 측도 <span class="math inline">\(\mu\)</span>가 보렐이고 모든 <span class="math inline">\(A\subset X\)</span>에 대해 보렐 <span class="math inline">\(B\subset X\)</span>가 존재해 <span class="math inline">\(A\subset B\)</span>이고 <span class="math inline">\(\mu(A)=\mu(B)\)</span>이면 이 측도를 <strong>보렐 정칙(Borel regular)</strong>라고 부른다.</p>
 </div>
 
 </div>
@@ -703,12 +706,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3><span class="header-section-number">3.6.2</span> 라돈 측도(Radon measure)</h3>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-45" class="definition"><strong>Definition 3.5  (국소 컴팩트)  </strong></span>어떤 측도 <span class="math inline">\(\mu\)</span>가 <span class="math inline">\(K\)</span>가 compact일 때 <span class="math inline">\(\mu(K)\infty\)</span>일 경우 이 측도를 <strong>국소 컴팩트(locally compact)</strong>라고 한다.</p>
+<p><span id="def:unnamed-chunk-46" class="definition"><strong>Definition 3.5  (국소 컴팩트)  </strong></span>어떤 측도 <span class="math inline">\(\mu\)</span>가 <span class="math inline">\(K\)</span>가 compact일 때 <span class="math inline">\(\mu(K)\infty\)</span>일 경우 이 측도를 <strong>국소 컴팩트(locally compact)</strong>라고 한다.</p>
 </div>
 
 
 <div class="definition">
-<span id="def:unnamed-chunk-46" class="definition"><strong>Definition 3.6  (국소 컴팩트)  </strong></span><span class="math inline">\(\mathbb{R}^{n}\)</span>에서의 <strong>라돈 측도</strong>는 보렐 정칙이고 국소 컴팩트한 측도를 말한다.
+<span id="def:unnamed-chunk-47" class="definition"><strong>Definition 3.6  (국소 컴팩트)  </strong></span><span class="math inline">\(\mathbb{R}^{n}\)</span>에서의 <strong>라돈 측도</strong>는 보렐 정칙이고 국소 컴팩트한 측도를 말한다.
 </div>
 
 </div>

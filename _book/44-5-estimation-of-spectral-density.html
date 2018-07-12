@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-05-04">
+<meta name="date" content="2018-07-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="44-4-aliasing.html">
-<link rel="next" href="45-spatiotemporal.html">
+<link rel="next" href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -566,10 +566,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="44.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html"><i class="fa fa-check"></i><b>44.5</b> 스펙트럼 밀도의 추정(estimation of spectral density)</a><ul>
 <li class="chapter" data-level="44.5.1" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--discrete-fourier-transform-in-spatial-statistics"><i class="fa fa-check"></i><b>44.5.1</b> 이산 푸리에 변환(discrete Fourier transform in spatial statistics)</a></li>
 <li class="chapter" data-level="44.5.2" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--nonparametric-estimate---periodogram"><i class="fa fa-check"></i><b>44.5.2</b> 비모수적 방법-피리오도그램(nonparametric estimate - periodogram)</a></li>
-<li class="chapter" data-level="44.5.3" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.5.3</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
-<li class="chapter" data-level="44.5.4" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.5.4</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
-<li class="chapter" data-level="44.5.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.5.5</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
 </ul></li>
+<li class="chapter" data-level="44.6" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><i class="fa fa-check"></i><b>44.6</b> Increasing domain assumptions에서의 피리오도그램의 성질(properties of periodograms unber increasing domain assumptions)</a><ul>
+<li class="chapter" data-level="44.6.1" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.6.1</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
+<li class="chapter" data-level="44.6.2" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.6.2</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
+<li class="chapter" data-level="44.6.3" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.6.3</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
+</ul></li>
+<li class="chapter" data-level="44.7" data-path="44-7-properties-of-periodogram-under-infill-asymptotics.html"><a href="44-7-properties-of-periodogram-under-infill-asymptotics.html"><i class="fa fa-check"></i><b>44.7</b> 인필 점근 하에서의 피리오도그램의 성질들(properties of periodogram under infill asymptotics)</a></li>
 </ul></li>
 <li class="part"><span><b>VI Spatio-Tempral Statistics</b></span></li>
 <li class="chapter" data-level="45" data-path="45-spatiotemporal.html"><a href="45-spatiotemporal.html"><i class="fa fa-check"></i><b>45</b> 시공간 통계학</a><ul>
@@ -689,51 +692,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><span class="math inline">\(Y(\mathbf{J})\equiv Z(\delta \mathbf{J})\)</span>라고 할 때 (관찰값이 discrete일 경우) lattice process <span class="math inline">\(f_{Y}(\boldsymbol{\omega})\)</span>의 비모수적 추정(periodogram)은 다음과 같다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-313" class="definition"><strong>Definition 44.1  (공간통계에서의 피리오도그램)  </strong></span>공간통계에서의 <strong>피리오도그램(periodogram)</strong>의 정의는 다음과 같다. <span class="math display">\[I(\boldsymbol{\omega})=\frac{1}{(2\pi n)^{-d}}|D(\boldsymbol{\omega})|^{2}=D(\boldsymbol{\omega}D(\boldsymbol{\omega})), \qquad{\boldsymbol{\omega}\in[-\pi,\pi]^{d}}.\]</span></p>
+<p><span id="def:unnamed-chunk-314" class="definition"><strong>Definition 44.1  (공간통계에서의 피리오도그램)  </strong></span>공간통계에서의 <strong>피리오도그램(periodogram)</strong>의 정의는 다음과 같다. <span class="math display">\[I(\boldsymbol{\omega})=\frac{1}{(2\pi n)^{-d}}|D(\boldsymbol{\omega})|^{2}=D(\boldsymbol{\omega}D(\boldsymbol{\omega})), \qquad{\boldsymbol{\omega}\in[-\pi,\pi]^{d}}.\]</span></p>
 </div>
 
 <p>피리오도그램은 <span class="math inline">\(f_{Y}(\boldsymbol{\omega})\)</span>에 대한 특별한 형태 가정을 하지 않고 있다. <span class="math inline">\((\boldsymbol{\omega})\)</span>가 유용한 추정량인지 보려면, 불편성(unbiased), 일치성(consistency), 이것의 점근 분포 등을 살펴보아야 한다. 실제로 <span class="math inline">\((\boldsymbol{\omega})\)</span>는 일치추정량은 아니다.</p>
-<div id="increasing-domain-assumptions--properties-of-periodograms-unber-increasing-domain-assumptions" class="section level4">
-<h4><span class="header-section-number">44.5.2.1</span> Increasing domain assumptions에서의 피리오도그램의 성질(properties of periodograms unber increasing domain assumptions)</h4>
-<p>자료가 늘어남에 따라 자료 사이의 거리가 늘어나는 것이 아닌, 자료 사이의 거리는 고정되어있고 정의역이 늘어난다는 가정을 <strong>increasing domain assumptions</strong>라고 한다. 이러한 가정의 장점으로는 시계열분석의 연구를 가져올 수 있다는 점이 있다. <span class="math inline">\(Y(\mathbf{J})\equiv Z(\delta \mathbf{J})=Z(\mathbf{J})\)</span>가 lattice process라고 하자. 이 때 <span class="math inline">\(Z\)</span>는 공분산함수 <span class="math inline">\(C_{Z}(\mathbf{u}), u\in \mathbb{R}^{d}\)</span>, 스펙트럼 함수 <span class="math inline">\(f_{Z}(\boldsymbol{\omega}), \boldsymbol{\omega}\in\mathbb{R}^{d}\)</span>를 갖는다. 마찬가지로 <span class="math inline">\(Y(\mathbf{J})\)</span>또한 공분산함수 <span class="math inline">\(C_{Z}(\mathbf{u}), \mathbf{u}\in\mathbb{Z}^{d}\)</span>, 스펙트럼 밀도 <span class="math inline">\(f_{Y}(\boldsymbol{\omega}), \boldsymbol{\omega}\in (-\pi,\pi]^{d}\)</span>를 갖는다고 하자. 그러면 <span class="math display">\[f_{Y}(\boldsymbol{\omega}) = \frac{1}{\delta^{d}}\sum_{\mathbf{J}\in \mathbb{Z}^{d}}f_{Z}(\frac{\boldsymbol{\omega}+2\pi \mathbf{J}}{\delta})\]</span> 로 표현할 수 있다고 한다. <span class="math inline">\(\mathbf{J}\)</span>가 커질 때 밀도함수는 0으로 수렴하므로 위의 식의 유한한 항만 고려해도 된다.</p>
-<p><span class="math inline">\(d=1\)</span>인 경우 정확히 시계열 분석과 같아진다. <span class="math inline">\(d=1\)</span>이라고 해보자. 그리고 <span class="math inline">\((Z(1),\ldots , Z(n))=(Y(1),\ldots , Y(n))\)</span>은 다변량 가우스 분포를 따른다고 하자. 추가적으로 평균은 0이라고 해보자. 그러면 이 때 <span class="math inline">\(D(\omega)\)</span>는 복소 정규분포를 따르고 <span class="math inline">\(E(D(\omega))=0\)</span>, <span class="math inline">\(\text{Var}(D(\omega))=\int_{-\pi}^{\pi}\frac{\sin^{2}(\frac{(\alpha-\omega)n}{2})}{\sin^{2}(\frac{\alpha-\omega}{2})}f_{Y}(\alpha)d\alpha\)</span>를 따른다. 이 때 <span class="math inline">\(\alpha\)</span>는 <span class="math inline">\(\omega\)</span>가 제일 높은 값으로, Fejer kernel에 해당한다고 한다. 이를 점근 분포로 나타내면 <span class="math display">\[D(\omega) \sim \mathcal{N}^{C}(0,2\pi n f_{Y}(\omega)), \qquad{\omega\neq 0}\]</span> <span class="math display">\[\text{Var}(D(\omega))\sim 2\pi n f_{Y}(\omega), \qquad{\omega\neq 0}\]</span> 이 된다. 사실 <span class="math inline">\(n\)</span>이 있기 때문에 엄밀한 의미의 점근 분포는 아니다. 그리고 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(\omega_{k}=\frac{2\pi k}{n}, \omega_{k&#39;}=\frac{2\pi k&#39;}{n}\)</span>이 다른 주파수인 경우 <span class="math inline">\(\{ D(\frac{2\pi k}{n})\}\)</span>은 asymptotically independent라고 한다.</p>
-<p>피리오도그램이 <span class="math inline">\(I(\boldsymbol{\omega})=\frac{1}{(2\pi n)^{-d}}|D(\boldsymbol{\omega})|^{2}, \qquad{\boldsymbol{\omega}\in[-\pi,\pi]^{d}}\)</span>으로 정의되는 이유는 <span class="math inline">\(d=1\)</span>일 때 생각해보면 <span class="math inline">\(E(I_{n}(\omega))=\frac{1}{2\pi n}E|D(\omega)|^{2}= \frac{1}{2\pi n}\text{Var}|D(\omega)|^{2} \sim f_{Y}(\omega)\)</span>이므로 피리오도그램은 스펙트럼 밀도에 대한 점근적 불편추정량이 된다. 확률변수가 독립이면 확률변수의 함수도 독립이므로, <span class="math display">\[\text{Var}(I_{n}(\omega)) = f_{Y}(\omega)^{2} + \mathcal{o}(1), \qquad{\omega_{k}=\frac{2\pi k}{n}, \omega_{k}\neq 0}\]</span> <span class="math display">\[\text{Cov}(I_{n}(\omega_{k}),I_{n}(\omega_{k&#39;}))=\mathcal{o}(1)\]</span> 이 되어 피리오도그램 또한 asymptotically independent이다. (<span class="math inline">\(\omega=0\)</span>일 때에는 따로 증명해줘야 한다.)</p>
-<p>앞서 말했듯이 피리오도그램은 일치추정량이 아니다. 일치추정량이 되려면 <span class="math inline">\(\text{Var}(I_{n}(u))\stackrel{n\rightarrow\infty}{\rightarrow}0\)</span>이어야 한다. 그런데 왜 피리오도그램을 쓰는가? 그 이유는</p>
-<ol style="list-style-type: decimal">
-<li><p>피리오도그램을 가지고 일치추정량을 만들 수 있고</p></li>
-<li><p>피리오도그램이 갖고 있는 좋은 성질들을 활용하기 위함</p></li>
-</ol>
-<p>이라고 한다.</p>
-<p>실제로 피리오도그램은 wiggly하게 나오는 경우가 많아 Nadayara-Watson kernel smoother로 스므딩을 한 <strong>smoothed periodogram</strong>을 쓰기도 한다. <span class="math display">\[\hat{I}(\omega_{k})=\sum K_{h}(\omega_{J},\omega_{k})I_{n}(\omega_{J}).\]</span> 이는 일치추정량이 된다고 한다.</p>
-</div>
-</div>
-<div id="---relationship-between-periodogram-and-sample-covariance" class="section level3">
-<h3><span class="header-section-number">44.5.3</span> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</h3>
-<p>피리오도그램을 공분산의 푸리에 주파수로 볼 수도 있다. <span class="math inline">\(Y\)</span>의 스펙트럼 밀도에 대해 다시 복습해보자. <span class="math display">\[f_{Y}(\omega)=\frac{1}{2\pi}\sum_{-\infty}^{\infty}e^{-i\omega u}C_{Y}(u).\]</span> 이것의 truncated version은 다음과 같다. <span class="math display">\[\hat{f}_{Y}(\omega)=\frac{1}{2\pi}\sum_{-n}^{n}e^{-i\omega u}\hat{C}_{Y}(u).\]</span> 이 때 <span class="math inline">\(\hat{C}_{Y}(u)\)</span>는 평균 0이고 lag <span class="math inline">\(u\)</span>인 공분산의 표본 버전으로 다음과 같다. <span class="math display">\[\hat{C}_{Y}(u)=\frac{1}{n}\sum_{1\leq k, k+u\leq n}Y(u+k)Y(k).\]</span> 이 때 <span class="math inline">\(I_{n}(\omega)=\frac{1}{2\pi n}|\sum_{j=1}^{n}Y(j)e^{-i\omega j)|^{2}\)</span>으로 피리오드그램은 스펙트럼 밀도의 추정값이다.</p>
-</div>
-<div id="-----estimation-of-spectral-density-with-weighted-least-squares" class="section level3">
-<h3><span class="header-section-number">44.5.4</span> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</h3>
-<p>이제부터는 스펙트럼 밀도 모수 모형과 그 추정에 대해 살펴보기로 하자. 스펙트럼 밀도를 추정하는 것은 스펙트럼 밀도를 이용해 공분산 모수들을 추정하는 것과 동치이다. 즉 <span class="math inline">\(I_{n}(\omega_{k})\)</span> <span class="math inline">\((\omega_{k}\)</span>는 푸리에 주파수)와 <span class="math inline">\(f_{Y}(\omega, \theta)\)</span>를 매칭시켜서 <span class="math inline">\(\theta\)</span>를 계산하는 것이다.</p>
-<p>가중 최소자승법은 <span class="math inline">\(\text{Var}I_{n}(\omega_{k})\sim f_{Y}^{2}(\omega_{k})+\mathcal{o}(1)\)</span>을 이용해 <span class="math display">\[\hat{\theta}=\text{argmin}_{\theta}\sum\frac{1}{f(\omega_{k};\theta)}(I_{n}(\omega_{k})-f(\omega_{k};\theta))^{2}\]</span> 으로 추정하는 것이다. 그러나 분포에도 <span class="math inline">\(\theta\)</span>가 있어 비선형 최적화 문제가 되므로 이 방법은 많이 안쓰고 대신 다음에 나올 가능도 기반 방법을 이용한 스펙트럼 밀도 추정 방법을 주로 이용한다.</p>
-</div>
-<div id="------estimation-of-spectral-density-with-likelihood-based-methods" class="section level3">
-<h3><span class="header-section-number">44.5.5</span> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</h3>
-<span class="citation">(P. <a href="#ref-Whittle1954">1954</a>)</span>는 가우스 과정의 negative log-likelihood의 근사로서 Whittle-likelihood를 제안하였다.
-<span class="math display">\[\begin{align*} 
--l(\theta) &amp;\approx \int_{-\pi}^{\pi}(\log f_{Y}(\omega; \theta) + \frac{I_{n}(\omega)}{f_{Y}(\omega;\theta)})d\omega \\ 
- &amp;\approx \sum_{k}(\log f_{Y}(\frac{2\pi k}{n};\theta) + \frac{I_{n}(\omega)}{f_{Y}(frac{2\pi k}{n};\theta)})
-\end{align*}\]</span>
-
-</div>
-</div>
-<!-- </div> -->
-
-
-
-<h3> References</h3>
-<div id="refs" class="references">
-<div id="ref-Whittle1954">
-<p>P., Whittle. 1954. “On Stationary Processes in the Plane.” <em>Biometrika</em> 41: 434–49.</p>
 </div>
 </div>
             </section>
@@ -742,7 +704,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
         </div>
       </div>
 <a href="44-4-aliasing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="45-spatiotemporal.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

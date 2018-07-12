@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-05-04">
+<meta name="date" content="2018-07-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -566,10 +566,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="44.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html"><i class="fa fa-check"></i><b>44.5</b> 스펙트럼 밀도의 추정(estimation of spectral density)</a><ul>
 <li class="chapter" data-level="44.5.1" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--discrete-fourier-transform-in-spatial-statistics"><i class="fa fa-check"></i><b>44.5.1</b> 이산 푸리에 변환(discrete Fourier transform in spatial statistics)</a></li>
 <li class="chapter" data-level="44.5.2" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--nonparametric-estimate---periodogram"><i class="fa fa-check"></i><b>44.5.2</b> 비모수적 방법-피리오도그램(nonparametric estimate - periodogram)</a></li>
-<li class="chapter" data-level="44.5.3" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.5.3</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
-<li class="chapter" data-level="44.5.4" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.5.4</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
-<li class="chapter" data-level="44.5.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.5.5</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
 </ul></li>
+<li class="chapter" data-level="44.6" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><i class="fa fa-check"></i><b>44.6</b> Increasing domain assumptions에서의 피리오도그램의 성질(properties of periodograms unber increasing domain assumptions)</a><ul>
+<li class="chapter" data-level="44.6.1" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.6.1</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
+<li class="chapter" data-level="44.6.2" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.6.2</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
+<li class="chapter" data-level="44.6.3" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.6.3</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
+</ul></li>
+<li class="chapter" data-level="44.7" data-path="44-7-properties-of-periodogram-under-infill-asymptotics.html"><a href="44-7-properties-of-periodogram-under-infill-asymptotics.html"><i class="fa fa-check"></i><b>44.7</b> 인필 점근 하에서의 피리오도그램의 성질들(properties of periodogram under infill asymptotics)</a></li>
 </ul></li>
 <li class="part"><span><b>VI Spatio-Tempral Statistics</b></span></li>
 <li class="chapter" data-level="45" data-path="45-spatiotemporal.html"><a href="45-spatiotemporal.html"><i class="fa fa-check"></i><b>45</b> 시공간 통계학</a><ul>
@@ -682,7 +685,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><span class="citation">(Shumway and Stoffer <a href="#ref-Shumway2010">2010</a>)</span>의 4.2절을 참고하였다.</p>
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-188" class="theorem"><strong>Theorem 18.1  (정상과정의 스펙트럼 표현)  </strong></span> 어던 정상 시계열이든 근사적으로라도 random superposition of sines and cosines oscillating at various frequencies로 생각할 수 있다. 즉 자기공분산은 각 주기성분들을 이용해 표현할 수 있으며, 역으로 각 주기성분들도 자기공분산을 이용하여 나타낼 수 있다.
+<span id="thm:unnamed-chunk-189" class="theorem"><strong>Theorem 18.1  (정상과정의 스펙트럼 표현)  </strong></span> 어던 정상 시계열이든 근사적으로라도 random superposition of sines and cosines oscillating at various frequencies로 생각할 수 있다. 즉 자기공분산은 각 주기성분들을 이용해 표현할 수 있으며, 역으로 각 주기성분들도 자기공분산을 이용하여 나타낼 수 있다.
 </div>
 
 <p>식 <a href="18-1-cyclical-behavior-and-periodicity.html#eq:periodrp">(18.1)</a>의 고정된 진동수 버전 <span class="math inline">\(\omega_{0}\)</span>를 생각해보자. <span class="math display">\[x_{t}=U_{1}\cos (2\pi\omega_{0}t) + U_{2}\sin(2\pi\omega_{0}t).\]</span> 그리고 <span class="math inline">\(U_{1}\)</span>과 <span class="math inline">\(U_{2}\)</span>를 평균이 0이고 분산이 <span class="math inline">\(\sigma^{2}\)</span>이며 독립인 확률변수들이라고 하자. 위 식에서 한 사이클을 이루기 위해 필요한 시간 길이는 <span class="math inline">\(1/\omega_{0}\)</span>다. 그러면 자기공분산 <span class="math inline">\(\gamma(h)\)</span>은 다음과 같이</p>
@@ -709,7 +712,7 @@ F(\omega)
 </ol>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-189" class="example"><strong>Example 18.2  (백색잡음열)  </strong></span>이 단순한 예제에서는 연관이 없고 분산이 <span class="math inline">\(\sigma_{w}^{2}\)</span>인 확률변수들 <span class="math inline">\(w_{t}\)</span>의 수열의 이론적인 파워 스펙트럼(power spectrum)을 생각해 본다. 자기공분산함수는</p>
+<p><span id="exm:unnamed-chunk-190" class="example"><strong>Example 18.2  (백색잡음열)  </strong></span>이 단순한 예제에서는 연관이 없고 분산이 <span class="math inline">\(\sigma_{w}^{2}\)</span>인 확률변수들 <span class="math inline">\(w_{t}\)</span>의 수열의 이론적인 파워 스펙트럼(power spectrum)을 생각해 본다. 자기공분산함수는</p>
 </div>
 
 <p>선형 과정이 가장 기본적인 도구이므로, 이러한 과정의 스펙트럼을 조사해 보는 것도 흥미로운 일이다.</p>

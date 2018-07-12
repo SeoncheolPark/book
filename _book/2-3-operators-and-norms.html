@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-05-04">
+<meta name="date" content="2018-07-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -566,10 +566,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="44.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html"><i class="fa fa-check"></i><b>44.5</b> 스펙트럼 밀도의 추정(estimation of spectral density)</a><ul>
 <li class="chapter" data-level="44.5.1" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--discrete-fourier-transform-in-spatial-statistics"><i class="fa fa-check"></i><b>44.5.1</b> 이산 푸리에 변환(discrete Fourier transform in spatial statistics)</a></li>
 <li class="chapter" data-level="44.5.2" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--nonparametric-estimate---periodogram"><i class="fa fa-check"></i><b>44.5.2</b> 비모수적 방법-피리오도그램(nonparametric estimate - periodogram)</a></li>
-<li class="chapter" data-level="44.5.3" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.5.3</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
-<li class="chapter" data-level="44.5.4" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.5.4</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
-<li class="chapter" data-level="44.5.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.5.5</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
 </ul></li>
+<li class="chapter" data-level="44.6" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><i class="fa fa-check"></i><b>44.6</b> Increasing domain assumptions에서의 피리오도그램의 성질(properties of periodograms unber increasing domain assumptions)</a><ul>
+<li class="chapter" data-level="44.6.1" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.6.1</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
+<li class="chapter" data-level="44.6.2" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.6.2</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
+<li class="chapter" data-level="44.6.3" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.6.3</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
+</ul></li>
+<li class="chapter" data-level="44.7" data-path="44-7-properties-of-periodogram-under-infill-asymptotics.html"><a href="44-7-properties-of-periodogram-under-infill-asymptotics.html"><i class="fa fa-check"></i><b>44.7</b> 인필 점근 하에서의 피리오도그램의 성질들(properties of periodogram under infill asymptotics)</a></li>
 </ul></li>
 <li class="part"><span><b>VI Spatio-Tempral Statistics</b></span></li>
 <li class="chapter" data-level="45" data-path="45-spatiotemporal.html"><a href="45-spatiotemporal.html"><i class="fa fa-check"></i><b>45</b> 시공간 통계학</a><ul>
@@ -774,6 +777,19 @@ a_{m1}\mathbf{B} &amp; \cdots &amp; a_{mn}\mathbf{B} \\
 </div>
 <div id="tensor-product" class="section level3">
 <h3><span class="header-section-number">2.3.4</span> 텐서곱(tensor product)</h3>
+<p>이 부분은 <span class="citation">(Kokoszka and Reimherr <a href="#ref-Kokoszka2017">2017</a>)</span>의 10.5절을 참고하였다. 우리가 covariance operator를 다룰 때 텐서곱과 텐서 공간을 생각하는 것이 편리할 때가 있다고 한다. 특히 무한차원이나 일반적인 힐버트 공간에서는 텐서곱의 활용이 절대적이다.</p>
+<p>다음과 같은 행렬 <span class="math inline">\(\mathbf{A}\in\mathbb{R}^{N\times M}\)</span>을 생각해보자. 이 행렬은 세 가지 방법으로 바라볼 수 있다.</p>
+<ol style="list-style-type: decimal">
+<li><p>전통적인 행렬</p></li>
+<li><p><span class="math inline">\(\mathbb{R}^{N}\rightarrow\mathbb{R}^{M}\)</span>으로 가는 선형 변환: 벡터의 왼쪽이나 오른쪽에 행렬을 곱하는 형태 (유클리드 공간에서의 모든 선형 변환을 떠올려보자)</p></li>
+<li><p><span class="math inline">\(\mathbb{R}^{N}\times \mathbb{R}^{M}\rightarrow\mathbb{R}\)</span>인 겹선형(bilinear) functional: 이차 형식에서 많이 다루는 형태이다. 다음과 같이 두 유클리드 공간 <span class="math inline">\(\mathcal{H}_{1}=\mathbb{R}^{N},\mathcal{H}_{2}=\mathbb{R}^{M}\)</span>가 있다고 하자. 두 개의 벡터 <span class="math inline">\(x_{1}\in\mathbb{R}^{N}\)</span>, <span class="math inline">\(x_{2}\in\mathbb{R}^{M}\)</span>에 <strong>텐서곱(tensor product)</strong>를 적용하면 다음과 같은 행렬을 유도한다. <span class="math display">\[x_{1}\otimes x_{2}:=x_{1}x_{2}^{T}.\]</span> 또한 공간 <span class="math inline">\(\mathbb{R}^{N}\otimes \mathbb{R}^{M}\)</span>은 위와 같은 원소들의 모든 유한한 선형 결합의 공간으로 정의할 수 있다. 다시 말하면 만약 <span class="math inline">\(\mathbf{A}\in\mathbb{R}^{N}\otimes \mathbb{R}^{M}\rightarrow\mathbb{R}\)</span>이면 <span class="math inline">\(J\)</span>개의 원소들 <span class="math inline">\(x_{1j}\in\mathbb{R}^{N}\)</span>, <span class="math inline">\(x_{2j}\in\mathbb{R}^{M}\)</span>이 존재해 <span class="math display">\[\mathbf{A}=\sum_{j=1}^{J}x_{1j}\otimes x_{2j}=\sum_{j=1}^{J}x_{1j}x_{2j}^{T}\]</span> 를 만족한다. 어떤 <span class="math inline">\(N\times M\)</span> 행렬도 이런 표현 방법으로 표현할 수 있으므로 <span class="math inline">\(\mathbb{R}^{N}\otimes \mathbb{R}^{M}=\mathbb{R}^{N\times M}\)</span>으로 표현할 수 있다. 이제 이 세번째 관점을 다른 공간에 대해서도 특정화해보자. 어떤 <span class="math inline">\(N\times M\)</span> 행렬 <span class="math inline">\(\mathbf{A}\)</span>는 다음과 같은 <span class="math display">\[\mathbf{A}(y_{1},y_{2}):=y_{1}^{T}\mathbf{A}y_{2}\]</span> 인 겹선형 mapping을 이끌어낸다. 따라서 공간 <span class="math inline">\(\mathbb{R}^{N}\otimes \mathbb{R}^{M}\)</span>은 모든 겹선형 map <span class="math inline">\(\mathbb{R}^{N}\times \mathbb{R}^{M}\rightarrow \mathbb{R}\)</span>들의 집합으로 identified될 수 있다. 오브젝트 <span class="math inline">\(x_{1}\otimes x_{2}\)</span>는 또한 다음과 같은 겹선형 mapping <span class="math display">\[(x_{1}\otimes x_{2})(y_{1},y_{2})=y_{1}^{T}x_{1}x_{2}^{T}y_{2}=(y_{1}^{T}x_{1})(y_{2}^{T}x_{2})\]</span> 로 identified될 수 있다.</p></li>
+</ol>
+<p>이러한 관점에서 텐서를 바라보자. 텐서는 스칼라들의 체가 연관된 공간에서의 cartesian 곱으로부터 오는 다중선형사상(multilinear map)이다. 만약 <span class="math inline">\(\{e_{1j} \}\)</span>와 <span class="math inline">\(\{e_{2j} \}\)</span>가 <span class="math inline">\(\mathbb{R}^{N}\)</span>과 <span class="math inline">\(\mathbb{R}^{M}\)</span>의 정규 기저들이라고 하자. 그러면 <span class="math inline">\(\{e_{1j}\otimes e_{2j} \}\)</span>는 <span class="math inline">\(\mathbb{R}^{N}\times \mathbb{R}^{M}\)</span>의 기저가 된다. 이런 방식으로 우리는 이 기저를 전통적인 행렬에도 적용할 수 있다. <span class="math display">\[\mathbf{A}(e_{1j}^{T}, e_{2k})=e_{1j}^{Y}\mathbf{A}e_{2k}=\mathbf{A}(j,k).\]</span></p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-12" class="definition"><strong>Definition 2.8  (힐버트 공간에서의 텝서곱)  </strong></span><span class="math inline">\(x_{1}\in\mathcal{H}_{1}\)</span>과 <span class="math inline">\(x_{2}\in\mathcal{H}_{2}\)</span>를 두 실 힐버트 공간에서의 원소들이라고 하자. 그러면 텐서곱 <span class="math inline">\(x_{1}\otimes x_{2}: \mathcal{H}_{1}\times\mathcal{H}_{2} \rightarrow\mathbb{R}\)</span>은 겹선형 사상으로 어떤 <span class="math inline">\((y_{1},y_{2})\times \mathcal{H}_{1}\times \mathcal{H}_{2}\)</span>에 대해 <span class="math display">\[(x_{1}\otimes x_{2})(y_{1},y_{2})=\langle x_{1},y_{1}\rangle_{\mathcal{H}_{1}}\langle x_{2},y_{2}\rangle_{\mathcal{H}_{2}}\]</span> 로 정의된다.</p>
+</div>
+
 </div>
 <div id="-cartesian-product" class="section level3">
 <h3><span class="header-section-number">2.3.5</span> 데카르트 곱(Cartesian product)</h3>
@@ -785,7 +801,7 @@ a_{m1}\mathbf{B} &amp; \cdots &amp; a_{mn}\mathbf{B} \\
 <h4><span class="header-section-number">2.3.6.1</span> 벡터 노름(vector norm)</h4>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-12" class="definition"><strong>Definition 2.8  (노름과 노름공간)  </strong></span>벡터공간 <span class="math inline">\(X\)</span>에서 다음 세 조건들이 만족되면 함수 <span class="math inline">\(\|\cdot\|\)</span>을 <strong>노름(norm)</strong>이라 하고 또한 벡터공간 <span class="math inline">\(X\)</span>를 <strong>노름공간(normed space)</strong>라 한다.</p>
+<p><span id="def:unnamed-chunk-13" class="definition"><strong>Definition 2.9  (노름과 노름공간)  </strong></span>벡터공간 <span class="math inline">\(X\)</span>에서 다음 세 조건들이 만족되면 함수 <span class="math inline">\(\|\cdot\|\)</span>을 <strong>노름(norm)</strong>이라 하고 또한 벡터공간 <span class="math inline">\(X\)</span>를 <strong>노름공간(normed space)</strong>라 한다.</p>
 <ol style="list-style-type: decimal">
 <li><p>임의의 <span class="math inline">\(\mathbf{x}\in X\)</span>, where <span class="math inline">\(\|\mathbf{x}\| \geq 0\)</span>이며 <span class="math inline">\(\|\mathbf{x}\|=0\)</span>이기 위한 필요충분조건은 <span class="math inline">\(\mathbf{x}=\mathbf{0}\)</span>이다.</p></li>
 <li><p>임의의 <span class="math inline">\(\mathbf{x}, \mathbf{y}\in X\)</span>에 대해 <span class="math display">\[\| \mathbf{x}+\mathbf{y}\|\leq \|\mathbf{x}\| + \|\mathbf{y}\|\]</span> 가 성립한다.</p></li>
@@ -802,7 +818,7 @@ a_{m1}\mathbf{B} &amp; \cdots &amp; a_{mn}\mathbf{B} \\
 <h3><span class="header-section-number">2.3.7</span> 거리(metric)</h3>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-13" class="definition"><strong>Definition 2.9  (거리)  </strong></span>집합 <span class="math inline">\(X\)</span>의 두 원소들 <span class="math inline">\(x,y\)</span>에 대해 값 <span class="math inline">\(d(x,y)\)</span>를 할당하는 함수 <span class="math inline">\(d(\cdot, \cdot)\)</span>가 다음 세 조건들을</p>
+<p><span id="def:unnamed-chunk-14" class="definition"><strong>Definition 2.10  (거리)  </strong></span>집합 <span class="math inline">\(X\)</span>의 두 원소들 <span class="math inline">\(x,y\)</span>에 대해 값 <span class="math inline">\(d(x,y)\)</span>를 할당하는 함수 <span class="math inline">\(d(\cdot, \cdot)\)</span>가 다음 세 조건들을</p>
 <ol style="list-style-type: decimal">
 <li><p>임의의 <span class="math inline">\(x,y\in X\)</span>에 대해서 <span class="math inline">\(d(x,y)\geq 0\)</span>이다. 여기서 <span class="math inline">\(d(x,y)=0\)</span>이기 위한 필요충분조건은 <span class="math inline">\(x=y\)</span>이다.</p></li>
 <li><p>임의의 <span class="math inline">\(x,y\in X\)</span>에 대해서 <span class="math inline">\(d(x,y)=d(y,x)\)</span>이다.</p></li>
@@ -811,6 +827,12 @@ a_{m1}\mathbf{B} &amp; \cdots &amp; a_{mn}\mathbf{B} \\
 </div>
 
 <p>만약 <span class="math inline">\(d(\mathbf{x},\mathbf{y})=\| \mathbf{x}-\mathbf{y}\|\)</span>라 하면 노름공간이 거리공간이 된다. 그러나 모든 거리공간이 노름공간으로부터 유도되는 것은 이니다.</p>
+</div>
+</div>
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-Kokoszka2017">
+<p>Kokoszka, Piotr, and Matthew Reimherr. 2017. <em>Introduction to Functional Data Analysis</em>. Chapman; Hall/CRC.</p>
 </div>
 </div>
             </section>

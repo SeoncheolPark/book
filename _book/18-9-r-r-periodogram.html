@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-05-04">
+<meta name="date" content="2018-07-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -566,10 +566,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="44.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html"><i class="fa fa-check"></i><b>44.5</b> 스펙트럼 밀도의 추정(estimation of spectral density)</a><ul>
 <li class="chapter" data-level="44.5.1" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--discrete-fourier-transform-in-spatial-statistics"><i class="fa fa-check"></i><b>44.5.1</b> 이산 푸리에 변환(discrete Fourier transform in spatial statistics)</a></li>
 <li class="chapter" data-level="44.5.2" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--nonparametric-estimate---periodogram"><i class="fa fa-check"></i><b>44.5.2</b> 비모수적 방법-피리오도그램(nonparametric estimate - periodogram)</a></li>
-<li class="chapter" data-level="44.5.3" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.5.3</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
-<li class="chapter" data-level="44.5.4" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.5.4</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
-<li class="chapter" data-level="44.5.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.5.5</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
 </ul></li>
+<li class="chapter" data-level="44.6" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><i class="fa fa-check"></i><b>44.6</b> Increasing domain assumptions에서의 피리오도그램의 성질(properties of periodograms unber increasing domain assumptions)</a><ul>
+<li class="chapter" data-level="44.6.1" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.6.1</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
+<li class="chapter" data-level="44.6.2" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.6.2</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
+<li class="chapter" data-level="44.6.3" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.6.3</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
+</ul></li>
+<li class="chapter" data-level="44.7" data-path="44-7-properties-of-periodogram-under-infill-asymptotics.html"><a href="44-7-properties-of-periodogram-under-infill-asymptotics.html"><i class="fa fa-check"></i><b>44.7</b> 인필 점근 하에서의 피리오도그램의 성질들(properties of periodogram under infill asymptotics)</a></li>
 </ul></li>
 <li class="part"><span><b>VI Spatio-Tempral Statistics</b></span></li>
 <li class="chapter" data-level="45" data-path="45-spatiotemporal.html"><a href="45-spatiotemporal.html"><i class="fa fa-check"></i><b>45</b> 시공간 통계학</a><ul>
@@ -694,36 +697,36 @@ dataspec &lt;-<span class="st"> </span><span class="kw">t</span>(dataspec)
 time_index_month &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="kw">as.POSIXct</span>(<span class="st">&quot;1998-01-01&quot;</span>), <span class="dt">to =</span> <span class="kw">as.POSIXct</span>(<span class="st">&quot;2014-12-01&quot;</span>), <span class="dt">by =</span> <span class="st">&quot;month&quot;</span>)
 dataspec &lt;-<span class="st"> </span><span class="kw">xts</span>(dataspec[,<span class="dv">1</span>], <span class="dt">order.by=</span>time_index_month)
 <span class="kw">plot</span>(dataspec, <span class="dt">type=</span><span class="st">&#39;o&#39;</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">150</span>), <span class="dt">xlab=</span><span class="st">&quot;Month&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Monthly&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-191"></span>
-<img src="book_files/figure-html/unnamed-chunk-191-1.svg" alt="Time series of Seoul PM10." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-192"></span>
+<img src="book_files/figure-html/unnamed-chunk-192-1.svg" alt="Time series of Seoul PM10." width="672" />
 <p class="caption">
 FIGURE 18.4: Time series of Seoul PM10.
 </p>
 </div>
 <p><code>TSA</code>, <code>kza</code>, <code>itsmr</code> 패키지를 이용한다. 같은 이름의 함수를 사용하기 때문에 실행할 때 주의해야 한다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TSA<span class="op">::</span><span class="kw">periodogram</span>(dataspec, <span class="dt">log=</span><span class="st">&#39;yes&#39;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-192"></span>
-<img src="book_files/figure-html/unnamed-chunk-192-1.svg" alt="Periodogram (using R package TSA)." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-193"></span>
+<img src="book_files/figure-html/unnamed-chunk-193-1.svg" alt="Periodogram (using R package TSA)." width="672" />
 <p class="caption">
 FIGURE 18.5: Periodogram (using R package TSA).
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(kza<span class="op">::</span><span class="kw">periodogram</span>(<span class="kw">as.numeric</span>(dataspec)), <span class="dt">type=</span><span class="st">&#39;o&#39;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-193"></span>
-<img src="book_files/figure-html/unnamed-chunk-193-1.svg" alt="Periodogram (using R package kza)." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-194"></span>
+<img src="book_files/figure-html/unnamed-chunk-194-1.svg" alt="Periodogram (using R package kza)." width="672" />
 <p class="caption">
 FIGURE 18.6: Periodogram (using R package kza).
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(itsmr<span class="op">::</span><span class="kw">periodogram</span>(dataspec))</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-194"></span>
-<img src="book_files/figure-html/unnamed-chunk-194-1.svg" alt="Periodogram (using R package itsmr)." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-195"></span>
+<img src="book_files/figure-html/unnamed-chunk-195-1.svg" alt="Periodogram (using R package itsmr)." width="672" />
 <p class="caption">
 FIGURE 18.7: Periodogram (using R package itsmr).
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-194"></span>
-<img src="book_files/figure-html/unnamed-chunk-194-2.svg" alt="Periodogram (using R package itsmr)." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-195"></span>
+<img src="book_files/figure-html/unnamed-chunk-195-2.svg" alt="Periodogram (using R package itsmr)." width="672" />
 <p class="caption">
 FIGURE 18.7: Periodogram (using R package itsmr).
 </p>

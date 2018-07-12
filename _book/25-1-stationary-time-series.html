@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-05-04">
+<meta name="date" content="2018-07-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -566,10 +566,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="44.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html"><i class="fa fa-check"></i><b>44.5</b> 스펙트럼 밀도의 추정(estimation of spectral density)</a><ul>
 <li class="chapter" data-level="44.5.1" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--discrete-fourier-transform-in-spatial-statistics"><i class="fa fa-check"></i><b>44.5.1</b> 이산 푸리에 변환(discrete Fourier transform in spatial statistics)</a></li>
 <li class="chapter" data-level="44.5.2" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--nonparametric-estimate---periodogram"><i class="fa fa-check"></i><b>44.5.2</b> 비모수적 방법-피리오도그램(nonparametric estimate - periodogram)</a></li>
-<li class="chapter" data-level="44.5.3" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.5.3</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
-<li class="chapter" data-level="44.5.4" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.5.4</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
-<li class="chapter" data-level="44.5.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.5.5</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
 </ul></li>
+<li class="chapter" data-level="44.6" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><i class="fa fa-check"></i><b>44.6</b> Increasing domain assumptions에서의 피리오도그램의 성질(properties of periodograms unber increasing domain assumptions)</a><ul>
+<li class="chapter" data-level="44.6.1" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.6.1</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
+<li class="chapter" data-level="44.6.2" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.6.2</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
+<li class="chapter" data-level="44.6.3" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.6.3</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
+</ul></li>
+<li class="chapter" data-level="44.7" data-path="44-7-properties-of-periodogram-under-infill-asymptotics.html"><a href="44-7-properties-of-periodogram-under-infill-asymptotics.html"><i class="fa fa-check"></i><b>44.7</b> 인필 점근 하에서의 피리오도그램의 성질들(properties of periodogram under infill asymptotics)</a></li>
 </ul></li>
 <li class="part"><span><b>VI Spatio-Tempral Statistics</b></span></li>
 <li class="chapter" data-level="45" data-path="45-spatiotemporal.html"><a href="45-spatiotemporal.html"><i class="fa fa-check"></i><b>45</b> 시공간 통계학</a><ul>
@@ -682,7 +685,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><span class="math inline">\(\{ X_{t} \}\)</span>는 다음과 같은 <strong>자기공분산 함수(autocovariance function)</strong> <span class="math display">\[\gamma_{X}(r,s)=Cov(X_{r},X_{s})=E(X_{r}-EX_{r})(X_{s}-EX_{s}) \text{ is finite for any } r,s.\]</span> 를 갖는 랜덤 프로세스라고 하자. 여기서 staionary보다 조금 더 약한 <strong>약정상과정(weakly stationary process)</strong>에 대해 생각해보자.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-264" class="definition"><strong>Definition 25.1  </strong></span>다음과 같은 세 가지 조건</p>
+<p><span id="def:unnamed-chunk-265" class="definition"><strong>Definition 25.1  </strong></span>다음과 같은 세 가지 조건</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(E|X_{t}|^{2} &lt; \infty\)</span>.</p></li>
 <li><p><span class="math inline">\(EX_{t}=m\)</span>(constant), <span class="math inline">\(\forall t\)</span>.</p></li>
@@ -693,18 +696,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-265" class="example"><strong>Example 25.1  (백색 잡음 과정)  </strong></span>백색 잡음 과정 <span class="math inline">\(\{Z_{t}\}\)</span>는 <span class="math display">\[E(Z_{t})=0, \forall t,\]</span> <span class="math display">\[\gamma(h)=\sigma^{2}\delta_{h}=E(Z_{t+h},Z_{t})=\sigma^{2}I\{h=0\}\]</span> 이므로 정상 과정이다.</p>
+<p><span id="exm:unnamed-chunk-266" class="example"><strong>Example 25.1  (백색 잡음 과정)  </strong></span>백색 잡음 과정 <span class="math inline">\(\{Z_{t}\}\)</span>는 <span class="math display">\[E(Z_{t})=0, \forall t,\]</span> <span class="math display">\[\gamma(h)=\sigma^{2}\delta_{h}=E(Z_{t+h},Z_{t})=\sigma^{2}I\{h=0\}\]</span> 이므로 정상 과정이다.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-266" class="example"><strong>Example 25.2  (AR(1) 과정)  </strong></span>AR(1) 과정 <span class="math inline">\(\{X_{t}\}\)</span>는 <span class="math display">\[X_{t}-\phi X_{t-1}=Z_{t}, Z_{t} \sim WN(0,\sigma^{2}), \]</span> <span class="math display">\[\gamma(h)=\sigma^{2}\frac{\phi^{|h|}}{1-\phi}\]</span> 이므로 정상 과정이다.</p>
+<p><span id="exm:unnamed-chunk-267" class="example"><strong>Example 25.2  (AR(1) 과정)  </strong></span>AR(1) 과정 <span class="math inline">\(\{X_{t}\}\)</span>는 <span class="math display">\[X_{t}-\phi X_{t-1}=Z_{t}, Z_{t} \sim WN(0,\sigma^{2}), \]</span> <span class="math display">\[\gamma(h)=\sigma^{2}\frac{\phi^{|h|}}{1-\phi}\]</span> 이므로 정상 과정이다.</p>
 </div>
 
 <p>다시 상기하는 의미에서 <span class="math inline">\(X(t)\)</span>의 이산 웨이블릿 변환은 <span class="math inline">\(\{ d_{jk} \}=\int_{\mathbb{R}}X(t)\psi_{jk}(t)dt\)</span>이고, <span class="math display">\[E d_{jk}d_{j&#39;k&#39;}=\int \int_{\mathbb{R}^{2}}\gamma(t,s)\psi_{jk}(t)\psi_{j&#39;k&#39;}(s)dtds\]</span> 이다. 다음은 웨이블릿 변환과 정상성에 관련된 정리이다.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-267" class="theorem"><strong>Theorem 25.1  (약정상과정 관련 정리)  </strong></span><span class="math inline">\(X(t)\)</span>가 약한 정상 과정이고 <span class="math inline">\(\gamma(t,s)\)</span>가 <span class="math inline">\(\mathbb{R}^{2}\)</span>에서 유계(bounded)이고 연속이면, <span class="math inline">\(X(t)\)</span>가 약정상과정인 것과 <span class="math inline">\(\{ d_{jk} \}\)</span>가 약정상과정인 것은 동치이다(만약 <span class="math inline">\(\psi\)</span>가 compactly supported이면 당연히 유계이므로 유계 조건이 따로 필요 없다).</p>
+<p><span id="thm:unnamed-chunk-268" class="theorem"><strong>Theorem 25.1  (약정상과정 관련 정리)  </strong></span><span class="math inline">\(X(t)\)</span>가 약한 정상 과정이고 <span class="math inline">\(\gamma(t,s)\)</span>가 <span class="math inline">\(\mathbb{R}^{2}\)</span>에서 유계(bounded)이고 연속이면, <span class="math inline">\(X(t)\)</span>가 약정상과정인 것과 <span class="math inline">\(\{ d_{jk} \}\)</span>가 약정상과정인 것은 동치이다(만약 <span class="math inline">\(\psi\)</span>가 compactly supported이면 당연히 유계이므로 유계 조건이 따로 필요 없다).</p>
 </div>
 
 </div>

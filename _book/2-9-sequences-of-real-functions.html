@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-05-04">
+<meta name="date" content="2018-07-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -566,10 +566,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="44.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html"><i class="fa fa-check"></i><b>44.5</b> 스펙트럼 밀도의 추정(estimation of spectral density)</a><ul>
 <li class="chapter" data-level="44.5.1" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--discrete-fourier-transform-in-spatial-statistics"><i class="fa fa-check"></i><b>44.5.1</b> 이산 푸리에 변환(discrete Fourier transform in spatial statistics)</a></li>
 <li class="chapter" data-level="44.5.2" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--nonparametric-estimate---periodogram"><i class="fa fa-check"></i><b>44.5.2</b> 비모수적 방법-피리오도그램(nonparametric estimate - periodogram)</a></li>
-<li class="chapter" data-level="44.5.3" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.5.3</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
-<li class="chapter" data-level="44.5.4" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.5.4</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
-<li class="chapter" data-level="44.5.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.5.5</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
 </ul></li>
+<li class="chapter" data-level="44.6" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><i class="fa fa-check"></i><b>44.6</b> Increasing domain assumptions에서의 피리오도그램의 성질(properties of periodograms unber increasing domain assumptions)</a><ul>
+<li class="chapter" data-level="44.6.1" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.6.1</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
+<li class="chapter" data-level="44.6.2" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.6.2</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
+<li class="chapter" data-level="44.6.3" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.6.3</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
+</ul></li>
+<li class="chapter" data-level="44.7" data-path="44-7-properties-of-periodogram-under-infill-asymptotics.html"><a href="44-7-properties-of-periodogram-under-infill-asymptotics.html"><i class="fa fa-check"></i><b>44.7</b> 인필 점근 하에서의 피리오도그램의 성질들(properties of periodogram under infill asymptotics)</a></li>
 </ul></li>
 <li class="part"><span><b>VI Spatio-Tempral Statistics</b></span></li>
 <li class="chapter" data-level="45" data-path="45-spatiotemporal.html"><a href="45-spatiotemporal.html"><i class="fa fa-check"></i><b>45</b> 시공간 통계학</a><ul>
@@ -682,13 +685,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>확률변수(random variable)의 수열이 함수의 수열처럼 여겨질 수 있다는 사실에서 함수의 수열의 성질을 이해하는 것은 중요하다. 일반적인 수열의 수렴에 관한 성질들과 비교했을 때 함수의 수열들의 수렴에 관한 성질에서는 여러 개의 정의로 다뤄질 수 있다는 점에서 차이가 있다. 가장 널리 알려진 함수의 수렴은 <strong>점별수렴(pointwise convergence)</strong>과 <strong>균등수렴(uniform convergence)</strong>이 있다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-30" class="definition"><strong>Definition 2.21  (점별수렴)  </strong></span><span class="math inline">\(\{ f_{n}(x)\}_{n=1}^{\infty}\)</span>를 실함수의 수열이라고 하자. 그러면 모든 <span class="math inline">\(x\in\mathbb{R}\)</span>에 대해 <span class="math display">\[\lim_{n\rightarrow \infty}f_{n}(x)=f(x)\]</span> 를 만족하는 실함수 <span class="math inline">\(f\)</span>가 존재할 때 수열 <span class="math inline">\(\{ f_{n}(x)\}_{n=1}^{\infty}\)</span>이 <span class="math inline">\(f\)</span>에 <strong>점별수렴(pointwise convergence)</strong>한다고 한다. 여기서는 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math display">\[f_{n} \stackrel{pw}{\rightarrow} f\]</span> 로 표현하기로 한다.</p>
+<p><span id="def:unnamed-chunk-31" class="definition"><strong>Definition 2.22  (점별수렴)  </strong></span><span class="math inline">\(\{ f_{n}(x)\}_{n=1}^{\infty}\)</span>를 실함수의 수열이라고 하자. 그러면 모든 <span class="math inline">\(x\in\mathbb{R}\)</span>에 대해 <span class="math display">\[\lim_{n\rightarrow \infty}f_{n}(x)=f(x)\]</span> 를 만족하는 실함수 <span class="math inline">\(f\)</span>가 존재할 때 수열 <span class="math inline">\(\{ f_{n}(x)\}_{n=1}^{\infty}\)</span>이 <span class="math inline">\(f\)</span>에 <strong>점별수렴(pointwise convergence)</strong>한다고 한다. 여기서는 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math display">\[f_{n} \stackrel{pw}{\rightarrow} f\]</span> 로 표현하기로 한다.</p>
 </div>
 
 <p>점별수렴보다 더 강한 조건으로 <span class="math inline">\(x \in \mathbb{R}\)</span>에 상관 없이 모든 지점에서 동시에 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(f_{n}(x) \rightarrow f(x)\)</span>이길 요구할 수도 있다. 이 때 사용되는 정의가 균등수렴이다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-31" class="definition"><strong>Definition 2.22  (균등수렴)  </strong></span><span class="math inline">\(\{ f_{n}(x)\}_{n=1}^{\infty}\)</span>를 실함수의 수열이라고 하자. 그러면 모든 <span class="math inline">\(\epsilon &gt; 0\)</span>에 대해 <span class="math display">\[|f_{n}(x)-f(x)| &lt;\epsilon \forall n \geq n_{\epsilon} \text{ and } x\in \mathbb{R}\]</span> 을 만족시키는 정수 <span class="math inline">\(n_{\epsilon}\)</span>이 존재할 때 수열 <span class="math inline">\(\{ f_{n}(x)\}_{n=1}^{\infty}\)</span>이 <span class="math inline">\(f\)</span>에 <strong>균등수렴(uniform convergence)</strong>한다고 한다. 여기서는 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math display">\[f_{n} \stackrel{u}{\rightarrow} f\]</span> 로 표현하기로 한다.</p>
+<p><span id="def:unnamed-chunk-32" class="definition"><strong>Definition 2.23  (균등수렴)  </strong></span><span class="math inline">\(\{ f_{n}(x)\}_{n=1}^{\infty}\)</span>를 실함수의 수열이라고 하자. 그러면 모든 <span class="math inline">\(\epsilon &gt; 0\)</span>에 대해 <span class="math display">\[|f_{n}(x)-f(x)| &lt;\epsilon \forall n \geq n_{\epsilon} \text{ and } x\in \mathbb{R}\]</span> 을 만족시키는 정수 <span class="math inline">\(n_{\epsilon}\)</span>이 존재할 때 수열 <span class="math inline">\(\{ f_{n}(x)\}_{n=1}^{\infty}\)</span>이 <span class="math inline">\(f\)</span>에 <strong>균등수렴(uniform convergence)</strong>한다고 한다. 여기서는 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math display">\[f_{n} \stackrel{u}{\rightarrow} f\]</span> 로 표현하기로 한다.</p>
 </div>
 
 <p>(두 수열의 차이점 설명)</p>
@@ -696,7 +699,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3><span class="header-section-number">2.9.1</span> 수렴하는 수열(convergent sequence)</h3>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-32" class="definition"><strong>Definition 2.23  ((함수해석학에서) 수렴하는 수열)  </strong></span>노름 벡터 공간 <span class="math inline">\((\mathcal{F}, \| \cdot\|_{\mathcal{F}})\)</span>의 원소들로 이루어진 수열 <span class="math inline">\(\{ f_{n}\}_{n=1}^{\infty}\)</span>가 모든 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math inline">\(N=N(\epsilon)\in \mathbb{N}\)</span>이 존재해 모든 <span class="math inline">\(n \geq \mathbb{N}\)</span>에 대해 <span class="math inline">\(\| f_{n}-f\|_{\mathcal{F}} &lt;\epsilon\)</span>을 만족할 때, 우리는 수열이 <span class="math inline">\(f\in \mathcal{F}\)</span>에 <strong>수렴(converge)</strong> 한다고 한다.</p>
+<p><span id="def:unnamed-chunk-33" class="definition"><strong>Definition 2.24  ((함수해석학에서) 수렴하는 수열)  </strong></span>노름 벡터 공간 <span class="math inline">\((\mathcal{F}, \| \cdot\|_{\mathcal{F}})\)</span>의 원소들로 이루어진 수열 <span class="math inline">\(\{ f_{n}\}_{n=1}^{\infty}\)</span>가 모든 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math inline">\(N=N(\epsilon)\in \mathbb{N}\)</span>이 존재해 모든 <span class="math inline">\(n \geq \mathbb{N}\)</span>에 대해 <span class="math inline">\(\| f_{n}-f\|_{\mathcal{F}} &lt;\epsilon\)</span>을 만족할 때, 우리는 수열이 <span class="math inline">\(f\in \mathcal{F}\)</span>에 <strong>수렴(converge)</strong> 한다고 한다.</p>
 </div>
 
 </div>
@@ -704,20 +707,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3><span class="header-section-number">2.9.2</span> 코시 수열(Cauchy sequence)</h3>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-33" class="definition"><strong>Definition 2.24  ((함수해석학에서) 수렴하는 수열)  </strong></span>노름 벡터 공간 <span class="math inline">\((\mathcal{F}, \| \cdot\|_{\mathcal{F}})\)</span>의 원소들로 이루어진 수열 <span class="math inline">\(\{ f_{n}\}_{n=1}^{\infty}\)</span>가 모든 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math inline">\(N=N(\epsilon)\in \mathbb{N}\)</span>이 존재해 모든 <span class="math inline">\(m,n \geq \mathbb{N}\)</span>에 대해 <span class="math inline">\(\| f_{m}-f_{n}\|_{\mathcal{F}} &lt;\epsilon\)</span>을 만족할 때, 수열 <span class="math inline">\(\{ f_{n}\}_{n=1}^{\infty}\)</span>를 <strong>코시 수열(Cauchy sequence)</strong>이라고 한다.</p>
+<p><span id="def:unnamed-chunk-34" class="definition"><strong>Definition 2.25  ((함수해석학에서) 수렴하는 수열)  </strong></span>노름 벡터 공간 <span class="math inline">\((\mathcal{F}, \| \cdot\|_{\mathcal{F}})\)</span>의 원소들로 이루어진 수열 <span class="math inline">\(\{ f_{n}\}_{n=1}^{\infty}\)</span>가 모든 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math inline">\(N=N(\epsilon)\in \mathbb{N}\)</span>이 존재해 모든 <span class="math inline">\(m,n \geq \mathbb{N}\)</span>에 대해 <span class="math inline">\(\| f_{m}-f_{n}\|_{\mathcal{F}} &lt;\epsilon\)</span>을 만족할 때, 수열 <span class="math inline">\(\{ f_{n}\}_{n=1}^{\infty}\)</span>를 <strong>코시 수열(Cauchy sequence)</strong>이라고 한다.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-34" class="example"><strong>Example 2.4  (유리수의 장)  </strong></span>절대값 <span class="math inline">\(\| \cdot\|\)</span>을 노름으로 갖는 유리수 <span class="math inline">\(\mathbb{Q}\)</span>의 장(field)은 노름 벡터 공간이다. 여기서 수열 <span class="math inline">\(1, 1.4, 1.41, \ldots\)</span>는 <span class="math inline">\(\mathbb{Q}\)</span>에서의 코시 수열이나 이것의 극한 <span class="math inline">\(\sqrt{2} \notin \mathbb{Q}\)</span>이므로 수렴하는 수열은 아니다.</p>
+<p><span id="exm:unnamed-chunk-35" class="example"><strong>Example 2.4  (유리수의 장)  </strong></span>절대값 <span class="math inline">\(\| \cdot\|\)</span>을 노름으로 갖는 유리수 <span class="math inline">\(\mathbb{Q}\)</span>의 장(field)은 노름 벡터 공간이다. 여기서 수열 <span class="math inline">\(1, 1.4, 1.41, \ldots\)</span>는 <span class="math inline">\(\mathbb{Q}\)</span>에서의 코시 수열이나 이것의 극한 <span class="math inline">\(\sqrt{2} \notin \mathbb{Q}\)</span>이므로 수렴하는 수열은 아니다.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-35" class="example"><strong>Example 2.5  (C[0,1])  </strong></span><span class="math inline">\(C[0,1]\)</span>을 구간 <span class="math inline">\([0,1]\)</span>에서 bounded continuous인 함수들의 집합이라고 하자. 다음과 같은 노름 <span class="math inline">\(\| f\| =(\int_{0}^{1}|f(x)|^{2}dx)^{1/2}\)</span>을 생각할 때 함수들의 수열 <span class="math inline">\(\{ f_{n}\}\)</span>은 <span class="math inline">\([0, \frac{1}{2}-\frac{1}{2n} ]\)</span>에서 <span class="math inline">\(0\)</span>이고 <span class="math inline">\([\frac{1}{2}+\frac{1}{2n}, 1]\)</span>에서 <span class="math inline">\(1\)</span>이기 때문에 코시 수열이나 연속 극한(continuous limit)은 존재하지 않는다.</p>
+<p><span id="exm:unnamed-chunk-36" class="example"><strong>Example 2.5  (C[0,1])  </strong></span><span class="math inline">\(C[0,1]\)</span>을 구간 <span class="math inline">\([0,1]\)</span>에서 bounded continuous인 함수들의 집합이라고 하자. 다음과 같은 노름 <span class="math inline">\(\| f\| =(\int_{0}^{1}|f(x)|^{2}dx)^{1/2}\)</span>을 생각할 때 함수들의 수열 <span class="math inline">\(\{ f_{n}\}\)</span>은 <span class="math inline">\([0, \frac{1}{2}-\frac{1}{2n} ]\)</span>에서 <span class="math inline">\(0\)</span>이고 <span class="math inline">\([\frac{1}{2}+\frac{1}{2n}, 1]\)</span>에서 <span class="math inline">\(1\)</span>이기 때문에 코시 수열이나 연속 극한(continuous limit)은 존재하지 않는다.</p>
 </div>
 
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-36"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-37"></span>
 <img src="images/math_counterCauchy.png" alt="L2 norm에서 연속 극한을 갖지 않는 연속함수들의 코시 수열의 예." width="439" />
 <p class="caption">
 FIGURE 2.7: L2 norm에서 연속 극한을 갖지 않는 연속함수들의 코시 수열의 예.

@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-05-04">
+<meta name="date" content="2018-07-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -566,10 +566,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="44.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html"><i class="fa fa-check"></i><b>44.5</b> 스펙트럼 밀도의 추정(estimation of spectral density)</a><ul>
 <li class="chapter" data-level="44.5.1" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--discrete-fourier-transform-in-spatial-statistics"><i class="fa fa-check"></i><b>44.5.1</b> 이산 푸리에 변환(discrete Fourier transform in spatial statistics)</a></li>
 <li class="chapter" data-level="44.5.2" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--nonparametric-estimate---periodogram"><i class="fa fa-check"></i><b>44.5.2</b> 비모수적 방법-피리오도그램(nonparametric estimate - periodogram)</a></li>
-<li class="chapter" data-level="44.5.3" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.5.3</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
-<li class="chapter" data-level="44.5.4" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.5.4</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
-<li class="chapter" data-level="44.5.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.5.5</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
 </ul></li>
+<li class="chapter" data-level="44.6" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><i class="fa fa-check"></i><b>44.6</b> Increasing domain assumptions에서의 피리오도그램의 성질(properties of periodograms unber increasing domain assumptions)</a><ul>
+<li class="chapter" data-level="44.6.1" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.6.1</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
+<li class="chapter" data-level="44.6.2" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.6.2</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
+<li class="chapter" data-level="44.6.3" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.6.3</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
+</ul></li>
+<li class="chapter" data-level="44.7" data-path="44-7-properties-of-periodogram-under-infill-asymptotics.html"><a href="44-7-properties-of-periodogram-under-infill-asymptotics.html"><i class="fa fa-check"></i><b>44.7</b> 인필 점근 하에서의 피리오도그램의 성질들(properties of periodogram under infill asymptotics)</a></li>
 </ul></li>
 <li class="part"><span><b>VI Spatio-Tempral Statistics</b></span></li>
 <li class="chapter" data-level="45" data-path="45-spatiotemporal.html"><a href="45-spatiotemporal.html"><i class="fa fa-check"></i><b>45</b> 시공간 통계학</a><ul>
@@ -684,7 +687,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>푸리에 해석에서의 주파수와는 달리, 웨이블릿 해석에서는 <strong>척도(scale)</strong>가 중요한 역할을 한다. 척도가 큰 창(window)을 통해서 신호를 관찰하면, 그 신호의 전반적인 특징을 관찰할 수 있다. 즉 웨이블릿이라는 창을 사용해서 신호를 분석하면 신호의 전체적인 모습뿐 아니라 세부적인 모습까지도 분석할 수 있다. 따라서 신호가 가지고 있는 비정상적(nonstationry) 성질들을 나타내는 데 웨이블릿이 유용하다. 예를 들어, 푸리에 해석에서는 신호의 불연속성, 단절(rupture) 등을 잘 식별할 수 없지만 웨이블릿 해석을 사용하면 식별이 가능하다. 이는 웨이블릿이 단순히 신호의 자세한 부분까지를 반영하기 때문이 아니라 신호가 변화하는 부분을 잘 나타내기 때문이다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-198" class="definition"><strong>Definition 19.4  (웨이블릿)  </strong></span><strong>웨이블릿(wavelet)</strong> <span class="math inline">\(\psi(t)\)</span>는 실변수함수로, localized waveform을 갖으며</p>
+<p><span id="def:unnamed-chunk-199" class="definition"><strong>Definition 19.4  (웨이블릿)  </strong></span><strong>웨이블릿(wavelet)</strong> <span class="math inline">\(\psi(t)\)</span>는 실변수함수로, localized waveform을 갖으며</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(\int_{-\infty}^{\infty}\psi(t)dt=0\)</span></p></li>
 <li><p><span class="math inline">\(\int_{-\infty}^{\infty}\psi(t)^{2}dt=1\)</span></p></li>
@@ -694,7 +697,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-199" class="example"><strong>Example 19.1  (Haar 웨이블릿)  </strong></span><strong>Haar 웨이블릿(Haar wavelet)</strong>은</p>
+<p><span id="exm:unnamed-chunk-200" class="example"><strong>Example 19.1  (Haar 웨이블릿)  </strong></span><strong>Haar 웨이블릿(Haar wavelet)</strong>은</p>
 <span class="math display">\[\begin{equation} 
 \psi(t) \equiv
   \begin{cases}
@@ -706,8 +709,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>으로 정의된다.</p>
 </div>
 
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-200"></span>
-<img src="book_files/figure-html/unnamed-chunk-200-1.svg" alt="Haar wavelet function." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-201"></span>
+<img src="book_files/figure-html/unnamed-chunk-201-1.svg" alt="Haar wavelet function." width="672" />
 <p class="caption">
 FIGURE 19.1: Haar wavelet function.
 </p>

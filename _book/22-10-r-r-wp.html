@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-05-04">
+<meta name="date" content="2018-07-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -566,10 +566,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="44.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html"><i class="fa fa-check"></i><b>44.5</b> 스펙트럼 밀도의 추정(estimation of spectral density)</a><ul>
 <li class="chapter" data-level="44.5.1" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--discrete-fourier-transform-in-spatial-statistics"><i class="fa fa-check"></i><b>44.5.1</b> 이산 푸리에 변환(discrete Fourier transform in spatial statistics)</a></li>
 <li class="chapter" data-level="44.5.2" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--nonparametric-estimate---periodogram"><i class="fa fa-check"></i><b>44.5.2</b> 비모수적 방법-피리오도그램(nonparametric estimate - periodogram)</a></li>
-<li class="chapter" data-level="44.5.3" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.5.3</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
-<li class="chapter" data-level="44.5.4" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.5.4</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
-<li class="chapter" data-level="44.5.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.5.5</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
 </ul></li>
+<li class="chapter" data-level="44.6" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><i class="fa fa-check"></i><b>44.6</b> Increasing domain assumptions에서의 피리오도그램의 성질(properties of periodograms unber increasing domain assumptions)</a><ul>
+<li class="chapter" data-level="44.6.1" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.6.1</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
+<li class="chapter" data-level="44.6.2" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.6.2</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
+<li class="chapter" data-level="44.6.3" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.6.3</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
+</ul></li>
+<li class="chapter" data-level="44.7" data-path="44-7-properties-of-periodogram-under-infill-asymptotics.html"><a href="44-7-properties-of-periodogram-under-infill-asymptotics.html"><i class="fa fa-check"></i><b>44.7</b> 인필 점근 하에서의 피리오도그램의 성질들(properties of periodogram under infill asymptotics)</a></li>
 </ul></li>
 <li class="part"><span><b>VI Spatio-Tempral Statistics</b></span></li>
 <li class="chapter" data-level="45" data-path="45-spatiotemporal.html"><a href="45-spatiotemporal.html"><i class="fa fa-check"></i><b>45</b> 시공간 통계학</a><ul>
@@ -683,8 +686,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">256</span>)
 zwp &lt;-<span class="st"> </span><span class="kw">wp</span>(z, <span class="dt">filter.number=</span><span class="dv">2</span>, <span class="dt">family=</span><span class="st">&quot;DaubExPhase&quot;</span>)
 <span class="kw">plot</span>(zwp, <span class="dt">color.force=</span><span class="ot">TRUE</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-246"></span>
-<img src="book_files/figure-html/unnamed-chunk-246-1.svg" alt="Wavelet packet coefficients of the independent Gaussian sequence z." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-247"></span>
+<img src="book_files/figure-html/unnamed-chunk-247-1.svg" alt="Wavelet packet coefficients of the independent Gaussian sequence z." width="672" />
 <p class="caption">
 FIGURE 21.13: Wavelet packet coefficients of the independent Gaussian sequence z.
 </p>
@@ -692,24 +695,24 @@ FIGURE 21.13: Wavelet packet coefficients of the independent Gaussian sequence z
 <p>위 그림은 독립 가우스 수열 <span class="math inline">\(\mathbf{z}\)</span>에 대해 웨이블릿 계수들을 구한 결과를 보여준다. 원 시계열은 맨 아래쪽에 있다. 이것의 scale은 8로 정했다. 그리고 한 줄씩 위로 올라가면서 scale(=resolution level)을 1씩 줄였을 때의 결과를 보여준다. 웨이블릿 패킷을 수직 점선으로 구분해 놓았다. 각 스케일 마다 첫 번째 웨이블릿은 scaling function coefficient들에 대응된다. 그래서 시계열로 표현했는데 이는 스케일 함수 계수들을 웟ㄴ 시계열의 연속적인 coarsening이라고 생각할 수 있기 때문이다. Regular wavelet coefficient들은 각 스케일마다 두 번째 패킷에 위치하도록 했다.</p>
 <p>여기서 스케일 6에 있는 네 번째 패킷 (packet 3임, 0, 1, 2 순서로 번호를 매기므로)을 100인 값이 하나가 있고 나머지는 모두 0인 패킷으로 교체해보자. 우선 현재 있는 패킷 값을 얻으려면 <code>getpacket</code> 함수를 이용한다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getpacket</span>(zwp, <span class="dt">level=</span><span class="dv">6</span>, <span class="dt">index=</span><span class="dv">3</span>)</code></pre></div>
-<pre><code>&gt;  [1]  0.34618792 -0.29288030  0.11011712 -1.32391148 -0.98038911
-&gt;  [6]  0.62612992 -0.51465147  0.11630134  1.75414922 -0.21734422
-&gt; [11]  1.37090093 -1.08059589  0.95523003 -0.26839714 -1.21726945
-&gt; [16]  0.41281489  0.48262712  0.77284610  2.00347091 -1.70250166
-&gt; [21] -0.63600897 -1.79626713  1.26829640  1.43635644 -0.21620111
-&gt; [26]  0.25463013  1.90968009 -0.48981617 -1.97525082 -2.65347273
-&gt; [31]  1.07354660 -0.14274976  0.61797363  0.90787858  0.67516244
-&gt; [36] -1.32849879 -1.75656709 -0.20824643 -0.77205569  0.15669237
-&gt; [41]  1.05886953  1.48196262 -0.17500127 -0.26389277 -0.50533964
-&gt; [46]  0.75598475  0.18120090  0.65581740  0.38198265 -0.29194251
-&gt; [51]  0.27118426  0.48705077  0.04949299  0.39397335  1.80002075
-&gt; [56]  0.01490628 -1.40286575  0.08001397  0.35465396 -1.04299583
-&gt; [61] -0.41808470 -0.15976578  0.54610206 -0.55623694</code></pre>
+<pre><code>&gt;  [1] -1.00399042 -0.06424369 -0.68247263 -1.31148711  0.29109584
+&gt;  [6]  0.11760275 -1.07045584  1.95231782  0.86604101 -0.59739314
+&gt; [11]  0.74163159 -0.67509402 -0.56607414 -1.20631925  1.17160867
+&gt; [16]  0.25755635  1.20740071  0.77589573 -0.48404386  1.70583251
+&gt; [21]  0.81265286 -0.93020607  0.74403805 -1.41041722  0.45737061
+&gt; [26] -1.18055436  0.56012524 -1.26035578  0.14629927  0.30096993
+&gt; [31]  0.77257344 -0.12567289 -1.45323789  1.13394161 -2.34680315
+&gt; [36] -1.12050771 -2.23443369  1.29530935 -0.04195310 -1.54115488
+&gt; [41] -0.32906825 -1.48961400 -0.45844514 -0.51539397 -0.77095119
+&gt; [46] -1.04129114 -0.85683053  0.58408448 -0.60264673 -1.23823816
+&gt; [51] -0.59337381 -1.33741084  1.75116936  0.36159500  0.89520136
+&gt; [56] -1.58067887 -0.96715748 -0.31008068 -1.93843638 -0.46811241
+&gt; [61] -0.18068923  0.26294651  0.68139744  1.14075307</code></pre>
 <p>100인 값이 하나가 있고 나머지는 모두 0인 벡터는 매우 sparse하다. <code>zwp2</code>에 앞서 말한 패킷을 넣어보자.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">zwp2 &lt;-<span class="st"> </span><span class="kw">putpacket</span>(zwp, <span class="dt">level=</span><span class="dv">6</span>, <span class="dt">index=</span><span class="dv">3</span>, <span class="dt">packet=</span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dv">100</span>, <span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">53</span>)))
 <span class="kw">plot</span>(zwp2)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-248"></span>
-<img src="book_files/figure-html/unnamed-chunk-248-1.svg" alt="Wavelet packet coefficients of zwp2." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-249"></span>
+<img src="book_files/figure-html/unnamed-chunk-249-1.svg" alt="Wavelet packet coefficients of zwp2." width="672" />
 <p class="caption">
 FIGURE 21.14: Wavelet packet coefficients of zwp2.
 </p>
@@ -718,97 +721,116 @@ FIGURE 21.14: Wavelet packet coefficients of zwp2.
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">zwp2.nv &lt;-<span class="st"> </span><span class="kw">MaNoVe</span>(zwp2)
 zwp2.nv</code></pre></div>
 <pre><code>&gt; Level:  6  Packet:  3 
-&gt; Level:  4  Packet:  10 
-&gt; Level:  4  Packet:  11 
-&gt; Level:  3  Packet:  5 
-&gt; Level:  3  Packet:  14 
-&gt; Level:  3  Packet:  17 
-&gt; Level:  3  Packet:  18 
-&gt; Level:  2  Packet:  8 
-&gt; Level:  2  Packet:  16 
-&gt; Level:  2  Packet:  19 
-&gt; Level:  2  Packet:  25 
-&gt; Level:  2  Packet:  26 
-&gt; Level:  2  Packet:  33 
-&gt; Level:  2  Packet:  38 
-&gt; Level:  2  Packet:  39 
-&gt; Level:  1  Packet:  0 
-&gt; Level:  1  Packet:  3 
+&gt; Level:  4  Packet:  2 
+&gt; Level:  3  Packet:  7 
+&gt; Level:  2  Packet:  4 
+&gt; Level:  2  Packet:  5 
+&gt; Level:  2  Packet:  18 
+&gt; Level:  2  Packet:  20 
+&gt; Level:  2  Packet:  22 
+&gt; Level:  2  Packet:  27 
+&gt; Level:  2  Packet:  29 
+&gt; Level:  2  Packet:  36 
+&gt; Level:  2  Packet:  37 
+&gt; Level:  2  Packet:  41 
+&gt; Level:  2  Packet:  42 
 &gt; Level:  1  Packet:  4 
 &gt; Level:  1  Packet:  5 
-&gt; Level:  1  Packet:  7 
-&gt; Level:  1  Packet:  8 
-&gt; Level:  1  Packet:  10 
-&gt; Level:  1  Packet:  13 
+&gt; Level:  1  Packet:  6 
+&gt; Level:  1  Packet:  12 
 &gt; Level:  1  Packet:  14 
+&gt; Level:  1  Packet:  15 
 &gt; Level:  1  Packet:  24 
 &gt; Level:  1  Packet:  25 
-&gt; Level:  1  Packet:  26 
-&gt; Level:  1  Packet:  29 
-&gt; Level:  1  Packet:  30 
-&gt; Level:  1  Packet:  31 
-&gt; Level:  1  Packet:  34 
-&gt; Level:  1  Packet:  36 
-&gt; Level:  1  Packet:  37 
-&gt; Level:  1  Packet:  41 
-&gt; Level:  1  Packet:  42 
-&gt; Level:  1  Packet:  44 
+&gt; Level:  1  Packet:  33 
+&gt; Level:  1  Packet:  43 
 &gt; Level:  1  Packet:  46 
 &gt; Level:  1  Packet:  47 
-&gt; Level:  1  Packet:  48 
 &gt; Level:  1  Packet:  49 
+&gt; Level:  1  Packet:  51 
+&gt; Level:  1  Packet:  52 
+&gt; Level:  1  Packet:  53 
+&gt; Level:  1  Packet:  56 
+&gt; Level:  1  Packet:  57 
+&gt; Level:  1  Packet:  60 
+&gt; Level:  1  Packet:  62 
+&gt; Level:  1  Packet:  63 
+&gt; Level:  1  Packet:  65 
+&gt; Level:  1  Packet:  66 
+&gt; Level:  1  Packet:  67 
+&gt; Level:  1  Packet:  70 
+&gt; Level:  1  Packet:  71 
+&gt; Level:  1  Packet:  76 
+&gt; Level:  1  Packet:  77 
+&gt; Level:  1  Packet:  78 
+&gt; Level:  1  Packet:  79 
+&gt; Level:  1  Packet:  90 
+&gt; Level:  1  Packet:  94 
+&gt; Level:  1  Packet:  95 
+&gt; Level:  0  Packet:  0 
+&gt; Level:  0  Packet:  1 
 &gt; Level:  0  Packet:  2 
 &gt; Level:  0  Packet:  3 
 &gt; Level:  0  Packet:  4 
 &gt; Level:  0  Packet:  5 
-&gt; Level:  0  Packet:  12 
-&gt; Level:  0  Packet:  13 
-&gt; Level:  0  Packet:  18 
-&gt; Level:  0  Packet:  19 
-&gt; Level:  0  Packet:  22 
-&gt; Level:  0  Packet:  23 
-&gt; Level:  0  Packet:  24 
-&gt; Level:  0  Packet:  25 
-&gt; Level:  0  Packet:  30 
-&gt; Level:  0  Packet:  31 
-&gt; Level:  0  Packet:  36 
-&gt; Level:  0  Packet:  37 
-&gt; Level:  0  Packet:  38 
-&gt; Level:  0  Packet:  39 
+&gt; Level:  0  Packet:  6 
+&gt; Level:  0  Packet:  7 
+&gt; Level:  0  Packet:  14 
+&gt; Level:  0  Packet:  15 
+&gt; Level:  0  Packet:  26 
+&gt; Level:  0  Packet:  27 
+&gt; Level:  0  Packet:  52 
+&gt; Level:  0  Packet:  53 
 &gt; Level:  0  Packet:  54 
 &gt; Level:  0  Packet:  55 
-&gt; Level:  0  Packet:  56 
-&gt; Level:  0  Packet:  57 
+&gt; Level:  0  Packet:  64 
+&gt; Level:  0  Packet:  65 
+&gt; Level:  0  Packet:  68 
+&gt; Level:  0  Packet:  69 
 &gt; Level:  0  Packet:  70 
 &gt; Level:  0  Packet:  71 
-&gt; Level:  0  Packet:  80 
-&gt; Level:  0  Packet:  81 
-&gt; Level:  0  Packet:  86 
-&gt; Level:  0  Packet:  87 
-&gt; Level:  0  Packet:  90 
-&gt; Level:  0  Packet:  91 
-&gt; Level:  0  Packet:  108 
-&gt; Level:  0  Packet:  109 
-&gt; Level:  0  Packet:  110 
-&gt; Level:  0  Packet:  111 
-&gt; Level:  0  Packet:  120 
-&gt; Level:  0  Packet:  121 
+&gt; Level:  0  Packet:  76 
+&gt; Level:  0  Packet:  77 
+&gt; Level:  0  Packet:  78 
+&gt; Level:  0  Packet:  79 
+&gt; Level:  0  Packet:  84 
+&gt; Level:  0  Packet:  85 
+&gt; Level:  0  Packet:  96 
+&gt; Level:  0  Packet:  97 
+&gt; Level:  0  Packet:  100 
+&gt; Level:  0  Packet:  101 
 &gt; Level:  0  Packet:  122 
 &gt; Level:  0  Packet:  123 
-&gt; Level:  0  Packet:  124 
-&gt; Level:  0  Packet:  125 
-&gt; Level:  0  Packet:  126 
-&gt; Level:  0  Packet:  127 
 &gt; Level:  0  Packet:  128 
 &gt; Level:  0  Packet:  129 
-&gt; Level:  0  Packet:  130 
-&gt; Level:  0  Packet:  131</code></pre>
+&gt; Level:  0  Packet:  136 
+&gt; Level:  0  Packet:  137 
+&gt; Level:  0  Packet:  138 
+&gt; Level:  0  Packet:  139 
+&gt; Level:  0  Packet:  160 
+&gt; Level:  0  Packet:  161 
+&gt; Level:  0  Packet:  162 
+&gt; Level:  0  Packet:  163 
+&gt; Level:  0  Packet:  172 
+&gt; Level:  0  Packet:  173 
+&gt; Level:  0  Packet:  174 
+&gt; Level:  0  Packet:  175 
+&gt; Level:  0  Packet:  176 
+&gt; Level:  0  Packet:  177 
+&gt; Level:  0  Packet:  178 
+&gt; Level:  0  Packet:  179 
+&gt; Level:  0  Packet:  182 
+&gt; Level:  0  Packet:  183 
+&gt; Level:  0  Packet:  184 
+&gt; Level:  0  Packet:  185 
+&gt; Level:  0  Packet:  186 
+&gt; Level:  0  Packet:  187</code></pre>
 <p><span class="math inline">\((6,3)\)</span>이 basis element로 선택된 것을 확인할 수 있다. 왜냐면 이것이 extremely sparse하기 때문이다. 이 새로 선택된 <code>zwp2.nv</code>의 기저는 <code>InvBasis(zwp2, zwp2.nv)</code> 명령어를 통해 불러올 수 있다고 한다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">InvBasis</span>(zwp2, zwp2.nv))</code></pre></div>
-<pre><code>&gt; [1]  0.10966233 -0.60475928  0.77505012 -0.08671981 -0.01895849  0.34651813</code></pre>
+<pre><code>&gt; [1] -0.45372711 -0.35597309 -0.61049728  0.40933189 -0.57678491 -0.06042723</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">InvBasis</span>(zwp2, zwp2.nv), <span class="dt">type=</span><span class="st">&quot;o&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-250"></span>
-<img src="book_files/figure-html/unnamed-chunk-250-1.svg" alt="Inversion plotting." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-251"></span>
+<img src="book_files/figure-html/unnamed-chunk-251-1.svg" alt="Inversion plotting." width="672" />
 <p class="caption">
 FIGURE 21.15: Inversion plotting.
 </p>

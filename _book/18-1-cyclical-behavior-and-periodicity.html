@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-05-04">
+<meta name="date" content="2018-07-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -566,10 +566,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="44.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html"><i class="fa fa-check"></i><b>44.5</b> 스펙트럼 밀도의 추정(estimation of spectral density)</a><ul>
 <li class="chapter" data-level="44.5.1" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--discrete-fourier-transform-in-spatial-statistics"><i class="fa fa-check"></i><b>44.5.1</b> 이산 푸리에 변환(discrete Fourier transform in spatial statistics)</a></li>
 <li class="chapter" data-level="44.5.2" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--nonparametric-estimate---periodogram"><i class="fa fa-check"></i><b>44.5.2</b> 비모수적 방법-피리오도그램(nonparametric estimate - periodogram)</a></li>
-<li class="chapter" data-level="44.5.3" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.5.3</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
-<li class="chapter" data-level="44.5.4" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.5.4</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
-<li class="chapter" data-level="44.5.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.5.5</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
 </ul></li>
+<li class="chapter" data-level="44.6" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><i class="fa fa-check"></i><b>44.6</b> Increasing domain assumptions에서의 피리오도그램의 성질(properties of periodograms unber increasing domain assumptions)</a><ul>
+<li class="chapter" data-level="44.6.1" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.6.1</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
+<li class="chapter" data-level="44.6.2" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.6.2</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
+<li class="chapter" data-level="44.6.3" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.6.3</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
+</ul></li>
+<li class="chapter" data-level="44.7" data-path="44-7-properties-of-periodogram-under-infill-asymptotics.html"><a href="44-7-properties-of-periodogram-under-infill-asymptotics.html"><i class="fa fa-check"></i><b>44.7</b> 인필 점근 하에서의 피리오도그램의 성질들(properties of periodogram under infill asymptotics)</a></li>
 </ul></li>
 <li class="part"><span><b>VI Spatio-Tempral Statistics</b></span></li>
 <li class="chapter" data-level="45" data-path="45-spatiotemporal.html"><a href="45-spatiotemporal.html"><i class="fa fa-check"></i><b>45</b> 시공간 통계학</a><ul>
@@ -709,8 +712,8 @@ x_{t}=\sum_{k=1}^{q}[U_{1l}\cos(2\pi\omega_{k} t) + U_{k2}\sin(2\pi\omega_{k} t)
 \tag{18.4}
 \end{equation}\]</span>
 <p>인 정상과정이라면 이 분산은 각 성분들의 분산의 합임을 알 수 있다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-180"></span>
-<img src="book_files/figure-html/unnamed-chunk-180-1.svg" alt="Periodic components and their sums." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-181"></span>
+<img src="book_files/figure-html/unnamed-chunk-181-1.svg" alt="Periodic components and their sums." width="672" />
 <p class="caption">
 FIGURE 18.1: Periodic components and their sums.
 </p>
@@ -718,11 +721,11 @@ FIGURE 18.1: Periodic components and their sums.
 <p>다음 예제는 식 <a href="18-1-cyclical-behavior-and-periodicity.html#eq:periodrpg">(18.2)</a>에서 <span class="math inline">\(q=3\)</span>일때의 예제다.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-181" class="example"><strong>Example 18.1  (주기 시계열)  </strong></span><span class="math inline">\(t=1,\ldots,100\)</span>까지 다음의 수열들을 생성해보자. <span class="math display">\[x_{t1}=2\cos (2\pi t 6/100) +3\sin (2\pi t 6 / 100)\]</span> <span class="math display">\[x_{t2}=4\cos (2\pi t 10/100) +5\sin (2\pi t 10 / 100)\]</span> <span class="math display">\[x_{t3}=6\cos (2\pi t 40/100) +7\sin (2\pi t 40 / 100)\]</span> 이들의 시계열들은 위 그림에 나타나있다. <span class="math inline">\(x_{t1}\)</span>의 진폭은 <span class="math inline">\(2^{2}+3^{2}=13\)</span>이다. 따라서 <span class="math inline">\(x_{t1}\)</span>의 최대, 최소값은 <span class="math inline">\(\pm \sqrt{13}=\pm 3.61\)</span>이다. 마지막으로 <span class="math display">\[x_{t}=x_{t1}+x_{t2}+x_{t3}\]</span> 을 고려해본다. 이것의 그림은 위 그림의 오른쪽 아래에 있다. 스펙트럼 분석의 역할은 이렇게 섞여있는 주기 성분들을 분류하고 그들의 상대적 기여도를 계산하는 것이다.</p>
+<p><span id="exm:unnamed-chunk-182" class="example"><strong>Example 18.1  (주기 시계열)  </strong></span><span class="math inline">\(t=1,\ldots,100\)</span>까지 다음의 수열들을 생성해보자. <span class="math display">\[x_{t1}=2\cos (2\pi t 6/100) +3\sin (2\pi t 6 / 100)\]</span> <span class="math display">\[x_{t2}=4\cos (2\pi t 10/100) +5\sin (2\pi t 10 / 100)\]</span> <span class="math display">\[x_{t3}=6\cos (2\pi t 40/100) +7\sin (2\pi t 40 / 100)\]</span> 이들의 시계열들은 위 그림에 나타나있다. <span class="math inline">\(x_{t1}\)</span>의 진폭은 <span class="math inline">\(2^{2}+3^{2}=13\)</span>이다. 따라서 <span class="math inline">\(x_{t1}\)</span>의 최대, 최소값은 <span class="math inline">\(\pm \sqrt{13}=\pm 3.61\)</span>이다. 마지막으로 <span class="math display">\[x_{t}=x_{t1}+x_{t2}+x_{t3}\]</span> 을 고려해본다. 이것의 그림은 위 그림의 오른쪽 아래에 있다. 스펙트럼 분석의 역할은 이렇게 섞여있는 주기 성분들을 분류하고 그들의 상대적 기여도를 계산하는 것이다.</p>
 </div>
 
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-182"></span>
-<img src="book_files/figure-html/unnamed-chunk-182-1.svg" alt="Periodogram of the above data." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-183"></span>
+<img src="book_files/figure-html/unnamed-chunk-183-1.svg" alt="Periodogram of the above data." width="672" />
 <p class="caption">
 FIGURE 18.2: Periodogram of the above data.
 </p>

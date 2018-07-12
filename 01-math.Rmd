@@ -163,6 +163,34 @@ The following statement makes it possible to identify where in a long vector of 
 
 ### 텐서곱(tensor product)
 
+이 부분은 [@Kokoszka2017]의 10.5절을 참고하였다. 우리가 covariance operator를 다룰 때 텐서곱과 텐서 공간을 생각하는 것이 편리할 때가 있다고 한다. 특히 무한차원이나 일반적인 힐버트 공간에서는 텐서곱의 활용이 절대적이다.
+
+다음과 같은 행렬 $\mathbf{A}\in\mathbb{R}^{N\times M}$을 생각해보자. 이 행렬은 세 가지 방법으로 바라볼 수 있다. 
+
+1. 전통적인 행렬
+
+2. $\mathbb{R}^{N}\rightarrow\mathbb{R}^{M}$으로 가는 선형 변환: 벡터의 왼쪽이나 오른쪽에 행렬을 곱하는 형태 (유클리드 공간에서의 모든 선형 변환을 떠올려보자)
+
+3. $\mathbb{R}^{N}\times \mathbb{R}^{M}\rightarrow\mathbb{R}$인 겹선형(bilinear) functional: 이차 형식에서 많이 다루는 형태이다. 다음과 같이 두 유클리드 공간 $\mathcal{H}_{1}=\mathbb{R}^{N},\mathcal{H}_{2}=\mathbb{R}^{M}$가 있다고 하자. 두 개의 벡터 $x_{1}\in\mathbb{R}^{N}$, $x_{2}\in\mathbb{R}^{M}$에 **텐서곱(tensor product)**를 적용하면 다음과 같은 행렬을 유도한다.
+$$x_{1}\otimes x_{2}:=x_{1}x_{2}^{T}.$$
+또한 공간 $\mathbb{R}^{N}\otimes \mathbb{R}^{M}$은 위와 같은 원소들의 모든 유한한 선형 결합의 공간으로 정의할 수 있다. 다시 말하면 만약 $\mathbf{A}\in\mathbb{R}^{N}\otimes \mathbb{R}^{M}\rightarrow\mathbb{R}$이면 $J$개의 원소들 $x_{1j}\in\mathbb{R}^{N}$, $x_{2j}\in\mathbb{R}^{M}$이 존재해
+$$\mathbf{A}=\sum_{j=1}^{J}x_{1j}\otimes x_{2j}=\sum_{j=1}^{J}x_{1j}x_{2j}^{T}$$
+를 만족한다. 어떤 $N\times M$ 행렬도 이런 표현 방법으로 표현할 수 있으므로 $\mathbb{R}^{N}\otimes \mathbb{R}^{M}=\mathbb{R}^{N\times M}$으로 표현할 수 있다. 이제 이 세번째 관점을 다른 공간에 대해서도 특정화해보자. 어떤 $N\times M$ 행렬 $\mathbf{A}$는 다음과 같은
+$$\mathbf{A}(y_{1},y_{2}):=y_{1}^{T}\mathbf{A}y_{2}$$
+인 겹선형 mapping을 이끌어낸다. 따라서 공간 $\mathbb{R}^{N}\otimes \mathbb{R}^{M}$은 모든 겹선형 map $\mathbb{R}^{N}\times \mathbb{R}^{M}\rightarrow \mathbb{R}$들의 집합으로 identified될 수 있다. 오브젝트 $x_{1}\otimes x_{2}$는 또한 다음과 같은 겹선형 mapping
+$$(x_{1}\otimes x_{2})(y_{1},y_{2})=y_{1}^{T}x_{1}x_{2}^{T}y_{2}=(y_{1}^{T}x_{1})(y_{2}^{T}x_{2})$$
+로 identified될 수 있다.
+
+이러한 관점에서 텐서를 바라보자. 텐서는 스칼라들의 체가 연관된 공간에서의 cartesian 곱으로부터 오는 다중선형사상(multilinear map)이다. 만약 $\{e_{1j} \}$와  $\{e_{2j} \}$가 $\mathbb{R}^{N}$과 $\mathbb{R}^{M}$의 정규 기저들이라고 하자. 그러면 $\{e_{1j}\otimes e_{2j} \}$는 $\mathbb{R}^{N}\times \mathbb{R}^{M}$의 기저가 된다. 이런 방식으로 우리는 이 기저를 전통적인 행렬에도 적용할 수 있다.
+$$\mathbf{A}(e_{1j}^{T}, e_{2k})=e_{1j}^{Y}\mathbf{A}e_{2k}=\mathbf{A}(j,k).$$
+
+```{definition, name="힐버트 공간에서의 텝서곱"}
+$x_{1}\in\mathcal{H}_{1}$과 $x_{2}\in\mathcal{H}_{2}$를 두 실 힐버트 공간에서의 원소들이라고 하자. 그러면 텐서곱 $x_{1}\otimes x_{2}: \mathcal{H}_{1}\times\mathcal{H}_{2} \rightarrow\mathbb{R}$은 겹선형 사상으로 어떤 $(y_{1},y_{2})\times \mathcal{H}_{1}\times \mathcal{H}_{2}$에 대해
+$$(x_{1}\otimes x_{2})(y_{1},y_{2})=\langle x_{1},y_{1}\rangle_{\mathcal{H}_{1}}\langle x_{2},y_{2}\rangle_{\mathcal{H}_{2}}$$
+로 정의된다.
+
+```
+
 ### 데카르트 곱(Cartesian product)
 
 두 개의 집합 $A$, $B$가 있을 때, 이들의 **데카르트 곱(Cartesian product)** $A\times B$는

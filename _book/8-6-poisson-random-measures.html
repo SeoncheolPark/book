@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-05-04">
+<meta name="date" content="2018-07-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -566,10 +566,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="44.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html"><i class="fa fa-check"></i><b>44.5</b> 스펙트럼 밀도의 추정(estimation of spectral density)</a><ul>
 <li class="chapter" data-level="44.5.1" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--discrete-fourier-transform-in-spatial-statistics"><i class="fa fa-check"></i><b>44.5.1</b> 이산 푸리에 변환(discrete Fourier transform in spatial statistics)</a></li>
 <li class="chapter" data-level="44.5.2" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--nonparametric-estimate---periodogram"><i class="fa fa-check"></i><b>44.5.2</b> 비모수적 방법-피리오도그램(nonparametric estimate - periodogram)</a></li>
-<li class="chapter" data-level="44.5.3" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.5.3</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
-<li class="chapter" data-level="44.5.4" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.5.4</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
-<li class="chapter" data-level="44.5.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.5.5</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
 </ul></li>
+<li class="chapter" data-level="44.6" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><i class="fa fa-check"></i><b>44.6</b> Increasing domain assumptions에서의 피리오도그램의 성질(properties of periodograms unber increasing domain assumptions)</a><ul>
+<li class="chapter" data-level="44.6.1" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.6.1</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
+<li class="chapter" data-level="44.6.2" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.6.2</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
+<li class="chapter" data-level="44.6.3" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.6.3</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
+</ul></li>
+<li class="chapter" data-level="44.7" data-path="44-7-properties-of-periodogram-under-infill-asymptotics.html"><a href="44-7-properties-of-periodogram-under-infill-asymptotics.html"><i class="fa fa-check"></i><b>44.7</b> 인필 점근 하에서의 피리오도그램의 성질들(properties of periodogram under infill asymptotics)</a></li>
 </ul></li>
 <li class="part"><span><b>VI Spatio-Tempral Statistics</b></span></li>
 <li class="chapter" data-level="45" data-path="45-spatiotemporal.html"><a href="45-spatiotemporal.html"><i class="fa fa-check"></i><b>45</b> 시공간 통계학</a><ul>
@@ -682,7 +685,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>다음 <a href="http://www.math.wisc.edu/~kurtz/735/main735.pdf">사이트</a>의 9장을 참고하였다. <span class="citation">(Mikhail <a href="#ref-Mikhail2014">2014</a>)</span> 또한 참고할만하다. <span class="math inline">\((E,\mathcal{E})\)</span>를 가측공간이라고 하고, <span class="math inline">\(\nu\)</span>를 <span class="math inline">\(\mathcal{E}\)</span>에서의 <span class="math inline">\(\sigma\)</span>-finite 측도라고 하자. <span class="math inline">\(\mathcal{N}(E)\)</span>는 <span class="math inline">\(E\)</span>에서의 counting measure의 collection이라고 하자, 즉 음이 아닌 정수값들의 측도이다. <span class="math inline">\(\xi\)</span>는 만약 각각의 <span class="math inline">\(\omega \in \Omega\)</span>에서 <span class="math inline">\(\xi(\omega, \cdot)\in\mathcal{N}(E)\)</span>이고 각각의 <span class="math inline">\(A\in\mathcal{E}\)</span>에서 <span class="math inline">\(\xi(A)\)</span>가 <span class="math inline">\(\mathbb{N}\cup\{\infty\}\)</span>의 값을 갖는 확률변수일 때 확률공간 <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>에서의 <span class="math inline">\(\mathcal{N}(E)\)</span>-확률변수다. 편의를 위해 <span class="math inline">\(\xi(\omega, A)\)</span>대신 <span class="math inline">\(\xi(A)\)</span>라고 쓰자.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-123" class="definition"><strong>Definition 8.7  (포아송 무작위 측도)  </strong></span>어떤 <span class="math inline">\(\mathcal{N}(E)\)</span>-확률변수가</p>
+<p><span id="def:unnamed-chunk-124" class="definition"><strong>Definition 8.7  (포아송 무작위 측도)  </strong></span>어떤 <span class="math inline">\(\mathcal{N}(E)\)</span>-확률변수가</p>
 <ol style="list-style-type: decimal">
 <li><p>각각의 <span class="math inline">\(A\in\mathcal{E}\)</span>에 대해 <span class="math inline">\(\xi(A)\sim \text{Poisson}(\nu(A))\)</span>이다.</p></li>
 <li><p>만약 <span class="math inline">\(A_{1},A_{},\ldots \in \mathcal{E}\)</span>가 disjoint이면 $(A_{1}), (A_{2}),$는 독립인 확률변수이다.</p></li>
@@ -693,7 +696,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><span class="math inline">\(\nu\)</span>는 <span class="math inline">\(\xi\)</span>가 존재할 경우 <span class="math inline">\(\xi\)</span>의 분포를 결정한다. 먼저 <span class="math inline">\(\nu\)</span>가 유한하게 존재한다면 <span class="math inline">\(\nu\)</span>가 <span class="math inline">\(\sigma\)</span>-finite한 것으로 고려한다.</p>
 
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-124" class="proposition"><strong>Proposition 8.2  </strong></span><span class="math inline">\(\nu\)</span>가 <span class="math inline">\((E,\mathcal{E})\)</span>에서의 측도이고 <span class="math inline">\(\nu(E)&lt;\infty\)</span>라고 하자. 그러면 평균측도 <span class="math inline">\(\nu\)</span>를 갖는 포아송 무작위 측도가 존재한다.</p>
+<p><span id="prp:unnamed-chunk-125" class="proposition"><strong>Proposition 8.2  </strong></span><span class="math inline">\(\nu\)</span>가 <span class="math inline">\((E,\mathcal{E})\)</span>에서의 측도이고 <span class="math inline">\(\nu(E)&lt;\infty\)</span>라고 하자. 그러면 평균측도 <span class="math inline">\(\nu\)</span>를 갖는 포아송 무작위 측도가 존재한다.</p>
 </div>
 
 <p>평균측도를 다른 말로 intensity measure라고 부르기도 한다.</p>

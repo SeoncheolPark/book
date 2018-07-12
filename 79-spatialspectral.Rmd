@@ -183,3 +183,9 @@ $$\hat{\theta}=\text{argmin}_{\theta}\sum_{k}(\log f(\frac{2\pi k}{n};\theta)+ \
 이것은 consistent하고 점근적 분포를 갖고 있음이 알려져 있다. 그러나 공분산 행렬의 고유치가 nice하게 움직이는(well-defined) 특별한 class의 f에서만 이것이 성립한다고 한다.
 
 ## 인필 점근 하에서의 피리오도그램의 성질들(properties of periodogram under infill asymptotics)
+
+이 경우에는 $\delta$부터 다시 정의하고 스펙트럼 밀도의 정의도 조금 바꿔야 한다. 다음과 같은 lattice process $Y_{\delta}(\mathbf{J})\equiv Z(\delta \mathbf{J}), \mathbf{J}\in \mathbb{Z}^{d}$를 생각하보자. 관찰값들은 다음과 같은 격자 $\delta \mathbf{J}\in [0,1]^{d}$ 위에서 관찰한다고 하자. $n$을 각각의 방향에서 grid point들의 갯수라고 하자. $\delta = \frac{1}{n}$이므로 $n\rightarrow \infty$일 시에 $\delta \rightarrow 0$이다. $f_{Y}(\omega)=\frac{1}{\delta^{d}}\sum_{\mathbf{J}\in\mathbb{Z}^{d}}f_{Z}(\frac{1}{\delta}(\omega+2\pi\mathbf{J}))$였음을 상기하자. 그리고 $|\omega|\rightarrow\infty$일 때 $f_{Z}(\omega )\sim c|\omega|^{-\alpha}$라고 하자. 만약 $d$가 $\alpha$보다 작을 경우 분산 $C(0)=\int f(\omega)d\omega$가 not integrable이므로 분산이 blow-up해서 무한한 모멘트들을 가진 것들만 보려면 $\alpha >d$임을 가정한다.
+
+적분가능성을 보장하기 위해
+$$\delta^{d-\alpha}f_{Y}(\omega)\stackrel{\delta\rightarrow 0}{\rightarrow}c\sum_{\mathbf{J}\in\mathbb{Z}^{d}}|\omega + 2\pi \mathbf{J}|^{-\alpha}$$
+

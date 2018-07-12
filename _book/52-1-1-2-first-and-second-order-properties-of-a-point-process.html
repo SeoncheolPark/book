@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-05-04">
+<meta name="date" content="2018-07-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -566,10 +566,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="44.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html"><i class="fa fa-check"></i><b>44.5</b> 스펙트럼 밀도의 추정(estimation of spectral density)</a><ul>
 <li class="chapter" data-level="44.5.1" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--discrete-fourier-transform-in-spatial-statistics"><i class="fa fa-check"></i><b>44.5.1</b> 이산 푸리에 변환(discrete Fourier transform in spatial statistics)</a></li>
 <li class="chapter" data-level="44.5.2" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--nonparametric-estimate---periodogram"><i class="fa fa-check"></i><b>44.5.2</b> 비모수적 방법-피리오도그램(nonparametric estimate - periodogram)</a></li>
-<li class="chapter" data-level="44.5.3" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.5.3</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
-<li class="chapter" data-level="44.5.4" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.5.4</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
-<li class="chapter" data-level="44.5.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.5.5</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
 </ul></li>
+<li class="chapter" data-level="44.6" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><i class="fa fa-check"></i><b>44.6</b> Increasing domain assumptions에서의 피리오도그램의 성질(properties of periodograms unber increasing domain assumptions)</a><ul>
+<li class="chapter" data-level="44.6.1" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.6.1</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
+<li class="chapter" data-level="44.6.2" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.6.2</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
+<li class="chapter" data-level="44.6.3" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.6.3</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
+</ul></li>
+<li class="chapter" data-level="44.7" data-path="44-7-properties-of-periodogram-under-infill-asymptotics.html"><a href="44-7-properties-of-periodogram-under-infill-asymptotics.html"><i class="fa fa-check"></i><b>44.7</b> 인필 점근 하에서의 피리오도그램의 성질들(properties of periodogram under infill asymptotics)</a></li>
 </ul></li>
 <li class="part"><span><b>VI Spatio-Tempral Statistics</b></span></li>
 <li class="chapter" data-level="45" data-path="45-spatiotemporal.html"><a href="45-spatiotemporal.html"><i class="fa fa-check"></i><b>45</b> 시공간 통계학</a><ul>
@@ -682,24 +685,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><span class="math inline">\(X\)</span>를 <span class="math inline">\(S=\mathbb{R}^{d}\)</span>에서의 점과정이라고 하자. <span class="math inline">\(N(B)\)</span>가 <span class="math inline">\(B\subset S\)</span>에서 무작위 셀 수 있는 변수들의 1차 및 2차 성질들은 <strong>강도측도(intensity measure)</strong>와 <strong>이차계승적률측도(second order moment factorial moment measure)</strong>라고 부른다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-351" class="definition"><strong>Definition 52.1  (강도측도)  </strong></span><span class="math inline">\(\mathbb{R}^{d}\)</span>에서의 <strong>강도측도(intensity measure)</strong> <span class="math inline">\(\mu\)</span>는 <span class="math display">\[\mu(B)=E[N(B)], B\subset \mathbb{R}^{d}\]</span> 로 정의하고 <span class="math inline">\(\mathbb{R}^{d}\times \mathbb{R}^{d}\)</span> <strong>이차계승적률측도(second order moment factorial moment measure)</strong> <span class="math inline">\(\alpha^{(2)}\)</span>는 <span class="math display">\[\alpha^{(2)}(C)=E \sum_{\xi, \eta \in X}^{\neq} I_{[(\xi, \eta)\in C]}, C\subseteq \mathbb{R}^{d}\times \mathbb{R}^{d}\]</span> 로 정의한다.</p>
+<p><span id="def:unnamed-chunk-352" class="definition"><strong>Definition 52.1  (강도측도)  </strong></span><span class="math inline">\(\mathbb{R}^{d}\)</span>에서의 <strong>강도측도(intensity measure)</strong> <span class="math inline">\(\mu\)</span>는 <span class="math display">\[\mu(B)=E[N(B)], B\subset \mathbb{R}^{d}\]</span> 로 정의하고 <span class="math inline">\(\mathbb{R}^{d}\times \mathbb{R}^{d}\)</span> <strong>이차계승적률측도(second order moment factorial moment measure)</strong> <span class="math inline">\(\alpha^{(2)}\)</span>는 <span class="math display">\[\alpha^{(2)}(C)=E \sum_{\xi, \eta \in X}^{\neq} I_{[(\xi, \eta)\in C]}, C\subseteq \mathbb{R}^{d}\times \mathbb{R}^{d}\]</span> 로 정의한다.</p>
 </div>
 
 <p>일반적인 집합 <span class="math inline">\(S\)</span>에 대해 측도는 <span class="math display">\[E(N(B_{1})N(B_{2}))=\alpha^{(2)}(B_{1}\times B_{2}) + \mu (B_{1} \int B_{2}), B_{1}, B_{2}\subseteq \mathbb{R}^{d}\]</span> 와 같이 정의된다고 한다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-352" class="definition"><strong>Definition 52.2  (강도함수)  </strong></span><span class="math inline">\(\rho\)</span>가 존재하여 <span class="math display">\[\mu(B)=\int_{B}\rho(\xi)d\xi\]</span> 를 만족한다면, <span class="math inline">\(\rho\)</span>를 <strong>강도함수(intensity function)</strong>라고 한다. 즉 <span class="math inline">\(\rho(\xi)d\xi\)</span>는 중심 <span class="math inline">\(\xi\)</span>에서 <span class="math inline">\(d\xi\)</span>만큼 볼륨을 가지는 지역에서 point가 존재할 확률이다.</p>
+<p><span id="def:unnamed-chunk-353" class="definition"><strong>Definition 52.2  (강도함수)  </strong></span><span class="math inline">\(\rho\)</span>가 존재하여 <span class="math display">\[\mu(B)=\int_{B}\rho(\xi)d\xi\]</span> 를 만족한다면, <span class="math inline">\(\rho\)</span>를 <strong>강도함수(intensity function)</strong>라고 한다. 즉 <span class="math inline">\(\rho(\xi)d\xi\)</span>는 중심 <span class="math inline">\(\xi\)</span>에서 <span class="math inline">\(d\xi\)</span>만큼 볼륨을 가지는 지역에서 point가 존재할 확률이다.</p>
 </div>
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-353" class="definition"><strong>Definition 52.3  (2차 곱 밀도)  </strong></span>만약 2차 팩토리얼 모멘트 측도 <span class="math inline">\(\alpha^{(2)}\)</span>가 <span class="math display">\[\alpha^{(2)}(C)=\int \int \mathbf{1}[(\xi,\eta)\in C]\rho^{(2)}(\xi,\eta)d\xi d\eta, \qquad{C\subset \mathbb{R}^{d}\times\mathbb{R}^{d}}\]</span> 로 쓸 수 있을 때 <span class="math inline">\(\rho^{(2)}\)</span>는 음이 아닌 함수이며 <strong>2차 곱 밀도(second order product density)</strong>라고 부른다. 직관적으로 <span class="math inline">\(\rho^{(2)}(\xi, \eta)d\xi d\eta\)</span>는 <span class="math inline">\(X\)</span>로부터 얻어진 두 개의 점들이 동시에 두 개의 작은 지역에 떨어질 확률(일종의 interaction)을 나타낸다.</p>
+<p><span id="def:unnamed-chunk-354" class="definition"><strong>Definition 52.3  (2차 곱 밀도)  </strong></span>만약 2차 팩토리얼 모멘트 측도 <span class="math inline">\(\alpha^{(2)}\)</span>가 <span class="math display">\[\alpha^{(2)}(C)=\int \int \mathbf{1}[(\xi,\eta)\in C]\rho^{(2)}(\xi,\eta)d\xi d\eta, \qquad{C\subset \mathbb{R}^{d}\times\mathbb{R}^{d}}\]</span> 로 쓸 수 있을 때 <span class="math inline">\(\rho^{(2)}\)</span>는 음이 아닌 함수이며 <strong>2차 곱 밀도(second order product density)</strong>라고 부른다. 직관적으로 <span class="math inline">\(\rho^{(2)}(\xi, \eta)d\xi d\eta\)</span>는 <span class="math inline">\(X\)</span>로부터 얻어진 두 개의 점들이 동시에 두 개의 작은 지역에 떨어질 확률(일종의 interaction)을 나타낸다.</p>
 </div>
 
 <p><span class="math inline">\(\rho\)</span>가 상수함수이면 homogeneous, 상수가 아닐 경우 inhomogeneous라고 부른다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-354" class="definition"><strong>Definition 52.4  (짝 상관계수 함수)  </strong></span>만약 <span class="math inline">\(\rho\)</span>, <span class="math inline">\(\rho^{(2)}\)</span>가 존재할 때, <strong>짝 상관계수 함수(pair correlation function)</strong>은 <span class="math display">\[g(\xi,\eta)=\frac{\rho^{(2)}(\xi,\eta)}{\rho(\xi)\rho(\eta)}\]</span> 로 정의된다.</p>
+<p><span id="def:unnamed-chunk-355" class="definition"><strong>Definition 52.4  (짝 상관계수 함수)  </strong></span>만약 <span class="math inline">\(\rho\)</span>, <span class="math inline">\(\rho^{(2)}\)</span>가 존재할 때, <strong>짝 상관계수 함수(pair correlation function)</strong>은 <span class="math display">\[g(\xi,\eta)=\frac{\rho^{(2)}(\xi,\eta)}{\rho(\xi)\rho(\eta)}\]</span> 로 정의된다.</p>
 </div>
 
 
@@ -714,12 +717,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-356" class="proposition"><strong>Proposition 52.1  </strong></span><span class="math inline">\(h_{1}:\mathbb{R}^{d}\rightarrow [0,\infty)\)</span>, <span class="math inline">\(h_{2}:\mathbb{R}^{d}\times \mathbb{R}^{d}\rightarrow [0,\infty)\)</span>라고 하자. <span class="math inline">\(X\)</span>는 intensity function <span class="math inline">\(\rho\)</span>를 갖고 second order density <span class="math inline">\(\rho^{(2)}\)</span>를 갖는다고 하자. 그러면 <span class="math display">\[E\sum_{\xi\in X}h_{1}(\xi)=\int h_{1}(\xi)\rho(\xi)d\xi,\]</span> <span class="math display">\[E\sum_{\xi,\eta\in X}^{\neq}h_{2}(\xi,\eta)=\int\int h_{1}(\xi,\eta)\rho^{(2)}(\xi,\eta)d\xi d\eta\]</span> 이다.</p>
+<p><span id="prp:unnamed-chunk-357" class="proposition"><strong>Proposition 52.1  </strong></span><span class="math inline">\(h_{1}:\mathbb{R}^{d}\rightarrow [0,\infty)\)</span>, <span class="math inline">\(h_{2}:\mathbb{R}^{d}\times \mathbb{R}^{d}\rightarrow [0,\infty)\)</span>라고 하자. <span class="math inline">\(X\)</span>는 intensity function <span class="math inline">\(\rho\)</span>를 갖고 second order density <span class="math inline">\(\rho^{(2)}\)</span>를 갖는다고 하자. 그러면 <span class="math display">\[E\sum_{\xi\in X}h_{1}(\xi)=\int h_{1}(\xi)\rho(\xi)d\xi,\]</span> <span class="math display">\[E\sum_{\xi,\eta\in X}^{\neq}h_{2}(\xi,\eta)=\int\int h_{1}(\xi,\eta)\rho^{(2)}(\xi,\eta)d\xi d\eta\]</span> 이다.</p>
 </div>
 
 
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-357" class="proposition"><strong>Proposition 52.2  </strong></span> <span class="math inline">\(X\)</span>는 intensity function <span class="math inline">\(\rho\)</span>를 갖고 second order density <span class="math inline">\(\rho^{(2)}\)</span>를 갖는다고 하자. <span class="math inline">\(X_{\text{thin}}\)</span>은 <span class="math inline">\(X\)</span>의 retention probability <span class="math inline">\(p(\xi)\)</span>에 대한 independent thinning이라고 하자. 그러면 <span class="math inline">\(\rho_{\text{thin}}(\xi)=p(\xi)\rho(\xi)\)</span>, <span class="math inline">\(\rho_{\text{thin}}^{(2)}(\xi,\eta)=p(\xi)p(\eta)p^{(2)}(\xi,\eta)\)</span>가 되며 <span class="math inline">\(g_{\text{thin}}=g\)</span>이다.</p>
+<p><span id="prp:unnamed-chunk-358" class="proposition"><strong>Proposition 52.2  </strong></span> <span class="math inline">\(X\)</span>는 intensity function <span class="math inline">\(\rho\)</span>를 갖고 second order density <span class="math inline">\(\rho^{(2)}\)</span>를 갖는다고 하자. <span class="math inline">\(X_{\text{thin}}\)</span>은 <span class="math inline">\(X\)</span>의 retention probability <span class="math inline">\(p(\xi)\)</span>에 대한 independent thinning이라고 하자. 그러면 <span class="math inline">\(\rho_{\text{thin}}(\xi)=p(\xi)\rho(\xi)\)</span>, <span class="math inline">\(\rho_{\text{thin}}^{(2)}(\xi,\eta)=p(\xi)p(\eta)p^{(2)}(\xi,\eta)\)</span>가 되며 <span class="math inline">\(g_{\text{thin}}=g\)</span>이다.</p>
 </div>
 
 

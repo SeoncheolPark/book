@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-05-04">
+<meta name="date" content="2018-07-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -566,10 +566,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="44.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html"><i class="fa fa-check"></i><b>44.5</b> 스펙트럼 밀도의 추정(estimation of spectral density)</a><ul>
 <li class="chapter" data-level="44.5.1" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--discrete-fourier-transform-in-spatial-statistics"><i class="fa fa-check"></i><b>44.5.1</b> 이산 푸리에 변환(discrete Fourier transform in spatial statistics)</a></li>
 <li class="chapter" data-level="44.5.2" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--nonparametric-estimate---periodogram"><i class="fa fa-check"></i><b>44.5.2</b> 비모수적 방법-피리오도그램(nonparametric estimate - periodogram)</a></li>
-<li class="chapter" data-level="44.5.3" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.5.3</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
-<li class="chapter" data-level="44.5.4" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.5.4</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
-<li class="chapter" data-level="44.5.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.5.5</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
 </ul></li>
+<li class="chapter" data-level="44.6" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><i class="fa fa-check"></i><b>44.6</b> Increasing domain assumptions에서의 피리오도그램의 성질(properties of periodograms unber increasing domain assumptions)</a><ul>
+<li class="chapter" data-level="44.6.1" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.6.1</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
+<li class="chapter" data-level="44.6.2" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.6.2</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
+<li class="chapter" data-level="44.6.3" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.6.3</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
+</ul></li>
+<li class="chapter" data-level="44.7" data-path="44-7-properties-of-periodogram-under-infill-asymptotics.html"><a href="44-7-properties-of-periodogram-under-infill-asymptotics.html"><i class="fa fa-check"></i><b>44.7</b> 인필 점근 하에서의 피리오도그램의 성질들(properties of periodogram under infill asymptotics)</a></li>
 </ul></li>
 <li class="part"><span><b>VI Spatio-Tempral Statistics</b></span></li>
 <li class="chapter" data-level="45" data-path="45-spatiotemporal.html"><a href="45-spatiotemporal.html"><i class="fa fa-check"></i><b>45</b> 시공간 통계학</a><ul>
@@ -682,12 +685,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><strong>분리가능(separable)</strong>한 무작위 함수들의 기본 아이디어는 contable, dense subset만 다룬다는 것이다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-119" class="definition"><strong>Definition 8.5  (분리가능 함수들(separable functions)  </strong></span><span class="math inline">\(\Xi\)</span>와 <span class="math inline">\(T\)</span>가 metric space라고 하고, <span class="math inline">\(D\)</span>를 <span class="math inline">\(T\)</span>의 countable, dense subset이라고 하자. 그러면 함수 <span class="math inline">\(x: T\rightarrow \Xi\)</span>가 <span class="math inline">\(\forall t\in T\)</span>에 대해 수열 <span class="math inline">\(t_{i}\in D\)</span>가 존재해 <span class="math inline">\(t_{i}\rightarrow t\)</span> 그리고 <span class="math inline">\(x(t_{i})\rightarrow x(t)\)</span>를 만족할 경우 함수 <span class="math inline">\(x\)</span>를 <strong>D-분리가능(D-separable)</strong> 또는 D에 대해 분리가능하다고 한다.</p>
+<p><span id="def:unnamed-chunk-120" class="definition"><strong>Definition 8.5  (분리가능 함수들(separable functions)  </strong></span><span class="math inline">\(\Xi\)</span>와 <span class="math inline">\(T\)</span>가 metric space라고 하고, <span class="math inline">\(D\)</span>를 <span class="math inline">\(T\)</span>의 countable, dense subset이라고 하자. 그러면 함수 <span class="math inline">\(x: T\rightarrow \Xi\)</span>가 <span class="math inline">\(\forall t\in T\)</span>에 대해 수열 <span class="math inline">\(t_{i}\in D\)</span>가 존재해 <span class="math inline">\(t_{i}\rightarrow t\)</span> 그리고 <span class="math inline">\(x(t_{i})\rightarrow x(t)\)</span>를 만족할 경우 함수 <span class="math inline">\(x\)</span>를 <strong>D-분리가능(D-separable)</strong> 또는 D에 대해 분리가능하다고 한다.</p>
 </div>
 
 
 <div class="lemma">
-<p><span id="lem:unnamed-chunk-120" class="lemma"><strong>Lemma 8.1  </strong></span>다음 조건들은 분리가능성의 충분조건이다.</p>
+<p><span id="lem:unnamed-chunk-121" class="lemma"><strong>Lemma 8.1  </strong></span>다음 조건들은 분리가능성의 충분조건이다.</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(T\)</span> is countable</p></li>
 <li><p><span class="math inline">\(T\)</span> is continuous</p></li>
@@ -706,7 +709,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-122" class="definition"><strong>Definition 8.6  (분리가능 과정)  </strong></span><span class="math inline">\(\Xi\)</span>-valued process <span class="math inline">\(X\)</span> on <span class="math inline">\(T\)</span>가 <strong>D에 대해 분리가능(separable with respect to D)</strong>하다는 것은 <span class="math inline">\(D\)</span>가 <span class="math inline">\(T\)</span>의 countable, dense subset이고 다음과 같은 measure-zero set <span class="math inline">\(N\in\Omega\)</span>가 존재해 모든 <span class="math inline">\(\omega \in N\)</span>에 대해 <span class="math inline">\(X(\cdot, \omega)\)</span>가 <span class="math inline">\(D\)</span>-분리가능이라는 것이다. 즉 <span class="math inline">\(X(\cdot, \omega)\)</span>가 almost surely <span class="math inline">\(D\)</span>-separable이라는 것이다.</p>
+<p><span id="def:unnamed-chunk-123" class="definition"><strong>Definition 8.6  (분리가능 과정)  </strong></span><span class="math inline">\(\Xi\)</span>-valued process <span class="math inline">\(X\)</span> on <span class="math inline">\(T\)</span>가 <strong>D에 대해 분리가능(separable with respect to D)</strong>하다는 것은 <span class="math inline">\(D\)</span>가 <span class="math inline">\(T\)</span>의 countable, dense subset이고 다음과 같은 measure-zero set <span class="math inline">\(N\in\Omega\)</span>가 존재해 모든 <span class="math inline">\(\omega \in N\)</span>에 대해 <span class="math inline">\(X(\cdot, \omega)\)</span>가 <span class="math inline">\(D\)</span>-분리가능이라는 것이다. 즉 <span class="math inline">\(X(\cdot, \omega)\)</span>가 almost surely <span class="math inline">\(D\)</span>-separable이라는 것이다.</p>
 </div>
 
 </div>

@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-05-04">
+<meta name="date" content="2018-07-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -566,10 +566,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="44.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html"><i class="fa fa-check"></i><b>44.5</b> 스펙트럼 밀도의 추정(estimation of spectral density)</a><ul>
 <li class="chapter" data-level="44.5.1" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--discrete-fourier-transform-in-spatial-statistics"><i class="fa fa-check"></i><b>44.5.1</b> 이산 푸리에 변환(discrete Fourier transform in spatial statistics)</a></li>
 <li class="chapter" data-level="44.5.2" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#--nonparametric-estimate---periodogram"><i class="fa fa-check"></i><b>44.5.2</b> 비모수적 방법-피리오도그램(nonparametric estimate - periodogram)</a></li>
-<li class="chapter" data-level="44.5.3" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.5.3</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
-<li class="chapter" data-level="44.5.4" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.5.4</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
-<li class="chapter" data-level="44.5.5" data-path="44-5-estimation-of-spectral-density.html"><a href="44-5-estimation-of-spectral-density.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.5.5</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
 </ul></li>
+<li class="chapter" data-level="44.6" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><i class="fa fa-check"></i><b>44.6</b> Increasing domain assumptions에서의 피리오도그램의 성질(properties of periodograms unber increasing domain assumptions)</a><ul>
+<li class="chapter" data-level="44.6.1" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#---relationship-between-periodogram-and-sample-covariance"><i class="fa fa-check"></i><b>44.6.1</b> 피리오도그램과 표본 공분산과의 관계(relationship between periodogram and sample covariance)</a></li>
+<li class="chapter" data-level="44.6.2" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#-----estimation-of-spectral-density-with-weighted-least-squares"><i class="fa fa-check"></i><b>44.6.2</b> 가중 최소자승을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with weighted least squares)</a></li>
+<li class="chapter" data-level="44.6.3" data-path="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html"><a href="44-6-increasing-domain-assumptions-properties-of-periodograms-unber-increasing-domain-assumptions.html#------estimation-of-spectral-density-with-likelihood-based-methods"><i class="fa fa-check"></i><b>44.6.3</b> 가능도 기반 방법을 이용한 스펙트럼 밀도의 추정(estimation of spectral density with likelihood-based methods)</a></li>
+</ul></li>
+<li class="chapter" data-level="44.7" data-path="44-7-properties-of-periodogram-under-infill-asymptotics.html"><a href="44-7-properties-of-periodogram-under-infill-asymptotics.html"><i class="fa fa-check"></i><b>44.7</b> 인필 점근 하에서의 피리오도그램의 성질들(properties of periodogram under infill asymptotics)</a></li>
 </ul></li>
 <li class="part"><span><b>VI Spatio-Tempral Statistics</b></span></li>
 <li class="chapter" data-level="45" data-path="45-spatiotemporal.html"><a href="45-spatiotemporal.html"><i class="fa fa-check"></i><b>45</b> 시공간 통계학</a><ul>
@@ -681,33 +684,33 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">9.1</span> Big O와 small o (big O and small o)</h2>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-130" class="definition"><strong>Definition 9.1  (big O)  </strong></span>(실수값을 갖는) 무한 수열 <span class="math inline">\(a_{n},n=1,2,\ldots\)</span>가 유계일 경우 <span class="math inline">\(a_{n}=O(1)\)</span>이라고 한다. 즉 어떤 상수 <span class="math inline">\(c\)</span>가 존재해 <span class="math inline">\(|a_{n}|\leq c, n\geq 1\)</span>이면 <span class="math inline">\(a_{n}=O(1)\)</span>이다. <span class="math inline">\(b_{n},n=1,2,\ldots\)</span>를 양의 값을 갖는 무한 수열이라고 하자. 그러면 수열 <span class="math inline">\(a_{n}/b_{n}, n=1,2,\ldots\)</span>가 유계일 때 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이라고 한다.</p>
+<p><span id="def:unnamed-chunk-131" class="definition"><strong>Definition 9.1  (big O)  </strong></span>(실수값을 갖는) 무한 수열 <span class="math inline">\(a_{n},n=1,2,\ldots\)</span>가 유계일 경우 <span class="math inline">\(a_{n}=O(1)\)</span>이라고 한다. 즉 어떤 상수 <span class="math inline">\(c\)</span>가 존재해 <span class="math inline">\(|a_{n}|\leq c, n\geq 1\)</span>이면 <span class="math inline">\(a_{n}=O(1)\)</span>이다. <span class="math inline">\(b_{n},n=1,2,\ldots\)</span>를 양의 값을 갖는 무한 수열이라고 하자. 그러면 수열 <span class="math inline">\(a_{n}/b_{n}, n=1,2,\ldots\)</span>가 유계일 때 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이라고 한다.</p>
 </div>
 
 
 <div class="lemma">
-<p><span id="lem:unnamed-chunk-131" class="lemma"><strong>Lemma 9.1  </strong></span><span class="math inline">\(a_{n}=O(b_{n})\)</span>은 <span class="math inline">\(a_{n}=b_{n}O(1)\)</span>임과 동치이다.</p>
+<p><span id="lem:unnamed-chunk-132" class="lemma"><strong>Lemma 9.1  </strong></span><span class="math inline">\(a_{n}=O(b_{n})\)</span>은 <span class="math inline">\(a_{n}=b_{n}O(1)\)</span>임과 동치이다.</p>
 </div>
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-132" class="definition"><strong>Definition 9.2  (small o)  </strong></span>수열 <span class="math inline">\(a_{n},n=1,2,\ldots\)</span>가 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(a_{n}\rightarrow 0\)</span>인 경우 <span class="math inline">\(a_{n}=o(1)\)</span>이라고 한다. 좀 더 일반적으로, <span class="math inline">\(b_{n},n=1,2,\ldots\)</span>를 양의 값을 갖는 무한 수열이라고 할 때 수열 <span class="math inline">\(a_{n}/b_{n}, n=1,2,\ldots\)</span>가 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(a_{n}/b_{n}\rightarrow 0\)</span>일 경우 <span class="math inline">\(a_{n}=o(b_{n})\)</span>이라고 한다.</p>
+<p><span id="def:unnamed-chunk-133" class="definition"><strong>Definition 9.2  (small o)  </strong></span>수열 <span class="math inline">\(a_{n},n=1,2,\ldots\)</span>가 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(a_{n}\rightarrow 0\)</span>인 경우 <span class="math inline">\(a_{n}=o(1)\)</span>이라고 한다. 좀 더 일반적으로, <span class="math inline">\(b_{n},n=1,2,\ldots\)</span>를 양의 값을 갖는 무한 수열이라고 할 때 수열 <span class="math inline">\(a_{n}/b_{n}, n=1,2,\ldots\)</span>가 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(a_{n}/b_{n}\rightarrow 0\)</span>일 경우 <span class="math inline">\(a_{n}=o(b_{n})\)</span>이라고 한다.</p>
 </div>
 
 
 <div class="lemma">
-<p><span id="lem:unnamed-chunk-133" class="lemma"><strong>Lemma 9.2  </strong></span><span class="math inline">\(a_{n}=o(b_{n})\)</span>은 <span class="math inline">\(a_{n}=b_{n}o(1)\)</span>임과 동치이다.</p>
+<p><span id="lem:unnamed-chunk-134" class="lemma"><strong>Lemma 9.2  </strong></span><span class="math inline">\(a_{n}=o(b_{n})\)</span>은 <span class="math inline">\(a_{n}=b_{n}o(1)\)</span>임과 동치이다.</p>
 </div>
 
 <p>여기서 우리는 small o가 big O보다 좀 더 강한 조건임을 알 수 있다.</p>
 
 <div class="lemma">
-<p><span id="lem:unnamed-chunk-134" class="lemma"><strong>Lemma 9.3  </strong></span><span class="math inline">\(a_{n}=o(b_{n})\)</span>이면 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이다.</p>
+<p><span id="lem:unnamed-chunk-135" class="lemma"><strong>Lemma 9.3  </strong></span><span class="math inline">\(a_{n}=o(b_{n})\)</span>이면 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이다.</p>
 </div>
 
 
 <div class="lemma">
-<p><span id="lem:unnamed-chunk-135" class="lemma"><strong>Lemma 9.4  (big O와 small o의 성질들)  </strong></span> 1. 만약 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이고 <span class="math inline">\(b_{n}=O(c_{n})\)</span>이면 <span class="math inline">\(a_{n}=O(c_{n})\)</span>이다.</p>
+<p><span id="lem:unnamed-chunk-136" class="lemma"><strong>Lemma 9.4  (big O와 small o의 성질들)  </strong></span> 1. 만약 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이고 <span class="math inline">\(b_{n}=O(c_{n})\)</span>이면 <span class="math inline">\(a_{n}=O(c_{n})\)</span>이다.</p>
 <ol start="2" style="list-style-type: decimal">
 <li><p>만약 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이고 <span class="math inline">\(b_{n}=o(c_{n})\)</span>이면 <span class="math inline">\(a_{n}=o(c_{n})\)</span>이다.</p></li>
 <li><p>만약 <span class="math inline">\(a_{n}=o(b_{n})\)</span>이고 <span class="math inline">\(b_{n}=O(c_{n})\)</span>이면 <span class="math inline">\(a_{n}=o(c_{n})\)</span>이다.</p></li>
@@ -720,18 +723,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>그러나 어떤 증가함수 <span class="math inline">\(g\)</span>에 대해 <span class="math inline">\(a_{n}=O(b_{n})\)</span>은 <span class="math inline">\(g(a_{n})=O\{g(b_{n})\}\)</span>임을 의미하지는 않는다. 마찬가지로, <span class="math inline">\(a_{n}=o(b_{n})\)</span>은 <span class="math inline">\(g(a_{n})=o\{g(b_{n})\}\)</span>임을 의미하지는 않는다.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-136" class="example"><strong>Example 9.3  (증가함수와 big O)  </strong></span><span class="math inline">\(a_{n}=n\)</span>, <span class="math inline">\(b_{n}=2n\)</span>이라고 하자. 그러면 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이다. 그러나 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(e^{a_{n}}/e^{b_{n}}=e^{n}/e^{2n}=e^{-n}\rightarrow 0\)</span>이다. 따라서 <span class="math inline">\(e^{a_{n}}=o(e^{b_{n}})\)</span>이며 <span class="math inline">\(O(e^{b_{n}})\)</span>이 아니다.</p>
+<p><span id="exm:unnamed-chunk-137" class="example"><strong>Example 9.3  (증가함수와 big O)  </strong></span><span class="math inline">\(a_{n}=n\)</span>, <span class="math inline">\(b_{n}=2n\)</span>이라고 하자. 그러면 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이다. 그러나 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(e^{a_{n}}/e^{b_{n}}=e^{n}/e^{2n}=e^{-n}\rightarrow 0\)</span>이다. 따라서 <span class="math inline">\(e^{a_{n}}=o(e^{b_{n}})\)</span>이며 <span class="math inline">\(O(e^{b_{n}})\)</span>이 아니다.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-137" class="example"><strong>Example 9.4  (증가함수와 small o)  </strong></span><span class="math inline">\(a_{n}=n\)</span>, <span class="math inline">\(b_{n}=n^{2}\)</span>을 생각해보자. 그러면 <span class="math inline">\(a_{n}=o(b_{n})\)</span>이다. 그러나 <span class="math inline">\(\log(a_{n})=\log(b_{n})\)</span>이고 <span class="math inline">\(\log(b_{n})=2\log(n)\)</span>이며 <span class="math inline">\(\log(a_{n})=O\{\log(b_{n})\}\)</span>이며 <span class="math inline">\(o\{\log(b_{n})\}\)</span>이 아니다.</p>
+<p><span id="exm:unnamed-chunk-138" class="example"><strong>Example 9.4  (증가함수와 small o)  </strong></span><span class="math inline">\(a_{n}=n\)</span>, <span class="math inline">\(b_{n}=n^{2}\)</span>을 생각해보자. 그러면 <span class="math inline">\(a_{n}=o(b_{n})\)</span>이다. 그러나 <span class="math inline">\(\log(a_{n})=\log(b_{n})\)</span>이고 <span class="math inline">\(\log(b_{n})=2\log(n)\)</span>이며 <span class="math inline">\(\log(a_{n})=O\{\log(b_{n})\}\)</span>이며 <span class="math inline">\(o\{\log(b_{n})\}\)</span>이 아니다.</p>
 </div>
 
 <p>다음은 역수와 관련된 따름정리다.</p>
 
 <div class="lemma">
-<p><span id="lem:unnamed-chunk-138" class="lemma"><strong>Lemma 9.5  (역수와 small o)  </strong></span>만약 <span class="math inline">\(a_{n}\)</span>, <span class="math inline">\(b_{n}\)</span>이 0이 아닌 수열들이고 <span class="math inline">\(a_{n}=o(b_{n})\)</span>이라고 하자. 그러면 <span class="math inline">\(b_{n}^{-1}=o(a_{n}^{-1})\)</span>이다.</p>
+<p><span id="lem:unnamed-chunk-139" class="lemma"><strong>Lemma 9.5  (역수와 small o)  </strong></span>만약 <span class="math inline">\(a_{n}\)</span>, <span class="math inline">\(b_{n}\)</span>이 0이 아닌 수열들이고 <span class="math inline">\(a_{n}=o(b_{n})\)</span>이라고 하자. 그러면 <span class="math inline">\(b_{n}^{-1}=o(a_{n}^{-1})\)</span>이다.</p>
 </div>
 
 <p>Big O와 small o의 성질들을 좀 더 정리해 보겠다. 이것은 2009년 가을 Asymptotic Analysis 강의노트에서 가져은 것이다.</p>
