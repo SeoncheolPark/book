@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-07-12">
+<meta name="date" content="2018-07-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -241,13 +241,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="12" data-path="12-glm.html"><a href="12-glm.html"><i class="fa fa-check"></i><b>12</b> 일반화선형모형</a><ul>
 <li class="chapter" data-level="12.1" data-path="12-1-glm-basics.html"><a href="12-1-glm-basics.html"><i class="fa fa-check"></i><b>12.1</b> 일반화선형모형의 기본(GLM basics)</a><ul>
-<li class="chapter" data-level="12.1.1" data-path="12-1-glm-basics.html"><a href="12-1-glm-basics.html#linear-model-1"><i class="fa fa-check"></i><b>12.1.1</b> 선형모형(linear model)</a></li>
+<li class="chapter" data-level="12.1.1" data-path="12-1-glm-basics.html"><a href="12-1-glm-basics.html#-fitting-generalized-linear-models"><i class="fa fa-check"></i><b>12.1.1</b> 일반화선형모형의 적합(fitting generalized linear models)</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html"><i class="fa fa-check"></i><b>12.2</b> 일변량 스므딩(univariate smoothing)</a><ul>
-<li class="chapter" data-level="12.2.1" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html#-regression-spline"><i class="fa fa-check"></i><b>12.2.1</b> 회귀 스플라인(regression spline)</a></li>
-<li class="chapter" data-level="12.2.2" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html#b-spline"><i class="fa fa-check"></i><b>12.2.2</b> B-spline</a></li>
-<li class="chapter" data-level="12.2.3" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html#p-spline"><i class="fa fa-check"></i><b>12.2.3</b> P-spline</a></li>
-</ul></li>
+<li class="chapter" data-level="12.2" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html"><i class="fa fa-check"></i><b>12.2</b> 일변량 스므딩(univariate smoothing)</a></li>
 <li class="chapter" data-level="12.3" data-path="12-3-vector-generalized-linear-models.html"><a href="12-3-vector-generalized-linear-models.html"><i class="fa fa-check"></i><b>12.3</b> 벡터 일반화선형모형(vector generalized linear models)</a></li>
 <li class="chapter" data-level="12.4" data-path="12-4-limations-of-glm.html"><a href="12-4-limations-of-glm.html"><i class="fa fa-check"></i><b>12.4</b> 일반화선형모형의 한계점(limations of glm)</a></li>
 </ul></li>
@@ -260,8 +256,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14" data-path="14-smoothing.html"><a href="14-smoothing.html"><i class="fa fa-check"></i><b>14</b> 스므딩</a><ul>
 <li class="chapter" data-level="14.1" data-path="14-1-univariate-smoothing-1.html"><a href="14-1-univariate-smoothing-1.html"><i class="fa fa-check"></i><b>14.1</b> 일변량 스므딩(univariate smoothing)</a><ul>
 <li class="chapter" data-level="14.1.1" data-path="14-1-univariate-smoothing-1.html"><a href="14-1-univariate-smoothing-1.html#--representing-a-function-with-basis-expansions"><i class="fa fa-check"></i><b>14.1.1</b> 함수를 기저로 표현하기(representing a function with basis expansions)</a></li>
+<li class="chapter" data-level="14.1.2" data-path="14-1-univariate-smoothing-1.html"><a href="14-1-univariate-smoothing-1.html#-regression-spline"><i class="fa fa-check"></i><b>14.1.2</b> 회귀 스플라인(regression spline)</a></li>
 </ul></li>
-<li class="chapter" data-level="14.2" data-path="14-2-b-b-spline.html"><a href="14-2-b-b-spline.html"><i class="fa fa-check"></i><b>14.2</b> B-스플라인(B-spline)</a></li>
+<li class="chapter" data-level="14.2" data-path="14-2-b-b-spline.html"><a href="14-2-b-b-spline.html"><i class="fa fa-check"></i><b>14.2</b> B-스플라인(B-spline)</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="14-2-b-b-spline.html"><a href="14-2-b-b-spline.html#p-spline"><i class="fa fa-check"></i><b>14.2.1</b> P-spline</a></li>
+</ul></li>
 <li class="chapter" data-level="14.3" data-path="14-3-soap-film-soap-film-smoothing-over-finite-domains.html"><a href="14-3-soap-film-soap-film-smoothing-over-finite-domains.html"><i class="fa fa-check"></i><b>14.3</b> 유한 도메인에서의 soap film 스므딩(soap film smoothing over finite domains)</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="15-ts.html"><a href="15-ts.html"><i class="fa fa-check"></i><b>15</b> 시계열분석</a><ul>
@@ -686,13 +685,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>SURE가 처음 등장한 논문은 <span class="citation">(Donoho and Johnstone <a href="#ref-Donoho1995">1995</a>)</span>로, <span class="citation">(C. M. Stein <a href="#ref-Stein1981">1981</a>)</span>의 내용을 웨이블릿 도메인으로 갖고 온 것이다. 다음과 같은 data domain에서의 모델 <span class="math inline">\(y_{i}=g(x_{i})+e_{i}, i=1,\cdots,n,e_{i} \stackrel{iid}{\sim} \mathcal{N}(0,\sigma^{2})\)</span>과 이를 웨이블릿 도메인(domain)으로 옮긴 <span class="math inline">\(\mathbf{d}=\boldsymbol{\theta}+\boldsymbol{\epsilon}, \boldsymbol{\epsilon} \sim \mathcal{N}(0,\sigma^{2}\mathbf{I})\)</span>를 생각하자. Stein의 논문에서는 이 notation을 다음과 같이 썼다. <span class="math display">\[\mathbf{x}=\boldsymbol{\mu}+\boldsymbol{\epsilon}.\]</span></p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-256" class="theorem"><strong>Theorem 23.2  (Stein)  </strong></span><span class="citation">(C. M. Stein <a href="#ref-Stein1981">1981</a>)</span> 만약 <span class="math inline">\(\hat{\boldsymbol{\mu}}\mathbf{(x)}=\mathbf{x}+\mathbf{g(x)}\)</span>, <span class="math inline">\(g:\mathbb{R}^{n} \rightarrow \mathbb{R}^{n}\)</span> is weakly differentiable 조건이면 <span class="math display">\[E \| \hat{\boldsymbol{\mu}}\mathbf{(x)}-\boldsymbol{\mu} \|^{2} =n+ E\{ \|\mathbf{g(x)}\|^{2}+2\bigtriangledown \cdot \mathbf{g(x)} \}, \bigtriangledown\cdot \mathbf{g}=\sum_{i} \frac{\partial}{\partial x_{i}}g_{i}\]</span> 이다.</p>
+<p><span id="thm:unnamed-chunk-257" class="theorem"><strong>Theorem 23.2  (Stein)  </strong></span><span class="citation">(C. M. Stein <a href="#ref-Stein1981">1981</a>)</span> 만약 <span class="math inline">\(\hat{\boldsymbol{\mu}}\mathbf{(x)}=\mathbf{x}+\mathbf{g(x)}\)</span>, <span class="math inline">\(g:\mathbb{R}^{n} \rightarrow \mathbb{R}^{n}\)</span> is weakly differentiable 조건이면 <span class="math display">\[E \| \hat{\boldsymbol{\mu}}\mathbf{(x)}-\boldsymbol{\mu} \|^{2} =n+ E\{ \|\mathbf{g(x)}\|^{2}+2\bigtriangledown \cdot \mathbf{g(x)} \}, \bigtriangledown\cdot \mathbf{g}=\sum_{i} \frac{\partial}{\partial x_{i}}g_{i}\]</span> 이다.</p>
 </div>
 
 <p>그리고 <span class="math inline">\(\hat{\mu}_{i}(\lambda)=\eta_{s}(x_{i},\lambda) \Rightarrow \frac{\partial}{\partial x_{i}}\hat{\mu}_{i}(\lambda)=I( |x_{i}|&gt;\lambda)\)</span>과 <span class="math inline">\(\| \mathbf{g(x)} \|^{2}=\sum \hat{\mu}_{i}(\lambda, x)^{2}=\sum_{i=1}^{n}(|x_{i}|-\lambda)^{2}I(|x_{i}&gt;\lambda)\)</span> 사실을 이용해 SURE를 정의한다.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-257" class="theorem"><strong>Theorem 23.3  (SURE)  </strong></span><span class="math inline">\(\text{SURE}(\lambda,\mathbf{x})=n-2\#\{ i: |x_{i}| \leq \lambda \} + \sum_{i=1}^{n}(|x_{i}| \wedge \lambda)^{2}\)</span>는 risk의 불편추정량이다. <span class="math display">\[E \| \eta_{s}(\mathbf{x},\lambda)-\mu \|^{2}=E\text{SURE}(\lambda, \mathbf{x}).\]</span> 실제로, <span class="math inline">\(\lambda=\text{argmin}_{0&lt;\lambda \leq lambda^{u}}\text{SURE}(\lambda,\mathbf{x})\)</span>이며, 이 방법을 <strong>SUREShrink</strong>라고 한다.</p>
+<p><span id="thm:unnamed-chunk-258" class="theorem"><strong>Theorem 23.3  (SURE)  </strong></span><span class="math inline">\(\text{SURE}(\lambda,\mathbf{x})=n-2\#\{ i: |x_{i}| \leq \lambda \} + \sum_{i=1}^{n}(|x_{i}| \wedge \lambda)^{2}\)</span>는 risk의 불편추정량이다. <span class="math display">\[E \| \eta_{s}(\mathbf{x},\lambda)-\mu \|^{2}=E\text{SURE}(\lambda, \mathbf{x}).\]</span> 실제로, <span class="math inline">\(\lambda=\text{argmin}_{0&lt;\lambda \leq lambda^{u}}\text{SURE}(\lambda,\mathbf{x})\)</span>이며, 이 방법을 <strong>SUREShrink</strong>라고 한다.</p>
 </div>
 
 </div>

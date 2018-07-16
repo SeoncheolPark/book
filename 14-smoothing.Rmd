@@ -13,9 +13,19 @@ y_{i}=f(x_{i})+\epsilon_{i}.
 
 $f$를 추정하기 위해 $f$를 식 \@ref(eq:univariatesmoothing)를 선형모형처럼 해석하는 방법이 있다. 이렇게 하기 위해 사용하는 것이 **기저(basis)**다. 기저라 함은 $f$가 원소로 있는 함수 공간을 정의하는 데 필요한 것이다. **기저 함수(basis function)**들은 매우 잘 알려져 있다고 단정한다. 만약 $b_{j}(x)$가 $j$번째 기저함수라고 하면, $f$는 다음과 같이 표현할 수 있다고 가정한다.
 
+### 회귀 스플라인(regression spline)
+
+[@Yee2015]에 따르면 **회귀 스플라인(regression spline)**은 다음과 같은 장점들을 같고 있다.
+
+1. 이 방법은 계산적, 통계적으로 단순하고 표준적인 모수 추론이 가능하다. 왜냐하면 이 방법은 부드러운 함수의 LM 표현 방법이기 때문이다.
+
+2. 두 번째 장점으로 어떤 매듭(knot)이 없어도 무방한지에 대한 검정이 가능하다는 것이 있다.
+
+그러나 이 방법에서 매듭의 숫자와 위치를 고르는 데에 어려움이 있고, 부드러움의 정도가 한 개의 스므딩 모수로는 연속적으로 조절될 수 없다는 단점도 있다.
+
 ## B-스플라인(B-spline)
 
-이 부분의 내용은 [@Yee2015]를 참고하였다. **B-스플라인(B-spline)**을 사용하는 이유는 주로 계산적인 문제 때문이라고 한다. B-스플라인은 minimal support (또는 compact support)를 갖고 이는 spline basis끼리 the amount of overlap를 minimal하게 만드므로 안정적인 계산을 가능하게 한다고 한다.
+이 부분의 내용은 [@Yee2015]를 참고하였다. **B-스플라인(B-spline)**을 사용하는 이유는 주로 계산적인 문제 때문이라고 한다(minimal support). B-스플라인은 minimal support (또는 compact support)를 갖고 이는 spline basis끼리 the amount of overlap를 minimal하게 만드므로 안정적인 계산을 가능하게 한다고 한다.
 
 ```{r, message=F, echo=F}
 library(splines2)
@@ -75,6 +85,10 @@ B_{s,q}(x)&=\omega_{s,q}B_{s,q-1}(x)+(1-\omega_{s+1,q}B_{s+1,q-1}(x))\\
 \end{align*}
 
 여기서 $\omega_{s,q}\equiv (x-\tau_{s})/(\tau_{s+q-1}-\tau_{s})$ for $\tau_{s+q-1}>\tau_{s}$이고 만약 $\tau_{s+q-1}=\tau_{s}$이면 $\omega_{s,q}\equiv 0$이 된다. 이것들은 안정적이고 효육적인 재귀 알고리즘으로 구할 수 있다. 여기서 $B_{s,q}$는 $q+1$개의 매듭들 $\tau_{s},\ldots, \tau_{s+q}$에만 관련이 있고 구간 $[\tau_{s},\tau_{s+q})$ 바깥에서는 감쇄하며 구간 안에서는 양의 값을 갖는다. 만약 $\tau_{s}=\tau_{s+q}$이면 $B_{s,q}=0$이다.
+
+### P-spline
+
+**P-스플라인(P-spline)**은 penalized B-spline이라는 의미를 갖고 있다.
 
 ## 유한 도메인에서의 soap film 스므딩(soap film smoothing over finite domains)
 

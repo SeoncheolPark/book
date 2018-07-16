@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-07-12">
+<meta name="date" content="2018-07-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -241,13 +241,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="12" data-path="12-glm.html"><a href="12-glm.html"><i class="fa fa-check"></i><b>12</b> 일반화선형모형</a><ul>
 <li class="chapter" data-level="12.1" data-path="12-1-glm-basics.html"><a href="12-1-glm-basics.html"><i class="fa fa-check"></i><b>12.1</b> 일반화선형모형의 기본(GLM basics)</a><ul>
-<li class="chapter" data-level="12.1.1" data-path="12-1-glm-basics.html"><a href="12-1-glm-basics.html#linear-model-1"><i class="fa fa-check"></i><b>12.1.1</b> 선형모형(linear model)</a></li>
+<li class="chapter" data-level="12.1.1" data-path="12-1-glm-basics.html"><a href="12-1-glm-basics.html#-fitting-generalized-linear-models"><i class="fa fa-check"></i><b>12.1.1</b> 일반화선형모형의 적합(fitting generalized linear models)</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html"><i class="fa fa-check"></i><b>12.2</b> 일변량 스므딩(univariate smoothing)</a><ul>
-<li class="chapter" data-level="12.2.1" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html#-regression-spline"><i class="fa fa-check"></i><b>12.2.1</b> 회귀 스플라인(regression spline)</a></li>
-<li class="chapter" data-level="12.2.2" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html#b-spline"><i class="fa fa-check"></i><b>12.2.2</b> B-spline</a></li>
-<li class="chapter" data-level="12.2.3" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html#p-spline"><i class="fa fa-check"></i><b>12.2.3</b> P-spline</a></li>
-</ul></li>
+<li class="chapter" data-level="12.2" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html"><i class="fa fa-check"></i><b>12.2</b> 일변량 스므딩(univariate smoothing)</a></li>
 <li class="chapter" data-level="12.3" data-path="12-3-vector-generalized-linear-models.html"><a href="12-3-vector-generalized-linear-models.html"><i class="fa fa-check"></i><b>12.3</b> 벡터 일반화선형모형(vector generalized linear models)</a></li>
 <li class="chapter" data-level="12.4" data-path="12-4-limations-of-glm.html"><a href="12-4-limations-of-glm.html"><i class="fa fa-check"></i><b>12.4</b> 일반화선형모형의 한계점(limations of glm)</a></li>
 </ul></li>
@@ -260,8 +256,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14" data-path="14-smoothing.html"><a href="14-smoothing.html"><i class="fa fa-check"></i><b>14</b> 스므딩</a><ul>
 <li class="chapter" data-level="14.1" data-path="14-1-univariate-smoothing-1.html"><a href="14-1-univariate-smoothing-1.html"><i class="fa fa-check"></i><b>14.1</b> 일변량 스므딩(univariate smoothing)</a><ul>
 <li class="chapter" data-level="14.1.1" data-path="14-1-univariate-smoothing-1.html"><a href="14-1-univariate-smoothing-1.html#--representing-a-function-with-basis-expansions"><i class="fa fa-check"></i><b>14.1.1</b> 함수를 기저로 표현하기(representing a function with basis expansions)</a></li>
+<li class="chapter" data-level="14.1.2" data-path="14-1-univariate-smoothing-1.html"><a href="14-1-univariate-smoothing-1.html#-regression-spline"><i class="fa fa-check"></i><b>14.1.2</b> 회귀 스플라인(regression spline)</a></li>
 </ul></li>
-<li class="chapter" data-level="14.2" data-path="14-2-b-b-spline.html"><a href="14-2-b-b-spline.html"><i class="fa fa-check"></i><b>14.2</b> B-스플라인(B-spline)</a></li>
+<li class="chapter" data-level="14.2" data-path="14-2-b-b-spline.html"><a href="14-2-b-b-spline.html"><i class="fa fa-check"></i><b>14.2</b> B-스플라인(B-spline)</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="14-2-b-b-spline.html"><a href="14-2-b-b-spline.html#p-spline"><i class="fa fa-check"></i><b>14.2.1</b> P-spline</a></li>
+</ul></li>
 <li class="chapter" data-level="14.3" data-path="14-3-soap-film-soap-film-smoothing-over-finite-domains.html"><a href="14-3-soap-film-soap-film-smoothing-over-finite-domains.html"><i class="fa fa-check"></i><b>14.3</b> 유한 도메인에서의 soap film 스므딩(soap film smoothing over finite domains)</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="15-ts.html"><a href="15-ts.html"><i class="fa fa-check"></i><b>15</b> 시계열분석</a><ul>
@@ -686,8 +685,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">256</span>)
 zwp &lt;-<span class="st"> </span><span class="kw">wp</span>(z, <span class="dt">filter.number=</span><span class="dv">2</span>, <span class="dt">family=</span><span class="st">&quot;DaubExPhase&quot;</span>)
 <span class="kw">plot</span>(zwp, <span class="dt">color.force=</span><span class="ot">TRUE</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-247"></span>
-<img src="book_files/figure-html/unnamed-chunk-247-1.svg" alt="Wavelet packet coefficients of the independent Gaussian sequence z." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-248"></span>
+<img src="book_files/figure-html/unnamed-chunk-248-1.svg" alt="Wavelet packet coefficients of the independent Gaussian sequence z." width="672" />
 <p class="caption">
 FIGURE 21.13: Wavelet packet coefficients of the independent Gaussian sequence z.
 </p>
@@ -695,24 +694,24 @@ FIGURE 21.13: Wavelet packet coefficients of the independent Gaussian sequence z
 <p>위 그림은 독립 가우스 수열 <span class="math inline">\(\mathbf{z}\)</span>에 대해 웨이블릿 계수들을 구한 결과를 보여준다. 원 시계열은 맨 아래쪽에 있다. 이것의 scale은 8로 정했다. 그리고 한 줄씩 위로 올라가면서 scale(=resolution level)을 1씩 줄였을 때의 결과를 보여준다. 웨이블릿 패킷을 수직 점선으로 구분해 놓았다. 각 스케일 마다 첫 번째 웨이블릿은 scaling function coefficient들에 대응된다. 그래서 시계열로 표현했는데 이는 스케일 함수 계수들을 웟ㄴ 시계열의 연속적인 coarsening이라고 생각할 수 있기 때문이다. Regular wavelet coefficient들은 각 스케일마다 두 번째 패킷에 위치하도록 했다.</p>
 <p>여기서 스케일 6에 있는 네 번째 패킷 (packet 3임, 0, 1, 2 순서로 번호를 매기므로)을 100인 값이 하나가 있고 나머지는 모두 0인 패킷으로 교체해보자. 우선 현재 있는 패킷 값을 얻으려면 <code>getpacket</code> 함수를 이용한다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getpacket</span>(zwp, <span class="dt">level=</span><span class="dv">6</span>, <span class="dt">index=</span><span class="dv">3</span>)</code></pre></div>
-<pre><code>&gt;  [1] -1.00399042 -0.06424369 -0.68247263 -1.31148711  0.29109584
-&gt;  [6]  0.11760275 -1.07045584  1.95231782  0.86604101 -0.59739314
-&gt; [11]  0.74163159 -0.67509402 -0.56607414 -1.20631925  1.17160867
-&gt; [16]  0.25755635  1.20740071  0.77589573 -0.48404386  1.70583251
-&gt; [21]  0.81265286 -0.93020607  0.74403805 -1.41041722  0.45737061
-&gt; [26] -1.18055436  0.56012524 -1.26035578  0.14629927  0.30096993
-&gt; [31]  0.77257344 -0.12567289 -1.45323789  1.13394161 -2.34680315
-&gt; [36] -1.12050771 -2.23443369  1.29530935 -0.04195310 -1.54115488
-&gt; [41] -0.32906825 -1.48961400 -0.45844514 -0.51539397 -0.77095119
-&gt; [46] -1.04129114 -0.85683053  0.58408448 -0.60264673 -1.23823816
-&gt; [51] -0.59337381 -1.33741084  1.75116936  0.36159500  0.89520136
-&gt; [56] -1.58067887 -0.96715748 -0.31008068 -1.93843638 -0.46811241
-&gt; [61] -0.18068923  0.26294651  0.68139744  1.14075307</code></pre>
+<pre><code>&gt;  [1] -1.370256435  2.059010918 -0.022419799 -0.187301656  0.247856118
+&gt;  [6] -0.603928740 -0.489840898 -0.560211140 -0.483647332  0.165191172
+&gt; [11]  0.478000534  0.712908921  1.143911357 -0.441767097 -0.147158579
+&gt; [16] -0.227228666  0.981732019 -1.382675664  1.446717610 -0.937921060
+&gt; [21]  0.879580184 -0.673353935  0.285701328 -1.111947299 -1.956534060
+&gt; [26] -0.161016843  0.833817640  1.222599460 -0.487141797 -1.476425508
+&gt; [31] -0.350349731 -0.969671166  0.125931883  0.482838407 -0.843513505
+&gt; [36]  0.462858167  0.002187854 -1.924594538 -1.959133356  0.160301573
+&gt; [41]  1.254252345 -0.662096373  0.349699553 -0.520153289 -1.182323036
+&gt; [46]  0.630975086  0.726447539 -0.815345470 -0.030683773 -0.922643782
+&gt; [51] -0.593777266  1.097578493 -1.295969403 -1.176032582 -1.397714982
+&gt; [56] -0.577321861 -0.422400243  0.184241484  0.610994676 -0.268934006
+&gt; [61]  1.570196076 -1.401162966  0.258374460  1.262947179</code></pre>
 <p>100인 값이 하나가 있고 나머지는 모두 0인 벡터는 매우 sparse하다. <code>zwp2</code>에 앞서 말한 패킷을 넣어보자.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">zwp2 &lt;-<span class="st"> </span><span class="kw">putpacket</span>(zwp, <span class="dt">level=</span><span class="dv">6</span>, <span class="dt">index=</span><span class="dv">3</span>, <span class="dt">packet=</span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dv">100</span>, <span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">53</span>)))
 <span class="kw">plot</span>(zwp2)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-249"></span>
-<img src="book_files/figure-html/unnamed-chunk-249-1.svg" alt="Wavelet packet coefficients of zwp2." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-250"></span>
+<img src="book_files/figure-html/unnamed-chunk-250-1.svg" alt="Wavelet packet coefficients of zwp2." width="672" />
 <p class="caption">
 FIGURE 21.14: Wavelet packet coefficients of zwp2.
 </p>
@@ -721,116 +720,114 @@ FIGURE 21.14: Wavelet packet coefficients of zwp2.
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">zwp2.nv &lt;-<span class="st"> </span><span class="kw">MaNoVe</span>(zwp2)
 zwp2.nv</code></pre></div>
 <pre><code>&gt; Level:  6  Packet:  3 
-&gt; Level:  4  Packet:  2 
-&gt; Level:  3  Packet:  7 
+&gt; Level:  5  Packet:  4 
+&gt; Level:  3  Packet:  9 
+&gt; Level:  3  Packet:  14 
+&gt; Level:  2  Packet:  2 
 &gt; Level:  2  Packet:  4 
-&gt; Level:  2  Packet:  5 
-&gt; Level:  2  Packet:  18 
-&gt; Level:  2  Packet:  20 
-&gt; Level:  2  Packet:  22 
-&gt; Level:  2  Packet:  27 
-&gt; Level:  2  Packet:  29 
-&gt; Level:  2  Packet:  36 
-&gt; Level:  2  Packet:  37 
-&gt; Level:  2  Packet:  41 
-&gt; Level:  2  Packet:  42 
-&gt; Level:  1  Packet:  4 
-&gt; Level:  1  Packet:  5 
-&gt; Level:  1  Packet:  6 
+&gt; Level:  2  Packet:  13 
+&gt; Level:  2  Packet:  16 
+&gt; Level:  2  Packet:  43 
+&gt; Level:  2  Packet:  44 
+&gt; Level:  1  Packet:  2 
+&gt; Level:  1  Packet:  3 
+&gt; Level:  1  Packet:  11 
 &gt; Level:  1  Packet:  12 
-&gt; Level:  1  Packet:  14 
-&gt; Level:  1  Packet:  15 
+&gt; Level:  1  Packet:  13 
+&gt; Level:  1  Packet:  18 
+&gt; Level:  1  Packet:  19 
+&gt; Level:  1  Packet:  20 
 &gt; Level:  1  Packet:  24 
-&gt; Level:  1  Packet:  25 
-&gt; Level:  1  Packet:  33 
-&gt; Level:  1  Packet:  43 
-&gt; Level:  1  Packet:  46 
+&gt; Level:  1  Packet:  30 
+&gt; Level:  1  Packet:  31 
+&gt; Level:  1  Packet:  35 
+&gt; Level:  1  Packet:  41 
+&gt; Level:  1  Packet:  42 
 &gt; Level:  1  Packet:  47 
 &gt; Level:  1  Packet:  49 
-&gt; Level:  1  Packet:  51 
-&gt; Level:  1  Packet:  52 
+&gt; Level:  1  Packet:  50 
 &gt; Level:  1  Packet:  53 
-&gt; Level:  1  Packet:  56 
-&gt; Level:  1  Packet:  57 
-&gt; Level:  1  Packet:  60 
-&gt; Level:  1  Packet:  62 
-&gt; Level:  1  Packet:  63 
-&gt; Level:  1  Packet:  65 
-&gt; Level:  1  Packet:  66 
-&gt; Level:  1  Packet:  67 
-&gt; Level:  1  Packet:  70 
-&gt; Level:  1  Packet:  71 
-&gt; Level:  1  Packet:  76 
-&gt; Level:  1  Packet:  77 
-&gt; Level:  1  Packet:  78 
-&gt; Level:  1  Packet:  79 
-&gt; Level:  1  Packet:  90 
+&gt; Level:  1  Packet:  54 
+&gt; Level:  1  Packet:  55 
+&gt; Level:  1  Packet:  82 
+&gt; Level:  1  Packet:  84 
+&gt; Level:  1  Packet:  85 
+&gt; Level:  1  Packet:  91 
+&gt; Level:  1  Packet:  93 
 &gt; Level:  1  Packet:  94 
 &gt; Level:  1  Packet:  95 
 &gt; Level:  0  Packet:  0 
 &gt; Level:  0  Packet:  1 
 &gt; Level:  0  Packet:  2 
 &gt; Level:  0  Packet:  3 
-&gt; Level:  0  Packet:  4 
-&gt; Level:  0  Packet:  5 
-&gt; Level:  0  Packet:  6 
-&gt; Level:  0  Packet:  7 
+&gt; Level:  0  Packet:  12 
+&gt; Level:  0  Packet:  13 
 &gt; Level:  0  Packet:  14 
 &gt; Level:  0  Packet:  15 
-&gt; Level:  0  Packet:  26 
-&gt; Level:  0  Packet:  27 
-&gt; Level:  0  Packet:  52 
-&gt; Level:  0  Packet:  53 
-&gt; Level:  0  Packet:  54 
-&gt; Level:  0  Packet:  55 
-&gt; Level:  0  Packet:  64 
-&gt; Level:  0  Packet:  65 
+&gt; Level:  0  Packet:  20 
+&gt; Level:  0  Packet:  21 
+&gt; Level:  0  Packet:  28 
+&gt; Level:  0  Packet:  29 
+&gt; Level:  0  Packet:  30 
+&gt; Level:  0  Packet:  31 
+&gt; Level:  0  Packet:  32 
+&gt; Level:  0  Packet:  33 
+&gt; Level:  0  Packet:  34 
+&gt; Level:  0  Packet:  35 
+&gt; Level:  0  Packet:  42 
+&gt; Level:  0  Packet:  43 
+&gt; Level:  0  Packet:  44 
+&gt; Level:  0  Packet:  45 
+&gt; Level:  0  Packet:  46 
+&gt; Level:  0  Packet:  47 
+&gt; Level:  0  Packet:  50 
+&gt; Level:  0  Packet:  51 
+&gt; Level:  0  Packet:  56 
+&gt; Level:  0  Packet:  57 
+&gt; Level:  0  Packet:  58 
+&gt; Level:  0  Packet:  59 
 &gt; Level:  0  Packet:  68 
 &gt; Level:  0  Packet:  69 
-&gt; Level:  0  Packet:  70 
-&gt; Level:  0  Packet:  71 
-&gt; Level:  0  Packet:  76 
-&gt; Level:  0  Packet:  77 
-&gt; Level:  0  Packet:  78 
-&gt; Level:  0  Packet:  79 
-&gt; Level:  0  Packet:  84 
-&gt; Level:  0  Packet:  85 
+&gt; Level:  0  Packet:  80 
+&gt; Level:  0  Packet:  81 
+&gt; Level:  0  Packet:  86 
+&gt; Level:  0  Packet:  87 
+&gt; Level:  0  Packet:  88 
+&gt; Level:  0  Packet:  89 
+&gt; Level:  0  Packet:  90 
+&gt; Level:  0  Packet:  91 
+&gt; Level:  0  Packet:  92 
+&gt; Level:  0  Packet:  93 
 &gt; Level:  0  Packet:  96 
 &gt; Level:  0  Packet:  97 
-&gt; Level:  0  Packet:  100 
-&gt; Level:  0  Packet:  101 
+&gt; Level:  0  Packet:  102 
+&gt; Level:  0  Packet:  103 
+&gt; Level:  0  Packet:  104 
+&gt; Level:  0  Packet:  105 
+&gt; Level:  0  Packet:  120 
+&gt; Level:  0  Packet:  121 
 &gt; Level:  0  Packet:  122 
 &gt; Level:  0  Packet:  123 
-&gt; Level:  0  Packet:  128 
-&gt; Level:  0  Packet:  129 
-&gt; Level:  0  Packet:  136 
-&gt; Level:  0  Packet:  137 
-&gt; Level:  0  Packet:  138 
-&gt; Level:  0  Packet:  139 
+&gt; Level:  0  Packet:  124 
+&gt; Level:  0  Packet:  125 
+&gt; Level:  0  Packet:  126 
+&gt; Level:  0  Packet:  127 
 &gt; Level:  0  Packet:  160 
 &gt; Level:  0  Packet:  161 
 &gt; Level:  0  Packet:  162 
 &gt; Level:  0  Packet:  163 
-&gt; Level:  0  Packet:  172 
-&gt; Level:  0  Packet:  173 
-&gt; Level:  0  Packet:  174 
-&gt; Level:  0  Packet:  175 
-&gt; Level:  0  Packet:  176 
-&gt; Level:  0  Packet:  177 
-&gt; Level:  0  Packet:  178 
-&gt; Level:  0  Packet:  179 
-&gt; Level:  0  Packet:  182 
-&gt; Level:  0  Packet:  183 
+&gt; Level:  0  Packet:  166 
+&gt; Level:  0  Packet:  167 
+&gt; Level:  0  Packet:  180 
+&gt; Level:  0  Packet:  181 
 &gt; Level:  0  Packet:  184 
-&gt; Level:  0  Packet:  185 
-&gt; Level:  0  Packet:  186 
-&gt; Level:  0  Packet:  187</code></pre>
+&gt; Level:  0  Packet:  185</code></pre>
 <p><span class="math inline">\((6,3)\)</span>이 basis element로 선택된 것을 확인할 수 있다. 왜냐면 이것이 extremely sparse하기 때문이다. 이 새로 선택된 <code>zwp2.nv</code>의 기저는 <code>InvBasis(zwp2, zwp2.nv)</code> 명령어를 통해 불러올 수 있다고 한다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">InvBasis</span>(zwp2, zwp2.nv))</code></pre></div>
-<pre><code>&gt; [1] -0.45372711 -0.35597309 -0.61049728  0.40933189 -0.57678491 -0.06042723</code></pre>
+<pre><code>&gt; [1]  0.3833530 -0.9809676  0.3493103 -1.8484250 -0.2545826  0.1270975</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">InvBasis</span>(zwp2, zwp2.nv), <span class="dt">type=</span><span class="st">&quot;o&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-251"></span>
-<img src="book_files/figure-html/unnamed-chunk-251-1.svg" alt="Inversion plotting." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-252"></span>
+<img src="book_files/figure-html/unnamed-chunk-252-1.svg" alt="Inversion plotting." width="672" />
 <p class="caption">
 FIGURE 21.15: Inversion plotting.
 </p>

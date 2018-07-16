@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-07-12">
+<meta name="date" content="2018-07-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -241,13 +241,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="12" data-path="12-glm.html"><a href="12-glm.html"><i class="fa fa-check"></i><b>12</b> 일반화선형모형</a><ul>
 <li class="chapter" data-level="12.1" data-path="12-1-glm-basics.html"><a href="12-1-glm-basics.html"><i class="fa fa-check"></i><b>12.1</b> 일반화선형모형의 기본(GLM basics)</a><ul>
-<li class="chapter" data-level="12.1.1" data-path="12-1-glm-basics.html"><a href="12-1-glm-basics.html#linear-model-1"><i class="fa fa-check"></i><b>12.1.1</b> 선형모형(linear model)</a></li>
+<li class="chapter" data-level="12.1.1" data-path="12-1-glm-basics.html"><a href="12-1-glm-basics.html#-fitting-generalized-linear-models"><i class="fa fa-check"></i><b>12.1.1</b> 일반화선형모형의 적합(fitting generalized linear models)</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html"><i class="fa fa-check"></i><b>12.2</b> 일변량 스므딩(univariate smoothing)</a><ul>
-<li class="chapter" data-level="12.2.1" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html#-regression-spline"><i class="fa fa-check"></i><b>12.2.1</b> 회귀 스플라인(regression spline)</a></li>
-<li class="chapter" data-level="12.2.2" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html#b-spline"><i class="fa fa-check"></i><b>12.2.2</b> B-spline</a></li>
-<li class="chapter" data-level="12.2.3" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html#p-spline"><i class="fa fa-check"></i><b>12.2.3</b> P-spline</a></li>
-</ul></li>
+<li class="chapter" data-level="12.2" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html"><i class="fa fa-check"></i><b>12.2</b> 일변량 스므딩(univariate smoothing)</a></li>
 <li class="chapter" data-level="12.3" data-path="12-3-vector-generalized-linear-models.html"><a href="12-3-vector-generalized-linear-models.html"><i class="fa fa-check"></i><b>12.3</b> 벡터 일반화선형모형(vector generalized linear models)</a></li>
 <li class="chapter" data-level="12.4" data-path="12-4-limations-of-glm.html"><a href="12-4-limations-of-glm.html"><i class="fa fa-check"></i><b>12.4</b> 일반화선형모형의 한계점(limations of glm)</a></li>
 </ul></li>
@@ -260,8 +256,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14" data-path="14-smoothing.html"><a href="14-smoothing.html"><i class="fa fa-check"></i><b>14</b> 스므딩</a><ul>
 <li class="chapter" data-level="14.1" data-path="14-1-univariate-smoothing-1.html"><a href="14-1-univariate-smoothing-1.html"><i class="fa fa-check"></i><b>14.1</b> 일변량 스므딩(univariate smoothing)</a><ul>
 <li class="chapter" data-level="14.1.1" data-path="14-1-univariate-smoothing-1.html"><a href="14-1-univariate-smoothing-1.html#--representing-a-function-with-basis-expansions"><i class="fa fa-check"></i><b>14.1.1</b> 함수를 기저로 표현하기(representing a function with basis expansions)</a></li>
+<li class="chapter" data-level="14.1.2" data-path="14-1-univariate-smoothing-1.html"><a href="14-1-univariate-smoothing-1.html#-regression-spline"><i class="fa fa-check"></i><b>14.1.2</b> 회귀 스플라인(regression spline)</a></li>
 </ul></li>
-<li class="chapter" data-level="14.2" data-path="14-2-b-b-spline.html"><a href="14-2-b-b-spline.html"><i class="fa fa-check"></i><b>14.2</b> B-스플라인(B-spline)</a></li>
+<li class="chapter" data-level="14.2" data-path="14-2-b-b-spline.html"><a href="14-2-b-b-spline.html"><i class="fa fa-check"></i><b>14.2</b> B-스플라인(B-spline)</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="14-2-b-b-spline.html"><a href="14-2-b-b-spline.html#p-spline"><i class="fa fa-check"></i><b>14.2.1</b> P-spline</a></li>
+</ul></li>
 <li class="chapter" data-level="14.3" data-path="14-3-soap-film-soap-film-smoothing-over-finite-domains.html"><a href="14-3-soap-film-soap-film-smoothing-over-finite-domains.html"><i class="fa fa-check"></i><b>14.3</b> 유한 도메인에서의 soap film 스므딩(soap film smoothing over finite domains)</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="15-ts.html"><a href="15-ts.html"><i class="fa fa-check"></i><b>15</b> 시계열분석</a><ul>
@@ -685,7 +684,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>공간점패턴 자료를 받으면 제일 처음으로 이 자료가 <strong>완전공간임의성(complete spatial randomness, CSR)</strong>을 따르는지 체크하게 되는데, 그 이유는 이것을 따르면 모델링이 단순해지기 때문이다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-323" class="definition"><strong>Definition 49.1  (동질적 포아송 점과정)  </strong></span>완전공간임의성 가정은 다음 두 조건</p>
+<p><span id="def:unnamed-chunk-324" class="definition"><strong>Definition 49.1  (동질적 포아송 점과정)  </strong></span>완전공간임의성 가정은 다음 두 조건</p>
 <ol style="list-style-type: decimal">
 <li><p>면적이 <span class="math inline">\(|A|\)</span>인 관찰 지역 <span class="math inline">\(A\)</span> 안의 사건의 숫자가 <span class="math inline">\(\text{Poisson}(\lambda |A|), \lambda &gt;0, |A| &gt;0\)</span>을 따른다.</p></li>
 <li><p><span class="math inline">\(n\)</span>개의 사건이 주어졌을 때, 각각의 사건들 <span class="math inline">\(x_{i}, i=1,\ldots , n\)</span>은 <span class="math inline">\(A\)</span> 위에서 균등분포(uniform distribution)를 따르는 독립인 무작위 표본들이다.</p></li>

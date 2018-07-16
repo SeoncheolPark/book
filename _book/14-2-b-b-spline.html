@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-07-12">
+<meta name="date" content="2018-07-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -241,13 +241,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="12" data-path="12-glm.html"><a href="12-glm.html"><i class="fa fa-check"></i><b>12</b> 일반화선형모형</a><ul>
 <li class="chapter" data-level="12.1" data-path="12-1-glm-basics.html"><a href="12-1-glm-basics.html"><i class="fa fa-check"></i><b>12.1</b> 일반화선형모형의 기본(GLM basics)</a><ul>
-<li class="chapter" data-level="12.1.1" data-path="12-1-glm-basics.html"><a href="12-1-glm-basics.html#linear-model-1"><i class="fa fa-check"></i><b>12.1.1</b> 선형모형(linear model)</a></li>
+<li class="chapter" data-level="12.1.1" data-path="12-1-glm-basics.html"><a href="12-1-glm-basics.html#-fitting-generalized-linear-models"><i class="fa fa-check"></i><b>12.1.1</b> 일반화선형모형의 적합(fitting generalized linear models)</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html"><i class="fa fa-check"></i><b>12.2</b> 일변량 스므딩(univariate smoothing)</a><ul>
-<li class="chapter" data-level="12.2.1" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html#-regression-spline"><i class="fa fa-check"></i><b>12.2.1</b> 회귀 스플라인(regression spline)</a></li>
-<li class="chapter" data-level="12.2.2" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html#b-spline"><i class="fa fa-check"></i><b>12.2.2</b> B-spline</a></li>
-<li class="chapter" data-level="12.2.3" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html#p-spline"><i class="fa fa-check"></i><b>12.2.3</b> P-spline</a></li>
-</ul></li>
+<li class="chapter" data-level="12.2" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html"><i class="fa fa-check"></i><b>12.2</b> 일변량 스므딩(univariate smoothing)</a></li>
 <li class="chapter" data-level="12.3" data-path="12-3-vector-generalized-linear-models.html"><a href="12-3-vector-generalized-linear-models.html"><i class="fa fa-check"></i><b>12.3</b> 벡터 일반화선형모형(vector generalized linear models)</a></li>
 <li class="chapter" data-level="12.4" data-path="12-4-limations-of-glm.html"><a href="12-4-limations-of-glm.html"><i class="fa fa-check"></i><b>12.4</b> 일반화선형모형의 한계점(limations of glm)</a></li>
 </ul></li>
@@ -260,8 +256,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14" data-path="14-smoothing.html"><a href="14-smoothing.html"><i class="fa fa-check"></i><b>14</b> 스므딩</a><ul>
 <li class="chapter" data-level="14.1" data-path="14-1-univariate-smoothing-1.html"><a href="14-1-univariate-smoothing-1.html"><i class="fa fa-check"></i><b>14.1</b> 일변량 스므딩(univariate smoothing)</a><ul>
 <li class="chapter" data-level="14.1.1" data-path="14-1-univariate-smoothing-1.html"><a href="14-1-univariate-smoothing-1.html#--representing-a-function-with-basis-expansions"><i class="fa fa-check"></i><b>14.1.1</b> 함수를 기저로 표현하기(representing a function with basis expansions)</a></li>
+<li class="chapter" data-level="14.1.2" data-path="14-1-univariate-smoothing-1.html"><a href="14-1-univariate-smoothing-1.html#-regression-spline"><i class="fa fa-check"></i><b>14.1.2</b> 회귀 스플라인(regression spline)</a></li>
 </ul></li>
-<li class="chapter" data-level="14.2" data-path="14-2-b-b-spline.html"><a href="14-2-b-b-spline.html"><i class="fa fa-check"></i><b>14.2</b> B-스플라인(B-spline)</a></li>
+<li class="chapter" data-level="14.2" data-path="14-2-b-b-spline.html"><a href="14-2-b-b-spline.html"><i class="fa fa-check"></i><b>14.2</b> B-스플라인(B-spline)</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="14-2-b-b-spline.html"><a href="14-2-b-b-spline.html#p-spline"><i class="fa fa-check"></i><b>14.2.1</b> P-spline</a></li>
+</ul></li>
 <li class="chapter" data-level="14.3" data-path="14-3-soap-film-soap-film-smoothing-over-finite-domains.html"><a href="14-3-soap-film-soap-film-smoothing-over-finite-domains.html"><i class="fa fa-check"></i><b>14.3</b> 유한 도메인에서의 soap film 스므딩(soap film smoothing over finite domains)</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="15-ts.html"><a href="15-ts.html"><i class="fa fa-check"></i><b>15</b> 시계열분석</a><ul>
@@ -682,9 +681,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="b-b-spline" class="section level2">
 <h2><span class="header-section-number">14.2</span> B-스플라인(B-spline)</h2>
-<p>이 부분의 내용은 <span class="citation">(Yee <a href="#ref-Yee2015">2015</a>)</span>를 참고하였다. <strong>B-스플라인(B-spline)</strong>을 사용하는 이유는 주로 계산적인 문제 때문이라고 한다. B-스플라인은 minimal support (또는 compact support)를 갖고 이는 spline basis끼리 the amount of overlap를 minimal하게 만드므로 안정적인 계산을 가능하게 한다고 한다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-162"></span>
-<img src="book_files/figure-html/unnamed-chunk-162-1.svg" alt="매듭의 위치가 0.3, 0.5, 0.6이고 Q=1,2,3,4일때의 B-스플라인 기저들." width="672" />
+<p>이 부분의 내용은 <span class="citation">(Yee <a href="#ref-Yee2015">2015</a>)</span>를 참고하였다. <strong>B-스플라인(B-spline)</strong>을 사용하는 이유는 주로 계산적인 문제 때문이라고 한다(minimal support). B-스플라인은 minimal support (또는 compact support)를 갖고 이는 spline basis끼리 the amount of overlap를 minimal하게 만드므로 안정적인 계산을 가능하게 한다고 한다.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-163"></span>
+<img src="book_files/figure-html/unnamed-chunk-163-1.svg" alt="매듭의 위치가 0.3, 0.5, 0.6이고 Q=1,2,3,4일때의 B-스플라인 기저들." width="672" />
 <p class="caption">
 FIGURE 13.1: 매듭의 위치가 0.3, 0.5, 0.6이고 Q=1,2,3,4일때의 B-스플라인 기저들.
 </p>
@@ -717,6 +716,10 @@ B_{s,q}(x)&amp;=\omega_{s,q}B_{s,q-1}(x)+(1-\omega_{s+1,q}B_{s+1,q-1}(x))\\
 &amp;=\frac{x-\tau_{s}}{\tau_{s+q-1}-\tau_{s}}B_{s,q-1}(x) + \frac{\tau_{s+q}-x}{\tau_{s+q}-\tau_{s+1}}B_{s+1,q-1}(x),
 \end{align*}\]</span>
 <p>여기서 <span class="math inline">\(\omega_{s,q}\equiv (x-\tau_{s})/(\tau_{s+q-1}-\tau_{s})\)</span> for <span class="math inline">\(\tau_{s+q-1}&gt;\tau_{s}\)</span>이고 만약 <span class="math inline">\(\tau_{s+q-1}=\tau_{s}\)</span>이면 <span class="math inline">\(\omega_{s,q}\equiv 0\)</span>이 된다. 이것들은 안정적이고 효육적인 재귀 알고리즘으로 구할 수 있다. 여기서 <span class="math inline">\(B_{s,q}\)</span>는 <span class="math inline">\(q+1\)</span>개의 매듭들 <span class="math inline">\(\tau_{s},\ldots, \tau_{s+q}\)</span>에만 관련이 있고 구간 <span class="math inline">\([\tau_{s},\tau_{s+q})\)</span> 바깥에서는 감쇄하며 구간 안에서는 양의 값을 갖는다. 만약 <span class="math inline">\(\tau_{s}=\tau_{s+q}\)</span>이면 <span class="math inline">\(B_{s,q}=0\)</span>이다.</p>
+<div id="p-spline" class="section level3">
+<h3><span class="header-section-number">14.2.1</span> P-spline</h3>
+<p><strong>P-스플라인(P-spline)</strong>은 penalized B-spline이라는 의미를 갖고 있다.</p>
+</div>
 </div>
 <h3> References</h3>
 <div id="refs" class="references">

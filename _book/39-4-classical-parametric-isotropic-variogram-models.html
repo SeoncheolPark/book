@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-07-12">
+<meta name="date" content="2018-07-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -241,13 +241,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="12" data-path="12-glm.html"><a href="12-glm.html"><i class="fa fa-check"></i><b>12</b> 일반화선형모형</a><ul>
 <li class="chapter" data-level="12.1" data-path="12-1-glm-basics.html"><a href="12-1-glm-basics.html"><i class="fa fa-check"></i><b>12.1</b> 일반화선형모형의 기본(GLM basics)</a><ul>
-<li class="chapter" data-level="12.1.1" data-path="12-1-glm-basics.html"><a href="12-1-glm-basics.html#linear-model-1"><i class="fa fa-check"></i><b>12.1.1</b> 선형모형(linear model)</a></li>
+<li class="chapter" data-level="12.1.1" data-path="12-1-glm-basics.html"><a href="12-1-glm-basics.html#-fitting-generalized-linear-models"><i class="fa fa-check"></i><b>12.1.1</b> 일반화선형모형의 적합(fitting generalized linear models)</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html"><i class="fa fa-check"></i><b>12.2</b> 일변량 스므딩(univariate smoothing)</a><ul>
-<li class="chapter" data-level="12.2.1" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html#-regression-spline"><i class="fa fa-check"></i><b>12.2.1</b> 회귀 스플라인(regression spline)</a></li>
-<li class="chapter" data-level="12.2.2" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html#b-spline"><i class="fa fa-check"></i><b>12.2.2</b> B-spline</a></li>
-<li class="chapter" data-level="12.2.3" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html#p-spline"><i class="fa fa-check"></i><b>12.2.3</b> P-spline</a></li>
-</ul></li>
+<li class="chapter" data-level="12.2" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html"><i class="fa fa-check"></i><b>12.2</b> 일변량 스므딩(univariate smoothing)</a></li>
 <li class="chapter" data-level="12.3" data-path="12-3-vector-generalized-linear-models.html"><a href="12-3-vector-generalized-linear-models.html"><i class="fa fa-check"></i><b>12.3</b> 벡터 일반화선형모형(vector generalized linear models)</a></li>
 <li class="chapter" data-level="12.4" data-path="12-4-limations-of-glm.html"><a href="12-4-limations-of-glm.html"><i class="fa fa-check"></i><b>12.4</b> 일반화선형모형의 한계점(limations of glm)</a></li>
 </ul></li>
@@ -260,8 +256,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14" data-path="14-smoothing.html"><a href="14-smoothing.html"><i class="fa fa-check"></i><b>14</b> 스므딩</a><ul>
 <li class="chapter" data-level="14.1" data-path="14-1-univariate-smoothing-1.html"><a href="14-1-univariate-smoothing-1.html"><i class="fa fa-check"></i><b>14.1</b> 일변량 스므딩(univariate smoothing)</a><ul>
 <li class="chapter" data-level="14.1.1" data-path="14-1-univariate-smoothing-1.html"><a href="14-1-univariate-smoothing-1.html#--representing-a-function-with-basis-expansions"><i class="fa fa-check"></i><b>14.1.1</b> 함수를 기저로 표현하기(representing a function with basis expansions)</a></li>
+<li class="chapter" data-level="14.1.2" data-path="14-1-univariate-smoothing-1.html"><a href="14-1-univariate-smoothing-1.html#-regression-spline"><i class="fa fa-check"></i><b>14.1.2</b> 회귀 스플라인(regression spline)</a></li>
 </ul></li>
-<li class="chapter" data-level="14.2" data-path="14-2-b-b-spline.html"><a href="14-2-b-b-spline.html"><i class="fa fa-check"></i><b>14.2</b> B-스플라인(B-spline)</a></li>
+<li class="chapter" data-level="14.2" data-path="14-2-b-b-spline.html"><a href="14-2-b-b-spline.html"><i class="fa fa-check"></i><b>14.2</b> B-스플라인(B-spline)</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="14-2-b-b-spline.html"><a href="14-2-b-b-spline.html#p-spline"><i class="fa fa-check"></i><b>14.2.1</b> P-spline</a></li>
+</ul></li>
 <li class="chapter" data-level="14.3" data-path="14-3-soap-film-soap-film-smoothing-over-finite-domains.html"><a href="14-3-soap-film-soap-film-smoothing-over-finite-domains.html"><i class="fa fa-check"></i><b>14.3</b> 유한 도메인에서의 soap film 스므딩(soap film smoothing over finite domains)</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="15-ts.html"><a href="15-ts.html"><i class="fa fa-check"></i><b>15</b> 시계열분석</a><ul>
@@ -713,8 +712,8 @@ c_{0}+c_{1}(1-e^{-\frac{\|\mathbf{h}\|}{R}}) &amp; \textrm{if $\mathbf{h}\neq 0$
 \end{array} \right.
 \]</span> 이것은 평균제곱연속이나 평균제곱 미분 가능하지는 않다고 한다. 그리고 다른 애들보다 독립적인 편이라고(공분산이 약함) 한다. 특히 뒤에 나오는 가우스 변동도(Gaussian variogram)와 비교했을 때 덜 부드럽다.</p>
 R 패키지 <code>SpatialExtremes</code>를 통해 공분산함수를 출력해 볼 수 있다. 여기서 <span class="math inline">\(c_{1}\)</span>은 <code>sill</code>, <span class="math inline">\(R\)</span>은 <code>range</code>로 조절할 수 있다.
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-307"></span>
-<img src="book_files/figure-html/unnamed-chunk-307-1.svg" alt="sill이 1일 때의 exponential covariance function." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-308"></span>
+<img src="book_files/figure-html/unnamed-chunk-308-1.svg" alt="sill이 1일 때의 exponential covariance function." width="672" />
 <p class="caption">
 FIGURE 39.2: sill이 1일 때의 exponential covariance function.
 </p>
@@ -729,8 +728,8 @@ c_{0}+c_{1}(1-e^{-(\frac{\|\mathbf{h}\|}{R})^{2}}) &amp; \textrm{if $\mathbf{h}\
 \end{array} \right.
 \]</span></p>
 가우스분포랑은 관련이 없으며 2차항이 있기 때문에 이러한 이름이 붙은 것이다. 이것은 무한번 평균제곱 미분 가능(infinitely mean-square differentiable)하다. 그렇다는 얘기는 엄청 부드러운 데이터 모델링 시 사용할 수 있다는 것이다. 그러나 이런 경우는 드물므로 많이 보기는 힘들다.
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-308"></span>
-<img src="book_files/figure-html/unnamed-chunk-308-1.svg" alt="sill이 1일 때의 Gaussian covariance function." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-309"></span>
+<img src="book_files/figure-html/unnamed-chunk-309-1.svg" alt="sill이 1일 때의 Gaussian covariance function." width="672" />
 <p class="caption">
 FIGURE 39.3: sill이 1일 때의 Gaussian covariance function.
 </p>
@@ -778,8 +777,8 @@ c_{0}+c_{1}\| \mathbf{h}\|^{\lambda} &amp; \textrm{if $\mathbf{h}\neq 0$, $0\leq
 <p>(변동도가 복잡하므로 공분산 형태로 썼다)</p>
 <p><span class="math display">\[C(\mathbf{h})=\sigma^{2}\frac{2^{1-\alpha}}{\Gamma(\alpha)}(\frac{\|\mathbf{h}\|}{\phi})^{\alpha}K_{\alpha}(\frac{\|\mathbf{h}\|}{\phi})\]</span></p>
 <p>참고로 <span class="math display">\[\lim_{\mathbf{h} \rightarrow 0}C(\mathbf{h}) = \sigma^{2}\]</span> 이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-309"></span>
-<img src="book_files/figure-html/unnamed-chunk-309-1.svg" alt="sigma와 alpha가 1일 때 Matern covariance function." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-310"></span>
+<img src="book_files/figure-html/unnamed-chunk-310-1.svg" alt="sigma와 alpha가 1일 때 Matern covariance function." width="672" />
 <p class="caption">
 FIGURE 39.4: sigma와 alpha가 1일 때 Matern covariance function.
 </p>
@@ -789,7 +788,7 @@ FIGURE 39.4: sigma와 alpha가 1일 때 Matern covariance function.
 <p><span class="math inline">\(\alpha\)</span>가 half-integer인 경우 explicit form이 있다고 한다.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-310" class="example"><strong>Example 39.1  (Matern 공분산 함수의 예.)  </strong></span><span class="math inline">\(\phi=1\)</span>일 때 <span class="math display">\[
+<span id="exm:unnamed-chunk-311" class="example"><strong>Example 39.1  (Matern 공분산 함수의 예.)  </strong></span><span class="math inline">\(\phi=1\)</span>일 때 <span class="math display">\[
 \begin{array}{ll}
 \alpha=0.5: &amp; e^{-\|\mathbf{h}\|}\\
 \alpha=1.5: &amp; (1+\|\mathbf{h}\|)e^{-\|\mathbf{h}\|}\\

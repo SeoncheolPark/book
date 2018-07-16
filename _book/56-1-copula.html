@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-07-12">
+<meta name="date" content="2018-07-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -241,13 +241,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="12" data-path="12-glm.html"><a href="12-glm.html"><i class="fa fa-check"></i><b>12</b> 일반화선형모형</a><ul>
 <li class="chapter" data-level="12.1" data-path="12-1-glm-basics.html"><a href="12-1-glm-basics.html"><i class="fa fa-check"></i><b>12.1</b> 일반화선형모형의 기본(GLM basics)</a><ul>
-<li class="chapter" data-level="12.1.1" data-path="12-1-glm-basics.html"><a href="12-1-glm-basics.html#linear-model-1"><i class="fa fa-check"></i><b>12.1.1</b> 선형모형(linear model)</a></li>
+<li class="chapter" data-level="12.1.1" data-path="12-1-glm-basics.html"><a href="12-1-glm-basics.html#-fitting-generalized-linear-models"><i class="fa fa-check"></i><b>12.1.1</b> 일반화선형모형의 적합(fitting generalized linear models)</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html"><i class="fa fa-check"></i><b>12.2</b> 일변량 스므딩(univariate smoothing)</a><ul>
-<li class="chapter" data-level="12.2.1" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html#-regression-spline"><i class="fa fa-check"></i><b>12.2.1</b> 회귀 스플라인(regression spline)</a></li>
-<li class="chapter" data-level="12.2.2" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html#b-spline"><i class="fa fa-check"></i><b>12.2.2</b> B-spline</a></li>
-<li class="chapter" data-level="12.2.3" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html#p-spline"><i class="fa fa-check"></i><b>12.2.3</b> P-spline</a></li>
-</ul></li>
+<li class="chapter" data-level="12.2" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html"><i class="fa fa-check"></i><b>12.2</b> 일변량 스므딩(univariate smoothing)</a></li>
 <li class="chapter" data-level="12.3" data-path="12-3-vector-generalized-linear-models.html"><a href="12-3-vector-generalized-linear-models.html"><i class="fa fa-check"></i><b>12.3</b> 벡터 일반화선형모형(vector generalized linear models)</a></li>
 <li class="chapter" data-level="12.4" data-path="12-4-limations-of-glm.html"><a href="12-4-limations-of-glm.html"><i class="fa fa-check"></i><b>12.4</b> 일반화선형모형의 한계점(limations of glm)</a></li>
 </ul></li>
@@ -260,8 +256,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14" data-path="14-smoothing.html"><a href="14-smoothing.html"><i class="fa fa-check"></i><b>14</b> 스므딩</a><ul>
 <li class="chapter" data-level="14.1" data-path="14-1-univariate-smoothing-1.html"><a href="14-1-univariate-smoothing-1.html"><i class="fa fa-check"></i><b>14.1</b> 일변량 스므딩(univariate smoothing)</a><ul>
 <li class="chapter" data-level="14.1.1" data-path="14-1-univariate-smoothing-1.html"><a href="14-1-univariate-smoothing-1.html#--representing-a-function-with-basis-expansions"><i class="fa fa-check"></i><b>14.1.1</b> 함수를 기저로 표현하기(representing a function with basis expansions)</a></li>
+<li class="chapter" data-level="14.1.2" data-path="14-1-univariate-smoothing-1.html"><a href="14-1-univariate-smoothing-1.html#-regression-spline"><i class="fa fa-check"></i><b>14.1.2</b> 회귀 스플라인(regression spline)</a></li>
 </ul></li>
-<li class="chapter" data-level="14.2" data-path="14-2-b-b-spline.html"><a href="14-2-b-b-spline.html"><i class="fa fa-check"></i><b>14.2</b> B-스플라인(B-spline)</a></li>
+<li class="chapter" data-level="14.2" data-path="14-2-b-b-spline.html"><a href="14-2-b-b-spline.html"><i class="fa fa-check"></i><b>14.2</b> B-스플라인(B-spline)</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="14-2-b-b-spline.html"><a href="14-2-b-b-spline.html#p-spline"><i class="fa fa-check"></i><b>14.2.1</b> P-spline</a></li>
+</ul></li>
 <li class="chapter" data-level="14.3" data-path="14-3-soap-film-soap-film-smoothing-over-finite-domains.html"><a href="14-3-soap-film-soap-film-smoothing-over-finite-domains.html"><i class="fa fa-check"></i><b>14.3</b> 유한 도메인에서의 soap film 스므딩(soap film smoothing over finite domains)</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="15-ts.html"><a href="15-ts.html"><i class="fa fa-check"></i><b>15</b> 시계열분석</a><ul>
@@ -699,13 +698,13 @@ P(X_{1}\leq y_{1}, \ldots, X_{d}\leq y_{d}) &amp;=  P(F_{1}(X_{1})\leq F_{1}(y_{
 <p>예를 들어, 벡터 <span class="math inline">\(\mathbf{X}\)</span>의 상관관계가 정의될 경우, 그것은 보통 <span class="math inline">\(\mathbf{Y}\)</span>의 상관관계 구조와 다르다. <span class="math inline">\(X_{1},\ldots, X_{d}\)</span>가 zero autocorrelation들을 갖는 seond order stationary process에서 얻은 표본들이라고 하자. 이것에 대응되는 <span class="math inline">\(F_{1}(X_{1}), \ldots, F_{d}(X_{d})\)</span>들을 매우 correlated되어 있고 따라서 일반적으로 second order stationary가 아닐 것이다. 마찬가지로 spectral measure도 <span class="math inline">\(\mathbf{X}\)</span> with unbounded support에서 make sense한 <span class="math inline">\(\mathbf{Y}\)</span>에서는 그렇지 않다.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-381" class="theorem"><strong>Theorem 56.1  (누적 분포 함수와 코퓰라)  </strong></span>Sklar (1959)의 정리는 코퓰라 이론의 시작점을 제시하였다. <span class="citation">(Yee <a href="#ref-Yee2015">2015</a>)</span> <span class="math inline">\(F\)</span>가 무작위 벡터 <span class="math inline">\((Y_{1}, Y_{2})\)</span>의 CDF이고 marginal이 <span class="math inline">\(F_{1}\)</span>, <span class="math inline">\(F_{2}\)</span>일 때, 대응되는 copula <span class="math inline">\(C\)</span>가 존재해 다음을 만족한다. <span class="math display">\[F(y_{1}, y_{2})=C(F_{1}(y_{1}), F_{2}(y_{2});\boldsymbol{\alpha})=C(u_{1},u_{2};\boldsymbol{\alpha}).\]</span> 모든 <span class="math inline">\((y_{1}, y_{2})\in\mathbb{R}^{2}\)</span>에 대해 <span class="math inline">\(F_{j}\)</span>가 연속이라면 <span class="math inline">\(C\)</span>는 unique하다고 할 수 있다.</p>
+<p><span id="thm:unnamed-chunk-382" class="theorem"><strong>Theorem 56.1  (누적 분포 함수와 코퓰라)  </strong></span>Sklar (1959)의 정리는 코퓰라 이론의 시작점을 제시하였다. <span class="citation">(Yee <a href="#ref-Yee2015">2015</a>)</span> <span class="math inline">\(F\)</span>가 무작위 벡터 <span class="math inline">\((Y_{1}, Y_{2})\)</span>의 CDF이고 marginal이 <span class="math inline">\(F_{1}\)</span>, <span class="math inline">\(F_{2}\)</span>일 때, 대응되는 copula <span class="math inline">\(C\)</span>가 존재해 다음을 만족한다. <span class="math display">\[F(y_{1}, y_{2})=C(F_{1}(y_{1}), F_{2}(y_{2});\boldsymbol{\alpha})=C(u_{1},u_{2};\boldsymbol{\alpha}).\]</span> 모든 <span class="math inline">\((y_{1}, y_{2})\in\mathbb{R}^{2}\)</span>에 대해 <span class="math inline">\(F_{j}\)</span>가 연속이라면 <span class="math inline">\(C\)</span>는 unique하다고 할 수 있다.</p>
 </div>
 
 <p>우리는 <span class="math inline">\(C\)</span>를 dependency parameter <span class="math inline">\(\boldsymbol{\alpha}\)</span>를 통해 <span class="math inline">\(F\)</span>의 dependence structure 정보를 담고 있는 것으로 볼 수 있다. 보통 <span class="math inline">\(\boldsymbol{\alpha}\)</span>는 1차원 또는 2차원이다.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-382" class="example"><strong>Example 56.1  (이변량 가우스 코퓰라)  </strong></span><span class="math inline">\(\boldsymbol{\alpha}=\rho\)</span>일 때 <strong>이변량 가우스 코퓰라(bivariate Gaussian copula)</strong>는 <span class="math display">\[C(u_{1}, u_{2}, \rho)=\Phi_{2}(\Phi^{-1}(u_{1}), \Phi^{-1}(u_{2});\rho), -1&lt;\rho &lt; 1, 0\leq u_{j} \leq 1\]</span> 이다.
+<span id="exm:unnamed-chunk-383" class="example"><strong>Example 56.1  (이변량 가우스 코퓰라)  </strong></span><span class="math inline">\(\boldsymbol{\alpha}=\rho\)</span>일 때 <strong>이변량 가우스 코퓰라(bivariate Gaussian copula)</strong>는 <span class="math display">\[C(u_{1}, u_{2}, \rho)=\Phi_{2}(\Phi^{-1}(u_{1}), \Phi^{-1}(u_{2});\rho), -1&lt;\rho &lt; 1, 0\leq u_{j} \leq 1\]</span> 이다.
 </div>
 
 <p><span class="citation">(Yee <a href="#ref-Yee2015">2015</a>)</span>는 이변량 코퓰라들의 흥미로운 성질들을 적어놓았다.</p>

@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-07-12">
+<meta name="date" content="2018-07-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -241,13 +241,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="12" data-path="12-glm.html"><a href="12-glm.html"><i class="fa fa-check"></i><b>12</b> 일반화선형모형</a><ul>
 <li class="chapter" data-level="12.1" data-path="12-1-glm-basics.html"><a href="12-1-glm-basics.html"><i class="fa fa-check"></i><b>12.1</b> 일반화선형모형의 기본(GLM basics)</a><ul>
-<li class="chapter" data-level="12.1.1" data-path="12-1-glm-basics.html"><a href="12-1-glm-basics.html#linear-model-1"><i class="fa fa-check"></i><b>12.1.1</b> 선형모형(linear model)</a></li>
+<li class="chapter" data-level="12.1.1" data-path="12-1-glm-basics.html"><a href="12-1-glm-basics.html#-fitting-generalized-linear-models"><i class="fa fa-check"></i><b>12.1.1</b> 일반화선형모형의 적합(fitting generalized linear models)</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html"><i class="fa fa-check"></i><b>12.2</b> 일변량 스므딩(univariate smoothing)</a><ul>
-<li class="chapter" data-level="12.2.1" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html#-regression-spline"><i class="fa fa-check"></i><b>12.2.1</b> 회귀 스플라인(regression spline)</a></li>
-<li class="chapter" data-level="12.2.2" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html#b-spline"><i class="fa fa-check"></i><b>12.2.2</b> B-spline</a></li>
-<li class="chapter" data-level="12.2.3" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html#p-spline"><i class="fa fa-check"></i><b>12.2.3</b> P-spline</a></li>
-</ul></li>
+<li class="chapter" data-level="12.2" data-path="12-2-univariate-smoothing.html"><a href="12-2-univariate-smoothing.html"><i class="fa fa-check"></i><b>12.2</b> 일변량 스므딩(univariate smoothing)</a></li>
 <li class="chapter" data-level="12.3" data-path="12-3-vector-generalized-linear-models.html"><a href="12-3-vector-generalized-linear-models.html"><i class="fa fa-check"></i><b>12.3</b> 벡터 일반화선형모형(vector generalized linear models)</a></li>
 <li class="chapter" data-level="12.4" data-path="12-4-limations-of-glm.html"><a href="12-4-limations-of-glm.html"><i class="fa fa-check"></i><b>12.4</b> 일반화선형모형의 한계점(limations of glm)</a></li>
 </ul></li>
@@ -260,8 +256,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14" data-path="14-smoothing.html"><a href="14-smoothing.html"><i class="fa fa-check"></i><b>14</b> 스므딩</a><ul>
 <li class="chapter" data-level="14.1" data-path="14-1-univariate-smoothing-1.html"><a href="14-1-univariate-smoothing-1.html"><i class="fa fa-check"></i><b>14.1</b> 일변량 스므딩(univariate smoothing)</a><ul>
 <li class="chapter" data-level="14.1.1" data-path="14-1-univariate-smoothing-1.html"><a href="14-1-univariate-smoothing-1.html#--representing-a-function-with-basis-expansions"><i class="fa fa-check"></i><b>14.1.1</b> 함수를 기저로 표현하기(representing a function with basis expansions)</a></li>
+<li class="chapter" data-level="14.1.2" data-path="14-1-univariate-smoothing-1.html"><a href="14-1-univariate-smoothing-1.html#-regression-spline"><i class="fa fa-check"></i><b>14.1.2</b> 회귀 스플라인(regression spline)</a></li>
 </ul></li>
-<li class="chapter" data-level="14.2" data-path="14-2-b-b-spline.html"><a href="14-2-b-b-spline.html"><i class="fa fa-check"></i><b>14.2</b> B-스플라인(B-spline)</a></li>
+<li class="chapter" data-level="14.2" data-path="14-2-b-b-spline.html"><a href="14-2-b-b-spline.html"><i class="fa fa-check"></i><b>14.2</b> B-스플라인(B-spline)</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="14-2-b-b-spline.html"><a href="14-2-b-b-spline.html#p-spline"><i class="fa fa-check"></i><b>14.2.1</b> P-spline</a></li>
+</ul></li>
 <li class="chapter" data-level="14.3" data-path="14-3-soap-film-soap-film-smoothing-over-finite-domains.html"><a href="14-3-soap-film-soap-film-smoothing-over-finite-domains.html"><i class="fa fa-check"></i><b>14.3</b> 유한 도메인에서의 soap film 스므딩(soap film smoothing over finite domains)</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="15-ts.html"><a href="15-ts.html"><i class="fa fa-check"></i><b>15</b> 시계열분석</a><ul>
@@ -697,36 +696,36 @@ dataspec &lt;-<span class="st"> </span><span class="kw">t</span>(dataspec)
 time_index_month &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="kw">as.POSIXct</span>(<span class="st">&quot;1998-01-01&quot;</span>), <span class="dt">to =</span> <span class="kw">as.POSIXct</span>(<span class="st">&quot;2014-12-01&quot;</span>), <span class="dt">by =</span> <span class="st">&quot;month&quot;</span>)
 dataspec &lt;-<span class="st"> </span><span class="kw">xts</span>(dataspec[,<span class="dv">1</span>], <span class="dt">order.by=</span>time_index_month)
 <span class="kw">plot</span>(dataspec, <span class="dt">type=</span><span class="st">&#39;o&#39;</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">150</span>), <span class="dt">xlab=</span><span class="st">&quot;Month&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Monthly&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-192"></span>
-<img src="book_files/figure-html/unnamed-chunk-192-1.svg" alt="Time series of Seoul PM10." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-193"></span>
+<img src="book_files/figure-html/unnamed-chunk-193-1.svg" alt="Time series of Seoul PM10." width="672" />
 <p class="caption">
 FIGURE 18.4: Time series of Seoul PM10.
 </p>
 </div>
 <p><code>TSA</code>, <code>kza</code>, <code>itsmr</code> 패키지를 이용한다. 같은 이름의 함수를 사용하기 때문에 실행할 때 주의해야 한다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TSA<span class="op">::</span><span class="kw">periodogram</span>(dataspec, <span class="dt">log=</span><span class="st">&#39;yes&#39;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-193"></span>
-<img src="book_files/figure-html/unnamed-chunk-193-1.svg" alt="Periodogram (using R package TSA)." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-194"></span>
+<img src="book_files/figure-html/unnamed-chunk-194-1.svg" alt="Periodogram (using R package TSA)." width="672" />
 <p class="caption">
 FIGURE 18.5: Periodogram (using R package TSA).
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(kza<span class="op">::</span><span class="kw">periodogram</span>(<span class="kw">as.numeric</span>(dataspec)), <span class="dt">type=</span><span class="st">&#39;o&#39;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-194"></span>
-<img src="book_files/figure-html/unnamed-chunk-194-1.svg" alt="Periodogram (using R package kza)." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-195"></span>
+<img src="book_files/figure-html/unnamed-chunk-195-1.svg" alt="Periodogram (using R package kza)." width="672" />
 <p class="caption">
 FIGURE 18.6: Periodogram (using R package kza).
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(itsmr<span class="op">::</span><span class="kw">periodogram</span>(dataspec))</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-195"></span>
-<img src="book_files/figure-html/unnamed-chunk-195-1.svg" alt="Periodogram (using R package itsmr)." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-196"></span>
+<img src="book_files/figure-html/unnamed-chunk-196-1.svg" alt="Periodogram (using R package itsmr)." width="672" />
 <p class="caption">
 FIGURE 18.7: Periodogram (using R package itsmr).
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-195"></span>
-<img src="book_files/figure-html/unnamed-chunk-195-2.svg" alt="Periodogram (using R package itsmr)." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-196"></span>
+<img src="book_files/figure-html/unnamed-chunk-196-2.svg" alt="Periodogram (using R package itsmr)." width="672" />
 <p class="caption">
 FIGURE 18.7: Periodogram (using R package itsmr).
 </p>
