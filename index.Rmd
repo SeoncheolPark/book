@@ -27,7 +27,7 @@ John W. Tukey는 이렇게 말했다.
 
 각 장은 독립된 구성으로 되어 있으며, 한 권 이상의 책들을 참고문헌으로 하여 그들의 정의 및 표현을 따라가는 방식으로 구성되어 있다. 따라서 각 장마다 표현 및 한국어 용어 번역이 상이할 수 있다.
 
-library(wavethresh, splines2, astsa, xts, quantspec, TSA, kza, itsmr, dismo, waveslim, "geoR", "SpatialEpi", "spBayes", fields, RandomFields, SpatialExtremes, spatstat, ggplot2, splancs, evd)
+library(wavethresh, splines2, astsa, xts, quantspec, TSA, kza, itsmr, dismo, waveslim, "geoR", "SpatialEpi", "spBayes", fields, RandomFields, SpatialExtremes, spatstat, ggplot2, splancs, evd, plotrix)
 
 
 \mainmatter

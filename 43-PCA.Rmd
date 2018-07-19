@@ -139,22 +139,37 @@ $$\sigma(s,t)=\sum_{j=1}^{\infty}\lambda_{j}V_{j}(s)V_{j}(t)$$
 무작위 커브 $X(t)$는 다음과 같이 표현할 수 있다.
 $$X(t)=\mu(t) + \sum_{j=1}^{\infty}\xi_{j}V_{j}(t).$$
 여기서 계수 $\xi_{j}$는 다음과 같은 스칼라 확률변수이다.(**j번째 functional PC score**이다.)
-$$\xi_{j} =\int [X(t)-\mu(t)]V_{j}(t)dt.$$
+
+\begin{equation}
+\xi_{j} =\int [X(t)-\mu(t)]V_{j}(t)dt.
+(\#eq:Karhunen)
+\end{equation}
+
 이 때 $E\{xi_{j}\}=0$, $\text{var}\{\xi_{j}\}=\lambda_{j}$, $\sum_{j}\lambda_{j}<\infty$ 그리고 $\text{cov}\{\xi_{j},\xi_{k}\}=0,j\neq k$이다. 고유함수들 $\{V_{j}(t) \}$ (**PC 함수라고도 부른다**)은 다음을 만족한다.
 $$\int_{[0,T]} [V_{j}(t)]^{2}dt=1, \qquad{\int_{[0,T]} V_{j}(t)V_{k}(t)dt=0, j\neq k. }$$
-여기서 적분은 periodic일 수 있다. $X(t)-\mu(t)$는 각각의 곡선들이 uncorrelated random amplitude를 갖는 직교 곡선들의 유한한 합으로 생각할 수 있다.
+여기서 적분은 $[0,T]$에서 정의되며 periodic일 수 있다. 식 \@ref(eq:Karhunen)은 $X(t)$에 대해 잘 알려진 **Karhunen-Loeve expansion**이다. 그래서 $X(t)-\mu(t)$는 각각의 곡선들이 uncorrelated random amplitude를 갖는 직교 곡선들의 유한한 합으로 생각할 수 있다. 
 
 과학적으로는 함수 자료임이 알려졌다고 하더라도 실제로는 표본을 통해 유한한 양의 지식만을 알고 있다. 따라서 평균 곡선 $\mu(t)$와 공분산 함수 $\sigma$를 추정하는 것은 $n$개의 표본 곡선들의 collection들 $X_{1}(t),\ldots, X_{n}(t)$로부터 기반한다. 이 때 $i$번째 곡선 $X_{i}(t)$는 $X_{i}(t)=\mu(t)+\sum_{j}\xi_{ij}V_{j}(t)$이다. $i$번째 곡선의 $k$번째 점은 $X_{ik}=X_{i}(t_{k})$이다.
 
 이러한 functional PCA를 적합하는 방법으로는 각각의 표본 곡선들을 spline이나 local-linear smoother로 부드럽게 만든 후 적합하게 되며 regularization을 사용하기도 한다.
 
+[@Kokoszka2017]에 따르면, 함수자료 PCA의 목적은 관찰된 자료 $X(t_{m})$을 추정 또는 예측된 주성분 점수 $\{\hat{\xi}_{j} \}$ 또는 부드러운 경로로 대체하는 데에 그 목적이 있다. 또한 FPCA가 달성할 수 있는 것으로 다음의 네 가지를 적었다.
+
+1. irregular data are now on a “common scale” when working with scores,
+
+2. the scores are typically of a lower dimension (though not necessarily for very sparse data),
+
+3. the scores can be used in further multivariate statistical analyses,
+
+4. the scores and FPC’s can be used to reconstruct individual trajectories.
+
 ### 함수자료 PCA의 적합(estimation of functional PCA)
 
-L2관점에서 fPCA를 하는 것은 eigneproblem을 푸는 것과 같다고 한다. FPCA를 하는 것에는 다음과 같은 방법들이 있다.
+[@Ramsay2005] 책 8장에 FPCA에 대해 자세히 소개되어 있다. L2관점에서 fPCA를 하는 것은 eigneproblem을 푸는 것과 같다고 한다. FPCA를 하는 것에는 다음과 같은 방법들이 있다.
 
-1. **Discretizing the functions**: equally spcaed grid point $t_{1},\ldots , t_{m}$을 생각하고 covariance matrix  $\mathbf{V}^{*}$를 $\mathbf{V}(t_{i},t_{j})$로 나타낸 다음 다변량 PCA를 $\mathbf{V}^{*}$에 적합, smoothes PC를 얻기 위해 interpolation을 추가로 한다.
+1. **Discretizing the functions**: 가장 간단한 방법은 관찰된 함수 $x_{i}$을 이산화하는 것이다. equally spcaed grid point $t_{1},\ldots , t_{m}$을 생각하고 covariance matrix  $\mathbf{V}^{*}$를 $\mathbf{V}(t_{i},t_{j})$로 나타낸 다음 다변량 PCA를 $\mathbf{V}^{*}$에 적합, smoothes PC를 얻기 위해 interpolation을 추가로 한다. 이를 이용하는 방법은 함수 `prcomp`로 할 수 있다.
 
-2. **Basis expansion of the functions**: $y_{i}(t)=\sum_{j=1}^{K}c_{ij}\phi_{k}(t)$라고 호자. $\Phi$를 orthonormal basis의 집합이라고 하자. 그리고 $\mathbf{C}$를 $(n\time K)$ coefficient matrix라고 하자. 그러면 $\mathbf{Y}=\mathbf{C}\Phi$이고 표본 공분산 행렬은 $\mathbf{V}=\frac{1}{n}\Phi^{T}\mathbf{C}^{T}\mathbf{C}\Phi$로 쓸 수 있다. 이를 이용하는 방법은 패키지 `FDA`에서 구현되어 있다.
+2. **Basis expansion of the functions**: $y_{i}(t)=\sum_{j=1}^{K}c_{ij}\phi_{k}(t)$라고 호자. $\Phi$를 orthonormal basis의 집합이라고 하자. 그리고 $\mathbf{C}$를 $(n\times K)$ coefficient matrix라고 하자. 그러면 $\mathbf{Y}=\mathbf{C}\Phi$이고 표본 공분산 행렬은 $\mathbf{V}=\frac{1}{n}\Phi^{T}\mathbf{C}^{T}\mathbf{C}\Phi$로 쓸 수 있다. 이를 이용하는 방법은 패키지 `FDA`에서 구현되어 있다.
 
 3. **Smoothing the covariance kernel**: 이 방법은 `PACE` 패키지에 구현되어있다.
 

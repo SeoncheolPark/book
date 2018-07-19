@@ -78,6 +78,18 @@ $X_{n}\stackrel{a.s.}{\rightarrow}X$, $Y_{n}\stackrel{a.s.}{\rightarrow}Y$라고
 
 ```
 
+```{example, name="경험분포함수의 일치성"}
+말기 암 환자들의 연구에서 $X_{i}$는 연구 시작으로부터 $i=1,\ldots, n$번째 환자의 죽음에 이르는데 걸리는 시간이라고 하자. $X_{i}$는 i.i.d이며 분포함수 $F(x)$를 따른다고 가정하자. 우리는 다른 $x$들에 대해 $F(x)$를 추정하고 싶어한다. $x$를 고정하면 죽은 환자의 수는 성공 확률 $F(x)$인 binomial distribution을 따른다. 만약 $\hat{F}_{n}(x)$가 시간 $x$에서 죽은 환자들의 비율을 나타낸다고 하면 Chebychev의 inequality에 의해
+
+\begin{align*}
+P(|\hat{F}_{n}(x) - F(x)|&\geq \epsilon) \leq \frac{\text{var}\{\hat{F}_{n}(x)\}}{\epsilon^{2}}\\
+&= \frac{F(x)\{1-F(x)\}}{n\epsilon^{2}}\rightarrow 0
+\end{align*}
+
+이 된다. 즉 $\hat{F}_{n}(x)=\frac{1}{n}\sum_{i=1}^{n}I(X_{i}\leq x)$는 각 $x$에 대해 진짜 분포 함수 $F(x)$로 확률수렴한다.
+
+```
+
 ## Lp 수렴(Convergence in Lp)
 
 추정량 $\hat{\theta}_{n}$이 모수 $\theta$에 가까운 정도를 나타내는 또 다른 측도 중 하나는 **평균제곱오차(mean squared error, MSE)**, $E(\hat{\theta}_{n}-\theta)^{2}$이다. 이것은 두 개의 벡터 $\mathbf{x},\mathbf{y}$가 어느 정도 가까운지 나타내는 측도로 $\sum_{i=1}^{k}(x_{i}-y_{i})^{2}$을 나타내는 것과 동일한 아이디어이다. 그러나 두 벡터 사이의 거리를 나타내기 위해서 제곱근을 취하는 것차럼, $\hat{\theta}_{n}$과 $\theta$의 거리를 나타내기 위해 MSE에도 제곱근을 취한다. 이것이 $L^{p}$거리의 특수한 형태인 $L^{2}$거리를 유도한다.
@@ -89,6 +101,7 @@ $X_{n}\stackrel{a.s.}{\rightarrow}X$, $Y_{n}\stackrel{a.s.}{\rightarrow}Y$라고
 
 ```{definition, name="Lp수렴"}
 확률변수들의 수열 $X_{1},X_{2},\ldots$가 $n\rightarrow 0$일 때 $E(|X_{n}-X|^{p})\rightarrow 0$을 만족할 경우 이 수열들이 $X$에 $L^{p}$ 수렴한다고 정의한다.
+
 ```
 
 ## 분포수렴(Convergence in distribution)
@@ -128,6 +141,11 @@ F_{n}(x)=
 
 ```{definition, name="분포수렴"}
 $X_{n}, X$가 분포함수 $F_{n}(x), F(x)$를 갖는 확률변수들이라고 하자. 그러면 모든 연속인 점 $x$에 대해 $F_{n}(x)\rightarrow F(x)$일 경우 $X_{n}$이 $X$에 **분포수렴(converge in distribution)**한다고 정의하고 $X_{n}\stackrel{D}{\rightarrow} X$ 또는 $F_{n}\stackrel{D}{\rightarrow} F$로 쓴다.
+
+```
+
+```{example, name="정규분포에서 나온 확률변수들의 분포수렴"}
+$X_{n}$이 평균 $\mu_{n}$이고 표준편차가 $\sigma_{n}$인 정규확률변수라고 하자. 그리고 $\mu_{n}\rightarrow\mu$이고 $\sigma_{n}\rightarrow\sigma >0$이다. 그러면 $P(X_{n}\leq x) = P\{\frac{X_{n}-\mu_{n}}{\sigma_{n}}\leq \frac{x-\mu_{n}}{\sigma_{n}}\}=\Phi\{ \frac{x-\mu_{n}}{\sigma_{n}} \}$이다. $\Phi$는 연속이고 $\frac{x-\mu_{n}}{\sigma_{n}}\rightarrow \frac{x-\mu}{\sigma}$이므로 $P(X_{n}\leq x) \rightarrow \Phi\frac{x-\mu}{\sigma}$이다. 즉 $X_{n}\stackrel{D}{\rightarrow}\mathcal{N}(\mu,\sigma^{2})$이다.
 
 ```
 

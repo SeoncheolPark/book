@@ -1,0 +1,59 @@
+# 선형혼합모형 {#lmm}
+
+## 선형혼합모형(linear mixed model)
+
+이 부분의 내용은[@Wood2006]를 참고하였다. 일반적으로 **선형혼합모형(linear mixed model)**은 선형모형을 확장한 것이다.
+$$\mathbf{y}=\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\epsilon}, \qquad{\boldsymbol{\epsilon}\sim\mathcal{N}(0,\boldsymbol{\Lambda}_{\theta})}.$$
+이 때
+$$\mathbf{y}=\mathbf{X}\boldsymbol{\beta}+\mathbf{Zb}+\boldsymbol{\epsilon},$$
+$$\mathbf{b}\sim\mathcal{N}(\mathbf{0},\boldsymbol{\psi}_{\theta}),$$
+$$\boldsymbol{\epsilon}\sim\mathcal{N}(\mathbf{0},\boldsymbol{\Lambda}_{\theta})$$
+이다. $\mathbf{b}$는 무작위 벡터로 **무작위 효과(random effects)**를 나타낸다. $\mathbf{b}$는 기댓값이 0이고 공분산 행렬은 알려지지 않은 모수 $\theta$를 포함한 $\boldsymbol{\psi}_{\theta}$를 갖는다. $\mathbf{Z}$는 무작위 효과를 나타내는 모형 행렬(model matrix)이다. $\boldsymbol{\Lambda}_{\theta}$는 양정치(positive definite) 행렬로 residual의 autocorrelation을 모델링하는데 사용한다. 만약 $\boldsymbol{\Lambda}_{\theta}=\mathbf{I}\sigma^{2}$이면 $\mathbf{b}$와 $\boldsymbol{\epsilon}$은 독립이다.
+
+### 무작위 요인인 한 개일 때(a single random factor)
+
+[@Wood2006]를 참고하였다. 이 때의 모형은
+$$y_{ij}=\alpha +b_{i}+\epsilon_{ij}$$
+이다. 이때 $\alpha$는 모집단의 평균에 대한 고정된 모수 $i=1,\ldots, I, j=1,\ldots, J$이고 $b_{i}\sim\mathcal{N}(0,\sigma_{b}^{2})$, $\epsilon_{ij}\sim\mathcal{N}(0,\sigma^{2})$이다. 그리고 모든 $b_{i}$와 $\epsilon_{e}_{ij}$는 서로 독립이다.
+
+### 무작위 요인인 두 개일 때(a model with two factors)
+
+## 혼합모형에 대한 최대가능도 추정(maximum likelihood estimaton for mixed model)
+
+최소자승법보다 혼합모형에 대한 좀 더 일반적인 접근 방법은 일반화선형모형처럼 최대가능도 추정(maximum likelihood estimaton, MLE)을 하는 것이다. 자료 벡터 $\mathbf{y}$에 대한 통계적 모형은 확률밀도함수 $f_{\theta}(\mathbf{y})$를 정의한다. $\boldsymbol{\theta}$는 모형의 알려지지 않은 모수에 해당한다. MLE의 가장 키가 되는 아이디어는 $f_{\theta}(\mathbf{y})$가 큰 쪽에 진짜 $\boldsymbol{\theta}$가 있을 가능성이 높다는 것이다.
+
+### 가능도 최대화의 수치적 방법(numerical likelihood maximization)
+
+로그-가능도를 직접 최대화할 수 있는 경우는 흔치 않으며, 주로 수치적 최적화 방법이 필요하다. 속도와 신뢰성 향상을 위해 뉴턴 방법의 변형된 방법들이 주로 선택되어진다. 또한 이 방법은 로그-가능도의 헤시안을 구해야 한다. 그리고 $l(\boldsymbol{\theta})$를 최대화하는 것은 $-l(\boldsymbol{\theta})$를 최소화하는 것과 같다.
+
+뉴턴 방법의 기본 원리는 $l(\boldsymbol{\theta})$를 지금 상태의 모수 추측 $\boldsymbol{\theta}_{0}$을 이용해 2차 테일러 전개로 근사하는 것이다. 그리고 $l(\boldsymbol{\theta}')<l(\boldsymbol{\theta}_{0})$일 경우 새로 얻어진 $l(\boldsymbol{\theta}')$가 $l(\boldsymbol{\theta}_{0})$보다 작지 않을 때까지 $\boldsymbol{\theta}' \leftarrow \frac{\boldsymbol{\theta}' + \boldsymbol{\theta}_{0}}{2}$로 바꿔준다. 이런 과정들은 $\frac{\partial l}{\partial \boldsymbol{\theta}}\approx 0$이 될때까지 반복한다. 
+
+## 일반적인 선형 혼합모형(linear mixed model in general)
+
+## 선형 혼합모형의 최대가능도추정(maximum likelihood estimaton for linear mixed model)
+
+### REML
+
+분산성분들에 관한 최대가능도 추정의 가장 큰 문제는 과소추정(underestimate)할 가능성이 높다는 것이다. 가장 명백한 예제로 선형모형의 $\sigma^{2}$에 대한 최대가능도추정은 $\hat{\theta}^{2} = \frac{\|\mathbf{y}-\mathbf{X}\boldsymbol{\beta} \|^{2}}{n}$이다. 이것은 분명히 불편추정량이 아니다.
+
+**Restricted maximum likelihood (REML)**은 최대가능도 대신 편차를 줄이기 위해 고안되었다. 제한된 가능도는 $f(\mathbf{y}, \mathbf{b}|\boldsymbol{\beta})$를 $\mathbf{b}$와 $\boldsymbol{\beta}$에 대해 적분함으로써 얻을 수 있다. 결과는 다음과 같다.
+
+\begin{align*}
+2l_{r}(\boldsymbol{\theta})&=-\|\mathbf{y}-\mathbf{X}\hat{\boldsymbol{\beta}}-\mathbf{Z}\hat{\mathbf{b}} \|_{\Lambda_{\theta}^{-1}}^2-\hat{\mathbf{b}}^{T}\boldsymbol{\psi}_{\theta}^{-1}\hat{\mathbf{b}}-\log|\boldsymbol{\Lambda}_{\theta}|-\log |\boldsymbol{\psi}_{\theta}|\\
+&- \log
+\begin{bmatrix}
+\mathbf{Z}^{T}\boldsymbol{\Lambda}_{\theta}^{-1}\mathbf{Z}+\boldsymbol{\psi}_{\theta}^{-1} & \mathbf{Z}^{T}\boldsymbol{\Lambda}_{\theta}^{-1}\mathbf{X}\\
+\mathbf{X}^{T}\boldsymbol{\Lambda}_{\theta}^{-1}\mathbf{Z} & \mathbf{X}^{T}\boldsymbol{\Lambda}_{\theta}^{-1}\mathbf{X}
+\end{bmatrix}
+-(n-M)\log(2\pi).
+\end{align*}
+
+이 때 $M$은 $\boldsymbol{\beta}$의 차원이며 $\hat{\boldsymbol{\beta}}$와 $\hat{\mathbf{b}}$는 $\boldsymbol{\theta}$에 의존적이므로 각각의 $\boldsymbol{\theta}$에 대해서 다 계산해줘야 한다. Restrict log likelihood $l_{r}$은 AIC 등의 test statistic을 사용할 수 있다. 그러나 different fixed effect structure를 가진 모형끼리는 비교할 수 없다.
+
+
+
+## R 예제 (linear mixed models in R)
+
+
+
+

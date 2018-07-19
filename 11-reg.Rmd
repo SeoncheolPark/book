@@ -1,0 +1,15 @@
+# 회귀분석 {#reg}
+
+AIC, AICc, BIC
+
+## 선형모형(linear model)
+
+### 단순선형모형(simple linear model)
+
+이 절의 내용은 [@Yee2015]를 따른다. [@Wood2006]도 참고한다. 다음과 같이 $n$개의 관찰값 $x_{i},y_{i}, i=1,\ldots,n$이 있다고 하자. 이 때 $y_{i}$는 평균이 $\mu_{i}=E(Y_{i})$인 확률변수 $Y_{i}$의 관찰값이라고 하자. 그러면 $x$와 $y$ 사이에 가장 단순한 형태의 선형모형을 세울 수 있다.
+$$Y_{i}=\mu_{i}+\epsilon_{i}, \qquad{\mu_{i}=x_{i}\beta}.$$
+이 때 $\beta$는 알려지지 않은 **모수(parameter)**이며 $\epsilon_{i}$는 보통 상호 독립이면 평균이 0인 확률변수라고 가정한다. $Y$는 보통 **설명변수(response variable)**라고 부르며, $x$는 **예측변수(predictor variable)**라고 부른다.
+
+### 단순 최소제곱 추정(simple least squares estimation)
+
+그렇다면 우리는 자료 $(x_{i},y_{i})$들로부터 $\beta$를 어떻게 추정할 수 있을까? 가장 합리적인 방법으로 자료를 가장 잘 적합(fit)하는 $\hat{\beta}$로 $\beta$를 추정할 수 있다.
