@@ -251,6 +251,10 @@ lambda*pi*(0.2)^2
 
 비동질적 포아송 과정인 독립 증분을 갖으나 정상 증분(stationary increment)을 가질 필요는 없다. 이는 $0<s<t$일때 $N_{t}-N_{s}$는 모수 $\int_{s}^{t}\lambda(x)dx$를 갖는 포아송 분포를 갖음으로부터 알 수 있다.
 
+### 공간 포아송 과정 이론(theory of spatial Poisson process)
+
+이 절은 Rasmussen의 2011년 강의노트를 따른다.
+
 ## 브라운운동(Brownian motion)
 
 ```{definition, name="저차원에서의 브라운운동"}

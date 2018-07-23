@@ -1,8 +1,8 @@
 # (PART) Extreme Value Statistics {-}
 
-통계학자 존 튜키(John Tukey)는 이렇게 말했다. "나는 모든 지구물리학자들이 실제 오차나 변동성의 분포들이 가우스(Gauss)나 라플라스(Laplace)가 만든 매끄러운 종 모양의 분포보다 훨씬 더 극단값 분포에 가까운 모양을 갖고 있음을 알고 있다고 확신한다."
-
 # 일변량 극단값 이론 {#uGEVtheory}
+
+통계학자 존 튜키(John Tukey)는 이렇게 말했다. "나는 모든 지구물리학자들이 실제 오차나 변동성의 분포들이 가우스(Gauss)나 라플라스(Laplace)가 만든 매끄러운 종 모양의 분포보다 훨씬 더 극단값 분포에 가까운 모양을 갖고 있음을 알고 있다고 확신한다."
 
 이 장은 일변량 극단값 분포 이론과 모델링에 관한 내용을 담고 있다. 특히 부분 최댓값
 $$M_{n}=\max\{X_{1},\ldots,X_{n}\}$$
@@ -14,11 +14,13 @@ $n$이 일년동한 관찰한 관측값 수라고 할 경우, $M_{n}$은 월 최
 ```
 
 $X_{i}$들이 독립이라고 가정하였으므로 $M_{n}$의 분포는
-\begin{eqnarray*}
-P\{M_{n} \leq z \} &=& P\{X_{1}\leq z, \ldots, X_{n} \leq z\} \nonumber\\
-&=&P\{X_{1}\leq z\}\times \cdots \times P\{X_{n}z\} \nonumber\\
-&=&\{F(z)\}^{n}.
-\end{eqnarray*}
+$$
+\begin{align*}
+P\{M_{n} \leq z \} &= P\{X_{1}\leq z, \ldots, X_{n} \leq z\}\\
+&=P\{X_{1}\leq z\}\times \cdots \times P\{X_{n}z\}\\
+&=\{F(z)\}^{n}.
+\end{align*}
+$$
 가 된다.
 
 그러나 이 식은 실제 도움이 되지 않는다. 왜냐하면 $F$의 진짜 분포가 어떤지를 모르기 때문이다. 여기서 우리는 관찰 데이터를 통해 $F$를 어떤 통계적 방법을 이용해 추정하고 그것으로 $F$를 대체할 가능성이 있는지 고민해볼 수 있다. 그렇지만 $F$의 변화가 아주 작더라도 $F^{n}$은 매우 많이 변하게 된다.
@@ -34,13 +36,13 @@ $$M_{n}^{*}=\frac{M_{n}-b_{n}}{a_{n}}.$$
 $$P\{(M_{n}-b_{n})/a_{n}\leq z\} \rightarrow G(z), \qquad{n \rightarrow \infty}$$
 가 성립한다고 가정하자. 여기서 $G$는 퇴화분포가 아닌 어떤 분포함수이다. 이 때, $G$다음 세 개의 족(family) 중 하나를 따른다.
 
-$$\textbf{굼벨(Gumbel): }G(z)=\exp\{\exp[-(\frac{z-b}{a})\}, \qquad{-\infty < z < \infty}.$$
-$$\textbf{프레셰(Frechet): }G(z)=
+$$\textbf{(Gumbel): }G(z)=\exp\{\exp[-(\frac{z-b}{a})\}, \qquad{-\infty < z < \infty}.$$
+$$\textbf{(Frechet): }G(z)=
 \begin{cases}
 0, & \text{z $\leq$ b}\\
 \exp\{-(\frac{z-b}{a})^{-\alpha}\}, & \text{z > b}
 \end{cases}$$
-$$\textbf{와이블(Weibull): }G(z)=
+$$\textbf{(Weibull): }G(z)=
 \begin{cases}
 \exp\{-[-(\frac{z-b}{a})^{-\alpha}]\}, & \text{z < b}\\
 1, & \text{z $\geq$ b}

@@ -1,7 +1,30 @@
 # 측도 {#measure}
 
-권순식 교수님의 르베그 적분론 강의노트를 참고하였다. **측도(measure)**란 수학에서, **양(quantity)**이라 개념을 반영하기 위해 만들어진 장치다. $X$를 어떤 집합이라고 하고, 이것의 부분집합 $U \subset X$가 있을 때,
+권순식 교수님의 르베그 적분론 강의노트를 참고하였다. Pivato의 Analysis, Measure, and Probability: A visual introduction 또한 참고하였다. **측도(measure)**란 수학에서, **양(quantity)**이라 개념을 반영하기 위해 만들어진 장치다.
 
+```{r, echo=F, fig.cap='Cardinality, length, area, volume, frequency and probability.', fig.align='center'}
+knitr::include_graphics("measure_intro.png")
+```
+
+$\mathbf{X}$를 집합이라고 하자. 그리고 부분집합들 $\mathbf{U,V}\subset \mathbf{X}$이 있는데 이들의 'size'를 비교하고 싶어한다. 이런 'quantity'의 개념들은 여러가지가 있다.
+
+- **Cardinality**: 이산 집합에 해당하는 것으로 어떤 지역의 인구 수나 가방 안의 구슬들의 숫자 등이 해당된다.
+
+- **Length**: 줄과 같은 1차원 물체에 적용할 수 있다.
+
+- **Area**: 카펫과 같은 2차원 물체에 적용할 수 있다.
+
+- **Volume**: 물병의 용량과 같은 3차원 물체에 적용할 수 있다.
+
+- **Mass**: 물질의 양을 잴 때 사용한다.
+
+- **Charge**: 전자기기에 사용된는 양의 크기
+
+- **Average Frequency**: 종종 어떤 사건이 일어날 때 평균의 양을 정하기 위해 사용한다. 이러한 주기들은 가법성을 갖는다. 예를 들면 1년 중 흐린 날의 숫자를 센다고 했을 때 이들은 흐리면서 비온날 + 흐리면서 비는 안온날 의 합으로 생각할 수 있다.
+
+- **Probability**: 어떤 사건이 일어날 것의 승산(odds)을 말하며 이들 또한 가법성을 갖는다.
+
+## 리만 적분의 한계정(limitation of Riemman integral)
 
 전형적인 적분(integral) $\int_{A}f(x)dx$는 다음으로 구성되어있다.
 
@@ -48,8 +71,6 @@ $$m:\mathcal{M}\rightarrow [0,\infty], \mathcal{M}\subseteq\mathcal{P}(\mathbb{R
 
 정리하면, 만족스러운 적분이론을 얻기 위해 우리는 $\mathbb{R}^{n}$에서의 충분히 큰 subset들의 class에 대해 잘 정의되는 측도를 구성하고자 한다. 그러면 여기서 리만 적분으로는 불충분한 점들을 몇 가지 짚고 넘어가고자 한다.
 
-## 리만 적분의 한계정(limitation of Riemman integral)
-
 우선, 리만 적분이 가능하려면, '대부분의' 작은 interval에서 $\max f - \min f$가 매우 작아야한다. 즉, 리만 적분 가능성은 함수의 연속성과 관련이 있다. 실제로 함수 $f$가 리만 적분 가능하려면 $f$가 거의 모든 지점에서 연속이어야 한다(이는 필요충분조건이다).
 
 ```{example, name="리만 적분이 안되는 함수"}
@@ -84,7 +105,7 @@ $f_{n}$들은 유한히 많은 점들을 제외하고 모두 연속이므로 리
 
 ## 르베그 측도의 구성(construction of Lebesgue measure)
 
-## 르베츠 측도의 성질(properties of Lebesgue measure)
+## 르베그 측도의 성질(properties of Lebesgue measure)
 
 ## 확률측도(probability measure)
 
@@ -98,6 +119,12 @@ $f_{n}$들은 유한히 많은 점들을 제외하고 모두 연속이므로 리
 ## 라돈-니코딤 정리(Radon-Nykodim theorem)
 
 ## 다양한 측도들(various measures)
+
+### 셈 측도(counting measure)
+
+**셈 측도(counting measure)**는 모든 집합에 그 집합의 cardinality를 준다.
+$$\mu[\mathbf{S}]:=\text{card}[\mathbf{S}].$$
+물론 무한집합의 셈 측도는 단순히 $\infty$가 된다. 따라서 셈 측도는 무한집합이 얼마나 작은지 큰지 구분을 할 수 없다. 따라서 셈 측도는 유한 측도 공간에서만 매우 유용하다.
 
 ### 보렐 측도(Borel measure)
 

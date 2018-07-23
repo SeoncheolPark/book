@@ -12,9 +12,11 @@
 
 ```{definition, name="최대안정과정의 다른 정의"}
 $Z_{1}, Z_{2},\ldots$를 확률과정 $\{Z(x):x\in\mathcal{X} \}$의 독립인 copy들의 수열이라고 하자. 만약 각각의 $n, (n\geq 1)$에 대해 다음과 같은 $a_{n}>0$, $b_{n}\in\mathbb{R}$이 존재해 다음
+$$
 \begin{equation}
 \frac{\max_{i=1,\ldots ,n}Z_{i}-b_{n}}{a_{n}}\stackrel{d}{=}Z
 \end{equation}
+$$
 을 만족한다면 $\{Z(x):x\in\mathcal{X} \}$를 **최대안정(max-stable)**하다고 말한다.
 
 ```
@@ -23,9 +25,11 @@ $Z_{1}, Z_{2},\ldots$를 확률과정 $\{Z(x):x\in\mathcal{X} \}$의 독립인 c
 
 ```{theorem, name="최대안정과정 관련 정리"}
 $Y_{1}, Y_{2},\ldots$를 continuous sample path를 갖는 $\{Y(x):x\in\mathcal{X} \}$의 독립인 copy들의 수열이라고 하자. 만약 연속함수 $c_{n}>0, d_{n}\in\mathbb{R}$이 존재해 극한과정(limiting process) $\{Z(x): x\in\mathcal{X}\}$에 수렴한다면, 즉
+$$
 \begin{equation}
 \frac{\max_{i=1,\ldots, n}Y_{i}(x)-d_{n}(x)}{c_{n}(x)}\rightarrow Z(x), x\in\mathcal{X}, n\rightarrow \infty 
 \end{equation}
+$$
 이고 $Z(x)$가 non-degenerate라면 $\{Z(x):x\in\mathcal{X} \}$ **최대안정과정(max-stable process)**이어야 한다. 위 식의 수렴은 $\mathcal{X}$의 연속함수 공간에서의 약수렴(weak convergence)을 의미한다.
 
 이 정리의 의미는 다음과 같다. 일변량 극단값 이론과 연관성을 생각해보면 $\{Z(x):x\in\mathcal{X} \}$는 일반화 극단값 분포여야 한다는 것이다.
@@ -36,9 +40,11 @@ $Y_{1}, Y_{2},\ldots$를 continuous sample path를 갖는 $\{Y(x):x\in\mathcal{X
 
 ```{definition, name="부분 최대 과정"}
 (margin이 unit Fréchet $(F(z)=\exp(-1/z))$이라고 가정하자.) 이러한 경우에
+$$
 \begin{equation}
 \max_{i=1,\ldots , n}n^{-1}Z_{i}(\cdot) \stackrel{d}{=} Z(\cdot), n\geq 1
 \end{equation}
+$$
 일 경우 과정(process) $\{Z(x)\}$를 **최대안정과정(max-stable process)**이라고 부른다.
 
 ```
@@ -47,15 +53,19 @@ $Y_{1}, Y_{2},\ldots$를 continuous sample path를 갖는 $\{Y(x):x\in\mathcal{X
 
 ```{theorem, name="최대안정과정의 spectral characterization"}
 ([@DeHaan1984]의 characterization) $\{ (\xi_{i}, U_{i})\}_{i \geq 1}$을 $(0,\infty ] \times \mathbb{R}^{d}$에서 (intensity $d\Lambda (\xi, u)=\xi^{-2}d\xi\nu(du), \nu$는 $\mathbb{R}^{d}$에서 $\sigma$-finite measure)의 **Poisson point process**의 점들이라고 하자. 그리고 $\{Z(x) \}_{x\in\mathbb{R}^{d}}$는 unit Fréchet margin을 가지는 최대안정과정이라고 가정하고 continuous sample path에서
+$$
 \begin{equation}
 \{Z(x)\}_{x\in\mathbb{R}^{d}}\stackrel{d}{=}\{\max_{i\geq 1}\xi_{i}f_{x}(U_{i})\}_{x\in\mathbb{R}^{d}}
 \end{equation}
+$$
 를 만족한다. 그러면 다음과 같은은 음이 아닌 연속함수
 $$\{ f_{x}(y):x,y\in\mathbb{R}^{d}\}$$
 가 존재해
+$$
 \begin{equation}
 \int_{\mathbb{R}^{d}}f_{x}(y)\nu(dy)=1, \forall x \in \mathbb{R}^{d}
 \end{equation}
+$$
 를 만족한다.
 
 ```
@@ -82,9 +92,11 @@ knitr::include_graphics("images/spatextremes_004.png")
 ### Smith 모형(Smith model)
 
 첫 번째 제안된 공간 극단값 모형은 [@Smith1990]의 모형이다. 이를 **Smith 과정(Smith process)**이라고 부르기도 한다. [@Schlather2002]에서는 **가우스 극단값 과정(Gaussian extreme value process)**로 언급되었다. 이 모형은
+$$
 \begin{equation}
 Z(x)=\max_{i\geq 1}\xi_{i}\phi(x-U_{i};\mathbf{0},\Sigma), x\in\mathcal{X},
 \end{equation}
+$$
 
 이때 $\phi(\cdot, \mathbf{0},\Sigma)$는 평균이 0이고 공분산이 $\Sigma$인 **다변량 정규 확률밀도함수(multivariate Normal density)**이다.
 
@@ -94,9 +106,11 @@ Z(x)=\max_{i\geq 1}\xi_{i}\phi(x-U_{i};\mathbf{0},\Sigma), x\in\mathcal{X},
 
 Smith 모형이 제안되고 10여년 후, [@Schlather2002]는 **Schlather 과정(Schlather process)**이라는 것을 제안했다. 이 모형은 **극단 가우스  과정(extremal Gaussian process)**으로 불리기도 한다. 이 모형은
 
+$$
 \begin{equation}
 Z(x)=\sqrt{2\pi}\max_{i\geq 1}\zeta_{i}\max\{0,W_{i}(x)\}
 \end{equation}
+$$
 
 로 이때 $\{W_{i}(x): x\in\mathcal{X}\}$는 상관함수(correlation function) $\rho$를 갖는 **정상 가우스과정(staionary Gaussian process)**의 독립된 copy들이다. 또한 척도요인(scaling factor) $\sqrt{2\pi}$는 모든 $x\in\mathcal{X}$에 대해 $\sqrt{2\pi}E[\max\{ 0,W(x)\}]=1$를 만족해야 한다.
 
@@ -106,9 +120,11 @@ Z(x)=\sqrt{2\pi}\max_{i\geq 1}\zeta_{i}\max\{0,W_{i}(x)\}
 
 이 모형은 [@Brown1977]이 처음 제안하였고 [@Kabluchko2009a]가 일반화하였다. **Brown-Resnick 과정(Brown-Resnick process)**는
 
+$$
 \begin{equation}
 Z(x)=\max_{i\geq 1}\xi_{i}\exp\{W_{i}(x)-\gamma(x)\},x\in\mathcal{X}
 \end{equation}
+$$
 
 으로 정의된다. 이때 $\{W_{i}(x): x\in\mathcal{X}\}$는 평균이 0이며 정상증분(stationary increments)을 갖고 준변동도(semi-variogram)이 $\gamma(h)=\text{Var}\{W(x+h)-W(x)\}/2$인 가우스 과정(Gaussian process)의 독립된 cpoy들이다. 한편 Smith 모형은 위 식의 특별한 케이스로,
 
@@ -119,9 +135,12 @@ $$W(x)=x^{T}\Sigma^{-1}X, X\sim\mathcal{N}(0,\Sigma)$$
 
 **극단-t 과정(extremal-t process)**는 이것의 **스펠트럴 특성화(spectral representation)**이 최종적으로 [@Opitz2013]에 의해 유도되었다.
 
+$$
 \begin{equation}
 Z(x)=c_{\nu}\max_{i \geq 1}\zeta_{i}\max\{0,W_{i}(x)\}^{\nu}, x\in\mathcal{X}
 \end{equation}
+$$
+
 이며 $\nu \geq 1$, $\{W_{i}(x):x\in\mathcal{X}\}$는 상관함수가 $\rho$이며
 $$c\nu =\sqrt{\pi}2^{-(\nu-2)/2}\Gamma(\frac{\nu+1}{2})^{-1}$$
 인 정상 가우스 과정의 독립된 copy들이다.
@@ -130,23 +149,29 @@ $$c\nu =\sqrt{\pi}2^{-(\nu-2)/2}\Gamma(\frac{\nu+1}{2})^{-1}$$
 
 공간통계학에서 쓰이는 변동도(variogram)을 다시 정의해보면
 
+$$
 \begin{equation}
 \frac{1}{2}E[\{Z(x_{1})-Z(x_{2}) \}^{2}], x_{1}, x_{2} \in \mathcal{X}
 \end{equation}
+$$
 
 이다. 그러나 공간 극단값 이론에서는 분산 또는 평균조차도 존재하지 않을 수 있다. 다행히도 [@Cooley2006]이 **F-매도그램(F-madogram)**이라는 적절한 툴을 제공하였다. 이것의 정의는 다음과 같다.
 
+$$
 \begin{equation}
 \nu_{F}(h)=\frac{1}{2}E[|F\{Z(x+h)\}-F\{Z(x)\}], x,h\in \mathcal{X}.
 \end{equation}
+$$
 
 여기서 $F$는 $Z(x), x\in\mathcal{X}$의 cdf를 의미한다. (준)변동도와는 달리, F-매도그램은 $F\{Z(x)\} \sim U(0,1)$이므로 잘 정의가 되며 기댓값은 $1/2$을 갖는다. 또한 F-매도그램은 **극단계수함수(extremal coefficient function)**와 강한 연관성을 갖기 때문에 공간 극단값 분석시 유용하다. 극단계수함수는
 $$\theta : h \rightarrow E[\max \{ Y(x),Y(x+h) \}]$$
-\begin{align}
-P\{Z(x+h)\leq z | Z(x)\leq z\}&=&P\{Z(x+h)\leq z\}^{\theta(h)-1}\nonumber\\
-&=&
+$$
+\begin{align*}
+P\{Z(x+h)\leq z | Z(x)\leq z\}&=P\{Z(x+h)\leq z\}^{\theta(h)-1}\nonumber\\
+&=
 \begin{cases}
 1 & \text{perfect dependence}\\
 P\{Z(x+h)\leq z\} & \text{independence}
 \end{cases}
-\end{align}
+\end{align*}
+$$
