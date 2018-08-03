@@ -11,29 +11,37 @@ $X_{1},\ldots , X_{n}$이 i.i.d.로 얻어진 표본들이며 $\mu=E(X_{1})\neq 
 앞선 예제를 다시 생각해보자. $X_{1},\ldots , X_{n}$이 i.i.d.로 얻어진 표본들이며 $\mu=E(X_{1})\neq 0$이라고 하자. 이때 우리가 $\sum_{i=1}^{n}X_{i}$로 기댓값들의 합 $E(\sum_{i=1}^{n}X_{i})=n\mu$를 대체할 수 있는 이유는 쉽게 생각하면, WLLN으로 인해 $\bar{X}=\frac{\sum_{i=1}^{n}X_{i}}{n}$이 $\mu$의 consistent estimator이기 때문이다. 따라서 $E(\sum_{i=1}^{n}X_{i})=n\mu$를 $n\bar{X}=\sum_{i=1}^{n}X_{i}$로 추정하는 것은 일리가 있다.
 
 이 방법을 다른 관점에서 바라보자. 만약 $X_{i}$들이 not i.i.d.일 경우, 어떻게 일반화 할 것이다. 우리는 앞 기대값을 다음과 같이 쓸 수 있다.
+$$
 \begin{eqnarray}
 E(\sum_{i=1}^{n}X_{i})&=&\sum_{i=1}^{n}X_{i}-\{ \sum_{i=1}^{n}X_{i}-E(\sum_{i=1}^{n}X_{i})\}\\
 &=&I_{1}-I_{2}.
 \end{eqnarray}
+$$
 
 이제 $I_{1}$과 $I_{2}$의 order를 비교해보자. $X_{i}$들이 유한한 분산 $\sigma, 0<\sigma^{2}<\infty$을 갖는다고 하자. 그러면 $I_{1}$의 order는 $O_{n}$이고 $I_{2}$의 order는 $O(\sqrt{n})$이다. 좀 더 자세히 보자면 WLLN으로 인해 $\frac{\sum_{i=1}^{n}X_{i}}{n}\stackrel{p}{\rightarrow}\mu\neq 0$이고, 이는 $I_{1}=O(n)$임을 의미한다. 한편, $E(I_{2}^{2})=n\sigma^{2}$임을 보일 수 있고 이는 $E(\frac{I_{2}}{\sqrt{n}})^{2}=\sigma^{2}$임을 의미한다. 이것은 $\frac{I_{2}}{\sqrt{n}}$이 $L^{2}$에서 유계(bounded)임을 의미한다. 따라서, $\frac{I_{2}}{\sqrt{n}}=O(1)$이고 이는 $I_{2}=O(\sqrt{n})$으로 쓸 수 있다. (여기서 $I_{1}, I_{2}$는 모두 확률변수이다.) Order로 미루어 볼 때 $E(\sum_{i=1}^{n}X_{i})$를 $I_{1}$으로 근사하는 것이 main part를 잡아준다는 점에서 reaseonable하다는 것을 알 수 있다.
 
 한편, 두 번째 케이스로 넘어가서, $E(\sum_{i=1}^{2}X_{i})^{2}$을 추정하는 문제를 생각해보자. 간단히 하기 위해 $\mu=0$이라고 가정한다. 그러면
+$$
 \begin{eqnarray}
 E(\sum_{i=1}^{n}X_{i})^{2}&=&(\sum_{i=1}^{n}X_{i})^{2}-\{ (\sum_{i=1}^{n}X_{i})^{2}-E(\sum_{i=1}^{n}X_{i})^{2}\}\\
 &=&I_{1}-I_{2}.
 \end{eqnarray}
+$$
 
 으로 쓸 수 있다. 우리는 여기서 또 $I_{1}$과 $I_{2}$의 order를 비교해볼 수 있다. CLT에 의해 $\frac{\sum_{i=1}^{n}X_{i}}{\sqrt{n}\sigma}\stackrel{d}{\rightarrow}\mathcal{N}(0,1)$임을 안다. 그러면 연속사상정리(정리 \@ref(thm:contmappingthm))에 의해 $n\rightarrow\infty$일 때
+$$
 \begin{equation}
 \frac{(\sum_{i=1}^{n}X_{i})^{2}}{n\sigma^{2}}\stackrel{d}{\rightarrow}\chi_{1}^{2},
 (\#eq:exorderchisqconv)
 \end{equation}
+$$
 
+$$
 \begin{equation}
 \frac{(\sum_{i=1}^{n}X_{i})^{2}}{n\sigma^{2}}-1 \stackrel{d}{\rightarrow}\chi_{1}^{2}-1
 (\#eq:exorderchisqconv2)
 \end{equation}
+$$
 이다. 식 \@ref(eq:exorderchisqconv)은 $I_{1}=O(n)$임을 의미한다. 더 나아가
 $$\frac{(\sum_{i=1}^{n}X_{i})^{2}-E(\sum_{i=1}^{n}X_{i})^{2}}{n\sigma^{2}}=\frac{(\sum_{i=1}^{n}X_{i})^{2}}{n\sigma^{2}}-1,$$
 이므로 식 \@ref(eq:exorderchisqconv2)은 $I_{2}=O(n)$임을 의미한다. 그러므로 이 경우에는 $I_{1}$과 $I_{2}$가 같은 order를 갖으므로 $(\sum_{i=1}^{n}X_{i})^{2}$은 $E(\sum_{i=1}^{n}X_{i})^{2}$의 좋은 근사가 아니다라는 결론을 얻을 수 있다.
@@ -41,6 +49,8 @@ $$\frac{(\sum_{i=1}^{n}X_{i})^{2}-E(\sum_{i=1}^{n}X_{i})^{2}}{n\sigma^{2}}=\frac
 ```
 
 ## Big O와 small o (big O and small o)
+
+[@Jiang2010] 책 3장에 나오는 big O와 small o의 정의다.
 
 ```{definition, name="big O"}
 (실수값을 갖는) 무한 수열 $a_{n},n=1,2,\ldots$가 유계일 경우 $a_{n}=O(1)$이라고 한다. 즉 어떤 상수 $c$가 존재해 $|a_{n}|\leq c, n\geq 1$이면 $a_{n}=O(1)$이다. $b_{n},n=1,2,\ldots$를 양의 값을 갖는 무한 수열이라고 하자. 그러면 수열 $a_{n}/b_{n}, n=1,2,\ldots$가 유계일 때 $a_{n}=O(b_{n})$이라고 한다.
@@ -104,7 +114,7 @@ $a_{n}=n$, $b_{n}=n^{2}$을 생각해보자. 그러면 $a_{n}=o(b_{n})$이다. �
 
 ```
 
-Big O와 small o의 성질들을 좀 더 정리해 보겠다. 이것은 2009년 가을 Asymptotic Analysis 강의노트에서 가져은 것이다.
+Big O와 small o의 성질들을 좀 더 정리해 보겠다. 이것은 2009년 가을 Asymptotic Analysis 강의노트 2장에서 가져온 것이다.
 
 - **Constant in O-terms**: 만약 $C$가 양의 상수라면, $f(x)=O(Cg(x))$는 $f(x)=O(g(x))$와 같다. 특별히 $f(x)=O(C)$는 $f(x)=O(1)$과 같다.
 
@@ -157,18 +167,22 @@ $A$와 $B$를 $k \times k$ 행렬이라고 하자. 그러면
 
 ```{definition, name="big Op"}
 확률변수들의 수열 $X_{n},n=1,2,\ldots$이 어떤 $\epsilon >0$에 대해 $M>0, N\geq 1$이 존재해
+$$
 \begin{equation}
 P(|X_{n}|\leq M)> 1-\epsilon,\qquad{n\geq N}
 \end{equation}
+$$
 이면 $X_{n}=O_{P}(1)$이라고 한다. $a_{n}$을 양수들의 수열이라고 하자. 좀 더 일반적으로 $X_{n}/a_{n}=O_{P}(1)$이라고 할 때 $X_{n}=O_{P}(a_{n})$이다.
 
 ```
 
 ```{lemma}
 $X_{n}=O_{P}(1)$인 것은 모든 $\epsilon >0$에 대해 $M>0$이 존재해
+$$
 \begin{equation}
 P(|X_{n}|\leq M)> 1-\epsilon,\qquad{n\geq 1}
 \end{equation}
+$$
 인 것과 동치이다.
 
 ```

@@ -103,6 +103,30 @@ $$
 
 $f_{n}$들은 유한히 많은 점들을 제외하고 모두 연속이므로 리만 적분가능하다. 더불어 $n\rightarrow \infty$일 때 $f_{n}\rightarrow f_{\text{Dir}}$이다. 그러나 앞서 살펴본대로 $f_{\text{Dir}}$은 리만 적분 가능하지 않다. 이 예는 모든 함수들의 수열이 리만 적분 가능하더라도, 그것의 극한은 리만 적분 가능하지 않을 수도 있다는 것을 보여준다. 단 $\{f_{n}\}$이 $f$로 uniform converge 하는 경우에는 $f$는 항상 리만 적분 가능하다.
 
+## 외측도(outer measure)
+
+외측도 부분은 Christopher E. Heil의 real analysis 강의를 참고하였다. 보통의 경우에는 우리가 어떻게 측도를 만들 수 있는지 아는 $\mathbb{R}^{d}$의 부분집합의 basic class들(rectangular box 또는 cube)로부터 시작한다. 여기서는 그들의 부피로 측도를 정의할 수 있다. 그 다음에는 이 측도의 개념을 $\mathbb{R}^{d}$의 모든 부분집합들로 확장할 방법을 찾아야 한다. 모든 부분집합 $E \subset \mathbb{R}^{d}$에서 우리는 음이 아니고 확정된 실수값을 갖는 숫자를 정의할 수 있으며 cube의 개념을 확장한 개념으로 **exterior Lebesgue measure** $\mu^{*}(E)$ 또는 $|E_{e}|$로 정의한다. 여기서 좋은 점은 $\mathbb{R}^{d}$의 모든 부분집합은 유일하게 정의된 exterior measure를 갖는다는 것이다. 그러나 문제점도 한 가지 있는데, $\mu^{*}$가 측도가 아니란 것이다.(이것은 countably subadditive이지만 not countably additive이다)
+
+```{definition, name="외측도"}
+$X$를 공집합이 아닌 집합이라고 하자. $X$에서의 **외측도(outer measure, or exterior measur)**는 함수 $\mu^{*}:\mathcal{P}(X)\rightarrow [0,\infty]$이며 다음의 조건들을 만족한다.
+
+1. $\mu^{*}(\emptyset) = 0.
+
+2. (monotinicity) 만약 $A\subseteq B$이면 $\mu^{*}(A)\leq \mu^{*}(B)$이다.
+
+3. (countable subadditivity) 만약 $E_{1},E_{2},\ldots \subseteq X$이면 $\mu^{*}(\bigcup_{k}E_{k})\leq \sum_{k}\mu^{*}(E_{k})$이다.
+
+```
+
+외측도 $\mu^{*}$가 주어졌을 때, 우리의 목표는 $X$에서의 $\sigma$-체 $\Sigma$를 만들어 $\Sigma$에 제한된 $\mu^{*}$가 countably additive하게 만드는 것이다. $\Sigma$의 원소들은 좋은 집합들이 되어야 하는데, 이 좋은 집합들이란 $\mu^{*}$에 대해 가측인 것이다. 그렇다면 우리는 임의의 외측도에서 측도가능성을 어떻게 정의할 수 있을까? $X$의 위상이 주어지지 않을 가능성도 있어, 측도가능성을 주변을 둘러싼 열린 집합들로 정의할 수 없다.
+
+```{definition, name="가측집합"}
+$\mu^{*}$가 집합 $X$에서의 외측도라고 하자. 그러면 어떤 집합 $E\subseteq X$는
+$$\forall A\subseteq X, \mu^{*}(A)=\mu^{*}(A\cap E) + \mu^{*}(A\backslash E)$$
+일 때 $\mu^{*}$-가측 또는 단순히 **가측(measurable)**이라고 부른다.
+
+```
+
 ## 르베그 측도의 구성(construction of Lebesgue measure)
 
 ## 르베그 측도의 성질(properties of Lebesgue measure)

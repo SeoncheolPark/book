@@ -303,3 +303,36 @@ $$D_{p}(\theta^{(1)})=2\{l(\hat{\theta}_{0})-l_{p}(\theta^{(1)}) \} \stackrel{\c
 ```
 
 위 정리는 크게 두 가지 상황에서 쓰인다. 첫째, 길이 1의 모수 $\theta_{i}$에 대해 $(1-\alpha)$ 신뢰구간 $C_{\alpha}=\{\theta_{i}: D_{p}(\theta_{i})\leq c_{\alpha}\}$를 계산할 때 쓴다. 여기서 $c_{\alpha}$는 $\xi_{1}^{2}$ 분포의 $(1-\alpha)$ 분위수를 뜻한다. 두 번째 응용은 모형 선택이다.
+
+## 확률가중적률 또는 L-적률 (probability weighted moments or L-moments)
+
+[@Dey2015]의 1장을 참고하였다. 분포함수 $F$를 갖는 확률변수 $X$의 **확률가중적률(probability weighted moment)**는 다음과 같이 정의된다.
+$$M_{p,r,s}=E\{ X^{p}F^{r}(X)[1-F(X)]^{s} \}.$$
+여기서 $p,r,s$는 실수이다. 이러한 양은 $F$의 분위수 함수 $Q$가 closed form을 갖을 때 잘 계산된다.
+$$M_{p,r,s} = \int_{0}^{1}Q^{p}(u)u^{r}(1-u)^{s}du.$$
+$M_{p,0,0}$은 $X$의 $p$차 적률이며 $\xi < 1/\xi$일 때에만 존재한다. 이러한 제한은 GEV 모수 추정에서 method of moment를 사용하는 것이 매력적이지 않게 한다. [@Hosking1985]는 양 $\beta_{r}=M_{1,r,0},r=0,1,2,\ldots,$을 조사하였고 이들이 평균만 존재하면(즉 $\xi<1$) 모수를 추정하는데 이들의 표본을 사용할 수 있다는 것을 밝혔다. Closed-form quantile function이 존재할 때, [@Hosking1985]에서의 $\beta_{r}$은 다음과 같다.
+$$\beta_{r}=\frac{1}{r+1}\Big[ \mu-\frac{\sigma}{\xi}\{ 1-(r+1)^{\xi}\Gamma(1-\xi) \} \Big],\qquad{\xi < 1}.$$
+$r\in\{0,1,2\}$일 때 이것은 또한 다음들을 유도한다.
+
+\begin{equation}
+\beta_{0}=\mu -\frac{\sigma}{\xi}(1-\Gamma(1-\xi))
+(\#eq:PWM01)
+\end{equation}
+
+\begin{equation}
+2\beta_{1}-\beta_{0}=\frac{\sigma}{\xi}(1-\xi)(2^{\xi}-1)
+(\#eq:PWM02)
+\end{equation}
+
+\begin{equation}
+\frac{3\beta_{2}-\beta_{0}}{2\beta_{1}-\beta_{0}}=\frac{3^{\xi}-1}{2^{\xi}-1}.
+(\#eq:PWM03)
+\end{equation}
+
+$\beta_{r}$의 추정은 순서통계량 $Y_{1:m},\ldots, Y_{m:m}$에 기반하여 편리하게 계산할 수 있다. $\beta_{r}$의 불편추정량은 다음과 같다.
+$$b_{r}=\frac{1}{m}\sum_{j=1}^{m}\Big(\prod_{l=1}^{r}\frac{(j-l)}{(m-l)}\Big)Y_{j:m}.$$
+
+**확률가중적률 추정량(probability weighted moment estimator)**는 식 \@ref(eq:PWM01), \@ref(eq:PWM02), \@ref(eq:PWM03)에 있는 $\beta_{r}$을 $b_{r}$ 또는 $\hat{\beta}_{r}$로 대체한 것이다.
+
+
+

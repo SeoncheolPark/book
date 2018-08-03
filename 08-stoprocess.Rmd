@@ -89,13 +89,31 @@ $\Xi$-valued process $X$ on $T$가 **D에 대해 분리가능(separable with res
 
 ## 경험과정(empirical process)
 
-이 부분은 [@Jiang2010]을 참고했다. 확률변수들은 관찰값(observation)들의 형태로 얻어지는데, 관찰된 확률변수들로 구성된 함수를 우리는 특별히 **통계적 함수(statistical function)**이라고 부른다. 통계적 함수는 실제로 얻을 수 있다는 점에서 많은 사람들이 그 성질에 대해 관심을 갖는다. 보통은 통계적 함수들 중 **경험과정(empriical process)**이라고 부르는 것에 집중을 하게 된다. $X_{1},X_{2},\ldots $가 분포함수 $F$를 갖는 i.i.d. 확률변수들의 수열이라고 하자. 그러면 **경험적 분포함수(empirical distribution function)**은 다음과 같이 정의된다.
+이 부분은 [@Jiang2010] 7장을 참고했다. 확률변수들은 관찰값(observation)들의 형태로 얻어지는데, 관찰된 확률변수들로 구성된 함수를 우리는 특별히 **통계적 함수(statistical function)**이라고 부른다. 통계적 함수는 실제로 얻을 수 있다는 점에서 많은 사람들이 그 성질에 대해 관심을 갖는다. 보통은 통계적 함수들 중 **경험과정(empriical process)**이라고 부르는 것에 집중을 하게 된다. $X_{1},X_{2},\ldots $가 분포함수 $F$를 갖는 i.i.d. 확률변수들의 수열이라고 하자. 그러면 **경험적 분포함수(empirical distribution function)**은 다음과 같이 정의된다.
+
+```{definition, name="경험적 분포함수"}
+경험적 분포함수 $F_{n}(x)$는 다음과 같이 정의된다.
+
 \begin{equation}
 F_{n}(x)=\frac{1}{n}\sum_{i=1}^{n}1_{(X_{i}\leq x)}, -\infty < x < \infty.
 (\#eq:empiricalDF)
 \end{equation}
 
+
+```
+
 식 \@ref(eq:empiricalDF)은 쉬워보이지만 이 식의 뜻을 쉽게 이해하기는 어렵다. 여기서 $X_{i}$들은 관찰값들이고 $x$는 함수값이다. $X_{i}$들의 실현(realization)에 대해 식 \@ref(eq:empiricalDF)은 계단함수를 정의한다. 그리고 $X_{i}$들이 무작위이므로 식 \@ref(eq:empiricalDF) 또한 무작위이다. 즉 $X_{1},\ldots ,X_{n}$들이 매 번 실현될 때마다 다른 함수를 얻게 된다.
+
+대수의 약법칙에 의해 각 $x$에 대해 경험적 분포함수는 $n\rightarrow\infty$일 때 $E\{1_{(X_{1}\leq X)}\}=P(X_{1}\leq x)=F(x)$에 거의 확실한 수렴(converge a.s)을 한다. 실제로는 더 강한 결과가 성립한다. 이 거의 확실한 수렴은 $n\rightarrow\infty$일 때
+$$\sup_{x}|F_{n}(x)-F(x)|\stackrel{\text{a.s.}}{\rightarrow}0$$
+이므로 uniform하게 수렴한다. 그러면 우리는 경험적 분포함수에 대해서도 다음과 같은 centeralized되어있고 normalized version의 경험적 분포함수를 정의할 수 있다. 이를 **경험적 과정(empirical process)**라고 부른다.
+
+```{definition, name="경험적 과정"}
+경험적 과정은 무작위 함수로 다음과 같이 정의된다.
+$$\sqrt{n}\{ F_{n}(x) - F(x) \},\qquad{-\infty < x \infty.}$$
+
+```
+
 
 ## 포아송과정(Poisson process)
 
