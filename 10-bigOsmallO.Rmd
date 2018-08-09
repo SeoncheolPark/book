@@ -29,6 +29,7 @@ E(\sum_{i=1}^{n}X_{i})^{2}&=&(\sum_{i=1}^{n}X_{i})^{2}-\{ (\sum_{i=1}^{n}X_{i})^
 $$
 
 으로 쓸 수 있다. 우리는 여기서 또 $I_{1}$과 $I_{2}$의 order를 비교해볼 수 있다. CLT에 의해 $\frac{\sum_{i=1}^{n}X_{i}}{\sqrt{n}\sigma}\stackrel{d}{\rightarrow}\mathcal{N}(0,1)$임을 안다. 그러면 연속사상정리(정리 \@ref(thm:contmappingthm))에 의해 $n\rightarrow\infty$일 때
+
 $$
 \begin{equation}
 \frac{(\sum_{i=1}^{n}X_{i})^{2}}{n\sigma^{2}}\stackrel{d}{\rightarrow}\chi_{1}^{2},
@@ -42,6 +43,7 @@ $$
 (\#eq:exorderchisqconv2)
 \end{equation}
 $$
+
 이다. 식 \@ref(eq:exorderchisqconv)은 $I_{1}=O(n)$임을 의미한다. 더 나아가
 $$\frac{(\sum_{i=1}^{n}X_{i})^{2}-E(\sum_{i=1}^{n}X_{i})^{2}}{n\sigma^{2}}=\frac{(\sum_{i=1}^{n}X_{i})^{2}}{n\sigma^{2}}-1,$$
 이므로 식 \@ref(eq:exorderchisqconv2)은 $I_{2}=O(n)$임을 의미한다. 그러므로 이 경우에는 $I_{1}$과 $I_{2}$가 같은 order를 갖으므로 $(\sum_{i=1}^{n}X_{i})^{2}$은 $E(\sum_{i=1}^{n}X_{i})^{2}$의 좋은 근사가 아니다라는 결론을 얻을 수 있다.

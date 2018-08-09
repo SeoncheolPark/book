@@ -1,17 +1,13 @@
 base
+plotrix
+gdtools
 MASS
 wavethresh
 splines2
-gdtools
 astsa
 zoo
 xts
 quantspec
-leaps
-locfit
-nlme
-mgcv
-tseries
 TSA
 kza
 itsmr
@@ -35,4 +31,3 @@ fields
 RandomFieldsUtils
 RandomFields
 SpatialExtremes
-plotrix

@@ -40,7 +40,9 @@ $$Q_{\tau}(Y|\mathbf{X}=\mathbf{x})=\inf\{y:F_{Y}(y|\mathbf{x})\geq \tau\}$$
 
 ```
 
-## 선형 분위수 회귀분석(linear quantile regression)
+##분위수 회귀분석의 기초(basics of quantile regression)
+
+### 선형 분위수 회귀분석(linear quantile regression)
 
 분위수 회귀분석에서의 **손실함수(loss function)** $\rho_{\tau}(u)$를 다음과 같이 정의하자.
 $$\rho_{\tau}(u)=u(\tau -I(u<0)).$$
@@ -52,9 +54,103 @@ $$E(Y|\mathbf{X}=\mathbf{x})=\mathbf{x}^{T}\boldsymbol{\beta}$$
 이며 $\boldsymbol{\beta}$는 $\mathbf{x}$의 주변 변화에 의한 $Y$의 평균의 주변 변화를 측정하는 역할을 한다.
 
 이와 비슷하게 **선형 분위수 회귀분석 모형(linear quantile regression model)**은
-$$Q_{\tau}(Y|\mathbf{x})=\mathbf{x}^{T}\boldsymbol{\beta}(\tau), 0<\tau <1$$
+$$Q_{\tau}(Y|\mathbf{x})=\mathbf{x}^{T}\boldsymbol{\beta}(\tau), \qquad{0<\tau <1}$$
 이며 여기서 $\boldsymbol{\beta}(\tau)=(\beta_{1}(\tau),\ldots , \beta_{p}(\tau))^{T}$는 $\tau$에 관련있는 **분위수 계수(quantile coefficient)**이다.
 
 이 때 $\mathbf{x}$의 첫 번째 원소가 절편에 대응된다고 하면
 $$Q_{\tau}(Y|\mathbf{x})=\beta_{1}(\tau)+x_{2}\beta_{2}(\tau)+\ldots +x_{p}\beta_{p}(\tau)$$
 로 표현된다. $\boldsymbol{\beta}(\tau)$는 $\mathbf{x}$의 주변 변화에 의한 $\tau$-분위수의 주변 변화를 측정하는 역할을 한다. 참고로 $Q_{\tau}(Y|\mathbf{x})$는 $\mathbf{x}$가 주어졌을 때 $\tau$에 대해 감소하지 않는 함수다.
+
+```{example, name="위치이동모델"}
+**위치이동모델(location-scale shift model)**은 다음과 같이 주어진다.
+$$Y_{i}=\alpha + \mathbf{Z}_{i}^{T}\boldsymbol{\beta} + (1+\mathbf{Z}_{i}^{T}\boldsymbol{\gamma})\epsilon_{i}, \qquad{\epsilon_{i}\stackrel{\text{i.i.d}}{\sim}F(\cdot).}$$
+조건부 분위수 함수는
+$$Q_{\tau}(Y|\mathbf{X}_{i})=\alpha(\tau)+\mathbf{Z}_{i}^{T}\boldsymbol{\beta}(\tau)$$
+이다. 이 때
+
+- $\alpha(\tau)=\alpha + F^{-1}(\tau)$: $\tau$에 대한 감소하지 않는(nondecreasing) 함수
+
+- $\boldsymbol{\beta}(\tau)=\boldsymbol{\beta}+\boldsymbol{\gamma}F^{-1}(\tau)$: $\tau$에 의존할 수도 있는 함수. 즉 covariate들은 $Y$의 분포의 다양한 분위수에서 다른 효과를 줄 수도 있다.
+
+- 만약 $\boldsymbol{\gamma}=0$일 때에는 $\boldsymbol{\beta}(\tau)=\boldsymbol{\beta}$로 즉 quantile level에 따라 상수로 주어지는 모형이 된다.
+
+```
+
+### 분위수 처리 효과(quantile treatment effect)
+
+$X_{i}=0$은 control을, $X_{i}=1$은 treatment를 나타낸다고 하자. 그리고 control일 때와 treatment일 때의 조건부 분포를 다음과 같이
+
+- $Y_{i}|X_{i}=0\sim F$ (control distribution)
+
+- $Y_{i}|X_{i}=1\sim G$ (treatment distribution)
+
+F, G로 둔다. 그러면 **평균 처리 효과(mean treatment effect)** $\Delta$는
+$$\Delta = E(Y_{i}|X_{i}=1) - E(Y_{i}|X_{i}=0)=\int ydG(y) - \int ydF(y)$$
+이고 **분위수 처리 효과(quantile treatment effect)** $\delta(\tau)$는
+$$\delta(\tau)=Q_{\tau}(Y_{i}|X_{i}=1) -Q_{\tau}(Y_{i}|X_{i}=0)=G^{-1}(\tau)-F^{-1}(\tau).$$
+따라서 평균 처리 효과와 분위수 처리 효과 사이의 관계는 다음과 같이 된다.
+$$\Delta=\int_{0}^{1}G^{-1}(u)du - \int_{0}^{1}F^{-1}(u)du = \int_{0}^{1}\delta(u)du.$$
+이에 대응되는 분위수 회귀 모델은 이변량 covariate를 갖는 모형으로 $\delta(\tau)$를 이용해 다음과 같이 쓸 수 있다.
+$$Q_{\tau}(Y|X)=\alpha(\tau)+\delta(\tau)X.$$
+
+세 가지 간단한 이동의 경우를 살펴본다.
+
+1. **위치 이동(location shift)**: $F(y)=G(y+\delta) \Rightarrow \delta(\tau)=\Delta = \delta$.
+
+```{r, fig.align='center', comment=">", fig.cap = 'Location shift model.'}
+par(mfrow=c(1,2))
+x <- seq(-10,9,by=0.1)
+plot(x, dnorm(x), xlim=c(-7,7), type='l', xlab="y", ylab="Density")
+lines(x,dnorm(x,mean=2), lty=2, col="red")
+plot(seq(0.01, 0.99, 0.01), qnorm(p=seq(0.01, 0.99, 0.01),mean=2)- qnorm(p=seq(0.01, 0.99, 0.01),mean=0), xlim=c(0,1),ylim=c(1.9,2.1), type='l', xlab=expression(tau), ylab=expression(delta(tau)))
+
+```
+
+2. **척도 이동(scale shift)**: $\Delta = \delta(0.5)=0$이지만 다른 분위수들에서는 $\delta(\tau)\neq 0$이다.
+
+```{r, fig.align='center', comment=">", fig.cap = 'Scale shift model.'}
+par(mfrow=c(1,2))
+x <- seq(-10,9,by=0.1)
+plot(x, dnorm(x), xlim=c(-7,7), type='l', xlab="y", ylab="Density")
+lines(x,dnorm(x,mean=0, sd=1.5), lty=2, col="red")
+plot(seq(0.01, 0.99, 0.01), qnorm(p=seq(0.01, 0.99, 0.01),mean=0,sd=1.5)- qnorm(p=seq(0.01, 0.99, 0.01),mean=0), xlim=c(0,1),ylim=c(-1.25,1.25), type='l', xlab=expression(tau), ylab=expression(delta(tau)))
+abline(h=0, col="blue", lty=2)
+
+```
+
+3. **위치-척도 이동(location-scale shift)**
+
+```{r, fig.align='center', comment=">", fig.cap = 'Location-scale shift model.'}
+par(mfrow=c(1,2))
+x <- seq(-10,9,by=0.1)
+plot(x, dnorm(x), xlim=c(-7,7), type='l', xlab="y", ylab="Density")
+lines(x,dnorm(x,mean=1, sd=1.5), lty=2, col="red")
+plot(seq(0.01, 0.99, 0.01), qnorm(p=seq(0.01, 0.99, 0.01),mean=1,sd=1.5)- qnorm(p=seq(0.01, 0.99, 0.01),mean=0), xlim=c(0,1),ylim=c(-0.25,2.25), type='l', xlab=expression(tau), ylab=expression(delta(tau)))
+abline(h=0, col="blue", lty=2)
+
+```
+
+### 분위수 회귀분석의 장점들(advantages of quantile regression)
+
+그렇다면 우리는 왜 분위수 회귀분석을 쓰는가? Xuming He는 강의노트에서 세 가지 이유를 들었다.
+
+1. 분위수 회귀분석은 반응함수의 각기 다른 분위수에서의 predictor의 영향력을 공부할 수 있게 해주고 $Y$와 $\mathbf{X}$ 사이의 관계를 완벽히 보여준다.
+
+2. $y$값에 이상치가 있을 때 로버스트하다.
+
+3. 분포에 자유롭게(distribution-free) 추정과 추론을 할 수 있다.
+
+### 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)
+
+1. **Basic equivariance properties**: $A$를 $p\times p$ nonsigular matrix라고 하고 $\boldsymbol{\gamma}\in\mathbb{R}^{p}$, $a>0$은 상수라고 두자. $\hat{\boldsymbol{\beta}}(\tau;y,\mathbf{X})$를 관찰값들 $(y,\mathbf{X})$에 기반한 $\tau$-th 분위수 회귀분석의 추정량이라고 하자. 그러면 어떤 $\tau\in [0,1]$에 대해
+  i. $\hat{\boldsymbol{\beta}}(\tau; ay, \mathbf{X})=a\hat{\boldsymbol{\beta}}(\tau;y,\mathbf{X})$
+  ii. $\hat{\boldsymbol{\beta}}(\tau; -ay, \mathbf{X})=-a\hat{\boldsymbol{\beta}}(1-\tau;y,\mathbf{X})$
+  iii. $\hat{\boldsymbol{\beta}}(\tau;y+\mathbf{X}\gamma, \mathbf{X})=\hat{\boldsymbol{\beta}}(\tau, y, \mathbf{X})+\gamma$
+  iv. $\hat{\boldsymbol{\beta}}(\tau;y,\mathbf{X}A)=A^{-1}\hat{\boldsymbol{\beta}}(\tau;y,\mathbf{X})$.
+
+2. **Equivariance property**: 분위수는 monotone transformation에 대해 equivariant하다. $h(\cdot)$이 $\mathbb{R}$에서 증가함수라고 가정하자. 그러면 임의의 변수 $Y$에 대해
+$$Q_{h(Y)}(\tau)=h\{ Q_{\tau}(Y) \}$$
+이다. 즉 변환된 확률변수 $h(Y)$의 분위수는 단순히 오리지날 스케일에서의 분위수를 변환시킨 것이라는 뜻이다.
+
+3. **Interpolation**: 선형 분위수 회귀분석은 $p$ observation들을 interpolate한다. 만약 design matrix의 첫 번째 열이 intercept에 대응된다면 대략 $p$ zero, $n\tau$ negative, 그리고 $n(1-\tau)$ positive residual들 $y_{i}-\mathbf{x}_{i}^{T}\hat{\boldsymbol{\beta}}(\tau)$가 존재한다.
+

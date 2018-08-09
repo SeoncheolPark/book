@@ -162,7 +162,7 @@ acf(diff(gtemp), 48, main="first difference")
 ```{definition, name="자기회귀모형"}
 **AR(p)** 차수 p를 갖는 **자기회귀모형(autoregressive model, AR model)**은
 $$x_{t}=\phi_{1}x_{t-1}+\phi_{2}x_{t-2} + \cdots + \phi_{p}x_{t-p}+w_{t}$$
-와 같은 형태를 갖는다. 여기서 $x_{t}$는 정상과정이며, $\phi_{1},\ldots , \phi_{p}$는 상수이다. $(\phi_{p}\neq 0)$. 그리고 $w_{t}$는 보통 평균이 0이고 분산이 $\simga_{w}^{2}$인 백색잡음이라고 놓는다. 따로 언급하지 않으면, $x_{t}$의 평균은 0이라고 둔다. 만약 평균이 0이 아니고 $\mu$라고 할 때는 다음과 같이 $x_{t}$ 대신 $x_{t}-\mu$를 사용하여
+와 같은 형태를 갖는다. 여기서 $x_{t}$는 정상과정이며, $\phi_{1},\ldots , \phi_{p}$는 상수이다. $(\phi_{p}\neq 0)$. 그리고 $w_{t}$는 보통 평균이 0이고 분산이 $\sigma_{w}^{2}$인 백색잡음이라고 놓는다. 따로 언급하지 않으면, $x_{t}$의 평균은 0이라고 둔다. 만약 평균이 0이 아니고 $\mu$라고 할 때는 다음과 같이 $x_{t}$ 대신 $x_{t}-\mu$를 사용하여
 $$x_{t}-\mu = \phi_{1}(x_{t-1}-\mu)+\phi_{2}(x_{t-2}-\mu) + \cdots + \phi_{p}(x_{t-p}-\mu)+w_{t}$$
 또는 $\alpha=\mu(1-\phi_{1}-\cdots - \phi_{p})$로 놓아
 $$x_{t}=\alpha + \phi_{1}x_{t-1}+\phi_{2}x_{t-2} + \cdots + \phi_{p}x_{t-p}+w_{t}$$
@@ -184,15 +184,86 @@ acf(ARsim01); acf(ARsim02); pacf(ARsim01); pacf(ARsim02)
 
 ### MA 모형(MA models)
 
-MA과정의 PACF는 AR과정의 ACF 형태와, MA과정의 ACF는 AR과정의 PACF 형태와 같다.
+AR과정과 더불어 생각해 볼 수 있는 모형으로 **이동평균모형(moving average model, MA model)**이라는 것이 있다. $q$차 MA 모형은 $\text{MA}(q)$로 보통 쓰며 백색 잡음 $w_{t}$가 선형결합 된 것을 관찰한다고 생각한다.
+
+```{definition, name="이동평균모형"}
+차수 $q$를 갖는 **이동평균모형(moving average model)**은 다음과 같이 정의된다.
+$$x_{t}=w_{t}+\theta_{1}w_{t-1}+\theta_{2}w_{t-2}+\ldots \theta_{q}w_{t-q}.$$
+이때 $w_{t}\sim \text{WM}(0,\sigma_{w}^{2})$이며 $\theta_{1},\ldots, \theta_{q}(\theta_{q}\neq 0)$은 모수들이다.
+
+```
+
+또한 다음과 같이 **이동평균작용소(moving average operator)**를 정의하여 식을 간단히 쓸 수 있다.
+
+```{definition, name="이동평균작용소"}
+**이동평균작용소(moving average operator)**  $\theta(B)$는
+$$\theta(B)=1+\theta_{1}B+\theta_{2}B^{2}+\ldots +\theta_{q}B^{q}$$
+로 정의된다.
+
+```
+
+이동평균작용소를 이용해 $\text{MA}(q)$과정을 다시쓰면 다음과 같다.
+$$x_{t}=\theta(B)w_{t}.$$
+
+```{example, name="MA(1)과정"}
+MA과정 중에서 가장 간단한 모형으로 MA(1) 과정이 있으며 다음과 같이 쓴다.
+$$x_{t}=w_{t}+\theta w_{t-1}.$$
+그러면 $E(x_{t})=0$이다. 이것의 자기공분산함수는 다음과 같다.
+
+$$
+\gamma(h) = 
+\begin{cases}
+(1+\theta^{2})\sigma_{w}^{2} & h=0,\\
+\theta \sigma_{w}^{2} & h=1,\\
+0 & h>1.
+\end{cases}
+$$
+  
+ACF는 다음과 같다.
+
+$$
+\rho(h) = 
+\begin{cases}
+\frac{\theta}{(1+\theta^{2})} & h=1,\\
+0 & h>1.
+\end{cases}
+$$
+  
+한편 모든 $\theta$에서 $|\rho(1)|\leq 0.5$이다. 그리고 $x_{t}$는 $x_{t-1}$과는 연관되어 있지만, $x_{t-2}, x_{t-3},\ldots$등과는 연관되어 있지 않다. 이는 $AR(1)$과정에서 $x_{t}$와 $x_{t-k}$ 사이의 상관관계가 0이 되지 않는 것과는 대조적이다. 예를 들어 $\theta=0.9$일 때 $x_{t}$와 $x_{t-1}$은 양의 상관관계를 갖으며 $\theta_{1}=0.497$이다. 한편 $\theta=-0.9$일 때에는 $x_{t}$와 $x_{t-1}$은 음의 상관관계를 갖으며 $\theta_{1}=-0.497$이다.
+
+```
+
+
+MA과정의 PACF는 AR과정의 ACF 형태와, MA과정의 ACF는 AR과정의 PACF 형태와 같다. 참고로 유한 개의 항을 가지는 MA과정은 항상 정상과정이므로 AR과정과는 달리 유한차수의 MA과정에 대해서는 정상성 조건을 논의할 필요가 없다.
 
 ```{r, fig.align='center', comment=">", fig.cap = 'Simulated MA model.'}
 par(mfrow=c(3,2))   
-MAsim01 <- arima.sim(list(order=c(0,0,1), ma=.5), n=100)
-MAsim02 <- arima.sim(list(order=c(0,0,1), ma=-.5), n=100)
-plot(MAsim01, ylab="x", main=(expression(MA(1)~~~theta==+.5)))    
-plot(MAsim02, ylab="x",main=(expression(MA(1)~~~theta==-.5))) 
+MAsim01 <- arima.sim(list(order=c(0,0,1), ma=.9), n=100)
+MAsim02 <- arima.sim(list(order=c(0,0,1), ma=-.9), n=100)
+plot(MAsim01, ylab="x", main=(expression(MA(1)~~~theta==+.9)))    
+plot(MAsim02, ylab="x",main=(expression(MA(1)~~~theta==-.9))) 
 acf(MAsim01); acf(MAsim02); pacf(MAsim01); pacf(MAsim02)
+```
+
+```{example, name="유일하지 않은 MA 모형들과 가역성"}
+한편 $\sigma_{w}^{2}=1$이고 $\theta=5$인 MA(1) 모형은 $\sigma_{w}^{2}=25$이고 $\theta=1/5$인 MA(1) 모형과 같은 autocovariance function을 갖는다. 즉 이 때는
+
+$$
+\gamma(h) = 
+\begin{cases}
+26 & h=0,\\
+5 \sigma_{w}^{2} & h=1,\\
+0 & h>1.
+\end{cases}
+$$
+
+이다. 즉 다음 두 MA(1) 과정
+$$x_{t}=w_{t}+\frac{1}{5}w_{t-1}, \qquad{w_{t}\stackrel{\text{i.i.d}}{\sim}\mathcal{N}(0,25)}$$
+$$y_{t}=v_{t}+5v_{t-1}, \qquad{v_{t}\stackrel{\text{i.i.d}}{\sim}\mathcal{N}(0,1)}$$
+은 같은 것이다. 우리는 시계열 $x_{t}$, $y_{t}$만 관찰할 수 있고 잡음들 $w_{t}$, $v_{t}$은 관찰 못하므로 이들을 구분해낼 수 없다. 편의를 위해 $x_{t}$와 $w_{t}$의 역할을 바꾸면 MA(1) 모형을
+$$w_{t}=-\theta w_{t-1}+x_{t}$$
+로 쓸 수 있다. 이러면 AR 모형처럼 되고, $|\theta|<1$인 조건을 적용시키면 $w_{t}=\sum_{j=0}^{\infty}(-\theta)^{j}x_{t-j}$임을 알 수 있다. 따라서 여러 가지 MA 모형이 있을 경우, **가역(invertible)**한 $\sigma_{w}^{2}=25$이고 $\theta=1/5$ 모형을 고르게 된다.
+  
 ```
 
 ### ARMA 모형(ARMA models)
@@ -200,11 +271,14 @@ acf(MAsim01); acf(MAsim02); pacf(MAsim01); pacf(MAsim02)
 비정상 시계열 모형 중 하나로, 차분이나 변환을 통해 AR, MA 또는 이 둘을 합한 ARMA 모형으로 정상화 시켜 모델링한다.
 
 It also possible to obtain a homogeneous difference equation directly in terms of $\gamma(h)$. First, we write
+
+$$
 \begin{eqnarray}
 \gamma(h)&=&\text{cov}(x_{t+h},x_{t})\\
 &=&\text{cov}(\sum_{j=1}^{p}\phi_{j}x_{t+h-j}+\sum_{j=0}^{q}\theta_{j}w_{t+h-j},x_{t})\\
 &=&\sum_{j=1}^{p}\phi_{j}\gamma(h-j)+\sigma_{w}^{2}\sum_{j=h}^{q}\theta_{j}\psi_{j-h}, h \geq 0.
 \end{eqnarray}
+$$
 
 general homoegeneous equations for the ACF of the ARMA process
 $$\gamma(h)-\phi_{1}\gamma(h-1)-\cdots - \phi_{p}\gamma(h-p)=0, h\geq \max(p,q+1)$$

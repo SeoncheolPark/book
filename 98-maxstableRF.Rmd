@@ -44,3 +44,4 @@ $$
 V_{3}(z_{1},z_{2};\mathbf{h})=\frac{1}{z_{1}}T_{\nu+1}\{\frac{(z_{2}/z_{1})^{1/\nu}-\rho(\mathbf{h})}{\sqrt{\{ 1-\rho(\mathbf{h})^{2} \}/(\nu+1) }}\} + \frac{1}{z_{2}}T_{\nu+1}\{\frac{(z_{1}/z_{2})^{1/\nu}-\rho(\mathbf{h})}{\sqrt{\{ 1-\rho(\mathbf{h})^{2} \}/(\nu+1) }}\}
 $$
 으로 여기서 $T_{\nu+1}$는 자유도 $\nu+1$을 같는 스튜던트-t 분포이며 $\rho(\mathbf{h})$는 압축함수(scaling function)이고 $\nu$는 Student-t random field의 자유도이다.
+

@@ -99,7 +99,6 @@ F_{n}(x)=\frac{1}{n}\sum_{i=1}^{n}1_{(X_{i}\leq x)}, -\infty < x < \infty.
 (\#eq:empiricalDF)
 \end{equation}
 
-
 ```
 
 식 \@ref(eq:empiricalDF)은 쉬워보이지만 이 식의 뜻을 쉽게 이해하기는 어렵다. 여기서 $X_{i}$들은 관찰값들이고 $x$는 함수값이다. $X_{i}$들의 실현(realization)에 대해 식 \@ref(eq:empiricalDF)은 계단함수를 정의한다. 그리고 $X_{i}$들이 무작위이므로 식 \@ref(eq:empiricalDF) 또한 무작위이다. 즉 $X_{1},\ldots ,X_{n}$들이 매 번 실현될 때마다 다른 함수를 얻게 된다.
@@ -275,6 +274,14 @@ lambda*pi*(0.2)^2
 
 ## 브라운운동(Brownian motion)
 
+함수자료분석에서 다루는 가우스 무작위 함수(Gauss random function)들 중 가장 자주 일어나는 형태는
+
+1. **브라운운동(Brownian motion)**: 다른 말로 **위너과정(Wiener process)**이라고도 부른다. [@Kokoszka2017]의 11.4절
+
+2. **브라운 다리(Brownian bridge)**
+
+이다.
+
 ```{definition, name="저차원에서의 브라운운동"}
 실수값을 갖는 확률과정 $\{ B(t) : t\geq 0\}$이 다음 조건들을 만족할 때
 
@@ -292,6 +299,16 @@ $x\in\mathbb{R}$에서 시작하는 (선형) **브라운운동(Brownian motion)*
 ```
 
 브라운운동의 정의는 나중에 공간과정에도 잠시 나올 것이다.
+
+
+```{r, fig.align='center', comment=">", fig.cap = 'Simulating Brownian Motion.'}
+# bm.R
+n <- 1000
+t <- 1
+bm <- c(0, cumsum(rnorm(n,0,sqrt(t/n))))
+steps <- seq(0,t,length=n+1)
+plot(steps,bm,type="l")
+```
 
 ### 분수 브라운운동(fractional Brownian motion)
 

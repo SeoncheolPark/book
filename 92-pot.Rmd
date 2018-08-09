@@ -52,12 +52,12 @@ GPD에서 threshold를 선택하는 문제는 block maxima 접근에서 block si
 2. 모델을 다른 임계점들에 대해 적합해보고 추정된 모수의 안정성을 평가해 본다.
 
 첫 번째 방법은 GPD의 평균에 기반한 방법이다. $Y$가 모수 $\sigma, xi$인 GPD 분포를 따른다면
-$$
+
 \begin{equation}
 E(Y)=\frac{\sigma}{1-\xi}, \xi<1
 (\#eq:meanGPD)
 \begin{equation}
-$$
+
 이 된다. 만약 $\xi\leq 1$이면 평균은 무한대다. GPD가 수열 $X_{1},\ldots, X_{n}$으로부터 생성되고 임계가 $u_{0}$인 초과의 모델로서 유효하다고 가정해보자. 그러면 \@ref(eq:meanGPD)에 의해
 $$
 E(X-u_{0}|X >u_{0})=\frac{\sigma_{u_{0}}}{1-\xi}, \xi < 1
