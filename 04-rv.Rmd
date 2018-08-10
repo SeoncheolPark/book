@@ -1,6 +1,6 @@
 # 확률변수 {#rv}
 
-**확률변수(random variable)**의 예로는 카드를 생각해 볼 수 있다. 확률변수 $X=X(\omega)$는 실변수 함수로 정의역은 $\Omega$이다. 각각의 $\omega$가 특정한 5장의 카드 집합을 나타낸다고 할 때 $X(\omega)=I\{\omega가 네 개의 에이스를 가지고 있음\}$이라고 정의한다면 $X(\omega)$는 random variable이다.
+**확률변수(random variable)**의 예로는 카드를 생각해 볼 수 있다. 확률변수 $X=X(\omega)$는 실변수 함수로 정의역은 $\Omega$이다. 각각의 $\omega$가 특정한 5장의 카드 집합을 나타낸다고 할 때 $X(\omega)=I\{\omega$가 네 개의 에이스를 가지고 있음$\}$이라고 정의한다면 $X(\omega)$는 random variable이다.
 
 ```{definition, name="가측"}
 $(\Omega_{1}, \mathcal{F}_{1})$, $(\Omega_{2}, \mathcal{F}_{2})$가 두 가측공간(measurable)이라고 할 때, 함수 $X:\Omega_{1} \rightarrow \Omega_{2}$가 임의의 집합 $E\in \mathcal{F}_{2}$에 대해 집합 $X^{-1}(E)$이

@@ -10,7 +10,7 @@
 **카디널리티(cardinality)**는 집합의 원소의 갯수를 세기 위해 도입되었다. 유한집합에서는 원소의 갯수를 세는 것이 어렵지 않지만, 무한집합의 경우는 갯수를 세는 것이 문제가 될 수 있다. 집합 $A$가 주어졌을 때, 그것의 카디널리티를 $|A|$로 쓰도록 하자. 자연수 집합의 카디널리티는 특별히 $|\mathbb{N}|=\aleph_{0}$로 쓰며 **알레프-널(aleph-null)**로 부른다.
 
 ```{definition, name="카디널리티가 같다"}
-두 집합 $A$, $B$ 사이에 전단사(bijection, 일대일 대응) 관계가 성립할 때, 두 집합의 카디널리티가 같다고 정의하고, $|A|=|B|$로 표기한다.
+두 집합 $A$, $B$ 사에 전단사(bijection, 일대일 대응) 관계가 성립할 때, 두 집합의 카디널리티가 같다고 정의하고, $|A|=|B|$로 표기한다.
 
 ```
 
@@ -217,21 +217,6 @@ $$\| \alpha \mathbf{x}\|=|\alpha| \|\mathbf{x}\|$$
 ```
 
 #### 행렬 노름(matrix norm)
-
-### 거리(metric)
-
-```{definition, name="거리"}
-집합 $X$의 두 원소들 $x,y$에 대해 값 $d(x,y)$를 할당하는 함수 $d(\cdot, \cdot)$가 다음 세 조건들을
-
-1. 임의의 $x,y\in X$에 대해서 $d(x,y)\geq 0$이다. 여기서 $d(x,y)=0$이기 위한 필요충분조건은 $x=y$이다.
-
-2. 임의의 $x,y\in X$에 대해서 $d(x,y)=d(y,x)$이다.
-
-3. 임의의 $x,y,z\in X$에 대해서 $d(x,z)\leq d(x,y)+d(y,z)$가 성립한다.
-
-```
-
-만약 $d(\mathbf{x},\mathbf{y})=\| \mathbf{x}-\mathbf{y}\|$라 하면 노름공간이 거리공간이 된다. 그러나 모든 거리공간이 노름공간으로부터 유도되는 것은 이니다.
 
 ## 행렬의 분해(matrix decomposition)
 
@@ -615,7 +600,22 @@ $D[a,b]$을 right continuous하고 left limit을 갖는 함수들 $z:[a,b]\right
 
 [@Beran2013]의 appendix 참고
 
-## 거리(distance)
+## 거리와 계량(distance and metric)
+
+### 거리(distance)
+
+```{definition, name="거리"}
+집합 $X$의 두 원소들 $x,y$에 대해 값 $d(x,y)$를 할당하는 함수 $d(\cdot, \cdot)$가 다음 세 조건들을
+
+1. 임의의 $x,y\in X$에 대해서 $d(x,y)\geq 0$이다. 여기서 $d(x,y)=0$이기 위한 필요충분조건은 $x=y$이다.
+
+2. 임의의 $x,y\in X$에 대해서 $d(x,y)=d(y,x)$이다.
+
+3. 임의의 $x,y,z\in X$에 대해서 $d(x,z)\leq d(x,y)+d(y,z)$가 성립한다.
+
+```
+
+만약 $d(\mathbf{x},\mathbf{y})=\| \mathbf{x}-\mathbf{y}\|$라 하면 노름공간이 거리공간이 된다. 그러나 모든 거리공간이 노름공간으로부터 유도되는 것은 이니다.
 
 군집분석 방법에서는 관측값들의 거리를 이용해 군집을 나눌 때 사용된다.
 
@@ -642,12 +642,14 @@ $D[a,b]$을 right continuous하고 left limit을 갖는 함수들 $z:[a,b]\right
 - Hamming distance: [@Massart2007] 책에 나오는 것으로 $\mathcal{X}^{n}$을 $n$개의 확률변수들이 값을 취하는 $n$차원 공간이라고 할 때 다음과 같다.
 $$d(y,y')=\sum_{i=1}^{n}\mathbb{I}_{y_{i}\neq y'_{i}}, \qquad{\forall y,y'\in\mathcal{X}^{n}}$$
 
-## 계량(metric)
+### 계량(metric)
 
 계량(metric)은 두 집합 사이의 모든 원소 짝의 거리를 지정해주는 함수이다. 
 
 
 ## 실함수의 수열들(sequences of real functions)
+
+이 부분의 내용은 [@Polansky2011]의 내용을 따른다.
 
 확률변수(random variable)의 수열이 함수의 수열처럼 여겨질 수 있다는 사실에서 함수의 수열의 성질을 이해하는 것은 중요하다. 일반적인 수열의 수렴에 관한 성질들과 비교했을 때 함수의 수열들의 수렴에 관한 성질에서는 여러 개의 정의로 다뤄질 수 있다는 점에서 차이가 있다. 가장 널리 알려진 함수의 수렴은 **점별수렴(pointwise convergence)**과 **균등수렴(uniform convergence)**이 있다.
 
@@ -658,6 +660,77 @@ $$\lim_{n\rightarrow \infty}f_{n}(x)=f(x)$$
 $$f_{n} \stackrel{pw}{\rightarrow} f$$
 로 표현하기로 한다.
 
+```
+
+점별수렴에서 수렴 문제는 $x$를 고정된 실수로 놓았을 때 실수열 $\{f_{n}(x)\}_{n=1}^{\infty}$의 수렴 성질을 보는 것으로 줄일 수 있다.
+
+다음은 [@Shima2016]에 나오는 점별수렴하는 함수열의 예제다.
+
+```{definition, name="점별수렴의 예"}
+다음과 같은 닫힌 구간 $[0,1]$에서 정의된 함수열 $\{f_{n}\}$
+$$f_{n}(x)=x^{n}$$
+이 있다고 하자. 이 수열은 다음 함수로 점별수렴한다.
+$$
+f(x)=\lim_{n\rightarrow\infty}f_{n}(x)=
+\begin{cases}
+0 & 0\leq x < 1\\
+1 & x=1.
+\end{cases}
+$$
+
+```
+
+```{r, echo=F, fig.cap='점별수렴하는 함수의 예.', fig.align='center'}
+knitr::include_graphics("images/math_ptconvergence.png")
+```
+
+또한 [@Shima2016]에서 언급한 내용 중 중요한 사실은 점별수렴의 경우에는 앞의 예제에서처럼 원래 함수열들이 모두 연속이라 할지라도 그것의 극한 함수는 연속이 아닐 수도 있다는 점이다. 위 예제에서 $f(x)$는 $x=1$에서 불연속이다(그림). 이 말은 또한 점별수렴에서는 극한의 순서를 바꾸었을 경우 그 결과가 아래 식처럼 서로 다를 수 있음을 의미한다.
+$$\lim_{x\rightarrow 1}\lim_{n\rightarrow\infty}f_{n}(x)\neq \lim_{n\rightarrow\infty}\lim_{x\rightarrow 1}f_{n}(x).$$
+
+이런 현상은 함수열 $f_{n}(x)$의 미분가능성과 적분가능성에서도 비슷하게 일어난다. 즉, 점별수렴 하에서는 함수열들이 모두 적분가능하거나 미분가넝하더라고 그것의 극한은 그렇지 않을 수도 있음을 의미한다. 이러한 예제들로 다음 예제들이 있다.
+
+```{definition, name="점별수렴과 적분의 순서"}
+다음과 같은 함수
+$$f_{n}(x)=nx(1-x^{2})^{n}, \qquad{x\in [0,1]}$$
+이 있다고 하자. 여기서는 극한과정 $n\rightarrow\infty$와 적분의 순서를 바꾸면 다른 결과를 줄 것임을 보여줄 것이다. 주어진 함수는 각각의 $n$에 대해 적분 가능하며 다음과 같다.
+$$
+\begin{align*}
+\int_{0}^{1}f_{n}(x)dx &= n \int_{0}^{1}x(1-x^{2})^{n}dx = \Big[\frac{-n}{2(n+1)}(1-x^{2})^{n+1}\Big]_{0}^{1}\\
+&= \frac{n}{2(n+1)}\rightarrow \frac{1}{2}.
+\end{align*}
+$$
+  
+반대로, 극한은 다음과 같다.
+$$f(x)=\lim_{n\rightarrow\infty}f_{n}(x)=0, \qquad{\forall x\in [0,1].}$$
+
+따라서 당연히 $\int_{0}^{1}f(x)dx=0$이다. 그래서 다음과 같은 결론을 내릴 수 있다.
+$$\lim_{n\rightarrow\infty}\int_{0}^{1}f_{n}(x)dx\neq \int_{0}^{1}\lim_{n\rightarrow\infty}f_{n}(x)dx.$$
+
+결론은, 점별수렴 과정에서는 극한 과정과 적분의 순서를 바꾸는 것은 안되다는 것이다.
+  
+```
+
+```{definition, name="점별수렴과 미분의 순서"}
+다음과 같은 함수
+$$
+f_{n}(x)=
+\begin{cases}
+-1 & x < -\frac{1}{n},\\
+\sin(\frac{n\pi x}{2}) & -\frac{1}{n} < x \frac{1}{n},\\
+1 & x>\frac{1}{n}.
+\end{cases}
+$$
+우리는 이 함수의 $x=0$에서의 극한 $f(x)=\lim_{n\rightarrow\infty}f_{n}(x)$의 연속성을 점검해 볼 것이다. $f_{n}(x)$는 모든 $x\in \mathbb{R}$에서 미분 가능하므로 당연히 모든 $n$에서 $x=0$일 때 연속이다. 그러나 그것의 극한은
+$$
+f(x)=
+\begin{cases}
+-1 & x<0,\\
+0 & x=0, \\
+1 & x >0
+\end{cases}
+$$
+이며 $x=0$에서 불연속이다. 따라서 점별수렴 과정에서는 극한 과정과 미분의 순서를 바꾸는 것은 안된다.
+  
 ```
 
 점별수렴보다 더 강한 조건으로 $x \in \mathbb{R}$에 상관 없이 모든 지점에서 동시에 $n\rightarrow\infty$일 때 $f_{n}(x) \rightarrow f(x)$이길 요구할 수도 있다. 이 때 사용되는 정의가 균등수렴이다.
@@ -671,7 +744,18 @@ $$f_{n} \stackrel{u}{\rightarrow} f$$
 
 ```
 
-(두 수열의 차이점 설명)
+```{r, echo=F, fig.cap='균등수렴하는 함수의 예. 균등수렴에서는 어떤 밴드를 잡았을 때, n을 적당히 조절하여 함수열이 그 밴드 안에 들어가도록 할 수 있다.', fig.align='center'}
+knitr::include_graphics("images/math_uniformconvergence.png")
+```
+
+균등수렴과 관련된 정리로 어떤 연속함수들의 함수열이 균등수렴이면 그 수열의 극한 또한 반드시 연속이어야 한다는 정리가 있다. 이 정리는 [@Polansky2011]에 나와있다.
+
+```{theorem, name="함수열의 균등수렴과 함수열의 극한의 연속"}
+$\{f_{n}(x)\}_{n=1}^{\infty}$가 $\mathbb{R}$의 부분집합 $R$에서 정의된 함수들의 수열이며 함수 $f$로 균등수렴한다고 하자. 만약 각각의 $f_{n}$들이 어떤 점 $x\in R$에서 연속이면, $f$ 또한 점 $x$에서 연속이어야 한다.
+
+```
+
+이 정리의 증명은 Apostol (1974)의 9.4절에서 발견할 수 있다고 한다. 여기서 알아두어야 할 것은 균등수렴은 충분조건이며 필요조건이 아니라는 것이다. 즉
 
 ### 수렴하는 수열(convergent sequence)
 

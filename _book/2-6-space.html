@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-08-09">
+<meta name="date" content="2018-08-10">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="2-5-basis.html">
-<link rel="next" href="2-7-distance.html">
+<link rel="next" href="2-7-distance-and-metric.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -117,7 +117,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3.4" data-path="2-3-operators-and-norms.html"><a href="2-3-operators-and-norms.html#tensor-product"><i class="fa fa-check"></i><b>2.3.4</b> 텐서곱(tensor product)</a></li>
 <li class="chapter" data-level="2.3.5" data-path="2-3-operators-and-norms.html"><a href="2-3-operators-and-norms.html#-cartesian-product"><i class="fa fa-check"></i><b>2.3.5</b> 데카르트 곱(Cartesian product)</a></li>
 <li class="chapter" data-level="2.3.6" data-path="2-3-operators-and-norms.html"><a href="2-3-operators-and-norms.html#norm"><i class="fa fa-check"></i><b>2.3.6</b> 노름(norm)</a></li>
-<li class="chapter" data-level="2.3.7" data-path="2-3-operators-and-norms.html"><a href="2-3-operators-and-norms.html#metric"><i class="fa fa-check"></i><b>2.3.7</b> 거리(metric)</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="2-4-matrix-decomposition.html"><a href="2-4-matrix-decomposition.html"><i class="fa fa-check"></i><b>2.4</b> 행렬의 분해(matrix decomposition)</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="2-4-matrix-decomposition.html"><a href="2-4-matrix-decomposition.html#-eigenvalue-decomposition"><i class="fa fa-check"></i><b>2.4.1</b> 고유값 분해(eigenvalue decomposition)</a></li>
@@ -149,14 +148,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.6.15" data-path="2-6-space.html"><a href="2-6-space.html#---reproducing-kernel-hilbert-space"><i class="fa fa-check"></i><b>2.6.15</b> 재생 커널 힐버트 공간(reproducing kernel Hilbert space)</a></li>
 <li class="chapter" data-level="2.6.16" data-path="2-6-space.html"><a href="2-6-space.html#c--d-the-spaces-c-and-d"><i class="fa fa-check"></i><b>2.6.16</b> C 공간과 D 공간(the spaces C and D)</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="2-7-distance.html"><a href="2-7-distance.html"><i class="fa fa-check"></i><b>2.7</b> 거리(distance)</a></li>
-<li class="chapter" data-level="2.8" data-path="2-3-operators-and-norms.html"><a href="2-3-operators-and-norms.html#metric"><i class="fa fa-check"></i><b>2.8</b> 계량(metric)</a></li>
-<li class="chapter" data-level="2.9" data-path="2-9-sequences-of-real-functions.html"><a href="2-9-sequences-of-real-functions.html"><i class="fa fa-check"></i><b>2.9</b> 실함수의 수열들(sequences of real functions)</a><ul>
-<li class="chapter" data-level="2.9.1" data-path="2-9-sequences-of-real-functions.html"><a href="2-9-sequences-of-real-functions.html#-convergent-sequence"><i class="fa fa-check"></i><b>2.9.1</b> 수렴하는 수열(convergent sequence)</a></li>
-<li class="chapter" data-level="2.9.2" data-path="2-9-sequences-of-real-functions.html"><a href="2-9-sequences-of-real-functions.html#-cauchy-sequence"><i class="fa fa-check"></i><b>2.9.2</b> 코시 수열(Cauchy sequence)</a></li>
+<li class="chapter" data-level="2.7" data-path="2-7-distance-and-metric.html"><a href="2-7-distance-and-metric.html"><i class="fa fa-check"></i><b>2.7</b> 거리와 계량(distance and metric)</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="2-7-distance-and-metric.html"><a href="2-7-distance-and-metric.html#distance"><i class="fa fa-check"></i><b>2.7.1</b> 거리(distance)</a></li>
+<li class="chapter" data-level="2.7.2" data-path="2-7-distance-and-metric.html"><a href="2-7-distance-and-metric.html#metric"><i class="fa fa-check"></i><b>2.7.2</b> 계량(metric)</a></li>
 </ul></li>
-<li class="chapter" data-level="2.10" data-path="2-10-continuity.html"><a href="2-10-continuity.html"><i class="fa fa-check"></i><b>2.10</b> 연속(continuity)</a><ul>
-<li class="chapter" data-level="2.10.1" data-path="2-10-continuity.html"><a href="2-10-continuity.html#-lipschitz-continous"><i class="fa fa-check"></i><b>2.10.1</b> 립쉬츠 연속(Lipschitz continous)</a></li>
+<li class="chapter" data-level="2.8" data-path="2-8-sequences-of-real-functions.html"><a href="2-8-sequences-of-real-functions.html"><i class="fa fa-check"></i><b>2.8</b> 실함수의 수열들(sequences of real functions)</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="2-8-sequences-of-real-functions.html"><a href="2-8-sequences-of-real-functions.html#-convergent-sequence"><i class="fa fa-check"></i><b>2.8.1</b> 수렴하는 수열(convergent sequence)</a></li>
+<li class="chapter" data-level="2.8.2" data-path="2-8-sequences-of-real-functions.html"><a href="2-8-sequences-of-real-functions.html#-cauchy-sequence"><i class="fa fa-check"></i><b>2.8.2</b> 코시 수열(Cauchy sequence)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="2-9-continuity.html"><a href="2-9-continuity.html"><i class="fa fa-check"></i><b>2.9</b> 연속(continuity)</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="2-9-continuity.html"><a href="2-9-continuity.html#-lipschitz-continous"><i class="fa fa-check"></i><b>2.9.1</b> 립쉬츠 연속(Lipschitz continous)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="3-measure.html"><a href="3-measure.html"><i class="fa fa-check"></i><b>3</b> 측도</a><ul>
@@ -708,7 +709,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="-vector-spaces" class="section level3">
 <h3><span class="header-section-number">2.6.2</span> 벡터 공간(vector spaces)</h3>
 <p>벡터 공간은 덧셈과 곱셈을 적용할 수 있는 수학적 실재(mathematical entity)들의 집합이다. 예를 들면 숫자 공간 <span class="math inline">\(\mathbb{R}\)</span>, <span class="math inline">\(\mathbb{C}\)</span> 등은 벡터 공간이 된다. 숫자 뿐만 아니라 함수, 다항식, 선형 연산자, 벡터 등등이 수학적 실재가 될 수 있다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-18"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-17"></span>
 <img src="images/math_vectorspace.png" alt="벡터 공간은 다양한 종류의 수학적 실재(mathematical entity)로부터 만들어진다." width="456" />
 <p class="caption">
 FIGURE 2.5: 벡터 공간은 다양한 종류의 수학적 실재(mathematical entity)로부터 만들어진다.
@@ -738,7 +739,7 @@ FIGURE 2.5: 벡터 공간은 다양한 종류의 수학적 실재(mathematical e
 <h3><span class="header-section-number">2.6.3</span> 내적(inner products)</h3>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-19" class="definition"><strong>Definition 2.11  (내적)  </strong></span>내적은 <span class="math inline">\(\mathbf{x}\)</span>, <span class="math inline">\(\mathbf{y}\)</span>의 순서쌍을 스칼라(좀 더 일반적으로는 복소수)에 mapping하는 것이고 <span class="math inline">\(\langle\mathbf{x},\mathbf{y}\rangle\)</span>로 쓴다. 이 mapping은 다음 규칙들을 만족해야 한다.</p>
+<p><span id="def:unnamed-chunk-18" class="definition"><strong>Definition 2.10  (내적)  </strong></span>내적은 <span class="math inline">\(\mathbf{x}\)</span>, <span class="math inline">\(\mathbf{y}\)</span>의 순서쌍을 스칼라(좀 더 일반적으로는 복소수)에 mapping하는 것이고 <span class="math inline">\(\langle\mathbf{x},\mathbf{y}\rangle\)</span>로 쓴다. 이 mapping은 다음 규칙들을 만족해야 한다.</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(\langle\mathbf{x},\mathbf{y}\rangle = \langle\mathbf{y},\mathbf{x}\rangle^{*}\)</span>. (여기서 별표는 complex conjugate를 의미한다.)</p></li>
 <li><p><span class="math inline">\(\langle\alpha\mathbf{x}+\beta\mathbf{y}, \mathbf{z}\rangle = \alpha^{*}\langle\mathbf{x},\mathbf{z}\rangle+\beta^{*}\langle\mathbf{y},\mathbf{z}\rangle\)</span> (여기서 <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span>는 어떤 복소수이다.)</p></li>
@@ -756,17 +757,17 @@ FIGURE 2.5: 벡터 공간은 다양한 종류의 수학적 실재(mathematical e
 <p>벡터 공간이 유한차원일 때, 공간의 완비성(completeness)은 같은 공간의 다른 larger orthonormal set에 포한되어 있지 않는 orthonormal set을 찾음으로써 증명할 수 있다. 예를 들면 3차원 공간에서는 linear combination이 그 공간의 모든 벡터를 표현할 수 있는 three orthonormal vector의 set을 찾기만 하면 되는 것이다. 그러나 우리가 무한 차원 공간을 고려할 때, 무한한 숫자의 orthonormal vector를 고려하는 것은 쉽지 않다. 사실 무한한 숫자의 vector의 linear combination은 때대로 같은 공간에 포함된 벡터를 표현하는 데 충분치 않을 수도 있다. 이러한 모호함을 해결하기 위해 무한 차원 공간에서 완비성을 생각하는 것이다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-20" class="definition"><strong>Definition 2.12  (벡터의 Cauchy sequence)  </strong></span>벡터의 수열 <span class="math inline">\(\{ \mathbf{x}_{1},\mathbf{x}_{2},\ldots \}\)</span>가 모든 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 적단한 근사 숫자 <span class="math inline">\(N\)</span>이 존재해 모든 <span class="math inline">\(m,n &gt; N\)</span>에 대해 <span class="math inline">\(\| \mathbf{x}_{m} -\mathbf{x}_{n} \| &lt; \epsilon\)</span>을 만족한다면 이를 벡터의 <strong>코시 수열(Cauchy sequence)</strong>이라고 한다. 쉽게 얘기하자면 <span class="math inline">\(\mathbf{x}_{m}\)</span>과 <span class="math inline">\(\mathbf{x}_{n}\)</span>이 <span class="math inline">\(m,n \rightarrow \infty\)</span> 함체 따라 가까어지는 수열을 코시 수열이라 부르는 것이다.</p>
+<p><span id="def:unnamed-chunk-19" class="definition"><strong>Definition 2.11  (벡터의 Cauchy sequence)  </strong></span>벡터의 수열 <span class="math inline">\(\{ \mathbf{x}_{1},\mathbf{x}_{2},\ldots \}\)</span>가 모든 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 적단한 근사 숫자 <span class="math inline">\(N\)</span>이 존재해 모든 <span class="math inline">\(m,n &gt; N\)</span>에 대해 <span class="math inline">\(\| \mathbf{x}_{m} -\mathbf{x}_{n} \| &lt; \epsilon\)</span>을 만족한다면 이를 벡터의 <strong>코시 수열(Cauchy sequence)</strong>이라고 한다. 쉽게 얘기하자면 <span class="math inline">\(\mathbf{x}_{m}\)</span>과 <span class="math inline">\(\mathbf{x}_{n}\)</span>이 <span class="math inline">\(m,n \rightarrow \infty\)</span> 함체 따라 가까어지는 수열을 코시 수열이라 부르는 것이다.</p>
 </div>
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-21" class="definition"><strong>Definition 2.13  (코시 수열의 수렴)  </strong></span>벡터의 무한 수열 <span class="math inline">\(\{\mathbf{x}_{1},\mathbf{x}_{2}, \ldots \}\)</span>가 있을 때, 만약 <span class="math inline">\(\mathbf{x}\)</span>가 존재해 <span class="math inline">\(\| \mathbf{x}_{n} -\mathbf{x}\|\rightarrow 0\)</span>을 만족한다면 이 수열이 수렴(convergent)한다고 한다.</p>
+<p><span id="def:unnamed-chunk-20" class="definition"><strong>Definition 2.12  (코시 수열의 수렴)  </strong></span>벡터의 무한 수열 <span class="math inline">\(\{\mathbf{x}_{1},\mathbf{x}_{2}, \ldots \}\)</span>가 있을 때, 만약 <span class="math inline">\(\mathbf{x}\)</span>가 존재해 <span class="math inline">\(\| \mathbf{x}_{n} -\mathbf{x}\|\rightarrow 0\)</span>을 만족한다면 이 수열이 수렴(convergent)한다고 한다.</p>
 </div>
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-22" class="definition"><strong>Definition 2.14  (벡터 공간의 완비성)  </strong></span>만약 어떤 벡터 공간의 모든 코시 수열이 수렴한다면, 우리는 그 공간을 <strong>완비(complete)</strong>라고 부른다.</p>
+<p><span id="def:unnamed-chunk-21" class="definition"><strong>Definition 2.13  (벡터 공간의 완비성)  </strong></span>만약 어떤 벡터 공간의 모든 코시 수열이 수렴한다면, 우리는 그 공간을 <strong>완비(complete)</strong>라고 부른다.</p>
 </div>
 
 </div>
@@ -782,7 +783,7 @@ FIGURE 2.5: 벡터 공간은 다양한 종류의 수학적 실재(mathematical e
 <h3><span class="header-section-number">2.6.7</span> 노름 공간(normed space)</h3>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-23" class="definition"><strong>Definition 2.15  (노름 공간)  </strong></span>원소들에 일종의 ‘길이’ 또는 ’크기’가 부여된 벡터 공간 <span class="math inline">\(V\)</span>을 <strong>노름 공간(normed space)</strong>라고 한다. 노름은 벡터 공간 <span class="math inline">\(V\)</span> 위에서의 실수 함수로 <span class="math inline">\(\| \|\)</span>로 표시하며</p>
+<p><span id="def:unnamed-chunk-22" class="definition"><strong>Definition 2.14  (노름 공간)  </strong></span>원소들에 일종의 ‘길이’ 또는 ’크기’가 부여된 벡터 공간 <span class="math inline">\(V\)</span>을 <strong>노름 공간(normed space)</strong>라고 한다. 노름은 벡터 공간 <span class="math inline">\(V\)</span> 위에서의 실수 함수로 <span class="math inline">\(\| \|\)</span>로 표시하며</p>
 <ol style="list-style-type: decimal">
 <li><p>모든 <span class="math inline">\(\lambda\in\mathbb{F}\)</span>와 <span class="math inline">\(x\in V\)</span>에 대해 <span class="math inline">\(\|\lambda \mathbf{x}\| = |\lambda|\|\mathbf{x}\|\)</span></p></li>
 <li><p>$| +| || +||#</p></li>
@@ -796,13 +797,13 @@ FIGURE 2.5: 벡터 공간은 다양한 종류의 수학적 실재(mathematical e
 <h3><span class="header-section-number">2.6.8</span> 바나흐 공간(Banach space)</h3>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-24" class="definition"><strong>Definition 2.16  (힐버트 공간)  </strong></span>Normed space가 complete일 경우 이를 <strong>바나흐 공간(Banach space)</strong>라고 부른다.</p>
+<p><span id="def:unnamed-chunk-23" class="definition"><strong>Definition 2.15  (힐버트 공간)  </strong></span>Normed space가 complete일 경우 이를 <strong>바나흐 공간(Banach space)</strong>라고 부른다.</p>
 </div>
 
 <p>유한차원에서 노름공간은 항상 완비(complete)이다. 그러나 무한차원에서 노름공간은 완비일 수도 있고, 아닐 수도 있다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-25" class="definition"><strong>Definition 2.17  (원-힐버트 공간)  </strong></span>Inner product spaces들 중 완비가 아닌 공간들을 <strong>원-힐버트 공간(pre-Hilbert space)</strong>라고 부른다.</p>
+<p><span id="def:unnamed-chunk-24" class="definition"><strong>Definition 2.16  (원-힐버트 공간)  </strong></span>Inner product spaces들 중 완비가 아닌 공간들을 <strong>원-힐버트 공간(pre-Hilbert space)</strong>라고 부른다.</p>
 </div>
 
 </div>
@@ -811,11 +812,11 @@ FIGURE 2.5: 벡터 공간은 다양한 종류의 수학적 실재(mathematical e
 <p>모든 힐버트 공간은 함수가 무한차원 공간의 점으로서 간주될 수 있도록 하는 수단을 제공해 준다. 이런 기하학적인 관점의 쓰임새는 우리가 기초 선형대수에서 정의했던 길이, 직교정규, 그리고 원소들의 선형 결합 개념들을 좀 더 추상적인 수학적 공간에 일반화시킬 수 있다는 것이다. 이런 기하학적 관점에 가장 핵심이 되는 개념은 공간의 <strong>기저(basis)</strong>다. 힐버트 공간과 함께, 무한차원 공간에서 기저의 기초적 성질들을 복습해 보기로 한다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-26" class="definition"><strong>Definition 2.18  (힐버트 공간)  </strong></span>A complete normed space endowed with inner product is called a <strong>Hilbert space</strong></p>
+<p><span id="def:unnamed-chunk-25" class="definition"><strong>Definition 2.17  (힐버트 공간)  </strong></span>A complete normed space endowed with inner product is called a <strong>Hilbert space</strong></p>
 </div>
 
 <p>다음 그림은 <span class="citation">(Shima <a href="#ref-Shima2016">2016</a>)</span>에 있는 그림으로 각 공간들 간의 사이의 관계를 이해하는 데 도움이 된다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-27"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-26"></span>
 <img src="images/math_Hilbertspacemap.png" alt="Metric vector space로부터 힐버트 공간까지의 관계." width="309" />
 <p class="caption">
 FIGURE 2.6: Metric vector space로부터 힐버트 공간까지의 관계.
@@ -836,7 +837,7 @@ FIGURE 2.6: Metric vector space로부터 힐버트 공간까지의 관계.
 <p>해석학에서 소볼레프 공간(Sobolev space)이란 충분히 매끄럽고, 무한대에서 충분히 빨리 0으로 수렴하는 함수들로 구성된 함수공간으로 르베그 공간의 일반화이다. 이 공간의 정의는 <span class="citation">(Wasserman <a href="#ref-Wasserman2006">2006</a>)</span>를 참고하였다. 이 책에서 Sobolev 공간의 정의는 smooth function들의 집합이라는 것이다. <span class="math inline">\(D^{j}f\)</span>를 <span class="math inline">\(f\)</span>의 <span class="math inline">\(j\)</span>번째 weak derivative라고 하자. 먼저 weak differentiability에 대해 알아보자. <span class="math inline">\(f\)</span>가 모든 bounded interval에서 적분 가능하다고 하자. 만약 다음꽈 같은 함수 <span class="math inline">\(f&#39;\)</span>가 존재해 모든 bounded interval에서 적분 가능하다면, 즉 모든 <span class="math inline">\(x\leq y\)</span>에 대해 <span class="math display">\[\int_{x}^{y}f&#39;(s)ds=f(y)-f(x)\]</span> 이라면 이를 <strong>weakly differentiable</strong>이라 부른다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-28" class="definition"><strong>Definition 2.19  (Sobolev 공간)  </strong></span><strong>m차 Sobolev space</strong>는 다음과 같다. <span class="math display">\[W(m)=\{ f \in L^{2}(0,1): D^{m}f \in L^{2}(0,1)\}\]</span></p>
+<p><span id="def:unnamed-chunk-27" class="definition"><strong>Definition 2.18  (Sobolev 공간)  </strong></span><strong>m차 Sobolev space</strong>는 다음과 같다. <span class="math display">\[W(m)=\{ f \in L^{2}(0,1): D^{m}f \in L^{2}(0,1)\}\]</span></p>
 <p>반지를 <span class="math inline">\(c\)</span>를 갖는 <span class="math inline">\(m\)</span>차 Sobolev space는 다음과 같다. <span class="math display">\[W(m,c)=\{ f \in W(m), \| D^{m}f \|^{2} \leq c^{2}\}\]</span></p>
 <p><strong>주기를 갖는 Sobolev class (periodic Sobolev class)</strong>는 다음과 같다. <span class="math display">\[\tilde{W}(m,c)=\{ f \in W(m,c): D^{j}f(0)=D^{j}f(1), j=0,\ldots, m-1 \}.\]</span></p>
 </div>
@@ -847,7 +848,7 @@ FIGURE 2.6: Metric vector space로부터 힐버트 공간까지의 관계.
 <p>이 공간의 정의 또한 <span class="citation">(Wasserman <a href="#ref-Wasserman2006">2006</a>)</span>의 9장을 참고하였다. Wavelet threshold estimator는 Besov space에서 good optimality property를 갖는다. 다음과 같이 <span class="math inline">\(\Delta_{h}^{(r)}f(x)\)</span>를 정의하자. <span class="math display">\[\Delta_{h}^{(r)}f(x)=\sum_{k=0}^{r}\binom{r}{k}(-1)^{k}f(x+kh).\]</span> 그러면 <span class="math inline">\(\Delta_{h}^{(0)}f(x)=f(x)\)</span>이고 <span class="math display">\[\Delta_{h}^{(r)}f(x)=\Delta_{h}^{(r-1)}f(x+h)-\Delta_{h}^{(r-1)}f(x).\]</span> 이다. 이제 <span class="math inline">\(w_{r,p}(f;t)\)</span>를 다음과 같이 정의하자. <span class="math display">\[w_{r,p}(f;t)=\sup_{|h|\leq t}\|\Delta_{h}^{(r)}f\|_{p}.\]</span> 이 때 <span class="math inline">\(\|g\|_{p}=\{ \int |g(x)|^{p}dx \}^{1/p}\)</span>이다. <span class="math inline">\((p,g,\zeta)\)</span>가 주어졌을 때, <span class="math inline">\(r\)</span>이 존재해 <span class="math inline">\(r-1\leq \zeta \leq r\)</span>을 만족한다면, <strong>Besov seminorm</strong> <span class="math inline">\(|f|_{p,q}^{\zeta}\)</span>는 <span class="math display">\[|f|_{p,q}^{\zeta}=[\int_{0}^{\infty}(h^{-\zeta}w_{r,p}(f;h))^{q}\frac{dh}{h}]^{1/q}\]</span> 로 정의된다. <span class="math inline">\(q=\infty\)</span>일 때는 다음과 같이 정의한다. <span class="math display">\[|f|_{p,\infty}^{\zeta}=\sup_{0&lt;h&lt;1}\frac{w_{r,p}(f;h)}{h^{\zeta}}\]</span></p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-29" class="definition"><strong>Definition 2.20  (Besov 공간)  </strong></span><strong>Besov 공간(Besov space)</strong> <span class="math inline">\(B_{p,q}^{\xi}(c)\)</span>는 <span class="math inline">\([0,1]\)</span>에서 <span class="math inline">\(\mathbb{R}\)</span>로 가는 함수 <span class="math inline">\(f\)</span>들 중 <span class="math inline">\(\int |f|^{p}&lt;\infty\)</span>이고 <span class="math inline">\(|f|_{p,q}^{\zeta}\leq c\)</span>인 <span class="math inline">\(f\)</span>들의 집합니다.</p>
+<p><span id="def:unnamed-chunk-28" class="definition"><strong>Definition 2.19  (Besov 공간)  </strong></span><strong>Besov 공간(Besov space)</strong> <span class="math inline">\(B_{p,q}^{\xi}(c)\)</span>는 <span class="math inline">\([0,1]\)</span>에서 <span class="math inline">\(\mathbb{R}\)</span>로 가는 함수 <span class="math inline">\(f\)</span>들 중 <span class="math inline">\(\int |f|^{p}&lt;\infty\)</span>이고 <span class="math inline">\(|f|_{p,q}^{\zeta}\leq c\)</span>인 <span class="math inline">\(f\)</span>들의 집합니다.</p>
 </div>
 
 <p>Sobolev space <span class="math inline">\(W(m)\)</span>은 Besov ball <span class="math inline">\(B_{2,2}^{m}\)</span>에 대응된다. Generalized Sobolev space <span class="math inline">\(W_{p}(m)\)</span>은 <span class="math inline">\(m\)</span>차 미분에서 <span class="math inline">\(L^{p}\)</span> 노름을 사용하는 데 이것은 거의 Besov space와 비슷하다. 사실 <span class="math inline">\(B_{p,1}^{m} \subset W_{p}(m) \subset B_{p,\infty}^{m}\)</span>이다. H&quot;{o}lder space는 <span class="math inline">\(B_{\infty,\infty}^{m+\delta}\)</span>와 같다. <span class="math inline">\(T\)</span>를 bounded variation을 갖는 함수들을 포함하는 집합이라고 할 때, <span class="math inline">\(B_{1,1}^{1}\subset T \subset B_{1,\infty}^{1}\)</span>을 만족한다. 즉 Besov space는 넓은 범위희 함수 공간들을 포함한다. 이에 수렴하는 수열(convergent sequence)와 코시 수열(Cauchy sequence)에 대해 생각해 볼 수 있다.</p>
@@ -889,7 +890,7 @@ FIGURE 2.6: Metric vector space로부터 힐버트 공간까지의 관계.
         </div>
       </div>
 <a href="2-5-basis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="2-7-distance.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="2-7-distance-and-metric.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
