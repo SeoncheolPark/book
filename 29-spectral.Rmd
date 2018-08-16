@@ -17,6 +17,32 @@ library(dismo)
 source('~/Dropbox/R files/SeoulDataContest/Sources/Source.R', chdir = TRUE)
 ```
 
+## 복소수값을 갖는 정상 시계열(complex-valued stationary time series)
+
+이 부분만은 특별히 Dewei Wang의 시계열 분석 강의노트 내용을 따랐다. 따라서 표기가 다를 수 있다.
+
+```{definition, name="복소수값을 갖는 정상 시계열"}
+과정 $\{X_{t}}$는 $E|X_{t}|^{2}<\infty$이고 $EX_{t}$는 $t$에 독립이며 $E(X_{t+h}\bar{X}_{t})$ 또한 $t$에 독립일 경우 **복소수값을 갖는 정상 시계열(complex-valued stationary process)**라고 부른다. 이것의 자기공분산 함수 $\gamma_{X}(\cdot)$은
+$$\gamma_{X}(h)=E(X_{t+h}\bar{X}_{t})-E(X_{t+j})E(\bar{X}_{t})$$
+이다.
+
+```
+
+복소수값을 갖는 정상 시계열의 자기공분산 함수또한 실수값을 갖는 정상시계열의 자기공분산함수와 비슷한 성질을 갖는다.
+
+```{theorem, name="복소수값을 갖는 정상 시계열의 자기공분산 함수의 성질"}
+복소수값을 갖는 정상 시계열의 자기공분산 함수의 기본 성질들은 다음과 같다.
+
+1. $\gamma_{X}(0)\geq 0$
+  
+2. $|\gamma_{X}(h)|\leq \gamma_{X}(0), \forall h$
+  
+3. $\gamma_{X}(h) = \bar{\gamma_{X}(h)}, \forall h$
+  
+4. $\gamma_{X}$ is Hermitian and nonnegative 
+
+```
+
 ## 순환 움직임과 주기성(cyclical behavior and periodicity)
 
 다음과 같은 주기과정(periodic process)을 생각해보자.

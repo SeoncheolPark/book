@@ -1,5 +1,11 @@
 # 공간과정 {#spatialprocess}
 
+## 확률과정과 무작위장(stochastic processes and random fields)
+
+**무작위장(random field)**은 단순이 확률과정으로 1차원 이상의 모수공간(보통 공간 변수들로 indexed된에서 정의되어 유클리도 공간에서 값을 취하는 것들을 의미한다. 
+
+## 공간과정의 표현(representation of spatial process)
+
 연속자료의 **공간과정(spatial process)**은 다음과 같이 나타낸다.
 $$\{Z (\mathbf{s}), \mathbf{s} \in \mathcal{D} \subset \mathbb{R}^{d} \} .$$
 여기서 $\mathbf{s}$는 위치(location)이며 $d$차원 자료이다. $d$는 2차원일 수도 있고 고도를 고려하면 3차원일 수도 있다. $Z(\mathbf{s})$는 $\mathbf{s}$에서의 확률변수를 나타낸다. 비슷한 방식으로 시공간 과정(또는 무작위장)을 정의할 수 있다.

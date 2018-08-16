@@ -272,6 +272,17 @@ lambda*pi*(0.2)^2
 
 이 절은 Rasmussen의 2011년 강의노트를 따른다.
 
+## 자기유사과정(self-similar process)
+
+[@Beran2013]에 따르면 long memory를 분석하는 고전적인 방법 중에 하나로 dependence과 self-similarity 사이의 관계에 기반한 방법이 있다.
+
+```{definition, name="자기유사과정"}
+확률과정 $Y(u)$ $(u\in \mathbb{R})$은 모든 $c>0$에 대해
+$$(Y(cu),u\in\mathbb{R})\stackrel{d}{=}(c^{H}Y(u), u\in\mathbb{R})$$
+인 경우 이 확률과정을 **자기유사모수(self-similar parameter)** $H$를 갖는 **자기유사과정(self-similar process)**이라고 부른다.
+
+```
+
 ## 브라운운동(Brownian motion)
 
 함수자료분석에서 다루는 가우스 무작위 함수(Gauss random function)들 중 가장 자주 일어나는 형태는
@@ -311,7 +322,7 @@ plot(steps,bm,type="l")
 
 ### 분수 브라운운동(fractional Brownian motion)
 
-**분수 브라운운동(fractional Brownian motion)**이란 fractional derivative (또는 fractional integral) of Brownian motion을 일컫는 말이다.
+**분수 브라운운동(fractional Brownian motion)**이란 fractional derivative (또는 fractional integral) of Brownian motion을 일컫는 말이다. [@Mallat2008]에 따르면 분수 브라운운동은 통계적으로 자기유사성을 갖는 가우스 과정으로 자연현상을 모델링할 때 많이 쓰인다고 한다. 그 과정은 비정상성을 띄나 power decay를 갖는 power spectrum을 정의할 수 있다.
 
 ## 마팅게일(martingale)
 

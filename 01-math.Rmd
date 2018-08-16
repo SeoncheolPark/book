@@ -191,6 +191,54 @@ $$(x_{1}\otimes x_{2})(y_{1},y_{2})=\langle x_{1},y_{1}\rangle_{\mathcal{H}_{1}}
 
 ```
 
+```{example, name="행렬의 텐서곱 예시"}
+$$
+\begin{bmatrix}
+1 & 2\\
+3 & 4
+\end{bmatrix}
+\otimes
+\begin{bmatrix}
+1 & 1 & 1\\
+1 & 1 & 1\\
+1 & 1 & 2
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & 1 & 1 & 2 & 2 & 2\\
+1 & 1 & 1 & 2 & 2 & 2\\
+1 & 1 & 2 & 2 & 2 & 4\\
+3 & 3 & 3 & 4 & 4 & 4\\
+3 & 3 & 3 & 4 & 4 & 4\\
+3 & 3 & 6 & 4 & 4 & 8\\
+\end{bmatrix},
+$$
+$$
+\begin{bmatrix}
+1 & 1 & 1\\
+1 & 1 & 1\\
+1 & 1 & 2
+\end{bmatrix}
+\otimes
+\begin{bmatrix}
+1 & 2\\
+3 & 4
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & 2 & 1 & 2 & 1 & 2\\
+3 & 4 & 3 & 4 & 3 & 4\\
+1 & 2 & 1 & 2 & 1 & 2\\
+3 & 4 & 3 & 4 & 3 & 4\\
+1 & 2 & 1 & 2 & 2 & 4\\
+3 & 4 & 3 & 4 & 6 & 8\\
+\end{bmatrix}.
+$$
+
+```
+
+
+
 ### 데카르트 곱(Cartesian product)
 
 두 개의 집합 $A$, $B$가 있을 때, 이들의 **데카르트 곱(Cartesian product)** $A\times B$는
