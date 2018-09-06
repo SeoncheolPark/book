@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-08-16">
+<meta name="date" content="2018-09-06">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -134,7 +134,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.6.1" data-path="2-6-space.html"><a href="2-6-space.html#-groups-and-fields"><i class="fa fa-check"></i><b>2.6.1</b> 군과 장(groups and fields)</a></li>
 <li class="chapter" data-level="2.6.2" data-path="2-6-space.html"><a href="2-6-space.html#-vector-spaces"><i class="fa fa-check"></i><b>2.6.2</b> 벡터 공간(vector spaces)</a></li>
 <li class="chapter" data-level="2.6.3" data-path="2-6-space.html"><a href="2-6-space.html#inner-products"><i class="fa fa-check"></i><b>2.6.3</b> 내적(inner products)</a></li>
-<li class="chapter" data-level="2.6.4" data-path="2-6-space.html"><a href="2-6-space.html#orthogonality"><i class="fa fa-check"></i><b>2.6.4</b> 정규직교성(orthogonality)</a></li>
+<li class="chapter" data-level="2.6.4" data-path="2-6-space.html"><a href="2-6-space.html#orthogonality"><i class="fa fa-check"></i><b>2.6.4</b> 직교성(orthogonality)</a></li>
 <li class="chapter" data-level="2.6.5" data-path="2-6-space.html"><a href="2-6-space.html#topological-space"><i class="fa fa-check"></i><b>2.6.5</b> 위상공간(topological space)</a></li>
 <li class="chapter" data-level="2.6.6" data-path="2-6-space.html"><a href="2-6-space.html#--separable-space"><i class="fa fa-check"></i><b>2.6.6</b> 분해 가능 공간(separable space)</a></li>
 <li class="chapter" data-level="2.6.7" data-path="2-6-space.html"><a href="2-6-space.html#-normed-space"><i class="fa fa-check"></i><b>2.6.7</b> 노름 공간(normed space)</a></li>
@@ -497,6 +497,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="36.2.3" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
 <li class="chapter" data-level="36.2.4" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.2.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
 </ul></li>
+<li class="chapter" data-level="36.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.3</b> 극단회귀분석(extremal quantile regression)</a><ul>
+<li class="chapter" data-level="36.3.1" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.3.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
+<li class="chapter" data-level="36.3.2" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.3.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
+<li class="chapter" data-level="36.3.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.3.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="37" data-path="37-functionestimation.html"><a href="37-functionestimation.html"><i class="fa fa-check"></i><b>37</b> 함수추정</a><ul>
 <li class="chapter" data-level="37.1" data-path="37-1-how-to-specify-basis-systems-for-building-functions.html"><a href="37-1-how-to-specify-basis-systems-for-building-functions.html"><i class="fa fa-check"></i><b>37.1</b> 함수를 만들 때 기저시스템을 어떻게 특정할 것인가(how to specify basis systems for building functions)</a></li>
@@ -675,19 +680,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="56.1" data-path="56-1-generalized-pareto-distribution.html"><a href="56-1-generalized-pareto-distribution.html"><i class="fa fa-check"></i><b>56.1</b> 일반화 파레토 분포(generalized pareto distribution)</a></li>
 <li class="chapter" data-level="56.2" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html"><i class="fa fa-check"></i><b>56.2</b> 분계 초과의 모델링(modeling threshold excesses)</a><ul>
 <li class="chapter" data-level="56.2.1" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html#-threshold-selection"><i class="fa fa-check"></i><b>56.2.1</b> 분계점 선택(threshold selection)</a></li>
-<li class="chapter" data-level="56.2.2" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html#smith-smith-model"><i class="fa fa-check"></i><b>56.2.2</b> Smith 모형(Smith model)</a></li>
-<li class="chapter" data-level="56.2.3" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html#schlather-schlather-model"><i class="fa fa-check"></i><b>56.2.3</b> Schlather 모형(Schlather model)</a></li>
-<li class="chapter" data-level="56.2.4" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html#brown-resnick-brown-resnick-model"><i class="fa fa-check"></i><b>56.2.4</b> Brown-Resnick 모형(Brown-Resnick model)</a></li>
-<li class="chapter" data-level="56.2.5" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html#-t-extremal-t-model"><i class="fa fa-check"></i><b>56.2.5</b> 극단-t 모형(extremal-t model)</a></li>
 </ul></li>
-<li class="chapter" data-level="56.3" data-path="56-3-spatial-dependence-of-extremes.html"><a href="56-3-spatial-dependence-of-extremes.html"><i class="fa fa-check"></i><b>56.3</b> 극단값의 공간 종속성(spatial dependence of extremes)</a></li>
 </ul></li>
-<li class="chapter" data-level="57" data-path="57-maxstableRF.html"><a href="57-maxstableRF.html"><i class="fa fa-check"></i><b>57</b> 최대안정 임의장</a><ul>
-<li class="chapter" data-level="57.1" data-path="57-1-brown-resnick-brown-resnick-random-fields.html"><a href="57-1-brown-resnick-brown-resnick-random-fields.html"><i class="fa fa-check"></i><b>57.1</b> Brown-Resnick 임의장(Brown-Resnick random fields)</a></li>
-<li class="chapter" data-level="57.2" data-path="57-2-extremal-gaussian-extremal-gaussian-random-fields.html"><a href="57-2-extremal-gaussian-extremal-gaussian-random-fields.html"><i class="fa fa-check"></i><b>57.2</b> Extremal-Gaussian 임의장(extremal-Gaussian random fields)</a></li>
-<li class="chapter" data-level="57.3" data-path="57-3-extremal-t-extremal-t-random-fields.html"><a href="57-3-extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>57.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
+<li class="chapter" data-level="57" data-path="57-ppextremes.html"><a href="57-ppextremes.html"><i class="fa fa-check"></i><b>57</b> 극단값이론에서의 점과정</a></li>
+<li class="chapter" data-level="58" data-path="58-mevtheory.html"><a href="58-mevtheory.html"><i class="fa fa-check"></i><b>58</b> 다변량 극단값 이론</a><ul>
+<li class="chapter" data-level="58.1" data-path="58-1-copula.html"><a href="58-1-copula.html"><i class="fa fa-check"></i><b>58.1</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="58.2" data-path="58-2-limiting-standardization.html"><a href="58-2-limiting-standardization.html"><i class="fa fa-check"></i><b>58.2</b> 극단 정규화(limiting standardization)</a></li>
 </ul></li>
-<li class="chapter" data-level="58" data-path="58-references.html"><a href="58-references.html"><i class="fa fa-check"></i><b>58</b> References</a></li>
+<li class="chapter" data-level="59" data-path="59-timeextremes.html"><a href="59-timeextremes.html"><i class="fa fa-check"></i><b>59</b> 정상시계열에서의 극단값들</a></li>
+<li class="chapter" data-level="60" data-path="60-spatextremes.html"><a href="60-spatextremes.html"><i class="fa fa-check"></i><b>60</b> 공간 극단값 이론과 최대안정과정</a><ul>
+<li class="chapter" data-level="60.1" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html"><i class="fa fa-check"></i><b>60.1</b> 최대안정과정(max-stable process)</a><ul>
+<li class="chapter" data-level="60.1.1" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#smith-smith-model"><i class="fa fa-check"></i><b>60.1.1</b> Smith 모형(Smith model)</a></li>
+<li class="chapter" data-level="60.1.2" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#schlather-schlather-model"><i class="fa fa-check"></i><b>60.1.2</b> Schlather 모형(Schlather model)</a></li>
+<li class="chapter" data-level="60.1.3" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#brown-resnick-brown-resnick-model"><i class="fa fa-check"></i><b>60.1.3</b> Brown-Resnick 모형(Brown-Resnick model)</a></li>
+<li class="chapter" data-level="60.1.4" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#-t-extremal-t-model"><i class="fa fa-check"></i><b>60.1.4</b> 극단-t 모형(extremal-t model)</a></li>
+</ul></li>
+<li class="chapter" data-level="60.2" data-path="60-2-spatial-dependence-of-extremes.html"><a href="60-2-spatial-dependence-of-extremes.html"><i class="fa fa-check"></i><b>60.2</b> 극단값의 공간 종속성(spatial dependence of extremes)</a></li>
+</ul></li>
+<li class="chapter" data-level="61" data-path="61-maxstableRF.html"><a href="61-maxstableRF.html"><i class="fa fa-check"></i><b>61</b> 최대안정 임의장</a><ul>
+<li class="chapter" data-level="61.1" data-path="61-1-brown-resnick-brown-resnick-random-fields.html"><a href="61-1-brown-resnick-brown-resnick-random-fields.html"><i class="fa fa-check"></i><b>61.1</b> Brown-Resnick 임의장(Brown-Resnick random fields)</a></li>
+<li class="chapter" data-level="61.2" data-path="61-2-extremal-gaussian-extremal-gaussian-random-fields.html"><a href="61-2-extremal-gaussian-extremal-gaussian-random-fields.html"><i class="fa fa-check"></i><b>61.2</b> Extremal-Gaussian 임의장(extremal-Gaussian random fields)</a></li>
+<li class="chapter" data-level="61.3" data-path="61-3-extremal-t-extremal-t-random-fields.html"><a href="61-3-extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>61.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
+</ul></li>
+<li class="chapter" data-level="62" data-path="62-references.html"><a href="62-references.html"><i class="fa fa-check"></i><b>62</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
 
@@ -714,14 +729,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>확률변수(random variable)의 수열이 함수의 수열처럼 여겨질 수 있다는 사실에서 함수의 수열의 성질을 이해하는 것은 중요하다. 일반적인 수열의 수렴에 관한 성질들과 비교했을 때 함수의 수열들의 수렴에 관한 성질에서는 여러 개의 정의로 다뤄질 수 있다는 점에서 차이가 있다. 가장 널리 알려진 함수의 수렴은 <strong>점별수렴(pointwise convergence)</strong>과 <strong>균등수렴(uniform convergence)</strong>이 있다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-31" class="definition"><strong>Definition 2.21  (점별수렴)  </strong></span><span class="math inline">\(\{ f_{n}(x)\}_{n=1}^{\infty}\)</span>를 실함수의 수열이라고 하자. 그러면 모든 <span class="math inline">\(x\in\mathbb{R}\)</span>에 대해 <span class="math display">\[\lim_{n\rightarrow \infty}f_{n}(x)=f(x)\]</span> 를 만족하는 실함수 <span class="math inline">\(f\)</span>가 존재할 때 수열 <span class="math inline">\(\{ f_{n}(x)\}_{n=1}^{\infty}\)</span>이 <span class="math inline">\(f\)</span>에 <strong>점별수렴(pointwise convergence)</strong>한다고 한다. 여기서는 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math display">\[f_{n} \stackrel{pw}{\rightarrow} f\]</span> 로 표현하기로 한다.</p>
+<p><span id="def:unnamed-chunk-35" class="definition"><strong>Definition 2.22  (점별수렴)  </strong></span><span class="math inline">\(\{ f_{n}(x)\}_{n=1}^{\infty}\)</span>를 실함수의 수열이라고 하자. 그러면 모든 <span class="math inline">\(x\in\mathbb{R}\)</span>에 대해 <span class="math display">\[\lim_{n\rightarrow \infty}f_{n}(x)=f(x)\]</span> 를 만족하는 실함수 <span class="math inline">\(f\)</span>가 존재할 때 수열 <span class="math inline">\(\{ f_{n}(x)\}_{n=1}^{\infty}\)</span>이 <span class="math inline">\(f\)</span>에 <strong>점별수렴(pointwise convergence)</strong>한다고 한다. 여기서는 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math display">\[f_{n} \stackrel{pw}{\rightarrow} f\]</span> 로 표현하기로 한다.</p>
 </div>
 
 <p>점별수렴에서 수렴 문제는 <span class="math inline">\(x\)</span>를 고정된 실수로 놓았을 때 실수열 <span class="math inline">\(\{f_{n}(x)\}_{n=1}^{\infty}\)</span>의 수렴 성질을 보는 것으로 줄일 수 있다.</p>
 <p>다음은 <span class="citation">(Shima <a href="#ref-Shima2016">2016</a>)</span>에 나오는 점별수렴하는 함수열의 예제다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-32" class="definition"><strong>Definition 2.22  (점별수렴의 예)  </strong></span>다음과 같은 닫힌 구간 <span class="math inline">\([0,1]\)</span>에서 정의된 함수열 <span class="math inline">\(\{f_{n}\}\)</span> <span class="math display">\[f_{n}(x)=x^{n}\]</span> 이 있다고 하자. 이 수열은 다음 함수로 점별수렴한다. <span class="math display">\[
+<p><span id="def:unnamed-chunk-36" class="definition"><strong>Definition 2.23  (점별수렴의 예)  </strong></span>다음과 같은 닫힌 구간 <span class="math inline">\([0,1]\)</span>에서 정의된 함수열 <span class="math inline">\(\{f_{n}\}\)</span> <span class="math display">\[f_{n}(x)=x^{n}\]</span> 이 있다고 하자. 이 수열은 다음 함수로 점별수렴한다. <span class="math display">\[
 f(x)=\lim_{n\rightarrow\infty}f_{n}(x)=
 \begin{cases}
 0 &amp; 0\leq x &lt; 1\\
@@ -730,7 +745,7 @@ f(x)=\lim_{n\rightarrow\infty}f_{n}(x)=
 \]</span></p>
 </div>
 
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-33"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-37"></span>
 <img src="images/math_ptconvergence.png" alt="점별수렴하는 함수의 예." width="372" />
 <p class="caption">
 FIGURE 2.7: 점별수렴하는 함수의 예.
@@ -740,7 +755,7 @@ FIGURE 2.7: 점별수렴하는 함수의 예.
 <p>이런 현상은 함수열 <span class="math inline">\(f_{n}(x)\)</span>의 미분가능성과 적분가능성에서도 비슷하게 일어난다. 즉, 점별수렴 하에서는 함수열들이 모두 적분가능하거나 미분가넝하더라고 그것의 극한은 그렇지 않을 수도 있음을 의미한다. 이러한 예제들로 다음 예제들이 있다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-34" class="definition"><strong>Definition 2.23  (점별수렴과 적분의 순서)  </strong></span>다음과 같은 함수 <span class="math display">\[f_{n}(x)=nx(1-x^{2})^{n}, \qquad{x\in [0,1]}\]</span> 이 있다고 하자. 여기서는 극한과정 <span class="math inline">\(n\rightarrow\infty\)</span>와 적분의 순서를 바꾸면 다른 결과를 줄 것임을 보여줄 것이다. 주어진 함수는 각각의 <span class="math inline">\(n\)</span>에 대해 적분 가능하며 다음과 같다. <span class="math display">\[
+<p><span id="def:unnamed-chunk-38" class="definition"><strong>Definition 2.24  (점별수렴과 적분의 순서)  </strong></span>다음과 같은 함수 <span class="math display">\[f_{n}(x)=nx(1-x^{2})^{n}, \qquad{x\in [0,1]}\]</span> 이 있다고 하자. 여기서는 극한과정 <span class="math inline">\(n\rightarrow\infty\)</span>와 적분의 순서를 바꾸면 다른 결과를 줄 것임을 보여줄 것이다. 주어진 함수는 각각의 <span class="math inline">\(n\)</span>에 대해 적분 가능하며 다음과 같다. <span class="math display">\[
 \begin{align*}
 \int_{0}^{1}f_{n}(x)dx &amp;= n \int_{0}^{1}x(1-x^{2})^{n}dx = \Big[\frac{-n}{2(n+1)}(1-x^{2})^{n+1}\Big]_{0}^{1}\\
 &amp;= \frac{n}{2(n+1)}\rightarrow \frac{1}{2}.
@@ -753,7 +768,7 @@ FIGURE 2.7: 점별수렴하는 함수의 예.
 
 
 <div class="definition">
-<span id="def:unnamed-chunk-35" class="definition"><strong>Definition 2.24  (점별수렴과 미분의 순서)  </strong></span>다음과 같은 함수 <span class="math display">\[
+<span id="def:unnamed-chunk-39" class="definition"><strong>Definition 2.25  (점별수렴과 미분의 순서)  </strong></span>다음과 같은 함수 <span class="math display">\[
 f_{n}(x)=
 \begin{cases}
 -1 &amp; x &lt; -\frac{1}{n},\\
@@ -773,10 +788,10 @@ f(x)=
 <p>점별수렴보다 더 강한 조건으로 <span class="math inline">\(x \in \mathbb{R}\)</span>에 상관 없이 모든 지점에서 동시에 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(f_{n}(x) \rightarrow f(x)\)</span>이길 요구할 수도 있다. 이 때 사용되는 정의가 균등수렴이다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-36" class="definition"><strong>Definition 2.25  (균등수렴)  </strong></span><span class="math inline">\(\{ f_{n}(x)\}_{n=1}^{\infty}\)</span>를 실함수의 수열이라고 하자. 그러면 모든 <span class="math inline">\(\epsilon &gt; 0\)</span>에 대해 <span class="math display">\[|f_{n}(x)-f(x)| &lt;\epsilon \forall n \geq n_{\epsilon} \text{ and } x\in \mathbb{R}\]</span> 을 만족시키는 정수 <span class="math inline">\(n_{\epsilon}\)</span>이 존재할 때 수열 <span class="math inline">\(\{ f_{n}(x)\}_{n=1}^{\infty}\)</span>이 <span class="math inline">\(f\)</span>에 <strong>균등수렴(uniform convergence)</strong>한다고 한다. 여기서는 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math display">\[f_{n} \stackrel{u}{\rightarrow} f\]</span> 로 표현하기로 한다.</p>
+<p><span id="def:unnamed-chunk-40" class="definition"><strong>Definition 2.26  (균등수렴)  </strong></span><span class="math inline">\(\{ f_{n}(x)\}_{n=1}^{\infty}\)</span>를 실함수의 수열이라고 하자. 그러면 모든 <span class="math inline">\(\epsilon &gt; 0\)</span>에 대해 <span class="math display">\[|f_{n}(x)-f(x)| &lt;\epsilon \forall n \geq n_{\epsilon} \text{ and } x\in \mathbb{R}\]</span> 을 만족시키는 정수 <span class="math inline">\(n_{\epsilon}\)</span>이 존재할 때 수열 <span class="math inline">\(\{ f_{n}(x)\}_{n=1}^{\infty}\)</span>이 <span class="math inline">\(f\)</span>에 <strong>균등수렴(uniform convergence)</strong>한다고 한다. 여기서는 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math display">\[f_{n} \stackrel{u}{\rightarrow} f\]</span> 로 표현하기로 한다.</p>
 </div>
 
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-37"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-41"></span>
 <img src="images/math_uniformconvergence.png" alt="균등수렴하는 함수의 예. 균등수렴에서는 어떤 밴드를 잡았을 때, n을 적당히 조절하여 함수열이 그 밴드 안에 들어가도록 할 수 있다." width="478" />
 <p class="caption">
 FIGURE 2.8: 균등수렴하는 함수의 예. 균등수렴에서는 어떤 밴드를 잡았을 때, n을 적당히 조절하여 함수열이 그 밴드 안에 들어가도록 할 수 있다.
@@ -785,7 +800,7 @@ FIGURE 2.8: 균등수렴하는 함수의 예. 균등수렴에서는 어떤 밴�
 <p>균등수렴과 관련된 정리로 어떤 연속함수들의 함수열이 균등수렴이면 그 수열의 극한 또한 반드시 연속이어야 한다는 정리가 있다. 이 정리는 <span class="citation">(Polansky <a href="#ref-Polansky2011">2011</a>)</span>에 나와있다.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-38" class="theorem"><strong>Theorem 2.1  (함수열의 균등수렴과 함수열의 극한의 연속)  </strong></span><span class="math inline">\(\{f_{n}(x)\}_{n=1}^{\infty}\)</span>가 <span class="math inline">\(\mathbb{R}\)</span>의 부분집합 <span class="math inline">\(R\)</span>에서 정의된 함수들의 수열이며 함수 <span class="math inline">\(f\)</span>로 균등수렴한다고 하자. 만약 각각의 <span class="math inline">\(f_{n}\)</span>들이 어떤 점 <span class="math inline">\(x\in R\)</span>에서 연속이면, <span class="math inline">\(f\)</span> 또한 점 <span class="math inline">\(x\)</span>에서 연속이어야 한다.</p>
+<p><span id="thm:unnamed-chunk-42" class="theorem"><strong>Theorem 2.1  (함수열의 균등수렴과 함수열의 극한의 연속)  </strong></span><span class="math inline">\(\{f_{n}(x)\}_{n=1}^{\infty}\)</span>가 <span class="math inline">\(\mathbb{R}\)</span>의 부분집합 <span class="math inline">\(R\)</span>에서 정의된 함수들의 수열이며 함수 <span class="math inline">\(f\)</span>로 균등수렴한다고 하자. 만약 각각의 <span class="math inline">\(f_{n}\)</span>들이 어떤 점 <span class="math inline">\(x\in R\)</span>에서 연속이면, <span class="math inline">\(f\)</span> 또한 점 <span class="math inline">\(x\)</span>에서 연속이어야 한다.</p>
 </div>
 
 <p>이 정리의 증명은 Apostol (1974)의 9.4절에서 발견할 수 있다고 한다. 여기서 알아두어야 할 것은 균등수렴은 충분조건이며 필요조건이 아니라는 것이다. 즉</p>
@@ -793,7 +808,7 @@ FIGURE 2.8: 균등수렴하는 함수의 예. 균등수렴에서는 어떤 밴�
 <h3><span class="header-section-number">2.8.1</span> 수렴하는 수열(convergent sequence)</h3>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-39" class="definition"><strong>Definition 2.26  ((함수해석학에서) 수렴하는 수열)  </strong></span>노름 벡터 공간 <span class="math inline">\((\mathcal{F}, \| \cdot\|_{\mathcal{F}})\)</span>의 원소들로 이루어진 수열 <span class="math inline">\(\{ f_{n}\}_{n=1}^{\infty}\)</span>가 모든 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math inline">\(N=N(\epsilon)\in \mathbb{N}\)</span>이 존재해 모든 <span class="math inline">\(n \geq \mathbb{N}\)</span>에 대해 <span class="math inline">\(\| f_{n}-f\|_{\mathcal{F}} &lt;\epsilon\)</span>을 만족할 때, 우리는 수열이 <span class="math inline">\(f\in \mathcal{F}\)</span>에 <strong>수렴(converge)</strong> 한다고 한다.</p>
+<p><span id="def:unnamed-chunk-43" class="definition"><strong>Definition 2.27  ((함수해석학에서) 수렴하는 수열)  </strong></span>노름 벡터 공간 <span class="math inline">\((\mathcal{F}, \| \cdot\|_{\mathcal{F}})\)</span>의 원소들로 이루어진 수열 <span class="math inline">\(\{ f_{n}\}_{n=1}^{\infty}\)</span>가 모든 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math inline">\(N=N(\epsilon)\in \mathbb{N}\)</span>이 존재해 모든 <span class="math inline">\(n \geq \mathbb{N}\)</span>에 대해 <span class="math inline">\(\| f_{n}-f\|_{\mathcal{F}} &lt;\epsilon\)</span>을 만족할 때, 우리는 수열이 <span class="math inline">\(f\in \mathcal{F}\)</span>에 <strong>수렴(converge)</strong> 한다고 한다.</p>
 </div>
 
 </div>
@@ -801,20 +816,20 @@ FIGURE 2.8: 균등수렴하는 함수의 예. 균등수렴에서는 어떤 밴�
 <h3><span class="header-section-number">2.8.2</span> 코시 수열(Cauchy sequence)</h3>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-40" class="definition"><strong>Definition 2.27  ((함수해석학에서) 수렴하는 수열)  </strong></span>노름 벡터 공간 <span class="math inline">\((\mathcal{F}, \| \cdot\|_{\mathcal{F}})\)</span>의 원소들로 이루어진 수열 <span class="math inline">\(\{ f_{n}\}_{n=1}^{\infty}\)</span>가 모든 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math inline">\(N=N(\epsilon)\in \mathbb{N}\)</span>이 존재해 모든 <span class="math inline">\(m,n \geq \mathbb{N}\)</span>에 대해 <span class="math inline">\(\| f_{m}-f_{n}\|_{\mathcal{F}} &lt;\epsilon\)</span>을 만족할 때, 수열 <span class="math inline">\(\{ f_{n}\}_{n=1}^{\infty}\)</span>를 <strong>코시 수열(Cauchy sequence)</strong>이라고 한다.</p>
+<p><span id="def:unnamed-chunk-44" class="definition"><strong>Definition 2.28  ((함수해석학에서) 수렴하는 수열)  </strong></span>노름 벡터 공간 <span class="math inline">\((\mathcal{F}, \| \cdot\|_{\mathcal{F}})\)</span>의 원소들로 이루어진 수열 <span class="math inline">\(\{ f_{n}\}_{n=1}^{\infty}\)</span>가 모든 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math inline">\(N=N(\epsilon)\in \mathbb{N}\)</span>이 존재해 모든 <span class="math inline">\(m,n \geq \mathbb{N}\)</span>에 대해 <span class="math inline">\(\| f_{m}-f_{n}\|_{\mathcal{F}} &lt;\epsilon\)</span>을 만족할 때, 수열 <span class="math inline">\(\{ f_{n}\}_{n=1}^{\infty}\)</span>를 <strong>코시 수열(Cauchy sequence)</strong>이라고 한다.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-41" class="example"><strong>Example 2.5  (유리수의 장)  </strong></span>절대값 <span class="math inline">\(\| \cdot\|\)</span>을 노름으로 갖는 유리수 <span class="math inline">\(\mathbb{Q}\)</span>의 장(field)은 노름 벡터 공간이다. 여기서 수열 <span class="math inline">\(1, 1.4, 1.41, \ldots\)</span>는 <span class="math inline">\(\mathbb{Q}\)</span>에서의 코시 수열이나 이것의 극한 <span class="math inline">\(\sqrt{2} \notin \mathbb{Q}\)</span>이므로 수렴하는 수열은 아니다.</p>
+<p><span id="exm:unnamed-chunk-45" class="example"><strong>Example 2.7  (유리수의 장)  </strong></span>절대값 <span class="math inline">\(\| \cdot\|\)</span>을 노름으로 갖는 유리수 <span class="math inline">\(\mathbb{Q}\)</span>의 장(field)은 노름 벡터 공간이다. 여기서 수열 <span class="math inline">\(1, 1.4, 1.41, \ldots\)</span>는 <span class="math inline">\(\mathbb{Q}\)</span>에서의 코시 수열이나 이것의 극한 <span class="math inline">\(\sqrt{2} \notin \mathbb{Q}\)</span>이므로 수렴하는 수열은 아니다.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-42" class="example"><strong>Example 2.6  (C[0,1])  </strong></span><span class="math inline">\(C[0,1]\)</span>을 구간 <span class="math inline">\([0,1]\)</span>에서 bounded continuous인 함수들의 집합이라고 하자. 다음과 같은 노름 <span class="math inline">\(\| f\| =(\int_{0}^{1}|f(x)|^{2}dx)^{1/2}\)</span>을 생각할 때 함수들의 수열 <span class="math inline">\(\{ f_{n}\}\)</span>은 <span class="math inline">\([0, \frac{1}{2}-\frac{1}{2n} ]\)</span>에서 <span class="math inline">\(0\)</span>이고 <span class="math inline">\([\frac{1}{2}+\frac{1}{2n}, 1]\)</span>에서 <span class="math inline">\(1\)</span>이기 때문에 코시 수열이나 연속 극한(continuous limit)은 존재하지 않는다.</p>
+<p><span id="exm:unnamed-chunk-46" class="example"><strong>Example 2.8  (C[0,1])  </strong></span><span class="math inline">\(C[0,1]\)</span>을 구간 <span class="math inline">\([0,1]\)</span>에서 bounded continuous인 함수들의 집합이라고 하자. 다음과 같은 노름 <span class="math inline">\(\| f\| =(\int_{0}^{1}|f(x)|^{2}dx)^{1/2}\)</span>을 생각할 때 함수들의 수열 <span class="math inline">\(\{ f_{n}\}\)</span>은 <span class="math inline">\([0, \frac{1}{2}-\frac{1}{2n} ]\)</span>에서 <span class="math inline">\(0\)</span>이고 <span class="math inline">\([\frac{1}{2}+\frac{1}{2n}, 1]\)</span>에서 <span class="math inline">\(1\)</span>이기 때문에 코시 수열이나 연속 극한(continuous limit)은 존재하지 않는다.</p>
 </div>
 
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-43"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-47"></span>
 <img src="images/math_counterCauchy.png" alt="L2 norm에서 연속 극한을 갖지 않는 연속함수들의 코시 수열의 예." width="439" />
 <p class="caption">
 FIGURE 2.9: L2 norm에서 연속 극한을 갖지 않는 연속함수들의 코시 수열의 예.

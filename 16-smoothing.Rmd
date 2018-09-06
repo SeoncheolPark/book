@@ -161,7 +161,7 @@ $$\frac{\partial^{2}f}{\partial x^{2}}+ \frac{\partial^{2}f}{\partial y^{2}}=0.$
 그리고 boundary condition 또한 만족한다. 즉 soap film은 minimum surface tension configuration을 만족한다. 
 정의역의 모든 영역에 걸쳐 잡음이 들어간 $z$가 부드럽게 존재하기 위해 soap film은 다음 왜곡 degree 측도를 만족해야 한다.
 $$J_{\Omega}(f)=\int_{\Omega}(\frac{\partial^{2}f}{\partial x^{2}}+ \frac{\partial^{2}f}{\partial y^{2}})^{2}dxdy.$$
-이것이 thin plate spline과 soap film smoothing을 구분하는 부붅이다. TPS는 $\Omega$에 대해 적분하지만 soap film smoothing은 그렇지 않다.
+이것이 thin plate spline과 soap film smoothing을 구분하는 부분이다. TPS는 $x,y$ plane이 아닌 $\Omega$에 대해 적분하지만 soap film smoothing은 그렇지 않다.
 
 ```{r, echo=F, fig.cap='Soap film smoothing 설명 그림.', fig.align='center'}
 knitr::include_graphics("images/gam_soapfilmsmoothing.png")
@@ -173,9 +173,11 @@ $n$개의 자료가 $z_{k}$가 있고 이것이 $h(x_{k},y_{k})$의 잡음이 �
 (\#eq:soapfilmsmoothing)
 \end{equation}
 
+여기서 $\lambda$는 tunable smoothing parameter이다. 이 추정문제는 동기는 달랐지만 [@Ramsay2002]에서 처음 다뤘다. [@Ramsay2002]는 유한요소법을 활용한 fitting method를 제시했으나 이 방법은 단순한 형태의 basis-penalty representation을 제시하지는 못한다.
+
 ## 텐서곱 스므딩 상호효과들(tensor product smooth interactions)
 
-[@Wood2006] 내용의 5장을 참고한다.
+[@Wood2006] 내용의 5장을 참고한다. 위에서 제시한 smoothing 방법들은 smooths의 isotropy를 가정하고 진행한다. 그러나 이런 방법은 몇 가지 단점들이 존재한다. 그 중 가장 대표적인 단점은 똑같은 smoothness를 주기 위해 어느정도로 스케일링하여 맞춰야할 지 알아맞추기 힘들다는 것이다. 예를 들어, 1차원 공간 좌표와 1차원 시간 좌표를 갖고 있는 자료를 다룰 때 단위가 m, hour 등으로 다르므로 시간의 부드러움과 공간의 부드러움의 상대적 중요도를 나타내는 것은 매우 어려운 일일 것이다.
 
 ### 텐서곱 기저들(tensor product bases)
 
@@ -183,3 +185,5 @@ $n$개의 자료가 $z_{k}$가 있고 이것이 $h(x_{k},y_{k})$의 잡음이 �
 
 $$f_{x}(x)=\sum_{i=1}^{I}\alpha_{i}a_{i}(x), f_{z}(z)=\sum_{l=1}^{L}\delta_{l}d_{l}(z), f_{v}(v)=\sum_{k=1}^{K}\beta_{k}b_{k}(v).$$
 여기서 $\alpha_{i}$, $\delta_{i}$, $\beta_{i}$는 모수들이며 $a_{i}(x)$, $d_{i}(z)$, $b_{k}(v)$는 알려진 기저함수들이다.
+
+이제는 $x$의 부드러운 함수 $f_{x}$가 어떻게 $x$와 $z$의 부드러운 함수로 변환될 수 있는지 생각해보자. 

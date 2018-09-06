@@ -33,9 +33,7 @@ $$
 
 이런 GEV 분포와 GPD 사이의 duality는 GEV 분포에서처럼 모수 $\xi$가 GPD의 질적인 행동을 결정하는 데 가장 큰 역할을 한다는 것을 말해준다. $\xi<0$이면 초과의 분포는 $u-\tilde{\sigma}/\xi$의 upper bound를 갖는다. 만약 $\xi=0$이면 분포는 unbounded이고 $H(y)$에서 $\xi \rightarrow 0$인 극한을 취해 다음의 식을 얻는다.
 
-$$
-H(y)=1-\exp(-\frac{y}{\tilde{\sigma}}), y > 0.
-$$
+$$H(y)=1-\exp(-\frac{y}{\tilde{\sigma}}), y > 0.$$
 
 이 식은 모수가 $1/\tilde{\sigma}$인 지수 분포에 대응된다.
 
@@ -51,24 +49,22 @@ GPD에서 threshold를 선택하는 문제는 block maxima 접근에서 block si
 
 2. 모델을 다른 임계점들에 대해 적합해보고 추정된 모수의 안정성을 평가해 본다.
 
-첫 번째 방법은 GPD의 평균에 기반한 방법이다. $Y$가 모수 $\sigma, xi$인 GPD 분포를 따른다면
+첫 번째 방법은 GPD의 평균에 기반한 방법이다. $Y$가 모수 $\sigma, \xi$인 GPD 분포를 따른다면
 
 \begin{equation}
-E(Y)=\frac{\sigma}{1-\xi}, \xi<1
+E(Y)=\frac{\sigma}{1-\xi}, \qquad{\xi<1}
 (\#eq:meanGPD)
-\begin{equation}
+\end{equation}
 
 이 된다. 만약 $\xi\leq 1$이면 평균은 무한대다. GPD가 수열 $X_{1},\ldots, X_{n}$으로부터 생성되고 임계가 $u_{0}$인 초과의 모델로서 유효하다고 가정해보자. 그러면 \@ref(eq:meanGPD)에 의해
-$$
-E(X-u_{0}|X >u_{0})=\frac{\sigma_{u_{0}}}{1-\xi}, \xi < 1
-$$
+$$E(X-u_{0}|X >u_{0})=\frac{\sigma_{u_{0}}}{1-\xi}, \xi < 1$$
 을 얻을 수 있다. 그런데 GPD가 $u_{0}$보다 큰 임계에 대해서도 유효해야 GPD가 유효하다고 볼 수 있으므로, 모든 $u>u_{0}$에 대해 $\sigma_{u_{0}}$또한 적절히 변해야 한다. 따라서, $u>u_{0}$일 떄 $\tilde{\sigma}=\sigma + \xi (x-\mu)$ 관계에 의해
-$$
+
 \begin{align*}
 E(X-u|X>u)&= \frac{\sigma_{u}}{1-\xi}\\
 &=\frac{\sigma_{u_{0}}+\xi u}{1-\xi}
 \end{align*}
-$$
+
 를 얻는다. 따라서 $u>u_{0}$일 때 $E(X-u|X>u)$는 $u$에 대한 선형 함수여야 한다. 즉 $u$에 따라 선형으로 변하는 추정들은 GP 모형에서 적당하다고 생각할 수 있다.
-$$(u,\frac{1}{n_{u}}\sum_{i=1}^{n_{u}}(x_{(i)}-u) : u < x_{\text{max}}),$$
-이 때 $x_{(1)},\ldots, x_{(n_{u})}$는 $u$를 초과하는 $n_{u}$개의 관찰값들이고 $x_{\text{max}}$가 $X_{i}$들 중 가장 큰 값이라고 할 때, 이것을 **mean residual plot**이라고 부른다.
+$$(u,\frac{1}{n_{u}}\sum_{i=1}^{n_{u}}(x_{(i)}-u) : u < x_{\max}),$$
+이 때 $x_{(1)},\ldots, x_{(n_{u})}$는 $u$를 초과하는 $n_{u}$개의 관찰값들이고 $x_{\max}$가 $X_{i}$들 중 가장 큰 값이라고 할 때, 이것을 **mean residual plot**이라고 부른다.

@@ -14,9 +14,13 @@ $$\boldsymbol{\epsilon}\sim\mathcal{N}(\mathbf{0},\boldsymbol{\Lambda}_{\theta})
 
 [@Wood2006]를 참고하였다. 이 때의 모형은
 $$y_{ij}=\alpha +b_{i}+\epsilon_{ij}$$
-이다. 이때 $\alpha$는 모집단의 평균에 대한 고정된 모수 $i=1,\ldots, I, j=1,\ldots, J$이고 $b_{i}\sim\mathcal{N}(0,\sigma_{b}^{2})$, $\epsilon_{ij}\sim\mathcal{N}(0,\sigma^{2})$이다. 그리고 모든 $b_{i}$와 $\epsilon_{e}_{ij}$는 서로 독립이다.
+이다. 이때 $\alpha$는 모집단의 평균에 대한 고정된 모수 $i=1,\ldots, I, j=1,\ldots, J$이고 $b_{i}\sim\mathcal{N}(0,\sigma_{b}^{2})$, $\epsilon_{ij}\sim\mathcal{N}(0,\sigma^{2})$이다. 그리고 모든 $b_{i}$와 $\epsilon_{e_{ij}}$는 서로 독립이다.
 
 ### 무작위 요인인 두 개일 때(a model with two factors)
+
+$i$레벨 고정 효과 $A$와 $j$레벨 무작위 효과 $B$에 대한 $k$번째 관찰값에 대한 모형은 다음과 같다.
+$$y_{ijk} = \mu + \alpha_{i} + b_{j} + (\alpha b)_{ij} + \epsilon_{ijk},$$
+여기서 $b_{j}\sim \mathcal{N}(0,\sigma_{b}^{2})$, $(\alpha b)_{ij}\sim \mathcal{N}(0,\sigma_{\alpha b}^{2})$ 그리고 $\epsilon_{ijk}\sim \mathcal{N}(0,\sigma^{2})$이며 이 확률변수들은 mutually independent이다. $\mu$는 overall population mean이며 $\alpha_{i}$는 요인 $A$에 대한 $I$가지 고정 효과들이고 $b_{j}$는 요인 $B$에 대한 $J$가지 무작위 요인들이며 $(\alpha b)_{ij}$는 요인들간의 $IJ$ 상호효과를 나타내는 항이다.
 
 ## 혼합모형에 대한 최대가능도 추정(maximum likelihood estimaton for mixed model)
 
@@ -29,6 +33,15 @@ $$y_{ij}=\alpha +b_{i}+\epsilon_{ij}$$
 뉴턴 방법의 기본 원리는 $l(\boldsymbol{\theta})$를 지금 상태의 모수 추측 $\boldsymbol{\theta}_{0}$을 이용해 2차 테일러 전개로 근사하는 것이다. 그리고 $l(\boldsymbol{\theta}')<l(\boldsymbol{\theta}_{0})$일 경우 새로 얻어진 $l(\boldsymbol{\theta}')$가 $l(\boldsymbol{\theta}_{0})$보다 작지 않을 때까지 $\boldsymbol{\theta}' \leftarrow \frac{\boldsymbol{\theta}' + \boldsymbol{\theta}_{0}}{2}$로 바꿔준다. 이런 과정들은 $\frac{\partial l}{\partial \boldsymbol{\theta}}\approx 0$이 될때까지 반복한다. 
 
 ## 일반적인 선형 혼합모형(linear mixed model in general)
+
+일반적인 선형 혼한 모형은 다음과 같이 쓸 수 있었음을 상기하자.
+$$\mathbf{y}=\mathbf{X}\boldsymbol{\beta}+\mathbf{Zb}+\boldsymbol{\epsilon},$$
+$$\mathbf{b}\sim\mathcal{N}(\mathbf{0},\boldsymbol{\psi}_{\theta}),$$
+$$\boldsymbol{\epsilon}\sim\mathcal{N}(\mathbf{0},\boldsymbol{\Lambda}_{\theta}),$$
+여기서 $\boldsymbol{\psi}_{\theta})$는 무작위 효과 $\mathbf{b}$에 대한 양정치 공분산 행렬이고 $\mathbf{Z}$는 고정된 계수들이 반응변수에 어떤 영향을 미치는지 묘사하는 행렬이다(random effect와 관련, 즉 random effects에 대한 model matrix). $\boldsymbol{\psi}_{\theta})$는 어던 모수들 $\boldsymbol{\theta}$와 연관되는데 이들은 random effect에 관한 추론을 할 때 최우선 타겟이 된다. $\boldsymbol{\Lambda}_{\theta})$는 양정치 행렬이며 몇개의 알려지지 않은 모수들에 의존한다. 가장 단순하게는 $\mathbf{I}\sigma^{2}$이 될 수 있다.
+
+또한 $\mathbf{y}$를 다음과 같이 다변량 정규 분포 형태로 쓸 수 있다.
+$$\mathbf{y} \sim \mathcal{N}(\mathbf{X}\boldsymbol{\beta}, \mathbf{Z}\boldsymbol{\psi}_{\theta}\mathbf{Z}^{T}+\boldsymbol{\Lambda}_{\theta}).$$
 
 ## 선형 혼합모형의 최대가능도추정(maximum likelihood estimaton for linear mixed model)
 
@@ -49,7 +62,6 @@ $$y_{ij}=\alpha +b_{i}+\epsilon_{ij}$$
 \end{align*}
 
 이 때 $M$은 $\boldsymbol{\beta}$의 차원이며 $\hat{\boldsymbol{\beta}}$와 $\hat{\mathbf{b}}$는 $\boldsymbol{\theta}$에 의존적이므로 각각의 $\boldsymbol{\theta}$에 대해서 다 계산해줘야 한다. Restrict log likelihood $l_{r}$은 AIC 등의 test statistic을 사용할 수 있다. 그러나 different fixed effect structure를 가진 모형끼리는 비교할 수 없다.
-
 
 
 ## R 예제 (linear mixed models in R)

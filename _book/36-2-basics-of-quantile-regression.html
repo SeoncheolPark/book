@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-08-16">
+<meta name="date" content="2018-09-06">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="36-1-quantile.html">
-<link rel="next" href="37-functionestimation.html">
+<link rel="next" href="36-3-extremal-quantile-regression.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -134,7 +134,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.6.1" data-path="2-6-space.html"><a href="2-6-space.html#-groups-and-fields"><i class="fa fa-check"></i><b>2.6.1</b> 군과 장(groups and fields)</a></li>
 <li class="chapter" data-level="2.6.2" data-path="2-6-space.html"><a href="2-6-space.html#-vector-spaces"><i class="fa fa-check"></i><b>2.6.2</b> 벡터 공간(vector spaces)</a></li>
 <li class="chapter" data-level="2.6.3" data-path="2-6-space.html"><a href="2-6-space.html#inner-products"><i class="fa fa-check"></i><b>2.6.3</b> 내적(inner products)</a></li>
-<li class="chapter" data-level="2.6.4" data-path="2-6-space.html"><a href="2-6-space.html#orthogonality"><i class="fa fa-check"></i><b>2.6.4</b> 정규직교성(orthogonality)</a></li>
+<li class="chapter" data-level="2.6.4" data-path="2-6-space.html"><a href="2-6-space.html#orthogonality"><i class="fa fa-check"></i><b>2.6.4</b> 직교성(orthogonality)</a></li>
 <li class="chapter" data-level="2.6.5" data-path="2-6-space.html"><a href="2-6-space.html#topological-space"><i class="fa fa-check"></i><b>2.6.5</b> 위상공간(topological space)</a></li>
 <li class="chapter" data-level="2.6.6" data-path="2-6-space.html"><a href="2-6-space.html#--separable-space"><i class="fa fa-check"></i><b>2.6.6</b> 분해 가능 공간(separable space)</a></li>
 <li class="chapter" data-level="2.6.7" data-path="2-6-space.html"><a href="2-6-space.html#-normed-space"><i class="fa fa-check"></i><b>2.6.7</b> 노름 공간(normed space)</a></li>
@@ -497,6 +497,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="36.2.3" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
 <li class="chapter" data-level="36.2.4" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.2.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
 </ul></li>
+<li class="chapter" data-level="36.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.3</b> 극단회귀분석(extremal quantile regression)</a><ul>
+<li class="chapter" data-level="36.3.1" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.3.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
+<li class="chapter" data-level="36.3.2" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.3.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
+<li class="chapter" data-level="36.3.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.3.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="37" data-path="37-functionestimation.html"><a href="37-functionestimation.html"><i class="fa fa-check"></i><b>37</b> 함수추정</a><ul>
 <li class="chapter" data-level="37.1" data-path="37-1-how-to-specify-basis-systems-for-building-functions.html"><a href="37-1-how-to-specify-basis-systems-for-building-functions.html"><i class="fa fa-check"></i><b>37.1</b> 함수를 만들 때 기저시스템을 어떻게 특정할 것인가(how to specify basis systems for building functions)</a></li>
@@ -675,19 +680,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="56.1" data-path="56-1-generalized-pareto-distribution.html"><a href="56-1-generalized-pareto-distribution.html"><i class="fa fa-check"></i><b>56.1</b> 일반화 파레토 분포(generalized pareto distribution)</a></li>
 <li class="chapter" data-level="56.2" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html"><i class="fa fa-check"></i><b>56.2</b> 분계 초과의 모델링(modeling threshold excesses)</a><ul>
 <li class="chapter" data-level="56.2.1" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html#-threshold-selection"><i class="fa fa-check"></i><b>56.2.1</b> 분계점 선택(threshold selection)</a></li>
-<li class="chapter" data-level="56.2.2" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html#smith-smith-model"><i class="fa fa-check"></i><b>56.2.2</b> Smith 모형(Smith model)</a></li>
-<li class="chapter" data-level="56.2.3" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html#schlather-schlather-model"><i class="fa fa-check"></i><b>56.2.3</b> Schlather 모형(Schlather model)</a></li>
-<li class="chapter" data-level="56.2.4" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html#brown-resnick-brown-resnick-model"><i class="fa fa-check"></i><b>56.2.4</b> Brown-Resnick 모형(Brown-Resnick model)</a></li>
-<li class="chapter" data-level="56.2.5" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html#-t-extremal-t-model"><i class="fa fa-check"></i><b>56.2.5</b> 극단-t 모형(extremal-t model)</a></li>
 </ul></li>
-<li class="chapter" data-level="56.3" data-path="56-3-spatial-dependence-of-extremes.html"><a href="56-3-spatial-dependence-of-extremes.html"><i class="fa fa-check"></i><b>56.3</b> 극단값의 공간 종속성(spatial dependence of extremes)</a></li>
 </ul></li>
-<li class="chapter" data-level="57" data-path="57-maxstableRF.html"><a href="57-maxstableRF.html"><i class="fa fa-check"></i><b>57</b> 최대안정 임의장</a><ul>
-<li class="chapter" data-level="57.1" data-path="57-1-brown-resnick-brown-resnick-random-fields.html"><a href="57-1-brown-resnick-brown-resnick-random-fields.html"><i class="fa fa-check"></i><b>57.1</b> Brown-Resnick 임의장(Brown-Resnick random fields)</a></li>
-<li class="chapter" data-level="57.2" data-path="57-2-extremal-gaussian-extremal-gaussian-random-fields.html"><a href="57-2-extremal-gaussian-extremal-gaussian-random-fields.html"><i class="fa fa-check"></i><b>57.2</b> Extremal-Gaussian 임의장(extremal-Gaussian random fields)</a></li>
-<li class="chapter" data-level="57.3" data-path="57-3-extremal-t-extremal-t-random-fields.html"><a href="57-3-extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>57.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
+<li class="chapter" data-level="57" data-path="57-ppextremes.html"><a href="57-ppextremes.html"><i class="fa fa-check"></i><b>57</b> 극단값이론에서의 점과정</a></li>
+<li class="chapter" data-level="58" data-path="58-mevtheory.html"><a href="58-mevtheory.html"><i class="fa fa-check"></i><b>58</b> 다변량 극단값 이론</a><ul>
+<li class="chapter" data-level="58.1" data-path="58-1-copula.html"><a href="58-1-copula.html"><i class="fa fa-check"></i><b>58.1</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="58.2" data-path="58-2-limiting-standardization.html"><a href="58-2-limiting-standardization.html"><i class="fa fa-check"></i><b>58.2</b> 극단 정규화(limiting standardization)</a></li>
 </ul></li>
-<li class="chapter" data-level="58" data-path="58-references.html"><a href="58-references.html"><i class="fa fa-check"></i><b>58</b> References</a></li>
+<li class="chapter" data-level="59" data-path="59-timeextremes.html"><a href="59-timeextremes.html"><i class="fa fa-check"></i><b>59</b> 정상시계열에서의 극단값들</a></li>
+<li class="chapter" data-level="60" data-path="60-spatextremes.html"><a href="60-spatextremes.html"><i class="fa fa-check"></i><b>60</b> 공간 극단값 이론과 최대안정과정</a><ul>
+<li class="chapter" data-level="60.1" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html"><i class="fa fa-check"></i><b>60.1</b> 최대안정과정(max-stable process)</a><ul>
+<li class="chapter" data-level="60.1.1" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#smith-smith-model"><i class="fa fa-check"></i><b>60.1.1</b> Smith 모형(Smith model)</a></li>
+<li class="chapter" data-level="60.1.2" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#schlather-schlather-model"><i class="fa fa-check"></i><b>60.1.2</b> Schlather 모형(Schlather model)</a></li>
+<li class="chapter" data-level="60.1.3" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#brown-resnick-brown-resnick-model"><i class="fa fa-check"></i><b>60.1.3</b> Brown-Resnick 모형(Brown-Resnick model)</a></li>
+<li class="chapter" data-level="60.1.4" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#-t-extremal-t-model"><i class="fa fa-check"></i><b>60.1.4</b> 극단-t 모형(extremal-t model)</a></li>
+</ul></li>
+<li class="chapter" data-level="60.2" data-path="60-2-spatial-dependence-of-extremes.html"><a href="60-2-spatial-dependence-of-extremes.html"><i class="fa fa-check"></i><b>60.2</b> 극단값의 공간 종속성(spatial dependence of extremes)</a></li>
+</ul></li>
+<li class="chapter" data-level="61" data-path="61-maxstableRF.html"><a href="61-maxstableRF.html"><i class="fa fa-check"></i><b>61</b> 최대안정 임의장</a><ul>
+<li class="chapter" data-level="61.1" data-path="61-1-brown-resnick-brown-resnick-random-fields.html"><a href="61-1-brown-resnick-brown-resnick-random-fields.html"><i class="fa fa-check"></i><b>61.1</b> Brown-Resnick 임의장(Brown-Resnick random fields)</a></li>
+<li class="chapter" data-level="61.2" data-path="61-2-extremal-gaussian-extremal-gaussian-random-fields.html"><a href="61-2-extremal-gaussian-extremal-gaussian-random-fields.html"><i class="fa fa-check"></i><b>61.2</b> Extremal-Gaussian 임의장(extremal-Gaussian random fields)</a></li>
+<li class="chapter" data-level="61.3" data-path="61-3-extremal-t-extremal-t-random-fields.html"><a href="61-3-extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>61.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
+</ul></li>
+<li class="chapter" data-level="62" data-path="62-references.html"><a href="62-references.html"><i class="fa fa-check"></i><b>62</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
 
@@ -718,7 +733,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>이 때 <span class="math inline">\(\mathbf{x}\)</span>의 첫 번째 원소가 절편에 대응된다고 하면 <span class="math display">\[Q_{\tau}(Y|\mathbf{x})=\beta_{1}(\tau)+x_{2}\beta_{2}(\tau)+\ldots +x_{p}\beta_{p}(\tau)\]</span> 로 표현된다. <span class="math inline">\(\boldsymbol{\beta}(\tau)\)</span>는 <span class="math inline">\(\mathbf{x}\)</span>의 주변 변화에 의한 <span class="math inline">\(\tau\)</span>-분위수의 주변 변화를 측정하는 역할을 한다. 참고로 <span class="math inline">\(Q_{\tau}(Y|\mathbf{x})\)</span>는 <span class="math inline">\(\mathbf{x}\)</span>가 주어졌을 때 <span class="math inline">\(\tau\)</span>에 대해 감소하지 않는 함수다.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-318" class="example"><strong>Example 36.1  (위치이동모델)  </strong></span><strong>위치이동모델(location-scale shift model)</strong>은 다음과 같이 주어진다. <span class="math display">\[Y_{i}=\alpha + \mathbf{Z}_{i}^{T}\boldsymbol{\beta} + (1+\mathbf{Z}_{i}^{T}\boldsymbol{\gamma})\epsilon_{i}, \qquad{\epsilon_{i}\stackrel{\text{i.i.d}}{\sim}F(\cdot).}\]</span> 조건부 분위수 함수는 <span class="math display">\[Q_{\tau}(Y|\mathbf{X}_{i})=\alpha(\tau)+\mathbf{Z}_{i}^{T}\boldsymbol{\beta}(\tau)\]</span> 이다. 이 때</p>
+<p><span id="exm:unnamed-chunk-322" class="example"><strong>Example 36.1  (위치이동모델)  </strong></span><strong>위치이동모델(location-scale shift model)</strong>은 다음과 같이 주어진다. <span class="math display">\[Y_{i}=\alpha + \mathbf{Z}_{i}^{T}\boldsymbol{\beta} + (1+\mathbf{Z}_{i}^{T}\boldsymbol{\gamma})\epsilon_{i}, \qquad{\epsilon_{i}\stackrel{\text{i.i.d}}{\sim}F(\cdot).}\]</span> 조건부 분위수 함수는 <span class="math display">\[Q_{\tau}(Y|\mathbf{X}_{i})=\alpha(\tau)+\mathbf{Z}_{i}^{T}\boldsymbol{\beta}(\tau)\]</span> 이다. 이 때</p>
 <ul>
 <li><p><span class="math inline">\(\alpha(\tau)=\alpha + F^{-1}(\tau)\)</span>: <span class="math inline">\(\tau\)</span>에 대한 감소하지 않는(nondecreasing) 함수</p></li>
 <li><p><span class="math inline">\(\boldsymbol{\beta}(\tau)=\boldsymbol{\beta}+\boldsymbol{\gamma}F^{-1}(\tau)\)</span>: <span class="math inline">\(\tau\)</span>에 의존할 수도 있는 함수. 즉 covariate들은 <span class="math inline">\(Y\)</span>의 분포의 다양한 분위수에서 다른 효과를 줄 수도 있다.</p></li>
@@ -744,8 +759,8 @@ x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</
 <span class="kw">plot</span>(x, <span class="kw">dnorm</span>(x), <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">7</span>,<span class="dv">7</span>), <span class="dt">type=</span><span class="st">&#39;l&#39;</span>, <span class="dt">xlab=</span><span class="st">&quot;y&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Density&quot;</span>)
 <span class="kw">lines</span>(x,<span class="kw">dnorm</span>(x,<span class="dt">mean=</span><span class="dv">2</span>), <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
 <span class="kw">plot</span>(<span class="kw">seq</span>(<span class="fl">0.01</span>, <span class="fl">0.99</span>, <span class="fl">0.01</span>), <span class="kw">qnorm</span>(<span class="dt">p=</span><span class="kw">seq</span>(<span class="fl">0.01</span>, <span class="fl">0.99</span>, <span class="fl">0.01</span>),<span class="dt">mean=</span><span class="dv">2</span>)<span class="op">-</span><span class="st"> </span><span class="kw">qnorm</span>(<span class="dt">p=</span><span class="kw">seq</span>(<span class="fl">0.01</span>, <span class="fl">0.99</span>, <span class="fl">0.01</span>),<span class="dt">mean=</span><span class="dv">0</span>), <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="fl">1.9</span>,<span class="fl">2.1</span>), <span class="dt">type=</span><span class="st">&#39;l&#39;</span>, <span class="dt">xlab=</span><span class="kw">expression</span>(tau), <span class="dt">ylab=</span><span class="kw">expression</span>(<span class="kw">delta</span>(tau)))</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-319"></span>
-<img src="book_files/figure-html/unnamed-chunk-319-1.svg" alt="Location shift model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-323"></span>
+<img src="book_files/figure-html/unnamed-chunk-323-1.svg" alt="Location shift model." width="672" />
 <p class="caption">
 FIGURE 36.2: Location shift model.
 </p>
@@ -759,8 +774,8 @@ x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</
 <span class="kw">lines</span>(x,<span class="kw">dnorm</span>(x,<span class="dt">mean=</span><span class="dv">0</span>, <span class="dt">sd=</span><span class="fl">1.5</span>), <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
 <span class="kw">plot</span>(<span class="kw">seq</span>(<span class="fl">0.01</span>, <span class="fl">0.99</span>, <span class="fl">0.01</span>), <span class="kw">qnorm</span>(<span class="dt">p=</span><span class="kw">seq</span>(<span class="fl">0.01</span>, <span class="fl">0.99</span>, <span class="fl">0.01</span>),<span class="dt">mean=</span><span class="dv">0</span>,<span class="dt">sd=</span><span class="fl">1.5</span>)<span class="op">-</span><span class="st"> </span><span class="kw">qnorm</span>(<span class="dt">p=</span><span class="kw">seq</span>(<span class="fl">0.01</span>, <span class="fl">0.99</span>, <span class="fl">0.01</span>),<span class="dt">mean=</span><span class="dv">0</span>), <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">1.25</span>,<span class="fl">1.25</span>), <span class="dt">type=</span><span class="st">&#39;l&#39;</span>, <span class="dt">xlab=</span><span class="kw">expression</span>(tau), <span class="dt">ylab=</span><span class="kw">expression</span>(<span class="kw">delta</span>(tau)))
 <span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-320"></span>
-<img src="book_files/figure-html/unnamed-chunk-320-1.svg" alt="Scale shift model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-324"></span>
+<img src="book_files/figure-html/unnamed-chunk-324-1.svg" alt="Scale shift model." width="672" />
 <p class="caption">
 FIGURE 36.3: Scale shift model.
 </p>
@@ -774,8 +789,8 @@ x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</
 <span class="kw">lines</span>(x,<span class="kw">dnorm</span>(x,<span class="dt">mean=</span><span class="dv">1</span>, <span class="dt">sd=</span><span class="fl">1.5</span>), <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
 <span class="kw">plot</span>(<span class="kw">seq</span>(<span class="fl">0.01</span>, <span class="fl">0.99</span>, <span class="fl">0.01</span>), <span class="kw">qnorm</span>(<span class="dt">p=</span><span class="kw">seq</span>(<span class="fl">0.01</span>, <span class="fl">0.99</span>, <span class="fl">0.01</span>),<span class="dt">mean=</span><span class="dv">1</span>,<span class="dt">sd=</span><span class="fl">1.5</span>)<span class="op">-</span><span class="st"> </span><span class="kw">qnorm</span>(<span class="dt">p=</span><span class="kw">seq</span>(<span class="fl">0.01</span>, <span class="fl">0.99</span>, <span class="fl">0.01</span>),<span class="dt">mean=</span><span class="dv">0</span>), <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">0.25</span>,<span class="fl">2.25</span>), <span class="dt">type=</span><span class="st">&#39;l&#39;</span>, <span class="dt">xlab=</span><span class="kw">expression</span>(tau), <span class="dt">ylab=</span><span class="kw">expression</span>(<span class="kw">delta</span>(tau)))
 <span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-321"></span>
-<img src="book_files/figure-html/unnamed-chunk-321-1.svg" alt="Location-scale shift model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-325"></span>
+<img src="book_files/figure-html/unnamed-chunk-325-1.svg" alt="Location-scale shift model." width="672" />
 <p class="caption">
 FIGURE 36.4: Location-scale shift model.
 </p>
@@ -805,17 +820,15 @@ FIGURE 36.4: Location-scale shift model.
 <li><p><strong>Equivariance property</strong>: 분위수는 monotone transformation에 대해 equivariant하다. <span class="math inline">\(h(\cdot)\)</span>이 <span class="math inline">\(\mathbb{R}\)</span>에서 증가함수라고 가정하자. 그러면 임의의 변수 <span class="math inline">\(Y\)</span>에 대해 <span class="math display">\[Q_{h(Y)}(\tau)=h\{ Q_{\tau}(Y) \}\]</span> 이다. 즉 변환된 확률변수 <span class="math inline">\(h(Y)\)</span>의 분위수는 단순히 오리지날 스케일에서의 분위수를 변환시킨 것이라는 뜻이다.</p></li>
 <li><p><strong>Interpolation</strong>: 선형 분위수 회귀분석은 <span class="math inline">\(p\)</span> observation들을 interpolate한다. 만약 design matrix의 첫 번째 열이 intercept에 대응된다면 대략 <span class="math inline">\(p\)</span> zero, <span class="math inline">\(n\tau\)</span> negative, 그리고 <span class="math inline">\(n(1-\tau)\)</span> positive residual들 <span class="math inline">\(y_{i}-\mathbf{x}_{i}^{T}\hat{\boldsymbol{\beta}}(\tau)\)</span>가 존재한다.</p></li>
 </ol>
-
 </div>
 </div>
-<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
 <a href="36-1-quantile.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="37-functionestimation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="36-3-extremal-quantile-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

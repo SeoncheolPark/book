@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-08-16">
+<meta name="date" content="2018-09-06">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -134,7 +134,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.6.1" data-path="2-6-space.html"><a href="2-6-space.html#-groups-and-fields"><i class="fa fa-check"></i><b>2.6.1</b> 군과 장(groups and fields)</a></li>
 <li class="chapter" data-level="2.6.2" data-path="2-6-space.html"><a href="2-6-space.html#-vector-spaces"><i class="fa fa-check"></i><b>2.6.2</b> 벡터 공간(vector spaces)</a></li>
 <li class="chapter" data-level="2.6.3" data-path="2-6-space.html"><a href="2-6-space.html#inner-products"><i class="fa fa-check"></i><b>2.6.3</b> 내적(inner products)</a></li>
-<li class="chapter" data-level="2.6.4" data-path="2-6-space.html"><a href="2-6-space.html#orthogonality"><i class="fa fa-check"></i><b>2.6.4</b> 정규직교성(orthogonality)</a></li>
+<li class="chapter" data-level="2.6.4" data-path="2-6-space.html"><a href="2-6-space.html#orthogonality"><i class="fa fa-check"></i><b>2.6.4</b> 직교성(orthogonality)</a></li>
 <li class="chapter" data-level="2.6.5" data-path="2-6-space.html"><a href="2-6-space.html#topological-space"><i class="fa fa-check"></i><b>2.6.5</b> 위상공간(topological space)</a></li>
 <li class="chapter" data-level="2.6.6" data-path="2-6-space.html"><a href="2-6-space.html#--separable-space"><i class="fa fa-check"></i><b>2.6.6</b> 분해 가능 공간(separable space)</a></li>
 <li class="chapter" data-level="2.6.7" data-path="2-6-space.html"><a href="2-6-space.html#-normed-space"><i class="fa fa-check"></i><b>2.6.7</b> 노름 공간(normed space)</a></li>
@@ -497,6 +497,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="36.2.3" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
 <li class="chapter" data-level="36.2.4" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.2.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
 </ul></li>
+<li class="chapter" data-level="36.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.3</b> 극단회귀분석(extremal quantile regression)</a><ul>
+<li class="chapter" data-level="36.3.1" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.3.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
+<li class="chapter" data-level="36.3.2" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.3.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
+<li class="chapter" data-level="36.3.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.3.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="37" data-path="37-functionestimation.html"><a href="37-functionestimation.html"><i class="fa fa-check"></i><b>37</b> 함수추정</a><ul>
 <li class="chapter" data-level="37.1" data-path="37-1-how-to-specify-basis-systems-for-building-functions.html"><a href="37-1-how-to-specify-basis-systems-for-building-functions.html"><i class="fa fa-check"></i><b>37.1</b> 함수를 만들 때 기저시스템을 어떻게 특정할 것인가(how to specify basis systems for building functions)</a></li>
@@ -675,19 +680,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="56.1" data-path="56-1-generalized-pareto-distribution.html"><a href="56-1-generalized-pareto-distribution.html"><i class="fa fa-check"></i><b>56.1</b> 일반화 파레토 분포(generalized pareto distribution)</a></li>
 <li class="chapter" data-level="56.2" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html"><i class="fa fa-check"></i><b>56.2</b> 분계 초과의 모델링(modeling threshold excesses)</a><ul>
 <li class="chapter" data-level="56.2.1" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html#-threshold-selection"><i class="fa fa-check"></i><b>56.2.1</b> 분계점 선택(threshold selection)</a></li>
-<li class="chapter" data-level="56.2.2" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html#smith-smith-model"><i class="fa fa-check"></i><b>56.2.2</b> Smith 모형(Smith model)</a></li>
-<li class="chapter" data-level="56.2.3" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html#schlather-schlather-model"><i class="fa fa-check"></i><b>56.2.3</b> Schlather 모형(Schlather model)</a></li>
-<li class="chapter" data-level="56.2.4" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html#brown-resnick-brown-resnick-model"><i class="fa fa-check"></i><b>56.2.4</b> Brown-Resnick 모형(Brown-Resnick model)</a></li>
-<li class="chapter" data-level="56.2.5" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html#-t-extremal-t-model"><i class="fa fa-check"></i><b>56.2.5</b> 극단-t 모형(extremal-t model)</a></li>
 </ul></li>
-<li class="chapter" data-level="56.3" data-path="56-3-spatial-dependence-of-extremes.html"><a href="56-3-spatial-dependence-of-extremes.html"><i class="fa fa-check"></i><b>56.3</b> 극단값의 공간 종속성(spatial dependence of extremes)</a></li>
 </ul></li>
-<li class="chapter" data-level="57" data-path="57-maxstableRF.html"><a href="57-maxstableRF.html"><i class="fa fa-check"></i><b>57</b> 최대안정 임의장</a><ul>
-<li class="chapter" data-level="57.1" data-path="57-1-brown-resnick-brown-resnick-random-fields.html"><a href="57-1-brown-resnick-brown-resnick-random-fields.html"><i class="fa fa-check"></i><b>57.1</b> Brown-Resnick 임의장(Brown-Resnick random fields)</a></li>
-<li class="chapter" data-level="57.2" data-path="57-2-extremal-gaussian-extremal-gaussian-random-fields.html"><a href="57-2-extremal-gaussian-extremal-gaussian-random-fields.html"><i class="fa fa-check"></i><b>57.2</b> Extremal-Gaussian 임의장(extremal-Gaussian random fields)</a></li>
-<li class="chapter" data-level="57.3" data-path="57-3-extremal-t-extremal-t-random-fields.html"><a href="57-3-extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>57.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
+<li class="chapter" data-level="57" data-path="57-ppextremes.html"><a href="57-ppextremes.html"><i class="fa fa-check"></i><b>57</b> 극단값이론에서의 점과정</a></li>
+<li class="chapter" data-level="58" data-path="58-mevtheory.html"><a href="58-mevtheory.html"><i class="fa fa-check"></i><b>58</b> 다변량 극단값 이론</a><ul>
+<li class="chapter" data-level="58.1" data-path="58-1-copula.html"><a href="58-1-copula.html"><i class="fa fa-check"></i><b>58.1</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="58.2" data-path="58-2-limiting-standardization.html"><a href="58-2-limiting-standardization.html"><i class="fa fa-check"></i><b>58.2</b> 극단 정규화(limiting standardization)</a></li>
 </ul></li>
-<li class="chapter" data-level="58" data-path="58-references.html"><a href="58-references.html"><i class="fa fa-check"></i><b>58</b> References</a></li>
+<li class="chapter" data-level="59" data-path="59-timeextremes.html"><a href="59-timeextremes.html"><i class="fa fa-check"></i><b>59</b> 정상시계열에서의 극단값들</a></li>
+<li class="chapter" data-level="60" data-path="60-spatextremes.html"><a href="60-spatextremes.html"><i class="fa fa-check"></i><b>60</b> 공간 극단값 이론과 최대안정과정</a><ul>
+<li class="chapter" data-level="60.1" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html"><i class="fa fa-check"></i><b>60.1</b> 최대안정과정(max-stable process)</a><ul>
+<li class="chapter" data-level="60.1.1" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#smith-smith-model"><i class="fa fa-check"></i><b>60.1.1</b> Smith 모형(Smith model)</a></li>
+<li class="chapter" data-level="60.1.2" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#schlather-schlather-model"><i class="fa fa-check"></i><b>60.1.2</b> Schlather 모형(Schlather model)</a></li>
+<li class="chapter" data-level="60.1.3" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#brown-resnick-brown-resnick-model"><i class="fa fa-check"></i><b>60.1.3</b> Brown-Resnick 모형(Brown-Resnick model)</a></li>
+<li class="chapter" data-level="60.1.4" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#-t-extremal-t-model"><i class="fa fa-check"></i><b>60.1.4</b> 극단-t 모형(extremal-t model)</a></li>
+</ul></li>
+<li class="chapter" data-level="60.2" data-path="60-2-spatial-dependence-of-extremes.html"><a href="60-2-spatial-dependence-of-extremes.html"><i class="fa fa-check"></i><b>60.2</b> 극단값의 공간 종속성(spatial dependence of extremes)</a></li>
+</ul></li>
+<li class="chapter" data-level="61" data-path="61-maxstableRF.html"><a href="61-maxstableRF.html"><i class="fa fa-check"></i><b>61</b> 최대안정 임의장</a><ul>
+<li class="chapter" data-level="61.1" data-path="61-1-brown-resnick-brown-resnick-random-fields.html"><a href="61-1-brown-resnick-brown-resnick-random-fields.html"><i class="fa fa-check"></i><b>61.1</b> Brown-Resnick 임의장(Brown-Resnick random fields)</a></li>
+<li class="chapter" data-level="61.2" data-path="61-2-extremal-gaussian-extremal-gaussian-random-fields.html"><a href="61-2-extremal-gaussian-extremal-gaussian-random-fields.html"><i class="fa fa-check"></i><b>61.2</b> Extremal-Gaussian 임의장(extremal-Gaussian random fields)</a></li>
+<li class="chapter" data-level="61.3" data-path="61-3-extremal-t-extremal-t-random-fields.html"><a href="61-3-extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>61.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
+</ul></li>
+<li class="chapter" data-level="62" data-path="62-references.html"><a href="62-references.html"><i class="fa fa-check"></i><b>62</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
 
@@ -714,8 +729,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">256</span>)
 zwp &lt;-<span class="st"> </span><span class="kw">wp</span>(z, <span class="dt">filter.number=</span><span class="dv">2</span>, <span class="dt">family=</span><span class="st">&quot;DaubExPhase&quot;</span>)
 <span class="kw">plot</span>(zwp, <span class="dt">color.force=</span><span class="ot">TRUE</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-275"></span>
-<img src="book_files/figure-html/unnamed-chunk-275-1.svg" alt="Wavelet packet coefficients of the independent Gaussian sequence z." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-279"></span>
+<img src="book_files/figure-html/unnamed-chunk-279-1.svg" alt="Wavelet packet coefficients of the independent Gaussian sequence z." width="672" />
 <p class="caption">
 FIGURE 23.13: Wavelet packet coefficients of the independent Gaussian sequence z.
 </p>
@@ -723,24 +738,24 @@ FIGURE 23.13: Wavelet packet coefficients of the independent Gaussian sequence z
 <p>위 그림은 독립 가우스 수열 <span class="math inline">\(\mathbf{z}\)</span>에 대해 웨이블릿 계수들을 구한 결과를 보여준다. 원 시계열은 맨 아래쪽에 있다. 이것의 scale은 8로 정했다. 그리고 한 줄씩 위로 올라가면서 scale(=resolution level)을 1씩 줄였을 때의 결과를 보여준다. 웨이블릿 패킷을 수직 점선으로 구분해 놓았다. 각 스케일 마다 첫 번째 웨이블릿은 scaling function coefficient들에 대응된다. 그래서 시계열로 표현했는데 이는 스케일 함수 계수들을 웟ㄴ 시계열의 연속적인 coarsening이라고 생각할 수 있기 때문이다. Regular wavelet coefficient들은 각 스케일마다 두 번째 패킷에 위치하도록 했다.</p>
 <p>여기서 스케일 6에 있는 네 번째 패킷 (packet 3임, 0, 1, 2 순서로 번호를 매기므로)을 100인 값이 하나가 있고 나머지는 모두 0인 패킷으로 교체해보자. 우선 현재 있는 패킷 값을 얻으려면 <code>getpacket</code> 함수를 이용한다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getpacket</span>(zwp, <span class="dt">level=</span><span class="dv">6</span>, <span class="dt">index=</span><span class="dv">3</span>)</code></pre></div>
-<pre><code>&gt;  [1] -0.591467934  1.389576461  0.008169607  0.330793792 -0.270114144
-&gt;  [6] -0.148084964  0.050003169  0.454751543  1.167129657 -0.111621026
-&gt; [11] -1.757092027 -1.083893160 -1.144003387 -0.717556915 -1.583410307
-&gt; [16] -0.265395114 -0.760761038 -2.935256265 -0.923113912 -0.914901441
-&gt; [21] -0.859385081 -0.656141280 -0.761055506 -1.469335781 -0.743263924
-&gt; [26] -0.411032267  0.141203508  0.228805440  0.572210744  1.094181623
-&gt; [31]  0.929049560  1.621641517 -0.013781979  2.361262019 -1.003501603
-&gt; [36] -0.169922131 -1.646082166 -0.417880152 -1.553813581  0.700249952
-&gt; [41] -1.485512599  1.672238767 -0.053389148  0.689392934  1.890887736
-&gt; [46]  0.702726740 -0.028530478 -1.039555858 -1.013666570 -1.397311198
-&gt; [51]  1.070792815  0.023057812 -0.389800289 -0.312847415  1.013195227
-&gt; [56]  2.020942768 -2.295635130  1.611202829  1.935175301  1.067970484
-&gt; [61] -1.739847520 -0.867968004  0.364737060 -0.639703181</code></pre>
+<pre><code>&gt;  [1]  0.12973956  0.91518306  1.47547154 -1.61645841  0.02552999
+&gt;  [6] -0.89946757 -1.27967889 -0.01004342  1.57962526  1.27293134
+&gt; [11]  0.78061795  0.50037064 -0.64168484  0.34515579  0.18435087
+&gt; [16] -0.80359896 -0.16370855 -0.68340036 -1.48435874  0.31819072
+&gt; [21] -0.27523258  1.43222987  0.76303160  1.65107280 -0.31271506
+&gt; [26] -1.07403257 -0.54145432  0.93213897 -0.60533199  0.07104717
+&gt; [31]  0.22732772 -2.34751015 -0.23330398  0.55748824 -0.48819173
+&gt; [36] -0.65703711 -1.02390921 -0.52208114 -0.65352903 -0.61623128
+&gt; [41]  0.62112065  0.48965833 -0.59887609 -0.37089145 -0.74189853
+&gt; [46] -2.36596288 -2.24798852  0.12448942 -1.98817319 -0.50867499
+&gt; [51]  0.31713385  0.02486245  0.52470860 -0.90891017  1.52921559
+&gt; [56] -0.96597449  0.57248733  2.07782258  0.88790238 -0.20205165
+&gt; [61] -0.15546704  0.02162050  1.16001930  0.84267613</code></pre>
 <p>100인 값이 하나가 있고 나머지는 모두 0인 벡터는 매우 sparse하다. <code>zwp2</code>에 앞서 말한 패킷을 넣어보자.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">zwp2 &lt;-<span class="st"> </span><span class="kw">putpacket</span>(zwp, <span class="dt">level=</span><span class="dv">6</span>, <span class="dt">index=</span><span class="dv">3</span>, <span class="dt">packet=</span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dv">100</span>, <span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">53</span>)))
 <span class="kw">plot</span>(zwp2)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-277"></span>
-<img src="book_files/figure-html/unnamed-chunk-277-1.svg" alt="Wavelet packet coefficients of zwp2." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-281"></span>
+<img src="book_files/figure-html/unnamed-chunk-281-1.svg" alt="Wavelet packet coefficients of zwp2." width="672" />
 <p class="caption">
 FIGURE 23.14: Wavelet packet coefficients of zwp2.
 </p>
@@ -748,79 +763,60 @@ FIGURE 23.14: Wavelet packet coefficients of zwp2.
 <p>여기서 출력되는 그림은 패킷 <span class="math inline">\((6,3)\)</span> 지역을 제외하고는 앞선 그림과 똑같지만, 계수들의 크기가 상대적으로 정해지기 때문에, 크기 100인 계수들에 의해 sparse한 것처럼 출력된다. Coifman-Wikerhauser best-basis algorithm은 Shannon entropy를 이용하며 <code>MaNoVe</code>함수를 이요해 얻을 수 있다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">zwp2.nv &lt;-<span class="st"> </span><span class="kw">MaNoVe</span>(zwp2)
 zwp2.nv</code></pre></div>
-<pre><code>&gt; Level:  6  Packet:  3 
-&gt; Level:  4  Packet:  2 
-&gt; Level:  4  Packet:  11 
-&gt; Level:  3  Packet:  9 
-&gt; Level:  3  Packet:  10 
-&gt; Level:  3  Packet:  12 
-&gt; Level:  3  Packet:  14 
-&gt; Level:  3  Packet:  15 
-&gt; Level:  3  Packet:  16 
-&gt; Level:  3  Packet:  17 
-&gt; Level:  2  Packet:  0 
-&gt; Level:  2  Packet:  4 
-&gt; Level:  2  Packet:  5 
-&gt; Level:  2  Packet:  6 
+<pre><code>&gt; Level:  6  Packet:  1 
+&gt; Level:  6  Packet:  3 
+&gt; Level:  5  Packet:  5 
+&gt; Level:  4  Packet:  8 
+&gt; Level:  3  Packet:  18 
+&gt; Level:  2  Packet:  2 
+&gt; Level:  2  Packet:  3 
+&gt; Level:  2  Packet:  8 
 &gt; Level:  2  Packet:  12 
-&gt; Level:  2  Packet:  13 
-&gt; Level:  2  Packet:  15 
-&gt; Level:  2  Packet:  26 
-&gt; Level:  2  Packet:  36 
-&gt; Level:  2  Packet:  37 
-&gt; Level:  2  Packet:  39 
-&gt; Level:  1  Packet:  7 
+&gt; Level:  1  Packet:  0 
+&gt; Level:  1  Packet:  1 
+&gt; Level:  1  Packet:  8 
+&gt; Level:  1  Packet:  9 
+&gt; Level:  1  Packet:  11 
+&gt; Level:  1  Packet:  13 
 &gt; Level:  1  Packet:  14 
+&gt; Level:  1  Packet:  15 
+&gt; Level:  1  Packet:  18 
+&gt; Level:  1  Packet:  20 
+&gt; Level:  1  Packet:  21 
+&gt; Level:  1  Packet:  22 
+&gt; Level:  1  Packet:  23 
+&gt; Level:  1  Packet:  27 
 &gt; Level:  1  Packet:  28 
-&gt; Level:  1  Packet:  32 
-&gt; Level:  1  Packet:  33 
-&gt; Level:  1  Packet:  34 
-&gt; Level:  1  Packet:  35 
-&gt; Level:  1  Packet:  46 
-&gt; Level:  1  Packet:  47 
-&gt; Level:  1  Packet:  55 
 &gt; Level:  1  Packet:  76 
-&gt; Level:  1  Packet:  77 
-&gt; Level:  1  Packet:  80 
-&gt; Level:  1  Packet:  83 
-&gt; Level:  1  Packet:  84 
+&gt; Level:  1  Packet:  79 
 &gt; Level:  0  Packet:  4 
 &gt; Level:  0  Packet:  5 
 &gt; Level:  0  Packet:  6 
 &gt; Level:  0  Packet:  7 
-&gt; Level:  0  Packet:  8 
-&gt; Level:  0  Packet:  9 
-&gt; Level:  0  Packet:  10 
-&gt; Level:  0  Packet:  11 
-&gt; Level:  0  Packet:  12 
-&gt; Level:  0  Packet:  13 
-&gt; Level:  0  Packet:  30 
-&gt; Level:  0  Packet:  31 
+&gt; Level:  0  Packet:  20 
+&gt; Level:  0  Packet:  21 
+&gt; Level:  0  Packet:  24 
+&gt; Level:  0  Packet:  25 
+&gt; Level:  0  Packet:  38 
+&gt; Level:  0  Packet:  39 
+&gt; Level:  0  Packet:  52 
+&gt; Level:  0  Packet:  53 
 &gt; Level:  0  Packet:  58 
 &gt; Level:  0  Packet:  59 
-&gt; Level:  0  Packet:  88 
-&gt; Level:  0  Packet:  89 
-&gt; Level:  0  Packet:  90 
-&gt; Level:  0  Packet:  91 
-&gt; Level:  0  Packet:  108 
-&gt; Level:  0  Packet:  109 
-&gt; Level:  0  Packet:  162 
-&gt; Level:  0  Packet:  163 
-&gt; Level:  0  Packet:  164 
-&gt; Level:  0  Packet:  165 
-&gt; Level:  0  Packet:  170 
-&gt; Level:  0  Packet:  171 
-&gt; Level:  0  Packet:  172 
-&gt; Level:  0  Packet:  173 
-&gt; Level:  0  Packet:  174 
-&gt; Level:  0  Packet:  175</code></pre>
+&gt; Level:  0  Packet:  60 
+&gt; Level:  0  Packet:  61 
+&gt; Level:  0  Packet:  62 
+&gt; Level:  0  Packet:  63 
+&gt; Level:  0  Packet:  154 
+&gt; Level:  0  Packet:  155 
+&gt; Level:  0  Packet:  156 
+&gt; Level:  0  Packet:  157</code></pre>
 <p><span class="math inline">\((6,3)\)</span>이 basis element로 선택된 것을 확인할 수 있다. 왜냐면 이것이 extremely sparse하기 때문이다. 이 새로 선택된 <code>zwp2.nv</code>의 기저는 <code>InvBasis(zwp2, zwp2.nv)</code> 명령어를 통해 불러올 수 있다고 한다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">InvBasis</span>(zwp2, zwp2.nv))</code></pre></div>
-<pre><code>&gt; [1] -0.0008155538 -0.1726869254 -0.6366241092 -0.9156393035 -0.7622511830
-&gt; [6] -1.6565697021</code></pre>
+<pre><code>&gt; [1]  0.77607105 -0.70786265  0.54056139 -0.11443913  0.34944185  0.01233089</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">InvBasis</span>(zwp2, zwp2.nv), <span class="dt">type=</span><span class="st">&quot;o&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-279"></span>
-<img src="book_files/figure-html/unnamed-chunk-279-1.svg" alt="Inversion plotting." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-283"></span>
+<img src="book_files/figure-html/unnamed-chunk-283-1.svg" alt="Inversion plotting." width="672" />
 <p class="caption">
 FIGURE 23.15: Inversion plotting.
 </p>

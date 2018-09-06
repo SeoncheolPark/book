@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-08-16">
+<meta name="date" content="2018-09-06">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -134,7 +134,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.6.1" data-path="2-6-space.html"><a href="2-6-space.html#-groups-and-fields"><i class="fa fa-check"></i><b>2.6.1</b> 군과 장(groups and fields)</a></li>
 <li class="chapter" data-level="2.6.2" data-path="2-6-space.html"><a href="2-6-space.html#-vector-spaces"><i class="fa fa-check"></i><b>2.6.2</b> 벡터 공간(vector spaces)</a></li>
 <li class="chapter" data-level="2.6.3" data-path="2-6-space.html"><a href="2-6-space.html#inner-products"><i class="fa fa-check"></i><b>2.6.3</b> 내적(inner products)</a></li>
-<li class="chapter" data-level="2.6.4" data-path="2-6-space.html"><a href="2-6-space.html#orthogonality"><i class="fa fa-check"></i><b>2.6.4</b> 정규직교성(orthogonality)</a></li>
+<li class="chapter" data-level="2.6.4" data-path="2-6-space.html"><a href="2-6-space.html#orthogonality"><i class="fa fa-check"></i><b>2.6.4</b> 직교성(orthogonality)</a></li>
 <li class="chapter" data-level="2.6.5" data-path="2-6-space.html"><a href="2-6-space.html#topological-space"><i class="fa fa-check"></i><b>2.6.5</b> 위상공간(topological space)</a></li>
 <li class="chapter" data-level="2.6.6" data-path="2-6-space.html"><a href="2-6-space.html#--separable-space"><i class="fa fa-check"></i><b>2.6.6</b> 분해 가능 공간(separable space)</a></li>
 <li class="chapter" data-level="2.6.7" data-path="2-6-space.html"><a href="2-6-space.html#-normed-space"><i class="fa fa-check"></i><b>2.6.7</b> 노름 공간(normed space)</a></li>
@@ -497,6 +497,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="36.2.3" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
 <li class="chapter" data-level="36.2.4" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.2.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
 </ul></li>
+<li class="chapter" data-level="36.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.3</b> 극단회귀분석(extremal quantile regression)</a><ul>
+<li class="chapter" data-level="36.3.1" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.3.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
+<li class="chapter" data-level="36.3.2" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.3.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
+<li class="chapter" data-level="36.3.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.3.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="37" data-path="37-functionestimation.html"><a href="37-functionestimation.html"><i class="fa fa-check"></i><b>37</b> 함수추정</a><ul>
 <li class="chapter" data-level="37.1" data-path="37-1-how-to-specify-basis-systems-for-building-functions.html"><a href="37-1-how-to-specify-basis-systems-for-building-functions.html"><i class="fa fa-check"></i><b>37.1</b> 함수를 만들 때 기저시스템을 어떻게 특정할 것인가(how to specify basis systems for building functions)</a></li>
@@ -675,19 +680,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="56.1" data-path="56-1-generalized-pareto-distribution.html"><a href="56-1-generalized-pareto-distribution.html"><i class="fa fa-check"></i><b>56.1</b> 일반화 파레토 분포(generalized pareto distribution)</a></li>
 <li class="chapter" data-level="56.2" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html"><i class="fa fa-check"></i><b>56.2</b> 분계 초과의 모델링(modeling threshold excesses)</a><ul>
 <li class="chapter" data-level="56.2.1" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html#-threshold-selection"><i class="fa fa-check"></i><b>56.2.1</b> 분계점 선택(threshold selection)</a></li>
-<li class="chapter" data-level="56.2.2" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html#smith-smith-model"><i class="fa fa-check"></i><b>56.2.2</b> Smith 모형(Smith model)</a></li>
-<li class="chapter" data-level="56.2.3" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html#schlather-schlather-model"><i class="fa fa-check"></i><b>56.2.3</b> Schlather 모형(Schlather model)</a></li>
-<li class="chapter" data-level="56.2.4" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html#brown-resnick-brown-resnick-model"><i class="fa fa-check"></i><b>56.2.4</b> Brown-Resnick 모형(Brown-Resnick model)</a></li>
-<li class="chapter" data-level="56.2.5" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html#-t-extremal-t-model"><i class="fa fa-check"></i><b>56.2.5</b> 극단-t 모형(extremal-t model)</a></li>
 </ul></li>
-<li class="chapter" data-level="56.3" data-path="56-3-spatial-dependence-of-extremes.html"><a href="56-3-spatial-dependence-of-extremes.html"><i class="fa fa-check"></i><b>56.3</b> 극단값의 공간 종속성(spatial dependence of extremes)</a></li>
 </ul></li>
-<li class="chapter" data-level="57" data-path="57-maxstableRF.html"><a href="57-maxstableRF.html"><i class="fa fa-check"></i><b>57</b> 최대안정 임의장</a><ul>
-<li class="chapter" data-level="57.1" data-path="57-1-brown-resnick-brown-resnick-random-fields.html"><a href="57-1-brown-resnick-brown-resnick-random-fields.html"><i class="fa fa-check"></i><b>57.1</b> Brown-Resnick 임의장(Brown-Resnick random fields)</a></li>
-<li class="chapter" data-level="57.2" data-path="57-2-extremal-gaussian-extremal-gaussian-random-fields.html"><a href="57-2-extremal-gaussian-extremal-gaussian-random-fields.html"><i class="fa fa-check"></i><b>57.2</b> Extremal-Gaussian 임의장(extremal-Gaussian random fields)</a></li>
-<li class="chapter" data-level="57.3" data-path="57-3-extremal-t-extremal-t-random-fields.html"><a href="57-3-extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>57.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
+<li class="chapter" data-level="57" data-path="57-ppextremes.html"><a href="57-ppextremes.html"><i class="fa fa-check"></i><b>57</b> 극단값이론에서의 점과정</a></li>
+<li class="chapter" data-level="58" data-path="58-mevtheory.html"><a href="58-mevtheory.html"><i class="fa fa-check"></i><b>58</b> 다변량 극단값 이론</a><ul>
+<li class="chapter" data-level="58.1" data-path="58-1-copula.html"><a href="58-1-copula.html"><i class="fa fa-check"></i><b>58.1</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="58.2" data-path="58-2-limiting-standardization.html"><a href="58-2-limiting-standardization.html"><i class="fa fa-check"></i><b>58.2</b> 극단 정규화(limiting standardization)</a></li>
 </ul></li>
-<li class="chapter" data-level="58" data-path="58-references.html"><a href="58-references.html"><i class="fa fa-check"></i><b>58</b> References</a></li>
+<li class="chapter" data-level="59" data-path="59-timeextremes.html"><a href="59-timeextremes.html"><i class="fa fa-check"></i><b>59</b> 정상시계열에서의 극단값들</a></li>
+<li class="chapter" data-level="60" data-path="60-spatextremes.html"><a href="60-spatextremes.html"><i class="fa fa-check"></i><b>60</b> 공간 극단값 이론과 최대안정과정</a><ul>
+<li class="chapter" data-level="60.1" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html"><i class="fa fa-check"></i><b>60.1</b> 최대안정과정(max-stable process)</a><ul>
+<li class="chapter" data-level="60.1.1" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#smith-smith-model"><i class="fa fa-check"></i><b>60.1.1</b> Smith 모형(Smith model)</a></li>
+<li class="chapter" data-level="60.1.2" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#schlather-schlather-model"><i class="fa fa-check"></i><b>60.1.2</b> Schlather 모형(Schlather model)</a></li>
+<li class="chapter" data-level="60.1.3" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#brown-resnick-brown-resnick-model"><i class="fa fa-check"></i><b>60.1.3</b> Brown-Resnick 모형(Brown-Resnick model)</a></li>
+<li class="chapter" data-level="60.1.4" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#-t-extremal-t-model"><i class="fa fa-check"></i><b>60.1.4</b> 극단-t 모형(extremal-t model)</a></li>
+</ul></li>
+<li class="chapter" data-level="60.2" data-path="60-2-spatial-dependence-of-extremes.html"><a href="60-2-spatial-dependence-of-extremes.html"><i class="fa fa-check"></i><b>60.2</b> 극단값의 공간 종속성(spatial dependence of extremes)</a></li>
+</ul></li>
+<li class="chapter" data-level="61" data-path="61-maxstableRF.html"><a href="61-maxstableRF.html"><i class="fa fa-check"></i><b>61</b> 최대안정 임의장</a><ul>
+<li class="chapter" data-level="61.1" data-path="61-1-brown-resnick-brown-resnick-random-fields.html"><a href="61-1-brown-resnick-brown-resnick-random-fields.html"><i class="fa fa-check"></i><b>61.1</b> Brown-Resnick 임의장(Brown-Resnick random fields)</a></li>
+<li class="chapter" data-level="61.2" data-path="61-2-extremal-gaussian-extremal-gaussian-random-fields.html"><a href="61-2-extremal-gaussian-extremal-gaussian-random-fields.html"><i class="fa fa-check"></i><b>61.2</b> Extremal-Gaussian 임의장(extremal-Gaussian random fields)</a></li>
+<li class="chapter" data-level="61.3" data-path="61-3-extremal-t-extremal-t-random-fields.html"><a href="61-3-extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>61.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
+</ul></li>
+<li class="chapter" data-level="62" data-path="62-references.html"><a href="62-references.html"><i class="fa fa-check"></i><b>62</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
 
@@ -713,7 +728,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>일반화 극단값 분포에 최대가능도추정을 적용하기 전에 일반적인 가능도 관련 이론에 대해 정리해보자.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-407" class="definition"><strong>Definition 55.5  (가능도와 최대가능도추정량)  </strong></span><span class="math inline">\(y\)</span>가 자료이고 이 자료가 다음과 같은 모수 <span class="math inline">\(\theta\)</span>로 정의되는 확률변수 <span class="math inline">\(Y \sim f(y;\theta)\)</span>의 실현(realization)이라고 하자. 이때 <strong>가능도(likelihood, 우도)</strong>와 로그 가능도는 <span class="math display">\[L(\theta)=L(\theta;y)=f_{Y}(y;\theta), l(\theta)=\log L(\theta), \theta \in \Omega_{\theta}\]</span> 로 정의된다.</p>
+<p><span id="def:unnamed-chunk-413" class="definition"><strong>Definition 55.5  (가능도와 최대가능도추정량)  </strong></span><span class="math inline">\(y\)</span>가 자료이고 이 자료가 다음과 같은 모수 <span class="math inline">\(\theta\)</span>로 정의되는 확률변수 <span class="math inline">\(Y \sim f(y;\theta)\)</span>의 실현(realization)이라고 하자. 이때 <strong>가능도(likelihood, 우도)</strong>와 로그 가능도는 <span class="math display">\[L(\theta)=L(\theta;y)=f_{Y}(y;\theta), l(\theta)=\log L(\theta), \theta \in \Omega_{\theta}\]</span> 로 정의된다.</p>
 <p><strong>최대가능도추정량(maximum likelihood estimate, MLE)</strong>은 <span class="math display">\[l(\hat{\theta})\geq l(\theta), \forall \theta \in \Omega_{\theta}\]</span> 을 만족시키는 <span class="math inline">\(\hat{\theta}\)</span>이다. 많은 경우 <span class="math inline">\(\hat{\theta}\)</span>는 유일하며 다음과 같은 <strong>점수방정식(score equation, 또는 가능도방정식)</strong> <span class="math display">\[\frac{\partial l(\theta)}{\partial \theta}=0\]</span> 을 만족한다. 만약 <span class="math inline">\(\theta\)</span>가 <span class="math inline">\(p \times 1\)</span> 벡터라면 점수방정식 또한 <span class="math inline">\(p \times 1\)</span> 벡터가 된다.</p>
 <p><strong>관측정보행렬(observed information matrix)</strong>는 점수방정식을 한 번 더 미분한 것이다. <span class="math display">\[J(\theta)=-\frac{\partial^{2}l(\theta)}{\partial \theta \partial \theta^{T}}.\]</span> 만약 <span class="math inline">\(\theta\)</span>가 <span class="math inline">\(p \times 1\)</span> 벡터라면 <span class="math inline">\(J(\theta)\)</span>는 <span class="math inline">\(p \times p\)</span> 행렬이 된다.</p>
 <p><strong>가능도 통계량(likelihood ratio statistic, 윌크스의 통계량)</strong>은 <span class="math display">\[W(\theta)=2\{l(\hat{\theta})-l(\theta)\}\geq 0\]</span> 이다.</p>
@@ -723,7 +738,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>실제로는 <span class="math inline">\(\theta\)</span>를 <strong>흥미있는 모수들(interest parameters)</strong> <span class="math inline">\(\psi_{q\times 1}\)</span>와 <strong>장애모수들(nuisance parameters)</strong> <span class="math inline">\(\lambda_{p-q\times 1}\)</span>로 나누어 분석하게 된다. <span class="math inline">\(\hat{\lambda}_{\psi}\)</span>를 <span class="math inline">\(\psi\)</span>가 고정되어 있을 때 <span class="math inline">\(\lambda\)</span>의 최대가능도추정량이라고 하자. 그러면 <strong>일반화가능도통계량(generalized likelihood ratio statistic)</strong>을 <span class="math display">\[W_{p}(\psi)=2\{l(\hat{\psi},\hat{\lambda})-l(\psi,\hat{\lambda}_{\psi})\}=2\{l(\hat{\theta})-l(\hat{\theta}_{\psi})\}\]</span> 로 정의한다. 이 때 다음과 같은 통계량을 정의할 수 있다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-408" class="definition"><strong>Definition 55.6  (일반화가능도통계량)  </strong></span><strong>일반화가능도통계량(generalized likelihood ratio statistic)</strong>은 <span class="math display">\[W_{p}(\psi)=2\{l(\hat{\psi},\hat{\lambda})-l(\psi,\hat{\lambda}_{\psi})\}=2\{l(\hat{\theta})-l(\hat{\theta}_{\psi})\}\]</span> 이다.</p>
+<p><span id="def:unnamed-chunk-414" class="definition"><strong>Definition 55.6  (일반화가능도통계량)  </strong></span><strong>일반화가능도통계량(generalized likelihood ratio statistic)</strong>은 <span class="math display">\[W_{p}(\psi)=2\{l(\hat{\psi},\hat{\lambda})-l(\psi,\hat{\lambda}_{\psi})\}=2\{l(\hat{\theta})-l(\hat{\theta}_{\psi})\}\]</span> 이다.</p>
 </div>
 
 <p>만약 <span class="math inline">\(\psi^{0}\)</span>이 정칙모형(regular model)의 자료로부터 얻은 <span class="math inline">\(\psi\)</span>값이라고 하면 앞선 정의에 의해 <span class="math display">\[W_{p}(\psi) \stackrel{\cdot}{\sim} \xi_{q}^{2}, \qquad{for large n}\]</span> 이 된다. <span class="math inline">\(\psi^{0}\)</span>에 대한 신뢰구간(confidence interval)과 검정은 이것에 기초해서 만들게 된다.</p>

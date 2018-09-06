@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-08-16">
+<meta name="date" content="2018-09-06">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -134,7 +134,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.6.1" data-path="2-6-space.html"><a href="2-6-space.html#-groups-and-fields"><i class="fa fa-check"></i><b>2.6.1</b> 군과 장(groups and fields)</a></li>
 <li class="chapter" data-level="2.6.2" data-path="2-6-space.html"><a href="2-6-space.html#-vector-spaces"><i class="fa fa-check"></i><b>2.6.2</b> 벡터 공간(vector spaces)</a></li>
 <li class="chapter" data-level="2.6.3" data-path="2-6-space.html"><a href="2-6-space.html#inner-products"><i class="fa fa-check"></i><b>2.6.3</b> 내적(inner products)</a></li>
-<li class="chapter" data-level="2.6.4" data-path="2-6-space.html"><a href="2-6-space.html#orthogonality"><i class="fa fa-check"></i><b>2.6.4</b> 정규직교성(orthogonality)</a></li>
+<li class="chapter" data-level="2.6.4" data-path="2-6-space.html"><a href="2-6-space.html#orthogonality"><i class="fa fa-check"></i><b>2.6.4</b> 직교성(orthogonality)</a></li>
 <li class="chapter" data-level="2.6.5" data-path="2-6-space.html"><a href="2-6-space.html#topological-space"><i class="fa fa-check"></i><b>2.6.5</b> 위상공간(topological space)</a></li>
 <li class="chapter" data-level="2.6.6" data-path="2-6-space.html"><a href="2-6-space.html#--separable-space"><i class="fa fa-check"></i><b>2.6.6</b> 분해 가능 공간(separable space)</a></li>
 <li class="chapter" data-level="2.6.7" data-path="2-6-space.html"><a href="2-6-space.html#-normed-space"><i class="fa fa-check"></i><b>2.6.7</b> 노름 공간(normed space)</a></li>
@@ -497,6 +497,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="36.2.3" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
 <li class="chapter" data-level="36.2.4" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.2.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
 </ul></li>
+<li class="chapter" data-level="36.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.3</b> 극단회귀분석(extremal quantile regression)</a><ul>
+<li class="chapter" data-level="36.3.1" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.3.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
+<li class="chapter" data-level="36.3.2" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.3.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
+<li class="chapter" data-level="36.3.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.3.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="37" data-path="37-functionestimation.html"><a href="37-functionestimation.html"><i class="fa fa-check"></i><b>37</b> 함수추정</a><ul>
 <li class="chapter" data-level="37.1" data-path="37-1-how-to-specify-basis-systems-for-building-functions.html"><a href="37-1-how-to-specify-basis-systems-for-building-functions.html"><i class="fa fa-check"></i><b>37.1</b> 함수를 만들 때 기저시스템을 어떻게 특정할 것인가(how to specify basis systems for building functions)</a></li>
@@ -675,19 +680,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="56.1" data-path="56-1-generalized-pareto-distribution.html"><a href="56-1-generalized-pareto-distribution.html"><i class="fa fa-check"></i><b>56.1</b> 일반화 파레토 분포(generalized pareto distribution)</a></li>
 <li class="chapter" data-level="56.2" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html"><i class="fa fa-check"></i><b>56.2</b> 분계 초과의 모델링(modeling threshold excesses)</a><ul>
 <li class="chapter" data-level="56.2.1" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html#-threshold-selection"><i class="fa fa-check"></i><b>56.2.1</b> 분계점 선택(threshold selection)</a></li>
-<li class="chapter" data-level="56.2.2" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html#smith-smith-model"><i class="fa fa-check"></i><b>56.2.2</b> Smith 모형(Smith model)</a></li>
-<li class="chapter" data-level="56.2.3" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html#schlather-schlather-model"><i class="fa fa-check"></i><b>56.2.3</b> Schlather 모형(Schlather model)</a></li>
-<li class="chapter" data-level="56.2.4" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html#brown-resnick-brown-resnick-model"><i class="fa fa-check"></i><b>56.2.4</b> Brown-Resnick 모형(Brown-Resnick model)</a></li>
-<li class="chapter" data-level="56.2.5" data-path="56-2-modeling-threshold-excesses.html"><a href="56-2-modeling-threshold-excesses.html#-t-extremal-t-model"><i class="fa fa-check"></i><b>56.2.5</b> 극단-t 모형(extremal-t model)</a></li>
 </ul></li>
-<li class="chapter" data-level="56.3" data-path="56-3-spatial-dependence-of-extremes.html"><a href="56-3-spatial-dependence-of-extremes.html"><i class="fa fa-check"></i><b>56.3</b> 극단값의 공간 종속성(spatial dependence of extremes)</a></li>
 </ul></li>
-<li class="chapter" data-level="57" data-path="57-maxstableRF.html"><a href="57-maxstableRF.html"><i class="fa fa-check"></i><b>57</b> 최대안정 임의장</a><ul>
-<li class="chapter" data-level="57.1" data-path="57-1-brown-resnick-brown-resnick-random-fields.html"><a href="57-1-brown-resnick-brown-resnick-random-fields.html"><i class="fa fa-check"></i><b>57.1</b> Brown-Resnick 임의장(Brown-Resnick random fields)</a></li>
-<li class="chapter" data-level="57.2" data-path="57-2-extremal-gaussian-extremal-gaussian-random-fields.html"><a href="57-2-extremal-gaussian-extremal-gaussian-random-fields.html"><i class="fa fa-check"></i><b>57.2</b> Extremal-Gaussian 임의장(extremal-Gaussian random fields)</a></li>
-<li class="chapter" data-level="57.3" data-path="57-3-extremal-t-extremal-t-random-fields.html"><a href="57-3-extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>57.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
+<li class="chapter" data-level="57" data-path="57-ppextremes.html"><a href="57-ppextremes.html"><i class="fa fa-check"></i><b>57</b> 극단값이론에서의 점과정</a></li>
+<li class="chapter" data-level="58" data-path="58-mevtheory.html"><a href="58-mevtheory.html"><i class="fa fa-check"></i><b>58</b> 다변량 극단값 이론</a><ul>
+<li class="chapter" data-level="58.1" data-path="58-1-copula.html"><a href="58-1-copula.html"><i class="fa fa-check"></i><b>58.1</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="58.2" data-path="58-2-limiting-standardization.html"><a href="58-2-limiting-standardization.html"><i class="fa fa-check"></i><b>58.2</b> 극단 정규화(limiting standardization)</a></li>
 </ul></li>
-<li class="chapter" data-level="58" data-path="58-references.html"><a href="58-references.html"><i class="fa fa-check"></i><b>58</b> References</a></li>
+<li class="chapter" data-level="59" data-path="59-timeextremes.html"><a href="59-timeextremes.html"><i class="fa fa-check"></i><b>59</b> 정상시계열에서의 극단값들</a></li>
+<li class="chapter" data-level="60" data-path="60-spatextremes.html"><a href="60-spatextremes.html"><i class="fa fa-check"></i><b>60</b> 공간 극단값 이론과 최대안정과정</a><ul>
+<li class="chapter" data-level="60.1" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html"><i class="fa fa-check"></i><b>60.1</b> 최대안정과정(max-stable process)</a><ul>
+<li class="chapter" data-level="60.1.1" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#smith-smith-model"><i class="fa fa-check"></i><b>60.1.1</b> Smith 모형(Smith model)</a></li>
+<li class="chapter" data-level="60.1.2" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#schlather-schlather-model"><i class="fa fa-check"></i><b>60.1.2</b> Schlather 모형(Schlather model)</a></li>
+<li class="chapter" data-level="60.1.3" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#brown-resnick-brown-resnick-model"><i class="fa fa-check"></i><b>60.1.3</b> Brown-Resnick 모형(Brown-Resnick model)</a></li>
+<li class="chapter" data-level="60.1.4" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#-t-extremal-t-model"><i class="fa fa-check"></i><b>60.1.4</b> 극단-t 모형(extremal-t model)</a></li>
+</ul></li>
+<li class="chapter" data-level="60.2" data-path="60-2-spatial-dependence-of-extremes.html"><a href="60-2-spatial-dependence-of-extremes.html"><i class="fa fa-check"></i><b>60.2</b> 극단값의 공간 종속성(spatial dependence of extremes)</a></li>
+</ul></li>
+<li class="chapter" data-level="61" data-path="61-maxstableRF.html"><a href="61-maxstableRF.html"><i class="fa fa-check"></i><b>61</b> 최대안정 임의장</a><ul>
+<li class="chapter" data-level="61.1" data-path="61-1-brown-resnick-brown-resnick-random-fields.html"><a href="61-1-brown-resnick-brown-resnick-random-fields.html"><i class="fa fa-check"></i><b>61.1</b> Brown-Resnick 임의장(Brown-Resnick random fields)</a></li>
+<li class="chapter" data-level="61.2" data-path="61-2-extremal-gaussian-extremal-gaussian-random-fields.html"><a href="61-2-extremal-gaussian-extremal-gaussian-random-fields.html"><i class="fa fa-check"></i><b>61.2</b> Extremal-Gaussian 임의장(extremal-Gaussian random fields)</a></li>
+<li class="chapter" data-level="61.3" data-path="61-3-extremal-t-extremal-t-random-fields.html"><a href="61-3-extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>61.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
+</ul></li>
+<li class="chapter" data-level="62" data-path="62-references.html"><a href="62-references.html"><i class="fa fa-check"></i><b>62</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
 
@@ -713,16 +728,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><strong>확률변수(random variable)</strong>의 예로는 카드를 생각해 볼 수 있다. 확률변수 <span class="math inline">\(X=X(\omega)\)</span>는 실변수 함수로 정의역은 <span class="math inline">\(\Omega\)</span>이다. 각각의 <span class="math inline">\(\omega\)</span>가 특정한 5장의 카드 집합을 나타낸다고 할 때 <span class="math inline">\(X(\omega)=I\{\omega\)</span>가 네 개의 에이스를 가지고 있음<span class="math inline">\(\}\)</span>이라고 정의한다면 <span class="math inline">\(X(\omega)\)</span>는 random variable이다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-87" class="definition"><strong>Definition 5.1  (가측)  </strong></span><span class="math inline">\((\Omega_{1}, \mathcal{F}_{1})\)</span>, <span class="math inline">\((\Omega_{2}, \mathcal{F}_{2})\)</span>가 두 가측공간(measurable)이라고 할 때, 함수 <span class="math inline">\(X:\Omega_{1} \rightarrow \Omega_{2}\)</span>가 임의의 집합 <span class="math inline">\(E\in \mathcal{F}_{2}\)</span>에 대해 집합 <span class="math inline">\(X^{-1}(E)\)</span>이 <span class="math display">\[X^{-1}(E)=\{ \omega \in \Omega_{1}: X(\omega) \in E\} \mathcal{F}_{1}\]</span> (또는 위 조건을 <span class="math inline">\(X^{-1}(\mathcal{F}_{2})\in \mathcal{F}_{1})\)</span>) 일 때 <span class="math inline">\(X\)</span>가 <strong>가측(measurable)</strong>이라고 한다. (또는 <span class="math inline">\(\mathcal{F}_{1}\)</span>-가측 이라고도 부른다.)</p>
+<p><span id="def:unnamed-chunk-91" class="definition"><strong>Definition 5.1  (가측)  </strong></span><span class="math inline">\((\Omega_{1}, \mathcal{F}_{1})\)</span>, <span class="math inline">\((\Omega_{2}, \mathcal{F}_{2})\)</span>가 두 가측공간(measurable)이라고 할 때, 함수 <span class="math inline">\(X:\Omega_{1} \rightarrow \Omega_{2}\)</span>가 임의의 집합 <span class="math inline">\(E\in \mathcal{F}_{2}\)</span>에 대해 집합 <span class="math inline">\(X^{-1}(E)\)</span>이 <span class="math display">\[X^{-1}(E)=\{ \omega \in \Omega_{1}: X(\omega) \in E\} \mathcal{F}_{1}\]</span> (또는 위 조건을 <span class="math inline">\(X^{-1}(\mathcal{F}_{2})\in \mathcal{F}_{1})\)</span>) 일 때 <span class="math inline">\(X\)</span>가 <strong>가측(measurable)</strong>이라고 한다. (또는 <span class="math inline">\(\mathcal{F}_{1}\)</span>-가측 이라고도 부른다.)</p>
 </div>
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-88" class="definition"><strong>Definition 5.2  (확률변수)  </strong></span><span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>가 확률공간(probability space)이라고 하자. 그러면 어떤 실변수 함수 <span class="math display">\[X:\Omega \rightarrow \mathbb{R}\]</span> 가 <span class="math inline">\((\Omega, \mathcal{F})\)</span>에서 <span class="math inline">\((\mathbb{R}, \mathcal{B})\)</span>로 가는 가측함수(measurable function)일 때(여기서 <span class="math inline">\(\mathcal{B}\)</span>는 <span class="math inline">\(\mathbb{R}\)</span>에서의 보렐 시그마-체) 이 <span class="math inline">\(X\)</span>를 <strong>확률변수(random variable)</strong>라고 부른다.</p>
+<p><span id="def:unnamed-chunk-92" class="definition"><strong>Definition 5.2  (확률변수)  </strong></span><span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>가 확률공간(probability space)이라고 하자. 그러면 어떤 실변수 함수 <span class="math display">\[X:\Omega \rightarrow \mathbb{R}\]</span> 가 <span class="math inline">\((\Omega, \mathcal{F})\)</span>에서 <span class="math inline">\((\mathbb{R}, \mathcal{B})\)</span>로 가는 가측함수(measurable function)일 때(여기서 <span class="math inline">\(\mathcal{B}\)</span>는 <span class="math inline">\(\mathbb{R}\)</span>에서의 보렐 시그마-체) 이 <span class="math inline">\(X\)</span>를 <strong>확률변수(random variable)</strong>라고 부른다.</p>
 </div>
 
 <p>다음 그림은 <span class="math inline">\((\Omega, \mathcal{F}, P)= ((0,1), \mathcal{B}_{(0,1)}, \mu_{L})\)</span>에서의 확률변수 <span class="math inline">\(X(\omega) = \frac{1}{\omega(1-\omega)}\)</span>의 <strong>역상(inverse image)</strong> 개념을 묘사한 것이다. 이 때 보렐 집합 <span class="math inline">\(B=\{ (6.25, \infty)\cup \{4\} \}\)</span>이며, <span class="math inline">\(X^{-1}(B)=\{ (0,0.2)\cup (0.8,1)\cup \{0.5\} \}\)</span>이며 이는 <span class="math inline">\(\mathcal{B}_{(0,1)}\)</span>안에 있다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-89"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-93"></span>
 <img src="images/basic_invimage.png" alt="역상의 예." width="474" />
 <p class="caption">
 FIGURE 5.1: 역상의 예.
@@ -730,7 +745,7 @@ FIGURE 5.1: 역상의 예.
 </div>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-90" class="example"><strong>Example 5.1  (확률변수의 예)  </strong></span><span class="math inline">\(\Omega=[0,1]\)</span>, <span class="math inline">\(\mathcal{F}=\mathcal{B}_{[0,1]}\)</span>이며 <span class="math inline">\(\Omega\)</span>의 부분집합이라고 하자. 그러면</p>
+<p><span id="exm:unnamed-chunk-94" class="example"><strong>Example 5.1  (확률변수의 예)  </strong></span><span class="math inline">\(\Omega=[0,1]\)</span>, <span class="math inline">\(\mathcal{F}=\mathcal{B}_{[0,1]}\)</span>이며 <span class="math inline">\(\Omega\)</span>의 부분집합이라고 하자. 그러면</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(X_{1}(\omega)\equiv=c\)</span>.</p></li>
 <li><p><span class="math inline">\(X_{2}(\omega)=I(\omega \leq 1/2)\)</span>.</p></li>
@@ -750,13 +765,13 @@ X_{2}^{-1}(B) :=
 <p>앞선 예제에서 <span class="math inline">\(X\)</span>가 확류변수임을 보이기 위해 <span class="math inline">\(X^{-1}(\mathcal{B})=\{ X^{-1}(B), B\in\mathcal{B}\}\)</span>를 계산하였다. 이 때 <span class="math inline">\(\mathcal{F}\)</span>의 부분집합인 <span class="math inline">\(X^{-1}(\mathcal{B})\)</span>는 <span class="math inline">\(X\)</span>를 가측으로 만드는 관점에서 가장 작은 시그마-장이된다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-91" class="definition"><strong>Definition 5.3  (확률변수로부터 생성되는 시그마-장)  </strong></span>만약 <span class="math inline">\(X\)</span>가 확률변수라면, <span class="math inline">\(X\)</span>를 가측으로 만드는 가장 작은 시그마-장, 즉 <span class="math inline">\(X^{-1}(\mathcal{B})=\{ X^{-1}(B), B\in\mathcal{B}\}\)</span>를 <span class="math inline">\(X\)</span>로부터 생성되는 시그마-장이라 하고 <span class="math inline">\(\sigma(X)\)</span>라 표기한다.</p>
+<p><span id="def:unnamed-chunk-95" class="definition"><strong>Definition 5.3  (확률변수로부터 생성되는 시그마-장)  </strong></span>만약 <span class="math inline">\(X\)</span>가 확률변수라면, <span class="math inline">\(X\)</span>를 가측으로 만드는 가장 작은 시그마-장, 즉 <span class="math inline">\(X^{-1}(\mathcal{B})=\{ X^{-1}(B), B\in\mathcal{B}\}\)</span>를 <span class="math inline">\(X\)</span>로부터 생성되는 시그마-장이라 하고 <span class="math inline">\(\sigma(X)\)</span>라 표기한다.</p>
 </div>
 
 <p>앞선 예제에서 확률변수 <span class="math inline">\(X\)</span>에 대해 사건 <span class="math inline">\(F\in \sigma(X)\)</span>을 결정할 수 있다. 예를 들면, <span class="math inline">\(\sigma(X_{1})=\{ \emptyset, [0,1] \}\subset \{ \emptyset, [0,1], [0,1/2), [1/2,1] \}=\sigma(X_{2})\)</span>이다. 이 말은 <span class="math inline">\(X_{2}\)</span>가 <span class="math inline">\(X_{1}\)</span>보다 <span class="math inline">\(\omega\)</span>에 대해 더 많은 정보를 준다는 것을 말해준다. <span class="math inline">\(X_{1}\)</span>은 어떤 사건이 일어났는지 안일어났는지만 얘기해주지만, <span class="math inline">\(X_{2}\)</span>는 <span class="math inline">\(\omega\)</span>가 1/2보다 큰지 작은지도 알려주는 것이다. 또한 <span class="math inline">\(\sigma(X_{2})\subset\sigma(X_{3})\)</span>이므로 <span class="math inline">\(X_{3}\)</span>은 <span class="math inline">\(X_{2}\)</span>보다 많은 정보를 주는 것이다. 실제로 <span class="math inline">\(X_{3}\)</span>은 실험에서 나온 <span class="math inline">\(\omega\)</span>의 정확한 값을 알려준다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-92" class="definition"><strong>Definition 5.4  (보렐 측도가능과 르베그 측도가능 함수)  </strong></span>어떤 함수 <span class="math inline">\(f:\mathbb{R}^{k}\rightarrow \mathbb{R}\)</span>을</p>
+<p><span id="def:unnamed-chunk-96" class="definition"><strong>Definition 5.4  (보렐 측도가능과 르베그 측도가능 함수)  </strong></span>어떤 함수 <span class="math inline">\(f:\mathbb{R}^{k}\rightarrow \mathbb{R}\)</span>을</p>
 <ol style="list-style-type: decimal">
 <li><p>1차원 보렐 집합 <span class="math inline">\(B\in\mathcal{B}\)</span>에 대해 <span class="math inline">\(f^{-1}*B\)</span> 가 <span class="math inline">\(k\)</span>차원 보렐 집할이 될 경우 <strong>보렐 측도가능(Borel measurable)</strong> 또는 <strong>보렐 함수(Borel function)</strong>이라고 부른다.</p></li>
 <li>1차원 르베그 집합 <span class="math inline">\(B\in\mathcal{B}\)</span>에 대해 <span class="math inline">\(f^{-1}*B\)</span> 가 <span class="math inline">\(k\)</span>차원 르베그 집할이 될 경우 <strong>르베그 측도가능(Lebesgue measurable)</strong> 또는 <strong>르베그 함수(Lebesguel function)</strong>이라고 부른다.</li>

@@ -461,7 +461,7 @@ $$\phi(r)=\frac{1}{\sqrt{1+(\epsilon r)^{2}}}$$
 
 ### 벡터 공간(vector spaces)
 
-벡터 공간은 덧셈과 곱셈을 적용할 수 있는 수학적 실재(mathematical entity)들의 집합이다. 예를 들면 숫자 공간 $\mathbb{R}$, $\mathbb{C}$ 등은 벡터 공간이 된다. 숫자 뿐만 아니라 함수, 다항식, 선형 연산자, 벡터 등등이 수학적 실재가 될 수 있다.
+벡터 공간은 스칼라들의 장(field)에서 정의된다. 이런 스칼라들은 실수가 될 수도 있고, 복소수가 될 수도 있다. 벡터 공간은 덧셈과 곱셈을 적용할 수 있는 수학적 실재(mathematical entity)들의 집합이다. 예를 들면 숫자 공간 $\mathbb{R}$, $\mathbb{C}$ 등은 벡터 공간이 된다. 숫자 뿐만 아니라 함수, 다항식, 선형 연산자, 벡터 등등이 수학적 실재가 될 수 있다.
 
 ```{r, echo=F, fig.cap='벡터 공간은 다양한 종류의 수학적 실재(mathematical entity)로부터 만들어진다.', fig.align='center'}
 knitr::include_graphics("images/math_vectorspace.png")
@@ -507,7 +507,30 @@ knitr::include_graphics("images/math_vectorspace.png")
 
 특별히 내적을 갖고 있는 벡터 공간을 **내적 공간(inner product space)**이라고 부른다.
 
-### 정규직교성(orthogonality)
+내적 공간에서는 우리는 항상 **내적 노름(inner product norm)**을 다음과 같이 정의할 수 있다.
+$$\|x\|=\sqrt{\langle x,x\rangle}.$$
+
+```{proposition, name="내적 공간의 노름과 관련된 성질들"}
+내적 공간은 그 공간 상에서 노름 $\| \cdot \|$을 정의하며 다음의 설질들을 갖는다.
+
+- $\|ax\|=|a|\|x\|$
+  
+- $|\langle x,y\rangle | \leq \|x\| \|y\|$ (Cauchy-Schwarz inequality)
+  
+- $\|x+y\| \leq \|x\| +\|y\|$ (triangle inequality)
+
+- $d(x,y) = \|x-y\|$ is a metric (distance), i.e., $d(x,y)=d(y,x)>0$ if $x\neq y$, $d(x,x)=0$ and $d(x,y) \leq d(x,z) + d(z,y)$.
+
+```
+
+### 직교성(orthogonality)
+
+다음은 [@Shima2016]책에 있는 직교성의 정의다.
+
+```{definition, name="직교"}
+내적 공간에 있는 두 원소들 $\mathbf{x}, \mathbf{y}$는 $\langle x\mathbf{x},\mathbf{y}\rangle = 0$일 때 **직교(orthogonal)**한다고 말한다.
+
+```
 
 #### 완비 벡터 공간(complete vector spaces)
 
@@ -523,8 +546,17 @@ knitr::include_graphics("images/math_vectorspace.png")
 
 ```
 
+그러나 그 역은 성립하지 않는다. 코시 수열이라고 해서 다 수렴하는 건 아니다. 완비성을 정의해 이를 해결할 수 있는 것이다.
+
 ```{definition, name="벡터 공간의 완비성"}
 만약 어떤 벡터 공간의 모든 코시 수열이 수렴한다면, 우리는 그 공간을 **완비(complete)**라고 부른다.
+
+```
+
+다음은 [@Kokoszka2017]의 10장에 나오는 예이다.
+
+```{example, name="유클리드 공간에서의 완비성"}
+유클리드 거리 하에서 개구간 $(0,1)$은 complete metric space가 아니지만, 닫힌 구간 $[0,1]$은 complete metric space가 된다. 유클리드 공간 $\mathbb{R}^{d}$는 complete하다.
 
 ```
 
@@ -563,9 +595,14 @@ Inner product spaces들 중 완비가 아닌 공간들을 **원-힐버트 공간
 
 ```
 
+```{example, name="원-힐버트 공간의 예"}
+유클리드 거리 하에서 개구간 $(0,1)$은 complete metric space가 아니지만, 닫힌 구간 $[0,1]$은 complete metric space가 된다. 유클리드 공간 $\mathbb{R}^{d}$는 complete하다.
+
+```
+
 ### 힐버트 공간(Hilbert space)
 
-모든 힐버트 공간은 함수가 무한차원 공간의 점으로서 간주될 수 있도록 하는 수단을 제공해 준다. 이런 기하학적인 관점의 쓰임새는 우리가 기초 선형대수에서 정의했던 길이, 직교정규, 그리고 원소들의 선형 결합 개념들을 좀 더 추상적인 수학적 공간에 일반화시킬 수 있다는 것이다. 이런 기하학적 관점에 가장 핵심이 되는 개념은 공간의 **기저(basis)**다. 힐버트 공간과 함께, 무한차원 공간에서 기저의 기초적 성질들을 복습해 보기로 한다.
+많은 함수자료분석은 힐버트 공간 이론에 많이 의존한다. 모든 힐버트 공간은 함수가 무한차원 공간의 점으로서 간주될 수 있도록 하는 수단을 제공해 준다. 이런 기하학적인 관점의 쓰임새는 우리가 기초 선형대수에서 정의했던 길이, 직교정규, 그리고 원소들의 선형 결합 개념들을 좀 더 추상적인 수학적 공간에 일반화시킬 수 있다는 것이다. 이런 기하학적 관점에 가장 핵심이 되는 개념은 공간의 **기저(basis)**다. 힐버트 공간과 함께, 무한차원 공간에서 기저의 기초적 성질들을 복습해 보기로 한다.
 
 ```{definition, name="힐버트 공간"}
 A complete normed space endowed with inner product is called a **Hilbert space**
