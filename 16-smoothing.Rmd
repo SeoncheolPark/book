@@ -36,6 +36,22 @@ y_{i}=f(x_{i})+\varepsilon_{i}, \qquad{\varepsilon_{i}\sim(0,\sigma_{i}^{2})}
 
 으로 임의의 부드러운 함수 $f$를 추정하는 문제이다. 오차가 평균 9을 갖으므로 조건부 평균이 함수가 된다 $E(Y|x)=f(x)$. 이 문제는 모든 $\sigma_{i}$가 동일하다고 가정하는 것이다. $\text{Var}(\epsilon_{i})=\sigma_{i}^{2}=\sigma^{2}w_{i}^{-1}$과 같은 분산구조에 식 \@ref(eq:classicalsmoothingproblem)을 일반화할 수도 있다.
 
+일반성을 잃지 않고 우리는 자료를 $x_{1}< x_{2}<\cdots <x_{n}$으로 순서대로 놓을 수 있다. 가장 간단한 경우인 $w_{i}=1, \forall i$인 경우를 생각해보자. 모든 스므딩 방법들의 기본적인 아이디어는 **이웃(neighborhood)**라는 개념이다. 그 말인 즉슨 타겟이 되는 점 $x_{0}$와 가까운 이웃들 $x_{i}$들만 $x_{0}$에서 $f$를 예측할 때 쓴다는 것이다. $x_{i}$가 $x_{0}$와 가까우면 가까울수록 영향력이 커지고 $\hat{f}(x_{0})$를 구성하는 데 가중치를 더 많이 준다는 것이다.
+
+이웃이라는 개념 대신 많은 사람들은 **윈도우(window)**라고 부르기도 하는데, 이 이웃을 결정하는 윈도우의 크기가 $f$의 부드러움 정도를 결정하기 때문에 매우 중요해진다. 이는 이것이 bias, variance와도 크게 관련이 있음을 의미한다.
+
+## 다항 회귀분석(polynomial regression in smoothing)
+
+**다항 회귀분석(polynomial regression)**은 $x_{k}$를 선형보다 더 유연하게 적합하기 위해 고차원의 항을 추가하는 것이다. Weierstrass approximation theorem에 의하면 닫힌 구간의 모든 연속 함수들은 polynomial로 uniformly approximated될 수 있다고 한다. 따라서 고차원의 항을 써서 $f$를 추정하는 것은 좋은 아이디어이나 항상 그렇지는 않다. 이유는 다음과 같다.
+
+1. 다항식은 local하지 않고 global한 성질을 갖는다. 즉 왼쪽 부분에서 약간의 방해가 들어가면 오른쪽에서는 매우 큰 변화를 만든다.
+
+2. Edge effect가 있다.
+
+3. Outlier에 민감하다.
+
+4. 다항식의 차수는 연속이 아닌 이산적이다.
+
 ## 회귀 스플라인(regression spline)
 
 [@Yee2015]에 따르면 **회귀 스플라인(regression spline)**은 다음과 같은 장점들을 같고 있다.
@@ -46,7 +62,11 @@ y_{i}=f(x_{i})+\varepsilon_{i}, \qquad{\varepsilon_{i}\sim(0,\sigma_{i}^{2})}
 
 그러나 이 방법에서 매듭의 숫자와 위치를 고르는 데에 어려움이 있고, 부드러움의 정도가 한 개의 스므딩 모수로는 연속적으로 조절될 수 없다는 단점도 있다.
 
-회귀 스플라인은 기저 벡터들의 족(family)를 활용한 다변량 회귀분석의 일종으로 
+회귀 스플라인은 기저 벡터(basis vector)들의 족(family)를 활용한 다변량 회귀분석의 일종이다. 가장 단순한 예로 $\mathcal{S}=\{1,x,x^{2},\ldots, x^{r}\}$로 놓으면 다항회귀분석이 된다. 이것은 $r$차원까지의 다항식을 기저로 놓은 것과 같다. $r=3$인 경우를 특별히 **3차 스플라인(cubic spline)**이라고 부른다. 이 때 우리는 $\mathcal{S}$ spans this function space라고 부른다. 3차 스플라인에는 보통 두 개의 일반적인 기저들이 있다.
+
+1. Truncated power series: easy to understand, but not recommended (because of ill-conditioned).
+
+2. B-splines
 
 ### B-스플라인(B-spline)
 
@@ -120,6 +140,16 @@ B_{s,q}(x)&=\omega_{s,q}B_{s,q-1}(x)+(1-\omega_{s+1,q}B_{s+1,q-1}(x))\\
 
 $$S(f)=\sum_{i=1}^{n}(y_{i}-f(x_{i}))^{2}+\lambda \int_{a}^{b}\{f''(x)\}^{2}dx$$
 를 최소화하는 것을 찾는 것이다. 이 때 어떤 $a,b$에 대해 $a < x_{1} <\ldots <x_{n} <b$이며 **스므딩 모수(smoothing parameter)** $\lambda$는 $\lambda \geq 0$이다.
+
+- $S(f)$의 첫 번째 항: residual sum of squares이며 lack-of-fit를 penalize한다.
+
+- $S(f)$의 두 번째 항: smoothness를 penalize한다.
+
+두 개의 opposing quantities는 $\lambda$에 의해 조절된다.
+
+- $\lambda\rightarrow\infty$: $f''(x)\rightarrow\infty$이며 해는 least square line이 된다.
+
+- $\lambda \rightarrow 0^{+}$: 해는 $(x_{i}, y_{i})$를 정확히 보간(interpolate)하게 된다.
 
 ## P-스플라인(P-spline)
 

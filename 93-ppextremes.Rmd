@@ -1,3 +1,39 @@
 # 극단값이론에서의 점과정 {#ppextremes}
 
+앞서 얘기한 방법들의 '드문 사건들'의 개념은 POT 방법에서 조금 변하였고 극단값 또한 high threshold를 초과하는 값들로 다시 정의하였다. 그러나 기존 방법들 모두 관찰값 $n$이 무한대로 가면 threshold가 underlying distribution의 upper endpoint로 수렴하게 되는 것은 같다. 실제로 $n$이 유한하다면, 모든 원래 관찰값(시간단위, 일단위)이 사용 가능하다면, threshold 기반 방법이 block maxima 방법보다는 좀 더 선호되는데, 더 많은 자료를 fitting하는 데 사용할 수 있기 때문이다. 그 말인 즉슨 모수에 대해 좀 더 좁은 신뢰구간을 얻을 수 있다는 말이다.
+
+그러나 공간 상관성이 있으면 분석이 어려워지는데, 극단값들이 high threshold에서 군집을 형성하기 때문이다. 그러나 만약 상관성이 잘 모델링된다면, 점과정 방법은 또한 exceedance들의 군집 구조에 대한 통찰을 줄 수 있다.
+
 Poisson-GPD 모형은 GPD에 the number of exceedances를 Poisson 분포로 하여 모델링 한 것이다. 보통 Poisson 분포의 평균을 $\lambda$ (per time)로 하여 모델링한다.
+
+## 극단값이론에서의 점과정의 정의(definitions and basic results of point process approach)
+
+점과정은 수학적은 object로 어떤 집합 안의 점들의 random distribution으로 생각할 수 있따.
+
+$\{P_{i}\}$를 be a sequence of random points in a state space $E$ endowed with a $\sigma$-algebra $\mathcal{E}$ of subsets of $E$라고 하자. 우리는 분석 목적을 따라 $E$를 $\mathbb{R}^{d}$의 topological cluster인 $\bar{\mathbb{R}}^{d}$로 생각할 수 있다. 그리고 $\mathcal{E}$는 보렐 집합 $\matcal{B}(E)$의 $\sigma$-algebra로 생각할 수 있다. 더 나아가 $\delta_{p}$는 점 $p\in E$에서의 디락 측도로 정의한다. 즉 모든 $A\in\mathcal{E}$에 대해 다락 측도는 다음과 같이 정의된다.
+
+$$
+\delta_{p}(A)=
+\begin{cases}
+1, & p\in A\\
+0, & p\notin A.
+\end{cases}
+$$
+
+```{definition, name="셈측도와 점측도"}
+셈측도와 점측도는 측도 단원에서 정의했으나 다시 한 번 정의해보자. 점들의 수열 $\{p_{i}\}_{i\geq 1}\in E$가 주어졌다고 했을 때, 다음과 같이 정의된 함수 $m:\mathcal{E}\rightarrow\bar{\mathbb{R}}$
+$$m(A) = \sum_{i=1}^{\infty}\delta_{p_{i}}(A)$$
+  
+(즉 $p_{i}\in A$의 cardinality)를 $\mathcal{E}$의 **셈측도(counting measure)**라고 정의한다. 모든 compact set $K\in\mathcal{E}$에서 $m(K)<\infty$일 경우 $m$을 **점측도(point measure)**라고 정의한다.
+
+```
+
+위 정의에 따르면 셈측도는 단순히 적당한 집합 $A$ 안에 있는 점들 $p_{i}$의 수를 센 것이다. 직관적으로, 점과정도 무작위 점들 $\{P_{i}\}_{i\geq 1}\in E$로 바꾸어서 비슷한 작업을 할 수 있다. 좀 더 형식적으로는 $M(E)$를 denote the collection of all point measure on $E$ equipped with an appropriate $\sigma$-algebra라고 하자. $E$에서의 **점과정(point process)**은 다음의 measurable map
+$$N:(\Omega, \mathcal{F}, P)\rightarrow \{ M(E), \mathcal{M}(E)\}$$
+으로 정의할 수 있다. 이 때 $(\Omega, \mathcal{F}, P)$는 확률공간이다. 이는 또한
+$$N(\cdot) = \sum_{i=1}^{\infty}\delta_{P_{i}}(\cdot)$$
+으로 쓸 수 있다. 점과정의 모든 realization들은 점측도이다.
+
+포아송 과정은 극단값 이론에서 매우 중요한 역할을 한다.
+
+

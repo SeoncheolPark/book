@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-09-06">
+<meta name="date" content="2018-09-11">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -285,14 +285,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="16.1.1" data-path="16-1-univariate-smoothing-1.html"><a href="16-1-univariate-smoothing-1.html#--representing-a-function-with-basis-expansions"><i class="fa fa-check"></i><b>16.1.1</b> 함수를 기저로 표현하기(representing a function with basis expansions)</a></li>
 </ul></li>
 <li class="chapter" data-level="16.2" data-path="16-2-the-classical-smoothing-problem.html"><a href="16-2-the-classical-smoothing-problem.html"><i class="fa fa-check"></i><b>16.2</b> 고전적인 스므딩 문제(the classical smoothing problem)</a></li>
-<li class="chapter" data-level="16.3" data-path="16-3-regression-spline.html"><a href="16-3-regression-spline.html"><i class="fa fa-check"></i><b>16.3</b> 회귀 스플라인(regression spline)</a><ul>
-<li class="chapter" data-level="16.3.1" data-path="16-3-regression-spline.html"><a href="16-3-regression-spline.html#b-b-spline"><i class="fa fa-check"></i><b>16.3.1</b> B-스플라인(B-spline)</a></li>
+<li class="chapter" data-level="16.3" data-path="16-3-polynomial-regression-in-smoothing.html"><a href="16-3-polynomial-regression-in-smoothing.html"><i class="fa fa-check"></i><b>16.3</b> 다항 회귀분석(polynomial regression in smoothing)</a></li>
+<li class="chapter" data-level="16.4" data-path="16-4-regression-spline.html"><a href="16-4-regression-spline.html"><i class="fa fa-check"></i><b>16.4</b> 회귀 스플라인(regression spline)</a><ul>
+<li class="chapter" data-level="16.4.1" data-path="16-4-regression-spline.html"><a href="16-4-regression-spline.html#b-b-spline"><i class="fa fa-check"></i><b>16.4.1</b> B-스플라인(B-spline)</a></li>
 </ul></li>
-<li class="chapter" data-level="16.4" data-path="16-4-smoothing-splines.html"><a href="16-4-smoothing-splines.html"><i class="fa fa-check"></i><b>16.4</b> 스므딩 스플라인(smoothing splines)</a></li>
-<li class="chapter" data-level="16.5" data-path="16-5-p-p-spline.html"><a href="16-5-p-p-spline.html"><i class="fa fa-check"></i><b>16.5</b> P-스플라인(P-spline)</a></li>
-<li class="chapter" data-level="16.6" data-path="16-6-soap-film-soap-film-smoothing-over-finite-domains.html"><a href="16-6-soap-film-soap-film-smoothing-over-finite-domains.html"><i class="fa fa-check"></i><b>16.6</b> 유한 도메인에서의 soap film 스므딩(soap film smoothing over finite domains)</a></li>
-<li class="chapter" data-level="16.7" data-path="16-7-tensor-product-smooth-interactions.html"><a href="16-7-tensor-product-smooth-interactions.html"><i class="fa fa-check"></i><b>16.7</b> 텐서곱 스므딩 상호효과들(tensor product smooth interactions)</a><ul>
-<li class="chapter" data-level="16.7.1" data-path="16-7-tensor-product-smooth-interactions.html"><a href="16-7-tensor-product-smooth-interactions.html#-tensor-product-bases"><i class="fa fa-check"></i><b>16.7.1</b> 텐서곱 기저들(tensor product bases)</a></li>
+<li class="chapter" data-level="16.5" data-path="16-5-smoothing-splines.html"><a href="16-5-smoothing-splines.html"><i class="fa fa-check"></i><b>16.5</b> 스므딩 스플라인(smoothing splines)</a></li>
+<li class="chapter" data-level="16.6" data-path="16-6-p-p-spline.html"><a href="16-6-p-p-spline.html"><i class="fa fa-check"></i><b>16.6</b> P-스플라인(P-spline)</a></li>
+<li class="chapter" data-level="16.7" data-path="16-7-soap-film-soap-film-smoothing-over-finite-domains.html"><a href="16-7-soap-film-soap-film-smoothing-over-finite-domains.html"><i class="fa fa-check"></i><b>16.7</b> 유한 도메인에서의 soap film 스므딩(soap film smoothing over finite domains)</a></li>
+<li class="chapter" data-level="16.8" data-path="16-8-tensor-product-smooth-interactions.html"><a href="16-8-tensor-product-smooth-interactions.html"><i class="fa fa-check"></i><b>16.8</b> 텐서곱 스므딩 상호효과들(tensor product smooth interactions)</a><ul>
+<li class="chapter" data-level="16.8.1" data-path="16-8-tensor-product-smooth-interactions.html"><a href="16-8-tensor-product-smooth-interactions.html#-tensor-product-bases"><i class="fa fa-check"></i><b>16.8.1</b> 텐서곱 기저들(tensor product bases)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="17-ts.html"><a href="17-ts.html"><i class="fa fa-check"></i><b>17</b> 시계열분석</a><ul>
@@ -683,26 +684,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="57" data-path="57-ppextremes.html"><a href="57-ppextremes.html"><i class="fa fa-check"></i><b>57</b> 극단값이론에서의 점과정</a></li>
-<li class="chapter" data-level="58" data-path="58-mevtheory.html"><a href="58-mevtheory.html"><i class="fa fa-check"></i><b>58</b> 다변량 극단값 이론</a><ul>
-<li class="chapter" data-level="58.1" data-path="58-1-copula.html"><a href="58-1-copula.html"><i class="fa fa-check"></i><b>58.1</b> 코퓰라(copula)</a></li>
-<li class="chapter" data-level="58.2" data-path="58-2-limiting-standardization.html"><a href="58-2-limiting-standardization.html"><i class="fa fa-check"></i><b>58.2</b> 극단 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="58" data-path="58-timeextremes.html"><a href="58-timeextremes.html"><i class="fa fa-check"></i><b>58</b> 정상시계열에서의 극단값들</a></li>
+<li class="chapter" data-level="59" data-path="59-depextremes.html"><a href="59-depextremes.html"><i class="fa fa-check"></i><b>59</b> 상관관계가 있거나 비정상 수열들의 극단값</a><ul>
+<li class="chapter" data-level="59.1" data-path="59-1-maxima-of-dependent-but-stationary-series.html"><a href="59-1-maxima-of-dependent-but-stationary-series.html"><i class="fa fa-check"></i><b>59.1</b> 의존성이 있지만 정상 수열의 최댓값(maxima of dependent but stationary series)</a></li>
 </ul></li>
-<li class="chapter" data-level="59" data-path="59-timeextremes.html"><a href="59-timeextremes.html"><i class="fa fa-check"></i><b>59</b> 정상시계열에서의 극단값들</a></li>
-<li class="chapter" data-level="60" data-path="60-spatextremes.html"><a href="60-spatextremes.html"><i class="fa fa-check"></i><b>60</b> 공간 극단값 이론과 최대안정과정</a><ul>
-<li class="chapter" data-level="60.1" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html"><i class="fa fa-check"></i><b>60.1</b> 최대안정과정(max-stable process)</a><ul>
-<li class="chapter" data-level="60.1.1" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#smith-smith-model"><i class="fa fa-check"></i><b>60.1.1</b> Smith 모형(Smith model)</a></li>
-<li class="chapter" data-level="60.1.2" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#schlather-schlather-model"><i class="fa fa-check"></i><b>60.1.2</b> Schlather 모형(Schlather model)</a></li>
-<li class="chapter" data-level="60.1.3" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#brown-resnick-brown-resnick-model"><i class="fa fa-check"></i><b>60.1.3</b> Brown-Resnick 모형(Brown-Resnick model)</a></li>
-<li class="chapter" data-level="60.1.4" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#-t-extremal-t-model"><i class="fa fa-check"></i><b>60.1.4</b> 극단-t 모형(extremal-t model)</a></li>
+<li class="chapter" data-level="60" data-path="60-mevtheory.html"><a href="60-mevtheory.html"><i class="fa fa-check"></i><b>60</b> 다변량 극단값 이론</a><ul>
+<li class="chapter" data-level="60.1" data-path="60-1-copula.html"><a href="60-1-copula.html"><i class="fa fa-check"></i><b>60.1</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="60.2" data-path="60-2-limiting-standardization.html"><a href="60-2-limiting-standardization.html"><i class="fa fa-check"></i><b>60.2</b> 극단 정규화(limiting standardization)</a></li>
 </ul></li>
-<li class="chapter" data-level="60.2" data-path="60-2-spatial-dependence-of-extremes.html"><a href="60-2-spatial-dependence-of-extremes.html"><i class="fa fa-check"></i><b>60.2</b> 극단값의 공간 종속성(spatial dependence of extremes)</a></li>
+<li class="chapter" data-level="61" data-path="61-spatextremes.html"><a href="61-spatextremes.html"><i class="fa fa-check"></i><b>61</b> 공간 극단값 이론과 최대안정과정</a><ul>
+<li class="chapter" data-level="61.1" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html"><i class="fa fa-check"></i><b>61.1</b> 최대안정과정(max-stable process)</a><ul>
+<li class="chapter" data-level="61.1.1" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html#smith-smith-model"><i class="fa fa-check"></i><b>61.1.1</b> Smith 모형(Smith model)</a></li>
+<li class="chapter" data-level="61.1.2" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html#schlather-schlather-model"><i class="fa fa-check"></i><b>61.1.2</b> Schlather 모형(Schlather model)</a></li>
+<li class="chapter" data-level="61.1.3" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html#brown-resnick-brown-resnick-model"><i class="fa fa-check"></i><b>61.1.3</b> Brown-Resnick 모형(Brown-Resnick model)</a></li>
+<li class="chapter" data-level="61.1.4" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html#-t-extremal-t-model"><i class="fa fa-check"></i><b>61.1.4</b> 극단-t 모형(extremal-t model)</a></li>
 </ul></li>
-<li class="chapter" data-level="61" data-path="61-maxstableRF.html"><a href="61-maxstableRF.html"><i class="fa fa-check"></i><b>61</b> 최대안정 임의장</a><ul>
-<li class="chapter" data-level="61.1" data-path="61-1-brown-resnick-brown-resnick-random-fields.html"><a href="61-1-brown-resnick-brown-resnick-random-fields.html"><i class="fa fa-check"></i><b>61.1</b> Brown-Resnick 임의장(Brown-Resnick random fields)</a></li>
-<li class="chapter" data-level="61.2" data-path="61-2-extremal-gaussian-extremal-gaussian-random-fields.html"><a href="61-2-extremal-gaussian-extremal-gaussian-random-fields.html"><i class="fa fa-check"></i><b>61.2</b> Extremal-Gaussian 임의장(extremal-Gaussian random fields)</a></li>
-<li class="chapter" data-level="61.3" data-path="61-3-extremal-t-extremal-t-random-fields.html"><a href="61-3-extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>61.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
+<li class="chapter" data-level="61.2" data-path="61-2-spatial-dependence-of-extremes.html"><a href="61-2-spatial-dependence-of-extremes.html"><i class="fa fa-check"></i><b>61.2</b> 극단값의 공간 종속성(spatial dependence of extremes)</a></li>
 </ul></li>
-<li class="chapter" data-level="62" data-path="62-references.html"><a href="62-references.html"><i class="fa fa-check"></i><b>62</b> References</a></li>
+<li class="chapter" data-level="62" data-path="62-maxstableRF.html"><a href="62-maxstableRF.html"><i class="fa fa-check"></i><b>62</b> 최대안정 임의장</a><ul>
+<li class="chapter" data-level="62.1" data-path="62-1-brown-resnick-brown-resnick-random-fields.html"><a href="62-1-brown-resnick-brown-resnick-random-fields.html"><i class="fa fa-check"></i><b>62.1</b> Brown-Resnick 임의장(Brown-Resnick random fields)</a></li>
+<li class="chapter" data-level="62.2" data-path="62-2-extremal-gaussian-extremal-gaussian-random-fields.html"><a href="62-2-extremal-gaussian-extremal-gaussian-random-fields.html"><i class="fa fa-check"></i><b>62.2</b> Extremal-Gaussian 임의장(extremal-Gaussian random fields)</a></li>
+<li class="chapter" data-level="62.3" data-path="62-3-extremal-t-extremal-t-random-fields.html"><a href="62-3-extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>62.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
+</ul></li>
+<li class="chapter" data-level="63" data-path="63-references.html"><a href="63-references.html"><i class="fa fa-check"></i><b>63</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
 
@@ -775,7 +779,7 @@ F_{U}(u)\sim \bar{L}(u)\cdot u^{-1/\xi}, \qquad{\tau\searrow 0}
 Q_{Y}(\tau|x)=B(x)&#39;\beta(\tau)
 \tag{36.2}
 \end{equation}\]</span>
-<p>로 정의하는 것이다. 이러한 선형 함수적 형태는 계산이 간편할 뿐 아니라 좋은 근사적 성질을 갖는다. 여기서 <span class="math inline">\(B(x)\)</span>는 <span class="math inline">\(x\)</span>의 변환도 포함하는 즉 다항식, 스플라인, 표시자(indicator), 상관관계 등을 포함하는 집합으로 <span class="math inline">\(x\rightarrow B(x)&#39;\beta(\tau)\)</span>가 <span class="math inline">\(x\rightarrow Q_{Y}(\tau|x)\)</span>에 가깝게 만드는 데에 그 목적이 있다. 하지만 여기서는 간단함을 위해 <span class="math inline">\(B(x)\)</span> 대신 <span class="math inline">\(x\)</span>로 표기하도록 하자. 그리고 <span class="math inline">\(d_{x}\)</span>차원의 벡터 <span class="math inline">\(x\)</span>는 첫 번째 원소로 상수를 갖으며 compact support <span class="math inline">\(\mathbf{X}\)</span>를 갖고 Chernozhukov의 2011년 논문 가정 3에 있는 정칙 조건들을 만족한다고 하자. Compactness는 <span class="math inline">\(Y\)</span>의 극단 사건들로부터 extremal QR statistics를 mapping할 때 연속성과 로버스트함을 보장하기 위해 필요한다. <span class="math inline">\(\mathbf{X}\)</span>가 compact하지 않다고 하더라도 우리는 <span class="math inline">\(X\)</span>가 compact region에 속하도록 자료를 선택할 수 있다.</p>
+<p>로 정의하는 것이다. 이러한 선형 함수적 형태는 계산이 간편할 뿐 아니라 좋은 근사적 성질을 갖는다. 여기서 <span class="math inline">\(B(x)\)</span>는 <span class="math inline">\(x\)</span>의 변환도 포함하는 즉 다항식, 스플라인, 표시자(indicator), 상관관계 등을 포함하는 집합으로 <span class="math inline">\(x\rightarrow B(x)&#39;\beta(\tau)\)</span>가 <span class="math inline">\(x\rightarrow Q_{Y}(\tau|x)\)</span>에 가깝게 만드는 데에 그 목적이 있다. 하지만 여기서는 간단함을 위해 <span class="math inline">\(B(x)\)</span> 대신 <span class="math inline">\(x\)</span>로 표기하도록 하자. 그리고 <span class="math inline">\(d_{x}\)</span>차원의 벡터 <span class="math inline">\(x\)</span>는 첫 번째 원소로 상수를 갖으며 compact support <span class="math inline">\(\mathbf{X}\)</span>를 갖고 <span class="citation">(Chernozhukov and Fernandez <a href="#ref-Chernozhukov2011">2011</a>)</span>년 논문 가정 3에 있는 정칙 조건들을 만족한다고 하자. Compactness는 <span class="math inline">\(Y\)</span>의 극단 사건들로부터 extremal QR statistics를 mapping할 때 연속성과 로버스트함을 보장하기 위해 필요한다. <span class="math inline">\(\mathbf{X}\)</span>가 compact하지 않다고 하더라도 우리는 <span class="math inline">\(X\)</span>가 compact region에 속하도록 자료를 선택할 수 있다.</p>
 <p>극단 분위수 회귀분석에서 추가되는 주요한 가정은 <span class="math inline">\(Y\)</span> (어떤 auxiliary regression lin <span class="math inline">\(X&#39;\beta_{e}\)</span>로 변환된)가 파레토-타입 꼬릴를 갖는다는 것이다. 좀 더 자세히 얘기하면 식 <a href="36-3-extremal-quantile-regression.html#eq:qrfctmodel">(36.2)</a>과 함께 disturbance <span class="math inline">\(V:=Y-X&#39;\beta_{e}\)</span>가 <span class="math inline">\(s=0\)</span> 또는 <span class="math inline">\(s=-\infty\)</span>에서 almost surely하게 lower end point를 갖고 그것의 조건부 분위수 함수 <span class="math inline">\(Q_{V}(\tau|x)\)</span>가 <span class="math inline">\(\tau\searrow 0\)</span> uniformly in <span class="math inline">\(x\in\mathbf{X}\subseteq \mathbb{R}^{d_{x}}\)</span>함에 따라 <a href="36-3-extremal-quantile-regression.html#eq:Paretotypetail">(36.1)</a>의 파레토-타입 꼬리 조건을 만족하고 extreme value index <span class="math inline">\(\xi\)</span>를 갖는 어던 분위수 함수 <span class="math inline">\(Q_{U}(\tau)\)</span>와 <span class="math inline">\(E[X]&#39;\gamma=1\)</span>이고 <span class="math inline">\(X&#39;\gamma &gt;0\)</span> a.s.를 만족하는 벡터 모수 <span class="math inline">\(\gamma\)</span>에 대해 다음과 같은 tail equivalence relationship</p>
 <span class="math display" id="eq:tailequivrelation">\[\begin{equation}
 Q_{V}(\tau|x) \sim x&#39;\gamma\cdot Q_{U}(\tau)
@@ -787,6 +791,16 @@ Q_{V}(\tau|x) \sim x&#39;\gamma\cdot Q_{U}(\tau)
 </div>
 <div id="----estimation-and-inference-methods-in-extremal-quantile-regression" class="section level3">
 <h3><span class="header-section-number">36.3.3</span> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</h3>
+<p>이 절에서의 기본 가정으로 우리는 크기 <span class="math inline">\(T\)</span>의 표본 <span class="math inline">\((Y,X)\)</span>를 갖고 있는데, i.i.d일 수도 있고 weakly dependent일 수도 있다. Extreme event들은 nonclustering condition을 만족한다고 하자. 특별히, 수열 <span class="math inline">\(\{ (Y_{t},X_{t}) \}_{t=1}^{T}\)</span>는 극단값 사건들의 curbs clustering을 만족하는 정상(stationary)이고 강한 mixing process with geometric mixing rate를 갖는다고 하자.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-328" class="definition"><strong>Definition 36.5  (기하 혼합비를 갖는 정상이며 강 혼합과정)  </strong></span><span class="citation">(Chernozhukov and Fernandez <a href="#ref-Chernozhukov2011">2011</a>)</span>논문에 정의되어 있는 가정이다. Disturbance <span class="math inline">\(V_{t}\)</span> (<span class="math inline">\(V\equiv Y-X^{T}\beta_{e}\)</span>)와 수열 <span class="math inline">\(\{W_{t}\}=(V_{t},X_{t})\)</span>가 정의되었다고 하자. 그러면 어떤 <span class="math inline">\(C&gt;0\)</span>에 대해 다음 조건 <span class="math display">\[\sup_{t} \sup_{A\in\mathcal{A}_{t}, B\in\mathcal{B}_{t+m}} |P(A\cap B) - P(A)P(B) |\exp(Cm)\stackrel{m\rightarrow\infty}{\rightarrow} 0 \]</span> 을 만족할 경우 이 수열들이 <strong>기하 혼합비를 갖는 정상이며 강 혼합과정(stationary, strongly mixing process with a geometric mixing rate)</strong>라고 부른다. 이 때 <span class="math inline">\(\mathcal{A}_{t}=\sigma(W_{t}, W_{t-1},\ldots)\)</span>이고 <span class="math inline">\(\mathcal{B}_{t}=\sigma(W_{t},W_{t+1},\ldots)\)</span>이다. 더불어 이 수열이 극단 사건들의 <strong>갓돌 클러스터링( curb clustering)</strong>을 만족한다는 것은 다음을 뜻한다.</p>
+<p>모든 <span class="math inline">\(j\geq 1\)</span>, 모든 <span class="math inline">\(t\geq 1\)</span>에 대해 <span class="math display">\[P(V_{t}\leq K, V_{t+j}\leq K|\mathcal{A}_{t})\leq C P(V_{t}\leq K |\mathcal{A}_{t})^{2}, \qquad{\forall K\in [s, \bar{K}]}.\]</span> 이 때 <span class="math inline">\(C&gt;0\)</span>이고 <span class="math inline">\(\bar{K}&gt;s\)</span>는 어떤 상수이다.</p>
+<p>이러한 조건의 특별한 예로 변수들의 수열 <span class="math inline">\(\{ (V_{t}, X_{t}), t \geq 1 \}\)</span> 또는 <span class="math inline">\(\{(Y_{t},X_{t}), t\geq 1 \}\)</span>이 i.i.d인 경우가 있다.</p>
+</div>
+
+<p>이러한 가정은 간편하게 하는데 이것이 극단 분위수 회귀 분석 추정량의 극단 분포를 이끌어내기(?) 때문이다.</p>
+<p>Marginal <span class="math inline">\(\tau\)</span>-분위수에 대한 analog estimator는 표본 <span class="math inline">\(\tau\)</span>-분위수이다. <span class="math display">\[\hat{Q}_{Y}(\tau)=Y(\lfloor \tau T\rfloor),\]</span> 이 때 <span class="math inline">\(Y_{(s)}\)</span>는 <span class="math inline">\((Y_{1}, \ldots, Y_{T})\)</span>는 <span class="math inline">\(s\)</span>-차 순서통계량이고 <span class="math inline">\(\lfloor z \rfloor\)</span>는 <span class="math inline">\(z\)</span>의 정수부분을 나타낸다. 표본 <span class="math inline">\(\tau\)</span>분위수는 또한 다음의 최적화문제를 풀어 얻을 수 있다. <span class="math display">\[\hat{Q}_{Y}(\tau) \in \text{arg}\min_{\beta\in\mathbb{R}} \sum_{t=1}^{T}\rho_{\tau}(Y_{t}-\beta).\]</span> 이 때 <span class="math inline">\(\rho_{\tau}(u):=(\tau - 1\{ u &lt; 0 \})u\)</span>는 asymmetric absolute deviation function이다.</p>
 
 </div>
 </div>
@@ -795,6 +809,9 @@ Q_{V}(\tau|x) \sim x&#39;\gamma\cdot Q_{U}(\tau)
 <div id="refs" class="references">
 <div id="ref-Chernozhukov2005">
 <p>Chernozhukov, Victor. 2005. “Extremal Quantile Regression.” <em>The Annals of Statistics</em> 33 (2): 806–39.</p>
+</div>
+<div id="ref-Chernozhukov2011">
+<p>Chernozhukov, Victor, and Ivan Fernandez. 2011. “Inference for Extremal Conditional Quantile Models, with an Application to Market and Birthweight Risks.” <em>Review of Economic Studies</em> 78: 559–89.</p>
 </div>
 </div>
             </section>

@@ -1,5 +1,16 @@
 # 적분과 기댓값 {#expectation}
 
+## 리만적분(Riemann integral)
+
+구간 $[a,b]$에서 함수 $f(x)$의 **리만적분(Riemann integral)**은 부분합의 극한으로 정의된다. 우리는 구간 $[a,b]$를 $a=x_{0}<x_{1}<\ldots <x_{n} =b$로 나무어 다음과 같은 합을 만들 수 있다.
+\begin{equation}
+\sum_{i=1}^{n}f(\xi_{i})\Delta x_{i}.
+ (\#eq:Riemannintegral)
+\end{equation}
+이 때  $\xi_{i}$는 $i$번째 구간 $[x_{i-1},x_{i})$에 있는 점이며 $\Delta x_{i}=x_{i}-x_{i-1}$이다. $\xi_{i}$와 $\Delta x_{i}$는 $n$과도 관련이 있음을 알아두자. 그러나 표기의 간편성을 위해 생략하기로 한다. 그러면 $\xi_{i}$를 어떻게 선택하는지와 상관없이 $n\rightarrow\infty$이고 $\max_{1\leq i \leq n}\Delta x_{i} \rightarrow 0$일 때 $f$를 **리만적분 가능(Riemann integrable)**하다고 말한다.
+
+리만적분성은 $f$가 꽤 regular함을 요구한다. $x$가 유리수일 때 0, 아닐때 1을 갖는 함수 $f(x)$가 있다고 하자. 그러면 식 \@ref(eq:Riemannintegral)의 극한 $\int_{0}^{1}f(x)dx$는 중간값을 어떻게 고르냐에 따라 값이 달라지므로 리만적분 가능하지 않다. 모든 $i$에 대해 $\xi_{i}$를 유리수로 고르면 극한의 0이되나, 반대로 모든 $i$에 대해 무리수로 $\xi_{i}$를 잡을 경우 극한은 1이 된다. 그리고 $xi_{i}$를 유리수와 무리수를 섞어 잡을 경우 극한은 존재하지 않게 된다.
+
 ## 적분의 성질(properties of integration)
 
 어떤 상황에서 적분과 극한의 순서를 바꿀 수 있을까?

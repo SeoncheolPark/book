@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-09-06">
+<meta name="date" content="2018-09-11">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -285,14 +285,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="16.1.1" data-path="16-1-univariate-smoothing-1.html"><a href="16-1-univariate-smoothing-1.html#--representing-a-function-with-basis-expansions"><i class="fa fa-check"></i><b>16.1.1</b> 함수를 기저로 표현하기(representing a function with basis expansions)</a></li>
 </ul></li>
 <li class="chapter" data-level="16.2" data-path="16-2-the-classical-smoothing-problem.html"><a href="16-2-the-classical-smoothing-problem.html"><i class="fa fa-check"></i><b>16.2</b> 고전적인 스므딩 문제(the classical smoothing problem)</a></li>
-<li class="chapter" data-level="16.3" data-path="16-3-regression-spline.html"><a href="16-3-regression-spline.html"><i class="fa fa-check"></i><b>16.3</b> 회귀 스플라인(regression spline)</a><ul>
-<li class="chapter" data-level="16.3.1" data-path="16-3-regression-spline.html"><a href="16-3-regression-spline.html#b-b-spline"><i class="fa fa-check"></i><b>16.3.1</b> B-스플라인(B-spline)</a></li>
+<li class="chapter" data-level="16.3" data-path="16-3-polynomial-regression-in-smoothing.html"><a href="16-3-polynomial-regression-in-smoothing.html"><i class="fa fa-check"></i><b>16.3</b> 다항 회귀분석(polynomial regression in smoothing)</a></li>
+<li class="chapter" data-level="16.4" data-path="16-4-regression-spline.html"><a href="16-4-regression-spline.html"><i class="fa fa-check"></i><b>16.4</b> 회귀 스플라인(regression spline)</a><ul>
+<li class="chapter" data-level="16.4.1" data-path="16-4-regression-spline.html"><a href="16-4-regression-spline.html#b-b-spline"><i class="fa fa-check"></i><b>16.4.1</b> B-스플라인(B-spline)</a></li>
 </ul></li>
-<li class="chapter" data-level="16.4" data-path="16-4-smoothing-splines.html"><a href="16-4-smoothing-splines.html"><i class="fa fa-check"></i><b>16.4</b> 스므딩 스플라인(smoothing splines)</a></li>
-<li class="chapter" data-level="16.5" data-path="16-5-p-p-spline.html"><a href="16-5-p-p-spline.html"><i class="fa fa-check"></i><b>16.5</b> P-스플라인(P-spline)</a></li>
-<li class="chapter" data-level="16.6" data-path="16-6-soap-film-soap-film-smoothing-over-finite-domains.html"><a href="16-6-soap-film-soap-film-smoothing-over-finite-domains.html"><i class="fa fa-check"></i><b>16.6</b> 유한 도메인에서의 soap film 스므딩(soap film smoothing over finite domains)</a></li>
-<li class="chapter" data-level="16.7" data-path="16-7-tensor-product-smooth-interactions.html"><a href="16-7-tensor-product-smooth-interactions.html"><i class="fa fa-check"></i><b>16.7</b> 텐서곱 스므딩 상호효과들(tensor product smooth interactions)</a><ul>
-<li class="chapter" data-level="16.7.1" data-path="16-7-tensor-product-smooth-interactions.html"><a href="16-7-tensor-product-smooth-interactions.html#-tensor-product-bases"><i class="fa fa-check"></i><b>16.7.1</b> 텐서곱 기저들(tensor product bases)</a></li>
+<li class="chapter" data-level="16.5" data-path="16-5-smoothing-splines.html"><a href="16-5-smoothing-splines.html"><i class="fa fa-check"></i><b>16.5</b> 스므딩 스플라인(smoothing splines)</a></li>
+<li class="chapter" data-level="16.6" data-path="16-6-p-p-spline.html"><a href="16-6-p-p-spline.html"><i class="fa fa-check"></i><b>16.6</b> P-스플라인(P-spline)</a></li>
+<li class="chapter" data-level="16.7" data-path="16-7-soap-film-soap-film-smoothing-over-finite-domains.html"><a href="16-7-soap-film-soap-film-smoothing-over-finite-domains.html"><i class="fa fa-check"></i><b>16.7</b> 유한 도메인에서의 soap film 스므딩(soap film smoothing over finite domains)</a></li>
+<li class="chapter" data-level="16.8" data-path="16-8-tensor-product-smooth-interactions.html"><a href="16-8-tensor-product-smooth-interactions.html"><i class="fa fa-check"></i><b>16.8</b> 텐서곱 스므딩 상호효과들(tensor product smooth interactions)</a><ul>
+<li class="chapter" data-level="16.8.1" data-path="16-8-tensor-product-smooth-interactions.html"><a href="16-8-tensor-product-smooth-interactions.html#-tensor-product-bases"><i class="fa fa-check"></i><b>16.8.1</b> 텐서곱 기저들(tensor product bases)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="17-ts.html"><a href="17-ts.html"><i class="fa fa-check"></i><b>17</b> 시계열분석</a><ul>
@@ -683,26 +684,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="57" data-path="57-ppextremes.html"><a href="57-ppextremes.html"><i class="fa fa-check"></i><b>57</b> 극단값이론에서의 점과정</a></li>
-<li class="chapter" data-level="58" data-path="58-mevtheory.html"><a href="58-mevtheory.html"><i class="fa fa-check"></i><b>58</b> 다변량 극단값 이론</a><ul>
-<li class="chapter" data-level="58.1" data-path="58-1-copula.html"><a href="58-1-copula.html"><i class="fa fa-check"></i><b>58.1</b> 코퓰라(copula)</a></li>
-<li class="chapter" data-level="58.2" data-path="58-2-limiting-standardization.html"><a href="58-2-limiting-standardization.html"><i class="fa fa-check"></i><b>58.2</b> 극단 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="58" data-path="58-timeextremes.html"><a href="58-timeextremes.html"><i class="fa fa-check"></i><b>58</b> 정상시계열에서의 극단값들</a></li>
+<li class="chapter" data-level="59" data-path="59-depextremes.html"><a href="59-depextremes.html"><i class="fa fa-check"></i><b>59</b> 상관관계가 있거나 비정상 수열들의 극단값</a><ul>
+<li class="chapter" data-level="59.1" data-path="59-1-maxima-of-dependent-but-stationary-series.html"><a href="59-1-maxima-of-dependent-but-stationary-series.html"><i class="fa fa-check"></i><b>59.1</b> 의존성이 있지만 정상 수열의 최댓값(maxima of dependent but stationary series)</a></li>
 </ul></li>
-<li class="chapter" data-level="59" data-path="59-timeextremes.html"><a href="59-timeextremes.html"><i class="fa fa-check"></i><b>59</b> 정상시계열에서의 극단값들</a></li>
-<li class="chapter" data-level="60" data-path="60-spatextremes.html"><a href="60-spatextremes.html"><i class="fa fa-check"></i><b>60</b> 공간 극단값 이론과 최대안정과정</a><ul>
-<li class="chapter" data-level="60.1" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html"><i class="fa fa-check"></i><b>60.1</b> 최대안정과정(max-stable process)</a><ul>
-<li class="chapter" data-level="60.1.1" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#smith-smith-model"><i class="fa fa-check"></i><b>60.1.1</b> Smith 모형(Smith model)</a></li>
-<li class="chapter" data-level="60.1.2" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#schlather-schlather-model"><i class="fa fa-check"></i><b>60.1.2</b> Schlather 모형(Schlather model)</a></li>
-<li class="chapter" data-level="60.1.3" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#brown-resnick-brown-resnick-model"><i class="fa fa-check"></i><b>60.1.3</b> Brown-Resnick 모형(Brown-Resnick model)</a></li>
-<li class="chapter" data-level="60.1.4" data-path="60-1-max-stable-process.html"><a href="60-1-max-stable-process.html#-t-extremal-t-model"><i class="fa fa-check"></i><b>60.1.4</b> 극단-t 모형(extremal-t model)</a></li>
+<li class="chapter" data-level="60" data-path="60-mevtheory.html"><a href="60-mevtheory.html"><i class="fa fa-check"></i><b>60</b> 다변량 극단값 이론</a><ul>
+<li class="chapter" data-level="60.1" data-path="60-1-copula.html"><a href="60-1-copula.html"><i class="fa fa-check"></i><b>60.1</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="60.2" data-path="60-2-limiting-standardization.html"><a href="60-2-limiting-standardization.html"><i class="fa fa-check"></i><b>60.2</b> 극단 정규화(limiting standardization)</a></li>
 </ul></li>
-<li class="chapter" data-level="60.2" data-path="60-2-spatial-dependence-of-extremes.html"><a href="60-2-spatial-dependence-of-extremes.html"><i class="fa fa-check"></i><b>60.2</b> 극단값의 공간 종속성(spatial dependence of extremes)</a></li>
+<li class="chapter" data-level="61" data-path="61-spatextremes.html"><a href="61-spatextremes.html"><i class="fa fa-check"></i><b>61</b> 공간 극단값 이론과 최대안정과정</a><ul>
+<li class="chapter" data-level="61.1" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html"><i class="fa fa-check"></i><b>61.1</b> 최대안정과정(max-stable process)</a><ul>
+<li class="chapter" data-level="61.1.1" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html#smith-smith-model"><i class="fa fa-check"></i><b>61.1.1</b> Smith 모형(Smith model)</a></li>
+<li class="chapter" data-level="61.1.2" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html#schlather-schlather-model"><i class="fa fa-check"></i><b>61.1.2</b> Schlather 모형(Schlather model)</a></li>
+<li class="chapter" data-level="61.1.3" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html#brown-resnick-brown-resnick-model"><i class="fa fa-check"></i><b>61.1.3</b> Brown-Resnick 모형(Brown-Resnick model)</a></li>
+<li class="chapter" data-level="61.1.4" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html#-t-extremal-t-model"><i class="fa fa-check"></i><b>61.1.4</b> 극단-t 모형(extremal-t model)</a></li>
 </ul></li>
-<li class="chapter" data-level="61" data-path="61-maxstableRF.html"><a href="61-maxstableRF.html"><i class="fa fa-check"></i><b>61</b> 최대안정 임의장</a><ul>
-<li class="chapter" data-level="61.1" data-path="61-1-brown-resnick-brown-resnick-random-fields.html"><a href="61-1-brown-resnick-brown-resnick-random-fields.html"><i class="fa fa-check"></i><b>61.1</b> Brown-Resnick 임의장(Brown-Resnick random fields)</a></li>
-<li class="chapter" data-level="61.2" data-path="61-2-extremal-gaussian-extremal-gaussian-random-fields.html"><a href="61-2-extremal-gaussian-extremal-gaussian-random-fields.html"><i class="fa fa-check"></i><b>61.2</b> Extremal-Gaussian 임의장(extremal-Gaussian random fields)</a></li>
-<li class="chapter" data-level="61.3" data-path="61-3-extremal-t-extremal-t-random-fields.html"><a href="61-3-extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>61.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
+<li class="chapter" data-level="61.2" data-path="61-2-spatial-dependence-of-extremes.html"><a href="61-2-spatial-dependence-of-extremes.html"><i class="fa fa-check"></i><b>61.2</b> 극단값의 공간 종속성(spatial dependence of extremes)</a></li>
 </ul></li>
-<li class="chapter" data-level="62" data-path="62-references.html"><a href="62-references.html"><i class="fa fa-check"></i><b>62</b> References</a></li>
+<li class="chapter" data-level="62" data-path="62-maxstableRF.html"><a href="62-maxstableRF.html"><i class="fa fa-check"></i><b>62</b> 최대안정 임의장</a><ul>
+<li class="chapter" data-level="62.1" data-path="62-1-brown-resnick-brown-resnick-random-fields.html"><a href="62-1-brown-resnick-brown-resnick-random-fields.html"><i class="fa fa-check"></i><b>62.1</b> Brown-Resnick 임의장(Brown-Resnick random fields)</a></li>
+<li class="chapter" data-level="62.2" data-path="62-2-extremal-gaussian-extremal-gaussian-random-fields.html"><a href="62-2-extremal-gaussian-extremal-gaussian-random-fields.html"><i class="fa fa-check"></i><b>62.2</b> Extremal-Gaussian 임의장(extremal-Gaussian random fields)</a></li>
+<li class="chapter" data-level="62.3" data-path="62-3-extremal-t-extremal-t-random-fields.html"><a href="62-3-extremal-t-extremal-t-random-fields.html"><i class="fa fa-check"></i><b>62.3</b> Extremal-t 임의장(extremal-t random fields)</a></li>
+</ul></li>
+<li class="chapter" data-level="63" data-path="63-references.html"><a href="63-references.html"><i class="fa fa-check"></i><b>63</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://seoncheolpark.github.io/" target="blank">Return to Park's Github Page</a></li>
 
@@ -728,7 +732,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>공간점패턴 자료를 받으면 제일 처음으로 이 자료가 <strong>완전공간임의성(complete spatial randomness, CSR)</strong>을 따르는지 체크하게 되는데, 그 이유는 이것을 따르면 모델링이 단순해지기 때문이다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-361" class="definition"><strong>Definition 51.1  (동질적 포아송 점과정)  </strong></span>완전공간임의성 가정은 다음 두 조건</p>
+<p><span id="def:unnamed-chunk-362" class="definition"><strong>Definition 51.1  (동질적 포아송 점과정)  </strong></span>완전공간임의성 가정은 다음 두 조건</p>
 <ol style="list-style-type: decimal">
 <li><p>면적이 <span class="math inline">\(|A|\)</span>인 관찰 지역 <span class="math inline">\(A\)</span> 안의 사건의 숫자가 <span class="math inline">\(\text{Poisson}(\lambda |A|), \lambda &gt;0, |A| &gt;0\)</span>을 따른다.</p></li>
 <li><p><span class="math inline">\(n\)</span>개의 사건이 주어졌을 때, 각각의 사건들 <span class="math inline">\(x_{i}, i=1,\ldots , n\)</span>은 <span class="math inline">\(A\)</span> 위에서 균등분포(uniform distribution)를 따르는 독립인 무작위 표본들이다.</p></li>
