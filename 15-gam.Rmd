@@ -45,6 +45,9 @@ $$\mathbf{e}_{P}^{j}=\mathbf{y}-\hat{\alpha}-\sum_{k\neq j}\hat{\mathbf{f}}_{k}.
 
 5. Set $\hat{\mathbf{f}}_{j}$ equal to the result of smoothing $e_{p}^{j}$ with respect to $x_{j}$.
 
+## 위치 척도 형태모수의 일반화가법모형(GAMLSS)
+
+
 ## R 예제(R-gam)
 
 ```{r, message=F, echo=F}

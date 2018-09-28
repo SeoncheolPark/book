@@ -160,6 +160,89 @@ $X_{n}$이 평균 $\mu_{n}$이고 표준편차가 $\sigma_{n}$인 정규확률�
 
 이를 수식으로 다시 쓰면, 우리가 $X_{n} \stackrel{D}{\rightarrow} X$ 임을 안다면 $Y_{n}\stackrel{D}{=}X_{n}$, $Y\stackrel{D}{=}X$ 이며 $Y_{n}\stackrel{a.s.}{\rightarrow}Y$인 $Y_{n}$과 $Y$이 존재해 준다는 것을 보장해 준다는 것이다.
 
+## 모호수렴(vague convergence)
+
+모호수렴에 대해서는 [@Gut2012]의  5.8절에 자세히 설명되어 있다. 모호수렴과 분포수렴의 차이점은 전자의 경우 극한의 확률변수가 적절(proper)하지 않을 수 있다는 것이다. 여기서 부적절한(improper) 확률변수란 probability mass가 $\infty$ 또는 $-\infty$의 값을 가질수도 있음을 의미한다.
+
+가장 단순한 형태의 부적절한 확률변수로 $\infty$ 또는 $-\infty$의 값을 0이 아닌 확률로 가질 수 있는 확률변수가 있겠다.
+
+때때로 확률변수의 극한을 취했을 때 적절한 극한 확률변수가 존재하지 않을 수도 있지만 **유사분포함수(pseudo-distribution function)** 또는 **부확률분포(sub-probability distribution)** 등의 개념을 정의해 부적절한 확률변수들을 다룰 수 있다.
+
+```{definition, name="모호수렴"}
+분포함수들의 수열 $\{F_{n}, n\geq 1 \}$은 모든 유한한 구간 $I = (a,b]\subset \mathbb{R}$,  $a,b \in C(H)$일 때
+$$F_{n}(I) \stackrel{n\rightarrow\infty}{\rightarrow}H(I)$$
+를 만족할 경우 유사분포함수 $H$로 **모호수렴(coverges vaguely)**한다고 부른다. 이를 나타내기 위해 보통 $n\rightarrow\infty$일 때 $F_{n} \stackrel{v}{\rightarrow}H$라고 쓴다.
+
+```
+
+다시 반복해서 말하면 분포수렴의 경우 $H$의 total mass가 at most equal to 1인 경우다.
+
+```{example, name="모호수렴의 예(1)"}
+$P(X_{n}=n)=P(X_{n}=-n)=-1/2$라고 하자. 그러면 분포함수는 다음과 같다.
+$$
+F_{n}(x)=
+\begin{cases}
+0 & x<-n,\\
+\frac{1}{2} & -n \leq x < n,\\
+1 & x\geq n.
+\end{cases}
+$$
+따라서 모든 $x\in \mathbb{R}$에 대해 $n\rightarrow\infty$일 때
+$$F_{n}(x) \rightarrow H(x) = \frac{1}{2}$$
+이다. 여기서 $H$는 $-\infty$와 $+\infty$에서 0과 1을 갖지 않는다는 것을 빼고는 분포함수의 성질을 따르고 있다.
+
+```
+
+```{example, name="모호수렴의 예(1)"}
+$X_{n} \in U(-n,n),n\geq 1$이라고 하자. 그러면 분포함수는 다음과 같다.
+$$
+F_{X_{n}}(x)=
+\begin{cases}
+0 & x<-n,\\
+\frac{x+n}{2n} & -n \leq x < n,\\
+1 & x\geq n.
+\end{cases}
+$$
+그리고 이것은 모든 $x\in \mathbb{R}$에 대해 $n\rightarrow\infty$일 때 다음으로 수렴한다.
+$$H(x) \equiv \frac{1}{2}.$
+여기서도 또한 $H$는 부적절한 분포이다.
+
+```
+
+만약 $n\rightarrow\infty$일 때 $X_{n} \stackrel{d}{\rightarrow} X$일 경우 정의에 의해 $x\in C(F_{x})$이고 $n\rightarrow\infty$일 때 $F_{X_{n}}(x) \rightarrow F_{X}(x)$가 된다. 따라서 모든 bounded interval $I=(a,b]$, $a,b\in C(F_{X})$에 대해 $n\rightarrow\infty$일 때
+$$F_{X_{n}}(I) = F_{X_{n}}(b) - F_{X_{n}}(a) \rightarrow F_{X}(b) - F_{X}(a) = F_{X}(I)$$
+이다. 따라서 분포수렴은 항상 모호수렴이 된다. 즉 분포수렴은 모호수렴보다 더 강한 조건이다.
+
+역이 성립할 필요충분조건은 분포함수의 꼬리가 uniformly small해야 한다는 조건과 필요충분이다. 이것은 엄격성과 연결된다.
+
+### Helly의 선택정리(Helly's selection principle)
+
+엄격성을 언급하기 전에, Helly의 선택정리에 대해 먼저 살펴보자. [@Gut2012]의 내용을 따르면, **Helly의 선택정리(Helly's selection principle)**는 어떤 부분수열에 대해서는 모호수렴이 항상 성립한다는 것이다.
+
+```{theorem, name="Helly의 선택정리"}
+$\{F_{n}, n\geq 1\}$이 분포함수들의 수열이라고 하자. 그러면 다음과 같이 감소하지 않는 부분수열 $\{n_{k} k\geq 1 \}$이 존재해 어떤 유사분포함수 $H$에 대해 $k\rightarrow\infty$일 때 다음을 만족한다.
+$$F_{n_{k}} \stackrel{v}{\rightarrow} H .$$
+
+```
+
+### 엄격성(tightness)
+
+이제 그러면 어떤 상황에서 이 부분수열의 수렴이 분포수렴이 될 수 있을지에 대해 생각해보아야 한다. 그에 대한 필요충분조건으로 분포함수들의 수열 $\{F_{n}\}$이 **엄격(tight)**한지 체크하면 된다. 여기서 tight의 정의는 [@Proschan2016]의 6.48을 따른다.
+
+```{definition, name="Tight sequence of distribution functions"}
+분포함수들의 수열 $F_{1}(x), F_{2}(x),\ldots $가 모든 $\epsilon >0$에 대해 숫자 $M$이 존재해 $F_{n}(M) <\epsilon$이고 모든 $n$에 대해 $1-F_{n}(M) <\epsilon$일 경우 tight하다고 한다.
+
+```
+
+다음 정리는 [@Gut2012]의 5.8.3에 나오는 정리다.
+
+```{theorem, name="엄격성과 부분수열의 분포 수렴"}
+$\{F_{n}, n\geq 1\}$이 분포함수들의 수열이라고 하자. 모든 모호수렴하는 부분수열들이 분포수렴이 되기 위해서는(즉 극한이 적절성을 갖기 위해서는) 다음을 만족시키는 것이 필요충분조건이다.
+$$\int_{|x|>a} dF_{n}(x) \rightarrow 0$$
+as $a\rightarrow\infty$ uniformly in $n$.
+
+```
+
 ## 수렴 사이들의 관계(Connections between modes of convergence)
 
 ```{r, echo=F, fig.cap='Connections between modes of convergences.', fig.align='center'}
@@ -220,17 +303,6 @@ knitr::include_graphics("images/basic_UI03.png")
 ```{r, echo=F, fig.cap='An example of sequence of random variables that is not bounded but uniformly integrable.'}
 knitr::include_graphics("images/basic_UI04.png")
 ```
-
-### Tight
-
-여기서 tight의 정의는 [@Proschan2016]의 6.48을 따른다.
-
-```{definition, name="Tight sequence of distribution functions"}
-분포함수들의 수열 $F_{1}(x), F_{2}(x),\ldots $가 모든 $\epsilon >0$에 대해 숫자 $M$이 존재해 $F_{n}(M) <\epsilon$이고 모든 $n$에 대해 $1-F_{n}(M) <\epsilon$일 경우 tight하다고 한다.
-
-```
-
-(measure의 tight도 나중에 서술)
 
 ## 절대연속(absolute continuous)
 
