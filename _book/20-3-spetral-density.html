@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-09-28">
+<meta name="date" content="2018-10-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -698,8 +698,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="59.2" data-path="59-2-declustering-of-extremes.html"><a href="59-2-declustering-of-extremes.html"><i class="fa fa-check"></i><b>59.2</b> 디클러스터링(declustering of extremes)</a></li>
 </ul></li>
 <li class="chapter" data-level="60" data-path="60-mevtheory.html"><a href="60-mevtheory.html"><i class="fa fa-check"></i><b>60</b> 다변량 극단값 이론</a><ul>
-<li class="chapter" data-level="60.1" data-path="60-1-copula.html"><a href="60-1-copula.html"><i class="fa fa-check"></i><b>60.1</b> 코퓰라(copula)</a></li>
-<li class="chapter" data-level="60.2" data-path="60-2-limiting-standardization.html"><a href="60-2-limiting-standardization.html"><i class="fa fa-check"></i><b>60.2</b> 극단 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.1" data-path="60-1-limiting-standardization.html"><a href="60-1-limiting-standardization.html"><i class="fa fa-check"></i><b>60.1</b> 극한의 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.2" data-path="60-2-copula.html"><a href="60-2-copula.html"><i class="fa fa-check"></i><b>60.2</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="60.3" data-path="60-3-extreme-value-copula.html"><a href="60-3-extreme-value-copula.html"><i class="fa fa-check"></i><b>60.3</b> 극단값 코퓰라(extreme-value copula)</a></li>
+<li class="chapter" data-level="60.4" data-path="60-4-max-stable-distribution-with-unit-frechet-margin.html"><a href="60-4-max-stable-distribution-with-unit-frechet-margin.html"><i class="fa fa-check"></i><b>60.4</b> 단위 프례세 마진을 갖는 최대안정분포(max-stable distribution with unit Frechet margin)</a></li>
 </ul></li>
 <li class="chapter" data-level="61" data-path="61-spatextremes.html"><a href="61-spatextremes.html"><i class="fa fa-check"></i><b>61</b> 공간 극단값 이론과 최대안정과정</a><ul>
 <li class="chapter" data-level="61.1" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html"><i class="fa fa-check"></i><b>61.1</b> 최대안정과정(max-stable process)</a><ul>
@@ -741,7 +743,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><strong>스펙트럼 밀도(spectral density)</strong>는 기초적인 frequency domain tool 중 하나다. 스펙트럼 표현 정리(spectral representation theorem)은 정상시계열을 주기성분들로 분해하는 것에 대한 이론적 근거를 제공한다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-224" class="definition"><strong>Definition 20.2  (자기공분산함수의 스펙트럼 표현)  </strong></span>만약 <span class="math inline">\(\{x_{t} \}\)</span>가 정상시계열이고 자기공분산 <span class="math inline">\(\gamma(h)=\text{cov}(x_{t+h},x_{t})\)</span>를 갖는다면 <strong>스펙트럼 분포(spectral distribution)</strong>이라 불리는 유일한 단조증가 함수가 존재해 <span class="math inline">\(F(-\infty)=F(-1/2)=0\)</span>이고 <span class="math inline">\(F(\infty)=F(1/2)=\gamma(0)\)</span>이며</p>
+<p><span id="def:unnamed-chunk-225" class="definition"><strong>Definition 20.2  (자기공분산함수의 스펙트럼 표현)  </strong></span>만약 <span class="math inline">\(\{x_{t} \}\)</span>가 정상시계열이고 자기공분산 <span class="math inline">\(\gamma(h)=\text{cov}(x_{t+h},x_{t})\)</span>를 갖는다면 <strong>스펙트럼 분포(spectral distribution)</strong>이라 불리는 유일한 단조증가 함수가 존재해 <span class="math inline">\(F(-\infty)=F(-1/2)=0\)</span>이고 <span class="math inline">\(F(\infty)=F(1/2)=\gamma(0)\)</span>이며</p>
 <span class="math display" id="eq:spectraldistnfct">\[\begin{equation}
 \gamma(h)=\int_{-1/2}^{1/2}e^{2\pi i \omega h}dF(\omega)
 \tag{20.6}
@@ -752,7 +754,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>자기공분산함수가 absolutely summable일 경우 스펙트럼 분포함수는 absolutely continuous하며 <span class="math inline">\(dF(\omega)=f(\omega)d\omega\)</span>이고 식 <a href="20-3-spetral-density.html#eq:spectraldistnfct">(20.6)</a>는 스펙트럼 밀도(spectral density)를 유도한다.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-225" class="definition"><strong>Definition 20.3  (스펙트럼 밀도)  </strong></span>자기공분산함수 <span class="math inline">\(\gamma(h)\)</span>가 정상과정이며
+<span id="def:unnamed-chunk-226" class="definition"><strong>Definition 20.3  (스펙트럼 밀도)  </strong></span>자기공분산함수 <span class="math inline">\(\gamma(h)\)</span>가 정상과정이며
 <span class="math display" id="eq:abssummablecond">\[\begin{equation}
 \sum_{h=-\infty}^{\infty}|\gamma(h)|&lt;\infty
 \tag{20.7}
@@ -775,7 +777,7 @@ f(\omega)=\sum_{h=-\infty}^{\infty}\gamma(h)e^{-2\pi i \omega h}, -1/2 \leq \ome
 <p>마지막으로 식 <a href="20-3-spetral-density.html#eq:abssummablecond">(20.7)</a>의 absolutely summable condition 식 <a href="20-2-cyclical-behavior-and-periodicity.html#eq:periodrpautocov">(20.3)</a>로 만족되어지지 않는다. 그러나 ARMA 모형에 대해서는 만족된다.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-226" class="example"><strong>Example 20.3  (백색잡음의 스펙트럼)  </strong></span>가장 쉬운 예제로 분산이 <span class="math inline">\(\sigma_{w}^{2}\)</span>인 uncorrelated 확률변수 <span class="math inline">\(w_{t}\)</span>의 수열의 이론적인 power spectrum을 구해볼 수 있다. 이러한 경우의 자기공분산함수는</p>
+<p><span id="exm:unnamed-chunk-227" class="example"><strong>Example 20.3  (백색잡음의 스펙트럼)  </strong></span>가장 쉬운 예제로 분산이 <span class="math inline">\(\sigma_{w}^{2}\)</span>인 uncorrelated 확률변수 <span class="math inline">\(w_{t}\)</span>의 수열의 이론적인 power spectrum을 구해볼 수 있다. 이러한 경우의 자기공분산함수는</p>
 <p><span class="math display">\[
 \gamma_{w}(h)=
 \begin{cases}
@@ -783,7 +785,29 @@ f(\omega)=\sum_{h=-\infty}^{\infty}\gamma(h)e^{-2\pi i \omega h}, -1/2 \leq \ome
 0, &amp; h=0
 \end{cases}
 \]</span></p>
-<p>이므로 식 <a href="20-3-spetral-density.html#eq:spectraldensityrepresentation">(20.9)</a>로부터 <span class="math display">\[f_{w}(\omega$)=\sigma_{w}^{2}, \qquad{-0.5\leq \omega \leq 0.5}\]</span> 를 얻을 수 있다. 즉 백색잡음에서는 모든 진동수들의 기여도가 같다.</p>
+<p>이므로 식 <a href="20-3-spetral-density.html#eq:spectraldensityrepresentation">(20.9)</a>로부터 <span class="math display">\[f_{w}(\omega)=\sigma_{w}^{2}, \qquad{-0.5\leq \omega \leq 0.5}\]</span> 를 얻을 수 있다. 즉 백색잡음에서는 모든 진동수들의 기여도가 같다.</p>
+</div>
+
+<p>선형과정은 가장 기본적인 과정이므로, 이런 과정의 스펙트럼을 조사하는 것은 의미있는 일이다. 일반적으로, 선형 필터는 투입된 시계열 <span class="math inline">\(x_{t}\)</span>를 변환하기 위해 특정화된 계수들의 집합 $a_{j}, j=0, 1, 2, , $을 사용하여 다음의 결과물</p>
+<span class="math display" id="eq:spectrumconvolution">\[\begin{equation}
+y_{t} =\sum_{j=-\infty}^{\infty}a_{j}x_{t-j}, \qquad{\sum_{j=-\infty}^{\infty}}|a_{j}|&lt;\infty
+\tag{20.10}
+\end{equation}\]</span>
+<p><span class="math inline">\(y_{t}\)</span>를 만들어 낸다. 식 <a href="20-3-spetral-density.html#eq:spectrumconvolution">(20.10)</a>은 통계학에서 <strong>합성곱(convolution)</strong>이라고 부른다. 계수들 <span class="math inline">\(a_{j}\)</span>은 <strong>impulse response function</strong>이라고 부르며, 이것들의 푸리에 변환</p>
+<span class="math display" id="eq:IRFFourier">\[\begin{equation}
+A(\omega) = \sum_{j=-\infty}^{\infty}a_{j}e^{-2\pi i \omega j}.
+\tag{20.11}
+\end{equation}\]</span>
+<p>을 <strong>주파수 반응함수(frequency response function)</strong>이라고 부른다. 만약 식 <a href="20-3-spetral-density.html#eq:spectrumconvolution">(20.10)</a>에서 <span class="math inline">\(x_{t}\)</span>가 스펙트럼 밀도 <span class="math inline">\(f_{x}(\omega)\)</span>를 갖는다고 할 때, 다음의 성질을 얻는다.</p>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-228" class="proposition"><strong>Proposition 20.1  (Output Spectrum of a Filtered Stationary Series)  </strong></span>만약 식 <a href="20-3-spetral-density.html#eq:spectrumconvolution">(20.10)</a>에서 <span class="math inline">\(x_{t}\)</span>가 스펙트럼 밀도 <span class="math inline">\(f_{x}(\omega)\)</span>를 갖는다고 할 때 filtered output <span class="math inline">\(y_{t}\)</span> 의 스펙트럼 <span class="math inline">\(f_{y}(\omega)\)</span>는 투입값 <span class="math inline">\(x_{t}\)</span>의 스펙트럼과 <span class="math display">\[f_{y}(\omega) = |A(\omega)|^{2}f_{x}(\omega)\]</span> 의 관계를 갖는다.</p>
+</div>
+
+<p>앞선 성질을 ARMA 과정에 적용하면 다음을 얻는다.</p>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-229" class="proposition"><strong>Proposition 20.2  (ARMA의 스펙트럼 밀도)  </strong></span>만약 <span class="math inline">\(x_{t}\)</span>가 ARMA<span class="math inline">\((p,q)\)</span>를 따르고 <span class="math inline">\(\phi(B)x_{t} = \theta(B)w_{t}\)</span>라면, 그것의 스펙트럼 밀도는 <span class="math display">\[f_{x}(\omega) = \sigma_{\omega}^{2} \frac{|\theta (e^{-2\pi i \omega})|^{2} }{| \phi(e^{-2\pi i\omega})  |^{2} }\]</span> 이다. 이 떄 <span class="math inline">\(\phi(z)= 1-\sum_{k=1}^{p} \phi_{k}z^{k}\)</span>이고 <span class="math inline">\(\theta(z) = 1_ \sum_{k=1}^{q} \theta_{k}z^{k}\)</span>이다.</p>
 </div>
 
 <p>스펙트럼을 이용해 확률과정의 총분산(또는 total power)을 각 진동수별로 분해할 수 있다. 스펙트럼은 자기상관함수의 푸리에 변환이므로 자기상관함수와 일대일 관계에 있으며 다음의 성질을 가지고 있다.</p>

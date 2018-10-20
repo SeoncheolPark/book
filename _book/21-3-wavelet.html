@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-09-28">
+<meta name="date" content="2018-10-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -698,8 +698,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="59.2" data-path="59-2-declustering-of-extremes.html"><a href="59-2-declustering-of-extremes.html"><i class="fa fa-check"></i><b>59.2</b> 디클러스터링(declustering of extremes)</a></li>
 </ul></li>
 <li class="chapter" data-level="60" data-path="60-mevtheory.html"><a href="60-mevtheory.html"><i class="fa fa-check"></i><b>60</b> 다변량 극단값 이론</a><ul>
-<li class="chapter" data-level="60.1" data-path="60-1-copula.html"><a href="60-1-copula.html"><i class="fa fa-check"></i><b>60.1</b> 코퓰라(copula)</a></li>
-<li class="chapter" data-level="60.2" data-path="60-2-limiting-standardization.html"><a href="60-2-limiting-standardization.html"><i class="fa fa-check"></i><b>60.2</b> 극단 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.1" data-path="60-1-limiting-standardization.html"><a href="60-1-limiting-standardization.html"><i class="fa fa-check"></i><b>60.1</b> 극한의 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.2" data-path="60-2-copula.html"><a href="60-2-copula.html"><i class="fa fa-check"></i><b>60.2</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="60.3" data-path="60-3-extreme-value-copula.html"><a href="60-3-extreme-value-copula.html"><i class="fa fa-check"></i><b>60.3</b> 극단값 코퓰라(extreme-value copula)</a></li>
+<li class="chapter" data-level="60.4" data-path="60-4-max-stable-distribution-with-unit-frechet-margin.html"><a href="60-4-max-stable-distribution-with-unit-frechet-margin.html"><i class="fa fa-check"></i><b>60.4</b> 단위 프례세 마진을 갖는 최대안정분포(max-stable distribution with unit Frechet margin)</a></li>
 </ul></li>
 <li class="chapter" data-level="61" data-path="61-spatextremes.html"><a href="61-spatextremes.html"><i class="fa fa-check"></i><b>61</b> 공간 극단값 이론과 최대안정과정</a><ul>
 <li class="chapter" data-level="61.1" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html"><i class="fa fa-check"></i><b>61.1</b> 최대안정과정(max-stable process)</a><ul>
@@ -743,7 +745,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>푸리에 해석에서의 주파수와는 달리, 웨이블릿 해석에서는 <strong>척도(scale)</strong>가 중요한 역할을 한다. 척도가 큰 창(window)을 통해서 신호를 관찰하면, 그 신호의 전반적인 특징을 관찰할 수 있다. 즉 웨이블릿이라는 창을 사용해서 신호를 분석하면 신호의 전체적인 모습뿐 아니라 세부적인 모습까지도 분석할 수 있다. 따라서 신호가 가지고 있는 비정상적(nonstationry) 성질들을 나타내는 데 웨이블릿이 유용하다. 예를 들어, 푸리에 해석에서는 신호의 불연속성, 단절(rupture) 등을 잘 식별할 수 없지만 웨이블릿 해석을 사용하면 식별이 가능하다. 이는 웨이블릿이 단순히 신호의 자세한 부분까지를 반영하기 때문이 아니라 신호가 변화하는 부분을 잘 나타내기 때문이다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-238" class="definition"><strong>Definition 21.4  (웨이블릿)  </strong></span><strong>웨이블릿(wavelet)</strong> <span class="math inline">\(\psi(t)\)</span>는 실변수함수로, localized waveform을 갖으며</p>
+<p><span id="def:unnamed-chunk-241" class="definition"><strong>Definition 21.4  (웨이블릿)  </strong></span><strong>웨이블릿(wavelet)</strong> <span class="math inline">\(\psi(t)\)</span>는 실변수함수로, localized waveform을 갖으며</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(\int_{-\infty}^{\infty}\psi(t)dt=0\)</span></p></li>
 <li><p><span class="math inline">\(\int_{-\infty}^{\infty}\psi(t)^{2}dt=1\)</span></p></li>
@@ -753,7 +755,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-239" class="example"><strong>Example 21.1  (Haar 웨이블릿)  </strong></span><strong>Haar 웨이블릿(Haar wavelet)</strong>은</p>
+<p><span id="exm:unnamed-chunk-242" class="example"><strong>Example 21.1  (Haar 웨이블릿)  </strong></span><strong>Haar 웨이블릿(Haar wavelet)</strong>은</p>
 <span class="math display">\[\begin{equation} 
 \psi(t) \equiv
   \begin{cases}
@@ -765,8 +767,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>으로 정의된다.</p>
 </div>
 
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-240"></span>
-<img src="book_files/figure-html/unnamed-chunk-240-1.svg" alt="Haar wavelet function." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-243"></span>
+<img src="book_files/figure-html/unnamed-chunk-243-1.svg" alt="Haar wavelet function." width="672" />
 <p class="caption">
 FIGURE 21.1: Haar wavelet function.
 </p>

@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-09-28">
+<meta name="date" content="2018-10-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -698,8 +698,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="59.2" data-path="59-2-declustering-of-extremes.html"><a href="59-2-declustering-of-extremes.html"><i class="fa fa-check"></i><b>59.2</b> 디클러스터링(declustering of extremes)</a></li>
 </ul></li>
 <li class="chapter" data-level="60" data-path="60-mevtheory.html"><a href="60-mevtheory.html"><i class="fa fa-check"></i><b>60</b> 다변량 극단값 이론</a><ul>
-<li class="chapter" data-level="60.1" data-path="60-1-copula.html"><a href="60-1-copula.html"><i class="fa fa-check"></i><b>60.1</b> 코퓰라(copula)</a></li>
-<li class="chapter" data-level="60.2" data-path="60-2-limiting-standardization.html"><a href="60-2-limiting-standardization.html"><i class="fa fa-check"></i><b>60.2</b> 극단 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.1" data-path="60-1-limiting-standardization.html"><a href="60-1-limiting-standardization.html"><i class="fa fa-check"></i><b>60.1</b> 극한의 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.2" data-path="60-2-copula.html"><a href="60-2-copula.html"><i class="fa fa-check"></i><b>60.2</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="60.3" data-path="60-3-extreme-value-copula.html"><a href="60-3-extreme-value-copula.html"><i class="fa fa-check"></i><b>60.3</b> 극단값 코퓰라(extreme-value copula)</a></li>
+<li class="chapter" data-level="60.4" data-path="60-4-max-stable-distribution-with-unit-frechet-margin.html"><a href="60-4-max-stable-distribution-with-unit-frechet-margin.html"><i class="fa fa-check"></i><b>60.4</b> 단위 프례세 마진을 갖는 최대안정분포(max-stable distribution with unit Frechet margin)</a></li>
 </ul></li>
 <li class="chapter" data-level="61" data-path="61-spatextremes.html"><a href="61-spatextremes.html"><i class="fa fa-check"></i><b>61</b> 공간 극단값 이론과 최대안정과정</a><ul>
 <li class="chapter" data-level="61.1" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html"><i class="fa fa-check"></i><b>61.1</b> 최대안정과정(max-stable process)</a><ul>
@@ -741,33 +743,33 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><span class="citation">(Jiang <a href="#ref-Jiang2010">2010</a>)</span> 책 3장에 나오는 big O와 small o의 정의다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-163" class="definition"><strong>Definition 10.1  (big O)  </strong></span>(실수값을 갖는) 무한 수열 <span class="math inline">\(a_{n},n=1,2,\ldots\)</span>가 유계일 경우 <span class="math inline">\(a_{n}=O(1)\)</span>이라고 한다. 즉 어떤 상수 <span class="math inline">\(c\)</span>가 존재해 <span class="math inline">\(|a_{n}|\leq c, n\geq 1\)</span>이면 <span class="math inline">\(a_{n}=O(1)\)</span>이다. <span class="math inline">\(b_{n},n=1,2,\ldots\)</span>를 양의 값을 갖는 무한 수열이라고 하자. 그러면 수열 <span class="math inline">\(a_{n}/b_{n}, n=1,2,\ldots\)</span>가 유계일 때 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이라고 한다.</p>
+<p><span id="def:unnamed-chunk-164" class="definition"><strong>Definition 10.1  (big O)  </strong></span>(실수값을 갖는) 무한 수열 <span class="math inline">\(a_{n},n=1,2,\ldots\)</span>가 유계일 경우 <span class="math inline">\(a_{n}=O(1)\)</span>이라고 한다. 즉 어떤 상수 <span class="math inline">\(c\)</span>가 존재해 <span class="math inline">\(|a_{n}|\leq c, n\geq 1\)</span>이면 <span class="math inline">\(a_{n}=O(1)\)</span>이다. <span class="math inline">\(b_{n},n=1,2,\ldots\)</span>를 양의 값을 갖는 무한 수열이라고 하자. 그러면 수열 <span class="math inline">\(a_{n}/b_{n}, n=1,2,\ldots\)</span>가 유계일 때 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이라고 한다.</p>
 </div>
 
 
 <div class="lemma">
-<p><span id="lem:unnamed-chunk-164" class="lemma"><strong>Lemma 10.1  </strong></span><span class="math inline">\(a_{n}=O(b_{n})\)</span>은 <span class="math inline">\(a_{n}=b_{n}O(1)\)</span>임과 동치이다.</p>
+<p><span id="lem:unnamed-chunk-165" class="lemma"><strong>Lemma 10.1  </strong></span><span class="math inline">\(a_{n}=O(b_{n})\)</span>은 <span class="math inline">\(a_{n}=b_{n}O(1)\)</span>임과 동치이다.</p>
 </div>
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-165" class="definition"><strong>Definition 10.2  (small o)  </strong></span>수열 <span class="math inline">\(a_{n},n=1,2,\ldots\)</span>가 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(a_{n}\rightarrow 0\)</span>인 경우 <span class="math inline">\(a_{n}=o(1)\)</span>이라고 한다. 좀 더 일반적으로, <span class="math inline">\(b_{n},n=1,2,\ldots\)</span>를 양의 값을 갖는 무한 수열이라고 할 때 수열 <span class="math inline">\(a_{n}/b_{n}, n=1,2,\ldots\)</span>가 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(a_{n}/b_{n}\rightarrow 0\)</span>일 경우 <span class="math inline">\(a_{n}=o(b_{n})\)</span>이라고 한다.</p>
+<p><span id="def:unnamed-chunk-166" class="definition"><strong>Definition 10.2  (small o)  </strong></span>수열 <span class="math inline">\(a_{n},n=1,2,\ldots\)</span>가 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(a_{n}\rightarrow 0\)</span>인 경우 <span class="math inline">\(a_{n}=o(1)\)</span>이라고 한다. 좀 더 일반적으로, <span class="math inline">\(b_{n},n=1,2,\ldots\)</span>를 양의 값을 갖는 무한 수열이라고 할 때 수열 <span class="math inline">\(a_{n}/b_{n}, n=1,2,\ldots\)</span>가 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(a_{n}/b_{n}\rightarrow 0\)</span>일 경우 <span class="math inline">\(a_{n}=o(b_{n})\)</span>이라고 한다.</p>
 </div>
 
 
 <div class="lemma">
-<p><span id="lem:unnamed-chunk-166" class="lemma"><strong>Lemma 10.2  </strong></span><span class="math inline">\(a_{n}=o(b_{n})\)</span>은 <span class="math inline">\(a_{n}=b_{n}o(1)\)</span>임과 동치이다.</p>
+<p><span id="lem:unnamed-chunk-167" class="lemma"><strong>Lemma 10.2  </strong></span><span class="math inline">\(a_{n}=o(b_{n})\)</span>은 <span class="math inline">\(a_{n}=b_{n}o(1)\)</span>임과 동치이다.</p>
 </div>
 
 <p>여기서 우리는 small o가 big O보다 좀 더 강한 조건임을 알 수 있다.</p>
 
 <div class="lemma">
-<p><span id="lem:unnamed-chunk-167" class="lemma"><strong>Lemma 10.3  </strong></span><span class="math inline">\(a_{n}=o(b_{n})\)</span>이면 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이다.</p>
+<p><span id="lem:unnamed-chunk-168" class="lemma"><strong>Lemma 10.3  </strong></span><span class="math inline">\(a_{n}=o(b_{n})\)</span>이면 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이다.</p>
 </div>
 
 
 <div class="lemma">
-<p><span id="lem:unnamed-chunk-168" class="lemma"><strong>Lemma 10.4  (big O와 small o의 성질들)  </strong></span> 1. 만약 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이고 <span class="math inline">\(b_{n}=O(c_{n})\)</span>이면 <span class="math inline">\(a_{n}=O(c_{n})\)</span>이다.</p>
+<p><span id="lem:unnamed-chunk-169" class="lemma"><strong>Lemma 10.4  (big O와 small o의 성질들)  </strong></span> 1. 만약 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이고 <span class="math inline">\(b_{n}=O(c_{n})\)</span>이면 <span class="math inline">\(a_{n}=O(c_{n})\)</span>이다.</p>
 <ol start="2" style="list-style-type: decimal">
 <li><p>만약 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이고 <span class="math inline">\(b_{n}=o(c_{n})\)</span>이면 <span class="math inline">\(a_{n}=o(c_{n})\)</span>이다.</p></li>
 <li><p>만약 <span class="math inline">\(a_{n}=o(b_{n})\)</span>이고 <span class="math inline">\(b_{n}=O(c_{n})\)</span>이면 <span class="math inline">\(a_{n}=o(c_{n})\)</span>이다.</p></li>
@@ -780,18 +782,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>그러나 어떤 증가함수 <span class="math inline">\(g\)</span>에 대해 <span class="math inline">\(a_{n}=O(b_{n})\)</span>은 <span class="math inline">\(g(a_{n})=O\{g(b_{n})\}\)</span>임을 의미하지는 않는다. 마찬가지로, <span class="math inline">\(a_{n}=o(b_{n})\)</span>은 <span class="math inline">\(g(a_{n})=o\{g(b_{n})\}\)</span>임을 의미하지는 않는다.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-169" class="example"><strong>Example 10.3  (증가함수와 big O)  </strong></span><span class="math inline">\(a_{n}=n\)</span>, <span class="math inline">\(b_{n}=2n\)</span>이라고 하자. 그러면 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이다. 그러나 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(e^{a_{n}}/e^{b_{n}}=e^{n}/e^{2n}=e^{-n}\rightarrow 0\)</span>이다. 따라서 <span class="math inline">\(e^{a_{n}}=o(e^{b_{n}})\)</span>이며 <span class="math inline">\(O(e^{b_{n}})\)</span>이 아니다.</p>
+<p><span id="exm:unnamed-chunk-170" class="example"><strong>Example 10.3  (증가함수와 big O)  </strong></span><span class="math inline">\(a_{n}=n\)</span>, <span class="math inline">\(b_{n}=2n\)</span>이라고 하자. 그러면 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이다. 그러나 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(e^{a_{n}}/e^{b_{n}}=e^{n}/e^{2n}=e^{-n}\rightarrow 0\)</span>이다. 따라서 <span class="math inline">\(e^{a_{n}}=o(e^{b_{n}})\)</span>이며 <span class="math inline">\(O(e^{b_{n}})\)</span>이 아니다.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-170" class="example"><strong>Example 10.4  (증가함수와 small o)  </strong></span><span class="math inline">\(a_{n}=n\)</span>, <span class="math inline">\(b_{n}=n^{2}\)</span>을 생각해보자. 그러면 <span class="math inline">\(a_{n}=o(b_{n})\)</span>이다. 그러나 <span class="math inline">\(\log(a_{n})=\log(b_{n})\)</span>이고 <span class="math inline">\(\log(b_{n})=2\log(n)\)</span>이며 <span class="math inline">\(\log(a_{n})=O\{\log(b_{n})\}\)</span>이며 <span class="math inline">\(o\{\log(b_{n})\}\)</span>이 아니다.</p>
+<p><span id="exm:unnamed-chunk-171" class="example"><strong>Example 10.4  (증가함수와 small o)  </strong></span><span class="math inline">\(a_{n}=n\)</span>, <span class="math inline">\(b_{n}=n^{2}\)</span>을 생각해보자. 그러면 <span class="math inline">\(a_{n}=o(b_{n})\)</span>이다. 그러나 <span class="math inline">\(\log(a_{n})=\log(b_{n})\)</span>이고 <span class="math inline">\(\log(b_{n})=2\log(n)\)</span>이며 <span class="math inline">\(\log(a_{n})=O\{\log(b_{n})\}\)</span>이며 <span class="math inline">\(o\{\log(b_{n})\}\)</span>이 아니다.</p>
 </div>
 
 <p>다음은 역수와 관련된 따름정리다.</p>
 
 <div class="lemma">
-<p><span id="lem:unnamed-chunk-171" class="lemma"><strong>Lemma 10.5  (역수와 small o)  </strong></span>만약 <span class="math inline">\(a_{n}\)</span>, <span class="math inline">\(b_{n}\)</span>이 0이 아닌 수열들이고 <span class="math inline">\(a_{n}=o(b_{n})\)</span>이라고 하자. 그러면 <span class="math inline">\(b_{n}^{-1}=o(a_{n}^{-1})\)</span>이다.</p>
+<p><span id="lem:unnamed-chunk-172" class="lemma"><strong>Lemma 10.5  (역수와 small o)  </strong></span>만약 <span class="math inline">\(a_{n}\)</span>, <span class="math inline">\(b_{n}\)</span>이 0이 아닌 수열들이고 <span class="math inline">\(a_{n}=o(b_{n})\)</span>이라고 하자. 그러면 <span class="math inline">\(b_{n}^{-1}=o(a_{n}^{-1})\)</span>이다.</p>
 </div>
 
 <p>Big O와 small o의 성질들을 좀 더 정리해 보겠다. 이것은 2009년 가을 Asymptotic Analysis 강의노트 2장에서 가져온 것이다.</p>

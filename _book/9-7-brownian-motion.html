@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-09-28">
+<meta name="date" content="2018-10-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -698,8 +698,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="59.2" data-path="59-2-declustering-of-extremes.html"><a href="59-2-declustering-of-extremes.html"><i class="fa fa-check"></i><b>59.2</b> 디클러스터링(declustering of extremes)</a></li>
 </ul></li>
 <li class="chapter" data-level="60" data-path="60-mevtheory.html"><a href="60-mevtheory.html"><i class="fa fa-check"></i><b>60</b> 다변량 극단값 이론</a><ul>
-<li class="chapter" data-level="60.1" data-path="60-1-copula.html"><a href="60-1-copula.html"><i class="fa fa-check"></i><b>60.1</b> 코퓰라(copula)</a></li>
-<li class="chapter" data-level="60.2" data-path="60-2-limiting-standardization.html"><a href="60-2-limiting-standardization.html"><i class="fa fa-check"></i><b>60.2</b> 극단 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.1" data-path="60-1-limiting-standardization.html"><a href="60-1-limiting-standardization.html"><i class="fa fa-check"></i><b>60.1</b> 극한의 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.2" data-path="60-2-copula.html"><a href="60-2-copula.html"><i class="fa fa-check"></i><b>60.2</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="60.3" data-path="60-3-extreme-value-copula.html"><a href="60-3-extreme-value-copula.html"><i class="fa fa-check"></i><b>60.3</b> 극단값 코퓰라(extreme-value copula)</a></li>
+<li class="chapter" data-level="60.4" data-path="60-4-max-stable-distribution-with-unit-frechet-margin.html"><a href="60-4-max-stable-distribution-with-unit-frechet-margin.html"><i class="fa fa-check"></i><b>60.4</b> 단위 프례세 마진을 갖는 최대안정분포(max-stable distribution with unit Frechet margin)</a></li>
 </ul></li>
 <li class="chapter" data-level="61" data-path="61-spatextremes.html"><a href="61-spatextremes.html"><i class="fa fa-check"></i><b>61</b> 공간 극단값 이론과 최대안정과정</a><ul>
 <li class="chapter" data-level="61.1" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html"><i class="fa fa-check"></i><b>61.1</b> 최대안정과정(max-stable process)</a><ul>
@@ -746,7 +748,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>이다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-158" class="definition"><strong>Definition 9.15  (저차원에서의 브라운운동)  </strong></span>실수값을 갖는 확률과정 <span class="math inline">\(\{ B(t) : t\geq 0\}\)</span>이 다음 조건들을 만족할 때</p>
+<p><span id="def:unnamed-chunk-159" class="definition"><strong>Definition 9.15  (저차원에서의 브라운운동)  </strong></span>실수값을 갖는 확률과정 <span class="math inline">\(\{ B(t) : t\geq 0\}\)</span>이 다음 조건들을 만족할 때</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(B(0)=x\)</span></p></li>
 <li><p>그 과정이 독립 증분(independent increment)을 갖는다. 즉 모든 시간 <span class="math inline">\(0 \leq t_{1} \leq t_{2} \leq \cdots \leq t_{n}\)</span>에 대해 증분 <span class="math inline">\(B(t_{n})-B_(t_{n-1}),\ldots, B(t_{2})-B_(t_{1})\)</span>이 독립 확률변수다.</p></li>
@@ -763,8 +765,8 @@ t &lt;-<span class="st"> </span><span class="dv">1</span>
 bm &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">cumsum</span>(<span class="kw">rnorm</span>(n,<span class="dv">0</span>,<span class="kw">sqrt</span>(t<span class="op">/</span>n))))
 steps &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,t,<span class="dt">length=</span>n<span class="op">+</span><span class="dv">1</span>)
 <span class="kw">plot</span>(steps,bm,<span class="dt">type=</span><span class="st">&quot;l&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-159"></span>
-<img src="book_files/figure-html/unnamed-chunk-159-1.svg" alt="Simulating Brownian Motion." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-160"></span>
+<img src="book_files/figure-html/unnamed-chunk-160-1.svg" alt="Simulating Brownian Motion." width="672" />
 <p class="caption">
 FIGURE 9.3: Simulating Brownian Motion.
 </p>

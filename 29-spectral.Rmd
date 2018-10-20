@@ -22,7 +22,7 @@ source('~/Dropbox/R files/SeoulDataContest/Sources/Source.R', chdir = TRUE)
 이 부분만은 특별히 Dewei Wang의 시계열 분석 강의노트 내용을 따랐다. 따라서 표기가 다를 수 있다.
 
 ```{definition, name="복소수값을 갖는 정상 시계열"}
-과정 $\{X_{t}}$는 $E|X_{t}|^{2}<\infty$이고 $EX_{t}$는 $t$에 독립이며 $E(X_{t+h}\bar{X}_{t})$ 또한 $t$에 독립일 경우 **복소수값을 갖는 정상 시계열(complex-valued stationary process)**라고 부른다. 이것의 자기공분산 함수 $\gamma_{X}(\cdot)$은
+과정 $\{X_{t}\}$는 $E|X_{t}|^{2}<\infty$이고 $EX_{t}$는 $t$에 독립이며 $E(X_{t+h}\bar{X}_{t})$ 또한 $t$에 독립일 경우 **복소수값을 갖는 정상 시계열(complex-valued stationary process)**라고 부른다. 이것의 자기공분산 함수 $\gamma_{X}(\cdot)$은
 $$\gamma_{X}(h)=E(X_{t+h}\bar{X}_{t})-E(X_{t+j})E(\bar{X}_{t})$$
 이다.
 
@@ -207,8 +207,40 @@ $$
 $$
 
 이므로 식 \@ref(eq:spectraldensityrepresentation)로부터
-$$f_{w}(\omega$)=\sigma_{w}^{2}, \qquad{-0.5\leq \omega \leq 0.5}$$
+$$f_{w}(\omega)=\sigma_{w}^{2}, \qquad{-0.5\leq \omega \leq 0.5}$$
 를 얻을 수 있다. 즉 백색잡음에서는 모든 진동수들의 기여도가 같다.
+
+```
+
+선형과정은 가장 기본적인 과정이므로, 이런 과정의 스펙트럼을 조사하는 것은 의미있는 일이다. 일반적으로, 선형 필터는 투입된 시계열 $x_{t}$를 변환하기 위해 특정화된 계수들의 집합 $a_{j}, j=0, \pm 1, \pm 2, \ldots, $을 사용하여 다음의 결과물
+
+\begin{equation}
+y_{t} =\sum_{j=-\infty}^{\infty}a_{j}x_{t-j}, \qquad{\sum_{j=-\infty}^{\infty}}|a_{j}|<\infty
+(\#eq:spectrumconvolution)
+\end{equation}
+
+$y_{t}$를 만들어 낸다. 식 \@ref(eq:spectrumconvolution)은 통계학에서 **합성곱(convolution)**이라고 부른다. 계수들 $a_{j}$은 **impulse response function**이라고 부르며, 이것들의 푸리에 변환
+
+\begin{equation}
+A(\omega) = \sum_{j=-\infty}^{\infty}a_{j}e^{-2\pi i \omega j}.
+(\#eq:IRFFourier)
+\end{equation}
+
+을 **주파수 반응함수(frequency response function)**이라고 부른다. 만약 식 \@ref(eq:spectrumconvolution)에서 $x_{t}$가 스펙트럼 밀도 $f_{x}(\omega)$를 갖는다고 할 때, 다음의 성질을 얻는다.
+
+```{proposition, name="Output Spectrum of a Filtered Stationary Series"}
+만약 식 \@ref(eq:spectrumconvolution)에서 $x_{t}$가 스펙트럼 밀도 $f_{x}(\omega)$를 갖는다고 할 때 filtered output $y_{t}$ 의 스펙트럼 $f_{y}(\omega)$는 투입값 $x_{t}$의 스펙트럼과
+$$f_{y}(\omega) = |A(\omega)|^{2}f_{x}(\omega)$$
+의 관계를 갖는다.
+
+```
+
+앞선 성질을 ARMA 과정에 적용하면 다음을 얻는다.
+
+```{proposition, name="ARMA의 스펙트럼 밀도"}
+만약 $x_{t}$가 ARMA$(p,q)$를 따르고 $\phi(B)x_{t} = \theta(B)w_{t}$라면, 그것의 스펙트럼 밀도는
+$$f_{x}(\omega) = \sigma_{\omega}^{2} \frac{|\theta (e^{-2\pi i \omega})|^{2} }{| \phi(e^{-2\pi i\omega})  |^{2} }$$
+이다. 이 떄 $\phi(z)= 1-\sum_{k=1}^{p} \phi_{k}z^{k}$이고 $\theta(z) = 1_ \sum_{k=1}^{q} \theta_{k}z^{k}$이다.
 
 ```
 

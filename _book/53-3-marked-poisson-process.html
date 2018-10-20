@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-09-28">
+<meta name="date" content="2018-10-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -698,8 +698,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="59.2" data-path="59-2-declustering-of-extremes.html"><a href="59-2-declustering-of-extremes.html"><i class="fa fa-check"></i><b>59.2</b> 디클러스터링(declustering of extremes)</a></li>
 </ul></li>
 <li class="chapter" data-level="60" data-path="60-mevtheory.html"><a href="60-mevtheory.html"><i class="fa fa-check"></i><b>60</b> 다변량 극단값 이론</a><ul>
-<li class="chapter" data-level="60.1" data-path="60-1-copula.html"><a href="60-1-copula.html"><i class="fa fa-check"></i><b>60.1</b> 코퓰라(copula)</a></li>
-<li class="chapter" data-level="60.2" data-path="60-2-limiting-standardization.html"><a href="60-2-limiting-standardization.html"><i class="fa fa-check"></i><b>60.2</b> 극단 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.1" data-path="60-1-limiting-standardization.html"><a href="60-1-limiting-standardization.html"><i class="fa fa-check"></i><b>60.1</b> 극한의 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.2" data-path="60-2-copula.html"><a href="60-2-copula.html"><i class="fa fa-check"></i><b>60.2</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="60.3" data-path="60-3-extreme-value-copula.html"><a href="60-3-extreme-value-copula.html"><i class="fa fa-check"></i><b>60.3</b> 극단값 코퓰라(extreme-value copula)</a></li>
+<li class="chapter" data-level="60.4" data-path="60-4-max-stable-distribution-with-unit-frechet-margin.html"><a href="60-4-max-stable-distribution-with-unit-frechet-margin.html"><i class="fa fa-check"></i><b>60.4</b> 단위 프례세 마진을 갖는 최대안정분포(max-stable distribution with unit Frechet margin)</a></li>
 </ul></li>
 <li class="chapter" data-level="61" data-path="61-spatextremes.html"><a href="61-spatextremes.html"><i class="fa fa-check"></i><b>61</b> 공간 극단값 이론과 최대안정과정</a><ul>
 <li class="chapter" data-level="61.1" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html"><i class="fa fa-check"></i><b>61.1</b> 최대안정과정(max-stable process)</a><ul>
@@ -741,12 +743,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><span class="math inline">\(X=\{ (\xi, m_{\xi}), \xi \in Y \}\)</span>라고 하자.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-396" class="definition"><strong>Definition 53.6  (표시된 포아송과정)  </strong></span><span class="math inline">\(Y \sim \text{Poisson}(T,\phi)\)</span>, <span class="math inline">\(phi\)</span>는 <span class="math inline">\(Y\)</span>가 conditioned 되어있을 때 locally integrable intensity function이라고 하자. 그리고 marks <span class="math inline">\(\{m_{\xi}, \xi\in Y\}\)</span>가 상호독립이라고 하자. 그러면 <span class="math inline">\(X\)</span>는 <strong>표시된 포아송과정(marked Poisson process)</strong>라고 부른다. 만약 marks가 identically distributed with a common distribution <span class="math inline">\(Q\)</span>일 경우 <span class="math inline">\(Q\)</span>는 <strong>표시 분포(mark distribution)</strong>이라고 부른다.</p>
+<p><span id="def:unnamed-chunk-399" class="definition"><strong>Definition 53.6  (표시된 포아송과정)  </strong></span><span class="math inline">\(Y \sim \text{Poisson}(T,\phi)\)</span>, <span class="math inline">\(phi\)</span>는 <span class="math inline">\(Y\)</span>가 conditioned 되어있을 때 locally integrable intensity function이라고 하자. 그리고 marks <span class="math inline">\(\{m_{\xi}, \xi\in Y\}\)</span>가 상호독립이라고 하자. 그러면 <span class="math inline">\(X\)</span>는 <strong>표시된 포아송과정(marked Poisson process)</strong>라고 부른다. 만약 marks가 identically distributed with a common distribution <span class="math inline">\(Q\)</span>일 경우 <span class="math inline">\(Q\)</span>는 <strong>표시 분포(mark distribution)</strong>이라고 부른다.</p>
 </div>
 
 
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-397" class="proposition"><strong>Proposition 53.9  (표시된 포아송과정의 성질)  </strong></span><span class="math inline">\(X\)</span> 가 <span class="math inline">\(M\subset \mathbb{R}^{p}\)</span>인 표시된 포아송 과정이고 <span class="math inline">\(Y\sim \text{Poisson}(T,\phi)\)</span>라고 하자. <span class="math inline">\(Y\)</span>에 대해 conditioned 되었을 때, 각각의 mark <span class="math inline">\(m_{\xi}\)</span>는 이산 또는 연속 밀도 <span class="math inline">\(p_{\xi}\)</span>를 갖고 이것은 <span class="math inline">\(Y\backslash\xi\)</span>에 의존하지 않는다. <span class="math inline">\(\rho(\xi, m)=\phi(\xi)p_{\xi}(m)\)</span>이라고 하자. 그러면</p>
+<p><span id="prp:unnamed-chunk-400" class="proposition"><strong>Proposition 53.9  (표시된 포아송과정의 성질)  </strong></span><span class="math inline">\(X\)</span> 가 <span class="math inline">\(M\subset \mathbb{R}^{p}\)</span>인 표시된 포아송 과정이고 <span class="math inline">\(Y\sim \text{Poisson}(T,\phi)\)</span>라고 하자. <span class="math inline">\(Y\)</span>에 대해 conditioned 되었을 때, 각각의 mark <span class="math inline">\(m_{\xi}\)</span>는 이산 또는 연속 밀도 <span class="math inline">\(p_{\xi}\)</span>를 갖고 이것은 <span class="math inline">\(Y\backslash\xi\)</span>에 의존하지 않는다. <span class="math inline">\(\rho(\xi, m)=\phi(\xi)p_{\xi}(m)\)</span>이라고 하자. 그러면</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(X\sim \text{Poisson}(T\times M, rho)\)</span>.</p></li>
 <li>만약 <span class="math inline">\(M\)</span>에서의 밀도가 <span class="math inline">\(\kappa(m)=\int_{T}\rho(\xi, m)d\xi\)</span>로 정의되고 이것이 locally integrable하면, <span class="math inline">\(\{m_{\xi}:\xi \in Y \}\sim \text{Poisson}(M,\kappa)\)</span>이다.</li>

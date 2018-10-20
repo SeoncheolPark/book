@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-09-28">
+<meta name="date" content="2018-10-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -698,8 +698,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="59.2" data-path="59-2-declustering-of-extremes.html"><a href="59-2-declustering-of-extremes.html"><i class="fa fa-check"></i><b>59.2</b> 디클러스터링(declustering of extremes)</a></li>
 </ul></li>
 <li class="chapter" data-level="60" data-path="60-mevtheory.html"><a href="60-mevtheory.html"><i class="fa fa-check"></i><b>60</b> 다변량 극단값 이론</a><ul>
-<li class="chapter" data-level="60.1" data-path="60-1-copula.html"><a href="60-1-copula.html"><i class="fa fa-check"></i><b>60.1</b> 코퓰라(copula)</a></li>
-<li class="chapter" data-level="60.2" data-path="60-2-limiting-standardization.html"><a href="60-2-limiting-standardization.html"><i class="fa fa-check"></i><b>60.2</b> 극단 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.1" data-path="60-1-limiting-standardization.html"><a href="60-1-limiting-standardization.html"><i class="fa fa-check"></i><b>60.1</b> 극한의 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.2" data-path="60-2-copula.html"><a href="60-2-copula.html"><i class="fa fa-check"></i><b>60.2</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="60.3" data-path="60-3-extreme-value-copula.html"><a href="60-3-extreme-value-copula.html"><i class="fa fa-check"></i><b>60.3</b> 극단값 코퓰라(extreme-value copula)</a></li>
+<li class="chapter" data-level="60.4" data-path="60-4-max-stable-distribution-with-unit-frechet-margin.html"><a href="60-4-max-stable-distribution-with-unit-frechet-margin.html"><i class="fa fa-check"></i><b>60.4</b> 단위 프례세 마진을 갖는 최대안정분포(max-stable distribution with unit Frechet margin)</a></li>
 </ul></li>
 <li class="chapter" data-level="61" data-path="61-spatextremes.html"><a href="61-spatextremes.html"><i class="fa fa-check"></i><b>61</b> 공간 극단값 이론과 최대안정과정</a><ul>
 <li class="chapter" data-level="61.1" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html"><i class="fa fa-check"></i><b>61.1</b> 최대안정과정(max-stable process)</a><ul>
@@ -744,8 +746,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Japanese pine trees data</li>
 </ol>
 <p>일본소나무자료는 Numata (1961)가 모은 자료로 <code>spatstat</code>에서 <code>japanesepine</code>이라는 이름으로 들어있다. 공간점자료를 받았을 때 처음 할 일은 이 자료가 어떤 패턴을 가지고 있는지 확인해 보는 것이다. 그림을 그려 본 결과 이 자료는 특별한 패턴이 보이지 않으며 완비 무작위성을 띤다고 볼 수 있다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-365"></span>
-<img src="book_files/figure-html/unnamed-chunk-365-1.svg" alt="Japanese pine trees data." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-368"></span>
+<img src="book_files/figure-html/unnamed-chunk-368-1.svg" alt="Japanese pine trees data." width="672" />
 <p class="caption">
 FIGURE 50.1: Japanese pine trees data.
 </p>
@@ -754,8 +756,8 @@ FIGURE 50.1: Japanese pine trees data.
 <li>Califonia Redwoods</li>
 </ol>
 <p>레드우드는 세계에서 제일 키가 큰 나무 종류 중 하나라고 한다. 이 자료는 Ripley (1977)이 62그루의 캘리포니아 레드우드 모종(seeding)과 묘목(sapling)의 위치를 모아놓은 자료이다. <code>redwood</code>라는 이름으로 들어있다. 묘목 사이에 군집(cluster)이 형성되어 있음을 확인할 수 있다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-366"></span>
-<img src="book_files/figure-html/unnamed-chunk-366-1.svg" alt="Califonia Redwoods data." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-369"></span>
+<img src="book_files/figure-html/unnamed-chunk-369-1.svg" alt="Califonia Redwoods data." width="672" />
 <p class="caption">
 FIGURE 50.2: Califonia Redwoods data.
 </p>
@@ -764,8 +766,8 @@ FIGURE 50.2: Califonia Redwoods data.
 <li>Biological cells</li>
 </ol>
 <p>Crick and Ripley (1977)은 광학현미경으로 관찰한 42개의 생물학적 세포의 중심들을 자료로 만들었다. <code>cell</code>라는 이름에 들어있다. 이 자료의 특징은 세포의 크기 때문에 모든 점들이 일정 거리 이상 떨어져 분포하고 있다는 것이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-367"></span>
-<img src="book_files/figure-html/unnamed-chunk-367-1.svg" alt="Biological cells data." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-370"></span>
+<img src="book_files/figure-html/unnamed-chunk-370-1.svg" alt="Biological cells data." width="672" />
 <p class="caption">
 FIGURE 50.3: Biological cells data.
 </p>
@@ -774,8 +776,8 @@ FIGURE 50.3: Biological cells data.
 <li>Amacrine cells</li>
 </ol>
 <p>Diggle (1986)은 토끼의 망막에 있는 94개의 무축삭 세포(Amacrine cell) 자료를 분석했다. 이 세포들 중 152개는 빛이 들어오면 뇌에 정보를 전송하고 나머지들은 정보를 전송하지 않는다고 한다. <code>amacrine</code>이라는 이름으로 들어있다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-368"></span>
-<img src="book_files/figure-html/unnamed-chunk-368-1.svg" alt="Amacrine cells data." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-371"></span>
+<img src="book_files/figure-html/unnamed-chunk-371-1.svg" alt="Amacrine cells data." width="672" />
 <p class="caption">
 FIGURE 50.4: Amacrine cells data.
 </p>

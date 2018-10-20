@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-09-28">
+<meta name="date" content="2018-10-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -698,8 +698,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="59.2" data-path="59-2-declustering-of-extremes.html"><a href="59-2-declustering-of-extremes.html"><i class="fa fa-check"></i><b>59.2</b> 디클러스터링(declustering of extremes)</a></li>
 </ul></li>
 <li class="chapter" data-level="60" data-path="60-mevtheory.html"><a href="60-mevtheory.html"><i class="fa fa-check"></i><b>60</b> 다변량 극단값 이론</a><ul>
-<li class="chapter" data-level="60.1" data-path="60-1-copula.html"><a href="60-1-copula.html"><i class="fa fa-check"></i><b>60.1</b> 코퓰라(copula)</a></li>
-<li class="chapter" data-level="60.2" data-path="60-2-limiting-standardization.html"><a href="60-2-limiting-standardization.html"><i class="fa fa-check"></i><b>60.2</b> 극단 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.1" data-path="60-1-limiting-standardization.html"><a href="60-1-limiting-standardization.html"><i class="fa fa-check"></i><b>60.1</b> 극한의 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.2" data-path="60-2-copula.html"><a href="60-2-copula.html"><i class="fa fa-check"></i><b>60.2</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="60.3" data-path="60-3-extreme-value-copula.html"><a href="60-3-extreme-value-copula.html"><i class="fa fa-check"></i><b>60.3</b> 극단값 코퓰라(extreme-value copula)</a></li>
+<li class="chapter" data-level="60.4" data-path="60-4-max-stable-distribution-with-unit-frechet-margin.html"><a href="60-4-max-stable-distribution-with-unit-frechet-margin.html"><i class="fa fa-check"></i><b>60.4</b> 단위 프례세 마진을 갖는 최대안정분포(max-stable distribution with unit Frechet margin)</a></li>
 </ul></li>
 <li class="chapter" data-level="61" data-path="61-spatextremes.html"><a href="61-spatextremes.html"><i class="fa fa-check"></i><b>61</b> 공간 극단값 이론과 최대안정과정</a><ul>
 <li class="chapter" data-level="61.1" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html"><i class="fa fa-check"></i><b>61.1</b> 최대안정과정(max-stable process)</a><ul>
@@ -741,7 +743,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>확률론에서 부등식들은 중요한 역할을 하는데, 대부분의 일들은 다른 것들로부터 특정한 확률로 추정하는 문제들을 다루고 있기 때문이다.</p>
 
 <div class="lemma">
-<p><span id="lem:unnamed-chunk-104" class="lemma"><strong>Lemma 5.3  (모멘트로부터 꼬리확률을 추정)  </strong></span><span class="math inline">\(g\)</span>가 음이 아니고, 감소하지 않는 함수이며 <span class="math inline">\(E\{g(X)\}&lt;\infty\)</span>라고 하자. <span class="math inline">\(x&gt;0\)</span>일 때 <span class="math display">\[P(|X|&gt;x)\leq \frac{E\{g(|X|)\}}{g(x)}\]</span> 이다.</p>
+<p><span id="lem:unnamed-chunk-105" class="lemma"><strong>Lemma 5.3  (모멘트로부터 꼬리확률을 추정)  </strong></span><span class="math inline">\(g\)</span>가 음이 아니고, 감소하지 않는 함수이며 <span class="math inline">\(E\{g(X)\}&lt;\infty\)</span>라고 하자. <span class="math inline">\(x&gt;0\)</span>일 때 <span class="math display">\[P(|X|&gt;x)\leq \frac{E\{g(|X|)\}}{g(x)}\]</span> 이다.</p>
 </div>
 
 
@@ -757,22 +759,22 @@ E\{g(|X|)\} &amp;=&amp; E\{g(|X|)\}I\{|X|&gt;x\}\\
 <p><span class="math inline">\(g\)</span>를 특수하게 설정할 경우 다음 정리를 얻는다.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-106" class="theorem"><strong>Theorem 5.4  (마르코프 부등식)  </strong></span>어떤 <span class="math inline">\(r&gt;0\)</span>에 대해 <span class="math inline">\(E|X|^{r}&lt;\infty\)</span>라고 하자. 만약 <span class="math inline">\(x&gt;0\)</span>이면 다음 부등식이 성립한다. <span class="math display">\[P(|X|&gt;x)\leq \frac{E|X|^{r}}{x^{r}}.\]</span></p>
+<p><span id="thm:unnamed-chunk-107" class="theorem"><strong>Theorem 5.4  (마르코프 부등식)  </strong></span>어떤 <span class="math inline">\(r&gt;0\)</span>에 대해 <span class="math inline">\(E|X|^{r}&lt;\infty\)</span>라고 하자. 만약 <span class="math inline">\(x&gt;0\)</span>이면 다음 부등식이 성립한다. <span class="math display">\[P(|X|&gt;x)\leq \frac{E|X|^{r}}{x^{r}}.\]</span></p>
 </div>
 
 
 <div class="corollary">
-<p><span id="cor:unnamed-chunk-107" class="corollary"><strong>Corollary 5.1  (체비셰프 부등식)  </strong></span>만약 <span class="math inline">\(X\)</span>가 평균 <span class="math inline">\(\mu\)</span>, 분산 <span class="math inline">\(\sigma^{2}\)</span>을 갖는 확률변수라면 <span class="math inline">\(c&gt;0\)</span>에 대해 <span class="math inline">\(P(|X-\mu|\geq c) \leq \sigma^{2}/c^{2}\)</span>이다.</p>
+<p><span id="cor:unnamed-chunk-108" class="corollary"><strong>Corollary 5.1  (체비셰프 부등식)  </strong></span>만약 <span class="math inline">\(X\)</span>가 평균 <span class="math inline">\(\mu\)</span>, 분산 <span class="math inline">\(\sigma^{2}\)</span>을 갖는 확률변수라면 <span class="math inline">\(c&gt;0\)</span>에 대해 <span class="math inline">\(P(|X-\mu|\geq c) \leq \sigma^{2}/c^{2}\)</span>이다.</p>
 </div>
 
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-108" class="theorem"><strong>Theorem 5.5  (젠슨 부등식)  </strong></span><span class="math inline">\(f(x)\)</span>가 convex 함수이고 <span class="math inline">\(X\)</span>는 유한한 평균 <span class="math inline">\(\mu\)</span>를 갖는 확률변수라고 하자. 만약 <span class="math inline">\(E(|f(X)|)&lt;\infty\)</span>이면, <span class="math inline">\(E\{f(X)\}\geq f\{E(X) \}\)</span>이다.</p>
+<p><span id="thm:unnamed-chunk-109" class="theorem"><strong>Theorem 5.5  (젠슨 부등식)  </strong></span><span class="math inline">\(f(x)\)</span>가 convex 함수이고 <span class="math inline">\(X\)</span>는 유한한 평균 <span class="math inline">\(\mu\)</span>를 갖는 확률변수라고 하자. 만약 <span class="math inline">\(E(|f(X)|)&lt;\infty\)</span>이면, <span class="math inline">\(E\{f(X)\}\geq f\{E(X) \}\)</span>이다.</p>
 </div>
 
 
 <div class="corollary">
-<p><span id="cor:unnamed-chunk-109" class="corollary"><strong>Corollary 5.2  (젠슨 부등식의 따름정리)  </strong></span>만약 <span class="math inline">\(X\)</span>가 어떤 확률변수이고 <span class="math inline">\(p\geq 1\)</span>이면 <span class="math inline">\(E(|X|)\leq \{ E(|X|^{p}) \}^{1/p}\)</span>이다.</p>
+<p><span id="cor:unnamed-chunk-110" class="corollary"><strong>Corollary 5.2  (젠슨 부등식의 따름정리)  </strong></span>만약 <span class="math inline">\(X\)</span>가 어떤 확률변수이고 <span class="math inline">\(p\geq 1\)</span>이면 <span class="math inline">\(E(|X|)\leq \{ E(|X|^{p}) \}^{1/p}\)</span>이다.</p>
 </div>
 
 

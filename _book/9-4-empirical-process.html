@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-09-28">
+<meta name="date" content="2018-10-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -698,8 +698,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="59.2" data-path="59-2-declustering-of-extremes.html"><a href="59-2-declustering-of-extremes.html"><i class="fa fa-check"></i><b>59.2</b> 디클러스터링(declustering of extremes)</a></li>
 </ul></li>
 <li class="chapter" data-level="60" data-path="60-mevtheory.html"><a href="60-mevtheory.html"><i class="fa fa-check"></i><b>60</b> 다변량 극단값 이론</a><ul>
-<li class="chapter" data-level="60.1" data-path="60-1-copula.html"><a href="60-1-copula.html"><i class="fa fa-check"></i><b>60.1</b> 코퓰라(copula)</a></li>
-<li class="chapter" data-level="60.2" data-path="60-2-limiting-standardization.html"><a href="60-2-limiting-standardization.html"><i class="fa fa-check"></i><b>60.2</b> 극단 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.1" data-path="60-1-limiting-standardization.html"><a href="60-1-limiting-standardization.html"><i class="fa fa-check"></i><b>60.1</b> 극한의 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.2" data-path="60-2-copula.html"><a href="60-2-copula.html"><i class="fa fa-check"></i><b>60.2</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="60.3" data-path="60-3-extreme-value-copula.html"><a href="60-3-extreme-value-copula.html"><i class="fa fa-check"></i><b>60.3</b> 극단값 코퓰라(extreme-value copula)</a></li>
+<li class="chapter" data-level="60.4" data-path="60-4-max-stable-distribution-with-unit-frechet-margin.html"><a href="60-4-max-stable-distribution-with-unit-frechet-margin.html"><i class="fa fa-check"></i><b>60.4</b> 단위 프례세 마진을 갖는 최대안정분포(max-stable distribution with unit Frechet margin)</a></li>
 </ul></li>
 <li class="chapter" data-level="61" data-path="61-spatextremes.html"><a href="61-spatextremes.html"><i class="fa fa-check"></i><b>61</b> 공간 극단값 이론과 최대안정과정</a><ul>
 <li class="chapter" data-level="61.1" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html"><i class="fa fa-check"></i><b>61.1</b> 최대안정과정(max-stable process)</a><ul>
@@ -741,7 +743,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>이 부분은 <span class="citation">(Jiang <a href="#ref-Jiang2010">2010</a>)</span> 7장을 참고했다. 확률변수들은 관찰값(observation)들의 형태로 얻어지는데, 관찰된 확률변수들로 구성된 함수를 우리는 특별히 <strong>통계적 함수(statistical function)</strong>이라고 부른다. 통계적 함수는 실제로 얻을 수 있다는 점에서 많은 사람들이 그 성질에 대해 관심을 갖는다. 보통은 통계적 함수들 중 <strong>경험과정(empriical process)</strong>이라고 부르는 것에 집중을 하게 된다. $X_{1},X_{2},$가 분포함수 <span class="math inline">\(F\)</span>를 갖는 i.i.d. 확률변수들의 수열이라고 하자. 그러면 <strong>경험적 분포함수(empirical distribution function)</strong>은 다음과 같이 정의된다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-147" class="definition"><strong>Definition 9.7  (경험적 분포함수)  </strong></span>경험적 분포함수 <span class="math inline">\(F_{n}(x)\)</span>는 다음과 같이 정의된다.</p>
+<p><span id="def:unnamed-chunk-148" class="definition"><strong>Definition 9.7  (경험적 분포함수)  </strong></span>경험적 분포함수 <span class="math inline">\(F_{n}(x)\)</span>는 다음과 같이 정의된다.</p>
 <span class="math display" id="eq:empiricalDF">\[\begin{equation}
 F_{n}(x)=\frac{1}{n}\sum_{i=1}^{n}1_{(X_{i}\leq x)}, -\infty &lt; x &lt; \infty.
 \tag{9.1}
@@ -752,7 +754,7 @@ F_{n}(x)=\frac{1}{n}\sum_{i=1}^{n}1_{(X_{i}\leq x)}, -\infty &lt; x &lt; \infty.
 <p>대수의 약법칙에 의해 각 <span class="math inline">\(x\)</span>에 대해 경험적 분포함수는 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(E\{1_{(X_{1}\leq X)}\}=P(X_{1}\leq x)=F(x)\)</span>에 거의 확실한 수렴(converge a.s)을 한다. 실제로는 더 강한 결과가 성립한다. 이 거의 확실한 수렴은 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math display">\[\sup_{x}|F_{n}(x)-F(x)|\stackrel{\text{a.s.}}{\rightarrow}0\]</span> 이므로 uniform하게 수렴한다. 그러면 우리는 경험적 분포함수에 대해서도 다음과 같은 centeralized되어있고 normalized version의 경험적 분포함수를 정의할 수 있다. 이를 <strong>경험적 과정(empirical process)</strong>라고 부른다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-148" class="definition"><strong>Definition 9.8  (경험적 과정)  </strong></span>경험적 과정은 무작위 함수로 다음과 같이 정의된다. <span class="math display">\[\sqrt{n}\{ F_{n}(x) - F(x) \},\qquad{-\infty &lt; x \infty.}\]</span></p>
+<p><span id="def:unnamed-chunk-149" class="definition"><strong>Definition 9.8  (경험적 과정)  </strong></span>경험적 과정은 무작위 함수로 다음과 같이 정의된다. <span class="math display">\[\sqrt{n}\{ F_{n}(x) - F(x) \},\qquad{-\infty &lt; x \infty.}\]</span></p>
 </div>
 
 </div>

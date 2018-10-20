@@ -87,6 +87,10 @@ $X_{n}$이 확률변수이고 $P\{X_{n}(\omega)\rightarrow X(\omega)\}=1$이며 
 
 ```
 
+```{remark}
+MCT와 DCT는 모든 적분에 대해 적용할 수 있음을 알아내는 것이 중요하다. 합들(sums)은 counting measure에 대한 적분들이므로 이것들에 대해서도 적용할 수 있다.
+
+```
 
 
 ## 부등식들(inequalities)

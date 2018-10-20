@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-09-28">
+<meta name="date" content="2018-10-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -698,8 +698,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="59.2" data-path="59-2-declustering-of-extremes.html"><a href="59-2-declustering-of-extremes.html"><i class="fa fa-check"></i><b>59.2</b> 디클러스터링(declustering of extremes)</a></li>
 </ul></li>
 <li class="chapter" data-level="60" data-path="60-mevtheory.html"><a href="60-mevtheory.html"><i class="fa fa-check"></i><b>60</b> 다변량 극단값 이론</a><ul>
-<li class="chapter" data-level="60.1" data-path="60-1-copula.html"><a href="60-1-copula.html"><i class="fa fa-check"></i><b>60.1</b> 코퓰라(copula)</a></li>
-<li class="chapter" data-level="60.2" data-path="60-2-limiting-standardization.html"><a href="60-2-limiting-standardization.html"><i class="fa fa-check"></i><b>60.2</b> 극단 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.1" data-path="60-1-limiting-standardization.html"><a href="60-1-limiting-standardization.html"><i class="fa fa-check"></i><b>60.1</b> 극한의 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.2" data-path="60-2-copula.html"><a href="60-2-copula.html"><i class="fa fa-check"></i><b>60.2</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="60.3" data-path="60-3-extreme-value-copula.html"><a href="60-3-extreme-value-copula.html"><i class="fa fa-check"></i><b>60.3</b> 극단값 코퓰라(extreme-value copula)</a></li>
+<li class="chapter" data-level="60.4" data-path="60-4-max-stable-distribution-with-unit-frechet-margin.html"><a href="60-4-max-stable-distribution-with-unit-frechet-margin.html"><i class="fa fa-check"></i><b>60.4</b> 단위 프례세 마진을 갖는 최대안정분포(max-stable distribution with unit Frechet margin)</a></li>
 </ul></li>
 <li class="chapter" data-level="61" data-path="61-spatextremes.html"><a href="61-spatextremes.html"><i class="fa fa-check"></i><b>61</b> 공간 극단값 이론과 최대안정과정</a><ul>
 <li class="chapter" data-level="61.1" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html"><i class="fa fa-check"></i><b>61.1</b> 최대안정과정(max-stable process)</a><ul>
@@ -741,31 +743,31 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><span class="math inline">\(X_{n}\)</span>이 점근적으로 <span class="math inline">\(\mathcal{N}(\mu_{n}, \sigma_{n}^{2})\)</span>에 수렴한다는 문장을 생각해보자. 즉 이 얘기는 <span class="math inline">\((X_{n}-\mu_{n})/\sigma_{n} \stackrel{D}{\rightarrow} \mathcal{N}(0,1)\)</span>이라는 말이다. 그러나 이것이 <span class="math inline">\(E(X_{n})=\mu_{n}\)</span>이고 <span class="math inline">\(\text{var}(X_{n})=\sigma_{n}^{2}\)</span>임을 의미하지는 않는다. 일반적으로 <span class="math inline">\(X_{n} \stackrel{D}{\rightarrow} X\)</span>는 <span class="math inline">\(E(X_{n}) \rightarrow E(X)\)</span>임을 의미하지 않는다.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-129" class="example"><strong>Example 7.8  (추정량은 무한대의 평균을 갖으나 확률변수의 극한은 유한한 평균을 갖는 예)  </strong></span><span class="math inline">\(\hat{p}_{n}\)</span>이 iid 베르누이 확률변수 <span class="math inline">\(X_{1}, \ldots, X_{n}\)</span>로부터 나온 표본비(sample proportion)라고 하자. 그러면 CLT에 의해 <span class="math inline">\(\hat{p}_{n}\)</span>은 점근적으로 평균 <span class="math inline">\(p=E(X_{1})\)</span>이고 분산 <span class="math inline">\(p(1-p)/n\)</span>인 정규분포를 따른다. 델타 방법(delta method)에 의해 <span class="math inline">\(\text{ln}(\hat{p})\)</span>는 점근적으로 평균 <span class="math inline">\(\ln(p)\)</span>, 분산 <span class="math inline">\((1-p)/(np)\)</span>인 정규분포를 따름을 안다. 그러면 <span class="math display">\[Z_{n} = \frac{\text{ln}(\hat{p}_{n})-\text{ln}(p)}{\sqrt{(1-p)/(np)}} \stackrel{D}{\rightarrow} Z \sim \mathcal{N}(0,1)\]</span> 임을 안다. 그러나 모든 <span class="math inline">\(n\)</span>에 대해 <span class="math inline">\(E\{\text{ln}(\hat{p}_{n}) \}=-\infty\)</span>인데, 이는 <span class="math inline">\(\hat{p}_{n}\)</span>은 0이 될 확률이 양수이기 때문이다. 그러므로 <span class="math inline">\(E(Z_{n})=-\infty\)</span>이나, <span class="math inline">\(E(Z)=0\)</span>이다.</p>
+<p><span id="exm:unnamed-chunk-130" class="example"><strong>Example 7.8  (추정량은 무한대의 평균을 갖으나 확률변수의 극한은 유한한 평균을 갖는 예)  </strong></span><span class="math inline">\(\hat{p}_{n}\)</span>이 iid 베르누이 확률변수 <span class="math inline">\(X_{1}, \ldots, X_{n}\)</span>로부터 나온 표본비(sample proportion)라고 하자. 그러면 CLT에 의해 <span class="math inline">\(\hat{p}_{n}\)</span>은 점근적으로 평균 <span class="math inline">\(p=E(X_{1})\)</span>이고 분산 <span class="math inline">\(p(1-p)/n\)</span>인 정규분포를 따른다. 델타 방법(delta method)에 의해 <span class="math inline">\(\text{ln}(\hat{p})\)</span>는 점근적으로 평균 <span class="math inline">\(\ln(p)\)</span>, 분산 <span class="math inline">\((1-p)/(np)\)</span>인 정규분포를 따름을 안다. 그러면 <span class="math display">\[Z_{n} = \frac{\text{ln}(\hat{p}_{n})-\text{ln}(p)}{\sqrt{(1-p)/(np)}} \stackrel{D}{\rightarrow} Z \sim \mathcal{N}(0,1)\]</span> 임을 안다. 그러나 모든 <span class="math inline">\(n\)</span>에 대해 <span class="math inline">\(E\{\text{ln}(\hat{p}_{n}) \}=-\infty\)</span>인데, 이는 <span class="math inline">\(\hat{p}_{n}\)</span>은 0이 될 확률이 양수이기 때문이다. 그러므로 <span class="math inline">\(E(Z_{n})=-\infty\)</span>이나, <span class="math inline">\(E(Z)=0\)</span>이다.</p>
 </div>
 
 <p>(Skrohod 정리를 이용한 추가적 설명 필요, Essential of Probability Theory for Statisticians 193-194쪽)</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-130" class="definition"><strong>Definition 7.8  (일양적분가능)  </strong></span>만약 각 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math display">\[E\{ |X_{n}| I(|X_{n}|&gt;A)\}&lt;\epsilon \forall n\]</span> 을 만족하는 <span class="math inline">\(A\)</span>가 존재한다면 이 확률변수의 수열 <span class="math inline">\(X_{n}\)</span>을 <strong>일양적분가능(uniformly integrable, UI)</strong>이라고 부른다. 또는 <span class="math display">\[\lim_{A\rightarrow\infty}\sup_{n}E\{ |X_{n}| I(|X_{n}|&gt;A)\}=0\]</span> 을 만족하는 것으로 정의하기도 한다.</p>
+<p><span id="def:unnamed-chunk-131" class="definition"><strong>Definition 7.8  (일양적분가능)  </strong></span>만약 각 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math display">\[E\{ |X_{n}| I(|X_{n}|&gt;A)\}&lt;\epsilon \forall n\]</span> 을 만족하는 <span class="math inline">\(A\)</span>가 존재한다면 이 확률변수의 수열 <span class="math inline">\(X_{n}\)</span>을 <strong>일양적분가능(uniformly integrable, UI)</strong>이라고 부른다. 또는 <span class="math display">\[\lim_{A\rightarrow\infty}\sup_{n}E\{ |X_{n}| I(|X_{n}|&gt;A)\}=0\]</span> 을 만족하는 것으로 정의하기도 한다.</p>
 </div>
 
 <p>그렇다면 일양적분가능이 말하고자 하는 것은 무엇인가? <span class="math inline">\(|X_{n}| I(|X_{n}|&gt;A)\)</span>항부터 살펴보자. 이것은 <span class="math inline">\(A\)</span>보다 작은 <span class="math inline">\(|X_{n}|\)</span> 값은 0이 되도록 조절하는 것이다. 다음 그림을 참고하자.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-131"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-132"></span>
 <img src="images/basic_UI01.png" alt="Case when function values bigger than A exist." width="309" />
 <p class="caption">
 FIGURE 7.2: Case when function values bigger than A exist.
 </p>
 </div>
 <p>다음은 <span class="math inline">\(E\{|X_{n}| I(|X_{n}|&gt;A)\}\)</span>에 초점을 맞춘다. 이것은 그림 의 그래프 아래 면적에 해당하는 것이다(물론 <span class="math inline">\(\omega \in [0,M]\)</span>에서 균등한 확률 측도 <span class="math inline">\(dP(\omega)=\frac{1}{M}\)</span>을 줬을 때의 이야기다). 이때 상한(<span class="math inline">\(\sup_{n}\)</span>)의 쓰임은 <span class="math inline">\(A\)</span>가 고정되었을 때 가장 큰 면적을 반환하는 <span class="math inline">\(n\)</span>을 찾는 것이다. 마지막으로 극한을 취함으로써(<span class="math inline">\(lim_{A\rightarrow\infty}\sup_{n}E\{ |X_{n}| I(|X_{n}|&gt;A)\}\)</span>) <span class="math inline">\(A\)</span>가 점점 커졌을 때 상한이 어떻게 변하는지 관찰할 수 있다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-132"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-133"></span>
 <img src="images/basic_UI02.png" alt="An example of sequence of random variables that is not uniformly integrable." width="113" />
 <p class="caption">
 FIGURE 7.3: An example of sequence of random variables that is not uniformly integrable.
 </p>
 </div>
 <p>위 확률변수의 수열은 일양적분가능하지 않다. <span class="math inline">\(A\)</span>가 커짐에 따라 항상 <span class="math inline">\(E\{|X_{n}| I(|X_{n}|&gt;A)\}=1\)</span>을 만족하는 <span class="math inline">\(n\)</span>이 존재한다. 즉 <span class="math inline">\(|X_{n}| I(|X_{n}|&gt;A)=|X_{n}|\)</span>인 <span class="math inline">\(n\)</span>이 항상 존재하는 것이다. 따라서 <span class="math display">\[\sup_{n}E\{ |X_{n}| I(|X_{n}|&gt;A)\}=\sup_{n}E\{ |X_{n}|\}=\sup_{n}1=1.\]</span> 이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-133"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-134"></span>
 <img src="images/basic_UI03.png" alt="An example of sequence of random variables that is uniformly integrable." width="123" />
 <p class="caption">
 FIGURE 7.4: An example of sequence of random variables that is uniformly integrable.
@@ -777,7 +779,7 @@ FIGURE 7.4: An example of sequence of random variables that is uniformly integra
 <li><p>모든 유계(bounded)인 확률변수의 수열(반대로 유계가 아닌 경우를 생각해보면 <span class="math inline">\(n\)</span>이 커짐에 따라 <span class="math inline">\(X_{n}\)</span>은 어떤 확률로 점점 큰 값을 갖게 될 것이다)일양적분가능하다. 그러나 그 역은 성립하지 않는다.</p></li>
 </ul>
 <p>마지막으로 유계가 아니나 일양적분가능한 확률변수의 수열의 예를 소개한다.</p>
-<div class="figure"><span id="fig:unnamed-chunk-134"></span>
+<div class="figure"><span id="fig:unnamed-chunk-135"></span>
 <img src="images/basic_UI04.png" alt="An example of sequence of random variables that is not bounded but uniformly integrable." width="181" />
 <p class="caption">
 FIGURE 7.5: An example of sequence of random variables that is not bounded but uniformly integrable.

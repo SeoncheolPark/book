@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-09-28">
+<meta name="date" content="2018-10-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -698,8 +698,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="59.2" data-path="59-2-declustering-of-extremes.html"><a href="59-2-declustering-of-extremes.html"><i class="fa fa-check"></i><b>59.2</b> 디클러스터링(declustering of extremes)</a></li>
 </ul></li>
 <li class="chapter" data-level="60" data-path="60-mevtheory.html"><a href="60-mevtheory.html"><i class="fa fa-check"></i><b>60</b> 다변량 극단값 이론</a><ul>
-<li class="chapter" data-level="60.1" data-path="60-1-copula.html"><a href="60-1-copula.html"><i class="fa fa-check"></i><b>60.1</b> 코퓰라(copula)</a></li>
-<li class="chapter" data-level="60.2" data-path="60-2-limiting-standardization.html"><a href="60-2-limiting-standardization.html"><i class="fa fa-check"></i><b>60.2</b> 극단 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.1" data-path="60-1-limiting-standardization.html"><a href="60-1-limiting-standardization.html"><i class="fa fa-check"></i><b>60.1</b> 극한의 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.2" data-path="60-2-copula.html"><a href="60-2-copula.html"><i class="fa fa-check"></i><b>60.2</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="60.3" data-path="60-3-extreme-value-copula.html"><a href="60-3-extreme-value-copula.html"><i class="fa fa-check"></i><b>60.3</b> 극단값 코퓰라(extreme-value copula)</a></li>
+<li class="chapter" data-level="60.4" data-path="60-4-max-stable-distribution-with-unit-frechet-margin.html"><a href="60-4-max-stable-distribution-with-unit-frechet-margin.html"><i class="fa fa-check"></i><b>60.4</b> 단위 프례세 마진을 갖는 최대안정분포(max-stable distribution with unit Frechet margin)</a></li>
 </ul></li>
 <li class="chapter" data-level="61" data-path="61-spatextremes.html"><a href="61-spatextremes.html"><i class="fa fa-check"></i><b>61</b> 공간 극단값 이론과 최대안정과정</a><ul>
 <li class="chapter" data-level="61.1" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html"><i class="fa fa-check"></i><b>61.1</b> 최대안정과정(max-stable process)</a><ul>
@@ -773,8 +775,8 @@ x_{t}=\sum_{k=1}^{q}[U_{1l}\cos(2\pi\omega_{k} t) + U_{k2}\sin(2\pi\omega_{k} t)
 \hat{\gamma}_{x}(0)=\text{var}(x_{t})=\sum_{k=1}^{q}(a_{k}^{2}+b_{k}^{2}).
 \tag{20.5}
 \end{equation}\]</span>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-220"></span>
-<img src="book_files/figure-html/unnamed-chunk-220-1.svg" alt="Periodic components and their sums." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-221"></span>
+<img src="book_files/figure-html/unnamed-chunk-221-1.svg" alt="Periodic components and their sums." width="672" />
 <p class="caption">
 FIGURE 20.1: Periodic components and their sums.
 </p>
@@ -782,12 +784,12 @@ FIGURE 20.1: Periodic components and their sums.
 <p>다음 예제는 식 <a href="20-2-cyclical-behavior-and-periodicity.html#eq:periodrpg">(20.2)</a>에서 <span class="math inline">\(q=3\)</span>일때의 예제다.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-221" class="example"><strong>Example 20.1  (주기 시계열)  </strong></span><span class="math inline">\(t=1,\ldots,100\)</span>까지 다음의 수열들을 생성해보자. <span class="math display">\[x_{t1}=2\cos (2\pi t 6/100) +3\sin (2\pi t 6 / 100)\]</span> <span class="math display">\[x_{t2}=4\cos (2\pi t 10/100) +5\sin (2\pi t 10 / 100)\]</span> <span class="math display">\[x_{t3}=6\cos (2\pi t 40/100) +7\sin (2\pi t 40 / 100)\]</span> 이들의 시계열들은 위 그림에 나타나있다. <span class="math inline">\(x_{t1}\)</span>의 진폭은 <span class="math inline">\(2^{2}+3^{2}=13\)</span>이다. 따라서 <span class="math inline">\(x_{t1}\)</span>의 최대, 최소값은 <span class="math inline">\(\pm \sqrt{13}=\pm 3.61\)</span>이다. 마지막으로 <span class="math display">\[x_{t}=x_{t1}+x_{t2}+x_{t3}\]</span> 을 고려해본다. 이것의 그림은 위 그림의 오른쪽 아래에 있다. 스펙트럼 분석의 역할은 이렇게 섞여있는 주기 성분들을 분류하고 그들의 상대적 기여도를 계산하는 것이다.</p>
+<p><span id="exm:unnamed-chunk-222" class="example"><strong>Example 20.1  (주기 시계열)  </strong></span><span class="math inline">\(t=1,\ldots,100\)</span>까지 다음의 수열들을 생성해보자. <span class="math display">\[x_{t1}=2\cos (2\pi t 6/100) +3\sin (2\pi t 6 / 100)\]</span> <span class="math display">\[x_{t2}=4\cos (2\pi t 10/100) +5\sin (2\pi t 10 / 100)\]</span> <span class="math display">\[x_{t3}=6\cos (2\pi t 40/100) +7\sin (2\pi t 40 / 100)\]</span> 이들의 시계열들은 위 그림에 나타나있다. <span class="math inline">\(x_{t1}\)</span>의 진폭은 <span class="math inline">\(2^{2}+3^{2}=13\)</span>이다. 따라서 <span class="math inline">\(x_{t1}\)</span>의 최대, 최소값은 <span class="math inline">\(\pm \sqrt{13}=\pm 3.61\)</span>이다. 마지막으로 <span class="math display">\[x_{t}=x_{t1}+x_{t2}+x_{t3}\]</span> 을 고려해본다. 이것의 그림은 위 그림의 오른쪽 아래에 있다. 스펙트럼 분석의 역할은 이렇게 섞여있는 주기 성분들을 분류하고 그들의 상대적 기여도를 계산하는 것이다.</p>
 <p>Autocovariance function <a href="20-2-cyclical-behavior-and-periodicity.html#eq:periodrpautocov">(20.3)</a>를 따라 식 <a href="20-2-cyclical-behavior-and-periodicity.html#eq:periodrpg">(20.2)</a>에 주어진 모형의 population을 만들어낼 수 있다. 앞으로는 자료 <span class="math inline">\(x_{1},\ldots , x_{n}\)</span>이 주어졌을 때 실제로 식 <a href="20-2-cyclical-behavior-and-periodicity.html#eq:periodrpvar">(20.4)</a>를 어떻게 추정할 수 있는가에 대해 살펴볼 것이다.</p>
 </div>
 
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-222"></span>
-<img src="book_files/figure-html/unnamed-chunk-222-1.svg" alt="Periodogram of the above data." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-223"></span>
+<img src="book_files/figure-html/unnamed-chunk-223-1.svg" alt="Periodogram of the above data." width="672" />
 <p class="caption">
 FIGURE 20.2: Periodogram of the above data.
 </p>
@@ -795,7 +797,7 @@ FIGURE 20.2: Periodogram of the above data.
 <p>앞선 예제의 피리오도그램을 계산해보자. 참고로 scaled periodogram은 다음과 같이 계산된다.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-223" class="example"><strong>Example 20.2  (추정과 피리오도그램)  </strong></span>어떤 시계열의 표본 <span class="math inline">\(x_{1},\ldots, x_{n}\)</span> (<span class="math inline">\(n\)</span>은 홀수)이 있다고 하자. 그러면 우리는 다음과 같이 <strong>정확하게</strong> 쓸 수 있을 것이다.</p>
+<p><span id="exm:unnamed-chunk-224" class="example"><strong>Example 20.2  (추정과 피리오도그램)  </strong></span>어떤 시계열의 표본 <span class="math inline">\(x_{1},\ldots, x_{n}\)</span> (<span class="math inline">\(n\)</span>은 홀수)이 있다고 하자. 그러면 우리는 다음과 같이 <strong>정확하게</strong> 쓸 수 있을 것이다.</p>
 </div>
 
 </div>

@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-09-28">
+<meta name="date" content="2018-10-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -698,8 +698,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="59.2" data-path="59-2-declustering-of-extremes.html"><a href="59-2-declustering-of-extremes.html"><i class="fa fa-check"></i><b>59.2</b> 디클러스터링(declustering of extremes)</a></li>
 </ul></li>
 <li class="chapter" data-level="60" data-path="60-mevtheory.html"><a href="60-mevtheory.html"><i class="fa fa-check"></i><b>60</b> 다변량 극단값 이론</a><ul>
-<li class="chapter" data-level="60.1" data-path="60-1-copula.html"><a href="60-1-copula.html"><i class="fa fa-check"></i><b>60.1</b> 코퓰라(copula)</a></li>
-<li class="chapter" data-level="60.2" data-path="60-2-limiting-standardization.html"><a href="60-2-limiting-standardization.html"><i class="fa fa-check"></i><b>60.2</b> 극단 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.1" data-path="60-1-limiting-standardization.html"><a href="60-1-limiting-standardization.html"><i class="fa fa-check"></i><b>60.1</b> 극한의 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.2" data-path="60-2-copula.html"><a href="60-2-copula.html"><i class="fa fa-check"></i><b>60.2</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="60.3" data-path="60-3-extreme-value-copula.html"><a href="60-3-extreme-value-copula.html"><i class="fa fa-check"></i><b>60.3</b> 극단값 코퓰라(extreme-value copula)</a></li>
+<li class="chapter" data-level="60.4" data-path="60-4-max-stable-distribution-with-unit-frechet-margin.html"><a href="60-4-max-stable-distribution-with-unit-frechet-margin.html"><i class="fa fa-check"></i><b>60.4</b> 단위 프례세 마진을 갖는 최대안정분포(max-stable distribution with unit Frechet margin)</a></li>
 </ul></li>
 <li class="chapter" data-level="61" data-path="61-spatextremes.html"><a href="61-spatextremes.html"><i class="fa fa-check"></i><b>61</b> 공간 극단값 이론과 최대안정과정</a><ul>
 <li class="chapter" data-level="61.1" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html"><i class="fa fa-check"></i><b>61.1</b> 최대안정과정(max-stable process)</a><ul>
@@ -743,13 +745,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>때때로 확률변수의 극한을 취했을 때 적절한 극한 확률변수가 존재하지 않을 수도 있지만 <strong>유사분포함수(pseudo-distribution function)</strong> 또는 <strong>부확률분포(sub-probability distribution)</strong> 등의 개념을 정의해 부적절한 확률변수들을 다룰 수 있다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-122" class="definition"><strong>Definition 7.6  (모호수렴)  </strong></span>분포함수들의 수열 <span class="math inline">\(\{F_{n}, n\geq 1 \}\)</span>은 모든 유한한 구간 <span class="math inline">\(I = (a,b]\subset \mathbb{R}\)</span>, <span class="math inline">\(a,b \in C(H)\)</span>일 때 <span class="math display">\[F_{n}(I) \stackrel{n\rightarrow\infty}{\rightarrow}H(I)\]</span> 를 만족할 경우 유사분포함수 <span class="math inline">\(H\)</span>로 <strong>모호수렴(coverges vaguely)</strong>한다고 부른다. 이를 나타내기 위해 보통 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(F_{n} \stackrel{v}{\rightarrow}H\)</span>라고 쓴다.</p>
+<p><span id="def:unnamed-chunk-123" class="definition"><strong>Definition 7.6  (모호수렴)  </strong></span>분포함수들의 수열 <span class="math inline">\(\{F_{n}, n\geq 1 \}\)</span>은 모든 유한한 구간 <span class="math inline">\(I = (a,b]\subset \mathbb{R}\)</span>, <span class="math inline">\(a,b \in C(H)\)</span>일 때 <span class="math display">\[F_{n}(I) \stackrel{n\rightarrow\infty}{\rightarrow}H(I)\]</span> 를 만족할 경우 유사분포함수 <span class="math inline">\(H\)</span>로 <strong>모호수렴(coverges vaguely)</strong>한다고 부른다. 이를 나타내기 위해 보통 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(F_{n} \stackrel{v}{\rightarrow}H\)</span>라고 쓴다.</p>
 </div>
 
 <p>다시 반복해서 말하면 분포수렴의 경우 <span class="math inline">\(H\)</span>의 total mass가 at most equal to 1인 경우다.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-123" class="example"><strong>Example 7.6  (모호수렴의 예(1))  </strong></span><span class="math inline">\(P(X_{n}=n)=P(X_{n}=-n)=-1/2\)</span>라고 하자. 그러면 분포함수는 다음과 같다. <span class="math display">\[
+<p><span id="exm:unnamed-chunk-124" class="example"><strong>Example 7.6  (모호수렴의 예(1))  </strong></span><span class="math inline">\(P(X_{n}=n)=P(X_{n}=-n)=-1/2\)</span>라고 하자. 그러면 분포함수는 다음과 같다. <span class="math display">\[
 F_{n}(x)=
 \begin{cases}
 0 &amp; x&lt;-n,\\
@@ -761,24 +763,24 @@ F_{n}(x)=
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-124" class="example"><strong>Example 7.7  (모호수렴의 예(1))  </strong></span><span class="math inline">\(X_{n} \in U(-n,n),n\geq 1\)</span>이라고 하자. 그러면 분포함수는 다음과 같다. <span class="math display">\[
+<p><span id="exm:unnamed-chunk-125" class="example"><strong>Example 7.7  (모호수렴의 예(2))  </strong></span><span class="math inline">\(X_{n} \in U(-n,n),n\geq 1\)</span>이라고 하자. 그러면 분포함수는 다음과 같다. <span class="math display">\[
 F_{X_{n}}(x)=
 \begin{cases}
 0 &amp; x&lt;-n,\\
 \frac{x+n}{2n} &amp; -n \leq x &lt; n,\\
 1 &amp; x\geq n.
 \end{cases}
-\]</span> 그리고 이것은 모든 <span class="math inline">\(x\in \mathbb{R}\)</span>에 대해 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 다음으로 수렴한다. <span class="math inline">\($H(x) \equiv \frac{1}{2}.\)</span> 여기서도 또한 <span class="math inline">\(H\)</span>는 부적절한 분포이다.</p>
+\]</span> 그리고 이것은 모든 <span class="math inline">\(x\in \mathbb{R}\)</span>에 대해 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 다음으로 수렴한다. <span class="math display">\[H(x) \equiv \frac{1}{2}.\]</span> 여기서도 또한 <span class="math inline">\(H\)</span>는 부적절한 분포이다.</p>
 </div>
 
 <p>만약 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(X_{n} \stackrel{d}{\rightarrow} X\)</span>일 경우 정의에 의해 <span class="math inline">\(x\in C(F_{x})\)</span>이고 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(F_{X_{n}}(x) \rightarrow F_{X}(x)\)</span>가 된다. 따라서 모든 bounded interval <span class="math inline">\(I=(a,b]\)</span>, <span class="math inline">\(a,b\in C(F_{X})\)</span>에 대해 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math display">\[F_{X_{n}}(I) = F_{X_{n}}(b) - F_{X_{n}}(a) \rightarrow F_{X}(b) - F_{X}(a) = F_{X}(I)\]</span> 이다. 따라서 분포수렴은 항상 모호수렴이 된다. 즉 분포수렴은 모호수렴보다 더 강한 조건이다.</p>
-<p>역이 성립할 필요충분조건은 분포함수의 꼬리가 uniformly small해야 한다는 조건과 필요충분이다.</p>
+<p>역이 성립할 필요충분조건은 분포함수의 꼬리가 uniformly small해야 한다는 조건과 필요충분이다. 이것은 엄격성과 연결된다.</p>
 <div id="helly-hellys-selection-principle" class="section level3">
 <h3><span class="header-section-number">7.5.1</span> Helly의 선택정리(Helly’s selection principle)</h3>
-<p><span class="citation">(Gut <a href="#ref-Gut2012">2012</a>)</span>의 내용을 따르면, <strong>Helly의 선택정리(Helly’s selection principle)</strong>는 어떤 부분수열에 대해서는 모호수렴이 항상 성립한다는 것이다.</p>
+<p>엄격성을 언급하기 전에, Helly의 선택정리에 대해 먼저 살펴보자. <span class="citation">(Gut <a href="#ref-Gut2012">2012</a>)</span>의 내용을 따르면, <strong>Helly의 선택정리(Helly’s selection principle)</strong>는 어떤 부분수열에 대해서는 모호수렴이 항상 성립한다는 것이다.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-125" class="theorem"><strong>Theorem 7.2  (Helly의 선택정리)  </strong></span><span class="math inline">\(\{F_{n}, n\geq 1\}\)</span>이 분포함수들의 수열이라고 하자. 그러면 다음과 같이 감소하지 않는 부분수열 <span class="math inline">\(\{n_{k} k\geq 1 \}\)</span>이 존재해 어떤 유사분포함수 <span class="math inline">\(H\)</span>에 대해 <span class="math inline">\(k\rightarrow\infty\)</span>일 때 다음을 만족한다. <span class="math display">\[F_{n_{k}} \stackrel{v}{\rightarrow} H .\]</span></p>
+<p><span id="thm:unnamed-chunk-126" class="theorem"><strong>Theorem 7.2  (Helly의 선택정리)  </strong></span><span class="math inline">\(\{F_{n}, n\geq 1\}\)</span>이 분포함수들의 수열이라고 하자. 그러면 다음과 같이 감소하지 않는 부분수열 <span class="math inline">\(\{n_{k} k\geq 1 \}\)</span>이 존재해 어떤 유사분포함수 <span class="math inline">\(H\)</span>에 대해 <span class="math inline">\(k\rightarrow\infty\)</span>일 때 다음을 만족한다. <span class="math display">\[F_{n_{k}} \stackrel{v}{\rightarrow} H .\]</span></p>
 </div>
 
 </div>
@@ -787,13 +789,13 @@ F_{X_{n}}(x)=
 <p>이제 그러면 어떤 상황에서 이 부분수열의 수렴이 분포수렴이 될 수 있을지에 대해 생각해보아야 한다. 그에 대한 필요충분조건으로 분포함수들의 수열 <span class="math inline">\(\{F_{n}\}\)</span>이 <strong>엄격(tight)</strong>한지 체크하면 된다. 여기서 tight의 정의는 <span class="citation">(Proschan and Shaw <a href="#ref-Proschan2016">2016</a>)</span>의 6.48을 따른다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-126" class="definition"><strong>Definition 7.7  (Tight sequence of distribution functions)  </strong></span>분포함수들의 수열 $F_{1}(x), F_{2}(x),$가 모든 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 숫자 <span class="math inline">\(M\)</span>이 존재해 <span class="math inline">\(F_{n}(M) &lt;\epsilon\)</span>이고 모든 <span class="math inline">\(n\)</span>에 대해 <span class="math inline">\(1-F_{n}(M) &lt;\epsilon\)</span>일 경우 tight하다고 한다.</p>
+<p><span id="def:unnamed-chunk-127" class="definition"><strong>Definition 7.7  (Tight sequence of distribution functions)  </strong></span>분포함수들의 수열 $F_{1}(x), F_{2}(x),$가 모든 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 숫자 <span class="math inline">\(M\)</span>이 존재해 <span class="math inline">\(F_{n}(M) &lt;\epsilon\)</span>이고 모든 <span class="math inline">\(n\)</span>에 대해 <span class="math inline">\(1-F_{n}(M) &lt;\epsilon\)</span>일 경우 tight하다고 한다.</p>
 </div>
 
 <p>다음 정리는 <span class="citation">(Gut <a href="#ref-Gut2012">2012</a>)</span>의 5.8.3에 나오는 정리다.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-127" class="theorem"><strong>Theorem 7.3  (엄격성과 부분수열의 분포 수렴)  </strong></span><span class="math inline">\(\{F_{n}, n\geq 1\}\)</span>이 분포함수들의 수열이라고 하자. 모든 모호수렴하는 부분수열들이 분포수렴이 되기 위해서는(즉 극한이 적절성을 갖기 위해서는) 다음을 만족시키는 것이 필요충분조건이다. <span class="math display">\[\int_{|x|&gt;a} dF_{n}(x) \rightarrow 0\]</span> as <span class="math inline">\(a\rightarrow\infty\)</span> uniformly in <span class="math inline">\(n\)</span>.</p>
+<p><span id="thm:unnamed-chunk-128" class="theorem"><strong>Theorem 7.3  (엄격성과 부분수열의 분포 수렴)  </strong></span><span class="math inline">\(\{F_{n}, n\geq 1\}\)</span>이 분포함수들의 수열이라고 하자. 모든 모호수렴하는 부분수열들이 분포수렴이 되기 위해서는(즉 극한이 적절성을 갖기 위해서는) 다음을 만족시키는 것이 필요충분조건이다. <span class="math display">\[\int_{|x|&gt;a} dF_{n}(x) \rightarrow 0\]</span> as <span class="math inline">\(a\rightarrow\infty\)</span> uniformly in <span class="math inline">\(n\)</span>.</p>
 </div>
 
 </div>

@@ -1,6 +1,22 @@
 # 다변량 극단값 이론 {#mevtheory}
 
-이 부분은 [@Dey2015]의 2장을 참고하였다.
+이 부분은 [@Dey2015]의 2장을 참고하였다. 많은 경우 marginal GEV distribution과 코퓰라를 혼합해 사용하는데, 이런 경우 extreme-value copula가 아닌 이상 다변량 극단값 분포가 marginal GEV distribution으로 잘 표현되지 않는다. 이 장에서는 다변량 극단값 분포, 극단값 코퓰라, extremal dependence의 측정, 다변량 일반화 파레토 분포, 준모수 조건부 상관성 모형들 그리고 그것들의 통계적 추론에 대해서 다룬다.
+
+## 극한의 정규화(limiting standardization)
+
+$d$-차원 **다변량 극단값 분포(multivariate extreme value distribution, MEVD)**은 d-차원 다변량 분포로부터 무작위로 생성된 값들의 componentwise maxima의 극한 분포로부터 유래한다. $\{\mathbf{X}_{i} = (X_{i,1},\ldots, X_{i,d}):i=1,\ldots, n\}$은 joint distribution $F$, marginal distribution $F_{1}, \ldots, F_{d}$ 그리고 코퓰라 $C_{F}$를 갖는 $d$-차원 무작위벡터로부터 생성된 무작위 표본이라고 하자. 각각의 margin $j=1,\ldots, d$에 대해 적절한 표준화수열(normalizing sequence) $\mathbf{a}_{n}=(a_{n,1},\ldots, a_{n,d})>0$과 $\mathbf{b}_{n}=(b_{n,1},\ldots, b_{n,d})$가 존재해 limiting marginal distribution
+$$Z_{n,j} = \frac{M_{n,j}-b_{n,j}}{a_{n,j}}$$
+$n\rightarrow\infty$일 때 non-degenerate generalized extreme value distribution을 갖는다고 정의한다. 여기서 우리들의 관심사는 $\mathbf{Z}_{n}=(Z_{n,1},\ldots, Z_{n,d})$의 limiting joint distribution인 $G$ (즉 MEVD)이다. 특별히, $\mathbf{z}\in\mathbb{R}^{d}$에 대해
+$$P(\mathbf{Z}_{n}\leq z)=F^{n}(\mathbf{az} +\mathbf{b}) \rightarrow G(\mathbf{z})$$
+이다. 여기서 벡터 계산들은 모두 componentwise하다. 이때 분포 $F$는 $G$의 domain of attraction이라고 부르며 $F\in\mathcal{D}(G)$라고 적는다.
+
+MEVD들은 **최대안정성(max-stability)**라는 것으로 특성화되어진다. $d$차원 분포함수 $G$는 모든 정수 $k\geq 1$에서 벡터 $\boldsymbol{\alpha}_{k}>0$와 $\boldsymbol{\beta}_{k}$가 존재해
+\begin{equation}
+G^{k}(\boldsymbol{\alpha}_{k}\mathbf{z}+\boldsymbol{\beta}_{k}) = G(\mathbf{z}), \qquad{\forall \mathbf{z}\in\mathbb{R}^{d}}
+(\#eq:MEVDmaxstable)
+\end{equation}
+를 만족할 때 최대안정하다라고 말한다. 최대안정 분포 $G$는 그것만의 domain of attraction을 갖는데 그것이 MEVD이다. 또한 역도 성립한다.
+
 
 ## 코퓰라(copula)
 
@@ -63,9 +79,52 @@ $$C(u_{1}, u_{2}, \rho)=\Phi_{2}(\Phi^{-1}(u_{1}), \Phi^{-1}(u_{2});\rho), -1<\r
 
 5. 연속 확률 변수 $(Y_{1}, Y_{2})\in\mathbb{R}^{2}$에 대응되는 unique copula는 $Y_{1}$ and/or $Y_{2}$에 continuous monotonic transform을 적용해도 변하지 않는다.
 
+## 극단값 코퓰라(extreme-value copula)
 
-## 극단 정규화(limiting standardization)
+이 부분은 [@Dey2015]의 2장을 참고하였다. MEVD $G$의 상관 구조는 그것의 **코퓰라(copula)** $C_{G}$에 의해 특성화된다. MEVD $G$의 코퓰라를 특별히 **극단값 코퓰라(extreme-value copula)**라고 부른다. 어떤 코퓰라 $C$는 다음과 같은 코퓰라 $C_{F}$가 존재해 $n\rightarrow\infty$일 때
+$$C_{F}^{n}(\mathbf{u}^{1/n})\rightarrow C(u_{1},\ldots, u_{d}), \qquad{(u_{1}, \ldots, u_{d})\in [0,1]^{d}}$$
+를 만족하면 그것을 극단값 코퓰라라고 부르는 것이다. 이 경우에 $C_{F}$는 $C$의 domain of attraction에 속한다고 말한다.
 
-$d$차원 **다변량 극단값 분포(multivariate extreme value distribution, MEVD)**은 $d$차원 다변량 분포에서의 random sample의 componentwise maxima의 limiting distribution을 고려하는 데에서 부터 시작하였다. $\{\mathbf{X}_{i}=(X_{i,1},\ldots, X_{i,d}): i=1,\ldots, n \}$을 결합 분포 함수 $F$를 갖고 주변 분포 함수 $F_{1}, \ldots, F_{d}$를 갖는 $d$차원 무작위 벡터의 무작위 표본이라고 하자.
+극단값 코퓰라는 또한 최대안정성에 의해서도 특성화된다. 어떤 코퓰라 $C$는 모든 양의정수 $k\geq 1$에 대해 다음
+$$C(\mathbf{u})=C^{k}(\mathbf{u}^{1/k}),\qquad{\mathbf{u}\in[0,1]^{d}}$$
+을 만족할 때 최대안정이라고 부른다. 최대안정 코퓰라는 자기 자신의 domain of attraction 안에 있다. 그리고 또 한가지 중요한 성질로 극단값 코퓰라는 최대안정임과 동치이다 라는 것이 있다. 정의에 의해 극단값 코퓰라 또는 최대안정 코퓰라의 족(family)는 MEVD의 코퓰라의 집합과 일치한다.
+
+극단값 코퓰라 $C$는 **Pickands의 종속함수(Pickands dependence function)**으로 표현할 수 있다. $\Delta_{d-1}$을 $\mathbb{R}^{d}$에서의 단위 심플렉스로
+$$\Delta_{d-1} = \{ (w_{1},\ldots, w_{d}: w_{i}>0, i=1,\ldots, d, \sum_{i=1}^{d}w_{i}=1) \}$$
+와 같다.
+
+그러면 극단값 코퓰라 $C$는 다음과 같이 쓸 수 있다.
+$$C(u_{1},\ldots, u_{d}) = \exp{\Big\{ \Big( \sum_{j=1}^{d}\log u_{j} \Big)  A \Big( \frac{\log u_{1}}{\sum_{j=1}^{d}\log u_{j}},\ldots,  \frac{\log u_{d}}{\sum_{j=1}^{d}\log u_{j}} \Big) \Big\}}.$$
+이 때 $A$는 $\Delta_{d-1}\rightarrow [\frac{1}{d},1]$에서 정의되었으며 convex이고 $\max(\mathbf{w})\leq A(\mathbf{w}) \leq q, \forall \mathbf{w} \in \Delta_{d-1}$인 함수로 **Pickands의 종속함수(Pickands dependence function)**이다. 
+
+Marginal GEV 분포에 대해 가우스 코퓰라를 쓸 수도 있다. 그러나 가우스 코퓰라의 꼬리부분은 점근적 독립(asymptotically independent)이 되며 따라서 어떠한 극단값 의존성도 존재하지 않게 딘다.
+
+## 단위 프례세 마진을 갖는 최대안정분포(max-stable distribution with unit Frechet margin)
+
+MEVD의 표현들은 종종 분포함수로 $G_{1}(z) = \exp(-1/z), z>0$을 갖는 **단위 프례세 마진(unit Frechet margin)**으로 설명하기도 한다. 다변량 분포 $G$는 $G$가 다음을 만족할 때 단위 프례세 마진을 갖는 MEVD가 되는 필요충분조건임이 알려져 있다.
+$$G(\mathbf{z})=\exp(-V(\mathbf{z})), \qquad{\mathbf{z}\in[0,\infty)^{d}\backslash \{\mathbf{0}\}},$$
+이 때
+$$V(\mathbf{z})=\int_{\Delta_{d-1}}\max_{j=1,\ldots,d}\Big(\frac{w_{j}}{z_{j}}\Big) dS(w_{1},\ldots, w_{d})$$
+이며 $S$는 $\Delta_{d-1}$에서 정의된 양의 측도이며 $\int_{\Delta_{d-1}}w_{j}dS(w_{1},\ldots, w_{d})=1, j=1,\ldots, d$이다. 이 때 측도 $S$를 **스펙트럼 측도(spectral measure)**라고 부르며 $G$의 dependence structure를 특성화한다.
+
+MEVD $G$의 최대안정성 식 \@ref(eq:MEVDmaxstable)은 $G^{-1/k}$가 모든 양의 정수 $k$에 대해 분포함수가 됨을 의미한다. 그것은 $G$가 **최대-무한분해가능한(max-infinitely divisible)** 분포임을 의미한다. 그러면 $[0,\infty)^{d}\backslash\{\mathbf{0}\}$에서 측도 $\mu$가 존재해 다음을 만족한다.
+$$V(\mathbf{z})=\mu((0,\mathbf{z}]^{c}), \qquad{\mathbf{z}\in [0,\infty)^{d}\backslash \{\mathbf{0}\}.}$$
+이 때 측도 $\mu$를 **지수측도(exponent measure)**라고 하며 함수 $V$는 **지수함수(exponent function)**이라고 부른다. Extreme-value copula의 최대안정성을 프례세 마진을 갖는 MEVD로 변환시키면 모든 $r>0$에 대해 $G^{r}(r\mathbf{z})=G(\mathbf{z})$을 얻는다. 동등하게, $V(r\cdot)=r^{-1}V(\cdot)$이고 $\mu(r\cdot)=r^{-1}\mu(\cdot)$이 된다. 즉, $V$와 $\mu$는 모두 homogeneous of order $-1$이다.
+
+또 이들과 깊게 연관되어있는 개념으로 **안정 꼬리 의존 함수(stable tail dependence function)** $l:[0,\infty]^{d} \rightarrow [0,\infty)$가 있으며 다음과 같이 정의된다.
+$$l(\mathbf{v}) = V(1/\mathbf{v}), \qquad{v\in[0,\infty]^{d}.}$$
+안정 꼬리 의존 함수는 다음의 성질들을 만족함이 알려져 있다. ([@Beirlant2004]의 257쪽)
+
+1. $l(r\cdot) = r l(\cdot)$ for $r>0$ **(homogeneous of order 1)**
+
+2. $l(e_{j} ) = 1$ for $j=1,\ldots, d$ with $e_{j}$ being the $j$th unit vector in $\mathbb{R}^{d}$
+
+3. $\max_{i=1}^{d}v_{i} \leq l(\mathbf{v})\leq \sum_{i=1}^{d}v_{i}$ for $\mathbf{v} \in [0,\infty)^{d}$
+
+4. $l$ is convex
+
+위의 성질들 중 첫번째 성질 때문에, 안정 꼬리 의존 함수 $l$은 Pickands의 종속함수 $A$와 관련이 있게 된다. 그리고 그것은 $l$을 unit simplex 위에서 제한시킬 수 있게 한다.
+$$l(\mathbf{x}) = \Big( \sum_{i=1}^{d}x_{i} \Big) A(w_{1},\ldots, w_{d}), \qquad{\mathbf{x}\in\mathbb{R}_{+}^{d}},$$
+이 때 $w_{j} = \frac{x_{j}}{\sum_{i=1}^{d}x_{i}}$이다.
 
 

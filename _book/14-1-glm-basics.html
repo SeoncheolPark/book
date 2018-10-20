@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-09-28">
+<meta name="date" content="2018-10-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -698,8 +698,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="59.2" data-path="59-2-declustering-of-extremes.html"><a href="59-2-declustering-of-extremes.html"><i class="fa fa-check"></i><b>59.2</b> 디클러스터링(declustering of extremes)</a></li>
 </ul></li>
 <li class="chapter" data-level="60" data-path="60-mevtheory.html"><a href="60-mevtheory.html"><i class="fa fa-check"></i><b>60</b> 다변량 극단값 이론</a><ul>
-<li class="chapter" data-level="60.1" data-path="60-1-copula.html"><a href="60-1-copula.html"><i class="fa fa-check"></i><b>60.1</b> 코퓰라(copula)</a></li>
-<li class="chapter" data-level="60.2" data-path="60-2-limiting-standardization.html"><a href="60-2-limiting-standardization.html"><i class="fa fa-check"></i><b>60.2</b> 극단 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.1" data-path="60-1-limiting-standardization.html"><a href="60-1-limiting-standardization.html"><i class="fa fa-check"></i><b>60.1</b> 극한의 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.2" data-path="60-2-copula.html"><a href="60-2-copula.html"><i class="fa fa-check"></i><b>60.2</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="60.3" data-path="60-3-extreme-value-copula.html"><a href="60-3-extreme-value-copula.html"><i class="fa fa-check"></i><b>60.3</b> 극단값 코퓰라(extreme-value copula)</a></li>
+<li class="chapter" data-level="60.4" data-path="60-4-max-stable-distribution-with-unit-frechet-margin.html"><a href="60-4-max-stable-distribution-with-unit-frechet-margin.html"><i class="fa fa-check"></i><b>60.4</b> 단위 프례세 마진을 갖는 최대안정분포(max-stable distribution with unit Frechet margin)</a></li>
 </ul></li>
 <li class="chapter" data-level="61" data-path="61-spatextremes.html"><a href="61-spatextremes.html"><i class="fa fa-check"></i><b>61</b> 공간 극단값 이론과 최대안정과정</a><ul>
 <li class="chapter" data-level="61.1" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html"><i class="fa fa-check"></i><b>61.1</b> 최대안정과정(max-stable process)</a><ul>
@@ -749,7 +751,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>관찰값이 한 개 있을때, 지수족의 확률밀도함수는 다음과 같이 쓸 수 있다. <span class="math display">\[f(y;\theta, \phi)=\exp\{ \frac{y\theta-b(\theta)}{a(\phi)} +c(y,\phi) \}.\]</span> 이 때 <span class="math inline">\(\theta\)</span>는 <strong>자연모수(natural parameter)</strong> 또는 <strong>정준모수(canonical parameter)</strong>로 불리고, <span class="math inline">\(\phi\)</span>는 <strong>산포모수(dispersion parameter)</strong>라고 불린다. 그리고 <span class="math inline">\(a,b,c\)</span>는 알려진 함수들이다. <span class="math inline">\(\phi\)</span>가 알려졌으면, <span class="math inline">\(Y\)</span>의 분포는 one-parameter canonical exponential family member가 된다. <span class="math inline">\(\phi\)</span>가 알려져있지 않을 때에는 이것은 nuisance parameter가 되며 주로 method of moments로 추정된다. 많은 GLM 이론에서 <span class="math inline">\(\phi\)</span>는 알려져 있지 않다고 하다라도 모수로 취급하지 않고 상수로 취급하는 경향이 있다.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-191" class="example"><strong>Example 14.1  (정규분포는 지수족의 멤버)  </strong></span>정규분포는 다음과 같이 지수족으로 표현할 수 있다.
+<span id="exm:unnamed-chunk-192" class="example"><strong>Example 14.1  (정규분포는 지수족의 멤버)  </strong></span>정규분포는 다음과 같이 지수족으로 표현할 수 있다.
 <span class="math display">\[\begin{align*}
 f(y;\mu)&amp;=\frac{1}{\sigma\sqrt{2\pi}}\exp[-\frac{(y-\mu)^{2}}{2\sigma^{2}}]\\
 &amp;=\exp[\frac{-y^{2}+2y\mu -\mu^{2}}{2\sigma^{2}}-\log (\sigma\sqrt{2\pi})]\\

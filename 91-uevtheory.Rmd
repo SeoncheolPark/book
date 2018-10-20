@@ -331,8 +331,10 @@ $r\in\{0,1,2\}$일 때 이것은 또한 다음들을 유도한다.
 
 $\beta_{r}$의 추정은 순서통계량 $Y_{1:m},\ldots, Y_{m:m}$에 기반하여 편리하게 계산할 수 있다. $\beta_{r}$의 불편추정량은 다음과 같다.
 $$b_{r}=\frac{1}{m}\sum_{j=1}^{m}\Big(\prod_{l=1}^{r}\frac{(j-l)}{(m-l)}\Big)Y_{j:m}.$$
+또는 asymptotically equivalent version으로 $\hat{\beta}_{r}$이 있다.
+$$\hat{\beta}_{r} =\frac{1}{m}\sum_{j=1}^{m}(\frac{j}{m+1})^{r}Y_{j:m}.$$
 
-**확률가중적률 추정량(probability weighted moment estimator)**는 식 \@ref(eq:PWM01), \@ref(eq:PWM02), \@ref(eq:PWM03)에 있는 $\beta_{r}$을 $b_{r}$ 또는 $\hat{\beta}_{r}$로 대체한 것이다.
+**확률가중적률 추정량(probability weighted moment estimator)**는 식 \@ref(eq:PWM01), \@ref(eq:PWM02), \@ref(eq:PWM03)에 있는 $\beta_{r}$을 $b_{r}$ 또는 $\hat{\beta}_{r}$로 대체한 것이다. [@Hosking1985]는 $\beta_{r}$이 $b_{r}$로 교체될 경우, PWM 추정량은 feasibility criterion ($\hat{\xi}<1$, $\hat{\sigma}>0$ almost surely)을 만족함을 보였다.
 
 
 

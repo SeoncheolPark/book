@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-09-28">
+<meta name="date" content="2018-10-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -698,8 +698,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="59.2" data-path="59-2-declustering-of-extremes.html"><a href="59-2-declustering-of-extremes.html"><i class="fa fa-check"></i><b>59.2</b> 디클러스터링(declustering of extremes)</a></li>
 </ul></li>
 <li class="chapter" data-level="60" data-path="60-mevtheory.html"><a href="60-mevtheory.html"><i class="fa fa-check"></i><b>60</b> 다변량 극단값 이론</a><ul>
-<li class="chapter" data-level="60.1" data-path="60-1-copula.html"><a href="60-1-copula.html"><i class="fa fa-check"></i><b>60.1</b> 코퓰라(copula)</a></li>
-<li class="chapter" data-level="60.2" data-path="60-2-limiting-standardization.html"><a href="60-2-limiting-standardization.html"><i class="fa fa-check"></i><b>60.2</b> 극단 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.1" data-path="60-1-limiting-standardization.html"><a href="60-1-limiting-standardization.html"><i class="fa fa-check"></i><b>60.1</b> 극한의 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.2" data-path="60-2-copula.html"><a href="60-2-copula.html"><i class="fa fa-check"></i><b>60.2</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="60.3" data-path="60-3-extreme-value-copula.html"><a href="60-3-extreme-value-copula.html"><i class="fa fa-check"></i><b>60.3</b> 극단값 코퓰라(extreme-value copula)</a></li>
+<li class="chapter" data-level="60.4" data-path="60-4-max-stable-distribution-with-unit-frechet-margin.html"><a href="60-4-max-stable-distribution-with-unit-frechet-margin.html"><i class="fa fa-check"></i><b>60.4</b> 단위 프례세 마진을 갖는 최대안정분포(max-stable distribution with unit Frechet margin)</a></li>
 </ul></li>
 <li class="chapter" data-level="61" data-path="61-spatextremes.html"><a href="61-spatextremes.html"><i class="fa fa-check"></i><b>61</b> 공간 극단값 이론과 최대안정과정</a><ul>
 <li class="chapter" data-level="61.1" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html"><i class="fa fa-check"></i><b>61.1</b> 최대안정과정(max-stable process)</a><ul>
@@ -741,12 +743,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>추정량 <span class="math inline">\(\hat{\theta}_{n}\)</span>이 모수 <span class="math inline">\(\theta\)</span>에 가까운 정도를 나타내는 또 다른 측도 중 하나는 <strong>평균제곱오차(mean squared error, MSE)</strong>, <span class="math inline">\(E(\hat{\theta}_{n}-\theta)^{2}\)</span>이다. 이것은 두 개의 벡터 <span class="math inline">\(\mathbf{x},\mathbf{y}\)</span>가 어느 정도 가까운지 나타내는 측도로 <span class="math inline">\(\sum_{i=1}^{k}(x_{i}-y_{i})^{2}\)</span>을 나타내는 것과 동일한 아이디어이다. 그러나 두 벡터 사이의 거리를 나타내기 위해서 제곱근을 취하는 것차럼, <span class="math inline">\(\hat{\theta}_{n}\)</span>과 <span class="math inline">\(\theta\)</span>의 거리를 나타내기 위해 MSE에도 제곱근을 취한다. 이것이 <span class="math inline">\(L^{p}\)</span>거리의 특수한 형태인 <span class="math inline">\(L^{2}\)</span>거리를 유도한다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-117" class="definition"><strong>Definition 7.3  (Lp거리)  </strong></span>만약 <span class="math inline">\(X, Y\)</span>가 유한한 <span class="math inline">\(p\)</span>차 모멘트 <span class="math inline">\((p&gt;0)\)</span>을 갖는 확률변수들이라고 하면 <span class="math inline">\(X\)</span>와 <span class="math inline">\(Y\)</span>의 <span class="math inline">\(L^{p}\)</span>거리는 <span class="math inline">\(\{ E(|X-Y|^{p}) \}^{1/p}\)</span>로 정의한다.</p>
+<p><span id="def:unnamed-chunk-118" class="definition"><strong>Definition 7.3  (Lp거리)  </strong></span>만약 <span class="math inline">\(X, Y\)</span>가 유한한 <span class="math inline">\(p\)</span>차 모멘트 <span class="math inline">\((p&gt;0)\)</span>을 갖는 확률변수들이라고 하면 <span class="math inline">\(X\)</span>와 <span class="math inline">\(Y\)</span>의 <span class="math inline">\(L^{p}\)</span>거리는 <span class="math inline">\(\{ E(|X-Y|^{p}) \}^{1/p}\)</span>로 정의한다.</p>
 </div>
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-118" class="definition"><strong>Definition 7.4  (Lp수렴)  </strong></span>확률변수들의 수열 <span class="math inline">\(X_{1},X_{2},\ldots\)</span>가 <span class="math inline">\(n\rightarrow 0\)</span>일 때 <span class="math inline">\(E(|X_{n}-X|^{p})\rightarrow 0\)</span>을 만족할 경우 이 수열들이 <span class="math inline">\(X\)</span>에 <span class="math inline">\(L^{p}\)</span> 수렴한다고 정의한다.</p>
+<p><span id="def:unnamed-chunk-119" class="definition"><strong>Definition 7.4  (Lp수렴)  </strong></span>확률변수들의 수열 <span class="math inline">\(X_{1},X_{2},\ldots\)</span>가 <span class="math inline">\(n\rightarrow 0\)</span>일 때 <span class="math inline">\(E(|X_{n}-X|^{p})\rightarrow 0\)</span>을 만족할 경우 이 수열들이 <span class="math inline">\(X\)</span>에 <span class="math inline">\(L^{p}\)</span> 수렴한다고 정의한다.</p>
 </div>
 
 </div>

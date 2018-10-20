@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-09-28">
+<meta name="date" content="2018-10-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -698,8 +698,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="59.2" data-path="59-2-declustering-of-extremes.html"><a href="59-2-declustering-of-extremes.html"><i class="fa fa-check"></i><b>59.2</b> 디클러스터링(declustering of extremes)</a></li>
 </ul></li>
 <li class="chapter" data-level="60" data-path="60-mevtheory.html"><a href="60-mevtheory.html"><i class="fa fa-check"></i><b>60</b> 다변량 극단값 이론</a><ul>
-<li class="chapter" data-level="60.1" data-path="60-1-copula.html"><a href="60-1-copula.html"><i class="fa fa-check"></i><b>60.1</b> 코퓰라(copula)</a></li>
-<li class="chapter" data-level="60.2" data-path="60-2-limiting-standardization.html"><a href="60-2-limiting-standardization.html"><i class="fa fa-check"></i><b>60.2</b> 극단 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.1" data-path="60-1-limiting-standardization.html"><a href="60-1-limiting-standardization.html"><i class="fa fa-check"></i><b>60.1</b> 극한의 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.2" data-path="60-2-copula.html"><a href="60-2-copula.html"><i class="fa fa-check"></i><b>60.2</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="60.3" data-path="60-3-extreme-value-copula.html"><a href="60-3-extreme-value-copula.html"><i class="fa fa-check"></i><b>60.3</b> 극단값 코퓰라(extreme-value copula)</a></li>
+<li class="chapter" data-level="60.4" data-path="60-4-max-stable-distribution-with-unit-frechet-margin.html"><a href="60-4-max-stable-distribution-with-unit-frechet-margin.html"><i class="fa fa-check"></i><b>60.4</b> 단위 프례세 마진을 갖는 최대안정분포(max-stable distribution with unit Frechet margin)</a></li>
 </ul></li>
 <li class="chapter" data-level="61" data-path="61-spatextremes.html"><a href="61-spatextremes.html"><i class="fa fa-check"></i><b>61</b> 공간 극단값 이론과 최대안정과정</a><ul>
 <li class="chapter" data-level="61.1" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html"><i class="fa fa-check"></i><b>61.1</b> 최대안정과정(max-stable process)</a><ul>
@@ -764,16 +766,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>대칭 chirp 함수를 <span class="math display">\[y(x)=\sin(\pi/x)\]</span> 로 정의한다. 이 때 <span class="math inline">\(x=\epsilon &#39; +(-1,-1,+\delta,-1+2\delta, \ldots, 1-2\delta)\)</span>이며 <span class="math inline">\(\epsilon &#39; =10^{-5}\)</span>이며 <span class="math inline">\(\delta=1/512\)</span>이다. 이 함수의 그림은 다음과 같다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw">simchirp</span>()
 <span class="kw">plot</span>(y, <span class="dt">type=</span><span class="st">&#39;l&#39;</span>, <span class="dt">xlab=</span><span class="st">&quot;Time&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Chirp value&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-277"></span>
-<img src="book_files/figure-html/unnamed-chunk-277-1.svg" alt="Simulated chirp signal." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-280"></span>
+<img src="book_files/figure-html/unnamed-chunk-280-1.svg" alt="Simulated chirp signal." width="672" />
 <p class="caption">
 FIGURE 23.7: Simulated chirp signal.
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ywd &lt;-<span class="st"> </span><span class="kw">wd</span>(y<span class="op">$</span>y, <span class="dt">filter.number=</span><span class="dv">2</span>, <span class="dt">family=</span><span class="st">&quot;DaubExPhase&quot;</span>)
 <span class="kw">plot</span>(ywd, <span class="dt">scaling=</span><span class="st">&quot;by.level&quot;</span>, <span class="dt">main=</span><span class="st">&quot;&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-278"></span>
-<img src="book_files/figure-html/unnamed-chunk-278-1.svg" alt="Discrete wavelet coefficients of simulated chirp signal." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-281"></span>
+<img src="book_files/figure-html/unnamed-chunk-281-1.svg" alt="Discrete wavelet coefficients of simulated chirp signal." width="672" />
 <p class="caption">
 FIGURE 23.8: Discrete wavelet coefficients of simulated chirp signal.
 </p>
@@ -782,8 +784,8 @@ FIGURE 23.8: Discrete wavelet coefficients of simulated chirp signal.
 &gt;  [8] 7.484166 8.769223 4.756466</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ywd &lt;-<span class="st"> </span><span class="kw">wd</span>(y<span class="op">$</span>y, <span class="dt">filter.number=</span><span class="dv">2</span>, <span class="dt">family=</span><span class="st">&quot;DaubExPhase&quot;</span>, <span class="dt">type=</span><span class="st">&quot;station&quot;</span>)
 <span class="kw">plot</span>(ywd, <span class="dt">scaling=</span><span class="st">&quot;by.level&quot;</span>, <span class="dt">main=</span><span class="st">&quot;&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-279"></span>
-<img src="book_files/figure-html/unnamed-chunk-279-1.svg" alt="Time-ordered non-decimated wavelet coefficients of simulated chirp signal." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-282"></span>
+<img src="book_files/figure-html/unnamed-chunk-282-1.svg" alt="Time-ordered non-decimated wavelet coefficients of simulated chirp signal." width="672" />
 <p class="caption">
 FIGURE 23.9: Time-ordered non-decimated wavelet coefficients of simulated chirp signal.
 </p>
@@ -792,8 +794,8 @@ FIGURE 23.9: Time-ordered non-decimated wavelet coefficients of simulated chirp 
 &gt;  [8] 11.736733 13.175435  7.737538</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ywst &lt;-<span class="st"> </span><span class="kw">wst</span>(y<span class="op">$</span>y, <span class="dt">filter.number=</span><span class="dv">2</span>, <span class="dt">family=</span><span class="st">&quot;DaubExPhase&quot;</span>)
 <span class="kw">plot</span>(ywst, <span class="dt">scaling=</span><span class="st">&quot;by.level&quot;</span>, <span class="dt">main=</span><span class="st">&quot;&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-280"></span>
-<img src="book_files/figure-html/unnamed-chunk-280-1.svg" alt="Packet-ordered non-decimated wavelet coefficients of simulated chirp signal." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-283"></span>
+<img src="book_files/figure-html/unnamed-chunk-283-1.svg" alt="Packet-ordered non-decimated wavelet coefficients of simulated chirp signal." width="672" />
 <p class="caption">
 FIGURE 23.10: Packet-ordered non-decimated wavelet coefficients of simulated chirp signal.
 </p>

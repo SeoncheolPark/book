@@ -156,6 +156,8 @@ $$Q_{h(Y)}(\tau)=h\{ Q_{\tau}(Y) \}$$
 
 ## 극단회귀분석(extremal quantile regression)
 
+기존에는 꼬리부분의 극단값을 추정하는 데에도 모수/비모수 방법을 그대로 적용하였다. 그러나 data sparsity 때문에 분위수 회귀방법으로 바로 추정하는 것은 extreme tail에 대해서는 좋지 않고 때때로 불안정하다. 다음과 같은 분위수 회귀분석 모형 $Q_{Y}(\tau|\mathbf{x})=\alpha(\tau) + \mathbf{x}^{T}\boldsymbol{\beta}(\tau)$, $\tau\in [\tau_{L},1]$, $0<\tau_{L}< 1$을 생각할 때 이들의 추정량 $\hat{\alpha}(\tau)$, $\hat{\boldsymbol{\beta}}(\tau)$는 extreme quantile에서의 상황, 즉 $\tau_{n}\rightarrow 1$ as $n\rightarrow\infty$일 때 data sparsity 때문에 정확한 결과를 주지 못할 수도 있다. 이를 해결하고자 [@Wang2012], [@Wang2013] 등이 내놓은 방법은 먼저 conventional quantile regresion에서 덜 extreme한 분위수 회귀 추정을 한 후 조건부 분위수 분포의 tail behavior에 조건을 건 상태로 high quantile에 extrapolation하는 것이다.
+
 [@Chernozhukov2005]는 극단값 이론을 꼬리 부분의 extreme quantile regression 모형을 개발하는 데 사용하였다. $Y$를 연속 반응 변수이며 분포함수가 $F_{Y}(y)=P(Y\leq y)$라고 하자. 그러면 $Y$의 marginal $\tau$-분위수는 $y\rightarrow F_{Y}(y)$의 $\tau$에서의 left-inverse, 즉 
 $$Q_{Y}(\tau):=\inf \{ y:F_{Y}(y)\leq \tau\}, \qquad{\tau\in(0,1)}$$
 라고 놓을 수 있다. $X$는 $Y$와 관련된 $d_{x}$차원 공변량의 벡터라고 두고 이것의 분포함수를 $F_{X}$라고 놓자. $X=x$가 주어졌을 때 $Y$의 조건부 분포 함수를 $F_{Y}(y|x)=P(Y\leq y|X=x)$라고 두자. 그러면 앞서와 마찬가지로 $X=x$일 때 $Y$의 조건부 $\tau$-분위수 함수는 $y\rightarrow F_{Y}(y|x)$의 left inverse로, 즉
@@ -271,3 +273,28 @@ $$\hat{Q}_{Y}(\tau)=Y(\lfloor \tau T\rfloor),$$
 이 때 $Y_{(s)}$는 $(Y_{1}, \ldots, Y_{T})$는 $s$-차 순서통계량이고 $\lfloor z \rfloor$는 $z$의 정수부분을 나타낸다. 표본 $\tau$분위수는 또한 다음의 최적화문제를 풀어 얻을 수 있다.
 $$\hat{Q}_{Y}(\tau) \in \text{arg}\min_{\beta\in\mathbb{R}} \sum_{t=1}^{T}\rho_{\tau}(Y_{t}-\beta).$$
 이 때 $\rho_{\tau}(u):=(\tau - 1\{ u < 0 \})u$는 asymmetric absolute deviation function이다.
+
+이제부터는 extreme and intermediate order sequence들 가정 하에서의 표본 분위수의 점근적 성질을 복습하고 extreme marginal quantile들에서의 추론 방법을 묘사한다.
+
+1. **Extreme order approximation** 극단값 이론의 극단 순서통계량에서의 극한 분포의 결과들을 상기해보자. $T\rightarrow\infty$함에 따라  $k_{T}:=\tau_{T}T\rightarrow k$를 만족하는 어떤 정수 $k\geq 1$에 대해 다음의 결과를 얻는다.
+
+\begin{equation}
+\hat{Z}_{T}(k_{T}) = A_{T}(\hat{Q}_{Y}(\tau_{T}) - Q_{Y}(\tau_{T})) \stackrel{d}{\rightarrow} \hat{Z}_{\infty}(k) = \Gamma_{k}^{-\xi} - k^{-\xi},
+(\#eq:limitEVz)
+\end{equation}
+
+where
+$$A_{T}=\frac{1}{Q_{U}}(\frac{1}{T}), \qquad{\Gamma_{k} = \mathcal{E}_{1} + \ldots + \mathcal{E}_{k}}$$
+이다. 이 때 변수 $U$는 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails) 부분에서 나왔던 것이다. 그리고 $\{\mathcal{E}_{1},\mathcal{E}_{2},\ldots\}$는 표준 지수 변수를 갖는 i.i.d. sequence이다. 여기서 $\hat{Z}_{T}(k_{T})$는 **canonical scaling constant** $A_{T}$와 관련이 있는 통계량이므로 이것을 **canonically-normalized quantile (CN-Q) statistic**이라고 부른다. 식 \@ref(eq:limitEVz) 에서 나온 $\hat{Z}_{T}(k_{T})$의 극한은 scaling constant $A_{T}$가 주어졌을 때 $\hat{Q}_{Y}(\tau_{T})$의 유한 표본분포에 대한 근사로써의 극단값 분포를 제공한다. 이 극한 분포는 extreme value index $\xi$와 변수 $\Gamma_{k}$로 특성화된다. Tail index $\xi$는 보통 알려져 있지 않으나 밑에서 나오는 방법으로 추정할 수 있다. 변수 $\Gamma_{k}$는 gamma 확률분포이다. 따라서 극한 변수 $\hat{Z}_{\infty}(k)$는 gamma 확률변수의 변환이다. 이것은 $\xi <1$인 경우에 유한한 평균을 갖으며 만약 $\xi>0$인 경우 $1/\xi$차까지 유한한 모멘트들을 갖는다. 그러나 그것의 극단값 분포의 극한은 대칭이 아니며, 큰 중앙값 asymptotic bias in $\hat{Q}_{Y}(\tau_{T})$ with respect to $Q_{Y}(\tau_{T})$가 있어서 예측할 때 median-bais corection을 고려하게끔 한다.
+
+식 \@ref(eq:limitEVz) 에서 얻은 고전적인 결과는 종종 $Q_{Y}(\tau_{T})$를 추론하는 데 좋지 않은 데 상수 $A_{T}$가 일반적으로 알려져 있지 않고 일치추정량을 얻을 수 없을 때도 있기 때문이다. 이 문제를 다루기 위한 방법으로 $A_{T}$에 대한 일치추정량을 얻기 위해 식 \@ref(eq:Paretotypetail)의 천천히 변하는 함수 $\tau \rightarrow L(\tau)$에 대해 비모수적인 방법에 강한 모수적 가정을 넣어주는 방법이 있다. 이 방법은 나중에 다루기로 한다.
+
+또 다른 방법으로는 $mk$를 정수로 만드는 $m>1$에 대해  다음의 **self-normalized quantile (SN-Q)** 통계량을 고려하는 것이다.
+
+\begin{equation}
+Z_{T}(k_{T}):= \mathcal{A}_{T}(\hat{Q}_{Y}(\tau_{T}) - Q_{Y}(\tau_{T})), \qquad{\mathcal{A}_{T}:=\frac{\sqrt{k_{T}}}{\hat{Q}_{Y}(m\tau_{T})- \hat{Q}_{Y}(\tau_{T}) }  }
+(\#eq:SNQ)
+\end{equation}
+
+
+

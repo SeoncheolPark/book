@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-09-28">
+<meta name="date" content="2018-10-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -698,8 +698,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="59.2" data-path="59-2-declustering-of-extremes.html"><a href="59-2-declustering-of-extremes.html"><i class="fa fa-check"></i><b>59.2</b> 디클러스터링(declustering of extremes)</a></li>
 </ul></li>
 <li class="chapter" data-level="60" data-path="60-mevtheory.html"><a href="60-mevtheory.html"><i class="fa fa-check"></i><b>60</b> 다변량 극단값 이론</a><ul>
-<li class="chapter" data-level="60.1" data-path="60-1-copula.html"><a href="60-1-copula.html"><i class="fa fa-check"></i><b>60.1</b> 코퓰라(copula)</a></li>
-<li class="chapter" data-level="60.2" data-path="60-2-limiting-standardization.html"><a href="60-2-limiting-standardization.html"><i class="fa fa-check"></i><b>60.2</b> 극단 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.1" data-path="60-1-limiting-standardization.html"><a href="60-1-limiting-standardization.html"><i class="fa fa-check"></i><b>60.1</b> 극한의 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.2" data-path="60-2-copula.html"><a href="60-2-copula.html"><i class="fa fa-check"></i><b>60.2</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="60.3" data-path="60-3-extreme-value-copula.html"><a href="60-3-extreme-value-copula.html"><i class="fa fa-check"></i><b>60.3</b> 극단값 코퓰라(extreme-value copula)</a></li>
+<li class="chapter" data-level="60.4" data-path="60-4-max-stable-distribution-with-unit-frechet-margin.html"><a href="60-4-max-stable-distribution-with-unit-frechet-margin.html"><i class="fa fa-check"></i><b>60.4</b> 단위 프례세 마진을 갖는 최대안정분포(max-stable distribution with unit Frechet margin)</a></li>
 </ul></li>
 <li class="chapter" data-level="61" data-path="61-spatextremes.html"><a href="61-spatextremes.html"><i class="fa fa-check"></i><b>61</b> 공간 극단값 이론과 최대안정과정</a><ul>
 <li class="chapter" data-level="61.1" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html"><i class="fa fa-check"></i><b>61.1</b> 최대안정과정(max-stable process)</a><ul>
@@ -741,7 +743,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><span class="math inline">\(\{ X_{t} \}\)</span>는 다음과 같은 <strong>자기공분산 함수(autocovariance function)</strong> <span class="math display">\[\gamma_{X}(r,s)=Cov(X_{r},X_{s})=E(X_{r}-EX_{r})(X_{s}-EX_{s}) \text{ is finite for any } r,s.\]</span> 를 갖는 랜덤 프로세스라고 하자. 여기서 staionary보다 조금 더 약한 <strong>약정상과정(weakly stationary process)</strong>에 대해 생각해보자.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-304" class="definition"><strong>Definition 27.1  </strong></span>다음과 같은 세 가지 조건</p>
+<p><span id="def:unnamed-chunk-307" class="definition"><strong>Definition 27.1  </strong></span>다음과 같은 세 가지 조건</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(E|X_{t}|^{2} &lt; \infty\)</span>.</p></li>
 <li><p><span class="math inline">\(EX_{t}=m\)</span>(constant), <span class="math inline">\(\forall t\)</span>.</p></li>
@@ -752,18 +754,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-305" class="example"><strong>Example 27.1  (백색 잡음 과정)  </strong></span>백색 잡음 과정 <span class="math inline">\(\{Z_{t}\}\)</span>는 <span class="math display">\[E(Z_{t})=0, \forall t,\]</span> <span class="math display">\[\gamma(h)=\sigma^{2}\delta_{h}=E(Z_{t+h},Z_{t})=\sigma^{2}I\{h=0\}\]</span> 이므로 정상 과정이다.</p>
+<p><span id="exm:unnamed-chunk-308" class="example"><strong>Example 27.1  (백색 잡음 과정)  </strong></span>백색 잡음 과정 <span class="math inline">\(\{Z_{t}\}\)</span>는 <span class="math display">\[E(Z_{t})=0, \forall t,\]</span> <span class="math display">\[\gamma(h)=\sigma^{2}\delta_{h}=E(Z_{t+h},Z_{t})=\sigma^{2}I\{h=0\}\]</span> 이므로 정상 과정이다.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-306" class="example"><strong>Example 27.2  (AR(1) 과정)  </strong></span>AR(1) 과정 <span class="math inline">\(\{X_{t}\}\)</span>는 <span class="math display">\[X_{t}-\phi X_{t-1}=Z_{t}, Z_{t} \sim WN(0,\sigma^{2}), \]</span> <span class="math display">\[\gamma(h)=\sigma^{2}\frac{\phi^{|h|}}{1-\phi}\]</span> 이므로 정상 과정이다.</p>
+<p><span id="exm:unnamed-chunk-309" class="example"><strong>Example 27.2  (AR(1) 과정)  </strong></span>AR(1) 과정 <span class="math inline">\(\{X_{t}\}\)</span>는 <span class="math display">\[X_{t}-\phi X_{t-1}=Z_{t}, Z_{t} \sim WN(0,\sigma^{2}), \]</span> <span class="math display">\[\gamma(h)=\sigma^{2}\frac{\phi^{|h|}}{1-\phi}\]</span> 이므로 정상 과정이다.</p>
 </div>
 
 <p>다시 상기하는 의미에서 <span class="math inline">\(X(t)\)</span>의 이산 웨이블릿 변환은 <span class="math inline">\(\{ d_{jk} \}=\int_{\mathbb{R}}X(t)\psi_{jk}(t)dt\)</span>이고, <span class="math display">\[E d_{jk}d_{j&#39;k&#39;}=\int \int_{\mathbb{R}^{2}}\gamma(t,s)\psi_{jk}(t)\psi_{j&#39;k&#39;}(s)dtds\]</span> 이다. 다음은 웨이블릿 변환과 정상성에 관련된 정리이다.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-307" class="theorem"><strong>Theorem 27.1  (약정상과정 관련 정리)  </strong></span><span class="math inline">\(X(t)\)</span>가 약한 정상 과정이고 <span class="math inline">\(\gamma(t,s)\)</span>가 <span class="math inline">\(\mathbb{R}^{2}\)</span>에서 유계(bounded)이고 연속이면, <span class="math inline">\(X(t)\)</span>가 약정상과정인 것과 <span class="math inline">\(\{ d_{jk} \}\)</span>가 약정상과정인 것은 동치이다(만약 <span class="math inline">\(\psi\)</span>가 compactly supported이면 당연히 유계이므로 유계 조건이 따로 필요 없다).</p>
+<p><span id="thm:unnamed-chunk-310" class="theorem"><strong>Theorem 27.1  (약정상과정 관련 정리)  </strong></span><span class="math inline">\(X(t)\)</span>가 약한 정상 과정이고 <span class="math inline">\(\gamma(t,s)\)</span>가 <span class="math inline">\(\mathbb{R}^{2}\)</span>에서 유계(bounded)이고 연속이면, <span class="math inline">\(X(t)\)</span>가 약정상과정인 것과 <span class="math inline">\(\{ d_{jk} \}\)</span>가 약정상과정인 것은 동치이다(만약 <span class="math inline">\(\psi\)</span>가 compactly supported이면 당연히 유계이므로 유계 조건이 따로 필요 없다).</p>
 </div>
 
 </div>

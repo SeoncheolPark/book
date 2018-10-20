@@ -193,7 +193,7 @@ $$F_{n}(x) \rightarrow H(x) = \frac{1}{2}$$
 
 ```
 
-```{example, name="모호수렴의 예(1)"}
+```{example, name="모호수렴의 예(2)"}
 $X_{n} \in U(-n,n),n\geq 1$이라고 하자. 그러면 분포함수는 다음과 같다.
 $$
 F_{X_{n}}(x)=
@@ -204,7 +204,7 @@ F_{X_{n}}(x)=
 \end{cases}
 $$
 그리고 이것은 모든 $x\in \mathbb{R}$에 대해 $n\rightarrow\infty$일 때 다음으로 수렴한다.
-$$H(x) \equiv \frac{1}{2}.$
+$$H(x) \equiv \frac{1}{2}.$$
 여기서도 또한 $H$는 부적절한 분포이다.
 
 ```

@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-09-28">
+<meta name="date" content="2018-10-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -698,8 +698,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="59.2" data-path="59-2-declustering-of-extremes.html"><a href="59-2-declustering-of-extremes.html"><i class="fa fa-check"></i><b>59.2</b> 디클러스터링(declustering of extremes)</a></li>
 </ul></li>
 <li class="chapter" data-level="60" data-path="60-mevtheory.html"><a href="60-mevtheory.html"><i class="fa fa-check"></i><b>60</b> 다변량 극단값 이론</a><ul>
-<li class="chapter" data-level="60.1" data-path="60-1-copula.html"><a href="60-1-copula.html"><i class="fa fa-check"></i><b>60.1</b> 코퓰라(copula)</a></li>
-<li class="chapter" data-level="60.2" data-path="60-2-limiting-standardization.html"><a href="60-2-limiting-standardization.html"><i class="fa fa-check"></i><b>60.2</b> 극단 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.1" data-path="60-1-limiting-standardization.html"><a href="60-1-limiting-standardization.html"><i class="fa fa-check"></i><b>60.1</b> 극한의 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.2" data-path="60-2-copula.html"><a href="60-2-copula.html"><i class="fa fa-check"></i><b>60.2</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="60.3" data-path="60-3-extreme-value-copula.html"><a href="60-3-extreme-value-copula.html"><i class="fa fa-check"></i><b>60.3</b> 극단값 코퓰라(extreme-value copula)</a></li>
+<li class="chapter" data-level="60.4" data-path="60-4-max-stable-distribution-with-unit-frechet-margin.html"><a href="60-4-max-stable-distribution-with-unit-frechet-margin.html"><i class="fa fa-check"></i><b>60.4</b> 단위 프례세 마진을 갖는 최대안정분포(max-stable distribution with unit Frechet margin)</a></li>
 </ul></li>
 <li class="chapter" data-level="61" data-path="61-spatextremes.html"><a href="61-spatextremes.html"><i class="fa fa-check"></i><b>61</b> 공간 극단값 이론과 최대안정과정</a><ul>
 <li class="chapter" data-level="61.1" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html"><i class="fa fa-check"></i><b>61.1</b> 최대안정과정(max-stable process)</a><ul>
@@ -779,7 +781,7 @@ d_{J-1,k}=\sum_{n}g_{n-2k}c_{J,n}
 <p>앞서 언급한 <a href="24-1-the-general-fast-dwt.html#eq:fatherj4">(23.4)</a>, <a href="24-1-the-general-fast-dwt.html#eq:motherj1">(23.5)</a>을 다른 방법으로 생각해 볼 수도 있다. 예를 들면, 우리는 <a href="24-1-the-general-fast-dwt.html#eq:fatherj4">(23.4)</a>와 같은 결과를 처음에 수열 <span class="math inline">\(\{c_{J,n}\}\)</span>에 대해 <span class="math inline">\(\{h_{n}\}\)</span>이라는 필터를 적용함으로써 <span class="math display">\[c_{J-1,k}^{*}=\sum_{n}h_{n-k}c_{J,n}\]</span> 이라는 결과를 얻을 수 있다는 것이다. 이는 일반적인 convolution 식이다. 여기서 ’every other one’을 pick해 <span class="math inline">\(c_{J-1,k}=c_{J-1,2k}^{*}\)</span>을 만드는 것이다. 이 연산을 <strong>이진 데시메이션(dyadic decimation)</strong>이라고 한다(by an integer factor of 2).</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-269" class="definition"><strong>Definition 23.2  (이진 데시메이션)  </strong></span><strong>(even dyddic decimation operator)</strong> 어떤 수열 <span class="math inline">\(x_{i}\)</span>에 대한 <strong>(even) 이진 데시메이션 연산자(dyadic decimation operator)</strong> <span class="math inline">\(\mathcal{D}_{0}\)</span>는 <span class="math display">\[(\mathcal{D}_{0}x)_{l}=x_{2l}\]</span> 로 정의한다.
+<span id="def:unnamed-chunk-272" class="definition"><strong>Definition 23.2  (이진 데시메이션)  </strong></span><strong>(even dyddic decimation operator)</strong> 어떤 수열 <span class="math inline">\(x_{i}\)</span>에 대한 <strong>(even) 이진 데시메이션 연산자(dyadic decimation operator)</strong> <span class="math inline">\(\mathcal{D}_{0}\)</span>는 <span class="math display">\[(\mathcal{D}_{0}x)_{l}=x_{2l}\]</span> 로 정의한다.
 </div>
 
 <p>그러면 식 <a href="24-1-the-general-fast-dwt.html#eq:fatherj4">(23.4)</a>와 <a href="24-1-the-general-fast-dwt.html#eq:motherj1">(23.5)</a>는 (even) 이진 데시메이션 연산자를 활용해 <span class="math display">\[c_{J-1}=\mathcal{D}_{0}\mathcal{H}c_{J} \text{ and } d_{J-1}=\mathcal{D}_{0}\mathcal{G}c_{J}\]</span> 로 나타낼 수 있다. 이 때 <span class="math inline">\(\mathcal{H}\)</span>와 <span class="math inline">\(\mathcal{G}\)</span>는 <strong>정규 필터링 연산(regular filtering operation)</strong>을 나타낸다. 이러한 연산자의 사용은 식의 표현을 좀 더 효율적으로 만든다.</p>
