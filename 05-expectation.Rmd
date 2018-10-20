@@ -3,10 +3,12 @@
 ## 리만적분(Riemann integral)
 
 구간 $[a,b]$에서 함수 $f(x)$의 **리만적분(Riemann integral)**은 부분합의 극한으로 정의된다. 우리는 구간 $[a,b]$를 $a=x_{0}<x_{1}<\ldots <x_{n} =b$로 나무어 다음과 같은 합을 만들 수 있다.
+
 \begin{equation}
 \sum_{i=1}^{n}f(\xi_{i})\Delta x_{i}.
  (\#eq:Riemannintegral)
 \end{equation}
+
 이 때  $\xi_{i}$는 $i$번째 구간 $[x_{i-1},x_{i})$에 있는 점이며 $\Delta x_{i}=x_{i}-x_{i-1}$이다. $\xi_{i}$와 $\Delta x_{i}$는 $n$과도 관련이 있음을 알아두자. 그러나 표기의 간편성을 위해 생략하기로 한다. 그러면 $\xi_{i}$를 어떻게 선택하는지와 상관없이 $n\rightarrow\infty$이고 $\max_{1\leq i \leq n}\Delta x_{i} \rightarrow 0$일 때 $f$를 **리만적분 가능(Riemann integrable)**하다고 말한다.
 
 리만적분성은 $f$가 꽤 regular함을 요구한다. $x$가 유리수일 때 0, 아닐때 1을 갖는 함수 $f(x)$가 있다고 하자. 그러면 식 \@ref(eq:Riemannintegral)의 극한 $\int_{0}^{1}f(x)dx$는 중간값을 어떻게 고르냐에 따라 값이 달라지므로 리만적분 가능하지 않다. 모든 $i$에 대해 $\xi_{i}$를 유리수로 고르면 극한의 0이되나, 반대로 모든 $i$에 대해 무리수로 $\xi_{i}$를 잡을 경우 극한은 1이 된다. 그리고 $xi_{i}$를 유리수와 무리수를 섞어 잡을 경우 극한은 존재하지 않게 된다.
@@ -14,20 +16,22 @@
 ## 르베그 적분(Lebesgue integral)
 
 적분을 정의하는 또 다른 방법으로 $x$축대신 $y$축을 등간격으로 잘라 부분학의 극한을 구하는 방법이 있다.
+
 \begin{equation}
 \sum_{i=1}^{\infty}y_{i}\mu\{ f^{-1}(A_{i}) \}.
  (\#eq:Lebesgueintegral)
 \end{equation}
+
 이 때 $y_{i}$는 $i$번째 $y$구간에서의 점을 나타내며 $\mu$는 **르베그 측도(Lebesgue measure)**가 된다. 즉, 각각의 $y$ 구간에 대해 우리는 중간값 $y_{i}$를 취하며 $A_{i}$에 대한 $f$의 역상 $f^{-1}(A_{i})$의 르베그 측도로 곱한다. 아래 그림에서는 $f^{-1}(A_{i}) = [a,b]\cup [c,d]$이다. 그리고 이에 대응되는 르베그 측도는 $\mu\{f^{-1}(A_{i}) \}= (d-c) + (b-a)$이다. 결국 해당 부분의 부분합은 $y_{i} \times \{ (d-c) + (b-a)\}$인 것이다. 이런 방식의 적분을 **르베그 적분(Lebesgue integral)**이라고 부른다.
 
 ```{r, echo=F, fig.cap='가로선은 y를 등간격으로 잘라낸 구간 A를 의미한다. 그러면 A의 inverse image of f는 [a,b]와 [c,d]의 합집합에 대응된다.', fig.align='center'}
-knitr::include_graphics("math_Lebesgue.png")
+knitr::include_graphics("images/math_Lebesgue.png")
 ```
 
 $x$축 대신 $y$축을 분할하는 것의 장점은 $f$가 $x$에 대해 더이상 잘 행동하는 함수일 필요가 없다는 것이다. 다시 앞서 리만 적분에서 등장한 적분 문제를 생각해보자. $A_{i}$와 $A_{j}$를 각각 $y=0$, $y=1$에 대응되는 구간이라고 한다면 앞서 적분 식 \@ref(eq:Lebesgueintegral)은 $y_{i}\mu\{ f^{-1}(A_{i}) \} + y_{j}\mu\{ f^{-1}(A_{j}) \}$가 된다. 이 때 $y_{i}$, $y_{j}$는 $A_{i}$, $A_{j}$의 중간값에 해당된다. $f^{-1}(A_{i})$과 $f^{-1}(A_{j})$는 각각 $[0,1]$에서 유리수와 무리수의 집합에 대응되며 그들의 르베그 적분은 각각 0과 1이다. 따라서 최종 르베그 적분값 $\int_{0}^{1}f(x)dx$는 존재하며 1이다.
 
 ```{r, echo=F, fig.cap='x가 무리수와 유리수일 때 1, 0을 주는 함수의 적분을 생각해보자. 르베그 적분의 방법으로 y축을 분할하면 충분히 작은 구간에서 함수값이 0인 경우와 1인 경우를 분리시킬 수 있다. 그 다음에는 구간 [0,1] 사이에서의 무리수들의 집합의 르베그 측도(1)와 유리수들의 집합의 르베그 측도(0)을 재면 된다.', fig.align='center'}
-knitr::include_graphics("math_irrationalintegral.png")
+knitr::include_graphics("image/math_irrationalintegral.png")
 ```
 
 이것을 더 확장하여 선으로 정의된 공간이 아닌 임의의 공간 $\Omega$에서 정의된 르베그 측도뿐 아니라 임의의 측도 $\mu$에 대해서 $f$의 적분 또한 정의할 수 있다. 만약 $\mu$가 확률공간 $\Omega$에서 정의된 측도라고 한다면, 우리는 적분을 다음과 같이 정의할 수 있다.

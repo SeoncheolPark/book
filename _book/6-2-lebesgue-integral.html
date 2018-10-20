@@ -740,21 +740,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="-lebesgue-integral" class="section level2">
 <h2><span class="header-section-number">6.2</span> 르베그 적분(Lebesgue integral)</h2>
-적분을 정의하는 또 다른 방법으로 <span class="math inline">\(x\)</span>축대신 <span class="math inline">\(y\)</span>축을 등간격으로 잘라 부분학의 극한을 구하는 방법이 있다.
+<p>적분을 정의하는 또 다른 방법으로 <span class="math inline">\(x\)</span>축대신 <span class="math inline">\(y\)</span>축을 등간격으로 잘라 부분학의 극한을 구하는 방법이 있다.</p>
 <span class="math display" id="eq:Lebesgueintegral">\[\begin{equation}
 \sum_{i=1}^{\infty}y_{i}\mu\{ f^{-1}(A_{i}) \}.
  \tag{5.2}
 \end{equation}\]</span>
 <p>이 때 <span class="math inline">\(y_{i}\)</span>는 <span class="math inline">\(i\)</span>번째 <span class="math inline">\(y\)</span>구간에서의 점을 나타내며 <span class="math inline">\(\mu\)</span>는 <strong>르베그 측도(Lebesgue measure)</strong>가 된다. 즉, 각각의 <span class="math inline">\(y\)</span> 구간에 대해 우리는 중간값 <span class="math inline">\(y_{i}\)</span>를 취하며 <span class="math inline">\(A_{i}\)</span>에 대한 <span class="math inline">\(f\)</span>의 역상 <span class="math inline">\(f^{-1}(A_{i})\)</span>의 르베그 측도로 곱한다. 아래 그림에서는 <span class="math inline">\(f^{-1}(A_{i}) = [a,b]\cup [c,d]\)</span>이다. 그리고 이에 대응되는 르베그 측도는 <span class="math inline">\(\mu\{f^{-1}(A_{i}) \}= (d-c) + (b-a)\)</span>이다. 결국 해당 부분의 부분합은 <span class="math inline">\(y_{i} \times \{ (d-c) + (b-a)\}\)</span>인 것이다. 이런 방식의 적분을 <strong>르베그 적분(Lebesgue integral)</strong>이라고 부른다.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-99"></span>
-<img src="math_Lebesgue.png" alt="가로선은 y를 등간격으로 잘라낸 구간 A를 의미한다. 그러면 A의 inverse image of f는 [a,b]와 [c,d]의 합집합에 대응된다."  />
+<img src="images/math_Lebesgue.png" alt="가로선은 y를 등간격으로 잘라낸 구간 A를 의미한다. 그러면 A의 inverse image of f는 [a,b]와 [c,d]의 합집합에 대응된다." width="721" />
 <p class="caption">
 FIGURE 5.2: 가로선은 y를 등간격으로 잘라낸 구간 A를 의미한다. 그러면 A의 inverse image of f는 [a,b]와 [c,d]의 합집합에 대응된다.
 </p>
 </div>
 <p><span class="math inline">\(x\)</span>축 대신 <span class="math inline">\(y\)</span>축을 분할하는 것의 장점은 <span class="math inline">\(f\)</span>가 <span class="math inline">\(x\)</span>에 대해 더이상 잘 행동하는 함수일 필요가 없다는 것이다. 다시 앞서 리만 적분에서 등장한 적분 문제를 생각해보자. <span class="math inline">\(A_{i}\)</span>와 <span class="math inline">\(A_{j}\)</span>를 각각 <span class="math inline">\(y=0\)</span>, <span class="math inline">\(y=1\)</span>에 대응되는 구간이라고 한다면 앞서 적분 식 <a href="6-2-lebesgue-integral.html#eq:Lebesgueintegral">(5.2)</a>은 <span class="math inline">\(y_{i}\mu\{ f^{-1}(A_{i}) \} + y_{j}\mu\{ f^{-1}(A_{j}) \}\)</span>가 된다. 이 때 <span class="math inline">\(y_{i}\)</span>, <span class="math inline">\(y_{j}\)</span>는 <span class="math inline">\(A_{i}\)</span>, <span class="math inline">\(A_{j}\)</span>의 중간값에 해당된다. <span class="math inline">\(f^{-1}(A_{i})\)</span>과 <span class="math inline">\(f^{-1}(A_{j})\)</span>는 각각 <span class="math inline">\([0,1]\)</span>에서 유리수와 무리수의 집합에 대응되며 그들의 르베그 적분은 각각 0과 1이다. 따라서 최종 르베그 적분값 <span class="math inline">\(\int_{0}^{1}f(x)dx\)</span>는 존재하며 1이다.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-100"></span>
-<img src="math_irrationalintegral.png" alt="x가 무리수와 유리수일 때 1, 0을 주는 함수의 적분을 생각해보자. 르베그 적분의 방법으로 y축을 분할하면 충분히 작은 구간에서 함수값이 0인 경우와 1인 경우를 분리시킬 수 있다. 그 다음에는 구간 [0,1] 사이에서의 무리수들의 집합의 르베그 측도(1)와 유리수들의 집합의 르베그 측도(0)을 재면 된다."  />
+<img src="image/math_irrationalintegral.png" alt="x가 무리수와 유리수일 때 1, 0을 주는 함수의 적분을 생각해보자. 르베그 적분의 방법으로 y축을 분할하면 충분히 작은 구간에서 함수값이 0인 경우와 1인 경우를 분리시킬 수 있다. 그 다음에는 구간 [0,1] 사이에서의 무리수들의 집합의 르베그 측도(1)와 유리수들의 집합의 르베그 측도(0)을 재면 된다."  />
 <p class="caption">
 FIGURE 5.3: x가 무리수와 유리수일 때 1, 0을 주는 함수의 적분을 생각해보자. 르베그 적분의 방법으로 y축을 분할하면 충분히 작은 구간에서 함수값이 0인 경우와 1인 경우를 분리시킬 수 있다. 그 다음에는 구간 [0,1] 사이에서의 무리수들의 집합의 르베그 측도(1)와 유리수들의 집합의 르베그 측도(0)을 재면 된다.
 </p>
