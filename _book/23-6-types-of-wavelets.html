@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-10-20">
+<meta name="date" content="2018-11-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -229,11 +229,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.5.6" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#--nonhomogeneous-poisson-process"><i class="fa fa-check"></i><b>9.5.6</b> 비동질적 포아송 과정(nonhomogeneous Poisson process)</a></li>
 <li class="chapter" data-level="9.5.7" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#---theory-of-spatial-poisson-process"><i class="fa fa-check"></i><b>9.5.7</b> 공간 포아송 과정 이론(theory of spatial Poisson process)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="9-6-self-similar-process.html"><a href="9-6-self-similar-process.html"><i class="fa fa-check"></i><b>9.6</b> 자기유사과정(self-similar process)</a></li>
-<li class="chapter" data-level="9.7" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html"><i class="fa fa-check"></i><b>9.7</b> 브라운운동(Brownian motion)</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.7.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+<li class="chapter" data-level="9.6" data-path="9-6-infinitely-divisible-distribution.html"><a href="9-6-infinitely-divisible-distribution.html"><i class="fa fa-check"></i><b>9.6</b> 무한분해가능 분포(infinitely divisible distribution)</a></li>
+<li class="chapter" data-level="9.7" data-path="9-7-self-similar-process.html"><a href="9-7-self-similar-process.html"><i class="fa fa-check"></i><b>9.7</b> 자기유사과정(self-similar process)</a></li>
+<li class="chapter" data-level="9.8" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html"><i class="fa fa-check"></i><b>9.8</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.8.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="9-8-martingale.html"><a href="9-8-martingale.html"><i class="fa fa-check"></i><b>9.8</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="9.9" data-path="9-9-martingale.html"><a href="9-9-martingale.html"><i class="fa fa-check"></i><b>9.9</b> 마팅게일(martingale)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-bigOsmallo.html"><a href="10-bigOsmallo.html"><i class="fa fa-check"></i><b>10</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="10.1" data-path="10-1-big-o-small-o-big-o-and-small-o.html"><a href="10-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>10.1</b> Big O와 small o (big O and small o)</a></li>
@@ -752,7 +753,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><span class="math inline">\(x\)</span>를 <strong>물리적 영역(physical domain)</strong> 또는 <strong>시간 영역(time domain, t)</strong>이라 생각하면, 시간에 대해 컴팩트 받침(compactly supported)인 함수이다. 우리의 궁금점은 이 함수과 과연 <strong>주파수 영역(frequency domain)</strong>에서도 컴팩트 받침인가이다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-270" class="definition"><strong>Definition 23.1  (유니터리 푸리에 변환)  </strong></span> 주어진 함수의 <strong>각진동수(angular frequency)를 이용한 유니터리 푸리에 변환(Fourier transform with unitary and angular frequency)</strong>은 다음과 같다. <span class="math display">\[\hat{f}(\omega)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(x)e^{-i\omega x}dx\]</span></p>
+<p><span id="def:unnamed-chunk-271" class="definition"><strong>Definition 23.1  (유니터리 푸리에 변환)  </strong></span> 주어진 함수의 <strong>각진동수(angular frequency)를 이용한 유니터리 푸리에 변환(Fourier transform with unitary and angular frequency)</strong>은 다음과 같다. <span class="math display">\[\hat{f}(\omega)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(x)e^{-i\omega x}dx\]</span></p>
 <p>여기서 <span class="math inline">\(\frac{1}{\sqrt{2\pi}}\)</span>는 이 변환을 유니터리 푸리에 변환으로 만들기 위해 곱해지는 상수이다. 유니터리 변환과 푸리에 변환에 대한 보다 자세한 나용은 인터넷을 참조하기 바란다.</p>
 </div>
 
@@ -764,7 +765,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 \end{cases}
 \]</span></p>
 <p>이다. <span class="math inline">\(\hat{\phi}(\omega)\)</span>는 <span class="math inline">\(| \omega |^{-1}\)</span>만큼의 감쇠(decay)를 가지며 꼬리가 굉장히 긴 함수이다. 즉 주파수 영역에서 이 함수는 컴팩트 받침과 거리가 먼 함수가 된다. 시간 영역과 주파수 영역 사이에 불확정성 원리(uncertainty principle)이 있다는 것은 알려진 사실이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-271"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-272"></span>
 <img src="images/multiscale_008.png" alt="Haar function (left) and Haar function in frequency domain after Fourier transform (right)." width="250" />
 <p class="caption">
 FIGURE 23.5: Haar function (left) and Haar function in frequency domain after Fourier transform (right).

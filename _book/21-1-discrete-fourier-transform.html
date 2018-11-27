@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-10-20">
+<meta name="date" content="2018-11-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -229,11 +229,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.5.6" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#--nonhomogeneous-poisson-process"><i class="fa fa-check"></i><b>9.5.6</b> 비동질적 포아송 과정(nonhomogeneous Poisson process)</a></li>
 <li class="chapter" data-level="9.5.7" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#---theory-of-spatial-poisson-process"><i class="fa fa-check"></i><b>9.5.7</b> 공간 포아송 과정 이론(theory of spatial Poisson process)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="9-6-self-similar-process.html"><a href="9-6-self-similar-process.html"><i class="fa fa-check"></i><b>9.6</b> 자기유사과정(self-similar process)</a></li>
-<li class="chapter" data-level="9.7" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html"><i class="fa fa-check"></i><b>9.7</b> 브라운운동(Brownian motion)</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.7.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+<li class="chapter" data-level="9.6" data-path="9-6-infinitely-divisible-distribution.html"><a href="9-6-infinitely-divisible-distribution.html"><i class="fa fa-check"></i><b>9.6</b> 무한분해가능 분포(infinitely divisible distribution)</a></li>
+<li class="chapter" data-level="9.7" data-path="9-7-self-similar-process.html"><a href="9-7-self-similar-process.html"><i class="fa fa-check"></i><b>9.7</b> 자기유사과정(self-similar process)</a></li>
+<li class="chapter" data-level="9.8" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html"><i class="fa fa-check"></i><b>9.8</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.8.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="9-8-martingale.html"><a href="9-8-martingale.html"><i class="fa fa-check"></i><b>9.8</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="9.9" data-path="9-9-martingale.html"><a href="9-9-martingale.html"><i class="fa fa-check"></i><b>9.9</b> 마팅게일(martingale)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-bigOsmallo.html"><a href="10-bigOsmallo.html"><i class="fa fa-check"></i><b>10</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="10.1" data-path="10-1-big-o-small-o-big-o-and-small-o.html"><a href="10-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>10.1</b> Big O와 small o (big O and small o)</a></li>
@@ -742,19 +743,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">21.1</span> 이산 푸리에변환(discrete Fourier transform)</h2>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-238" class="definition"><strong>Definition 21.1  (L2)  </strong></span>어떤 함수 <span class="math inline">\(f\)</span>가 <span class="math inline">\(L^{2}[a,b]\)</span>에 속한다는 것은 <span class="math display">\[\int_{a}^{b}f^{2}(x)dx &lt;\infty\]</span> 를 만족할 때이다.</p>
+<p><span id="def:unnamed-chunk-239" class="definition"><strong>Definition 21.1  (L2)  </strong></span>어떤 함수 <span class="math inline">\(f\)</span>가 <span class="math inline">\(L^{2}[a,b]\)</span>에 속한다는 것은 <span class="math display">\[\int_{a}^{b}f^{2}(x)dx &lt;\infty\]</span> 를 만족할 때이다.</p>
 </div>
 
 <p>푸리에 급수는 푸리에 변환의 inversion formula이다. <span class="citation">(Jiang <a href="#ref-Jiang2010">2010</a>)</span> 푸리에 변환은 <span class="math inline">\(f\in L^{2}[-\pi, \pi]\)</span>인 어떤 함수 <span class="math inline">\(f\)</span>는 다음과 같이 지수함수로 표현할 수 있다는 것이다. <span class="math display">\[\hat{f}(k)=\frac{1}{2\pi}\int_{-\pi}^{\pi}f(x)e^{-ikx}dx,\]</span> 이 때 <span class="math inline">\(k=0,\pm 1, \pm 2\)</span> 등이고 <span class="math inline">\(i=\sqrt{-1}\)</span>이다. <span class="math inline">\(f\)</span>는 적분가능한 함수이다. 푸리에 변환이 주어지면 푸리에 급수로 <span class="math inline">\(f\)</span>를 복원할 수 있다. <span class="math display">\[f(x)=\sum_{k=-\infty}^{\infty}\hat{f}(k)e^{ikx}=\sum_{k=-N}^{N}\hat{f}(k)e^{ikx}+o(1),\]</span> 이때 <span class="math inline">\(N\)</span>은 양의 정수이고 remaining term은 <span class="math inline">\(N\rightarrow\infty\)</span>일 때 <span class="math inline">\(o(1)\)</span>이다.</p>
 <p>같은 방법으로 사인함수와 코사인함수의 무합급수로 표현할 수 있다는 것이다. <span class="math display">\[f(x)=\frac{1}{2}a_{0}+\sum_{j=1}^{\infty}(a_{j}\cos (jx) + b_{j}\sin (jx)),\]</span> 여기서 <span class="math inline">\(\{ a_{0}, a_{1}, b_{1}, \ldots \}\)</span>들은 계수다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-239" class="definition"><strong>Definition 21.2  (직교)  </strong></span>두 함수 <span class="math inline">\(f_{1},f_{2}\in L^{2}[a,b]\)</span>는 <span class="math inline">\(&lt;f_{1},f_{2}=0\)</span>일 때 <strong>직교(orthogonal)</strong>라고 부른다.</p>
+<p><span id="def:unnamed-chunk-240" class="definition"><strong>Definition 21.2  (직교)  </strong></span>두 함수 <span class="math inline">\(f_{1},f_{2}\in L^{2}[a,b]\)</span>는 <span class="math inline">\(&lt;f_{1},f_{2}=0\)</span>일 때 <strong>직교(orthogonal)</strong>라고 부른다.</p>
 </div>
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-240" class="definition"><strong>Definition 21.3  (직교정규)  </strong></span>함수들의 수열 <span class="math inline">\(\{ f_{j} \}\)</span>는 모든 <span class="math inline">\(f_{j}\)</span>들이 짝지은 직교(pairwise orthogonal)이며 <span class="math inline">\(\| f_{j}\|=1\)</span>일 때 <strong>직교정규(orthonormal)</strong>이라고 한다.</p>
+<p><span id="def:unnamed-chunk-241" class="definition"><strong>Definition 21.3  (직교정규)  </strong></span>함수들의 수열 <span class="math inline">\(\{ f_{j} \}\)</span>는 모든 <span class="math inline">\(f_{j}\)</span>들이 짝지은 직교(pairwise orthogonal)이며 <span class="math inline">\(\| f_{j}\|=1\)</span>일 때 <strong>직교정규(orthonormal)</strong>이라고 한다.</p>
 </div>
 
 </div>

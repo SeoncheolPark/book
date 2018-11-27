@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-10-20">
+<meta name="date" content="2018-11-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -229,11 +229,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.5.6" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#--nonhomogeneous-poisson-process"><i class="fa fa-check"></i><b>9.5.6</b> 비동질적 포아송 과정(nonhomogeneous Poisson process)</a></li>
 <li class="chapter" data-level="9.5.7" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#---theory-of-spatial-poisson-process"><i class="fa fa-check"></i><b>9.5.7</b> 공간 포아송 과정 이론(theory of spatial Poisson process)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="9-6-self-similar-process.html"><a href="9-6-self-similar-process.html"><i class="fa fa-check"></i><b>9.6</b> 자기유사과정(self-similar process)</a></li>
-<li class="chapter" data-level="9.7" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html"><i class="fa fa-check"></i><b>9.7</b> 브라운운동(Brownian motion)</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.7.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+<li class="chapter" data-level="9.6" data-path="9-6-infinitely-divisible-distribution.html"><a href="9-6-infinitely-divisible-distribution.html"><i class="fa fa-check"></i><b>9.6</b> 무한분해가능 분포(infinitely divisible distribution)</a></li>
+<li class="chapter" data-level="9.7" data-path="9-7-self-similar-process.html"><a href="9-7-self-similar-process.html"><i class="fa fa-check"></i><b>9.7</b> 자기유사과정(self-similar process)</a></li>
+<li class="chapter" data-level="9.8" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html"><i class="fa fa-check"></i><b>9.8</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.8.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="9-8-martingale.html"><a href="9-8-martingale.html"><i class="fa fa-check"></i><b>9.8</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="9.9" data-path="9-9-martingale.html"><a href="9-9-martingale.html"><i class="fa fa-check"></i><b>9.9</b> 마팅게일(martingale)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-bigOsmallo.html"><a href="10-bigOsmallo.html"><i class="fa fa-check"></i><b>10</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="10.1" data-path="10-1-big-o-small-o-big-o-and-small-o.html"><a href="10-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>10.1</b> Big O와 small o (big O and small o)</a></li>
@@ -757,7 +758,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>마지막으로 <span class="math inline">\(X\)</span>의 분포함수 <span class="math inline">\(P_{X}\)</span>는 <span class="math display">\[P_{X}(F)=P(\{ \omega \in l : X(\omega) \in \mathcal{F}\}) \qquad{\text{where } \mathcal{F} \in \mathcal{N}_{lf}}\]</span> 이다.</p>
 
 <div class="corollary">
-<p><span id="cor:unnamed-chunk-380" class="corollary"><strong>Corollary 53.1  </strong></span>1. <span class="math inline">\(X\)</span>의 가측성(measurability) <span class="math inline">\(\Longleftrightarrow\)</span> <span class="math inline">\(N(B)\)</span>가 모든 <span class="math inline">\(B\in\mathcal{B}_{0}\)</span>에서 확률변수 인 것(확률론에 의해 <span class="math inline">\(\mathcal{B}_{0}\)</span>을 <span class="math inline">\(\mathcal{B}\)</span>로 확장할 수 있다)</p>
+<p><span id="cor:unnamed-chunk-381" class="corollary"><strong>Corollary 53.1  </strong></span>1. <span class="math inline">\(X\)</span>의 가측성(measurability) <span class="math inline">\(\Longleftrightarrow\)</span> <span class="math inline">\(N(B)\)</span>가 모든 <span class="math inline">\(B\in\mathcal{B}_{0}\)</span>에서 확률변수 인 것(확률론에 의해 <span class="math inline">\(\mathcal{B}_{0}\)</span>을 <span class="math inline">\(\mathcal{B}\)</span>로 확장할 수 있다)</p>
 <ol start="2" style="list-style-type: decimal">
 <li><p><span class="math inline">\(X\)</span>의 분포는 <strong>가산함수(count function)들의 유한한 분포</strong> <span class="math inline">\((N(B_{1}), \ldots , N(B_{m}))\)</span>로 결정된다. 즉 가산함수들만 잘 알면 <span class="math inline">\(X\)</span>의 정보를 모두 알 수 있다.</p></li>
 <li><p><span class="math inline">\(\mathcal{N}_{lf}^{0}\equiv\{ \{ x\in N_{lf}, n(x_{B})=0 \} ; B \in \mathcal{B}_{0}\}\)</span></p></li>

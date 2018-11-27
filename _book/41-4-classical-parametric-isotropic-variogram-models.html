@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-10-20">
+<meta name="date" content="2018-11-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -229,11 +229,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.5.6" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#--nonhomogeneous-poisson-process"><i class="fa fa-check"></i><b>9.5.6</b> 비동질적 포아송 과정(nonhomogeneous Poisson process)</a></li>
 <li class="chapter" data-level="9.5.7" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#---theory-of-spatial-poisson-process"><i class="fa fa-check"></i><b>9.5.7</b> 공간 포아송 과정 이론(theory of spatial Poisson process)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="9-6-self-similar-process.html"><a href="9-6-self-similar-process.html"><i class="fa fa-check"></i><b>9.6</b> 자기유사과정(self-similar process)</a></li>
-<li class="chapter" data-level="9.7" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html"><i class="fa fa-check"></i><b>9.7</b> 브라운운동(Brownian motion)</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.7.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+<li class="chapter" data-level="9.6" data-path="9-6-infinitely-divisible-distribution.html"><a href="9-6-infinitely-divisible-distribution.html"><i class="fa fa-check"></i><b>9.6</b> 무한분해가능 분포(infinitely divisible distribution)</a></li>
+<li class="chapter" data-level="9.7" data-path="9-7-self-similar-process.html"><a href="9-7-self-similar-process.html"><i class="fa fa-check"></i><b>9.7</b> 자기유사과정(self-similar process)</a></li>
+<li class="chapter" data-level="9.8" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html"><i class="fa fa-check"></i><b>9.8</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.8.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="9-8-martingale.html"><a href="9-8-martingale.html"><i class="fa fa-check"></i><b>9.8</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="9.9" data-path="9-9-martingale.html"><a href="9-9-martingale.html"><i class="fa fa-check"></i><b>9.9</b> 마팅게일(martingale)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-bigOsmallo.html"><a href="10-bigOsmallo.html"><i class="fa fa-check"></i><b>10</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="10.1" data-path="10-1-big-o-small-o-big-o-and-small-o.html"><a href="10-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>10.1</b> Big O와 small o (big O and small o)</a></li>
@@ -771,8 +772,8 @@ c_{0}+c_{1}(1-e^{-\frac{\|\mathbf{h}\|}{R}}) &amp; \textrm{if $\mathbf{h}\neq 0$
 \end{array} \right.
 \]</span> 이것은 평균제곱연속이나 평균제곱 미분 가능하지는 않다고 한다. 그리고 다른 애들보다 독립적인 편이라고(공분산이 약함) 한다. 특히 뒤에 나오는 가우스 변동도(Gaussian variogram)와 비교했을 때 덜 부드럽다.</p>
 R 패키지 <code>SpatialExtremes</code>를 통해 공분산함수를 출력해 볼 수 있다. 여기서 <span class="math inline">\(c_{1}\)</span>은 <code>sill</code>, <span class="math inline">\(R\)</span>은 <code>range</code>로 조절할 수 있다.
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-356"></span>
-<img src="book_files/figure-html/unnamed-chunk-356-1.svg" alt="sill이 1일 때의 exponential covariance function." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-357"></span>
+<img src="book_files/figure-html/unnamed-chunk-357-1.svg" alt="sill이 1일 때의 exponential covariance function." width="672" />
 <p class="caption">
 FIGURE 41.2: sill이 1일 때의 exponential covariance function.
 </p>
@@ -787,8 +788,8 @@ c_{0}+c_{1}(1-e^{-(\frac{\|\mathbf{h}\|}{R})^{2}}) &amp; \textrm{if $\mathbf{h}\
 \end{array} \right.
 \]</span></p>
 가우스분포랑은 관련이 없으며 2차항이 있기 때문에 이러한 이름이 붙은 것이다. 이것은 무한번 평균제곱 미분 가능(infinitely mean-square differentiable)하다. 그렇다는 얘기는 엄청 부드러운 데이터 모델링 시 사용할 수 있다는 것이다. 그러나 이런 경우는 드물므로 많이 보기는 힘들다.
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-357"></span>
-<img src="book_files/figure-html/unnamed-chunk-357-1.svg" alt="sill이 1일 때의 Gaussian covariance function." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-358"></span>
+<img src="book_files/figure-html/unnamed-chunk-358-1.svg" alt="sill이 1일 때의 Gaussian covariance function." width="672" />
 <p class="caption">
 FIGURE 41.3: sill이 1일 때의 Gaussian covariance function.
 </p>
@@ -836,8 +837,8 @@ c_{0}+c_{1}\| \mathbf{h}\|^{\lambda} &amp; \textrm{if $\mathbf{h}\neq 0$, $0\leq
 <p>(변동도가 복잡하므로 공분산 형태로 썼다)</p>
 <p><span class="math display">\[C(\mathbf{h})=\sigma^{2}\frac{2^{1-\alpha}}{\Gamma(\alpha)}(\frac{\|\mathbf{h}\|}{\phi})^{\alpha}K_{\alpha}(\frac{\|\mathbf{h}\|}{\phi})\]</span></p>
 <p>참고로 <span class="math display">\[\lim_{\mathbf{h} \rightarrow 0}C(\mathbf{h}) = \sigma^{2}\]</span> 이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-358"></span>
-<img src="book_files/figure-html/unnamed-chunk-358-1.svg" alt="sigma와 alpha가 1일 때 Matern covariance function." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-359"></span>
+<img src="book_files/figure-html/unnamed-chunk-359-1.svg" alt="sigma와 alpha가 1일 때 Matern covariance function." width="672" />
 <p class="caption">
 FIGURE 41.4: sigma와 alpha가 1일 때 Matern covariance function.
 </p>
@@ -847,7 +848,7 @@ FIGURE 41.4: sigma와 alpha가 1일 때 Matern covariance function.
 <p><span class="math inline">\(\alpha\)</span>가 half-integer인 경우 explicit form이 있다고 한다.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-359" class="example"><strong>Example 41.1  (Matern 공분산 함수의 예.)  </strong></span><span class="math inline">\(\phi=1\)</span>일 때 <span class="math display">\[
+<span id="exm:unnamed-chunk-360" class="example"><strong>Example 41.1  (Matern 공분산 함수의 예.)  </strong></span><span class="math inline">\(\phi=1\)</span>일 때 <span class="math display">\[
 \begin{array}{ll}
 \alpha=0.5: &amp; e^{-\|\mathbf{h}\|}\\
 \alpha=1.5: &amp; (1+\|\mathbf{h}\|)e^{-\|\mathbf{h}\|}\\

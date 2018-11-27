@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-10-20">
+<meta name="date" content="2018-11-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -229,11 +229,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.5.6" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#--nonhomogeneous-poisson-process"><i class="fa fa-check"></i><b>9.5.6</b> 비동질적 포아송 과정(nonhomogeneous Poisson process)</a></li>
 <li class="chapter" data-level="9.5.7" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#---theory-of-spatial-poisson-process"><i class="fa fa-check"></i><b>9.5.7</b> 공간 포아송 과정 이론(theory of spatial Poisson process)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="9-6-self-similar-process.html"><a href="9-6-self-similar-process.html"><i class="fa fa-check"></i><b>9.6</b> 자기유사과정(self-similar process)</a></li>
-<li class="chapter" data-level="9.7" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html"><i class="fa fa-check"></i><b>9.7</b> 브라운운동(Brownian motion)</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.7.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+<li class="chapter" data-level="9.6" data-path="9-6-infinitely-divisible-distribution.html"><a href="9-6-infinitely-divisible-distribution.html"><i class="fa fa-check"></i><b>9.6</b> 무한분해가능 분포(infinitely divisible distribution)</a></li>
+<li class="chapter" data-level="9.7" data-path="9-7-self-similar-process.html"><a href="9-7-self-similar-process.html"><i class="fa fa-check"></i><b>9.7</b> 자기유사과정(self-similar process)</a></li>
+<li class="chapter" data-level="9.8" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html"><i class="fa fa-check"></i><b>9.8</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.8.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="9-8-martingale.html"><a href="9-8-martingale.html"><i class="fa fa-check"></i><b>9.8</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="9.9" data-path="9-9-martingale.html"><a href="9-9-martingale.html"><i class="fa fa-check"></i><b>9.9</b> 마팅게일(martingale)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-bigOsmallo.html"><a href="10-bigOsmallo.html"><i class="fa fa-check"></i><b>10</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="10.1" data-path="10-1-big-o-small-o-big-o-and-small-o.html"><a href="10-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>10.1</b> Big O와 small o (big O and small o)</a></li>
@@ -743,17 +744,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><span class="math inline">\(|v|\)</span>를 벡터의 유클리드 노름으로, 즉 <span class="math inline">\(|v|=\sqrt{\sum_{j=1}^{k}v_{j}^{2}}\)</span>이라고 하자. 또한 행렬의 노름도 생각해보자. 여기서는 <strong>스펙트럴 노름(spectral norm)</strong> <span class="math inline">\(\|A\|=\{ \lambda_{\text{max}}(A^{T}A)\}^{1/2}\)</span>와 <strong>2-노름(2-norm)</strong> <span class="math inline">\(\|A\|_{2}=\{ \text{tr}(A^{T}A) \}^{1/2}\)</span>를 생각한다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-173" class="definition"><strong>Definition 10.3  (벡터에서의 big O와 small o)  </strong></span><span class="math inline">\(a_{n},n=1,2,\ldots\)</span>를 양수들의 수열이라고 하자. <span class="math inline">\(v_{n},n=1,2,\ldots\)</span>를 벡터들의 수열이라고 하자. 그러면 <span class="math inline">\(|v_{n}|/a_{n}\)</span>이 유계인 경우 <span class="math inline">\(v_{n}=O(a_{n})\)</span>이라고 한다. 그리고 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(|v_{n}|/a_{n}\rightarrow 0\)</span>인 경우 <span class="math inline">\(v_{n}=o(a_{n})\)</span>이라고 한다.</p>
+<p><span id="def:unnamed-chunk-174" class="definition"><strong>Definition 10.3  (벡터에서의 big O와 small o)  </strong></span><span class="math inline">\(a_{n},n=1,2,\ldots\)</span>를 양수들의 수열이라고 하자. <span class="math inline">\(v_{n},n=1,2,\ldots\)</span>를 벡터들의 수열이라고 하자. 그러면 <span class="math inline">\(|v_{n}|/a_{n}\)</span>이 유계인 경우 <span class="math inline">\(v_{n}=O(a_{n})\)</span>이라고 한다. 그리고 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(|v_{n}|/a_{n}\rightarrow 0\)</span>인 경우 <span class="math inline">\(v_{n}=o(a_{n})\)</span>이라고 한다.</p>
 </div>
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-174" class="definition"><strong>Definition 10.4  (행렬에서의 big O와 small o)  </strong></span><span class="math inline">\(a_{n},n=1,2,\ldots\)</span>를 양수들의 수열이라고 하자. <span class="math inline">\(A_{n},n=1,2,\ldots\)</span>를 행렬들의 수열이라고 하자. 그러면 <span class="math inline">\(\|A_{n}\|/a_{n}\)</span>이 유계인 경우 <span class="math inline">\(A_{n}=O(a_{n})\)</span>이라고 한다. 그리고 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(\|A_{n}\|/a_{n}\rightarrow 0\)</span>인 경우 <span class="math inline">\(A_{n}=o(a_{n})\)</span>이라고 한다.</p>
+<p><span id="def:unnamed-chunk-175" class="definition"><strong>Definition 10.4  (행렬에서의 big O와 small o)  </strong></span><span class="math inline">\(a_{n},n=1,2,\ldots\)</span>를 양수들의 수열이라고 하자. <span class="math inline">\(A_{n},n=1,2,\ldots\)</span>를 행렬들의 수열이라고 하자. 그러면 <span class="math inline">\(\|A_{n}\|/a_{n}\)</span>이 유계인 경우 <span class="math inline">\(A_{n}=O(a_{n})\)</span>이라고 한다. 그리고 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(\|A_{n}\|/a_{n}\rightarrow 0\)</span>인 경우 <span class="math inline">\(A_{n}=o(a_{n})\)</span>이라고 한다.</p>
 </div>
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-175" class="definition"><strong>Definition 10.5  (벡터와 행렬에서의 부등호)  </strong></span><span class="math inline">\(A\)</span>와 <span class="math inline">\(B\)</span>를 <span class="math inline">\(k \times k\)</span> 행렬이라고 하자. 그러면</p>
+<p><span id="def:unnamed-chunk-176" class="definition"><strong>Definition 10.5  (벡터와 행렬에서의 부등호)  </strong></span><span class="math inline">\(A\)</span>와 <span class="math inline">\(B\)</span>를 <span class="math inline">\(k \times k\)</span> 행렬이라고 하자. 그러면</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(A\geq B\)</span>는 <span class="math inline">\(A-B\)</span>가 nonnegative definite임을 의미한다.</p></li>
 <li><span class="math inline">\(A&gt;B\)</span>는 <span class="math inline">\(A-B\)</span>가 positive definite이다.</li>

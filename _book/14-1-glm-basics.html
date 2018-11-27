@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-10-20">
+<meta name="date" content="2018-11-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -229,11 +229,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.5.6" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#--nonhomogeneous-poisson-process"><i class="fa fa-check"></i><b>9.5.6</b> 비동질적 포아송 과정(nonhomogeneous Poisson process)</a></li>
 <li class="chapter" data-level="9.5.7" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#---theory-of-spatial-poisson-process"><i class="fa fa-check"></i><b>9.5.7</b> 공간 포아송 과정 이론(theory of spatial Poisson process)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="9-6-self-similar-process.html"><a href="9-6-self-similar-process.html"><i class="fa fa-check"></i><b>9.6</b> 자기유사과정(self-similar process)</a></li>
-<li class="chapter" data-level="9.7" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html"><i class="fa fa-check"></i><b>9.7</b> 브라운운동(Brownian motion)</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.7.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+<li class="chapter" data-level="9.6" data-path="9-6-infinitely-divisible-distribution.html"><a href="9-6-infinitely-divisible-distribution.html"><i class="fa fa-check"></i><b>9.6</b> 무한분해가능 분포(infinitely divisible distribution)</a></li>
+<li class="chapter" data-level="9.7" data-path="9-7-self-similar-process.html"><a href="9-7-self-similar-process.html"><i class="fa fa-check"></i><b>9.7</b> 자기유사과정(self-similar process)</a></li>
+<li class="chapter" data-level="9.8" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html"><i class="fa fa-check"></i><b>9.8</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.8.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="9-8-martingale.html"><a href="9-8-martingale.html"><i class="fa fa-check"></i><b>9.8</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="9.9" data-path="9-9-martingale.html"><a href="9-9-martingale.html"><i class="fa fa-check"></i><b>9.9</b> 마팅게일(martingale)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-bigOsmallo.html"><a href="10-bigOsmallo.html"><i class="fa fa-check"></i><b>10</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="10.1" data-path="10-1-big-o-small-o-big-o-and-small-o.html"><a href="10-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>10.1</b> Big O와 small o (big O and small o)</a></li>
@@ -751,7 +752,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>관찰값이 한 개 있을때, 지수족의 확률밀도함수는 다음과 같이 쓸 수 있다. <span class="math display">\[f(y;\theta, \phi)=\exp\{ \frac{y\theta-b(\theta)}{a(\phi)} +c(y,\phi) \}.\]</span> 이 때 <span class="math inline">\(\theta\)</span>는 <strong>자연모수(natural parameter)</strong> 또는 <strong>정준모수(canonical parameter)</strong>로 불리고, <span class="math inline">\(\phi\)</span>는 <strong>산포모수(dispersion parameter)</strong>라고 불린다. 그리고 <span class="math inline">\(a,b,c\)</span>는 알려진 함수들이다. <span class="math inline">\(\phi\)</span>가 알려졌으면, <span class="math inline">\(Y\)</span>의 분포는 one-parameter canonical exponential family member가 된다. <span class="math inline">\(\phi\)</span>가 알려져있지 않을 때에는 이것은 nuisance parameter가 되며 주로 method of moments로 추정된다. 많은 GLM 이론에서 <span class="math inline">\(\phi\)</span>는 알려져 있지 않다고 하다라도 모수로 취급하지 않고 상수로 취급하는 경향이 있다.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-192" class="example"><strong>Example 14.1  (정규분포는 지수족의 멤버)  </strong></span>정규분포는 다음과 같이 지수족으로 표현할 수 있다.
+<span id="exm:unnamed-chunk-193" class="example"><strong>Example 14.1  (정규분포는 지수족의 멤버)  </strong></span>정규분포는 다음과 같이 지수족으로 표현할 수 있다.
 <span class="math display">\[\begin{align*}
 f(y;\mu)&amp;=\frac{1}{\sigma\sqrt{2\pi}}\exp[-\frac{(y-\mu)^{2}}{2\sigma^{2}}]\\
 &amp;=\exp[\frac{-y^{2}+2y\mu -\mu^{2}}{2\sigma^{2}}-\log (\sigma\sqrt{2\pi})]\\

@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-10-20">
+<meta name="date" content="2018-11-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -229,11 +229,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.5.6" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#--nonhomogeneous-poisson-process"><i class="fa fa-check"></i><b>9.5.6</b> 비동질적 포아송 과정(nonhomogeneous Poisson process)</a></li>
 <li class="chapter" data-level="9.5.7" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#---theory-of-spatial-poisson-process"><i class="fa fa-check"></i><b>9.5.7</b> 공간 포아송 과정 이론(theory of spatial Poisson process)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="9-6-self-similar-process.html"><a href="9-6-self-similar-process.html"><i class="fa fa-check"></i><b>9.6</b> 자기유사과정(self-similar process)</a></li>
-<li class="chapter" data-level="9.7" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html"><i class="fa fa-check"></i><b>9.7</b> 브라운운동(Brownian motion)</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.7.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+<li class="chapter" data-level="9.6" data-path="9-6-infinitely-divisible-distribution.html"><a href="9-6-infinitely-divisible-distribution.html"><i class="fa fa-check"></i><b>9.6</b> 무한분해가능 분포(infinitely divisible distribution)</a></li>
+<li class="chapter" data-level="9.7" data-path="9-7-self-similar-process.html"><a href="9-7-self-similar-process.html"><i class="fa fa-check"></i><b>9.7</b> 자기유사과정(self-similar process)</a></li>
+<li class="chapter" data-level="9.8" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html"><i class="fa fa-check"></i><b>9.8</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.8.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="9-8-martingale.html"><a href="9-8-martingale.html"><i class="fa fa-check"></i><b>9.8</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="9.9" data-path="9-9-martingale.html"><a href="9-9-martingale.html"><i class="fa fa-check"></i><b>9.9</b> 마팅게일(martingale)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-bigOsmallo.html"><a href="10-bigOsmallo.html"><i class="fa fa-check"></i><b>10</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="10.1" data-path="10-1-big-o-small-o-big-o-and-small-o.html"><a href="10-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>10.1</b> Big O와 small o (big O and small o)</a></li>
@@ -748,7 +749,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>이 때 <span class="math inline">\(\mathbf{x}\)</span>의 첫 번째 원소가 절편에 대응된다고 하면 <span class="math display">\[Q_{\tau}(Y|\mathbf{x})=\beta_{1}(\tau)+x_{2}\beta_{2}(\tau)+\ldots +x_{p}\beta_{p}(\tau)\]</span> 로 표현된다. <span class="math inline">\(\boldsymbol{\beta}(\tau)\)</span>는 <span class="math inline">\(\mathbf{x}\)</span>의 주변 변화에 의한 <span class="math inline">\(\tau\)</span>-분위수의 주변 변화를 측정하는 역할을 한다. 참고로 <span class="math inline">\(Q_{\tau}(Y|\mathbf{x})\)</span>는 <span class="math inline">\(\mathbf{x}\)</span>가 주어졌을 때 <span class="math inline">\(\tau\)</span>에 대해 감소하지 않는 함수다.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-332" class="example"><strong>Example 36.1  (위치이동모델)  </strong></span><strong>위치이동모델(location-scale shift model)</strong>은 다음과 같이 주어진다. <span class="math display">\[Y_{i}=\alpha + \mathbf{Z}_{i}^{T}\boldsymbol{\beta} + (1+\mathbf{Z}_{i}^{T}\boldsymbol{\gamma})\epsilon_{i}, \qquad{\epsilon_{i}\stackrel{\text{i.i.d}}{\sim}F(\cdot).}\]</span> 조건부 분위수 함수는 <span class="math display">\[Q_{\tau}(Y|\mathbf{X}_{i})=\alpha(\tau)+\mathbf{Z}_{i}^{T}\boldsymbol{\beta}(\tau)\]</span> 이다. 이 때</p>
+<p><span id="exm:unnamed-chunk-333" class="example"><strong>Example 36.1  (위치이동모델)  </strong></span><strong>위치이동모델(location-scale shift model)</strong>은 다음과 같이 주어진다. <span class="math display">\[Y_{i}=\alpha + \mathbf{Z}_{i}^{T}\boldsymbol{\beta} + (1+\mathbf{Z}_{i}^{T}\boldsymbol{\gamma})\epsilon_{i}, \qquad{\epsilon_{i}\stackrel{\text{i.i.d}}{\sim}F(\cdot).}\]</span> 조건부 분위수 함수는 <span class="math display">\[Q_{\tau}(Y|\mathbf{X}_{i})=\alpha(\tau)+\mathbf{Z}_{i}^{T}\boldsymbol{\beta}(\tau)\]</span> 이다. 이 때</p>
 <ul>
 <li><p><span class="math inline">\(\alpha(\tau)=\alpha + F^{-1}(\tau)\)</span>: <span class="math inline">\(\tau\)</span>에 대한 감소하지 않는(nondecreasing) 함수</p></li>
 <li><p><span class="math inline">\(\boldsymbol{\beta}(\tau)=\boldsymbol{\beta}+\boldsymbol{\gamma}F^{-1}(\tau)\)</span>: <span class="math inline">\(\tau\)</span>에 의존할 수도 있는 함수. 즉 covariate들은 <span class="math inline">\(Y\)</span>의 분포의 다양한 분위수에서 다른 효과를 줄 수도 있다.</p></li>
@@ -774,8 +775,8 @@ x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</
 <span class="kw">plot</span>(x, <span class="kw">dnorm</span>(x), <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">7</span>,<span class="dv">7</span>), <span class="dt">type=</span><span class="st">&#39;l&#39;</span>, <span class="dt">xlab=</span><span class="st">&quot;y&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Density&quot;</span>)
 <span class="kw">lines</span>(x,<span class="kw">dnorm</span>(x,<span class="dt">mean=</span><span class="dv">2</span>), <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
 <span class="kw">plot</span>(<span class="kw">seq</span>(<span class="fl">0.01</span>, <span class="fl">0.99</span>, <span class="fl">0.01</span>), <span class="kw">qnorm</span>(<span class="dt">p=</span><span class="kw">seq</span>(<span class="fl">0.01</span>, <span class="fl">0.99</span>, <span class="fl">0.01</span>),<span class="dt">mean=</span><span class="dv">2</span>)<span class="op">-</span><span class="st"> </span><span class="kw">qnorm</span>(<span class="dt">p=</span><span class="kw">seq</span>(<span class="fl">0.01</span>, <span class="fl">0.99</span>, <span class="fl">0.01</span>),<span class="dt">mean=</span><span class="dv">0</span>), <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="fl">1.9</span>,<span class="fl">2.1</span>), <span class="dt">type=</span><span class="st">&#39;l&#39;</span>, <span class="dt">xlab=</span><span class="kw">expression</span>(tau), <span class="dt">ylab=</span><span class="kw">expression</span>(<span class="kw">delta</span>(tau)))</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-333"></span>
-<img src="book_files/figure-html/unnamed-chunk-333-1.svg" alt="Location shift model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-334"></span>
+<img src="book_files/figure-html/unnamed-chunk-334-1.svg" alt="Location shift model." width="672" />
 <p class="caption">
 FIGURE 36.2: Location shift model.
 </p>
@@ -789,8 +790,8 @@ x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</
 <span class="kw">lines</span>(x,<span class="kw">dnorm</span>(x,<span class="dt">mean=</span><span class="dv">0</span>, <span class="dt">sd=</span><span class="fl">1.5</span>), <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
 <span class="kw">plot</span>(<span class="kw">seq</span>(<span class="fl">0.01</span>, <span class="fl">0.99</span>, <span class="fl">0.01</span>), <span class="kw">qnorm</span>(<span class="dt">p=</span><span class="kw">seq</span>(<span class="fl">0.01</span>, <span class="fl">0.99</span>, <span class="fl">0.01</span>),<span class="dt">mean=</span><span class="dv">0</span>,<span class="dt">sd=</span><span class="fl">1.5</span>)<span class="op">-</span><span class="st"> </span><span class="kw">qnorm</span>(<span class="dt">p=</span><span class="kw">seq</span>(<span class="fl">0.01</span>, <span class="fl">0.99</span>, <span class="fl">0.01</span>),<span class="dt">mean=</span><span class="dv">0</span>), <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">1.25</span>,<span class="fl">1.25</span>), <span class="dt">type=</span><span class="st">&#39;l&#39;</span>, <span class="dt">xlab=</span><span class="kw">expression</span>(tau), <span class="dt">ylab=</span><span class="kw">expression</span>(<span class="kw">delta</span>(tau)))
 <span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-334"></span>
-<img src="book_files/figure-html/unnamed-chunk-334-1.svg" alt="Scale shift model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-335"></span>
+<img src="book_files/figure-html/unnamed-chunk-335-1.svg" alt="Scale shift model." width="672" />
 <p class="caption">
 FIGURE 36.3: Scale shift model.
 </p>
@@ -804,8 +805,8 @@ x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</
 <span class="kw">lines</span>(x,<span class="kw">dnorm</span>(x,<span class="dt">mean=</span><span class="dv">1</span>, <span class="dt">sd=</span><span class="fl">1.5</span>), <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
 <span class="kw">plot</span>(<span class="kw">seq</span>(<span class="fl">0.01</span>, <span class="fl">0.99</span>, <span class="fl">0.01</span>), <span class="kw">qnorm</span>(<span class="dt">p=</span><span class="kw">seq</span>(<span class="fl">0.01</span>, <span class="fl">0.99</span>, <span class="fl">0.01</span>),<span class="dt">mean=</span><span class="dv">1</span>,<span class="dt">sd=</span><span class="fl">1.5</span>)<span class="op">-</span><span class="st"> </span><span class="kw">qnorm</span>(<span class="dt">p=</span><span class="kw">seq</span>(<span class="fl">0.01</span>, <span class="fl">0.99</span>, <span class="fl">0.01</span>),<span class="dt">mean=</span><span class="dv">0</span>), <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">0.25</span>,<span class="fl">2.25</span>), <span class="dt">type=</span><span class="st">&#39;l&#39;</span>, <span class="dt">xlab=</span><span class="kw">expression</span>(tau), <span class="dt">ylab=</span><span class="kw">expression</span>(<span class="kw">delta</span>(tau)))
 <span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-335"></span>
-<img src="book_files/figure-html/unnamed-chunk-335-1.svg" alt="Location-scale shift model." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-336"></span>
+<img src="book_files/figure-html/unnamed-chunk-336-1.svg" alt="Location-scale shift model." width="672" />
 <p class="caption">
 FIGURE 36.4: Location-scale shift model.
 </p>

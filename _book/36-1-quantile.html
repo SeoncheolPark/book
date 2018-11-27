@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-10-20">
+<meta name="date" content="2018-11-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -229,11 +229,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.5.6" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#--nonhomogeneous-poisson-process"><i class="fa fa-check"></i><b>9.5.6</b> 비동질적 포아송 과정(nonhomogeneous Poisson process)</a></li>
 <li class="chapter" data-level="9.5.7" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#---theory-of-spatial-poisson-process"><i class="fa fa-check"></i><b>9.5.7</b> 공간 포아송 과정 이론(theory of spatial Poisson process)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="9-6-self-similar-process.html"><a href="9-6-self-similar-process.html"><i class="fa fa-check"></i><b>9.6</b> 자기유사과정(self-similar process)</a></li>
-<li class="chapter" data-level="9.7" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html"><i class="fa fa-check"></i><b>9.7</b> 브라운운동(Brownian motion)</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.7.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+<li class="chapter" data-level="9.6" data-path="9-6-infinitely-divisible-distribution.html"><a href="9-6-infinitely-divisible-distribution.html"><i class="fa fa-check"></i><b>9.6</b> 무한분해가능 분포(infinitely divisible distribution)</a></li>
+<li class="chapter" data-level="9.7" data-path="9-7-self-similar-process.html"><a href="9-7-self-similar-process.html"><i class="fa fa-check"></i><b>9.7</b> 자기유사과정(self-similar process)</a></li>
+<li class="chapter" data-level="9.8" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html"><i class="fa fa-check"></i><b>9.8</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.8.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="9-8-martingale.html"><a href="9-8-martingale.html"><i class="fa fa-check"></i><b>9.8</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="9.9" data-path="9-9-martingale.html"><a href="9-9-martingale.html"><i class="fa fa-check"></i><b>9.9</b> 마팅게일(martingale)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-bigOsmallo.html"><a href="10-bigOsmallo.html"><i class="fa fa-check"></i><b>10</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="10.1" data-path="10-1-big-o-small-o-big-o-and-small-o.html"><a href="10-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>10.1</b> Big O와 small o (big O and small o)</a></li>
@@ -742,11 +743,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">36.1</span> 분위수 (quantile)</h2>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-329" class="definition"><strong>Definition 36.1  (분위수)  </strong></span>실수값을 갖는 확률변수 <span class="math inline">\(X\)</span>가 분포함수 <span class="math inline">\(F\)</span>를 따른다고 할 때, <span class="math inline">\(X\)</span>의 <span class="math inline">\(\tau\)</span>번째 <strong>분위수(quantile)</strong>는 <span class="math display">\[Q_{X}(\tau)=F_{X}^{-1}(\tau)=\inf\{x|F(x)\geq \tau\}\]</span> 로 정의된다.</p>
+<p><span id="def:unnamed-chunk-330" class="definition"><strong>Definition 36.1  (분위수)  </strong></span>실수값을 갖는 확률변수 <span class="math inline">\(X\)</span>가 분포함수 <span class="math inline">\(F\)</span>를 따른다고 할 때, <span class="math inline">\(X\)</span>의 <span class="math inline">\(\tau\)</span>번째 <strong>분위수(quantile)</strong>는 <span class="math display">\[Q_{X}(\tau)=F_{X}^{-1}(\tau)=\inf\{x|F(x)\geq \tau\}\]</span> 로 정의된다.</p>
 </div>
 
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-330"></span>
-<img src="book_files/figure-html/unnamed-chunk-330-1.svg" alt="Cummulative distribution function (left) and corresponding quantile plot (right)." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-331"></span>
+<img src="book_files/figure-html/unnamed-chunk-331-1.svg" alt="Cummulative distribution function (left) and corresponding quantile plot (right)." width="672" />
 <p class="caption">
 FIGURE 36.1: Cummulative distribution function (left) and corresponding quantile plot (right).
 </p>
@@ -754,7 +755,7 @@ FIGURE 36.1: Cummulative distribution function (left) and corresponding quantile
 <p>참고로 <span class="math inline">\(Q_{X}(\tau)\)</span>는 감소하지 않는 함수이다. 즉 <span class="math display">\[Q_{X}(\tau_{1}) \leq Q_{X}(\tau_{2}) \qquad{ \text{for } \tau_{1} &lt; \tau_{2}}\]</span> 이다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-331" class="definition"><strong>Definition 36.2  (조건부 분위수)  </strong></span><span class="math inline">\(Y\)</span>를 반응변수, <span class="math inline">\(\mathbf{X}\)</span>를 <span class="math inline">\(p\)</span>차원 예측변수라고 하자. 이 때 <span class="math inline">\(\mathbf{X}=\mathbf{x}\)</span>로 주어졌을 때 <span class="math inline">\(Y\)</span>의 조건부 누적분포함수는 <span class="math inline">\(F_{Y}(y|\mathbf{X}=\mathbf{x})=P(Y\leq y|\mathbf{X}=\mathbf{x})\)</span>라고 하자. 이 때 <span class="math inline">\(Y\)</span>의 <span class="math inline">\(\tau\)</span><strong>번째 조건부 분위수 (</strong><span class="math inline">\(\tau\)</span><strong>-th conditional quantile)</strong>는 <span class="math display">\[Q_{\tau}(Y|\mathbf{X}=\mathbf{x})=\inf\{y:F_{Y}(y|\mathbf{x})\geq \tau\}\]</span> 로 정의된다.</p>
+<p><span id="def:unnamed-chunk-332" class="definition"><strong>Definition 36.2  (조건부 분위수)  </strong></span><span class="math inline">\(Y\)</span>를 반응변수, <span class="math inline">\(\mathbf{X}\)</span>를 <span class="math inline">\(p\)</span>차원 예측변수라고 하자. 이 때 <span class="math inline">\(\mathbf{X}=\mathbf{x}\)</span>로 주어졌을 때 <span class="math inline">\(Y\)</span>의 조건부 누적분포함수는 <span class="math inline">\(F_{Y}(y|\mathbf{X}=\mathbf{x})=P(Y\leq y|\mathbf{X}=\mathbf{x})\)</span>라고 하자. 이 때 <span class="math inline">\(Y\)</span>의 <span class="math inline">\(\tau\)</span><strong>번째 조건부 분위수 (</strong><span class="math inline">\(\tau\)</span><strong>-th conditional quantile)</strong>는 <span class="math display">\[Q_{\tau}(Y|\mathbf{X}=\mathbf{x})=\inf\{y:F_{Y}(y|\mathbf{x})\geq \tau\}\]</span> 로 정의된다.</p>
 </div>
 
 </div>

@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-10-20">
+<meta name="date" content="2018-11-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -229,11 +229,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.5.6" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#--nonhomogeneous-poisson-process"><i class="fa fa-check"></i><b>9.5.6</b> 비동질적 포아송 과정(nonhomogeneous Poisson process)</a></li>
 <li class="chapter" data-level="9.5.7" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#---theory-of-spatial-poisson-process"><i class="fa fa-check"></i><b>9.5.7</b> 공간 포아송 과정 이론(theory of spatial Poisson process)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="9-6-self-similar-process.html"><a href="9-6-self-similar-process.html"><i class="fa fa-check"></i><b>9.6</b> 자기유사과정(self-similar process)</a></li>
-<li class="chapter" data-level="9.7" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html"><i class="fa fa-check"></i><b>9.7</b> 브라운운동(Brownian motion)</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.7.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+<li class="chapter" data-level="9.6" data-path="9-6-infinitely-divisible-distribution.html"><a href="9-6-infinitely-divisible-distribution.html"><i class="fa fa-check"></i><b>9.6</b> 무한분해가능 분포(infinitely divisible distribution)</a></li>
+<li class="chapter" data-level="9.7" data-path="9-7-self-similar-process.html"><a href="9-7-self-similar-process.html"><i class="fa fa-check"></i><b>9.7</b> 자기유사과정(self-similar process)</a></li>
+<li class="chapter" data-level="9.8" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html"><i class="fa fa-check"></i><b>9.8</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.8.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="9-8-martingale.html"><a href="9-8-martingale.html"><i class="fa fa-check"></i><b>9.8</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="9.9" data-path="9-9-martingale.html"><a href="9-9-martingale.html"><i class="fa fa-check"></i><b>9.9</b> 마팅게일(martingale)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-bigOsmallo.html"><a href="10-bigOsmallo.html"><i class="fa fa-check"></i><b>10</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="10.1" data-path="10-1-big-o-small-o-big-o-and-small-o.html"><a href="10-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>10.1</b> Big O와 small o (big O and small o)</a></li>
@@ -757,13 +758,13 @@ P(X_{1}\leq y_{1}, \ldots, X_{d}\leq y_{d}) &amp;=  P(F_{1}(X_{1})\leq F_{1}(y_{
 <p>예를 들어, 벡터 <span class="math inline">\(\mathbf{X}\)</span>의 상관관계가 정의될 경우, 그것은 보통 <span class="math inline">\(\mathbf{Y}\)</span>의 상관관계 구조와 다르다. <span class="math inline">\(X_{1},\ldots, X_{d}\)</span>가 zero autocorrelation들을 갖는 seond order stationary process에서 얻은 표본들이라고 하자. 이것에 대응되는 <span class="math inline">\(F_{1}(X_{1}), \ldots, F_{d}(X_{d})\)</span>들을 매우 correlated되어 있고 따라서 일반적으로 second order stationary가 아닐 것이다. 마찬가지로 spectral measure도 <span class="math inline">\(\mathbf{X}\)</span> with unbounded support에서 make sense한 <span class="math inline">\(\mathbf{Y}\)</span>에서는 그렇지 않다.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-433" class="theorem"><strong>Theorem 60.1  (누적 분포 함수와 코퓰라)  </strong></span>Sklar (1959)의 정리는 코퓰라 이론의 시작점을 제시하였다. <span class="citation">(Yee <a href="#ref-Yee2015">2015</a>)</span> <span class="math inline">\(F\)</span>가 무작위 벡터 <span class="math inline">\((Y_{1}, Y_{2})\)</span>의 CDF이고 marginal이 <span class="math inline">\(F_{1}\)</span>, <span class="math inline">\(F_{2}\)</span>일 때, 대응되는 copula <span class="math inline">\(C\)</span>가 존재해 다음을 만족한다. <span class="math display">\[F(y_{1}, y_{2})=C(F_{1}(y_{1}), F_{2}(y_{2});\boldsymbol{\alpha})=C(u_{1},u_{2};\boldsymbol{\alpha}).\]</span> 모든 <span class="math inline">\((y_{1}, y_{2})\in\mathbb{R}^{2}\)</span>에 대해 <span class="math inline">\(F_{j}\)</span>가 연속이라면 <span class="math inline">\(C\)</span>는 unique하다고 할 수 있다.</p>
+<p><span id="thm:unnamed-chunk-434" class="theorem"><strong>Theorem 60.1  (누적 분포 함수와 코퓰라)  </strong></span>Sklar (1959)의 정리는 코퓰라 이론의 시작점을 제시하였다. <span class="citation">(Yee <a href="#ref-Yee2015">2015</a>)</span> <span class="math inline">\(F\)</span>가 무작위 벡터 <span class="math inline">\((Y_{1}, Y_{2})\)</span>의 CDF이고 marginal이 <span class="math inline">\(F_{1}\)</span>, <span class="math inline">\(F_{2}\)</span>일 때, 대응되는 copula <span class="math inline">\(C\)</span>가 존재해 다음을 만족한다. <span class="math display">\[F(y_{1}, y_{2})=C(F_{1}(y_{1}), F_{2}(y_{2});\boldsymbol{\alpha})=C(u_{1},u_{2};\boldsymbol{\alpha}).\]</span> 모든 <span class="math inline">\((y_{1}, y_{2})\in\mathbb{R}^{2}\)</span>에 대해 <span class="math inline">\(F_{j}\)</span>가 연속이라면 <span class="math inline">\(C\)</span>는 unique하다고 할 수 있다.</p>
 </div>
 
 <p>우리는 <span class="math inline">\(C\)</span>를 dependency parameter <span class="math inline">\(\boldsymbol{\alpha}\)</span>를 통해 <span class="math inline">\(F\)</span>의 dependence structure 정보를 담고 있는 것으로 볼 수 있다. 보통 <span class="math inline">\(\boldsymbol{\alpha}\)</span>는 1차원 또는 2차원이다.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-434" class="example"><strong>Example 60.1  (이변량 가우스 코퓰라)  </strong></span><span class="math inline">\(\boldsymbol{\alpha}=\rho\)</span>일 때 <strong>이변량 가우스 코퓰라(bivariate Gaussian copula)</strong>는 <span class="math display">\[C(u_{1}, u_{2}, \rho)=\Phi_{2}(\Phi^{-1}(u_{1}), \Phi^{-1}(u_{2});\rho), -1&lt;\rho &lt; 1, 0\leq u_{j} \leq 1\]</span> 이다.
+<span id="exm:unnamed-chunk-435" class="example"><strong>Example 60.1  (이변량 가우스 코퓰라)  </strong></span><span class="math inline">\(\boldsymbol{\alpha}=\rho\)</span>일 때 <strong>이변량 가우스 코퓰라(bivariate Gaussian copula)</strong>는 <span class="math display">\[C(u_{1}, u_{2}, \rho)=\Phi_{2}(\Phi^{-1}(u_{1}), \Phi^{-1}(u_{2});\rho), -1&lt;\rho &lt; 1, 0\leq u_{j} \leq 1\]</span> 이다.
 </div>
 
 <p><span class="citation">(Yee <a href="#ref-Yee2015">2015</a>)</span>는 이변량 코퓰라들의 흥미로운 성질들을 적어놓았다.</p>

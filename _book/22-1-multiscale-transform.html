@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-10-20">
+<meta name="date" content="2018-11-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -229,11 +229,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.5.6" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#--nonhomogeneous-poisson-process"><i class="fa fa-check"></i><b>9.5.6</b> 비동질적 포아송 과정(nonhomogeneous Poisson process)</a></li>
 <li class="chapter" data-level="9.5.7" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#---theory-of-spatial-poisson-process"><i class="fa fa-check"></i><b>9.5.7</b> 공간 포아송 과정 이론(theory of spatial Poisson process)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="9-6-self-similar-process.html"><a href="9-6-self-similar-process.html"><i class="fa fa-check"></i><b>9.6</b> 자기유사과정(self-similar process)</a></li>
-<li class="chapter" data-level="9.7" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html"><i class="fa fa-check"></i><b>9.7</b> 브라운운동(Brownian motion)</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.7.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+<li class="chapter" data-level="9.6" data-path="9-6-infinitely-divisible-distribution.html"><a href="9-6-infinitely-divisible-distribution.html"><i class="fa fa-check"></i><b>9.6</b> 무한분해가능 분포(infinitely divisible distribution)</a></li>
+<li class="chapter" data-level="9.7" data-path="9-7-self-similar-process.html"><a href="9-7-self-similar-process.html"><i class="fa fa-check"></i><b>9.7</b> 자기유사과정(self-similar process)</a></li>
+<li class="chapter" data-level="9.8" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html"><i class="fa fa-check"></i><b>9.8</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.8.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="9-8-martingale.html"><a href="9-8-martingale.html"><i class="fa fa-check"></i><b>9.8</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="9.9" data-path="9-9-martingale.html"><a href="9-9-martingale.html"><i class="fa fa-check"></i><b>9.9</b> 마팅게일(martingale)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-bigOsmallo.html"><a href="10-bigOsmallo.html"><i class="fa fa-check"></i><b>10</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="10.1" data-path="10-1-big-o-small-o-big-o-and-small-o.html"><a href="10-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>10.1</b> Big O와 small o (big O and small o)</a></li>
@@ -744,7 +745,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>다중척도 방법론에서 알고 싶어하는 가장 중요한 정보는 각기 다른 <strong>척도(scale)</strong>와 <strong>위치(location)</strong>에서의 <span class="math inline">\(\mathbf{y}\)</span>의 <strong>상세(detail)</strong>이다. 여기서 척도는 수준(level), 해상도(resolution) 등으로 불리기도 하며 통계학 용어로 번역하자면 분산, 파워(power), 도수(frequency) 등으로 말할 수 있다. 장소라는 것은 관측값을 관찰한 정의역(domain)을 의미하며, 시간 자료면 시간, 공간 자료면 공간이 로케이션이 된다. 한편 상세의 정의는 다음과 같다.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-256" class="definition"><strong>Definition 22.1  (상세)  </strong></span>주어진 자료 <span class="math inline">\(\mathbf{y}\)</span>의 <strong>상세(detail)</strong> <span class="math inline">\(d_{k}\)</span>는
+<span id="def:unnamed-chunk-257" class="definition"><strong>Definition 22.1  (상세)  </strong></span>주어진 자료 <span class="math inline">\(\mathbf{y}\)</span>의 <strong>상세(detail)</strong> <span class="math inline">\(d_{k}\)</span>는
 <span class="math display">\[\begin{equation}
 d_{k}=y_{2k}-y_{2k-1},\qquad{k=1,2,\ldots,\frac{n}{2}}
 \end{equation}\]</span>
@@ -753,7 +754,7 @@ d_{k}=y_{2k}-y_{2k-1},\qquad{k=1,2,\ldots,\frac{n}{2}}
 
 
 <div class="example">
-<span id="exm:unnamed-chunk-257" class="example"><strong>Example 22.1  (상세의 계산)  </strong></span>다음과 같이 길이 8인 자료 <span class="math inline">\(\mathbf{y}=(y_{1},y_{2},\ldots,y_{8})\)</span>가 있다고 하자. 그러면 이 자료의 상세는
+<span id="exm:unnamed-chunk-258" class="example"><strong>Example 22.1  (상세의 계산)  </strong></span>다음과 같이 길이 8인 자료 <span class="math inline">\(\mathbf{y}=(y_{1},y_{2},\ldots,y_{8})\)</span>가 있다고 하자. 그러면 이 자료의 상세는
 <span class="math display">\[\begin{equation}
 d_{1}=y_{2}-y_{1}, d_{2}=y_{4}-y_{3}, d_{3}=y_{6}-y_{5}, d_{4}=y_{8}-y_{7}
 \end{equation}\]</span>
@@ -781,7 +782,7 @@ d_{J-2,l}&amp;=&amp;c_{J-1,2l}-c_{J-1,2l-1},l=1,2,\ldots,\frac{n}{4}\nonumber\\
 c_{J-2,l}=c_{J-1,2l}+c_{J-1,2l-1},l=1,2,\ldots,\frac{n}{4}
 \end{equation}\]</span>
 <p>이다. 앞서 말한 다중척도 과정을 그림으로 요약하면 다음과 같다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-258"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-259"></span>
 <img src="images/multiscale_001.png" alt="Generic step in multiscale transform." width="269" />
 <p class="caption">
 FIGURE 22.1: Generic step in multiscale transform.

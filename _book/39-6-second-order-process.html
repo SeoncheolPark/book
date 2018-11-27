@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-10-20">
+<meta name="date" content="2018-11-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -229,11 +229,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.5.6" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#--nonhomogeneous-poisson-process"><i class="fa fa-check"></i><b>9.5.6</b> 비동질적 포아송 과정(nonhomogeneous Poisson process)</a></li>
 <li class="chapter" data-level="9.5.7" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#---theory-of-spatial-poisson-process"><i class="fa fa-check"></i><b>9.5.7</b> 공간 포아송 과정 이론(theory of spatial Poisson process)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="9-6-self-similar-process.html"><a href="9-6-self-similar-process.html"><i class="fa fa-check"></i><b>9.6</b> 자기유사과정(self-similar process)</a></li>
-<li class="chapter" data-level="9.7" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html"><i class="fa fa-check"></i><b>9.7</b> 브라운운동(Brownian motion)</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.7.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+<li class="chapter" data-level="9.6" data-path="9-6-infinitely-divisible-distribution.html"><a href="9-6-infinitely-divisible-distribution.html"><i class="fa fa-check"></i><b>9.6</b> 무한분해가능 분포(infinitely divisible distribution)</a></li>
+<li class="chapter" data-level="9.7" data-path="9-7-self-similar-process.html"><a href="9-7-self-similar-process.html"><i class="fa fa-check"></i><b>9.7</b> 자기유사과정(self-similar process)</a></li>
+<li class="chapter" data-level="9.8" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html"><i class="fa fa-check"></i><b>9.8</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.8.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="9-8-martingale.html"><a href="9-8-martingale.html"><i class="fa fa-check"></i><b>9.8</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="9.9" data-path="9-9-martingale.html"><a href="9-9-martingale.html"><i class="fa fa-check"></i><b>9.9</b> 마팅게일(martingale)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-bigOsmallo.html"><a href="10-bigOsmallo.html"><i class="fa fa-check"></i><b>10</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="10.1" data-path="10-1-big-o-small-o-big-o-and-small-o.html"><a href="10-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>10.1</b> Big O와 small o (big O and small o)</a></li>
@@ -743,7 +744,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>여기서부터는 <span class="citation">(Gaetan and Guyon <a href="#ref-Gaetan2009">2009</a>)</span>를 따른다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-347" class="definition"><strong>Definition 38.1  (2차 과정)  </strong></span><span class="math inline">\(S\)</span>를 set of site라고 하자. 그러면 모든 <span class="math inline">\(s\in S\)</span>에 대해 <span class="math inline">\(E(X_{s})^{2}&lt;\infty\)</span>인 확률변수 <span class="math inline">\(X=\{X_{s}, s\in S\}\)</span>를 <strong>2차 과정(second-order process)</strong>라구 한다. <span class="math inline">\(X\)</span>의 평균은 <span class="math inline">\(m:S\rightarrow \mathbb{R}\)</span>인 함수이며 <span class="math inline">\(m(s)=E(X_{s})\)</span>이고, <span class="math inline">\(X\)</span>의 공분산은 모든 <span class="math inline">\(s,t\)</span>에 대해 <span class="math inline">\(c: S\times S \rightarrow \mathbb{R}\)</span>이며 <span class="math inline">\(c(s,t)=Cov(X_{s},X_{t})\)</span>라고 쓴다.</p>
+<p><span id="def:unnamed-chunk-348" class="definition"><strong>Definition 38.1  (2차 과정)  </strong></span><span class="math inline">\(S\)</span>를 set of site라고 하자. 그러면 모든 <span class="math inline">\(s\in S\)</span>에 대해 <span class="math inline">\(E(X_{s})^{2}&lt;\infty\)</span>인 확률변수 <span class="math inline">\(X=\{X_{s}, s\in S\}\)</span>를 <strong>2차 과정(second-order process)</strong>라구 한다. <span class="math inline">\(X\)</span>의 평균은 <span class="math inline">\(m:S\rightarrow \mathbb{R}\)</span>인 함수이며 <span class="math inline">\(m(s)=E(X_{s})\)</span>이고, <span class="math inline">\(X\)</span>의 공분산은 모든 <span class="math inline">\(s,t\)</span>에 대해 <span class="math inline">\(c: S\times S \rightarrow \mathbb{R}\)</span>이며 <span class="math inline">\(c(s,t)=Cov(X_{s},X_{t})\)</span>라고 쓴다.</p>
 </div>
 
 <p><span class="math inline">\(X\in L^{2}\)</span>는 <span class="math inline">\(X\)</span>가 2차 과정이라는 뜻이다.</p>

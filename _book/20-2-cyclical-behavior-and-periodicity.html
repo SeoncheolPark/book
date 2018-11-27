@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-10-20">
+<meta name="date" content="2018-11-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -229,11 +229,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.5.6" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#--nonhomogeneous-poisson-process"><i class="fa fa-check"></i><b>9.5.6</b> 비동질적 포아송 과정(nonhomogeneous Poisson process)</a></li>
 <li class="chapter" data-level="9.5.7" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#---theory-of-spatial-poisson-process"><i class="fa fa-check"></i><b>9.5.7</b> 공간 포아송 과정 이론(theory of spatial Poisson process)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="9-6-self-similar-process.html"><a href="9-6-self-similar-process.html"><i class="fa fa-check"></i><b>9.6</b> 자기유사과정(self-similar process)</a></li>
-<li class="chapter" data-level="9.7" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html"><i class="fa fa-check"></i><b>9.7</b> 브라운운동(Brownian motion)</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.7.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+<li class="chapter" data-level="9.6" data-path="9-6-infinitely-divisible-distribution.html"><a href="9-6-infinitely-divisible-distribution.html"><i class="fa fa-check"></i><b>9.6</b> 무한분해가능 분포(infinitely divisible distribution)</a></li>
+<li class="chapter" data-level="9.7" data-path="9-7-self-similar-process.html"><a href="9-7-self-similar-process.html"><i class="fa fa-check"></i><b>9.7</b> 자기유사과정(self-similar process)</a></li>
+<li class="chapter" data-level="9.8" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html"><i class="fa fa-check"></i><b>9.8</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.8.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="9-8-martingale.html"><a href="9-8-martingale.html"><i class="fa fa-check"></i><b>9.8</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="9.9" data-path="9-9-martingale.html"><a href="9-9-martingale.html"><i class="fa fa-check"></i><b>9.9</b> 마팅게일(martingale)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-bigOsmallo.html"><a href="10-bigOsmallo.html"><i class="fa fa-check"></i><b>10</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="10.1" data-path="10-1-big-o-small-o-big-o-and-small-o.html"><a href="10-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>10.1</b> Big O와 small o (big O and small o)</a></li>
@@ -775,8 +776,8 @@ x_{t}=\sum_{k=1}^{q}[U_{1l}\cos(2\pi\omega_{k} t) + U_{k2}\sin(2\pi\omega_{k} t)
 \hat{\gamma}_{x}(0)=\text{var}(x_{t})=\sum_{k=1}^{q}(a_{k}^{2}+b_{k}^{2}).
 \tag{20.5}
 \end{equation}\]</span>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-221"></span>
-<img src="book_files/figure-html/unnamed-chunk-221-1.svg" alt="Periodic components and their sums." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-222"></span>
+<img src="book_files/figure-html/unnamed-chunk-222-1.svg" alt="Periodic components and their sums." width="672" />
 <p class="caption">
 FIGURE 20.1: Periodic components and their sums.
 </p>
@@ -784,12 +785,12 @@ FIGURE 20.1: Periodic components and their sums.
 <p>다음 예제는 식 <a href="20-2-cyclical-behavior-and-periodicity.html#eq:periodrpg">(20.2)</a>에서 <span class="math inline">\(q=3\)</span>일때의 예제다.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-222" class="example"><strong>Example 20.1  (주기 시계열)  </strong></span><span class="math inline">\(t=1,\ldots,100\)</span>까지 다음의 수열들을 생성해보자. <span class="math display">\[x_{t1}=2\cos (2\pi t 6/100) +3\sin (2\pi t 6 / 100)\]</span> <span class="math display">\[x_{t2}=4\cos (2\pi t 10/100) +5\sin (2\pi t 10 / 100)\]</span> <span class="math display">\[x_{t3}=6\cos (2\pi t 40/100) +7\sin (2\pi t 40 / 100)\]</span> 이들의 시계열들은 위 그림에 나타나있다. <span class="math inline">\(x_{t1}\)</span>의 진폭은 <span class="math inline">\(2^{2}+3^{2}=13\)</span>이다. 따라서 <span class="math inline">\(x_{t1}\)</span>의 최대, 최소값은 <span class="math inline">\(\pm \sqrt{13}=\pm 3.61\)</span>이다. 마지막으로 <span class="math display">\[x_{t}=x_{t1}+x_{t2}+x_{t3}\]</span> 을 고려해본다. 이것의 그림은 위 그림의 오른쪽 아래에 있다. 스펙트럼 분석의 역할은 이렇게 섞여있는 주기 성분들을 분류하고 그들의 상대적 기여도를 계산하는 것이다.</p>
+<p><span id="exm:unnamed-chunk-223" class="example"><strong>Example 20.1  (주기 시계열)  </strong></span><span class="math inline">\(t=1,\ldots,100\)</span>까지 다음의 수열들을 생성해보자. <span class="math display">\[x_{t1}=2\cos (2\pi t 6/100) +3\sin (2\pi t 6 / 100)\]</span> <span class="math display">\[x_{t2}=4\cos (2\pi t 10/100) +5\sin (2\pi t 10 / 100)\]</span> <span class="math display">\[x_{t3}=6\cos (2\pi t 40/100) +7\sin (2\pi t 40 / 100)\]</span> 이들의 시계열들은 위 그림에 나타나있다. <span class="math inline">\(x_{t1}\)</span>의 진폭은 <span class="math inline">\(2^{2}+3^{2}=13\)</span>이다. 따라서 <span class="math inline">\(x_{t1}\)</span>의 최대, 최소값은 <span class="math inline">\(\pm \sqrt{13}=\pm 3.61\)</span>이다. 마지막으로 <span class="math display">\[x_{t}=x_{t1}+x_{t2}+x_{t3}\]</span> 을 고려해본다. 이것의 그림은 위 그림의 오른쪽 아래에 있다. 스펙트럼 분석의 역할은 이렇게 섞여있는 주기 성분들을 분류하고 그들의 상대적 기여도를 계산하는 것이다.</p>
 <p>Autocovariance function <a href="20-2-cyclical-behavior-and-periodicity.html#eq:periodrpautocov">(20.3)</a>를 따라 식 <a href="20-2-cyclical-behavior-and-periodicity.html#eq:periodrpg">(20.2)</a>에 주어진 모형의 population을 만들어낼 수 있다. 앞으로는 자료 <span class="math inline">\(x_{1},\ldots , x_{n}\)</span>이 주어졌을 때 실제로 식 <a href="20-2-cyclical-behavior-and-periodicity.html#eq:periodrpvar">(20.4)</a>를 어떻게 추정할 수 있는가에 대해 살펴볼 것이다.</p>
 </div>
 
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-223"></span>
-<img src="book_files/figure-html/unnamed-chunk-223-1.svg" alt="Periodogram of the above data." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-224"></span>
+<img src="book_files/figure-html/unnamed-chunk-224-1.svg" alt="Periodogram of the above data." width="672" />
 <p class="caption">
 FIGURE 20.2: Periodogram of the above data.
 </p>
@@ -797,7 +798,7 @@ FIGURE 20.2: Periodogram of the above data.
 <p>앞선 예제의 피리오도그램을 계산해보자. 참고로 scaled periodogram은 다음과 같이 계산된다.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-224" class="example"><strong>Example 20.2  (추정과 피리오도그램)  </strong></span>어떤 시계열의 표본 <span class="math inline">\(x_{1},\ldots, x_{n}\)</span> (<span class="math inline">\(n\)</span>은 홀수)이 있다고 하자. 그러면 우리는 다음과 같이 <strong>정확하게</strong> 쓸 수 있을 것이다.</p>
+<p><span id="exm:unnamed-chunk-225" class="example"><strong>Example 20.2  (추정과 피리오도그램)  </strong></span>어떤 시계열의 표본 <span class="math inline">\(x_{1},\ldots, x_{n}\)</span> (<span class="math inline">\(n\)</span>은 홀수)이 있다고 하자. 그러면 우리는 다음과 같이 <strong>정확하게</strong> 쓸 수 있을 것이다.</p>
 </div>
 
 </div>

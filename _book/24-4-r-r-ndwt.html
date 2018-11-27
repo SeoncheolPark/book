@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-10-20">
+<meta name="date" content="2018-11-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -229,11 +229,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.5.6" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#--nonhomogeneous-poisson-process"><i class="fa fa-check"></i><b>9.5.6</b> 비동질적 포아송 과정(nonhomogeneous Poisson process)</a></li>
 <li class="chapter" data-level="9.5.7" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#---theory-of-spatial-poisson-process"><i class="fa fa-check"></i><b>9.5.7</b> 공간 포아송 과정 이론(theory of spatial Poisson process)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="9-6-self-similar-process.html"><a href="9-6-self-similar-process.html"><i class="fa fa-check"></i><b>9.6</b> 자기유사과정(self-similar process)</a></li>
-<li class="chapter" data-level="9.7" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html"><i class="fa fa-check"></i><b>9.7</b> 브라운운동(Brownian motion)</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.7.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+<li class="chapter" data-level="9.6" data-path="9-6-infinitely-divisible-distribution.html"><a href="9-6-infinitely-divisible-distribution.html"><i class="fa fa-check"></i><b>9.6</b> 무한분해가능 분포(infinitely divisible distribution)</a></li>
+<li class="chapter" data-level="9.7" data-path="9-7-self-similar-process.html"><a href="9-7-self-similar-process.html"><i class="fa fa-check"></i><b>9.7</b> 자기유사과정(self-similar process)</a></li>
+<li class="chapter" data-level="9.8" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html"><i class="fa fa-check"></i><b>9.8</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.8.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="9-8-martingale.html"><a href="9-8-martingale.html"><i class="fa fa-check"></i><b>9.8</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="9.9" data-path="9-9-martingale.html"><a href="9-9-martingale.html"><i class="fa fa-check"></i><b>9.9</b> 마팅게일(martingale)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-bigOsmallo.html"><a href="10-bigOsmallo.html"><i class="fa fa-check"></i><b>10</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="10.1" data-path="10-1-big-o-small-o-big-o-and-small-o.html"><a href="10-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>10.1</b> Big O와 small o (big O and small o)</a></li>
@@ -766,16 +767,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>대칭 chirp 함수를 <span class="math display">\[y(x)=\sin(\pi/x)\]</span> 로 정의한다. 이 때 <span class="math inline">\(x=\epsilon &#39; +(-1,-1,+\delta,-1+2\delta, \ldots, 1-2\delta)\)</span>이며 <span class="math inline">\(\epsilon &#39; =10^{-5}\)</span>이며 <span class="math inline">\(\delta=1/512\)</span>이다. 이 함수의 그림은 다음과 같다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw">simchirp</span>()
 <span class="kw">plot</span>(y, <span class="dt">type=</span><span class="st">&#39;l&#39;</span>, <span class="dt">xlab=</span><span class="st">&quot;Time&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Chirp value&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-280"></span>
-<img src="book_files/figure-html/unnamed-chunk-280-1.svg" alt="Simulated chirp signal." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-281"></span>
+<img src="book_files/figure-html/unnamed-chunk-281-1.svg" alt="Simulated chirp signal." width="672" />
 <p class="caption">
 FIGURE 23.7: Simulated chirp signal.
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ywd &lt;-<span class="st"> </span><span class="kw">wd</span>(y<span class="op">$</span>y, <span class="dt">filter.number=</span><span class="dv">2</span>, <span class="dt">family=</span><span class="st">&quot;DaubExPhase&quot;</span>)
 <span class="kw">plot</span>(ywd, <span class="dt">scaling=</span><span class="st">&quot;by.level&quot;</span>, <span class="dt">main=</span><span class="st">&quot;&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-281"></span>
-<img src="book_files/figure-html/unnamed-chunk-281-1.svg" alt="Discrete wavelet coefficients of simulated chirp signal." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-282"></span>
+<img src="book_files/figure-html/unnamed-chunk-282-1.svg" alt="Discrete wavelet coefficients of simulated chirp signal." width="672" />
 <p class="caption">
 FIGURE 23.8: Discrete wavelet coefficients of simulated chirp signal.
 </p>
@@ -784,8 +785,8 @@ FIGURE 23.8: Discrete wavelet coefficients of simulated chirp signal.
 &gt;  [8] 7.484166 8.769223 4.756466</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ywd &lt;-<span class="st"> </span><span class="kw">wd</span>(y<span class="op">$</span>y, <span class="dt">filter.number=</span><span class="dv">2</span>, <span class="dt">family=</span><span class="st">&quot;DaubExPhase&quot;</span>, <span class="dt">type=</span><span class="st">&quot;station&quot;</span>)
 <span class="kw">plot</span>(ywd, <span class="dt">scaling=</span><span class="st">&quot;by.level&quot;</span>, <span class="dt">main=</span><span class="st">&quot;&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-282"></span>
-<img src="book_files/figure-html/unnamed-chunk-282-1.svg" alt="Time-ordered non-decimated wavelet coefficients of simulated chirp signal." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-283"></span>
+<img src="book_files/figure-html/unnamed-chunk-283-1.svg" alt="Time-ordered non-decimated wavelet coefficients of simulated chirp signal." width="672" />
 <p class="caption">
 FIGURE 23.9: Time-ordered non-decimated wavelet coefficients of simulated chirp signal.
 </p>
@@ -794,8 +795,8 @@ FIGURE 23.9: Time-ordered non-decimated wavelet coefficients of simulated chirp 
 &gt;  [8] 11.736733 13.175435  7.737538</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ywst &lt;-<span class="st"> </span><span class="kw">wst</span>(y<span class="op">$</span>y, <span class="dt">filter.number=</span><span class="dv">2</span>, <span class="dt">family=</span><span class="st">&quot;DaubExPhase&quot;</span>)
 <span class="kw">plot</span>(ywst, <span class="dt">scaling=</span><span class="st">&quot;by.level&quot;</span>, <span class="dt">main=</span><span class="st">&quot;&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-283"></span>
-<img src="book_files/figure-html/unnamed-chunk-283-1.svg" alt="Packet-ordered non-decimated wavelet coefficients of simulated chirp signal." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-284"></span>
+<img src="book_files/figure-html/unnamed-chunk-284-1.svg" alt="Packet-ordered non-decimated wavelet coefficients of simulated chirp signal." width="672" />
 <p class="caption">
 FIGURE 23.10: Packet-ordered non-decimated wavelet coefficients of simulated chirp signal.
 </p>

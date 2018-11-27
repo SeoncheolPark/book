@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-10-20">
+<meta name="date" content="2018-11-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="9-4-empirical-process.html">
-<link rel="next" href="9-6-self-similar-process.html">
+<link rel="next" href="9-6-infinitely-divisible-distribution.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -229,11 +229,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.5.6" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#--nonhomogeneous-poisson-process"><i class="fa fa-check"></i><b>9.5.6</b> 비동질적 포아송 과정(nonhomogeneous Poisson process)</a></li>
 <li class="chapter" data-level="9.5.7" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#---theory-of-spatial-poisson-process"><i class="fa fa-check"></i><b>9.5.7</b> 공간 포아송 과정 이론(theory of spatial Poisson process)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="9-6-self-similar-process.html"><a href="9-6-self-similar-process.html"><i class="fa fa-check"></i><b>9.6</b> 자기유사과정(self-similar process)</a></li>
-<li class="chapter" data-level="9.7" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html"><i class="fa fa-check"></i><b>9.7</b> 브라운운동(Brownian motion)</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.7.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+<li class="chapter" data-level="9.6" data-path="9-6-infinitely-divisible-distribution.html"><a href="9-6-infinitely-divisible-distribution.html"><i class="fa fa-check"></i><b>9.6</b> 무한분해가능 분포(infinitely divisible distribution)</a></li>
+<li class="chapter" data-level="9.7" data-path="9-7-self-similar-process.html"><a href="9-7-self-similar-process.html"><i class="fa fa-check"></i><b>9.7</b> 자기유사과정(self-similar process)</a></li>
+<li class="chapter" data-level="9.8" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html"><i class="fa fa-check"></i><b>9.8</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.8.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="9-8-martingale.html"><a href="9-8-martingale.html"><i class="fa fa-check"></i><b>9.8</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="9.9" data-path="9-9-martingale.html"><a href="9-9-martingale.html"><i class="fa fa-check"></i><b>9.9</b> 마팅게일(martingale)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-bigOsmallo.html"><a href="10-bigOsmallo.html"><i class="fa fa-check"></i><b>10</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="10.1" data-path="10-1-big-o-small-o-big-o-and-small-o.html"><a href="10-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>10.1</b> Big O와 small o (big O and small o)</a></li>
@@ -753,7 +754,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="-definition-of-poisson-process" class="section level3">
 <h3><span class="header-section-number">9.5.2</span> 포아송과정의 정의(definition of Poisson process)</h3>
-<p>**포아송과정(Poisson process)을 정의하는 방법은 몇 가지가 있다.</p>
+<p><strong>포아송과정(Poisson process)</strong>을 정의하는 방법은 몇 가지가 있다.</p>
 <ol style="list-style-type: decimal">
 <li><p>고정된 간격에서의 사건 숫자의 초점을 맞추는 방법</p></li>
 <li><p>이떤 사건이 일어났을 때 사건들 사이의 시간에 초점을 맞추는 방법</p></li>
@@ -784,7 +785,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><span id="def:unnamed-chunk-152" class="definition"><strong>Definition 9.11  (포아송 무작위 측도)  </strong></span>어떤 <span class="math inline">\(\mathcal{N}(E)\)</span>-확률변수가</p>
 <ol style="list-style-type: decimal">
 <li><p>각각의 <span class="math inline">\(A\in\mathcal{E}\)</span>에 대해 <span class="math inline">\(\xi(A)\sim \text{Poisson}(\nu(A))\)</span>이다.</p></li>
-<li><p>만약 <span class="math inline">\(A_{1},A_{},\ldots \in \mathcal{E}\)</span>가 disjoint이면 $(A_{1}), (A_{2}),$는 독립인 확률변수이다.</p></li>
+<li><p>만약 <span class="math inline">\(A_{1},A_{2},\ldots \in \mathcal{E}\)</span>가 disjoint이면 $(A_{1}), (A_{2}),$는 독립인 확률변수이다.</p></li>
 </ol>
 <p>를 만족하면 <strong>평균측도(mean measure)</strong> <span class="math inline">\(\nu\)</span>를 갖는 <strong>포아송 무작위 측도(Poisson random measure)</strong>이다.</p>
 </div>
@@ -850,9 +851,9 @@ FIGURE 9.2: Samples of a spatial Poisson process.
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(simlist)</code></pre></div>
-<pre><code>&gt; [1] 12.56421</code></pre>
+<pre><code>&gt; [1] 12.54748</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(simlist)</code></pre></div>
-<pre><code>&gt; [1] 12.6241</code></pre>
+<pre><code>&gt; [1] 12.55267</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Compare with theoretical mean and variance</span>
 lambda<span class="op">*</span>pi<span class="op">*</span>(<span class="fl">0.2</span>)<span class="op">^</span><span class="dv">2</span></code></pre></div>
 <pre><code>&gt; [1] 12.56637</code></pre>
@@ -893,7 +894,7 @@ lambda<span class="op">*</span>pi<span class="op">*</span>(<span class="fl">0.2<
         </div>
       </div>
 <a href="9-4-empirical-process.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="9-6-self-similar-process.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="9-6-infinitely-divisible-distribution.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

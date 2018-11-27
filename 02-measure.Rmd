@@ -3,7 +3,7 @@
 권순식 교수님의 르베그 적분론 강의노트를 참고하였다. Pivato의 Analysis, Measure, and Probability: A visual introduction 또한 참고하였다. **측도(measure)**란 수학에서, **양(quantity)**이라 개념을 반영하기 위해 만들어진 장치다.
 
 ```{r, echo=F, fig.cap='Cardinality, length, area, volume, frequency and probability.', fig.align='center'}
-knitr::include_graphics("math_measure_intro.png")
+knitr::include_graphics("images/math_measure_intro.png")
 ```
 
 $\mathbf{X}$를 집합이라고 하자. 그리고 부분집합들 $\mathbf{U,V}\subset \mathbf{X}$이 있는데 이들의 'size'를 비교하고 싶어한다. 이런 'quantity'의 개념들은 여러가지가 있다.
@@ -178,7 +178,7 @@ $X$ 위의 어떤 측도 $\mu$가 모든 열린 공간이 $\mu$-가측일 경우
 
 ```
 
-```{definition, name="국소 컴팩트"}
+```{definition, name="라돈 측도(Radon measure)"}
 $\mathbb{R}^{n}$에서의 **라돈 측도**는 보렐 정칙이고 국소 컴팩트한 측도를 말한다.
   
 ```

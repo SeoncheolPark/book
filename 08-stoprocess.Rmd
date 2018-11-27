@@ -131,7 +131,7 @@ $$\sqrt{n}\{ F_{n}(x) - F(x) \},\qquad{-\infty < x \infty.}$$
 
 ### 포아송과정의 정의(definition of Poisson process)
 
-**포아송과정(Poisson process)을 정의하는 방법은 몇 가지가 있다.
+**포아송과정(Poisson process)**을 정의하는 방법은 몇 가지가 있다.
 
 1. 고정된 간격에서의 사건 숫자의 초점을 맞추는 방법
 
@@ -167,7 +167,7 @@ $$P(N_{t+s}-N_{s} = k) = P(N_{t} = k) = \frac{e^{-\lambda t}(\lambda t)^{k}}{k!}
 
 1. 각각의 $A\in\mathcal{E}$에 대해 $\xi(A)\sim \text{Poisson}(\nu(A))$이다.
 
-2. 만약 $A_{1},A_{},\ldots \in \mathcal{E}$가 disjoint이면 $\xi(A_{1}), \xi(A_{2}),\ldots $는 독립인 확률변수이다.
+2. 만약 $A_{1},A_{2},\ldots \in \mathcal{E}$가 disjoint이면 $\xi(A_{1}), \xi(A_{2}),\ldots $는 독립인 확률변수이다.
 
 를 만족하면 **평균측도(mean measure)** $\nu$를 갖는 **포아송 무작위 측도(Poisson random measure)**이다. 
 
@@ -271,6 +271,21 @@ lambda*pi*(0.2)^2
 ### 공간 포아송 과정 이론(theory of spatial Poisson process)
 
 이 절은 Rasmussen의 2011년 강의노트를 따른다.
+
+## 무한분해가능 분포(infinitely divisible distribution)
+
+[@Gut2012]의 9.4에 오는 내용이다.
+
+```{definition, name="무한분해가능 분포"}
+어떤 확률변수 $X$의 각 $n$에 대해 독립이며 같은 분포를 따르는 확률변수들 $X_{n,k},1\leq k \leq n$이 존재해
+$$X\stackrel{d]{=}\sum_{k=1}^{n} X_{n,k}, \qquad{\forall n}$$
+이면 이 확률변수 $X$를 **무한분해가능(infinitely divisible)**이라고 부른다.
+
+동치조건으로 특성함수(characteristic function)으로
+$$\phi_{X}(t) = (\phi_{X_{n,1}}(t)), \qquad{\forall n}$$
+인 경우 무한분해가능하다.
+
+```
 
 ## 자기유사과정(self-similar process)
 

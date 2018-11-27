@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-10-20">
+<meta name="date" content="2018-11-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -229,11 +229,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.5.6" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#--nonhomogeneous-poisson-process"><i class="fa fa-check"></i><b>9.5.6</b> 비동질적 포아송 과정(nonhomogeneous Poisson process)</a></li>
 <li class="chapter" data-level="9.5.7" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#---theory-of-spatial-poisson-process"><i class="fa fa-check"></i><b>9.5.7</b> 공간 포아송 과정 이론(theory of spatial Poisson process)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="9-6-self-similar-process.html"><a href="9-6-self-similar-process.html"><i class="fa fa-check"></i><b>9.6</b> 자기유사과정(self-similar process)</a></li>
-<li class="chapter" data-level="9.7" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html"><i class="fa fa-check"></i><b>9.7</b> 브라운운동(Brownian motion)</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.7.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+<li class="chapter" data-level="9.6" data-path="9-6-infinitely-divisible-distribution.html"><a href="9-6-infinitely-divisible-distribution.html"><i class="fa fa-check"></i><b>9.6</b> 무한분해가능 분포(infinitely divisible distribution)</a></li>
+<li class="chapter" data-level="9.7" data-path="9-7-self-similar-process.html"><a href="9-7-self-similar-process.html"><i class="fa fa-check"></i><b>9.7</b> 자기유사과정(self-similar process)</a></li>
+<li class="chapter" data-level="9.8" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html"><i class="fa fa-check"></i><b>9.8</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.8.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="9-8-martingale.html"><a href="9-8-martingale.html"><i class="fa fa-check"></i><b>9.8</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="9.9" data-path="9-9-martingale.html"><a href="9-9-martingale.html"><i class="fa fa-check"></i><b>9.9</b> 마팅게일(martingale)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-bigOsmallo.html"><a href="10-bigOsmallo.html"><i class="fa fa-check"></i><b>10</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="10.1" data-path="10-1-big-o-small-o-big-o-and-small-o.html"><a href="10-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>10.1</b> Big O와 small o (big O and small o)</a></li>
@@ -754,7 +755,7 @@ FIGURE 5.2: 가로선은 y를 등간격으로 잘라낸 구간 A를 의미한다
 </div>
 <p><span class="math inline">\(x\)</span>축 대신 <span class="math inline">\(y\)</span>축을 분할하는 것의 장점은 <span class="math inline">\(f\)</span>가 <span class="math inline">\(x\)</span>에 대해 더이상 잘 행동하는 함수일 필요가 없다는 것이다. 다시 앞서 리만 적분에서 등장한 적분 문제를 생각해보자. <span class="math inline">\(A_{i}\)</span>와 <span class="math inline">\(A_{j}\)</span>를 각각 <span class="math inline">\(y=0\)</span>, <span class="math inline">\(y=1\)</span>에 대응되는 구간이라고 한다면 앞서 적분 식 <a href="6-2-lebesgue-integral.html#eq:Lebesgueintegral">(5.2)</a>은 <span class="math inline">\(y_{i}\mu\{ f^{-1}(A_{i}) \} + y_{j}\mu\{ f^{-1}(A_{j}) \}\)</span>가 된다. 이 때 <span class="math inline">\(y_{i}\)</span>, <span class="math inline">\(y_{j}\)</span>는 <span class="math inline">\(A_{i}\)</span>, <span class="math inline">\(A_{j}\)</span>의 중간값에 해당된다. <span class="math inline">\(f^{-1}(A_{i})\)</span>과 <span class="math inline">\(f^{-1}(A_{j})\)</span>는 각각 <span class="math inline">\([0,1]\)</span>에서 유리수와 무리수의 집합에 대응되며 그들의 르베그 적분은 각각 0과 1이다. 따라서 최종 르베그 적분값 <span class="math inline">\(\int_{0}^{1}f(x)dx\)</span>는 존재하며 1이다.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-100"></span>
-<img src="image/math_irrationalintegral.png" alt="x가 무리수와 유리수일 때 1, 0을 주는 함수의 적분을 생각해보자. 르베그 적분의 방법으로 y축을 분할하면 충분히 작은 구간에서 함수값이 0인 경우와 1인 경우를 분리시킬 수 있다. 그 다음에는 구간 [0,1] 사이에서의 무리수들의 집합의 르베그 측도(1)와 유리수들의 집합의 르베그 측도(0)을 재면 된다."  />
+<img src="images/math_irrationalintegral.png" alt="x가 무리수와 유리수일 때 1, 0을 주는 함수의 적분을 생각해보자. 르베그 적분의 방법으로 y축을 분할하면 충분히 작은 구간에서 함수값이 0인 경우와 1인 경우를 분리시킬 수 있다. 그 다음에는 구간 [0,1] 사이에서의 무리수들의 집합의 르베그 측도(1)와 유리수들의 집합의 르베그 측도(0)을 재면 된다." width="740" />
 <p class="caption">
 FIGURE 5.3: x가 무리수와 유리수일 때 1, 0을 주는 함수의 적분을 생각해보자. 르베그 적분의 방법으로 y축을 분할하면 충분히 작은 구간에서 함수값이 0인 경우와 1인 경우를 분리시킬 수 있다. 그 다음에는 구간 [0,1] 사이에서의 무리수들의 집합의 르베그 측도(1)와 유리수들의 집합의 르베그 측도(0)을 재면 된다.
 </p>

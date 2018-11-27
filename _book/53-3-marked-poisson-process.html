@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-10-20">
+<meta name="date" content="2018-11-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -229,11 +229,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.5.6" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#--nonhomogeneous-poisson-process"><i class="fa fa-check"></i><b>9.5.6</b> 비동질적 포아송 과정(nonhomogeneous Poisson process)</a></li>
 <li class="chapter" data-level="9.5.7" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#---theory-of-spatial-poisson-process"><i class="fa fa-check"></i><b>9.5.7</b> 공간 포아송 과정 이론(theory of spatial Poisson process)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="9-6-self-similar-process.html"><a href="9-6-self-similar-process.html"><i class="fa fa-check"></i><b>9.6</b> 자기유사과정(self-similar process)</a></li>
-<li class="chapter" data-level="9.7" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html"><i class="fa fa-check"></i><b>9.7</b> 브라운운동(Brownian motion)</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.7.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+<li class="chapter" data-level="9.6" data-path="9-6-infinitely-divisible-distribution.html"><a href="9-6-infinitely-divisible-distribution.html"><i class="fa fa-check"></i><b>9.6</b> 무한분해가능 분포(infinitely divisible distribution)</a></li>
+<li class="chapter" data-level="9.7" data-path="9-7-self-similar-process.html"><a href="9-7-self-similar-process.html"><i class="fa fa-check"></i><b>9.7</b> 자기유사과정(self-similar process)</a></li>
+<li class="chapter" data-level="9.8" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html"><i class="fa fa-check"></i><b>9.8</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.8.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="9-8-martingale.html"><a href="9-8-martingale.html"><i class="fa fa-check"></i><b>9.8</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="9.9" data-path="9-9-martingale.html"><a href="9-9-martingale.html"><i class="fa fa-check"></i><b>9.9</b> 마팅게일(martingale)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-bigOsmallo.html"><a href="10-bigOsmallo.html"><i class="fa fa-check"></i><b>10</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="10.1" data-path="10-1-big-o-small-o-big-o-and-small-o.html"><a href="10-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>10.1</b> Big O와 small o (big O and small o)</a></li>
@@ -743,12 +744,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><span class="math inline">\(X=\{ (\xi, m_{\xi}), \xi \in Y \}\)</span>라고 하자.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-399" class="definition"><strong>Definition 53.6  (표시된 포아송과정)  </strong></span><span class="math inline">\(Y \sim \text{Poisson}(T,\phi)\)</span>, <span class="math inline">\(phi\)</span>는 <span class="math inline">\(Y\)</span>가 conditioned 되어있을 때 locally integrable intensity function이라고 하자. 그리고 marks <span class="math inline">\(\{m_{\xi}, \xi\in Y\}\)</span>가 상호독립이라고 하자. 그러면 <span class="math inline">\(X\)</span>는 <strong>표시된 포아송과정(marked Poisson process)</strong>라고 부른다. 만약 marks가 identically distributed with a common distribution <span class="math inline">\(Q\)</span>일 경우 <span class="math inline">\(Q\)</span>는 <strong>표시 분포(mark distribution)</strong>이라고 부른다.</p>
+<p><span id="def:unnamed-chunk-400" class="definition"><strong>Definition 53.6  (표시된 포아송과정)  </strong></span><span class="math inline">\(Y \sim \text{Poisson}(T,\phi)\)</span>, <span class="math inline">\(phi\)</span>는 <span class="math inline">\(Y\)</span>가 conditioned 되어있을 때 locally integrable intensity function이라고 하자. 그리고 marks <span class="math inline">\(\{m_{\xi}, \xi\in Y\}\)</span>가 상호독립이라고 하자. 그러면 <span class="math inline">\(X\)</span>는 <strong>표시된 포아송과정(marked Poisson process)</strong>라고 부른다. 만약 marks가 identically distributed with a common distribution <span class="math inline">\(Q\)</span>일 경우 <span class="math inline">\(Q\)</span>는 <strong>표시 분포(mark distribution)</strong>이라고 부른다.</p>
 </div>
 
 
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-400" class="proposition"><strong>Proposition 53.9  (표시된 포아송과정의 성질)  </strong></span><span class="math inline">\(X\)</span> 가 <span class="math inline">\(M\subset \mathbb{R}^{p}\)</span>인 표시된 포아송 과정이고 <span class="math inline">\(Y\sim \text{Poisson}(T,\phi)\)</span>라고 하자. <span class="math inline">\(Y\)</span>에 대해 conditioned 되었을 때, 각각의 mark <span class="math inline">\(m_{\xi}\)</span>는 이산 또는 연속 밀도 <span class="math inline">\(p_{\xi}\)</span>를 갖고 이것은 <span class="math inline">\(Y\backslash\xi\)</span>에 의존하지 않는다. <span class="math inline">\(\rho(\xi, m)=\phi(\xi)p_{\xi}(m)\)</span>이라고 하자. 그러면</p>
+<p><span id="prp:unnamed-chunk-401" class="proposition"><strong>Proposition 53.9  (표시된 포아송과정의 성질)  </strong></span><span class="math inline">\(X\)</span> 가 <span class="math inline">\(M\subset \mathbb{R}^{p}\)</span>인 표시된 포아송 과정이고 <span class="math inline">\(Y\sim \text{Poisson}(T,\phi)\)</span>라고 하자. <span class="math inline">\(Y\)</span>에 대해 conditioned 되었을 때, 각각의 mark <span class="math inline">\(m_{\xi}\)</span>는 이산 또는 연속 밀도 <span class="math inline">\(p_{\xi}\)</span>를 갖고 이것은 <span class="math inline">\(Y\backslash\xi\)</span>에 의존하지 않는다. <span class="math inline">\(\rho(\xi, m)=\phi(\xi)p_{\xi}(m)\)</span>이라고 하자. 그러면</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(X\sim \text{Poisson}(T\times M, rho)\)</span>.</p></li>
 <li>만약 <span class="math inline">\(M\)</span>에서의 밀도가 <span class="math inline">\(\kappa(m)=\int_{T}\rho(\xi, m)d\xi\)</span>로 정의되고 이것이 locally integrable하면, <span class="math inline">\(\{m_{\xi}:\xi \in Y \}\sim \text{Poisson}(M,\kappa)\)</span>이다.</li>

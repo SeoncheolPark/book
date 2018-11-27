@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-10-20">
+<meta name="date" content="2018-11-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -229,11 +229,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.5.6" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#--nonhomogeneous-poisson-process"><i class="fa fa-check"></i><b>9.5.6</b> 비동질적 포아송 과정(nonhomogeneous Poisson process)</a></li>
 <li class="chapter" data-level="9.5.7" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#---theory-of-spatial-poisson-process"><i class="fa fa-check"></i><b>9.5.7</b> 공간 포아송 과정 이론(theory of spatial Poisson process)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="9-6-self-similar-process.html"><a href="9-6-self-similar-process.html"><i class="fa fa-check"></i><b>9.6</b> 자기유사과정(self-similar process)</a></li>
-<li class="chapter" data-level="9.7" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html"><i class="fa fa-check"></i><b>9.7</b> 브라운운동(Brownian motion)</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.7.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+<li class="chapter" data-level="9.6" data-path="9-6-infinitely-divisible-distribution.html"><a href="9-6-infinitely-divisible-distribution.html"><i class="fa fa-check"></i><b>9.6</b> 무한분해가능 분포(infinitely divisible distribution)</a></li>
+<li class="chapter" data-level="9.7" data-path="9-7-self-similar-process.html"><a href="9-7-self-similar-process.html"><i class="fa fa-check"></i><b>9.7</b> 자기유사과정(self-similar process)</a></li>
+<li class="chapter" data-level="9.8" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html"><i class="fa fa-check"></i><b>9.8</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.8.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="9-8-martingale.html"><a href="9-8-martingale.html"><i class="fa fa-check"></i><b>9.8</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="9.9" data-path="9-9-martingale.html"><a href="9-9-martingale.html"><i class="fa fa-check"></i><b>9.9</b> 마팅게일(martingale)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-bigOsmallo.html"><a href="10-bigOsmallo.html"><i class="fa fa-check"></i><b>10</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="10.1" data-path="10-1-big-o-small-o-big-o-and-small-o.html"><a href="10-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>10.1</b> Big O와 small o (big O and small o)</a></li>
@@ -772,7 +773,7 @@ H(t)=P(T\leq t) =
 </ol>
 
 <div class="corollary">
-<p><span id="cor:unnamed-chunk-373" class="corollary"><strong>Corollary 51.1  </strong></span>1. Aggregate pattern이 의심될 경우: 작은 <span class="math inline">\(t_{0}\)</span>를 선택하는 것이 좋다.</p>
+<p><span id="cor:unnamed-chunk-374" class="corollary"><strong>Corollary 51.1  </strong></span>1. Aggregate pattern이 의심될 경우: 작은 <span class="math inline">\(t_{0}\)</span>를 선택하는 것이 좋다.</p>
 <ol start="2" style="list-style-type: decimal">
 <li><p>두 번째 검정은 검정력(power)이 첫 번째 검정에 비해 약하다.</p></li>
 <li>실제 데이터의 분포 지역이 정사각형 또는 원이 아닌 경우 <span class="math inline">\(H(t)\)</span>의 명시적 형태를 모른다. 이처럼 <span class="math inline">\(H(t)\)</span>를 모르는 경우 <span class="math inline">\(\hat{H}_{i}, i=2,\ldots, s\)</span>를 이용해 <span class="math inline">\(H(t)\)</span>의 추정량 <span class="math inline">\(\bar{H}(t)\)</span>를 만들어 사용하는 것이다. <span class="math display">\[\bar{H}_{i}(t)=\frac{1}{s-1}\sum_{j\neq i}\hat{H}_{j}(t)\]</span> 이며 <span class="math inline">\(\bar{H}_{1}(t)\)</span>를 <span class="math inline">\(H(t)\)</span>의 추정량으로 주로 쓴다.</li>

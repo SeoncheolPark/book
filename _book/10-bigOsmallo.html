@@ -25,14 +25,14 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-10-20">
+<meta name="date" content="2018-11-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="9-8-martingale.html">
+<link rel="prev" href="9-9-martingale.html">
 <link rel="next" href="10-1-big-o-small-o-big-o-and-small-o.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -229,11 +229,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.5.6" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#--nonhomogeneous-poisson-process"><i class="fa fa-check"></i><b>9.5.6</b> 비동질적 포아송 과정(nonhomogeneous Poisson process)</a></li>
 <li class="chapter" data-level="9.5.7" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#---theory-of-spatial-poisson-process"><i class="fa fa-check"></i><b>9.5.7</b> 공간 포아송 과정 이론(theory of spatial Poisson process)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="9-6-self-similar-process.html"><a href="9-6-self-similar-process.html"><i class="fa fa-check"></i><b>9.6</b> 자기유사과정(self-similar process)</a></li>
-<li class="chapter" data-level="9.7" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html"><i class="fa fa-check"></i><b>9.7</b> 브라운운동(Brownian motion)</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.7.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+<li class="chapter" data-level="9.6" data-path="9-6-infinitely-divisible-distribution.html"><a href="9-6-infinitely-divisible-distribution.html"><i class="fa fa-check"></i><b>9.6</b> 무한분해가능 분포(infinitely divisible distribution)</a></li>
+<li class="chapter" data-level="9.7" data-path="9-7-self-similar-process.html"><a href="9-7-self-similar-process.html"><i class="fa fa-check"></i><b>9.7</b> 자기유사과정(self-similar process)</a></li>
+<li class="chapter" data-level="9.8" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html"><i class="fa fa-check"></i><b>9.8</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.8.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="9-8-martingale.html"><a href="9-8-martingale.html"><i class="fa fa-check"></i><b>9.8</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="9.9" data-path="9-9-martingale.html"><a href="9-9-martingale.html"><i class="fa fa-check"></i><b>9.9</b> 마팅게일(martingale)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-bigOsmallo.html"><a href="10-bigOsmallo.html"><i class="fa fa-check"></i><b>10</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="10.1" data-path="10-1-big-o-small-o-big-o-and-small-o.html"><a href="10-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>10.1</b> Big O와 small o (big O and small o)</a></li>
@@ -743,12 +744,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Large-sample technique의 장점 중 하나는 중요한 부분과 minor한 부분으로 나눌 수 있게 한다는 점이다. 다음은 order에 관한 <span class="citation">(Jiang <a href="#ref-Jiang2010">2010</a>)</span>의 예제이다.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-162" class="example"><strong>Example 10.1  (Order 고려의 중요성 (1))  </strong></span><span class="math inline">\(X_{1},\ldots , X_{n}\)</span>이 i.i.d.로 얻어진 표본들이며 <span class="math inline">\(\mu=E(X_{1})\neq 0\)</span>이라고 하자. 그러면 우리는 <span class="math inline">\(\sum_{i=1}^{n}X_{i}\)</span>로 기댓값들의 합 <span class="math inline">\(E(\sum_{i=1}^{n}X_{i})=n\mu\)</span>를 대체할 수 있다. 이것은 <span class="math inline">\(\sum_{i=1}^{n}X_{i}-n\mu\)</span>가 order <span class="math inline">\(O(\sqrt{n})\)</span>으로, <span class="math inline">\(\sum_{i=1}^{n}X_{i}\)</span>의 order보다 낮기 때문이다. 그러나 이러한 technique은 우리가 <span class="math inline">\((\sum_{i=1}^{n}X_{i})^{2}\)</span>를 고려할 때에는 완벽하게 실패한다. 예를 들면 <span class="math inline">\(X_{i}\sim \mathcal{N}(0,1)\)</span>이라고 하자. 그러면 <span class="math inline">\(E(\sum_{i=1}^{n}X_{i})^{2}=n\)</span>이다. 그러나, <span class="math inline">\(\sum_{i=1}^{n}X_{i}\sim\mathcal{N}(0,n)\)</span>이고 <span class="math inline">\((\sum_{i=1}^{n}X_{i})^{2}=n\{\frac{1}{\sqrt{n}}\sum_{i=1}^{n}X_{i} \}^{2} \sim n\chi_{1}^{2}\)</span>이므로, <span class="math inline">\((\sum_{i=1}^{n}X_{i})^{2}-E(\sum_{i=1}^{n}X_{i})^{2}=n(\chi_{1}^{2}-1)\)</span>이고 이는 <span class="math inline">\(E(\sum_{i=1}^{n}X_{i})^{2}\)</span>와 같은 order이다. 따라서 <span class="math inline">\((\sum_{i=1}^{n}X_{i})^{2}\)</span>은 <span class="math inline">\(E(\sum_{i=1}^{n}X_{i})^{2}\)</span>의 좋은 근사가 아니다.</p>
+<p><span id="exm:unnamed-chunk-163" class="example"><strong>Example 10.1  (Order 고려의 중요성 (1))  </strong></span><span class="math inline">\(X_{1},\ldots , X_{n}\)</span>이 i.i.d.로 얻어진 표본들이며 <span class="math inline">\(\mu=E(X_{1})\neq 0\)</span>이라고 하자. 그러면 우리는 <span class="math inline">\(\sum_{i=1}^{n}X_{i}\)</span>로 기댓값들의 합 <span class="math inline">\(E(\sum_{i=1}^{n}X_{i})=n\mu\)</span>를 대체할 수 있다. 이것은 <span class="math inline">\(\sum_{i=1}^{n}X_{i}-n\mu\)</span>가 order <span class="math inline">\(O(\sqrt{n})\)</span>으로, <span class="math inline">\(\sum_{i=1}^{n}X_{i}\)</span>의 order보다 낮기 때문이다. 그러나 이러한 technique은 우리가 <span class="math inline">\((\sum_{i=1}^{n}X_{i})^{2}\)</span>를 고려할 때에는 완벽하게 실패한다. 예를 들면 <span class="math inline">\(X_{i}\sim \mathcal{N}(0,1)\)</span>이라고 하자. 그러면 <span class="math inline">\(E(\sum_{i=1}^{n}X_{i})^{2}=n\)</span>이다. 그러나, <span class="math inline">\(\sum_{i=1}^{n}X_{i}\sim\mathcal{N}(0,n)\)</span>이고 <span class="math inline">\((\sum_{i=1}^{n}X_{i})^{2}=n\{\frac{1}{\sqrt{n}}\sum_{i=1}^{n}X_{i} \}^{2} \sim n\chi_{1}^{2}\)</span>이므로, <span class="math inline">\((\sum_{i=1}^{n}X_{i})^{2}-E(\sum_{i=1}^{n}X_{i})^{2}=n(\chi_{1}^{2}-1)\)</span>이고 이는 <span class="math inline">\(E(\sum_{i=1}^{n}X_{i})^{2}\)</span>와 같은 order이다. 따라서 <span class="math inline">\((\sum_{i=1}^{n}X_{i})^{2}\)</span>은 <span class="math inline">\(E(\sum_{i=1}^{n}X_{i})^{2}\)</span>의 좋은 근사가 아니다.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-163" class="example"><strong>Example 10.2  (Order 고려의 중요성 (2))  </strong></span>앞선 예제를 다시 생각해보자. <span class="math inline">\(X_{1},\ldots , X_{n}\)</span>이 i.i.d.로 얻어진 표본들이며 <span class="math inline">\(\mu=E(X_{1})\neq 0\)</span>이라고 하자. 이때 우리가 <span class="math inline">\(\sum_{i=1}^{n}X_{i}\)</span>로 기댓값들의 합 <span class="math inline">\(E(\sum_{i=1}^{n}X_{i})=n\mu\)</span>를 대체할 수 있는 이유는 쉽게 생각하면, WLLN으로 인해 <span class="math inline">\(\bar{X}=\frac{\sum_{i=1}^{n}X_{i}}{n}\)</span>이 <span class="math inline">\(\mu\)</span>의 consistent estimator이기 때문이다. 따라서 <span class="math inline">\(E(\sum_{i=1}^{n}X_{i})=n\mu\)</span>를 <span class="math inline">\(n\bar{X}=\sum_{i=1}^{n}X_{i}\)</span>로 추정하는 것은 일리가 있다.</p>
+<p><span id="exm:unnamed-chunk-164" class="example"><strong>Example 10.2  (Order 고려의 중요성 (2))  </strong></span>앞선 예제를 다시 생각해보자. <span class="math inline">\(X_{1},\ldots , X_{n}\)</span>이 i.i.d.로 얻어진 표본들이며 <span class="math inline">\(\mu=E(X_{1})\neq 0\)</span>이라고 하자. 이때 우리가 <span class="math inline">\(\sum_{i=1}^{n}X_{i}\)</span>로 기댓값들의 합 <span class="math inline">\(E(\sum_{i=1}^{n}X_{i})=n\mu\)</span>를 대체할 수 있는 이유는 쉽게 생각하면, WLLN으로 인해 <span class="math inline">\(\bar{X}=\frac{\sum_{i=1}^{n}X_{i}}{n}\)</span>이 <span class="math inline">\(\mu\)</span>의 consistent estimator이기 때문이다. 따라서 <span class="math inline">\(E(\sum_{i=1}^{n}X_{i})=n\mu\)</span>를 <span class="math inline">\(n\bar{X}=\sum_{i=1}^{n}X_{i}\)</span>로 추정하는 것은 일리가 있다.</p>
 <p>이 방법을 다른 관점에서 바라보자. 만약 <span class="math inline">\(X_{i}\)</span>들이 not i.i.d.일 경우, 어떻게 일반화 할 것이다. 우리는 앞 기대값을 다음과 같이 쓸 수 있다. <span class="math display">\[
 \begin{eqnarray}
 E(\sum_{i=1}^{n}X_{i})&amp;=&amp;\sum_{i=1}^{n}X_{i}-\{ \sum_{i=1}^{n}X_{i}-E(\sum_{i=1}^{n}X_{i})\}\\
@@ -790,7 +791,7 @@ E(\sum_{i=1}^{n}X_{i})^{2}&amp;=&amp;(\sum_{i=1}^{n}X_{i})^{2}-\{ (\sum_{i=1}^{n
           </div>
         </div>
       </div>
-<a href="9-8-martingale.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="9-9-martingale.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="10-1-big-o-small-o-big-o-and-small-o.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

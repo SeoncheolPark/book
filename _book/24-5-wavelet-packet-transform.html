@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-10-20">
+<meta name="date" content="2018-11-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -229,11 +229,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.5.6" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#--nonhomogeneous-poisson-process"><i class="fa fa-check"></i><b>9.5.6</b> 비동질적 포아송 과정(nonhomogeneous Poisson process)</a></li>
 <li class="chapter" data-level="9.5.7" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#---theory-of-spatial-poisson-process"><i class="fa fa-check"></i><b>9.5.7</b> 공간 포아송 과정 이론(theory of spatial Poisson process)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="9-6-self-similar-process.html"><a href="9-6-self-similar-process.html"><i class="fa fa-check"></i><b>9.6</b> 자기유사과정(self-similar process)</a></li>
-<li class="chapter" data-level="9.7" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html"><i class="fa fa-check"></i><b>9.7</b> 브라운운동(Brownian motion)</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.7.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+<li class="chapter" data-level="9.6" data-path="9-6-infinitely-divisible-distribution.html"><a href="9-6-infinitely-divisible-distribution.html"><i class="fa fa-check"></i><b>9.6</b> 무한분해가능 분포(infinitely divisible distribution)</a></li>
+<li class="chapter" data-level="9.7" data-path="9-7-self-similar-process.html"><a href="9-7-self-similar-process.html"><i class="fa fa-check"></i><b>9.7</b> 자기유사과정(self-similar process)</a></li>
+<li class="chapter" data-level="9.8" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html"><i class="fa fa-check"></i><b>9.8</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.8.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="9-8-martingale.html"><a href="9-8-martingale.html"><i class="fa fa-check"></i><b>9.8</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="9.9" data-path="9-9-martingale.html"><a href="9-9-martingale.html"><i class="fa fa-check"></i><b>9.9</b> 마팅게일(martingale)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-bigOsmallo.html"><a href="10-bigOsmallo.html"><i class="fa fa-check"></i><b>10</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="10.1" data-path="10-1-big-o-small-o-big-o-and-small-o.html"><a href="10-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>10.1</b> Big O와 small o (big O and small o)</a></li>
@@ -746,16 +747,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>교수님의 notation을 따라가면 다음과 같다. Translated (k; translation part) and scaled (j) wavelet packet function을 <span class="math display">\[W_{jbk}(t)=2^{j/2}W_{b}(2^{j}t-k)\]</span> 로 표현한다. 이 때 <span class="math inline">\(W_{b}(t), b=0,1,2,\ldots\)</span>는 <strong>웨이블릿 패킷 함수(wavelet packet function)</strong>이라고 한다. 이 때 <span class="math inline">\(b\)</span>는 index for oscillation of frequency이다. 교수님이 좋아하시는 말로는 <span class="math inline">\(b= \text{number of zero-crossing}\)</span>이다.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-284" class="example"><strong>Example 23.2  (Haar wavelet)  </strong></span>- Haar wavelet: time series에서 “Walsh function”</p>
+<p><span id="exm:unnamed-chunk-285" class="example"><strong>Example 23.2  (Haar wavelet)  </strong></span>- Haar wavelet: time series에서 “Walsh function”</p>
 </div>
 
 <p>일반적인 웨이블릿은 <span class="math inline">\(W_{j0k}, W_{j1k}(=\psi_{jk})\)</span> 둘만 사용한다는 점에서 차이점이 있다고 한다. <span class="math inline">\(W_{00k}=\phi_{0k}\)</span>이며 <span class="math display">\[f(t)=\sum_{k}c_{0k}\phi_{0k}(t) +\sum\sum d_{jk}\psi_{jk}(t)\]</span> 이다.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-285" class="theorem"><strong>Theorem 23.1  (Coifman and Wickerhauser (1992))  </strong></span><span class="math inline">\([2^{j}n, 2^{j}(n+1)]\)</span>이 <span class="math inline">\([0,\infty)\)</span>의 disjoint countable covering을 만드는 인덱스들의 collection <span class="math inline">\((j,n,k)\subset \mathbb{N}\times \mathbb{N}\mathbb{Z}\)</span> 있을 때 <span class="math inline">\(\{W_{jnk}(t)\}\)</span>는 <span class="math inline">\(L^{2}(\mathbb{R})\)</span>의 직교정규 기저가 된다. 즉, 어떤 <span class="math inline">\(f(t)\in L^{2}(\mathbb{R})\)</span>에 대해 <span class="math display">\[f(t)\approx \sum_{j}\sum_{n}\sum_{k}\omega_{jnk}W_{jnk}\]</span> 로 표현할 수 있다고 한다. 이 때 <span class="math inline">\(\omega_{jnk}=\int f(t)W_{jbk}(t)dt\)</span>이다.</p>
+<p><span id="thm:unnamed-chunk-286" class="theorem"><strong>Theorem 23.1  (Coifman and Wickerhauser (1992))  </strong></span><span class="math inline">\([2^{j}n, 2^{j}(n+1)]\)</span>이 <span class="math inline">\([0,\infty)\)</span>의 disjoint countable covering을 만드는 인덱스들의 collection <span class="math inline">\((j,n,k)\subset \mathbb{N}\times \mathbb{N}\mathbb{Z}\)</span> 있을 때 <span class="math inline">\(\{W_{jnk}(t)\}\)</span>는 <span class="math inline">\(L^{2}(\mathbb{R})\)</span>의 직교정규 기저가 된다. 즉, 어떤 <span class="math inline">\(f(t)\in L^{2}(\mathbb{R})\)</span>에 대해 <span class="math display">\[f(t)\approx \sum_{j}\sum_{n}\sum_{k}\omega_{jnk}W_{jnk}\]</span> 로 표현할 수 있다고 한다. 이 때 <span class="math inline">\(\omega_{jnk}=\int f(t)W_{jbk}(t)dt\)</span>이다.</p>
 </div>
 
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-286"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-287"></span>
 <img src="images/adwavelet_waveletpacket.png" alt="Illustration of wavelet packet transform applied to eight data points." width="276" />
 <p class="caption">
 FIGURE 23.11: Illustration of wavelet packet transform applied to eight data points.

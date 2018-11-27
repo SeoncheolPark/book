@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-10-20">
+<meta name="date" content="2018-11-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -229,11 +229,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.5.6" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#--nonhomogeneous-poisson-process"><i class="fa fa-check"></i><b>9.5.6</b> 비동질적 포아송 과정(nonhomogeneous Poisson process)</a></li>
 <li class="chapter" data-level="9.5.7" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#---theory-of-spatial-poisson-process"><i class="fa fa-check"></i><b>9.5.7</b> 공간 포아송 과정 이론(theory of spatial Poisson process)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="9-6-self-similar-process.html"><a href="9-6-self-similar-process.html"><i class="fa fa-check"></i><b>9.6</b> 자기유사과정(self-similar process)</a></li>
-<li class="chapter" data-level="9.7" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html"><i class="fa fa-check"></i><b>9.7</b> 브라운운동(Brownian motion)</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.7.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+<li class="chapter" data-level="9.6" data-path="9-6-infinitely-divisible-distribution.html"><a href="9-6-infinitely-divisible-distribution.html"><i class="fa fa-check"></i><b>9.6</b> 무한분해가능 분포(infinitely divisible distribution)</a></li>
+<li class="chapter" data-level="9.7" data-path="9-7-self-similar-process.html"><a href="9-7-self-similar-process.html"><i class="fa fa-check"></i><b>9.7</b> 자기유사과정(self-similar process)</a></li>
+<li class="chapter" data-level="9.8" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html"><i class="fa fa-check"></i><b>9.8</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.8.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="9-8-martingale.html"><a href="9-8-martingale.html"><i class="fa fa-check"></i><b>9.8</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="9.9" data-path="9-9-martingale.html"><a href="9-9-martingale.html"><i class="fa fa-check"></i><b>9.9</b> 마팅게일(martingale)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-bigOsmallo.html"><a href="10-bigOsmallo.html"><i class="fa fa-check"></i><b>10</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="10.1" data-path="10-1-big-o-small-o-big-o-and-small-o.html"><a href="10-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>10.1</b> Big O와 small o (big O and small o)</a></li>
@@ -751,7 +752,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 \]</span></p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-430" class="definition"><strong>Definition 57.1  (셈측도와 점측도)  </strong></span>셈측도와 점측도는 측도 단원에서 정의했으나 다시 한 번 정의해보자. 점들의 수열 <span class="math inline">\(\{p_{i}\}_{i\geq 1}\in E\)</span>가 주어졌다고 했을 때, 다음과 같이 정의된 함수 <span class="math inline">\(m:\mathcal{E}\rightarrow\bar{\mathbb{R}}\)</span> <span class="math display">\[m(A) = \sum_{i=1}^{\infty}\delta_{p_{i}}(A)\]</span></p>
+<p><span id="def:unnamed-chunk-431" class="definition"><strong>Definition 57.1  (셈측도와 점측도)  </strong></span>셈측도와 점측도는 측도 단원에서 정의했으나 다시 한 번 정의해보자. 점들의 수열 <span class="math inline">\(\{p_{i}\}_{i\geq 1}\in E\)</span>가 주어졌다고 했을 때, 다음과 같이 정의된 함수 <span class="math inline">\(m:\mathcal{E}\rightarrow\bar{\mathbb{R}}\)</span> <span class="math display">\[m(A) = \sum_{i=1}^{\infty}\delta_{p_{i}}(A)\]</span></p>
 <p>(즉 <span class="math inline">\(p_{i}\in A\)</span>의 cardinality)를 <span class="math inline">\(\mathcal{E}\)</span>의 <strong>셈측도(counting measure)</strong>라고 정의한다. 모든 compact set <span class="math inline">\(K\in\mathcal{E}\)</span>에서 <span class="math inline">\(m(K)&lt;\infty\)</span>일 경우 <span class="math inline">\(m\)</span>을 <strong>점측도(point measure)</strong>라고 정의한다.</p>
 </div>
 

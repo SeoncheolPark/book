@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-10-20">
+<meta name="date" content="2018-11-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -229,11 +229,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.5.6" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#--nonhomogeneous-poisson-process"><i class="fa fa-check"></i><b>9.5.6</b> 비동질적 포아송 과정(nonhomogeneous Poisson process)</a></li>
 <li class="chapter" data-level="9.5.7" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#---theory-of-spatial-poisson-process"><i class="fa fa-check"></i><b>9.5.7</b> 공간 포아송 과정 이론(theory of spatial Poisson process)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="9-6-self-similar-process.html"><a href="9-6-self-similar-process.html"><i class="fa fa-check"></i><b>9.6</b> 자기유사과정(self-similar process)</a></li>
-<li class="chapter" data-level="9.7" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html"><i class="fa fa-check"></i><b>9.7</b> 브라운운동(Brownian motion)</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.7.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+<li class="chapter" data-level="9.6" data-path="9-6-infinitely-divisible-distribution.html"><a href="9-6-infinitely-divisible-distribution.html"><i class="fa fa-check"></i><b>9.6</b> 무한분해가능 분포(infinitely divisible distribution)</a></li>
+<li class="chapter" data-level="9.7" data-path="9-7-self-similar-process.html"><a href="9-7-self-similar-process.html"><i class="fa fa-check"></i><b>9.7</b> 자기유사과정(self-similar process)</a></li>
+<li class="chapter" data-level="9.8" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html"><i class="fa fa-check"></i><b>9.8</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.8.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="9-8-martingale.html"><a href="9-8-martingale.html"><i class="fa fa-check"></i><b>9.8</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="9.9" data-path="9-9-martingale.html"><a href="9-9-martingale.html"><i class="fa fa-check"></i><b>9.9</b> 마팅게일(martingale)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-bigOsmallo.html"><a href="10-bigOsmallo.html"><i class="fa fa-check"></i><b>10</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="10.1" data-path="10-1-big-o-small-o-big-o-and-small-o.html"><a href="10-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>10.1</b> Big O와 small o (big O and small o)</a></li>
@@ -743,24 +744,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><span class="math inline">\(X\)</span>를 <span class="math inline">\(S=\mathbb{R}^{d}\)</span>에서의 점과정이라고 하자. <span class="math inline">\(N(B)\)</span>가 <span class="math inline">\(B\subset S\)</span>에서 무작위 셀 수 있는 변수들의 1차 및 2차 성질들은 <strong>강도측도(intensity measure)</strong>와 <strong>이차계승적률측도(second order moment factorial moment measure)</strong>라고 부른다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-401" class="definition"><strong>Definition 54.1  (강도측도)  </strong></span><span class="math inline">\(\mathbb{R}^{d}\)</span>에서의 <strong>강도측도(intensity measure)</strong> <span class="math inline">\(\mu\)</span>는 <span class="math display">\[\mu(B)=E[N(B)], B\subset \mathbb{R}^{d}\]</span> 로 정의하고 <span class="math inline">\(\mathbb{R}^{d}\times \mathbb{R}^{d}\)</span> <strong>이차계승적률측도(second order moment factorial moment measure)</strong> <span class="math inline">\(\alpha^{(2)}\)</span>는 <span class="math display">\[\alpha^{(2)}(C)=E \sum_{\xi, \eta \in X}^{\neq} I_{[(\xi, \eta)\in C]}, C\subseteq \mathbb{R}^{d}\times \mathbb{R}^{d}\]</span> 로 정의한다.</p>
+<p><span id="def:unnamed-chunk-402" class="definition"><strong>Definition 54.1  (강도측도)  </strong></span><span class="math inline">\(\mathbb{R}^{d}\)</span>에서의 <strong>강도측도(intensity measure)</strong> <span class="math inline">\(\mu\)</span>는 <span class="math display">\[\mu(B)=E[N(B)], B\subset \mathbb{R}^{d}\]</span> 로 정의하고 <span class="math inline">\(\mathbb{R}^{d}\times \mathbb{R}^{d}\)</span> <strong>이차계승적률측도(second order moment factorial moment measure)</strong> <span class="math inline">\(\alpha^{(2)}\)</span>는 <span class="math display">\[\alpha^{(2)}(C)=E \sum_{\xi, \eta \in X}^{\neq} I_{[(\xi, \eta)\in C]}, C\subseteq \mathbb{R}^{d}\times \mathbb{R}^{d}\]</span> 로 정의한다.</p>
 </div>
 
 <p>일반적인 집합 <span class="math inline">\(S\)</span>에 대해 측도는 <span class="math display">\[E(N(B_{1})N(B_{2}))=\alpha^{(2)}(B_{1}\times B_{2}) + \mu (B_{1} \int B_{2}), B_{1}, B_{2}\subseteq \mathbb{R}^{d}\]</span> 와 같이 정의된다고 한다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-402" class="definition"><strong>Definition 54.2  (강도함수)  </strong></span><span class="math inline">\(\rho\)</span>가 존재하여 <span class="math display">\[\mu(B)=\int_{B}\rho(\xi)d\xi\]</span> 를 만족한다면, <span class="math inline">\(\rho\)</span>를 <strong>강도함수(intensity function)</strong>라고 한다. 즉 <span class="math inline">\(\rho(\xi)d\xi\)</span>는 중심 <span class="math inline">\(\xi\)</span>에서 <span class="math inline">\(d\xi\)</span>만큼 볼륨을 가지는 지역에서 point가 존재할 확률이다.</p>
+<p><span id="def:unnamed-chunk-403" class="definition"><strong>Definition 54.2  (강도함수)  </strong></span><span class="math inline">\(\rho\)</span>가 존재하여 <span class="math display">\[\mu(B)=\int_{B}\rho(\xi)d\xi\]</span> 를 만족한다면, <span class="math inline">\(\rho\)</span>를 <strong>강도함수(intensity function)</strong>라고 한다. 즉 <span class="math inline">\(\rho(\xi)d\xi\)</span>는 중심 <span class="math inline">\(\xi\)</span>에서 <span class="math inline">\(d\xi\)</span>만큼 볼륨을 가지는 지역에서 point가 존재할 확률이다.</p>
 </div>
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-403" class="definition"><strong>Definition 54.3  (2차 곱 밀도)  </strong></span>만약 2차 팩토리얼 모멘트 측도 <span class="math inline">\(\alpha^{(2)}\)</span>가 <span class="math display">\[\alpha^{(2)}(C)=\int \int \mathbf{1}[(\xi,\eta)\in C]\rho^{(2)}(\xi,\eta)d\xi d\eta, \qquad{C\subset \mathbb{R}^{d}\times\mathbb{R}^{d}}\]</span> 로 쓸 수 있을 때 <span class="math inline">\(\rho^{(2)}\)</span>는 음이 아닌 함수이며 <strong>2차 곱 밀도(second order product density)</strong>라고 부른다. 직관적으로 <span class="math inline">\(\rho^{(2)}(\xi, \eta)d\xi d\eta\)</span>는 <span class="math inline">\(X\)</span>로부터 얻어진 두 개의 점들이 동시에 두 개의 작은 지역에 떨어질 확률(일종의 interaction)을 나타낸다.</p>
+<p><span id="def:unnamed-chunk-404" class="definition"><strong>Definition 54.3  (2차 곱 밀도)  </strong></span>만약 2차 팩토리얼 모멘트 측도 <span class="math inline">\(\alpha^{(2)}\)</span>가 <span class="math display">\[\alpha^{(2)}(C)=\int \int \mathbf{1}[(\xi,\eta)\in C]\rho^{(2)}(\xi,\eta)d\xi d\eta, \qquad{C\subset \mathbb{R}^{d}\times\mathbb{R}^{d}}\]</span> 로 쓸 수 있을 때 <span class="math inline">\(\rho^{(2)}\)</span>는 음이 아닌 함수이며 <strong>2차 곱 밀도(second order product density)</strong>라고 부른다. 직관적으로 <span class="math inline">\(\rho^{(2)}(\xi, \eta)d\xi d\eta\)</span>는 <span class="math inline">\(X\)</span>로부터 얻어진 두 개의 점들이 동시에 두 개의 작은 지역에 떨어질 확률(일종의 interaction)을 나타낸다.</p>
 </div>
 
 <p><span class="math inline">\(\rho\)</span>가 상수함수이면 homogeneous, 상수가 아닐 경우 inhomogeneous라고 부른다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-404" class="definition"><strong>Definition 54.4  (짝 상관계수 함수)  </strong></span>만약 <span class="math inline">\(\rho\)</span>, <span class="math inline">\(\rho^{(2)}\)</span>가 존재할 때, <strong>짝 상관계수 함수(pair correlation function)</strong>은 <span class="math display">\[g(\xi,\eta)=\frac{\rho^{(2)}(\xi,\eta)}{\rho(\xi)\rho(\eta)}\]</span> 로 정의된다.</p>
+<p><span id="def:unnamed-chunk-405" class="definition"><strong>Definition 54.4  (짝 상관계수 함수)  </strong></span>만약 <span class="math inline">\(\rho\)</span>, <span class="math inline">\(\rho^{(2)}\)</span>가 존재할 때, <strong>짝 상관계수 함수(pair correlation function)</strong>은 <span class="math display">\[g(\xi,\eta)=\frac{\rho^{(2)}(\xi,\eta)}{\rho(\xi)\rho(\eta)}\]</span> 로 정의된다.</p>
 </div>
 
 
@@ -775,12 +776,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-406" class="proposition"><strong>Proposition 54.1  </strong></span><span class="math inline">\(h_{1}:\mathbb{R}^{d}\rightarrow [0,\infty)\)</span>, <span class="math inline">\(h_{2}:\mathbb{R}^{d}\times \mathbb{R}^{d}\rightarrow [0,\infty)\)</span>라고 하자. <span class="math inline">\(X\)</span>는 intensity function <span class="math inline">\(\rho\)</span>를 갖고 second order density <span class="math inline">\(\rho^{(2)}\)</span>를 갖는다고 하자. 그러면 <span class="math display">\[E\sum_{\xi\in X}h_{1}(\xi)=\int h_{1}(\xi)\rho(\xi)d\xi,\]</span> <span class="math display">\[E\sum_{\xi,\eta\in X}^{\neq}h_{2}(\xi,\eta)=\int\int h_{1}(\xi,\eta)\rho^{(2)}(\xi,\eta)d\xi d\eta\]</span> 이다.</p>
+<p><span id="prp:unnamed-chunk-407" class="proposition"><strong>Proposition 54.1  </strong></span><span class="math inline">\(h_{1}:\mathbb{R}^{d}\rightarrow [0,\infty)\)</span>, <span class="math inline">\(h_{2}:\mathbb{R}^{d}\times \mathbb{R}^{d}\rightarrow [0,\infty)\)</span>라고 하자. <span class="math inline">\(X\)</span>는 intensity function <span class="math inline">\(\rho\)</span>를 갖고 second order density <span class="math inline">\(\rho^{(2)}\)</span>를 갖는다고 하자. 그러면 <span class="math display">\[E\sum_{\xi\in X}h_{1}(\xi)=\int h_{1}(\xi)\rho(\xi)d\xi,\]</span> <span class="math display">\[E\sum_{\xi,\eta\in X}^{\neq}h_{2}(\xi,\eta)=\int\int h_{1}(\xi,\eta)\rho^{(2)}(\xi,\eta)d\xi d\eta\]</span> 이다.</p>
 </div>
 
 
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-407" class="proposition"><strong>Proposition 54.2  </strong></span> <span class="math inline">\(X\)</span>는 intensity function <span class="math inline">\(\rho\)</span>를 갖고 second order density <span class="math inline">\(\rho^{(2)}\)</span>를 갖는다고 하자. <span class="math inline">\(X_{\text{thin}}\)</span>은 <span class="math inline">\(X\)</span>의 retention probability <span class="math inline">\(p(\xi)\)</span>에 대한 independent thinning이라고 하자. 그러면 <span class="math inline">\(\rho_{\text{thin}}(\xi)=p(\xi)\rho(\xi)\)</span>, <span class="math inline">\(\rho_{\text{thin}}^{(2)}(\xi,\eta)=p(\xi)p(\eta)p^{(2)}(\xi,\eta)\)</span>가 되며 <span class="math inline">\(g_{\text{thin}}=g\)</span>이다.</p>
+<p><span id="prp:unnamed-chunk-408" class="proposition"><strong>Proposition 54.2  </strong></span> <span class="math inline">\(X\)</span>는 intensity function <span class="math inline">\(\rho\)</span>를 갖고 second order density <span class="math inline">\(\rho^{(2)}\)</span>를 갖는다고 하자. <span class="math inline">\(X_{\text{thin}}\)</span>은 <span class="math inline">\(X\)</span>의 retention probability <span class="math inline">\(p(\xi)\)</span>에 대한 independent thinning이라고 하자. 그러면 <span class="math inline">\(\rho_{\text{thin}}(\xi)=p(\xi)\rho(\xi)\)</span>, <span class="math inline">\(\rho_{\text{thin}}^{(2)}(\xi,\eta)=p(\xi)p(\eta)p^{(2)}(\xi,\eta)\)</span>가 되며 <span class="math inline">\(g_{\text{thin}}=g\)</span>이다.</p>
 </div>
 
 
