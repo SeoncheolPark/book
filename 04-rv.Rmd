@@ -43,6 +43,7 @@ X_{2}^{-1}(B) :=
 \end{cases}
 $$
 이며 따라서 $X_{2}$는 $\mathcal{F}$-가측이다. $B\in\mathcal{B}$일 떄 $X_{3}^{-1}(B)=B\cap [0,1] \in \mathcal{B}_{[0,1]}\in\mathcal{F}$이므로 $X_{3}(\omega)$또한 확률변수다.
+
 ```
 
 앞선 예제에서 $X$가 확류변수임을 보이기 위해 $X^{-1}(\mathcal{B})=\{ X^{-1}(B), B\in\mathcal{B}\}$를 계산하였다. 이 때 $\mathcal{F}$의 부분집합인 $X^{-1}(\mathcal{B})$는 $X$를 가측으로 만드는 관점에서 가장 작은 시그마-장이된다.
