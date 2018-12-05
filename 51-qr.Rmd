@@ -168,11 +168,17 @@ $$x\rightarrow Q_{Y}(\tau|x)$$
 
 한편 probability index $\tau$가 0 또는 1에 가까울 때 이 조건부 $\tau$-quantile을 **극단적(extremal)**이라고 한다. 여기서는 주로 $\tau$가 0에 가까운 경우를 가정한다. 극단 분위수의 추정량의 성질을 분석하는 것은 극단값 이론과 큰 관련이 있다. 이 이론은 표분의 크기 $T$와 관련이 있는 분위수 인덱스들 $\{\tau_{T}\}_{T=1}^{\infty}$의 수열을 사용한다. $\tau_{T}T$를 $\tau_{T}$-분위수의 차수라고 생각해보자. quantile index의 수열과 표본 크기의 짝들 $\{\tau_{T}, T\}_{T=1}^{\infty}$는 다음과 같이 분류할 수 있다.
 
-- **Extreme order**: $T\rightarrow \infty$일 때 $\tau_{T}\searrow 0$이고  $\tau_{T}T \rightarrow k \in (0,\infty)$일 때
+- **Extreme order**: $T\rightarrow \infty$일 때 $\tau_{T}\searrow 0$이고  $\tau_{T}T \rightarrow k \in (0,\infty)$일 때 (표본 크기가 커지는 속도가 $\tau_{T}$가 감소하는 속도와 같을 때, 즉 그만큼 $\tau_{T}$가 빨리 감소한다는 뜻)
 
-- **Intermediate order**: $T\rightarrow \infty$일 때 $\tau_{T}\searrow 0$이고  $\tau_{T}T \rightarrow \infty$일 때
+- **Intermediate order**: $T\rightarrow \infty$일 때 $\tau_{T}\searrow 0$이고  $\tau_{T}T \rightarrow \infty$일 때 (표본 크기가 커지는 속도가 $\tau_{T}$가 감소하는 속도보다 빠를때)
 
-- **Central order**: $T\rightarrow\infty$이더라도 $\tau_{T}$가 고정인 경우
+- **Central order**: $T\rightarrow\infty$이더라도 $\tau_{T}$가 (0과 1 사이에) 고정인 경우 (일반적인 경우이며 밑의 그림에서는 regular라고 부른다.)
+
+다음 그림은 위의 개념을 설명하기 위한 [@Zhang2018]의 그림이다.
+
+```{r, echo=F, fig.cap='분위수지수(quantile index)에서의 점근분포.', fig.align='center'}
+knitr::include_graphics("images/qr_quantileindex.png")
+```
 
 ### 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)
 
@@ -289,12 +295,13 @@ $$A_{T}=\frac{1}{Q_{U}}(\frac{1}{T}), \qquad{\Gamma_{k} = \mathcal{E}_{1} + \ldo
 
 식 \@ref(eq:limitEVz) 에서 얻은 고전적인 결과는 종종 $Q_{Y}(\tau_{T})$를 추론하는 데 좋지 않은 데 상수 $A_{T}$가 일반적으로 알려져 있지 않고 일치추정량을 얻을 수 없을 때도 있기 때문이다. 이 문제를 다루기 위한 방법으로 $A_{T}$에 대한 일치추정량을 얻기 위해 식 \@ref(eq:Paretotypetail)의 천천히 변하는 함수 $\tau \rightarrow L(\tau)$에 대해 비모수적인 방법에 강한 모수적 가정을 넣어주는 방법이 있다. 이 방법은 나중에 다루기로 한다.
 
-또 다른 방법으로는 $mk$를 정수로 만드는 $m>1$에 대해  다음의 **self-normalized quantile (SN-Q)** 통계량을 고려하는 것이다.
+또 다른 방법으로 다음의 **self-normalized quantile (SN-Q)** 통계량을 고려하는 것이다.
 
 \begin{equation}
-Z_{T}(k_{T}):= \mathcal{A}_{T}(\hat{Q}_{Y}(\tau_{T}) - Q_{Y}(\tau_{T})), \qquad{\mathcal{A}_{T}:=\frac{\sqrt{k_{T}}}{\hat{Q}_{Y}(m\tau_{T})- \hat{Q}_{Y}(\tau_{T}) }  }
+Z_{T}(k_{T}):= \mathcal{A}_{T}(\hat{Q}_{Y}(\tau_{T}) - Q_{Y}(\tau_{T})), \qquad{\mathcal{A}_{T}:=\frac{\sqrt{k_{T}}}{\hat{Q}_{Y}(m\tau_{T})- \hat{Q}_{Y}(\tau_{T}) }  ,}
 (\#eq:SNQ)
 \end{equation}
 
+이 때 $mk$는 정수이며 $m>1$이다. 예를 들면 어떤 spacing parameter $p\geq 1$에 대해 $m= \frac{p}{k_{T}}+1 = \frac{p}{k}+1 + o(1)$로 놓는 것이다. Scaling factor $\mathcal{A}_{T}$는 자료의 함수이며 $A_{T}$의 일치추정량이 되도록 추정할 필요가 없다.
 
 

@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-11-29">
+<meta name="date" content="2018-12-05">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -744,12 +744,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>가장 기본적인 점과정으로 <strong>포아송 점과정(Poisson point process)</strong>이 있으며, 이것의 특별한 경우가 CSR이다. 포아송 점과정을 정의하기 위해서는 먼저 <strong>이항 점과정(binomial point process)</strong>에 대해 알아야 한다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-382" class="definition"><strong>Definition 53.1  (이항 점과정)  </strong></span><span class="math inline">\(f\)</span>가 <span class="math inline">\(B\subseteq S\)</span> 위에서의 밀도함수(density function)라고 하자. B 위에서 밀도 <span class="math inline">\(f\)</span>를 갖는 <span class="math inline">\(n\)</span>개의 i.i.d. 점들로 구성된 점과정 <span class="math inline">\(X\)</span>를 <strong>이항 점과정(binomial point process)</strong>이라고 하며 <span class="math inline">\(X\sim \text{binomial}(B,n,f)\)</span>라고 쓴다. 포아송 점과정과는 달리 <span class="math inline">\(n\)</span>이 고정되어 있으며 이 <span class="math inline">\(n\)</span>는 균등(uniform)이 아닌 <span class="math inline">\(f\)</span>에 의해 i.i.d로 뽑인다. CSR은 <span class="math inline">\(f=\frac{1}{|B|}\)</span>인 경우다.</p>
+<p><span id="def:unnamed-chunk-383" class="definition"><strong>Definition 53.1  (이항 점과정)  </strong></span><span class="math inline">\(f\)</span>가 <span class="math inline">\(B\subseteq S\)</span> 위에서의 밀도함수(density function)라고 하자. B 위에서 밀도 <span class="math inline">\(f\)</span>를 갖는 <span class="math inline">\(n\)</span>개의 i.i.d. 점들로 구성된 점과정 <span class="math inline">\(X\)</span>를 <strong>이항 점과정(binomial point process)</strong>이라고 하며 <span class="math inline">\(X\sim \text{binomial}(B,n,f)\)</span>라고 쓴다. 포아송 점과정과는 달리 <span class="math inline">\(n\)</span>이 고정되어 있으며 이 <span class="math inline">\(n\)</span>는 균등(uniform)이 아닌 <span class="math inline">\(f\)</span>에 의해 i.i.d로 뽑인다. CSR은 <span class="math inline">\(f=\frac{1}{|B|}\)</span>인 경우다.</p>
 </div>
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-383" class="definition"><strong>Definition 53.2  (포아송 점과정)  </strong></span><span class="math inline">\(S\)</span> 위에서 강도함수(intensity function) <span class="math inline">\(\rho\)</span>를 갖는 점과정 <span class="math inline">\(X\)</span>가</p>
+<p><span id="def:unnamed-chunk-384" class="definition"><strong>Definition 53.2  (포아송 점과정)  </strong></span><span class="math inline">\(S\)</span> 위에서 강도함수(intensity function) <span class="math inline">\(\rho\)</span>를 갖는 점과정 <span class="math inline">\(X\)</span>가</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(\mu (B)=\int_{B} \rho (\xi) d\xi &lt;\infty\)</span>를 갖는 어떤 <span class="math inline">\(B\subset S\)</span>에 대해 <span class="math inline">\(N(B)=n(X_{B}) ~ \text{Poisson}(\mu(B))\)</span> (만약 <span class="math inline">\(\mu(B)=0\)</span>이면 <span class="math inline">\(N(B)=0\)</span>이다) 이고</p></li>
 <li><p><span class="math inline">\(0 &lt; \mu(B) &lt;\infty\)</span>인 어떤 <span class="math inline">\(n\in\mathbb{N}\)</span>, <span class="math inline">\(B\subseteq S\)</span>에 대해 <span class="math inline">\(N(B)=n\)</span>인 조건부에서 <span class="math inline">\(X_{B}\sim \text{binomial}(B,n,f)\)</span>이고 <span class="math inline">\(f(\xi)=\rho(\xi)/\mu(B)\)</span>를 따를 때</p></li>
@@ -759,7 +759,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 <div class="corollary">
-<p><span id="cor:unnamed-chunk-384" class="corollary"><strong>Corollary 53.2  </strong></span>- <span class="math inline">\(E N(B)=\mu(B)\)</span> for <span class="math inline">\(\mu(B) &lt;\infty\)</span></p>
+<p><span id="cor:unnamed-chunk-385" class="corollary"><strong>Corollary 53.2  </strong></span>- <span class="math inline">\(E N(B)=\mu(B)\)</span> for <span class="math inline">\(\mu(B) &lt;\infty\)</span></p>
 <ul>
 <li><p><span class="math inline">\(\rho(\xi)d\xi\)</span>: heuristically probability of a point in a small neighborhood of <span class="math inline">\(\xi\)</span></p></li>
 <li><span class="math inline">\(P(X=\xi)=0\)</span></li>
@@ -768,7 +768,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-385" class="definition"><strong>Definition 53.3  (포아송 점과정과 관련된 정의들)  </strong></span><span class="math inline">\(\rho(\cdot)=\rho\)</span>인 포아송 점과정을 <strong>동질적 포아송 점과정(homogeneous Poisson point process)</strong>, <span class="math inline">\(\rho(\cdot)\neq\rho\)</span>인 포아송 점과정을 <strong>비동질적 포아송 점과정(inhomogeneous Poisson point process)</strong>이라고 부른다. 한편, 점과정에서도 정상성을 정의할 수 있는데, 임의의 점 <span class="math inline">\(s\in \mathbb{R}^{d}\)</span>에 대해 이동불변성(translation invariant) <span class="math display">\[X+s =\{\xi + s xi\in X\} \stackrel{\mathcal{D}}{=} X\]</span> 을 갖는 <span class="math inline">\(X\)</span>를 <strong>정상 점과정(stationray point process)</strong>라고 한다. 등방성(isotropy)에 대해서도 정의할 수 있는데, <span class="math inline">\(\mathbb{R}^{d}\)</span>상의 원점에 대해 회전불변성(rortation invariant) <span class="math display">\[\mathcal{O}X=\{ \mathcal{O}\xi, \xi \in X\} \stackrel{\mathcal{D}}{=} X\]</span> 을 갖는 <span class="math inline">\(X\)</span>를 <strong>등방 점과정(isotropic point process)</strong>라고 한다. <span class="math inline">\(\mathcal{O}\)</span>은 일종의 회전연산자이다.</p>
+<p><span id="def:unnamed-chunk-386" class="definition"><strong>Definition 53.3  (포아송 점과정과 관련된 정의들)  </strong></span><span class="math inline">\(\rho(\cdot)=\rho\)</span>인 포아송 점과정을 <strong>동질적 포아송 점과정(homogeneous Poisson point process)</strong>, <span class="math inline">\(\rho(\cdot)\neq\rho\)</span>인 포아송 점과정을 <strong>비동질적 포아송 점과정(inhomogeneous Poisson point process)</strong>이라고 부른다. 한편, 점과정에서도 정상성을 정의할 수 있는데, 임의의 점 <span class="math inline">\(s\in \mathbb{R}^{d}\)</span>에 대해 이동불변성(translation invariant) <span class="math display">\[X+s =\{\xi + s xi\in X\} \stackrel{\mathcal{D}}{=} X\]</span> 을 갖는 <span class="math inline">\(X\)</span>를 <strong>정상 점과정(stationray point process)</strong>라고 한다. 등방성(isotropy)에 대해서도 정의할 수 있는데, <span class="math inline">\(\mathbb{R}^{d}\)</span>상의 원점에 대해 회전불변성(rortation invariant) <span class="math display">\[\mathcal{O}X=\{ \mathcal{O}\xi, \xi \in X\} \stackrel{\mathcal{D}}{=} X\]</span> 을 갖는 <span class="math inline">\(X\)</span>를 <strong>등방 점과정(isotropic point process)</strong>라고 한다. <span class="math inline">\(\mathcal{O}\)</span>은 일종의 회전연산자이다.</p>
 </div>
 
 <div id="--properties-of-poisson-point-process" class="section level3">
@@ -776,7 +776,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>이 절의 내용은 <span class="citation">(Moller and Waagepetersen <a href="#ref-Moller2003">2003</a>)</span>의 3장에 있는 포아송 점과정의 성질들을 언급한다. 증명은 생략하니 참고문헌을 참조하길 바란다. <span class="math inline">\(S\)</span>는 기본적으로 유계일 필요는 없으며, <span class="math inline">\(\rho\)</span>는 기본적으로 국소 적분가능(locally integrable)이다.</p>
 
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-386" class="proposition"><strong>Proposition 53.1  (포아송 점과정과 관련된 성질들)  </strong></span>1. <span class="math inline">\(X \in \text{Poisson}(S, \rho)\)</span>인 것은</p>
+<p><span id="prp:unnamed-chunk-387" class="proposition"><strong>Proposition 53.1  (포아송 점과정과 관련된 성질들)  </strong></span>1. <span class="math inline">\(X \in \text{Poisson}(S, \rho)\)</span>인 것은</p>
 <p><span class="math inline">\(\mu(B)=\int_{S}\rho(\xi)d\xi &lt;\infty\)</span>인 모든 <span class="math inline">\(B \subseteq S\)</span>와 모든 <span class="math inline">\(F \subseteq N_{lf}\)</span>에 대해 <span class="math display">\[P(X_{B}\in F)=\sum_{n=0}^{\infty}\frac{e^{-\mu(B)}}{n!}\int_{B}\cdots\int_{B}I_{[\{x_{1},\ldots, x_{n}\}\in F]}\prod_{i=1}^{n}\rho(x_{i})dx_{1}\cdots dx_{n}\]</span> 과 동치이다.</p>
 <ol start="2" style="list-style-type: decimal">
 <li><span class="math inline">\(X \in \text{Poisson}(S, \rho)\)</span>이면 함수 <span class="math inline">\(h:N_{lf}\rightarrow [0,\infty )\)</span>와 <span class="math inline">\(\mu(B) &lt; \infty\)</span>인 <span class="math inline">\(B\subseteq S\)</span>에 대해 <span class="math display">\[E[h(X_{B})]=\sum_{n=0}^{\infty}\frac{e^{-\mu(B)}}{n!}\int_{B}\cdots\int_{B}h(\{x_{1},\ldots, x_{n}\})\prod_{i=1}^{n}\rho(x_{i})dx_{1}\cdots dx_{n}\]</span> 이다.</li>
@@ -786,35 +786,35 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>다음 정리는 포아송 점과정에 해당하는 빈 확률(void probability)은 무엇일까에 관한 것이다.</p>
 
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-387" class="proposition"><strong>Proposition 53.2  (포아송 점과정에 해당하는 빈 확률)  </strong></span><span class="math inline">\(X \in \text{Poisson}(S, \rho)\)</span>는 빈 확률 <span class="math display">\[v(B)=e^{-\mu(B)}, \qquad{\text{bounded } B\subseteq S}\]</span> 에 의해 유일하게 결정된다.</p>
+<p><span id="prp:unnamed-chunk-388" class="proposition"><strong>Proposition 53.2  (포아송 점과정에 해당하는 빈 확률)  </strong></span><span class="math inline">\(X \in \text{Poisson}(S, \rho)\)</span>는 빈 확률 <span class="math display">\[v(B)=e^{-\mu(B)}, \qquad{\text{bounded } B\subseteq S}\]</span> 에 의해 유일하게 결정된다.</p>
 </div>
 
 <p>다음 명제는 disjoint한 지역에서의 포아송 점과정들은 서로 독립이라는 것을 말하고 있다.</p>
 
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-388" class="proposition"><strong>Proposition 53.3  (disjoint한 지역에서의 포아송 점과정들은 서로 독립)  </strong></span>점과정 <span class="math inline">\(X\)</span>가 포아송 점과정 <span class="math inline">\(X \in \text{Poisson}(S, \rho)\)</span>이면, <span class="math inline">\(X_{B_{1}}, X_{B_{2}}, \ldots\)</span>는 disjoint set들 <span class="math inline">\(B_{1},B_{2},\ldots \subseteq S\)</span>에 대해 독립이다.</p>
+<p><span id="prp:unnamed-chunk-389" class="proposition"><strong>Proposition 53.3  (disjoint한 지역에서의 포아송 점과정들은 서로 독립)  </strong></span>점과정 <span class="math inline">\(X\)</span>가 포아송 점과정 <span class="math inline">\(X \in \text{Poisson}(S, \rho)\)</span>이면, <span class="math inline">\(X_{B_{1}}, X_{B_{2}}, \ldots\)</span>는 disjoint set들 <span class="math inline">\(B_{1},B_{2},\ldots \subseteq S\)</span>에 대해 독립이다.</p>
 </div>
 
 <p>다음 명제는 포아송 점과정의 생성범함수에 관한 것이다.</p>
 
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-389" class="proposition"><strong>Proposition 53.4  (포아송 점과정의 생성범함수)  </strong></span>점과정 <span class="math inline">\(X\)</span>가 포아송 점과정 <span class="math inline">\(X \in \text{Poisson}(S, \rho)\)</span>이면 <span class="math display">\[G_{X}(u)=E[ \prod_{\xi \in X}u(\xi)] \stackrel{\text{PPP}}{=}e^{-\int_{S}(1-u(\xi))\rho(\xi)d\xi}\]</span> 이다. 이 때 <span class="math inline">\(u:S\rightarrow [0,1]\)</span>이다.</p>
+<p><span id="prp:unnamed-chunk-390" class="proposition"><strong>Proposition 53.4  (포아송 점과정의 생성범함수)  </strong></span>점과정 <span class="math inline">\(X\)</span>가 포아송 점과정 <span class="math inline">\(X \in \text{Poisson}(S, \rho)\)</span>이면 <span class="math display">\[G_{X}(u)=E[ \prod_{\xi \in X}u(\xi)] \stackrel{\text{PPP}}{=}e^{-\int_{S}(1-u(\xi))\rho(\xi)d\xi}\]</span> 이다. 이 때 <span class="math inline">\(u:S\rightarrow [0,1]\)</span>이다.</p>
 </div>
 
 <p>다음 명제는 (정상) 포아송 점과정을 어떻게 생성할 것인가에 대한 것이다. 여기서는 극좌표(polar coordinate)를 응용한다.</p>
 
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-390" class="proposition"><strong>Proposition 53.5  (극좌표를 활용한 포아송 점과정의 생성)  </strong></span><span class="math inline">\(S_{1}, U_{1}, S_{2}, U_{2}, \ldots\)</span>가 <span class="math inline">\(U_{i}\)</span>는 <span class="math inline">\(\{u \in \mathbb{R}^{d}: \| u\| =1 \}\)</span>에서 균등하게 분포되어 있고 <span class="math inline">\(S_{i} \sim \text{Exp}(\rho \omega_{d})\)</span>가 평균 <span class="math inline">\(1/(\rho \omega_{d})\)</span> <span class="math inline">\((\omega_{d}\text{: volume of d-dimension unit ball})\)</span>로 지수 분포되어있다고 하자. <span class="math inline">\(R_{0}=0, R_{i}^{d}=R_{i-1}^{d}+S_{i}, i=1,2,\ldots\)</span>로 정의되었다고 할 때 <span class="math display">\[X=\{R_{1}U_{1}, R_{2}U_{2},\ldots\}\sim \text{Poisson}(\mathbb{R}^{d},\rho)\]</span> 이다.</p>
+<p><span id="prp:unnamed-chunk-391" class="proposition"><strong>Proposition 53.5  (극좌표를 활용한 포아송 점과정의 생성)  </strong></span><span class="math inline">\(S_{1}, U_{1}, S_{2}, U_{2}, \ldots\)</span>가 <span class="math inline">\(U_{i}\)</span>는 <span class="math inline">\(\{u \in \mathbb{R}^{d}: \| u\| =1 \}\)</span>에서 균등하게 분포되어 있고 <span class="math inline">\(S_{i} \sim \text{Exp}(\rho \omega_{d})\)</span>가 평균 <span class="math inline">\(1/(\rho \omega_{d})\)</span> <span class="math inline">\((\omega_{d}\text{: volume of d-dimension unit ball})\)</span>로 지수 분포되어있다고 하자. <span class="math inline">\(R_{0}=0, R_{i}^{d}=R_{i-1}^{d}+S_{i}, i=1,2,\ldots\)</span>로 정의되었다고 할 때 <span class="math display">\[X=\{R_{1}U_{1}, R_{2}U_{2},\ldots\}\sim \text{Poisson}(\mathbb{R}^{d},\rho)\]</span> 이다.</p>
 </div>
 
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-391" class="theorem"><strong>Theorem 53.1  ((Slivnyak-Mecke’s theorem))  </strong></span><span class="math inline">\(X \in \text{Poisson}(S, \rho)\)</span>일 때 함수 <span class="math inline">\(h:S\times N_{lf} \rightarrow [0,\infty])\)</span>에 대해 <span class="math display">\[E[\sum_{\xi\in X}h(\xi,X\backslash \xi)]=\int_{S}[E[h(\xi,X)]]\rho(\xi)d\xi.\]</span></p>
+<p><span id="thm:unnamed-chunk-392" class="theorem"><strong>Theorem 53.1  ((Slivnyak-Mecke’s theorem))  </strong></span><span class="math inline">\(X \in \text{Poisson}(S, \rho)\)</span>일 때 함수 <span class="math inline">\(h:S\times N_{lf} \rightarrow [0,\infty])\)</span>에 대해 <span class="math display">\[E[\sum_{\xi\in X}h(\xi,X\backslash \xi)]=\int_{S}[E[h(\xi,X)]]\rho(\xi)d\xi.\]</span></p>
 </div>
 
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-392" class="theorem"><strong>Theorem 53.2  ((Extended Slivnyak-Mecke’s theorem))  </strong></span><span class="math inline">\(X \in \text{Poisson}(S, \rho)\)</span>일 때 함수 <span class="math inline">\(h:S^{n}\times N_{lf} \rightarrow [0,\infty])\)</span>에 대해
+<span id="thm:unnamed-chunk-393" class="theorem"><strong>Theorem 53.2  ((Extended Slivnyak-Mecke’s theorem))  </strong></span><span class="math inline">\(X \in \text{Poisson}(S, \rho)\)</span>일 때 함수 <span class="math inline">\(h:S^{n}\times N_{lf} \rightarrow [0,\infty])\)</span>에 대해
 <span class="math display">\[\begin{eqnarray*}
 &amp; &amp;E[\sum_{\xi_{1},\ldots ,\xi_{n}\in X}^{\neq}h(\xi_{1},\ldots,\xi_{n},X\backslash \{\xi_{1},\ldots,\xi_{n}\})]\\
 &amp;=&amp;\int_{S}\cdots\int_{S}[E[h(\xi_{1},\ldots,\xi_{n},X)]]\prod_{i=1}^{n}\rho(\xi_{i})d\xi_{1}\cdots d\xi_{n}.\\
@@ -827,29 +827,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>중첩(superposition)과 세선화(thnning)는 점과정의 기본적인 연산자들이다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-393" class="definition"><strong>Definition 53.4  (중첩)  </strong></span>포아송 점과정들 <span class="math inline">\(X_{1},X_{2},\ldots\)</span>의 배반 합집합 <span class="math inline">\(\cup_{i=1}^{\infty}X_{i}\)</span>를 <strong>중첩(superposition)</strong>이라고 한다.</p>
+<p><span id="def:unnamed-chunk-394" class="definition"><strong>Definition 53.4  (중첩)  </strong></span>포아송 점과정들 <span class="math inline">\(X_{1},X_{2},\ldots\)</span>의 배반 합집합 <span class="math inline">\(\cup_{i=1}^{\infty}X_{i}\)</span>를 <strong>중첩(superposition)</strong>이라고 한다.</p>
 </div>
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-394" class="definition"><strong>Definition 53.5  (세선화)  </strong></span><span class="math inline">\(p:S\rightarrow [0,1]\)</span>이 함수이고 <span class="math inline">\(X\)</span>가 <span class="math inline">\(S\)</span>에서의 점과정이라고 하자. 점과정 <span class="math inline">\(X_{thin}\subseteq X\)</span>는 <span class="math inline">\(\xi \in X\)</span>를 <span class="math inline">\(X_{thin}\)</span>에 확률 <span class="math inline">\(p(\xi)\)</span>로 포함하는 점과정으로 정의한다. 이때 각 점들은 독립적으로 포함될지 안될지를 결정한다고 하자. 그러면 <span class="math inline">\(X_{thin}\)</span>은 <strong>보유확률(retention probability)</strong> <span class="math inline">\(p(\xi)\)</span>를 갖는 <span class="math inline">\(X\)</span>의 <strong>독립 세선화(independent thinning)</strong>으로 정의한다. 보통 <span class="math inline">\(X_{thin}=\{ \xi \in X: R(\xi) \leq p(\xi) \}\)</span> 로 놓으며 이 때 <span class="math inline">\(R(\xi) \sim \text{Uniform}[0,1]\)</span>, <span class="math inline">\(\xi\in S\)</span>는 <span class="math inline">\(X\)</span>에서 뽑힌 상호독립 점들이다.</p>
+<p><span id="def:unnamed-chunk-395" class="definition"><strong>Definition 53.5  (세선화)  </strong></span><span class="math inline">\(p:S\rightarrow [0,1]\)</span>이 함수이고 <span class="math inline">\(X\)</span>가 <span class="math inline">\(S\)</span>에서의 점과정이라고 하자. 점과정 <span class="math inline">\(X_{thin}\subseteq X\)</span>는 <span class="math inline">\(\xi \in X\)</span>를 <span class="math inline">\(X_{thin}\)</span>에 확률 <span class="math inline">\(p(\xi)\)</span>로 포함하는 점과정으로 정의한다. 이때 각 점들은 독립적으로 포함될지 안될지를 결정한다고 하자. 그러면 <span class="math inline">\(X_{thin}\)</span>은 <strong>보유확률(retention probability)</strong> <span class="math inline">\(p(\xi)\)</span>를 갖는 <span class="math inline">\(X\)</span>의 <strong>독립 세선화(independent thinning)</strong>으로 정의한다. 보통 <span class="math inline">\(X_{thin}=\{ \xi \in X: R(\xi) \leq p(\xi) \}\)</span> 로 놓으며 이 때 <span class="math inline">\(R(\xi) \sim \text{Uniform}[0,1]\)</span>, <span class="math inline">\(\xi\in S\)</span>는 <span class="math inline">\(X\)</span>에서 뽑힌 상호독립 점들이다.</p>
 </div>
 
 <p><span class="math inline">\(X_{i}\)</span>들이 독립인 포아송 점과정일 때에는 중첩을 하거나, 세선화 한 것, 그리고 세선화하면서 버려진 점과정들 또한 포아송 점과정이 된다. 다음 명제들은 이 사실에 관한 것들이다.</p>
 
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-395" class="proposition"><strong>Proposition 53.6  (포아송 점과정의 중첩과 세선화)  </strong></span><span class="math inline">\(X_{i}\sim \text{Poisson}(S,\rho_{i}), i=1,2,\ldots\)</span>가 상호 독립이고 <span class="math inline">\(\rho=\sum\rho_{i}\)</span>가 확률 1로 국소 적분가능하면, 배반 합집합 <span class="math inline">\(X=\cup_{i=1}^{\infty}X_{i}\sim\text{Poisson}(S,\rho)\)</span>이다.</p>
+<p><span id="prp:unnamed-chunk-396" class="proposition"><strong>Proposition 53.6  (포아송 점과정의 중첩과 세선화)  </strong></span><span class="math inline">\(X_{i}\sim \text{Poisson}(S,\rho_{i}), i=1,2,\ldots\)</span>가 상호 독립이고 <span class="math inline">\(\rho=\sum\rho_{i}\)</span>가 확률 1로 국소 적분가능하면, 배반 합집합 <span class="math inline">\(X=\cup_{i=1}^{\infty}X_{i}\sim\text{Poisson}(S,\rho)\)</span>이다.</p>
 </div>
 
 
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-396" class="proposition"><strong>Proposition 53.7  (독립 세선화)  </strong></span><span class="math inline">\(X \sim \text{Poisson}(S,\rho)\)</span>가 보유확률 <span class="math inline">\(p(\xi), xi\in S\)</span>를 갖는 독립 세선화 <span class="math inline">\(X_{thin}\)</span>을 갖는다고 하고 <span class="math display">\[\rho_{thin}(\xi)=p(\xi)\rho(\xi), \xi\in S\]</span> 일 때, <span class="math inline">\(X_{thin}\)</span>과 <span class="math inline">\(X\backslash X_{thin}\)</span>은 모두 독립 포아송 과정이며 이것의 강도함수는 각각 <span class="math inline">\(\rho_{thin}\)</span>과 <span class="math inline">\(\rho-\rho_{thin}\)</span>이다.</p>
+<p><span id="prp:unnamed-chunk-397" class="proposition"><strong>Proposition 53.7  (독립 세선화)  </strong></span><span class="math inline">\(X \sim \text{Poisson}(S,\rho)\)</span>가 보유확률 <span class="math inline">\(p(\xi), xi\in S\)</span>를 갖는 독립 세선화 <span class="math inline">\(X_{thin}\)</span>을 갖는다고 하고 <span class="math display">\[\rho_{thin}(\xi)=p(\xi)\rho(\xi), \xi\in S\]</span> 일 때, <span class="math inline">\(X_{thin}\)</span>과 <span class="math inline">\(X\backslash X_{thin}\)</span>은 모두 독립 포아송 과정이며 이것의 강도함수는 각각 <span class="math inline">\(\rho_{thin}\)</span>과 <span class="math inline">\(\rho-\rho_{thin}\)</span>이다.</p>
 </div>
 
 <p>다음 따름정리를 이용하면 비동질적 포아송 점과정 또한 생성 가능하다고 한다.</p>
 
 <div class="corollary">
-<p><span id="cor:unnamed-chunk-397" class="corollary"><strong>Corollary 53.3  </strong></span><span class="math inline">\(X \sim \text{Poisson}(\mathbb{R}^{d}, \rho)\)</span>이며 강도함수 <span class="math inline">\(\rho\)</span>는 상수 <span class="math inline">\(c\)</span>에 의해 유계이다. 그러면 <span class="math inline">\(X\)</span>는 보유확률 <span class="math inline">\(p(\xi)=\frac{\rho(\xi)}{c}\)</span>를 갖는 <span class="math inline">\(\text{Poisson}(\mathbb{R}^{d},c)\)</span>의 독립 세선화로 간주할 수 있다.</p>
+<p><span id="cor:unnamed-chunk-398" class="corollary"><strong>Corollary 53.3  </strong></span><span class="math inline">\(X \sim \text{Poisson}(\mathbb{R}^{d}, \rho)\)</span>이며 강도함수 <span class="math inline">\(\rho\)</span>는 상수 <span class="math inline">\(c\)</span>에 의해 유계이다. 그러면 <span class="math inline">\(X\)</span>는 보유확률 <span class="math inline">\(p(\xi)=\frac{\rho(\xi)}{c}\)</span>를 갖는 <span class="math inline">\(\text{Poisson}(\mathbb{R}^{d},c)\)</span>의 독립 세선화로 간주할 수 있다.</p>
 </div>
 
 </div>
@@ -869,7 +869,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>포아송과정은 일반적으로 절대연속은 아니나 <span class="math inline">\(S\)</span>가 유계일 경우에는 항상 절대연속이 된다고 한다.</p>
 
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-398" class="proposition"><strong>Proposition 53.8  (포아송 점과정의 절대연속)  </strong></span>1. 임의의 숫자 <span class="math inline">\(\rho_{1}, \rho_{2} &gt;0\)</span>에 대해 <span class="math inline">\(\text{Poisson}(\mathbb{R}^{d},\rho_{1})\)</span>이 <span class="math inline">\(\text{Poisson}(\mathbb{R}^{d},\rho_{2})\)</span>에 대해 절대연속이라는 것은 <span class="math inline">\(\rho_{1}=\rho_{2}\)</span>라는 것과 동치다.</p>
+<p><span id="prp:unnamed-chunk-399" class="proposition"><strong>Proposition 53.8  (포아송 점과정의 절대연속)  </strong></span>1. 임의의 숫자 <span class="math inline">\(\rho_{1}, \rho_{2} &gt;0\)</span>에 대해 <span class="math inline">\(\text{Poisson}(\mathbb{R}^{d},\rho_{1})\)</span>이 <span class="math inline">\(\text{Poisson}(\mathbb{R}^{d},\rho_{2})\)</span>에 대해 절대연속이라는 것은 <span class="math inline">\(\rho_{1}=\rho_{2}\)</span>라는 것과 동치다.</p>
 <ol start="2" style="list-style-type: decimal">
 <li><span class="math inline">\(i=1,2\)</span>일 때 <span class="math inline">\(\rho_{i}:S\rightarrow [0,\infty)\)</span>가 존재하여 <span class="math inline">\(\mu_{i}=\int_{S}\rho_{i}(\xi)d\xi\)</span>가 유한하다고 하자. 그리고 <span class="math inline">\(\rho_{1}&gt;0\)</span>일 때 항상 <span class="math inline">\(\rho_{2}&gt;0\)</span>이라고 하자. 그러면 <span class="math inline">\(\text{Poisson}(S,\rho_{1})\)</span>은 <span class="math inline">\(\text{Poisson}(S,\rho_{2})\)</span>에 대해 절대연속이며 밀도는 <span class="math display">\[f(x)=e^{\mu_{2}(S)-\mu_{1}S}\prod_{\xi\in x}\frac{\rho_{1}(\xi)}{\rho_{2}(\xi)}\]</span> 가 된다. <span class="math inline">\((x\subset S)\)</span></li>
 </ol>
