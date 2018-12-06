@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-12-05">
+<meta name="date" content="2018-12-06">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -216,7 +216,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.1" data-path="8-1-markov-chain.html"><a href="8-1-markov-chain.html"><i class="fa fa-check"></i><b>8.1</b> 마르코프 체인(Markov chain)</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="9-stoprocess.html"><a href="9-stoprocess.html"><i class="fa fa-check"></i><b>9</b> 확률과정론</a><ul>
-<li class="chapter" data-level="9.1" data-path="9-1-stochastic-process.html"><a href="9-1-stochastic-process.html"><i class="fa fa-check"></i><b>9.1</b> 확률과정이란?(stochastic process)</a></li>
+<li class="chapter" data-level="9.1" data-path="9-1-stochastic-process.html"><a href="9-1-stochastic-process.html"><i class="fa fa-check"></i><b>9.1</b> 확률과정이란?(stochastic process)</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="9-1-stochastic-process.html"><a href="9-1-stochastic-process.html#stationary-stochastic-process"><i class="fa fa-check"></i><b>9.1.1</b> 정상과정(stationary stochastic process)</a></li>
+</ul></li>
 <li class="chapter" data-level="9.2" data-path="9-2-continuity-of-stochastic-process.html"><a href="9-2-continuity-of-stochastic-process.html"><i class="fa fa-check"></i><b>9.2</b> 확률과정에서의 연속성(continuity of stochastic process)</a></li>
 <li class="chapter" data-level="9.3" data-path="9-3-separable-random-functions.html"><a href="9-3-separable-random-functions.html"><i class="fa fa-check"></i><b>9.3</b> 분리가능한 무작위 함수들(separable random functions)</a></li>
 <li class="chapter" data-level="9.4" data-path="9-4-empirical-process.html"><a href="9-4-empirical-process.html"><i class="fa fa-check"></i><b>9.4</b> 경험과정(empirical process)</a></li>
@@ -234,7 +236,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.8" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html"><i class="fa fa-check"></i><b>9.8</b> 브라운운동(Brownian motion)</a><ul>
 <li class="chapter" data-level="9.8.1" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.8.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.9" data-path="9-9-martingale.html"><a href="9-9-martingale.html"><i class="fa fa-check"></i><b>9.9</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="9.9" data-path="9-9-gaussian-stochastic-process.html"><a href="9-9-gaussian-stochastic-process.html"><i class="fa fa-check"></i><b>9.9</b> 가우스과정(Gaussian stochastic process)</a></li>
+<li class="chapter" data-level="9.10" data-path="9-10-martingale.html"><a href="9-10-martingale.html"><i class="fa fa-check"></i><b>9.10</b> 마팅게일(martingale)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-bigOsmallo.html"><a href="10-bigOsmallo.html"><i class="fa fa-check"></i><b>10</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="10.1" data-path="10-1-big-o-small-o-big-o-and-small-o.html"><a href="10-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>10.1</b> Big O와 small o (big O and small o)</a></li>
@@ -750,7 +753,7 @@ c_{J-1,k}&amp;=&amp;\int_{2^{-(J-1)}k}^{2^{-(J-1)}(k+1)}f(x)\phi_{J-1,k}(x)dx\\
 &amp;=&amp;2^{-\frac{1}{2}}(c_{J,2k}+c_{J,2k+1}).\\
 \end{eqnarray*}\]</span>
 <p>즉 <span class="math inline">\({J-1}\)</span>척도 계수는 <span class="math inline">\(J\)</span>척도 계수로부터 구할 수 있다. 여기서 중간에 <span class="math display">\[\phi(x)=\phi(2x)+\phi(2x-1)\]</span> 이라는 사실을 이용하였는데, 이것은 매우 중요하다. 이것을 <strong>척도방정식(two-scale relationship)</strong> 또는 <strong>팽창방정식(dilation relationship)</strong>이라고 한다.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-269"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-276"></span>
 <img src="images/multiscale_006.png" alt="Relationship between Haar scale function." width="258" />
 <p class="caption">
 FIGURE 23.3: Relationship between Haar scale function.

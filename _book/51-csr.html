@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-12-05">
+<meta name="date" content="2018-12-06">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -216,7 +216,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.1" data-path="8-1-markov-chain.html"><a href="8-1-markov-chain.html"><i class="fa fa-check"></i><b>8.1</b> 마르코프 체인(Markov chain)</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="9-stoprocess.html"><a href="9-stoprocess.html"><i class="fa fa-check"></i><b>9</b> 확률과정론</a><ul>
-<li class="chapter" data-level="9.1" data-path="9-1-stochastic-process.html"><a href="9-1-stochastic-process.html"><i class="fa fa-check"></i><b>9.1</b> 확률과정이란?(stochastic process)</a></li>
+<li class="chapter" data-level="9.1" data-path="9-1-stochastic-process.html"><a href="9-1-stochastic-process.html"><i class="fa fa-check"></i><b>9.1</b> 확률과정이란?(stochastic process)</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="9-1-stochastic-process.html"><a href="9-1-stochastic-process.html#stationary-stochastic-process"><i class="fa fa-check"></i><b>9.1.1</b> 정상과정(stationary stochastic process)</a></li>
+</ul></li>
 <li class="chapter" data-level="9.2" data-path="9-2-continuity-of-stochastic-process.html"><a href="9-2-continuity-of-stochastic-process.html"><i class="fa fa-check"></i><b>9.2</b> 확률과정에서의 연속성(continuity of stochastic process)</a></li>
 <li class="chapter" data-level="9.3" data-path="9-3-separable-random-functions.html"><a href="9-3-separable-random-functions.html"><i class="fa fa-check"></i><b>9.3</b> 분리가능한 무작위 함수들(separable random functions)</a></li>
 <li class="chapter" data-level="9.4" data-path="9-4-empirical-process.html"><a href="9-4-empirical-process.html"><i class="fa fa-check"></i><b>9.4</b> 경험과정(empirical process)</a></li>
@@ -234,7 +236,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.8" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html"><i class="fa fa-check"></i><b>9.8</b> 브라운운동(Brownian motion)</a><ul>
 <li class="chapter" data-level="9.8.1" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.8.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.9" data-path="9-9-martingale.html"><a href="9-9-martingale.html"><i class="fa fa-check"></i><b>9.9</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="9.9" data-path="9-9-gaussian-stochastic-process.html"><a href="9-9-gaussian-stochastic-process.html"><i class="fa fa-check"></i><b>9.9</b> 가우스과정(Gaussian stochastic process)</a></li>
+<li class="chapter" data-level="9.10" data-path="9-10-martingale.html"><a href="9-10-martingale.html"><i class="fa fa-check"></i><b>9.10</b> 마팅게일(martingale)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-bigOsmallo.html"><a href="10-bigOsmallo.html"><i class="fa fa-check"></i><b>10</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="10.1" data-path="10-1-big-o-small-o-big-o-and-small-o.html"><a href="10-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>10.1</b> Big O와 small o (big O and small o)</a></li>
@@ -744,7 +747,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>공간점패턴 자료를 받으면 제일 처음으로 이 자료가 <strong>완전공간임의성(complete spatial randomness, CSR)</strong>을 따르는지 체크하게 되는데, 그 이유는 이것을 따르면 모델링이 단순해지기 때문이다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-374" class="definition"><strong>Definition 51.1  (동질적 포아송 점과정)  </strong></span>완전공간임의성 가정은 다음 두 조건</p>
+<p><span id="def:unnamed-chunk-381" class="definition"><strong>Definition 51.1  (동질적 포아송 점과정)  </strong></span>완전공간임의성 가정은 다음 두 조건</p>
 <ol style="list-style-type: decimal">
 <li><p>면적이 <span class="math inline">\(|A|\)</span>인 관찰 지역 <span class="math inline">\(A\)</span> 안의 사건의 숫자가 <span class="math inline">\(\text{Poisson}(\lambda |A|), \lambda &gt;0, |A| &gt;0\)</span>을 따른다.</p></li>
 <li><p><span class="math inline">\(n\)</span>개의 사건이 주어졌을 때, 각각의 사건들 <span class="math inline">\(x_{i}, i=1,\ldots , n\)</span>은 <span class="math inline">\(A\)</span> 위에서 균등분포(uniform distribution)를 따르는 독립인 무작위 표본들이다.</p></li>

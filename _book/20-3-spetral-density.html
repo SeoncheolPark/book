@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-12-05">
+<meta name="date" content="2018-12-06">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -216,7 +216,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.1" data-path="8-1-markov-chain.html"><a href="8-1-markov-chain.html"><i class="fa fa-check"></i><b>8.1</b> 마르코프 체인(Markov chain)</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="9-stoprocess.html"><a href="9-stoprocess.html"><i class="fa fa-check"></i><b>9</b> 확률과정론</a><ul>
-<li class="chapter" data-level="9.1" data-path="9-1-stochastic-process.html"><a href="9-1-stochastic-process.html"><i class="fa fa-check"></i><b>9.1</b> 확률과정이란?(stochastic process)</a></li>
+<li class="chapter" data-level="9.1" data-path="9-1-stochastic-process.html"><a href="9-1-stochastic-process.html"><i class="fa fa-check"></i><b>9.1</b> 확률과정이란?(stochastic process)</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="9-1-stochastic-process.html"><a href="9-1-stochastic-process.html#stationary-stochastic-process"><i class="fa fa-check"></i><b>9.1.1</b> 정상과정(stationary stochastic process)</a></li>
+</ul></li>
 <li class="chapter" data-level="9.2" data-path="9-2-continuity-of-stochastic-process.html"><a href="9-2-continuity-of-stochastic-process.html"><i class="fa fa-check"></i><b>9.2</b> 확률과정에서의 연속성(continuity of stochastic process)</a></li>
 <li class="chapter" data-level="9.3" data-path="9-3-separable-random-functions.html"><a href="9-3-separable-random-functions.html"><i class="fa fa-check"></i><b>9.3</b> 분리가능한 무작위 함수들(separable random functions)</a></li>
 <li class="chapter" data-level="9.4" data-path="9-4-empirical-process.html"><a href="9-4-empirical-process.html"><i class="fa fa-check"></i><b>9.4</b> 경험과정(empirical process)</a></li>
@@ -234,7 +236,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.8" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html"><i class="fa fa-check"></i><b>9.8</b> 브라운운동(Brownian motion)</a><ul>
 <li class="chapter" data-level="9.8.1" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.8.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.9" data-path="9-9-martingale.html"><a href="9-9-martingale.html"><i class="fa fa-check"></i><b>9.9</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="9.9" data-path="9-9-gaussian-stochastic-process.html"><a href="9-9-gaussian-stochastic-process.html"><i class="fa fa-check"></i><b>9.9</b> 가우스과정(Gaussian stochastic process)</a></li>
+<li class="chapter" data-level="9.10" data-path="9-10-martingale.html"><a href="9-10-martingale.html"><i class="fa fa-check"></i><b>9.10</b> 마팅게일(martingale)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-bigOsmallo.html"><a href="10-bigOsmallo.html"><i class="fa fa-check"></i><b>10</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="10.1" data-path="10-1-big-o-small-o-big-o-and-small-o.html"><a href="10-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>10.1</b> Big O와 small o (big O and small o)</a></li>
@@ -744,7 +747,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><strong>스펙트럼 밀도(spectral density)</strong>는 기초적인 frequency domain tool 중 하나다. 스펙트럼 표현 정리(spectral representation theorem)은 정상시계열을 주기성분들로 분해하는 것에 대한 이론적 근거를 제공한다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-226" class="definition"><strong>Definition 20.2  (자기공분산함수의 스펙트럼 표현)  </strong></span>만약 <span class="math inline">\(\{x_{t} \}\)</span>가 정상시계열이고 자기공분산 <span class="math inline">\(\gamma(h)=\text{cov}(x_{t+h},x_{t})\)</span>를 갖는다면 <strong>스펙트럼 분포(spectral distribution)</strong>이라 불리는 유일한 단조증가 함수가 존재해 <span class="math inline">\(F(-\infty)=F(-1/2)=0\)</span>이고 <span class="math inline">\(F(\infty)=F(1/2)=\gamma(0)\)</span>이며</p>
+<p><span id="def:unnamed-chunk-233" class="definition"><strong>Definition 20.2  (자기공분산함수의 스펙트럼 표현)  </strong></span>만약 <span class="math inline">\(\{x_{t} \}\)</span>가 정상시계열이고 자기공분산 <span class="math inline">\(\gamma(h)=\text{cov}(x_{t+h},x_{t})\)</span>를 갖는다면 <strong>스펙트럼 분포(spectral distribution)</strong>이라 불리는 유일한 단조증가 함수가 존재해 <span class="math inline">\(F(-\infty)=F(-1/2)=0\)</span>이고 <span class="math inline">\(F(\infty)=F(1/2)=\gamma(0)\)</span>이며</p>
 <span class="math display" id="eq:spectraldistnfct">\[\begin{equation}
 \gamma(h)=\int_{-1/2}^{1/2}e^{2\pi i \omega h}dF(\omega)
 \tag{20.6}
@@ -755,7 +758,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>자기공분산함수가 absolutely summable일 경우 스펙트럼 분포함수는 absolutely continuous하며 <span class="math inline">\(dF(\omega)=f(\omega)d\omega\)</span>이고 식 <a href="20-3-spetral-density.html#eq:spectraldistnfct">(20.6)</a>는 스펙트럼 밀도(spectral density)를 유도한다.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-227" class="definition"><strong>Definition 20.3  (스펙트럼 밀도)  </strong></span>자기공분산함수 <span class="math inline">\(\gamma(h)\)</span>가 정상과정이며
+<span id="def:unnamed-chunk-234" class="definition"><strong>Definition 20.3  (스펙트럼 밀도)  </strong></span>자기공분산함수 <span class="math inline">\(\gamma(h)\)</span>가 정상과정이며
 <span class="math display" id="eq:abssummablecond">\[\begin{equation}
 \sum_{h=-\infty}^{\infty}|\gamma(h)|&lt;\infty
 \tag{20.7}
@@ -778,7 +781,7 @@ f(\omega)=\sum_{h=-\infty}^{\infty}\gamma(h)e^{-2\pi i \omega h}, -1/2 \leq \ome
 <p>마지막으로 식 <a href="20-3-spetral-density.html#eq:abssummablecond">(20.7)</a>의 absolutely summable condition 식 <a href="20-2-cyclical-behavior-and-periodicity.html#eq:periodrpautocov">(20.3)</a>로 만족되어지지 않는다. 그러나 ARMA 모형에 대해서는 만족된다.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-228" class="example"><strong>Example 20.3  (백색잡음의 스펙트럼)  </strong></span>가장 쉬운 예제로 분산이 <span class="math inline">\(\sigma_{w}^{2}\)</span>인 uncorrelated 확률변수 <span class="math inline">\(w_{t}\)</span>의 수열의 이론적인 power spectrum을 구해볼 수 있다. 이러한 경우의 자기공분산함수는</p>
+<p><span id="exm:unnamed-chunk-235" class="example"><strong>Example 20.3  (백색잡음의 스펙트럼)  </strong></span>가장 쉬운 예제로 분산이 <span class="math inline">\(\sigma_{w}^{2}\)</span>인 uncorrelated 확률변수 <span class="math inline">\(w_{t}\)</span>의 수열의 이론적인 power spectrum을 구해볼 수 있다. 이러한 경우의 자기공분산함수는</p>
 <p><span class="math display">\[
 \gamma_{w}(h)=
 \begin{cases}
@@ -802,13 +805,13 @@ A(\omega) = \sum_{j=-\infty}^{\infty}a_{j}e^{-2\pi i \omega j}.
 <p>을 <strong>주파수 반응함수(frequency response function)</strong>이라고 부른다. 만약 식 <a href="20-3-spetral-density.html#eq:spectrumconvolution">(20.10)</a>에서 <span class="math inline">\(x_{t}\)</span>가 스펙트럼 밀도 <span class="math inline">\(f_{x}(\omega)\)</span>를 갖는다고 할 때, 다음의 성질을 얻는다.</p>
 
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-229" class="proposition"><strong>Proposition 20.1  (Output Spectrum of a Filtered Stationary Series)  </strong></span>만약 식 <a href="20-3-spetral-density.html#eq:spectrumconvolution">(20.10)</a>에서 <span class="math inline">\(x_{t}\)</span>가 스펙트럼 밀도 <span class="math inline">\(f_{x}(\omega)\)</span>를 갖는다고 할 때 filtered output <span class="math inline">\(y_{t}\)</span> 의 스펙트럼 <span class="math inline">\(f_{y}(\omega)\)</span>는 투입값 <span class="math inline">\(x_{t}\)</span>의 스펙트럼과 <span class="math display">\[f_{y}(\omega) = |A(\omega)|^{2}f_{x}(\omega)\]</span> 의 관계를 갖는다.</p>
+<p><span id="prp:unnamed-chunk-236" class="proposition"><strong>Proposition 20.1  (Output Spectrum of a Filtered Stationary Series)  </strong></span>만약 식 <a href="20-3-spetral-density.html#eq:spectrumconvolution">(20.10)</a>에서 <span class="math inline">\(x_{t}\)</span>가 스펙트럼 밀도 <span class="math inline">\(f_{x}(\omega)\)</span>를 갖는다고 할 때 filtered output <span class="math inline">\(y_{t}\)</span> 의 스펙트럼 <span class="math inline">\(f_{y}(\omega)\)</span>는 투입값 <span class="math inline">\(x_{t}\)</span>의 스펙트럼과 <span class="math display">\[f_{y}(\omega) = |A(\omega)|^{2}f_{x}(\omega)\]</span> 의 관계를 갖는다.</p>
 </div>
 
 <p>앞선 성질을 ARMA 과정에 적용하면 다음을 얻는다.</p>
 
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-230" class="proposition"><strong>Proposition 20.2  (ARMA의 스펙트럼 밀도)  </strong></span>만약 <span class="math inline">\(x_{t}\)</span>가 ARMA<span class="math inline">\((p,q)\)</span>를 따르고 <span class="math inline">\(\phi(B)x_{t} = \theta(B)w_{t}\)</span>라면, 그것의 스펙트럼 밀도는 <span class="math display">\[f_{x}(\omega) = \sigma_{\omega}^{2} \frac{|\theta (e^{-2\pi i \omega})|^{2} }{| \phi(e^{-2\pi i\omega})  |^{2} }\]</span> 이다. 이 떄 <span class="math inline">\(\phi(z)= 1-\sum_{k=1}^{p} \phi_{k}z^{k}\)</span>이고 <span class="math inline">\(\theta(z) = 1_ \sum_{k=1}^{q} \theta_{k}z^{k}\)</span>이다.</p>
+<p><span id="prp:unnamed-chunk-237" class="proposition"><strong>Proposition 20.2  (ARMA의 스펙트럼 밀도)  </strong></span>만약 <span class="math inline">\(x_{t}\)</span>가 ARMA<span class="math inline">\((p,q)\)</span>를 따르고 <span class="math inline">\(\phi(B)x_{t} = \theta(B)w_{t}\)</span>라면, 그것의 스펙트럼 밀도는 <span class="math display">\[f_{x}(\omega) = \sigma_{\omega}^{2} \frac{|\theta (e^{-2\pi i \omega})|^{2} }{| \phi(e^{-2\pi i\omega})  |^{2} }\]</span> 이다. 이 떄 <span class="math inline">\(\phi(z)= 1-\sum_{k=1}^{p} \phi_{k}z^{k}\)</span>이고 <span class="math inline">\(\theta(z) = 1_ \sum_{k=1}^{q} \theta_{k}z^{k}\)</span>이다.</p>
 </div>
 
 <p>스펙트럼을 이용해 확률과정의 총분산(또는 total power)을 각 진동수별로 분해할 수 있다. 스펙트럼은 자기상관함수의 푸리에 변환이므로 자기상관함수와 일대일 관계에 있으며 다음의 성질을 가지고 있다.</p>

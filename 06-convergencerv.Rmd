@@ -1,6 +1,14 @@
 # 확률변수의 수렴 {#convergencerv}
 
-[@Proschan2016]의 내용을 따라간다.
+[@Proschan2016]의 내용을 따라간다. 통계적 추론에서 가장 중요한 부분 중 하나는 추정량 $\hat{\theta}_{n}$에서 $n\rightarrow\infty$일 때 어떤 일이 일어나는지 살펴보는 것이다. 많은 다른 질문들을 생각해 볼 수 있다. 첫째로, $\hat{\theta}_{n}$이 $n\rightarrow\infty$일 때 진짜 모수 $\theta$에 "가까이" 가는가에 대해 생각해 볼 수 있다. 이 "가까이" 라는 개념을 세 가지 정도로 정의할 수 있다.
+
+1. $\theta_{n}$이 $\theta$에 확률 1로 수렴한다.
+
+2. 어떤 주어진 $\epsilon >0$에 대해 $\hat{\theta}_{n}$ 이 $\theta$와 $\epsilon$ 거리 이내에 위치할 확률이 1이다.
+
+3. 기댓값 $|\hat{\theta}_{n}-\theta|^{p}$가 0으로 수렴한다.
+
+이것들을 차례로 **거의 확실한 수렴(Almost sure convergence)**, **확률수렴(Convergence in probability)** 그리고 **Lp 수렴(Convergence in Lp)**이라고 부른다.
 
 ## 거의 확실한 수렴(Almost sure convergence)
 
@@ -37,7 +45,7 @@ $(\Omega, \mathcal{F}, P)=([0,1], \mathcal{B}_{[0,1]}, \mu_{L})$이라고 정의
 
 ```
 
-위 예제는 거의 확실한 수렴을 생각할 때 $\omega$를 고정시키는 것이 큰 도움이 된다는 것을 보여준다. 한편, $X_{n}$의 거의 확실한 수렴을 보이기 위해서 underly 확률공간을 몰라도 될 때도 있다.
+위 예제는 거의 확실한 수렴을 생각할 때 $\omega$를 고정시키는 것이 큰 도움이 된다는 것을 보여준다. 한편, $X_{n}$의 거의 확실한 수렴을 보이기 위해서 underlying 확률공간을 몰라도 될 때도 있다.
 
 ```{example, name="확률공간을 모를때의 거의 확실한 수렴"}
 $Y(\omega)$를 임의의 확률공간에서 존재하는 유한 확률변수라고 하고 $X_{n}(\omega)=Y(\omega)/n$이라고 하자. 그러면 각 $\omega$에 대해 $Y(\omega)$는 유한한 값이므로 $n\rightarrow\infty$일 때 $Y(\omega)/n \rightarrow 0$이 된다. 그러면 모든 $\omega$에 대해 $X_{n}\stackrel{a.s.}{\rightarrow}0$이다.
