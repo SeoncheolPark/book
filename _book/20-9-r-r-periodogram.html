@@ -759,36 +759,36 @@ dataspec &lt;-<span class="st"> </span><span class="kw">t</span>(dataspec)
 time_index_month &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="kw">as.POSIXct</span>(<span class="st">&quot;1998-01-01&quot;</span>), <span class="dt">to =</span> <span class="kw">as.POSIXct</span>(<span class="st">&quot;2014-12-01&quot;</span>), <span class="dt">by =</span> <span class="st">&quot;month&quot;</span>)
 dataspec &lt;-<span class="st"> </span><span class="kw">xts</span>(dataspec[,<span class="dv">1</span>], <span class="dt">order.by=</span>time_index_month)
 <span class="kw">plot</span>(dataspec, <span class="dt">type=</span><span class="st">&#39;o&#39;</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">150</span>), <span class="dt">xlab=</span><span class="st">&quot;Month&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Monthly&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-242"></span>
-<img src="book_files/figure-html/unnamed-chunk-242-1.svg" alt="Time series of Seoul PM10." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-245"></span>
+<img src="book_files/figure-html/unnamed-chunk-245-1.svg" alt="Time series of Seoul PM10." width="672" />
 <p class="caption">
 FIGURE 20.4: Time series of Seoul PM10.
 </p>
 </div>
 <p><code>TSA</code>, <code>kza</code>, <code>itsmr</code> 패키지를 이용한다. 같은 이름의 함수를 사용하기 때문에 실행할 때 주의해야 한다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TSA<span class="op">::</span><span class="kw">periodogram</span>(dataspec, <span class="dt">log=</span><span class="st">&#39;yes&#39;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-243"></span>
-<img src="book_files/figure-html/unnamed-chunk-243-1.svg" alt="Periodogram (using R package TSA)." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-246"></span>
+<img src="book_files/figure-html/unnamed-chunk-246-1.svg" alt="Periodogram (using R package TSA)." width="672" />
 <p class="caption">
 FIGURE 20.5: Periodogram (using R package TSA).
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(kza<span class="op">::</span><span class="kw">periodogram</span>(<span class="kw">as.numeric</span>(dataspec)), <span class="dt">type=</span><span class="st">&#39;o&#39;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-244"></span>
-<img src="book_files/figure-html/unnamed-chunk-244-1.svg" alt="Periodogram (using R package kza)." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-247"></span>
+<img src="book_files/figure-html/unnamed-chunk-247-1.svg" alt="Periodogram (using R package kza)." width="672" />
 <p class="caption">
 FIGURE 20.6: Periodogram (using R package kza).
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(itsmr<span class="op">::</span><span class="kw">periodogram</span>(dataspec))</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-245"></span>
-<img src="book_files/figure-html/unnamed-chunk-245-1.svg" alt="Periodogram (using R package itsmr)." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-248"></span>
+<img src="book_files/figure-html/unnamed-chunk-248-1.svg" alt="Periodogram (using R package itsmr)." width="672" />
 <p class="caption">
 FIGURE 20.7: Periodogram (using R package itsmr).
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-245"></span>
-<img src="book_files/figure-html/unnamed-chunk-245-2.svg" alt="Periodogram (using R package itsmr)." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-248"></span>
+<img src="book_files/figure-html/unnamed-chunk-248-2.svg" alt="Periodogram (using R package itsmr)." width="672" />
 <p class="caption">
 FIGURE 20.7: Periodogram (using R package itsmr).
 </p>

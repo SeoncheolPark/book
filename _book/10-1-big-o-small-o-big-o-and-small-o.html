@@ -772,8 +772,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 
 
+<div class="definition">
+<p><span id="def:unnamed-chunk-177" class="definition"><strong>Definition 10.3  (점근동치)  </strong></span><span class="math inline">\(\lim_{n\rightarrow \infty}\frac{x_n}{y_n}=1\)</span>인 경우 <span class="math inline">\(x_{n}\)</span>과 <span class="math inline">\(y_{n}\)</span>을 점근동치(asymptotic equivalent)라고 부르며 <span class="math inline">\(x_{n}\asymp y_{n}\)</span>이라고 쓴다.</p>
+</div>
+
+<p>참고로 이런 수열의 점근 행동 표현은 유일하지 않다. 예를 들어 <span class="math inline">\(a_{n}\)</span>이 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(O(n^{-1})\)</span>이라고 하자. 그러면 이 수열은 또한 <span class="math inline">\(O(n^{-1/2})\)</span> 또는 <span class="math inline">\(O[(n+1)^{-1}]\)</span>등으로도 표현할 수 있다. <span class="math inline">\(a_{n}\)</span>이 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(O(n^{-1})\)</span>이라는 의미는 모든 <span class="math inline">\(n\in \mathbb{N}\)</span>에 대해 <span class="math inline">\(|na_{n}|\)</span>이 유계인 것이다. 그런데 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 <span class="math inline">\(|n^{1/2}a_{n}|\leq |n a_{n}|\)</span> 또한 성립하므로 <span class="math inline">\(|n^{1/2}a_{n}|\)</span> 또한 모든 <span class="math inline">\(n\in \mathbb{N}\)</span>에 대해 유계이다. 따라서 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(a_{n}=O(n^{-1/2})\)</span>라고도 쓸 수 있는 것이다. 비슷한 논리로 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(a_{n}=O[(n+1)^{-1}]\)</span>도 됨을 알 수 있다.</p>
+<p>다음은 <span class="citation">(Polansky <a href="#ref-Polansky2011">2011</a>)</span> 책에 나오는 예제다.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-178" class="example"><strong>Example 10.3  (big O의 의미)  </strong></span>모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 <span class="math inline">\(a_{n} = (n-1)^{-1}\)</span>, <span class="math inline">\(b_{n}=(n+1)^{-1}\)</span>로 정의된 두 개의 수열 <span class="math inline">\(\{a_{n}\}_{n=1}^{\infty}\)</span>, <span class="math inline">\(\{b_{n}\}_{n=1}^{\infty}\)</span>이 있다고 하자. <span class="math inline">\(\lim_{n\rightarrow\infty}\frac{a_n}{b_n}=1\)</span>이므로 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(a_{n}\asymp b_{n}\)</span>라고 할 수 있다. <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(a_{n}/b_{n}\)</span>이 여전히 유계라는 사실로부터 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(a_{n}=O(b_{n})\)</span>, <span class="math inline">\(b_{n}=O(a_{n})\)</span>임을 알 수 있다. 실제로는 수열의 가장 단순한 형태를 사용하므로 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(a_{n}=O(n^{-1})\)</span>, <span class="math inline">\(b_{n}=O(n^{-1})\)</span>로 보통 많이 쓴다.</p>
+</div>
+
+<p>Big O의 키 아이디어는 다음과 같다. 많은 경우에 오차 수열은 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 0으로 수렴한다. 이런 경우 점근적 차수 표현은 이러한 수열들이 0으로 얼마나 빨리 수렴하는지에 대해 보여준다. 앞선 예제의 경우는 <span class="math inline">\(a_{n}\)</span>과 <span class="math inline">\(b_{n}\)</span>은 <span class="math inline">\(n^{-1}\)</span>과 같은 속도로 <span class="math inline">\(0\)</span>으로 수렴함을 나타내는 것이다.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-179" class="example"><strong>Example 10.4  (small o)  </strong></span>앞선 예제에서 <span class="math inline">\(\lim_{n\rightarrow\infty} n^{1/2}a_{n} = \lim_{n\rightarrow\infty} n^{1/2}b_{n}=0\)</span>이므로 <span class="math inline">\(a_{n}=o(n^{-1/2})\)</span>, <span class="math inline">\(b_{n}=o(n^{-1/2})\)</span>임을 알 수 있다. small o 또한 유일한 표현이 없다. 예를 들어 같은 방법으로 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(a_{n}=o(n^{-1/4})\)</span>, <span class="math inline">\(a_{n}=o(n^{-1/256})\)</span>도 됨을 보일 수 있다. 마지막으로 <span class="math inline">\(\{a_{n}\}\)</span>, <span class="math inline">\(\{b_{n}\}\)</span>처럼 0으로 수렴하는 모든 수열들은 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(o(1)\)</span>로 쓸 수 있다.</p>
+</div>
+
+<p>(개인적인 의견: 위 예제에서 small o는 big O보다 강한조건임을 알 수 있다. <span class="math inline">\(a_{n} \neq o(n^{-1})\)</span>이기 때문이다. 그러나 -1보다 조금만 커져도 <span class="math inline">\((ex. -0.99999)\)</span> small o 표현을 쓸 수 있다. 이러한 점이 small o를 실전에서 쓰기 어렵게 만드는 요인이 아닐까 한다.)</p>
+
 <div class="lemma">
-<p><span id="lem:unnamed-chunk-177" class="lemma"><strong>Lemma 10.4  (big O와 small o의 성질들)  </strong></span> 1. 만약 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이고 <span class="math inline">\(b_{n}=O(c_{n})\)</span>이면 <span class="math inline">\(a_{n}=O(c_{n})\)</span>이다.</p>
+<p><span id="lem:unnamed-chunk-180" class="lemma"><strong>Lemma 10.4  (big O와 small o의 성질들)  </strong></span> 1. 만약 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이고 <span class="math inline">\(b_{n}=O(c_{n})\)</span>이면 <span class="math inline">\(a_{n}=O(c_{n})\)</span>이다.</p>
 <ol start="2" style="list-style-type: decimal">
 <li><p>만약 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이고 <span class="math inline">\(b_{n}=o(c_{n})\)</span>이면 <span class="math inline">\(a_{n}=o(c_{n})\)</span>이다.</p></li>
 <li><p>만약 <span class="math inline">\(a_{n}=o(b_{n})\)</span>이고 <span class="math inline">\(b_{n}=O(c_{n})\)</span>이면 <span class="math inline">\(a_{n}=o(c_{n})\)</span>이다.</p></li>
@@ -786,18 +805,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>그러나 어떤 증가함수 <span class="math inline">\(g\)</span>에 대해 <span class="math inline">\(a_{n}=O(b_{n})\)</span>은 <span class="math inline">\(g(a_{n})=O\{g(b_{n})\}\)</span>임을 의미하지는 않는다. 마찬가지로, <span class="math inline">\(a_{n}=o(b_{n})\)</span>은 <span class="math inline">\(g(a_{n})=o\{g(b_{n})\}\)</span>임을 의미하지는 않는다.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-178" class="example"><strong>Example 10.3  (증가함수와 big O)  </strong></span><span class="math inline">\(a_{n}=n\)</span>, <span class="math inline">\(b_{n}=2n\)</span>이라고 하자. 그러면 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이다. 그러나 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(e^{a_{n}}/e^{b_{n}}=e^{n}/e^{2n}=e^{-n}\rightarrow 0\)</span>이다. 따라서 <span class="math inline">\(e^{a_{n}}=o(e^{b_{n}})\)</span>이며 <span class="math inline">\(O(e^{b_{n}})\)</span>이 아니다.</p>
+<p><span id="exm:unnamed-chunk-181" class="example"><strong>Example 10.5  (증가함수와 big O)  </strong></span><span class="math inline">\(a_{n}=n\)</span>, <span class="math inline">\(b_{n}=2n\)</span>이라고 하자. 그러면 <span class="math inline">\(a_{n}=O(b_{n})\)</span>이다. 그러나 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(e^{a_{n}}/e^{b_{n}}=e^{n}/e^{2n}=e^{-n}\rightarrow 0\)</span>이다. 따라서 <span class="math inline">\(e^{a_{n}}=o(e^{b_{n}})\)</span>이며 <span class="math inline">\(O(e^{b_{n}})\)</span>이 아니다.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-179" class="example"><strong>Example 10.4  (증가함수와 small o)  </strong></span><span class="math inline">\(a_{n}=n\)</span>, <span class="math inline">\(b_{n}=n^{2}\)</span>을 생각해보자. 그러면 <span class="math inline">\(a_{n}=o(b_{n})\)</span>이다. 그러나 <span class="math inline">\(\log(a_{n})=\log(b_{n})\)</span>이고 <span class="math inline">\(\log(b_{n})=2\log(n)\)</span>이며 <span class="math inline">\(\log(a_{n})=O\{\log(b_{n})\}\)</span>이며 <span class="math inline">\(o\{\log(b_{n})\}\)</span>이 아니다.</p>
+<p><span id="exm:unnamed-chunk-182" class="example"><strong>Example 10.6  (증가함수와 small o)  </strong></span><span class="math inline">\(a_{n}=n\)</span>, <span class="math inline">\(b_{n}=n^{2}\)</span>을 생각해보자. 그러면 <span class="math inline">\(a_{n}=o(b_{n})\)</span>이다. 그러나 <span class="math inline">\(\log(a_{n})=\log(b_{n})\)</span>이고 <span class="math inline">\(\log(b_{n})=2\log(n)\)</span>이며 <span class="math inline">\(\log(a_{n})=O\{\log(b_{n})\}\)</span>이며 <span class="math inline">\(o\{\log(b_{n})\}\)</span>이 아니다.</p>
 </div>
 
 <p>다음은 역수와 관련된 따름정리다.</p>
 
 <div class="lemma">
-<p><span id="lem:unnamed-chunk-180" class="lemma"><strong>Lemma 10.5  (역수와 small o)  </strong></span>만약 <span class="math inline">\(a_{n}\)</span>, <span class="math inline">\(b_{n}\)</span>이 0이 아닌 수열들이고 <span class="math inline">\(a_{n}=o(b_{n})\)</span>이라고 하자. 그러면 <span class="math inline">\(b_{n}^{-1}=o(a_{n}^{-1})\)</span>이다.</p>
+<p><span id="lem:unnamed-chunk-183" class="lemma"><strong>Lemma 10.5  (역수와 small o)  </strong></span>만약 <span class="math inline">\(a_{n}\)</span>, <span class="math inline">\(b_{n}\)</span>이 0이 아닌 수열들이고 <span class="math inline">\(a_{n}=o(b_{n})\)</span>이라고 하자. 그러면 <span class="math inline">\(b_{n}^{-1}=o(a_{n}^{-1})\)</span>이다.</p>
 </div>
 
 <p>Big O와 small o의 성질들을 좀 더 정리해 보겠다. 이것은 2009년 가을 Asymptotic Analysis 강의노트 2장에서 가져온 것이다.</p>
@@ -815,6 +834,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="refs" class="references">
 <div id="ref-Jiang2010">
 <p>Jiang, Jiming. 2010. <em>Large Sample Techniques for Statistics</em>. Springer Science; Business Media.</p>
+</div>
+<div id="ref-Polansky2011">
+<p>Polansky, Alan M. 2011. <em>Introduction to Statistical Limit Theory</em>. CRC Press.</p>
 </div>
 </div>
             </section>

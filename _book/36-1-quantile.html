@@ -746,11 +746,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">36.1</span> 분위수 (quantile)</h2>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-337" class="definition"><strong>Definition 36.1  (분위수)  </strong></span>실수값을 갖는 확률변수 <span class="math inline">\(X\)</span>가 분포함수 <span class="math inline">\(F\)</span>를 따른다고 할 때, <span class="math inline">\(X\)</span>의 <span class="math inline">\(\tau\)</span>번째 <strong>분위수(quantile)</strong>는 <span class="math display">\[Q_{X}(\tau)=F_{X}^{-1}(\tau)=\inf\{x|F(x)\geq \tau\}\]</span> 로 정의된다.</p>
+<p><span id="def:unnamed-chunk-340" class="definition"><strong>Definition 36.1  (분위수)  </strong></span>실수값을 갖는 확률변수 <span class="math inline">\(X\)</span>가 분포함수 <span class="math inline">\(F\)</span>를 따른다고 할 때, <span class="math inline">\(X\)</span>의 <span class="math inline">\(\tau\)</span>번째 <strong>분위수(quantile)</strong>는 <span class="math display">\[Q_{X}(\tau)=F_{X}^{-1}(\tau)=\inf\{x|F(x)\geq \tau\}\]</span> 로 정의된다.</p>
 </div>
 
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-338"></span>
-<img src="book_files/figure-html/unnamed-chunk-338-1.svg" alt="Cummulative distribution function (left) and corresponding quantile plot (right)." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-341"></span>
+<img src="book_files/figure-html/unnamed-chunk-341-1.svg" alt="Cummulative distribution function (left) and corresponding quantile plot (right)." width="672" />
 <p class="caption">
 FIGURE 36.1: Cummulative distribution function (left) and corresponding quantile plot (right).
 </p>
@@ -758,7 +758,7 @@ FIGURE 36.1: Cummulative distribution function (left) and corresponding quantile
 <p>참고로 <span class="math inline">\(Q_{X}(\tau)\)</span>는 감소하지 않는 함수이다. 즉 <span class="math display">\[Q_{X}(\tau_{1}) \leq Q_{X}(\tau_{2}) \qquad{ \text{for } \tau_{1} &lt; \tau_{2}}\]</span> 이다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-339" class="definition"><strong>Definition 36.2  (조건부 분위수)  </strong></span><span class="math inline">\(Y\)</span>를 반응변수, <span class="math inline">\(\mathbf{X}\)</span>를 <span class="math inline">\(p\)</span>차원 예측변수라고 하자. 이 때 <span class="math inline">\(\mathbf{X}=\mathbf{x}\)</span>로 주어졌을 때 <span class="math inline">\(Y\)</span>의 조건부 누적분포함수는 <span class="math inline">\(F_{Y}(y|\mathbf{X}=\mathbf{x})=P(Y\leq y|\mathbf{X}=\mathbf{x})\)</span>라고 하자. 이 때 <span class="math inline">\(Y\)</span>의 <span class="math inline">\(\tau\)</span><strong>번째 조건부 분위수 (</strong><span class="math inline">\(\tau\)</span><strong>-th conditional quantile)</strong>는 <span class="math display">\[Q_{\tau}(Y|\mathbf{X}=\mathbf{x})=\inf\{y:F_{Y}(y|\mathbf{x})\geq \tau\}\]</span> 로 정의된다.</p>
+<p><span id="def:unnamed-chunk-342" class="definition"><strong>Definition 36.2  (조건부 분위수)  </strong></span><span class="math inline">\(Y\)</span>를 반응변수, <span class="math inline">\(\mathbf{X}\)</span>를 <span class="math inline">\(p\)</span>차원 예측변수라고 하자. 이 때 <span class="math inline">\(\mathbf{X}=\mathbf{x}\)</span>로 주어졌을 때 <span class="math inline">\(Y\)</span>의 조건부 누적분포함수는 <span class="math inline">\(F_{Y}(y|\mathbf{X}=\mathbf{x})=P(Y\leq y|\mathbf{X}=\mathbf{x})\)</span>라고 하자. 이 때 <span class="math inline">\(Y\)</span>의 <span class="math inline">\(\tau\)</span><strong>번째 조건부 분위수 (</strong><span class="math inline">\(\tau\)</span><strong>-th conditional quantile)</strong>는 <span class="math display">\[Q_{\tau}(Y|\mathbf{X}=\mathbf{x})=\inf\{y:F_{Y}(y|\mathbf{x})\geq \tau\}\]</span> 로 정의된다.</p>
 </div>
 
 </div>

@@ -747,7 +747,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><span class="math inline">\(\{ X_{t} \}\)</span>는 다음과 같은 <strong>자기공분산 함수(autocovariance function)</strong> <span class="math display">\[\gamma_{X}(r,s)=Cov(X_{r},X_{s})=E(X_{r}-EX_{r})(X_{s}-EX_{s}) \text{ is finite for any } r,s.\]</span> 를 갖는 랜덤 프로세스라고 하자. 여기서 staionary보다 조금 더 약한 <strong>약정상과정(weakly stationary process)</strong>에 대해 생각해보자.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-315" class="definition"><strong>Definition 27.1  </strong></span>다음과 같은 세 가지 조건</p>
+<p><span id="def:unnamed-chunk-318" class="definition"><strong>Definition 27.1  </strong></span>다음과 같은 세 가지 조건</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(E|X_{t}|^{2} &lt; \infty\)</span>.</p></li>
 <li><p><span class="math inline">\(EX_{t}=m\)</span>(constant), <span class="math inline">\(\forall t\)</span>.</p></li>
@@ -758,18 +758,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-316" class="example"><strong>Example 27.1  (백색 잡음 과정)  </strong></span>백색 잡음 과정 <span class="math inline">\(\{Z_{t}\}\)</span>는 <span class="math display">\[E(Z_{t})=0, \forall t,\]</span> <span class="math display">\[\gamma(h)=\sigma^{2}\delta_{h}=E(Z_{t+h},Z_{t})=\sigma^{2}I\{h=0\}\]</span> 이므로 정상 과정이다.</p>
+<p><span id="exm:unnamed-chunk-319" class="example"><strong>Example 27.1  (백색 잡음 과정)  </strong></span>백색 잡음 과정 <span class="math inline">\(\{Z_{t}\}\)</span>는 <span class="math display">\[E(Z_{t})=0, \forall t,\]</span> <span class="math display">\[\gamma(h)=\sigma^{2}\delta_{h}=E(Z_{t+h},Z_{t})=\sigma^{2}I\{h=0\}\]</span> 이므로 정상 과정이다.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-317" class="example"><strong>Example 27.2  (AR(1) 과정)  </strong></span>AR(1) 과정 <span class="math inline">\(\{X_{t}\}\)</span>는 <span class="math display">\[X_{t}-\phi X_{t-1}=Z_{t}, Z_{t} \sim WN(0,\sigma^{2}), \]</span> <span class="math display">\[\gamma(h)=\sigma^{2}\frac{\phi^{|h|}}{1-\phi}\]</span> 이므로 정상 과정이다.</p>
+<p><span id="exm:unnamed-chunk-320" class="example"><strong>Example 27.2  (AR(1) 과정)  </strong></span>AR(1) 과정 <span class="math inline">\(\{X_{t}\}\)</span>는 <span class="math display">\[X_{t}-\phi X_{t-1}=Z_{t}, Z_{t} \sim WN(0,\sigma^{2}), \]</span> <span class="math display">\[\gamma(h)=\sigma^{2}\frac{\phi^{|h|}}{1-\phi}\]</span> 이므로 정상 과정이다.</p>
 </div>
 
 <p>다시 상기하는 의미에서 <span class="math inline">\(X(t)\)</span>의 이산 웨이블릿 변환은 <span class="math inline">\(\{ d_{jk} \}=\int_{\mathbb{R}}X(t)\psi_{jk}(t)dt\)</span>이고, <span class="math display">\[E d_{jk}d_{j&#39;k&#39;}=\int \int_{\mathbb{R}^{2}}\gamma(t,s)\psi_{jk}(t)\psi_{j&#39;k&#39;}(s)dtds\]</span> 이다. 다음은 웨이블릿 변환과 정상성에 관련된 정리이다.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-318" class="theorem"><strong>Theorem 27.1  (약정상과정 관련 정리)  </strong></span><span class="math inline">\(X(t)\)</span>가 약한 정상 과정이고 <span class="math inline">\(\gamma(t,s)\)</span>가 <span class="math inline">\(\mathbb{R}^{2}\)</span>에서 유계(bounded)이고 연속이면, <span class="math inline">\(X(t)\)</span>가 약정상과정인 것과 <span class="math inline">\(\{ d_{jk} \}\)</span>가 약정상과정인 것은 동치이다(만약 <span class="math inline">\(\psi\)</span>가 compactly supported이면 당연히 유계이므로 유계 조건이 따로 필요 없다).</p>
+<p><span id="thm:unnamed-chunk-321" class="theorem"><strong>Theorem 27.1  (약정상과정 관련 정리)  </strong></span><span class="math inline">\(X(t)\)</span>가 약한 정상 과정이고 <span class="math inline">\(\gamma(t,s)\)</span>가 <span class="math inline">\(\mathbb{R}^{2}\)</span>에서 유계(bounded)이고 연속이면, <span class="math inline">\(X(t)\)</span>가 약정상과정인 것과 <span class="math inline">\(\{ d_{jk} \}\)</span>가 약정상과정인 것은 동치이다(만약 <span class="math inline">\(\psi\)</span>가 compactly supported이면 당연히 유계이므로 유계 조건이 따로 필요 없다).</p>
 </div>
 
 </div>

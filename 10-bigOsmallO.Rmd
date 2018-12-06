@@ -81,6 +81,29 @@ $a_{n}=o(b_{n})$이면 $a_{n}=O(b_{n})$이다.
 
 ```
 
+```{definition, name="점근동치"}
+$\lim_{n\rightarrow \infty}\frac{x_n}{y_n}=1$인 경우 $x_{n}$과 $y_{n}$을 점근동치(asymptotic equivalent)라고 부르며 $x_{n}\asymp y_{n}$이라고 쓴다.
+
+```
+
+참고로 이런 수열의 점근 행동 표현은 유일하지 않다. 예를 들어 $a_{n}$이 $n\rightarrow\infty$일 때 $O(n^{-1})$이라고 하자. 그러면 이 수열은 또한 $O(n^{-1/2})$ 또는 $O[(n+1)^{-1}]$등으로도 표현할 수 있다. $a_{n}$이 $n\rightarrow\infty$일 때 $O(n^{-1})$이라는 의미는 모든 $n\in \mathbb{N}$에 대해 $|na_{n}|$이 유계인 것이다. 그런데 모든 $n\in\mathbb{N}$에서 $|n^{1/2}a_{n}|\leq |n a_{n}|$ 또한 성립하므로 $|n^{1/2}a_{n}|$ 또한 모든 $n\in \mathbb{N}$에 대해 유계이다. 따라서 $n\rightarrow\infty$일 때 $a_{n}=O(n^{-1/2})$라고도 쓸 수 있는 것이다. 비슷한 논리로 $n\rightarrow\infty$일 때 $a_{n}=O[(n+1)^{-1}]$도 됨을 알 수 있다.
+
+다음은 [@Polansky2011] 책에 나오는 예제다.
+
+```{example, name="big O의 의미"}
+모든 $n\in\mathbb{N}$에서 $a_{n} = (n-1)^{-1}$, $b_{n}=(n+1)^{-1}$로 정의된 두 개의 수열 $\{a_{n}\}_{n=1}^{\infty}$, $\{b_{n}\}_{n=1}^{\infty}$이 있다고 하자. $\lim_{n\rightarrow\infty}\frac{a_n}{b_n}=1$이므로 $n\rightarrow\infty$일 때 $a_{n}\asymp b_{n}$라고 할 수 있다. $n\rightarrow\infty$일 때 $a_{n}/b_{n}$이 여전히 유계라는 사실로부터 $n\rightarrow\infty$일 때 $a_{n}=O(b_{n})$, $b_{n}=O(a_{n})$임을 알 수 있다. 실제로는 수열의 가장 단순한 형태를 사용하므로 $n\rightarrow\infty$일 때 $a_{n}=O(n^{-1})$, $b_{n}=O(n^{-1})$로 보통 많이 쓴다.
+
+```
+
+Big O의 키 아이디어는 다음과 같다. 많은 경우에 오차 수열은 $n\rightarrow\infty$일 때 0으로 수렴한다. 이런 경우 점근적 차수 표현은 이러한 수열들이 0으로 얼마나 빨리 수렴하는지에 대해 보여준다. 앞선 예제의 경우는 $a_{n}$과 $b_{n}$은 $n^{-1}$과 같은 속도로 $0$으로 수렴함을 나타내는 것이다.
+
+```{example, name="small o"}
+앞선 예제에서 $\lim_{n\rightarrow\infty} n^{1/2}a_{n} = \lim_{n\rightarrow\infty} n^{1/2}b_{n}=0$이므로 $a_{n}=o(n^{-1/2})$, $b_{n}=o(n^{-1/2})$임을 알 수 있다. small o 또한 유일한 표현이 없다. 예를 들어 같은 방법으로 $n\rightarrow\infty$일 때 $a_{n}=o(n^{-1/4})$, $a_{n}=o(n^{-1/256})$도 됨을 보일 수 있다. 마지막으로 $\{a_{n}\}$, $\{b_{n}\}$처럼 0으로 수렴하는 모든 수열들은 $n\rightarrow\infty$일 때 $o(1)$로 쓸 수 있다.
+
+```
+
+(개인적인 의견: 위 예제에서 small o는 big O보다 강한조건임을 알 수 있다. $a_{n} \neq o(n^{-1})$이기 때문이다. 그러나 -1보다 조금만 커져도 $(ex. -0.99999)$ small o 표현을 쓸 수 있다. 이러한 점이 small o를 실전에서 쓰기 어렵게 만드는 요인이 아닐까 한다.)
+
 ```{lemma, name="big O와 small o의 성질들"}
 
 1. 만약 $a_{n}=O(b_{n})$이고 $b_{n}=O(c_{n})$이면 $a_{n}=O(c_{n})$이다.
