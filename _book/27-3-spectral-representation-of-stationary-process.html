@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>통계공부와 관련된 글들</title>
+  <title>27.3 정상과정의 스펙트럼 표현(spectral representation of stationary process) | 통계공부와 관련된 글들</title>
   <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="통계공부와 관련된 글들" />
+  <meta property="og:title" content="27.3 정상과정의 스펙트럼 표현(spectral representation of stationary process) | 통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="SeoncheolPark/book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="통계공부와 관련된 글들" />
+  <meta name="twitter:title" content="27.3 정상과정의 스펙트럼 표현(spectral representation of stationary process) | 통계공부와 관련된 글들" />
   
   <meta name="twitter:description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다." />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-12-06">
+<meta name="date" content="2019-04-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="27-4-non-decimated-discrete-wavelets.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -50,41 +51,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -501,17 +528,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="part"><span><b>IV Quantile Regression and FDA</b></span></li>
 <li class="chapter" data-level="36" data-path="36-qr.html"><a href="36-qr.html"><i class="fa fa-check"></i><b>36</b> 분위수 회귀분석</a><ul>
-<li class="chapter" data-level="36.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html"><i class="fa fa-check"></i><b>36.1</b> 분위수 (quantile)</a></li>
-<li class="chapter" data-level="36.2" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html"><i class="fa fa-check"></i><b>36.2</b> 분위수 회귀분석의 기초(basics of quantile regression)</a><ul>
-<li class="chapter" data-level="36.2.1" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>36.2.1</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
-<li class="chapter" data-level="36.2.2" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--quantile-treatment-effect"><i class="fa fa-check"></i><b>36.2.2</b> 분위수 처리 효과(quantile treatment effect)</a></li>
-<li class="chapter" data-level="36.2.3" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
-<li class="chapter" data-level="36.2.4" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.2.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
+<li class="chapter" data-level="36.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html"><i class="fa fa-check"></i><b>36.1</b> 분위수 (quantile)</a><ul>
+<li class="chapter" data-level="36.1.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>36.1.1</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
+<li class="chapter" data-level="36.1.2" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--quantile-treatment-effect"><i class="fa fa-check"></i><b>36.1.2</b> 분위수 처리 효과(quantile treatment effect)</a></li>
+<li class="chapter" data-level="36.1.3" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.1.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
+<li class="chapter" data-level="36.1.4" data-path="36-1-quantile.html"><a href="36-1-quantile.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.1.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
 </ul></li>
-<li class="chapter" data-level="36.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.3</b> 극단회귀분석(extremal quantile regression)</a><ul>
-<li class="chapter" data-level="36.3.1" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.3.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
-<li class="chapter" data-level="36.3.2" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.3.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
-<li class="chapter" data-level="36.3.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.3.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
+<li class="chapter" data-level="36.2" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.2</b> 극단회귀분석(extremal quantile regression)</a><ul>
+<li class="chapter" data-level="36.2.1" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.2.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
+<li class="chapter" data-level="36.2.2" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.2.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
+<li class="chapter" data-level="36.2.3" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="37" data-path="37-functionestimation.html"><a href="37-functionestimation.html"><i class="fa fa-check"></i><b>37</b> 함수추정</a><ul>
@@ -546,7 +572,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="40.3.1" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#isotropy"><i class="fa fa-check"></i><b>40.3.1</b> 등방성(isotropy)</a></li>
 <li class="chapter" data-level="40.3.2" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#homogeneous"><i class="fa fa-check"></i><b>40.3.2</b> 동질성(homogeneous)</a></li>
 <li class="chapter" data-level="40.3.3" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#anisotropy"><i class="fa fa-check"></i><b>40.3.3</b> 이등방성(anisotropy)</a></li>
-<li class="chapter" data-level="40.3.4" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#z3--geometric-anisotropy"><i class="fa fa-check"></i><b>40.3.4</b> z3 기하학적 이등방성(Geometric anisotropy)</a></li>
 </ul></li>
 <li class="chapter" data-level="40.4" data-path="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><i class="fa fa-check"></i><b>40.4</b> 공간 확률과정의 연속성과 미분가능성(continuity and differentiabiliy of spatial stochastic process</a><ul>
 <li class="chapter" data-level="40.4.1" data-path="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html#path-continuity---path-differentiability"><i class="fa fa-check"></i><b>40.4.1</b> 경로연속(path-continuity) 또는 경로 미분가능성(path-differentiability)</a></li>
@@ -744,11 +769,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="--spectral-representation-of-stationary-process" class="section level2">
 <h2><span class="header-section-number">27.3</span> 정상과정의 스펙트럼 표현(spectral representation of stationary process)</h2>
-<p><span class="math inline">\(\{ X(t) \}\)</span>를 평균이 0인 정상과정이라고 하자. 그러면 다음 <span class="math display">\[X(t)=\int_{-\infty}^{\infty} e^{it\omega}dZ(\omega)\]</span> 를 만족시키는 <strong>직교과정(orthogonal process)</strong> <span class="math inline">\(\{Z(\omega)\}\)</span>가 존재한다.</p>
+<p><span class="math inline">\(\{ X(t) \}\)</span>를 평균이 0인 정상과정이라고 하자. 그러면 다음
+<span class="math display">\[X(t)=\int_{-\infty}^{\infty} e^{it\omega}dZ(\omega)\]</span>
+를 만족시키는 <strong>직교과정(orthogonal process)</strong> <span class="math inline">\(\{Z(\omega)\}\)</span>가 존재한다.</p>
 <p>여기서 잠시 <strong>직교증분과정(orthogonal increment process)</strong>라는 것에 대해 소개하겠다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-323" class="definition"><strong>Definition 27.2  (직교증분과정)  </strong></span>두개의 다른 주파수 <span class="math inline">\(\omega\)</span>, <span class="math inline">\(\omega&#39;\)</span> <span class="math inline">\((\omega \neq \omega&#39;)\)</span>가 있다고 하자. 만약 두 개의 process <span class="math display">\[dZ(\omega)=\{Z(\omega +d\omega)-Z(\omega)\} \text{ and } dZ(\omega&#39;)=\{Z(\omega&#39; +d\omega&#39;)-Z(\omega&#39;)\}\]</span> 가 무상관<span class="math inline">\((\text{Cov}(dZ(\omega), dZ(\omega&#39;))=0)\)</span>일 때 <span class="math inline">\(dZ(\omega)\)</span>는 <strong>직교증분과정</strong>이라고 한다.</p>
+<p><span id="def:unnamed-chunk-323" class="definition"><strong>Definition 27.2  (직교증분과정)  </strong></span>두개의 다른 주파수 <span class="math inline">\(\omega\)</span>, <span class="math inline">\(\omega&#39;\)</span> <span class="math inline">\((\omega \neq \omega&#39;)\)</span>가 있다고 하자. 만약 두 개의 process
+<span class="math display">\[dZ(\omega)=\{Z(\omega +d\omega)-Z(\omega)\} \text{ and } dZ(\omega&#39;)=\{Z(\omega&#39; +d\omega&#39;)-Z(\omega&#39;)\}\]</span>
+가 무상관<span class="math inline">\((\text{Cov}(dZ(\omega), dZ(\omega&#39;))=0)\)</span>일 때 <span class="math inline">\(dZ(\omega)\)</span>는 <strong>직교증분과정</strong>이라고 한다.</p>
 </div>
 
 <p>다시 직교과정으로 돌아가서, <span class="math inline">\(\{Z(\omega)\}\)</span>는 다음 성질들을 만족시킨다.</p>
@@ -757,18 +786,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><p><span class="math inline">\(E|dZ(\omega)|^{2}=d H(\omega)=h(\omega), \forall \omega, \text{ where } H(\omega)=\int h(\omega)=\text{integrated spectrum of } X(t)\)</span>.</p></li>
 <li><p><span class="math inline">\(Cov(dZ(\omega), dZ(\omega&#39;))=0\)</span>. (직교증분과정)</p></li>
 </ol>
-<p><span class="citation">(G. Nason <a href="#ref-Nason2010">2010</a>)</span>에 의하면, 어떤 시계열 <span class="math inline">\(\{Z_{t} \}_{t\in \mathbb{Z}}\)</span>가 정상확률과정이라면 다음과 같이 표현할 수 있다고 한다. 즉 <span class="math inline">\(\sin\)</span>, <span class="math inline">\(\cos\)</span> basis function으로 expansion할 수 있는 것이다.</p>
-<span class="math display">\[\begin{equation}
+<p><span class="citation">(Nason <a href="#ref-Nason2010">2010</a>)</span>에 의하면, 어떤 시계열 <span class="math inline">\(\{Z_{t} \}_{t\in \mathbb{Z}}\)</span>가 정상확률과정이라면 다음과 같이 표현할 수 있다고 한다. 즉 <span class="math inline">\(\sin\)</span>, <span class="math inline">\(\cos\)</span> basis function으로 expansion할 수 있는 것이다.</p>
+<p><span class="math display">\[\begin{equation}
 X_{t}=\int_{-\pi}^{\pi}A(\omega)e^{it\omega}d\xi(\omega)
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>이 때 <span class="math inline">\(A(\omega)\)</span>, <span class="math inline">\(d\xi(\omega)\)</span>가 <span class="math inline">\(dZ(\omega)\)</span> 역할을 하게 되는 것이며, 가장 영향력 있는 계수들의 제곱이 <strong>스펙트럼(spectrum)</strong>이 된다.</p>
-<p><span class="math display">\[|A(\omega)|^{2}=\hat{h}(\omega): \text{ periodogram (point estimator but not consistent)}\]</span> <span class="math display">\[|\tilde{A}(\omega)|^{2}: \text{ consistent (when smoothing)}\]</span></p>
-<p><span class="math display">\[Cov(X(t), X(t+\tau))=\int_{-\infty}^{\infty}e^{it\omega}dH(\omega)\]</span> 이며, 여기서 <span class="math inline">\(Cov(X(t), X(t+\tau))\)</span>는 <span class="math inline">\(X(t)\)</span>의 공분산함수이며, <span class="math inline">\(dH(\omega)\)</span>는 <span class="math inline">\(X(t)\)</span>의 스펙트럼이고, 이들은 <span class="math inline">\(e^{it\omega}\)</span> 라는 푸리에변환을 통해 일대일변환(one-to-one transform)된다.</p>
-다음 내용은 <span class="citation">(Priestley <a href="#ref-Priestley1981">1981</a>)</span> 및 <span class="citation">(Dahlhaus <a href="#ref-Dahlhaus1996">1996</a>)</span>에서 발췌한 내용이다. 비정상과정 <span class="math inline">\(X(t)\)</span>는 다음과 같이 간주할 수 있다. <span class="math display">\[\phi_{t}(\omega) \text{ instead of } e^{it\omega}\]</span>
+<p><span class="math display">\[|A(\omega)|^{2}=\hat{h}(\omega): \text{ periodogram (point estimator but not consistent)}\]</span>
+<span class="math display">\[|\tilde{A}(\omega)|^{2}: \text{ consistent (when smoothing)}\]</span></p>
+<p><span class="math display">\[Cov(X(t), X(t+\tau))=\int_{-\infty}^{\infty}e^{it\omega}dH(\omega)\]</span>
+이며, 여기서 <span class="math inline">\(Cov(X(t), X(t+\tau))\)</span>는 <span class="math inline">\(X(t)\)</span>의 공분산함수이며, <span class="math inline">\(dH(\omega)\)</span>는 <span class="math inline">\(X(t)\)</span>의 스펙트럼이고, 이들은 <span class="math inline">\(e^{it\omega}\)</span> 라는 푸리에변환을 통해 일대일변환(one-to-one transform)된다.</p>
+<p>다음 내용은 <span class="citation">(Priestley <a href="#ref-Priestley1981">1981</a>)</span> 및 <span class="citation">(Dahlhaus <a href="#ref-Dahlhaus1996">1996</a>)</span>에서 발췌한 내용이다. 비정상과정 <span class="math inline">\(X(t)\)</span>는 다음과 같이 간주할 수 있다.
+<span class="math display">\[\phi_{t}(\omega) \text{ instead of } e^{it\omega}\]</span>
 <span class="math display">\[\begin{eqnarray*}
 X(t)&amp;=&amp;\int \phi_{t}(\omega)dZ(\omega)=\int A(\omega)e^{it\omega}d\xi(\omega)\\
 &amp;=&amp;\int A_{t}(\omega)e^{i\theta(\omega)t}dZ(\omega) \Longrightarrow \text{ &quot;Oscillatory process&quot;}\\
-\end{eqnarray*}\]</span>
+\end{eqnarray*}\]</span></p>
 <p>여기서 <span class="math inline">\(A_{t}(\omega)\)</span>는 일종의 가중치(weight)이며 시간에 따라 계속 바뀐다. 이 내용은 비정상과정의 시계열을 분할하여 <strong>스펙트럴 표현(spectral representation)</strong>이 되도록 제한할 수 있다는 것이다. 그러나 유일(unique)하게 정의되지 않는다는 것은 문제이다.</p>
 <p>함수추정에서 웨이블릿은 희소(sparsity) 장점을 준다. 그러나 시계열에서의 웨이블릿 사용은 희소와는 큰 관련이 없다. 다만 다음과 같이 변환하였을 때,</p>
 <p><span class="math display">\[X(t) \stackrel{\omega}{\rightarrow}d_{jk}(t) \text{ j: scale, k: location}\]</span></p>
@@ -783,7 +815,7 @@ X(t)&amp;=&amp;\int \phi_{t}(\omega)dZ(\omega)=\int A(\omega)e^{it\omega}d\xi(\o
 <p>Priestley, Maurice Bertram. 1981. <em>Spectral Analysis and Time Series</em>. Academic Press.</p>
 </div>
 <div id="ref-Dahlhaus1996">
-<p>Dahlhaus, R. 1996. “On the Kullback-Leibler Information Divergence of Locally Stationary Processes.” <em>Stochastic Processes and Their Applications</em> 62 (1): 139–68. doi:<a href="https://doi.org/10.1016/0304-4149(95)00090-9">10.1016/0304-4149(95)00090-9</a>.</p>
+<p>Dahlhaus, R. 1996. “On the Kullback-Leibler Information Divergence of Locally Stationary Processes.” <em>Stochastic Processes and Their Applications</em> 62 (1): 139–68. <a href="https://doi.org/10.1016/0304-4149(95)00090-9">https://doi.org/10.1016/0304-4149(95)00090-9</a>.</p>
 </div>
 </div>
             </section>
@@ -812,7 +844,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -824,6 +856,10 @@ gitbook.start({
 "edit": {
 "link": "https://seoncheolpark.github.io/book/_book/36-multiscalets.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["book.pdf"],
 "toc": {
@@ -843,8 +879,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

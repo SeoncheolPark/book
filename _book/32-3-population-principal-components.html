@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>통계공부와 관련된 글들</title>
+  <title>32.3 모집단 주성분들(population principal components) | 통계공부와 관련된 글들</title>
   <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="통계공부와 관련된 글들" />
+  <meta property="og:title" content="32.3 모집단 주성분들(population principal components) | 통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="SeoncheolPark/book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="통계공부와 관련된 글들" />
+  <meta name="twitter:title" content="32.3 모집단 주성분들(population principal components) | 통계공부와 관련된 글들" />
   
   <meta name="twitter:description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다." />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-12-06">
+<meta name="date" content="2019-04-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="32-4-pca-summary.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -50,41 +51,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -501,17 +528,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="part"><span><b>IV Quantile Regression and FDA</b></span></li>
 <li class="chapter" data-level="36" data-path="36-qr.html"><a href="36-qr.html"><i class="fa fa-check"></i><b>36</b> 분위수 회귀분석</a><ul>
-<li class="chapter" data-level="36.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html"><i class="fa fa-check"></i><b>36.1</b> 분위수 (quantile)</a></li>
-<li class="chapter" data-level="36.2" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html"><i class="fa fa-check"></i><b>36.2</b> 분위수 회귀분석의 기초(basics of quantile regression)</a><ul>
-<li class="chapter" data-level="36.2.1" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>36.2.1</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
-<li class="chapter" data-level="36.2.2" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--quantile-treatment-effect"><i class="fa fa-check"></i><b>36.2.2</b> 분위수 처리 효과(quantile treatment effect)</a></li>
-<li class="chapter" data-level="36.2.3" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
-<li class="chapter" data-level="36.2.4" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.2.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
+<li class="chapter" data-level="36.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html"><i class="fa fa-check"></i><b>36.1</b> 분위수 (quantile)</a><ul>
+<li class="chapter" data-level="36.1.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>36.1.1</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
+<li class="chapter" data-level="36.1.2" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--quantile-treatment-effect"><i class="fa fa-check"></i><b>36.1.2</b> 분위수 처리 효과(quantile treatment effect)</a></li>
+<li class="chapter" data-level="36.1.3" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.1.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
+<li class="chapter" data-level="36.1.4" data-path="36-1-quantile.html"><a href="36-1-quantile.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.1.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
 </ul></li>
-<li class="chapter" data-level="36.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.3</b> 극단회귀분석(extremal quantile regression)</a><ul>
-<li class="chapter" data-level="36.3.1" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.3.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
-<li class="chapter" data-level="36.3.2" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.3.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
-<li class="chapter" data-level="36.3.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.3.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
+<li class="chapter" data-level="36.2" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.2</b> 극단회귀분석(extremal quantile regression)</a><ul>
+<li class="chapter" data-level="36.2.1" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.2.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
+<li class="chapter" data-level="36.2.2" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.2.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
+<li class="chapter" data-level="36.2.3" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="37" data-path="37-functionestimation.html"><a href="37-functionestimation.html"><i class="fa fa-check"></i><b>37</b> 함수추정</a><ul>
@@ -546,7 +572,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="40.3.1" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#isotropy"><i class="fa fa-check"></i><b>40.3.1</b> 등방성(isotropy)</a></li>
 <li class="chapter" data-level="40.3.2" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#homogeneous"><i class="fa fa-check"></i><b>40.3.2</b> 동질성(homogeneous)</a></li>
 <li class="chapter" data-level="40.3.3" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#anisotropy"><i class="fa fa-check"></i><b>40.3.3</b> 이등방성(anisotropy)</a></li>
-<li class="chapter" data-level="40.3.4" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#z3--geometric-anisotropy"><i class="fa fa-check"></i><b>40.3.4</b> z3 기하학적 이등방성(Geometric anisotropy)</a></li>
 </ul></li>
 <li class="chapter" data-level="40.4" data-path="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><i class="fa fa-check"></i><b>40.4</b> 공간 확률과정의 연속성과 미분가능성(continuity and differentiabiliy of spatial stochastic process</a><ul>
 <li class="chapter" data-level="40.4.1" data-path="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html#path-continuity---path-differentiability"><i class="fa fa-check"></i><b>40.4.1</b> 경로연속(path-continuity) 또는 경로 미분가능성(path-differentiability)</a></li>
@@ -745,12 +770,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="-population-principal-components" class="section level2">
 <h2><span class="header-section-number">32.3</span> 모집단 주성분들(population principal components)</h2>
 <p><span class="citation">(Izenman <a href="#ref-Izenman2009">2009</a>)</span>를 참고하였다.</p>
-다음과 같은 무작위 <span class="math inline">\(r\)</span>-벡터 <span class="math display">\[\mathbf{X}=(X_{1},\ldots, X_{t})^{T}\]</span> 가 평균이 <span class="math inline">\(\boldsymbol{\mu}_{X}\)</span>이고 <span class="math inline">\((r\times r)\)</span> 공분산행렬 <span class="math inline">\(\boldsymbol{\Sigma}_{XX}\)</span>를 갖는다고 가정하자. PCA는 <span class="math inline">\(r\)</span>개의 correlated된 투입 변수들 <span class="math inline">\(X_{1},\ldots, X_{r}\)</span>로부터 <span class="math inline">\(t (\leq r)\)</span>개의 uncorrelated된 linear projection들 <span class="math inline">\(\xi_{1},\ldots ,\xi_{t}\)</span>을 얻고자 하는 것이다. 이 때, <span class="math inline">\(\xi_{j}\)</span>는
+<p>다음과 같은 무작위 <span class="math inline">\(r\)</span>-벡터
+<span class="math display">\[\mathbf{X}=(X_{1},\ldots, X_{t})^{T}\]</span>
+가 평균이 <span class="math inline">\(\boldsymbol{\mu}_{X}\)</span>이고 <span class="math inline">\((r\times r)\)</span> 공분산행렬 <span class="math inline">\(\boldsymbol{\Sigma}_{XX}\)</span>를 갖는다고 가정하자. PCA는 <span class="math inline">\(r\)</span>개의 correlated된 투입 변수들 <span class="math inline">\(X_{1},\ldots, X_{r}\)</span>로부터 <span class="math inline">\(t (\leq r)\)</span>개의 uncorrelated된 linear projection들 <span class="math inline">\(\xi_{1},\ldots ,\xi_{t}\)</span>을 얻고자 하는 것이다. 이 때, <span class="math inline">\(\xi_{j}\)</span>는
 <span class="math display" id="eq:PCAlinearprojection">\[\begin{equation}
 \xi_{j}=\mathbf{b}_{j}^{T}\mathbf{X}=b_{j1}X_{1}+\ldots + b_{jr}X_{r},\qquad{j=1,\ldots , t}
 \tag{32.1}
 \end{equation}\]</span>
-<p>이다. 그리고 <span class="math inline">\(\xi\)</span>들을 정보를 최소화하는 방향으로 찾고자 한다. 이 식을 <span class="math inline">\(\mathbf{X}\)</span>의 <strong>처음 <span class="math inline">\(t\)</span> principal components</strong>라고 알려져 있다. PCA에서 정보는 original input varible들의 total variation으로 설명할 수 있다. <span class="math display">\[\sum_{j=1}^{r}\text{var}(X_{j})=\text{tr}(\boldsymbol{\Sigma}_{XX}).\]</span> 스펙트럼 분해 정리(1장 참조)에 의해 우리는 다음과 같이 쓸 수 있다. <span class="math display">\[\boldsymbol{\Sigma}_{XX}=\mathbf{U}\boldsymbol{\Lambda}\mathbf{U}^{T}, \qquad{\mathbf{U}^{T}\mathbf{U}=\mathbf{I}_{r}.}\]</span> 이 때 대각행렬 <span class="math inline">\(\boldsymbol{\Lambda}\)</span>는 <span class="math inline">\(\boldsymbol{\Sigma}\)</span>의 고유값들 <span class="math inline">\(\{\lambda_{j}\}\)</span>을 대각원소들로 갖는다. 그리고 <span class="math inline">\(\mathbf{U}\)</span>의 열들이 <span class="math inline">\(\boldsymbol{\Sigma}_{XX}\)</span>의 고유치(eigenvector)가 된다. 그래서 총 variation은 <span class="math inline">\(\text{tr}(\boldsymbol{\Sigma}_{XX})=\text{tr}(\boldsymbol{\Lambda})=\sum_{j=1}^{r}\lambda_{j}\)</span>가 된다.</p>
+이다. 그리고 <span class="math inline">\(\xi\)</span>들을 정보를 최소화하는 방향으로 찾고자 한다. 이 식을 <span class="math inline">\(\mathbf{X}\)</span>의 <strong>처음 <span class="math inline">\(t\)</span> principal components</strong>라고 알려져 있다. PCA에서 정보는 original input varible들의 total variation으로 설명할 수 있다.
+<span class="math display">\[\sum_{j=1}^{r}\text{var}(X_{j})=\text{tr}(\boldsymbol{\Sigma}_{XX}).\]</span>
+스펙트럼 분해 정리(1장 참조)에 의해 우리는 다음과 같이 쓸 수 있다.
+<span class="math display">\[\boldsymbol{\Sigma}_{XX}=\mathbf{U}\boldsymbol{\Lambda}\mathbf{U}^{T}, \qquad{\mathbf{U}^{T}\mathbf{U}=\mathbf{I}_{r}.}\]</span>
+이 때 대각행렬 <span class="math inline">\(\boldsymbol{\Lambda}\)</span>는 <span class="math inline">\(\boldsymbol{\Sigma}\)</span>의 고유값들 <span class="math inline">\(\{\lambda_{j}\}\)</span>을 대각원소들로 갖는다. 그리고 <span class="math inline">\(\mathbf{U}\)</span>의 열들이 <span class="math inline">\(\boldsymbol{\Sigma}_{XX}\)</span>의 고유치(eigenvector)가 된다. 그래서 총 variation은 <span class="math inline">\(\text{tr}(\boldsymbol{\Sigma}_{XX})=\text{tr}(\boldsymbol{\Lambda})=\sum_{j=1}^{r}\lambda_{j}\)</span>가 된다.</p>
 <p><span class="math inline">\(j\)</span>번째 계수 벡터 <span class="math inline">\(\mathbf{b}_{j}=(b_{1j},\ldots, b_{rj})^{T}\)</span>들은 다음과 같이 고른다.</p>
 <ul>
 <li><p><span class="math inline">\(\mathbf{X}\)</span>의 처음 <span class="math inline">\(t\)</span> 선형 사영 <span class="math inline">\(\xi_{j}, j=1,\ldots, t\)</span>들은 그들의 분산 <span class="math inline">\(\{ \text{var}\{\xi_{j} \} \}\)</span>들을 이용해 ${<em>{1} } {</em>{2} } {_{t} } $로 순위를 매겨 결정한다.</p></li>
@@ -763,22 +794,37 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ol>
 <div id="--pca" class="section level3">
 <h3><span class="header-section-number">32.3.1</span> 최소제곱법으로 구하는 PCA</h3>
-<span class="math inline">\(\mathbf{B}=(\mathbf{b}_{1},\ldots, \mathbf{b}_{t})^{T}\)</span>를 가중치의 <span class="math inline">\((t\times r)\)</span> <span class="math inline">\((t\leq r)\)</span> 행렬이라고 하자. 선형 사영식 <a href="32-3-population-principal-components.html#eq:PCAlinearprojection">(32.1)</a>은 다음과 같이 <span class="math inline">\(t\)</span>-벡터 <span class="math display">\[\boldsymbol{\xi}=\mathbf{BX}\]</span> 로 쓸 수 있다. 여기서 <span class="math inline">\(\boldsymbol{\xi}=(\xi_{1},\ldots , \xi_{t})^{T}\)</span>이다. 우리는 <span class="math inline">\(\mathbf{X}\approx\boldsymbol{\mu}+\mathbf{A}\boldsymbol{\xi}\)</span>를 least-square 관점에서 만족시키는 <span class="math inline">\(r\)</span>-벡터 <span class="math inline">\(\boldsymbol{\mu}\)</span>와 <span class="math inline">\((r\times t)\)</span> 행렬 <span class="math inline">\(\mathbf{A}\)</span>를 찾고자 한다. 우리는 다음과 같은 최소자승 오차 조건
+<p><span class="math inline">\(\mathbf{B}=(\mathbf{b}_{1},\ldots, \mathbf{b}_{t})^{T}\)</span>를 가중치의 <span class="math inline">\((t\times r)\)</span> <span class="math inline">\((t\leq r)\)</span> 행렬이라고 하자. 선형 사영식 <a href="32-3-population-principal-components.html#eq:PCAlinearprojection">(32.1)</a>은 다음과 같이 <span class="math inline">\(t\)</span>-벡터
+<span class="math display">\[\boldsymbol{\xi}=\mathbf{BX}\]</span>
+로 쓸 수 있다. 여기서 <span class="math inline">\(\boldsymbol{\xi}=(\xi_{1},\ldots , \xi_{t})^{T}\)</span>이다. 우리는 <span class="math inline">\(\mathbf{X}\approx\boldsymbol{\mu}+\mathbf{A}\boldsymbol{\xi}\)</span>를 least-square 관점에서 만족시키는 <span class="math inline">\(r\)</span>-벡터 <span class="math inline">\(\boldsymbol{\mu}\)</span>와 <span class="math inline">\((r\times t)\)</span> 행렬 <span class="math inline">\(\mathbf{A}\)</span>를 찾고자 한다. 우리는 다음과 같은 최소자승 오차 조건
 <span class="math display" id="eq:PCAcriterion">\[\begin{equation}
 E\{ (\mathbf{X}-\boldsymbol{\mu}-\mathbf{A}\boldsymbol{\xi})^{T}(\mathbf{X}-\boldsymbol{\mu}-\mathbf{A}\boldsymbol{\xi}) \}
 \tag{32.2}
 \end{equation}\]</span>
-<p>을 선형 사영 <span class="math inline">\(\boldsymbol{\xi}\)</span>가 <span class="math inline">\(\mathbf{X}\)</span>를 얼마나 잘 재구성하는지에 대한 측도로 사용한다.</p>
-앞선 식 <a href="32-3-population-principal-components.html#eq:PCAcriterion">(32.2)</a>을 <span class="math inline">\(\boldsymbol{\xi}\)</span>를 <span class="math inline">\(\mathbf{BX}\)</span>로 바꿔 씀으로써 좀더 명백한 방법으로 표현할 수 있다. 그러면 평가기준은 <span class="math inline">\((r\times t)\)</span> 행렬 <span class="math inline">\(\mathbf{A}\)</span>와 <span class="math inline">\((t\times r)\)</span> 행렬 <span class="math inline">\(\mathbf{B}\)</span> (둘 다 full rank <span class="math inline">\(t\)</span>를 갖는다), <span class="math inline">\(r\)</span>-벡터 <span class="math inline">\(\boldsymbol{\mu}\)</span>로 표현할 수 있다.
+을 선형 사영 <span class="math inline">\(\boldsymbol{\xi}\)</span>가 <span class="math inline">\(\mathbf{X}\)</span>를 얼마나 잘 재구성하는지에 대한 측도로 사용한다.</p>
+<p>앞선 식 <a href="32-3-population-principal-components.html#eq:PCAcriterion">(32.2)</a>을 <span class="math inline">\(\boldsymbol{\xi}\)</span>를 <span class="math inline">\(\mathbf{BX}\)</span>로 바꿔 씀으로써 좀더 명백한 방법으로 표현할 수 있다. 그러면 평가기준은 <span class="math inline">\((r\times t)\)</span> 행렬 <span class="math inline">\(\mathbf{A}\)</span>와 <span class="math inline">\((t\times r)\)</span> 행렬 <span class="math inline">\(\mathbf{B}\)</span> (둘 다 full rank <span class="math inline">\(t\)</span>를 갖는다), <span class="math inline">\(r\)</span>-벡터 <span class="math inline">\(\boldsymbol{\mu}\)</span>로 표현할 수 있다.
 <span class="math display" id="eq:PCAcriterion2">\[\begin{equation}
 E\{ (\mathbf{X}-\boldsymbol{\mu}-\mathbf{ABX})^{T}(\mathbf{X}-\boldsymbol{\mu}-\mathbf{ABX}) \}
 \tag{32.3}
-\end{equation}\]</span>
-<p>만약 <span class="math inline">\(t=1\)</span>일 경우 식 <a href="32-3-population-principal-components.html#eq:PCAcriterion2">(32.3)</a>는 최소자승 문제로 쓸 수 있다. <span class="math display">\[\min_{\boldsymbol{\mu},\mathbf{A},\mathbf{B}}E\sum_{j=1}^{r}(X_{j}-\mu_{j}-a_{j1}\mathbf{b}_{1}^{T}\mathbf{X})^{2},\]</span> 여기서 <span class="math inline">\(\boldsymbol{\mu}=(\mu_{1},\ldots, \mu_{r})^{T}\)</span>, <span class="math inline">\(\mathbf{A}=\mathbf{a}_{1}=(a_{11},\ldots, a_{r}1)^{T}\)</span>, <span class="math inline">\(\mathbf{B}=\mathbf{b}_{1}^{T}\)</span>이다.</p>
+\end{equation}\]</span></p>
+<p>만약 <span class="math inline">\(t=1\)</span>일 경우 식 <a href="32-3-population-principal-components.html#eq:PCAcriterion2">(32.3)</a>는 최소자승 문제로 쓸 수 있다.
+<span class="math display">\[\min_{\boldsymbol{\mu},\mathbf{A},\mathbf{B}}E\sum_{j=1}^{r}(X_{j}-\mu_{j}-a_{j1}\mathbf{b}_{1}^{T}\mathbf{X})^{2},\]</span>
+여기서 <span class="math inline">\(\boldsymbol{\mu}=(\mu_{1},\ldots, \mu_{r})^{T}\)</span>, <span class="math inline">\(\mathbf{A}=\mathbf{a}_{1}=(a_{11},\ldots, a_{r}1)^{T}\)</span>, <span class="math inline">\(\mathbf{B}=\mathbf{b}_{1}^{T}\)</span>이다.</p>
 <p>(최소화하는 방법 소개)</p>
-<p>식 <a href="32-3-population-principal-components.html#eq:PCAcriterion2">(32.3)</a>는 <strong>reduced-rank rregression solution</strong>으로 최소화할 수 있고, 결과는 다음과 같다. <span class="math display">\[\mathbf{A}^{(t)}=(\mathbf{v}_{1},\ldots, \mathbf{v}_{t})=\mathbf{B}^{(t)T},\]</span> <span class="math display">\[\boldsymbol{\mu}^{(t)}=(\mathbf{I}_{r}-\mathbf{A}^{(t)}\mathbf{B}^{(t)})\boldsymbol{\mu}_{X},\]</span> 여기서 <span class="math inline">\(\mathbf{v}_{j}=\mathbf{v}_{j}(\boldsymbol{\Sigma}_{XX})\)</span>는 <span class="math inline">\(j\)</span>번째 큰 고유값에 대응되는 고유벡터들이다. 그러면 원래 자료의 가장 최고의 rank-<span class="math inline">\(t\)</span> 근사는 다음과 같다. <span class="math display">\[\hat{\mathbf{X}}^{(t)}=\boldsymbol{\mu}^{(t)}+\mathbf{C}^{(t)}\mathbf{X}=\boldsymbol{\mu}_{X}+\mathbf{C}^{(t)}(\mathbf{X}-\boldsymbol{\mu}),\]</span> 여기서 <span class="math display">\[\mathbf{C}^{(t)}=\mathbf{A}^{(t)}\mathbf{B}^{(t)}=\sum_{j=1}^{t}\mathbf{v}_{j}\mathbf{v}_{j}^{T}\]</span> 는 rank <span class="math inline">\(t\)</span> principal component case의 reduced-rank regression coefficient matrix이다. 식 <a href="32-3-population-principal-components.html#eq:PCAcriterion2">(32.3)</a>의 최소값은 <span class="math inline">\(\sum_{j=t+1}^{r}\lambda_{j}\)</span>로 <span class="math inline">\(\boldsymbol{\Sigma}_{XX}\)</span>의 가장 작은 <span class="math inline">\(r-t\)</span> 고유값들의 합이 된다.</p>
+<p>식 <a href="32-3-population-principal-components.html#eq:PCAcriterion2">(32.3)</a>는 <strong>reduced-rank rregression solution</strong>으로 최소화할 수 있고, 결과는 다음과 같다.
+<span class="math display">\[\mathbf{A}^{(t)}=(\mathbf{v}_{1},\ldots, \mathbf{v}_{t})=\mathbf{B}^{(t)T},\]</span>
+<span class="math display">\[\boldsymbol{\mu}^{(t)}=(\mathbf{I}_{r}-\mathbf{A}^{(t)}\mathbf{B}^{(t)})\boldsymbol{\mu}_{X},\]</span>
+여기서 <span class="math inline">\(\mathbf{v}_{j}=\mathbf{v}_{j}(\boldsymbol{\Sigma}_{XX})\)</span>는 <span class="math inline">\(j\)</span>번째 큰 고유값에 대응되는 고유벡터들이다. 그러면 원래 자료의 가장 최고의 rank-<span class="math inline">\(t\)</span> 근사는 다음과 같다.
+<span class="math display">\[\hat{\mathbf{X}}^{(t)}=\boldsymbol{\mu}^{(t)}+\mathbf{C}^{(t)}\mathbf{X}=\boldsymbol{\mu}_{X}+\mathbf{C}^{(t)}(\mathbf{X}-\boldsymbol{\mu}),\]</span>
+여기서
+<span class="math display">\[\mathbf{C}^{(t)}=\mathbf{A}^{(t)}\mathbf{B}^{(t)}=\sum_{j=1}^{t}\mathbf{v}_{j}\mathbf{v}_{j}^{T}\]</span>
+는 rank <span class="math inline">\(t\)</span> principal component case의 reduced-rank regression coefficient matrix이다. 식 <a href="32-3-population-principal-components.html#eq:PCAcriterion2">(32.3)</a>의 최소값은 <span class="math inline">\(\sum_{j=t+1}^{r}\lambda_{j}\)</span>로 <span class="math inline">\(\boldsymbol{\Sigma}_{XX}\)</span>의 가장 작은 <span class="math inline">\(r-t\)</span> 고유값들의 합이 된다.</p>
 <p>이러한 결과를 다음과 같이 생각하는 것이 도움이 될 수도 있다. <span class="math inline">\(\mathbf{V}=(\mathbf{v}_{1},\ldots, \mathbf{v}_{r})\)</span>은 <span class="math inline">\((r\times r)\)</span> 행렬로 column들이 <span class="math inline">\(\boldsymbol{\Sigma}_{XX}\)</span>의 ordered eigenvector들의 complete set을 만든다고 가정해보자. <span class="math inline">\(\mathbf{X}\)</span>의 가장 정밀한 rank-<span class="math inline">\(t\)</span> 최소자승 reconstruction은 두개의 linear maps <span class="math inline">\(L&#39;\circ L\)</span>의 합성으로 얻을 수 있다. 첫 번째 맵 <span class="math inline">\(L:\mathbb{R}^{r} \rightarrow \mathbb{R}^{t}\)</span>는 <span class="math inline">\(\mathbf{V}\)</span>의 첫 <span class="math inline">\(t\)</span> 개의 열들을 <span class="math inline">\(\mathbf{X}\)</span>의 <span class="math inline">\(t\)</span> linear projection을 형성하는데 사용한다. 두 번째 맵 <span class="math inline">\(L&#39;:\mathbb{R}^{t}\rightarrow \mathbb{R}^{r}\)</span>은 같은 <span class="math inline">\(\mathbf{V}\)</span>의 첫 <span class="math inline">\(t\)</span> 개의 열들을 <span class="math inline">\(\mathbf{X}\)</span>의 선형 재구성을 만드는 데 사용한다.</p>
-<p><span class="math inline">\(\mathbf{X}\)</span>의 처음 <span class="math inline">\(t\)</span> 주성분들은 (이것들을 또한 Karhunen-Lo<span class="math inline">\(\grave{e}\)</span>ve 변환으로 부르기도 함) <span class="math inline">\(\xi_{1},\ldots, \xi_{t}\)</span>의 선형 사영들로 주어지며, <span class="math display">\[\xi_{j}=\mathbf{v}_{k}^{T}\mathbf{X}, \qquad{j=1,\ldots, t}\]</span> 이다. <span class="math inline">\(\xi_{i}\)</span>와 <span class="math inline">\(\xi_{j}\)</span> 사이의 공분산은 <span class="math display">\[\text{cov}(\xi_{i},\xi_{j})=\text{cov}(\mathbf{v}_{i}^{T}\mathbf{X}, \mathbf{v}_{j}^{T}\mathbf{X})=\mathbf{v}_{i}^{T}\boldsymbol{\Sigma}_{XX}\mathbf{v}_{j}=\lambda_{j}\mathbf{v}_{i}^{T}\mathbf{v}_{j}=\delta_{ij}\lambda_{j}\]</span> 이고 <span class="math inline">\(\delta_{ij}\)</span>는 크로네커 델타이다.</p>
+<p><span class="math inline">\(\mathbf{X}\)</span>의 처음 <span class="math inline">\(t\)</span> 주성분들은 (이것들을 또한 Karhunen-Lo<span class="math inline">\(\grave{e}\)</span>ve 변환으로 부르기도 함) <span class="math inline">\(\xi_{1},\ldots, \xi_{t}\)</span>의 선형 사영들로 주어지며,
+<span class="math display">\[\xi_{j}=\mathbf{v}_{k}^{T}\mathbf{X}, \qquad{j=1,\ldots, t}\]</span>
+이다. <span class="math inline">\(\xi_{i}\)</span>와 <span class="math inline">\(\xi_{j}\)</span> 사이의 공분산은
+<span class="math display">\[\text{cov}(\xi_{i},\xi_{j})=\text{cov}(\mathbf{v}_{i}^{T}\mathbf{X}, \mathbf{v}_{j}^{T}\mathbf{X})=\mathbf{v}_{i}^{T}\boldsymbol{\Sigma}_{XX}\mathbf{v}_{j}=\lambda_{j}\mathbf{v}_{i}^{T}\mathbf{v}_{j}=\delta_{ij}\lambda_{j}\]</span>
+이고 <span class="math inline">\(\delta_{ij}\)</span>는 크로네커 델타이다.</p>
 </div>
 </div>
 <h3> References</h3>
@@ -813,7 +859,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -825,6 +871,10 @@ gitbook.start({
 "edit": {
 "link": "https://seoncheolpark.github.io/book/_book/43-PCA.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["book.pdf"],
 "toc": {
@@ -844,8 +894,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

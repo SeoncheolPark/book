@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>통계공부와 관련된 글들</title>
+  <title>45.2 Circulant embedding methods | 통계공부와 관련된 글들</title>
   <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="통계공부와 관련된 글들" />
+  <meta property="og:title" content="45.2 Circulant embedding methods | 통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="SeoncheolPark/book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="통계공부와 관련된 글들" />
+  <meta name="twitter:title" content="45.2 Circulant embedding methods | 통계공부와 관련된 글들" />
   
   <meta name="twitter:description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다." />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-12-06">
+<meta name="date" content="2019-04-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="45-3-simulation-of-fractional-browninan-surfaces.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -50,41 +51,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -501,17 +528,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="part"><span><b>IV Quantile Regression and FDA</b></span></li>
 <li class="chapter" data-level="36" data-path="36-qr.html"><a href="36-qr.html"><i class="fa fa-check"></i><b>36</b> 분위수 회귀분석</a><ul>
-<li class="chapter" data-level="36.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html"><i class="fa fa-check"></i><b>36.1</b> 분위수 (quantile)</a></li>
-<li class="chapter" data-level="36.2" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html"><i class="fa fa-check"></i><b>36.2</b> 분위수 회귀분석의 기초(basics of quantile regression)</a><ul>
-<li class="chapter" data-level="36.2.1" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>36.2.1</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
-<li class="chapter" data-level="36.2.2" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--quantile-treatment-effect"><i class="fa fa-check"></i><b>36.2.2</b> 분위수 처리 효과(quantile treatment effect)</a></li>
-<li class="chapter" data-level="36.2.3" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
-<li class="chapter" data-level="36.2.4" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.2.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
+<li class="chapter" data-level="36.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html"><i class="fa fa-check"></i><b>36.1</b> 분위수 (quantile)</a><ul>
+<li class="chapter" data-level="36.1.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>36.1.1</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
+<li class="chapter" data-level="36.1.2" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--quantile-treatment-effect"><i class="fa fa-check"></i><b>36.1.2</b> 분위수 처리 효과(quantile treatment effect)</a></li>
+<li class="chapter" data-level="36.1.3" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.1.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
+<li class="chapter" data-level="36.1.4" data-path="36-1-quantile.html"><a href="36-1-quantile.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.1.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
 </ul></li>
-<li class="chapter" data-level="36.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.3</b> 극단회귀분석(extremal quantile regression)</a><ul>
-<li class="chapter" data-level="36.3.1" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.3.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
-<li class="chapter" data-level="36.3.2" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.3.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
-<li class="chapter" data-level="36.3.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.3.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
+<li class="chapter" data-level="36.2" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.2</b> 극단회귀분석(extremal quantile regression)</a><ul>
+<li class="chapter" data-level="36.2.1" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.2.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
+<li class="chapter" data-level="36.2.2" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.2.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
+<li class="chapter" data-level="36.2.3" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="37" data-path="37-functionestimation.html"><a href="37-functionestimation.html"><i class="fa fa-check"></i><b>37</b> 함수추정</a><ul>
@@ -546,7 +572,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="40.3.1" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#isotropy"><i class="fa fa-check"></i><b>40.3.1</b> 등방성(isotropy)</a></li>
 <li class="chapter" data-level="40.3.2" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#homogeneous"><i class="fa fa-check"></i><b>40.3.2</b> 동질성(homogeneous)</a></li>
 <li class="chapter" data-level="40.3.3" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#anisotropy"><i class="fa fa-check"></i><b>40.3.3</b> 이등방성(anisotropy)</a></li>
-<li class="chapter" data-level="40.3.4" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#z3--geometric-anisotropy"><i class="fa fa-check"></i><b>40.3.4</b> z3 기하학적 이등방성(Geometric anisotropy)</a></li>
 </ul></li>
 <li class="chapter" data-level="40.4" data-path="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><i class="fa fa-check"></i><b>40.4</b> 공간 확률과정의 연속성과 미분가능성(continuity and differentiabiliy of spatial stochastic process</a><ul>
 <li class="chapter" data-level="40.4.1" data-path="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html#path-continuity---path-differentiability"><i class="fa fa-check"></i><b>40.4.1</b> 경로연속(path-continuity) 또는 경로 미분가능성(path-differentiability)</a></li>
@@ -744,7 +769,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="circulant-embedding-methods" class="section level2">
 <h2><span class="header-section-number">45.2</span> Circulant embedding methods</h2>
-<p><span class="citation">(G. Chan and Wood <a href="#ref-Chan1997">1997</a>)</span>은 regular lattice 자료인 경우 circulant matrix를 사용하는 방법을 제안했다. 원하는 행렬보다 더 큰 행렬을 만들고(closed-form 가능한 것으로) 그 후에 sub-sampling을 하는 것이다. <span class="math inline">\(d=1\)</span>일 때에는 exact, <span class="math inline">\(d&gt;1\)</span>일 때에는 근사 방법이다.</p>
+<p><span class="citation">(Chan and Wood <a href="#ref-Chan1997">1997</a>)</span>은 regular lattice 자료인 경우 circulant matrix를 사용하는 방법을 제안했다. 원하는 행렬보다 더 큰 행렬을 만들고(closed-form 가능한 것으로) 그 후에 sub-sampling을 하는 것이다. <span class="math inline">\(d=1\)</span>일 때에는 exact, <span class="math inline">\(d&gt;1\)</span>일 때에는 근사 방법이다.</p>
 <p><span class="math inline">\(d=1\)</span>인 경우 <span class="math inline">\((Z(s_{0}), Z(\frac{1}{n}),\ldots, Z(\frac{n-1}{n}))\sim\mathcal{N}(\mathbf{0},\boldsymbol{\Sigma})\)</span>를 생성하고 싶다고 하자. 특별히 <span class="math inline">\(\Sigma=C(u)\)</span>라고 하자. 그러면</p>
 <p><span class="math display">\[
 \boldsymbol{\Sigma}=
@@ -755,7 +780,8 @@ C(\frac{1}{n}) &amp; \ddots &amp; \ddots &amp; \ddots &amp;  \\
  &amp;  &amp; \ddots &amp; \ddots &amp; C(\frac{1}{n}) \\
  &amp;  &amp;  &amp; C(\frac{1}{n}) &amp; C(0) \\
 \end{bmatrix}
-\]</span> 와 같이 Toeplitz 행렬을 만들 수 있다.</p>
+\]</span>
+와 같이 Toeplitz 행렬을 만들 수 있다.</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(\boldsymbol{\Sigma}\)</span>으로 <span class="math inline">\(m\times m (&gt;n)\)</span> circulant covariance matrix (이것은 FFT로 closed form expression이 있음) <span class="math inline">\(\mathbf{G}\)</span>를 만든다. (<span class="math inline">\(m\)</span>은 dyadic이고 <span class="math inline">\(m \geq 2(n-1)\)</span>이다.)</li>
 </ol>
@@ -767,18 +793,27 @@ g_{n-1} &amp; g_{0} &amp; \cdots &amp; g_{n-2}\\
  &amp; \ddots &amp; \ddots &amp; \vdots\\
  &amp;  &amp; \cdots &amp; g_{0}\\
 \end{bmatrix}
-\]</span> 이고 <span class="math inline">\(g_{j}\)</span>는 다음과 같다. <span class="math display">\[
+\]</span>
+이고 <span class="math inline">\(g_{j}\)</span>는 다음과 같다.
+<span class="math display">\[
 g_{j}=
 \begin{cases}
 C(\frac{j}{n}) &amp; \text{if } 0 \leq j \leq \frac{m}{2} \\
 C(\frac{m-j}{n}) &amp; \text{if } x \frac{m}{2} \leq j \leq m-1
 \end{cases}.
-\]</span> 이 방법은 1차원일 경우 항상 유효한 공분산 행렬(nonnegative definite)을 보장해 주지만, 차원이 1보다 클 경우 nonnegative definite를 만들기 위해 추가적인 근사가 들어간다. 이것은 추후에 설명하기로 한다.</p>
+\]</span>
+이 방법은 1차원일 경우 항상 유효한 공분산 행렬(nonnegative definite)을 보장해 주지만, 차원이 1보다 클 경우 nonnegative definite를 만들기 위해 추가적인 근사가 들어간다. 이것은 추후에 설명하기로 한다.</p>
 <ol start="2" style="list-style-type: decimal">
-<li><p>FFT를 써서 <span class="math display">\[\mathbf{G}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{*}, \mathbf{Q}\mathbf{Q}^{*}=\mathbf{I}=\mathbf{Q}^{*}\mathbf{Q} \qquad{\text{unitary}}\]</span> 를 만족하는 <span class="math inline">\(\mathbf{Q}\)</span>와 <span class="math inline">\(\boldsymbol{\Lambda}\)</span>를 찾는다. 이 때 <span class="math inline">\(\boldsymbol{\Lambda}=\{\lambda_{1},\ldots,\lambda_{m} \}\)</span>이다. Circulant이면 <span class="math inline">\(\mathbf{Q}, \boldsymbol{\lambda}\)</span>를 쉽게 찾을 수 있다고 한다. 추가적으로 <span class="math inline">\(\lambda_{k}=\sum_{j=0}^{m-1}g_{j}\exp\{ -\frac{2\pi i j k}{m} \}\)</span>, <span class="math inline">\(\mathbf{Q}=\{Q_{j,k}\}\)</span>, <span class="math inline">\(Q_{j,k}=\frac{1}{\sqrt{m}}\exp\{-\frac{\pi i j k}{m}\}\)</span>이라고 한다. 여기서 <span class="math inline">\(i\)</span>는 모두 복소수이다.</p></li>
+<li><p>FFT를 써서
+<span class="math display">\[\mathbf{G}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{*}, \mathbf{Q}\mathbf{Q}^{*}=\mathbf{I}=\mathbf{Q}^{*}\mathbf{Q} \qquad{\text{unitary}}\]</span>
+를 만족하는 <span class="math inline">\(\mathbf{Q}\)</span>와 <span class="math inline">\(\boldsymbol{\Lambda}\)</span>를 찾는다. 이 때 <span class="math inline">\(\boldsymbol{\Lambda}=\{\lambda_{1},\ldots,\lambda_{m} \}\)</span>이다. Circulant이면 <span class="math inline">\(\mathbf{Q}, \boldsymbol{\lambda}\)</span>를 쉽게 찾을 수 있다고 한다. 추가적으로 <span class="math inline">\(\lambda_{k}=\sum_{j=0}^{m-1}g_{j}\exp\{ -\frac{2\pi i j k}{m} \}\)</span>, <span class="math inline">\(\mathbf{Q}=\{Q_{j,k}\}\)</span>, <span class="math inline">\(Q_{j,k}=\frac{1}{\sqrt{m}}\exp\{-\frac{\pi i j k}{m}\}\)</span>이라고 한다. 여기서 <span class="math inline">\(i\)</span>는 모두 복소수이다.</p></li>
 <li><p><span class="math inline">\(\mathbf{Z}_{j}=\mathbf{Q}\boldsymbol{\Lambda}^{\frac{1}{2}}\mathbf{Q}^{*}\mathbf{W}, \mathbf{W}\sim\mathcal{N}(\mathbf{0}, \mathbf{I}), \text{var}(\mathbf{Z}_{0})=\mathbf{G}\)</span>로 얻을 수 있다. 여기서 <span class="math inline">\(\mathbf{Z}_{0}\)</span>중 처음 <span class="math inline">\(n\)</span>개의 표본을, <span class="math inline">\(\mathbf{G}\)</span>에서는 처음 <span class="math inline">\(n\times n\)</span>행렬을 취하면 된다.</p></li>
 </ol>
-<p>그러면 1차원이 아닐 때의 대처 방법에 대해 알아보자. 이때는 <strong>block circulant matrix</strong>를 <span class="math inline">\(\boldsymbol{\Sigma}\)</span>를 얻기 위한 공분산 행렬로 사용한다. 이것은 <strong>periodic random field</strong>의 공분산으로 볼 수 있다. 둘레를 <span class="math inline">\(\mathbf{R}\)</span>이라고 하면 <span class="math inline">\(\mathbf{Z}(\mathbf{s})=\mathbf{Z}(\mathbf{s+R})\)</span>이 된다고 한다. 즉 2차원에서 이것은 torus 위에서 정의되는 임의장이 된다. Block circulant matrix 또한 푸리에 변환을 통해 쉽게 <span class="math inline">\(\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{*}\)</span> 식의 변환이 가능하다고 한다. 그러나 <span class="citation">(G. Chan and Wood <a href="#ref-Chan1997">1997</a>)</span>의 방법은 <span class="math inline">\(m\)</span>이 매우 크지 않은 이상 <span class="math inline">\(\mathbf{G}\)</span>의 non-negative definiteness를 보장해 주지 못한다. non-negative definiteness를 다루는 방법 중 하나로 다음과 같은 방법이 있다. <span class="math display">\[\mathbf{G}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{*}=\mathbf{Q}(\boldsymbol{\Lambda}_{+}-\boldsymbol{\Lambda}_{-})\mathbf{Q}^{*}\]</span> 라고 할 때 근사를 더 좋게 하는 scaling factor <span class="math inline">\(\rho\)</span>를 이용해 <span class="math display">\[\tilde{\mathbf{G}}=\rho^{2}\mathbf{Q}\boldsymbol{\Lambda}_{+}\mathbf{Q}^{*}\]</span> 로 놓는 것이다. 이 때 <span class="math inline">\(\rho\)</span>의 선택으로는 <span class="math inline">\(\rho_{1}=\frac{\text{tr}(\boldsymbol{\Lambda})}{\text{tr}(\boldsymbol{\Lambda})_{+}}\)</span> (<span class="math inline">\(\boldsymbol{\Lambda}_{-}\)</span>를 무시함으로써 생기는 distributional error를 최소화 하는 것), <span class="math inline">\(\rho_{1}=(\frac{\text{tr}(\boldsymbol{\Lambda})}{\text{tr}(\boldsymbol{\Lambda})_{+}})^{\frac{1}{2}}\)</span> (1차원 marginal variance가 같도록 하는 것) 등이 있다.</p>
+<p>그러면 1차원이 아닐 때의 대처 방법에 대해 알아보자. 이때는 <strong>block circulant matrix</strong>를 <span class="math inline">\(\boldsymbol{\Sigma}\)</span>를 얻기 위한 공분산 행렬로 사용한다. 이것은 <strong>periodic random field</strong>의 공분산으로 볼 수 있다. 둘레를 <span class="math inline">\(\mathbf{R}\)</span>이라고 하면 <span class="math inline">\(\mathbf{Z}(\mathbf{s})=\mathbf{Z}(\mathbf{s+R})\)</span>이 된다고 한다. 즉 2차원에서 이것은 torus 위에서 정의되는 임의장이 된다. Block circulant matrix 또한 푸리에 변환을 통해 쉽게 <span class="math inline">\(\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{*}\)</span> 식의 변환이 가능하다고 한다. 그러나 <span class="citation">(Chan and Wood <a href="#ref-Chan1997">1997</a>)</span>의 방법은 <span class="math inline">\(m\)</span>이 매우 크지 않은 이상 <span class="math inline">\(\mathbf{G}\)</span>의 non-negative definiteness를 보장해 주지 못한다. non-negative definiteness를 다루는 방법 중 하나로 다음과 같은 방법이 있다.
+<span class="math display">\[\mathbf{G}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{*}=\mathbf{Q}(\boldsymbol{\Lambda}_{+}-\boldsymbol{\Lambda}_{-})\mathbf{Q}^{*}\]</span>
+라고 할 때 근사를 더 좋게 하는 scaling factor <span class="math inline">\(\rho\)</span>를 이용해
+<span class="math display">\[\tilde{\mathbf{G}}=\rho^{2}\mathbf{Q}\boldsymbol{\Lambda}_{+}\mathbf{Q}^{*}\]</span>
+로 놓는 것이다. 이 때 <span class="math inline">\(\rho\)</span>의 선택으로는 <span class="math inline">\(\rho_{1}=\frac{\text{tr}(\boldsymbol{\Lambda})}{\text{tr}(\boldsymbol{\Lambda})_{+}}\)</span> (<span class="math inline">\(\boldsymbol{\Lambda}_{-}\)</span>를 무시함으로써 생기는 distributional error를 최소화 하는 것), <span class="math inline">\(\rho_{1}=(\frac{\text{tr}(\boldsymbol{\Lambda})}{\text{tr}(\boldsymbol{\Lambda})_{+}})^{\frac{1}{2}}\)</span> (1차원 marginal variance가 같도록 하는 것) 등이 있다.</p>
 </div>
 <h3> References</h3>
 <div id="refs" class="references">
@@ -812,7 +847,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -824,6 +859,10 @@ gitbook.start({
 "edit": {
 "link": "https://seoncheolpark.github.io/book/_book/78-simGaussian.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["book.pdf"],
 "toc": {
@@ -843,8 +882,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

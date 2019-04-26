@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>통계공부와 관련된 글들</title>
+  <title>41.4 대표적인 모수 등방성 변동도 모형들(classical parametric isotropic variogram models) | 통계공부와 관련된 글들</title>
   <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="통계공부와 관련된 글들" />
+  <meta property="og:title" content="41.4 대표적인 모수 등방성 변동도 모형들(classical parametric isotropic variogram models) | 통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="SeoncheolPark/book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="통계공부와 관련된 글들" />
+  <meta name="twitter:title" content="41.4 대표적인 모수 등방성 변동도 모형들(classical parametric isotropic variogram models) | 통계공부와 관련된 글들" />
   
   <meta name="twitter:description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다." />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-12-06">
+<meta name="date" content="2019-04-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="41-5-variograms-in-other-situation.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -50,41 +51,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -501,17 +528,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="part"><span><b>IV Quantile Regression and FDA</b></span></li>
 <li class="chapter" data-level="36" data-path="36-qr.html"><a href="36-qr.html"><i class="fa fa-check"></i><b>36</b> 분위수 회귀분석</a><ul>
-<li class="chapter" data-level="36.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html"><i class="fa fa-check"></i><b>36.1</b> 분위수 (quantile)</a></li>
-<li class="chapter" data-level="36.2" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html"><i class="fa fa-check"></i><b>36.2</b> 분위수 회귀분석의 기초(basics of quantile regression)</a><ul>
-<li class="chapter" data-level="36.2.1" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>36.2.1</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
-<li class="chapter" data-level="36.2.2" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--quantile-treatment-effect"><i class="fa fa-check"></i><b>36.2.2</b> 분위수 처리 효과(quantile treatment effect)</a></li>
-<li class="chapter" data-level="36.2.3" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
-<li class="chapter" data-level="36.2.4" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.2.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
+<li class="chapter" data-level="36.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html"><i class="fa fa-check"></i><b>36.1</b> 분위수 (quantile)</a><ul>
+<li class="chapter" data-level="36.1.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>36.1.1</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
+<li class="chapter" data-level="36.1.2" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--quantile-treatment-effect"><i class="fa fa-check"></i><b>36.1.2</b> 분위수 처리 효과(quantile treatment effect)</a></li>
+<li class="chapter" data-level="36.1.3" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.1.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
+<li class="chapter" data-level="36.1.4" data-path="36-1-quantile.html"><a href="36-1-quantile.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.1.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
 </ul></li>
-<li class="chapter" data-level="36.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.3</b> 극단회귀분석(extremal quantile regression)</a><ul>
-<li class="chapter" data-level="36.3.1" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.3.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
-<li class="chapter" data-level="36.3.2" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.3.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
-<li class="chapter" data-level="36.3.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.3.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
+<li class="chapter" data-level="36.2" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.2</b> 극단회귀분석(extremal quantile regression)</a><ul>
+<li class="chapter" data-level="36.2.1" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.2.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
+<li class="chapter" data-level="36.2.2" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.2.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
+<li class="chapter" data-level="36.2.3" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="37" data-path="37-functionestimation.html"><a href="37-functionestimation.html"><i class="fa fa-check"></i><b>37</b> 함수추정</a><ul>
@@ -546,7 +572,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="40.3.1" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#isotropy"><i class="fa fa-check"></i><b>40.3.1</b> 등방성(isotropy)</a></li>
 <li class="chapter" data-level="40.3.2" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#homogeneous"><i class="fa fa-check"></i><b>40.3.2</b> 동질성(homogeneous)</a></li>
 <li class="chapter" data-level="40.3.3" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#anisotropy"><i class="fa fa-check"></i><b>40.3.3</b> 이등방성(anisotropy)</a></li>
-<li class="chapter" data-level="40.3.4" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#z3--geometric-anisotropy"><i class="fa fa-check"></i><b>40.3.4</b> z3 기하학적 이등방성(Geometric anisotropy)</a></li>
 </ul></li>
 <li class="chapter" data-level="40.4" data-path="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><i class="fa fa-check"></i><b>40.4</b> 공간 확률과정의 연속성과 미분가능성(continuity and differentiabiliy of spatial stochastic process</a><ul>
 <li class="chapter" data-level="40.4.1" data-path="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html#path-continuity---path-differentiability"><i class="fa fa-check"></i><b>40.4.1</b> 경로연속(path-continuity) 또는 경로 미분가능성(path-differentiability)</a></li>
@@ -764,7 +789,8 @@ c_{0}+c_{1}\| \mathbf{h}\| &amp; \textrm{if $\mathbf{h}\neq 0$}\\
 c_{0}+c_{1}[\frac{3}{2}(\frac{\| \mathbf{h}\|}{R})-\frac{1}{2}(\frac{\| \mathbf{h}\|}{R})^{3}] &amp; \textrm{if $0 \leq \|\mathbf{h}\|\leq R$}\\
 c_{0}+c_{1} &amp; \textrm{if $\|\mathbf{h}\|&gt;R$}\\
 \end{array} \right.
-\]</span> 이것은 지구통계학(geostatstics)에서는 많이 쓰나 모형이 복잡해 분포 가정 후 우도 추정(likelihood estimation)을 할 때 어렵고 잘 안되므로 통계학자들은 잘 안 좋아하는 모형이라고 한다. 참고로 이 변동도는 <span class="math inline">\(\mathbf{h} \in \mathbb{R}^{d}, d=1,2,3\)</span>에서만 유효하다. 이것보다 더 큰 차원에서는 유효하지 않다. 이것 이외에 나머지 변동도의 예들은 다 모든 양수 <span class="math inline">\(d\)</span>에서 유효한 변동도를 갖는다고 한다.</p>
+\]</span>
+이것은 지구통계학(geostatstics)에서는 많이 쓰나 모형이 복잡해 분포 가정 후 우도 추정(likelihood estimation)을 할 때 어렵고 잘 안되므로 통계학자들은 잘 안 좋아하는 모형이라고 한다. 참고로 이 변동도는 <span class="math inline">\(\mathbf{h} \in \mathbb{R}^{d}, d=1,2,3\)</span>에서만 유효하다. 이것보다 더 큰 차원에서는 유효하지 않다. 이것 이외에 나머지 변동도의 예들은 다 모든 양수 <span class="math inline">\(d\)</span>에서 유효한 변동도를 갖는다고 한다.</p>
 <ol start="3" style="list-style-type: decimal">
 <li><strong>Exponential</strong></li>
 </ol>
@@ -773,7 +799,8 @@ c_{0}+c_{1} &amp; \textrm{if $\|\mathbf{h}\|&gt;R$}\\
 0 &amp; \textrm{if $\mathbf{h}$=0}\\
 c_{0}+c_{1}(1-e^{-\frac{\|\mathbf{h}\|}{R}}) &amp; \textrm{if $\mathbf{h}\neq 0$}\\
 \end{array} \right.
-\]</span> 이것은 평균제곱연속이나 평균제곱 미분 가능하지는 않다고 한다. 그리고 다른 애들보다 독립적인 편이라고(공분산이 약함) 한다. 특히 뒤에 나오는 가우스 변동도(Gaussian variogram)와 비교했을 때 덜 부드럽다.</p>
+\]</span>
+이것은 평균제곱연속이나 평균제곱 미분 가능하지는 않다고 한다. 그리고 다른 애들보다 독립적인 편이라고(공분산이 약함) 한다. 특히 뒤에 나오는 가우스 변동도(Gaussian variogram)와 비교했을 때 덜 부드럽다.</p>
 R 패키지 <code>SpatialExtremes</code>를 통해 공분산함수를 출력해 볼 수 있다. 여기서 <span class="math inline">\(c_{1}\)</span>은 <code>sill</code>, <span class="math inline">\(R\)</span>은 <code>range</code>로 조절할 수 있다.
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-368"></span>
 <img src="book_files/figure-html/unnamed-chunk-368-1.svg" alt="sill이 1일 때의 exponential covariance function." width="672" />
@@ -805,7 +832,8 @@ FIGURE 41.3: sill이 1일 때의 Gaussian covariance function.
 0 &amp; \textrm{if $\mathbf{h}$=0}\\
 c_{0}+c_{1}(1-e^{-(\frac{\|\mathbf{h}\|}{R})^{p}}) &amp; \textrm{if $\mathbf{h}\neq 0$, $0 &lt; p \leq 2$}\\
 \end{array} \right.
-\]</span> 이것은 exponential과 Gaussian의 중간쯤 되는 변동도로 <span class="math inline">\(p\)</span>를 추정하는 것이 어려워 보통 미리 정하고 사용한다고 한다.</p>
+\]</span>
+이것은 exponential과 Gaussian의 중간쯤 되는 변동도로 <span class="math inline">\(p\)</span>를 추정하는 것이 어려워 보통 미리 정하고 사용한다고 한다.</p>
 <ol start="6" style="list-style-type: decimal">
 <li><strong>Rational quadratic</strong></li>
 </ol>
@@ -839,7 +867,9 @@ c_{0}+c_{1}\| \mathbf{h}\|^{\lambda} &amp; \textrm{if $\mathbf{h}\neq 0$, $0\leq
 </ol>
 <p>(변동도가 복잡하므로 공분산 형태로 썼다)</p>
 <p><span class="math display">\[C(\mathbf{h})=\sigma^{2}\frac{2^{1-\alpha}}{\Gamma(\alpha)}(\frac{\|\mathbf{h}\|}{\phi})^{\alpha}K_{\alpha}(\frac{\|\mathbf{h}\|}{\phi})\]</span></p>
-<p>참고로 <span class="math display">\[\lim_{\mathbf{h} \rightarrow 0}C(\mathbf{h}) = \sigma^{2}\]</span> 이다.</p>
+<p>참고로
+<span class="math display">\[\lim_{\mathbf{h} \rightarrow 0}C(\mathbf{h}) = \sigma^{2}\]</span>
+이다.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-370"></span>
 <img src="book_files/figure-html/unnamed-chunk-370-1.svg" alt="sigma와 alpha가 1일 때 Matern covariance function." width="672" />
 <p class="caption">
@@ -851,7 +881,8 @@ FIGURE 41.4: sigma와 alpha가 1일 때 Matern covariance function.
 <p><span class="math inline">\(\alpha\)</span>가 half-integer인 경우 explicit form이 있다고 한다.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-371" class="example"><strong>Example 41.1  (Matern 공분산 함수의 예.)  </strong></span><span class="math inline">\(\phi=1\)</span>일 때 <span class="math display">\[
+<span id="exm:unnamed-chunk-371" class="example"><strong>Example 41.1  (Matern 공분산 함수의 예.)  </strong></span><span class="math inline">\(\phi=1\)</span>일 때
+<span class="math display">\[
 \begin{array}{ll}
 \alpha=0.5: &amp; e^{-\|\mathbf{h}\|}\\
 \alpha=1.5: &amp; (1+\|\mathbf{h}\|)e^{-\|\mathbf{h}\|}\\
@@ -862,14 +893,20 @@ FIGURE 41.4: sigma와 alpha가 1일 때 Matern covariance function.
 
 <div id="-----addtional-explanation-for-k_alpha" class="section level3">
 <h3><span class="header-section-number">41.4.1</span> 변형된 이형 베셀에 대한 보충 설명(addtional explanation for K_alpha)</h3>
-<p><strong>변형 베셀 함수(modified Bessel function)</strong>은 <strong>변형 베셀 방정식(modified Bessel equation)</strong>의 해이다. 변형 베셀 방정식(modified Bessel equation)은 다음의 <span class="math display">\[x^{2}y&#39;&#39;+xy&#39;-(x^{2}+\alpha^{2})y=0\]</span> 미분방정식의 해이다. (original은 <span class="math inline">\(x^{2}+\alpha^{2}\)</span> 부분이 다르다고 한다)</p>
-<p>이 해는 두 개가 존재한다. <span class="math display">\[
+<p><strong>변형 베셀 함수(modified Bessel function)</strong>은 <strong>변형 베셀 방정식(modified Bessel equation)</strong>의 해이다. 변형 베셀 방정식(modified Bessel equation)은 다음의
+<span class="math display">\[x^{2}y&#39;&#39;+xy&#39;-(x^{2}+\alpha^{2})y=0\]</span>
+미분방정식의 해이다. (original은 <span class="math inline">\(x^{2}+\alpha^{2}\)</span> 부분이 다르다고 한다)</p>
+<p>이 해는 두 개가 존재한다.
+<span class="math display">\[
 \begin{array}{ll}
 I_{\alpha}(x): &amp; \text{exponentially growing}\\
 K_{\alpha}(x): &amp; \text{exponentially decaying}\\
 \end{array}
-\]</span> 우리는 감소하는 형태의 함수를 필요로 하므로 <span class="math inline">\(K_{\alpha}(x)\)</span>를 사용하는 것이다.</p>
-<p>추가적으로 <span class="math inline">\(x &gt;&gt; [\alpha^{2}-\frac{1}{4}]\)</span>이면 <span class="math display">\[K_{\alpha}(x) \sim \sqrt{\frac{\pi}{2x}}e^{-x}\]</span> 가 되고, <span class="math inline">\(0&lt;x&lt;&lt;1\)</span>이면</p>
+\]</span>
+우리는 감소하는 형태의 함수를 필요로 하므로 <span class="math inline">\(K_{\alpha}(x)\)</span>를 사용하는 것이다.</p>
+<p>추가적으로 <span class="math inline">\(x &gt;&gt; [\alpha^{2}-\frac{1}{4}]\)</span>이면
+<span class="math display">\[K_{\alpha}(x) \sim \sqrt{\frac{\pi}{2x}}e^{-x}\]</span>
+가 되고, <span class="math inline">\(0&lt;x&lt;&lt;1\)</span>이면</p>
 <p><span class="math display">\[
 K_{\alpha}(x) \sim \left\{ \begin{array}{ll}
 -\log (\frac{x}{2}) - c &amp; \textrm{if $\alpha$=0}\\
@@ -905,7 +942,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -917,6 +954,10 @@ gitbook.start({
 "edit": {
 "link": "https://seoncheolpark.github.io/book/_book/74-covmodel.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["book.pdf"],
 "toc": {
@@ -936,8 +977,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

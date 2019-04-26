@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>통계공부와 관련된 글들</title>
+  <title>25.3 만능 임계화(universal thresholding) | 통계공부와 관련된 글들</title>
   <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="통계공부와 관련된 글들" />
+  <meta property="og:title" content="25.3 만능 임계화(universal thresholding) | 통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="SeoncheolPark/book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="통계공부와 관련된 글들" />
+  <meta name="twitter:title" content="25.3 만능 임계화(universal thresholding) | 통계공부와 관련된 글들" />
   
   <meta name="twitter:description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다." />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-12-06">
+<meta name="date" content="2019-04-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="25-4-stein-steins-unbiased-risk-estimator-sure.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -50,41 +51,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -501,17 +528,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="part"><span><b>IV Quantile Regression and FDA</b></span></li>
 <li class="chapter" data-level="36" data-path="36-qr.html"><a href="36-qr.html"><i class="fa fa-check"></i><b>36</b> 분위수 회귀분석</a><ul>
-<li class="chapter" data-level="36.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html"><i class="fa fa-check"></i><b>36.1</b> 분위수 (quantile)</a></li>
-<li class="chapter" data-level="36.2" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html"><i class="fa fa-check"></i><b>36.2</b> 분위수 회귀분석의 기초(basics of quantile regression)</a><ul>
-<li class="chapter" data-level="36.2.1" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>36.2.1</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
-<li class="chapter" data-level="36.2.2" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--quantile-treatment-effect"><i class="fa fa-check"></i><b>36.2.2</b> 분위수 처리 효과(quantile treatment effect)</a></li>
-<li class="chapter" data-level="36.2.3" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
-<li class="chapter" data-level="36.2.4" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.2.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
+<li class="chapter" data-level="36.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html"><i class="fa fa-check"></i><b>36.1</b> 분위수 (quantile)</a><ul>
+<li class="chapter" data-level="36.1.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>36.1.1</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
+<li class="chapter" data-level="36.1.2" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--quantile-treatment-effect"><i class="fa fa-check"></i><b>36.1.2</b> 분위수 처리 효과(quantile treatment effect)</a></li>
+<li class="chapter" data-level="36.1.3" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.1.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
+<li class="chapter" data-level="36.1.4" data-path="36-1-quantile.html"><a href="36-1-quantile.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.1.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
 </ul></li>
-<li class="chapter" data-level="36.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.3</b> 극단회귀분석(extremal quantile regression)</a><ul>
-<li class="chapter" data-level="36.3.1" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.3.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
-<li class="chapter" data-level="36.3.2" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.3.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
-<li class="chapter" data-level="36.3.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.3.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
+<li class="chapter" data-level="36.2" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.2</b> 극단회귀분석(extremal quantile regression)</a><ul>
+<li class="chapter" data-level="36.2.1" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.2.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
+<li class="chapter" data-level="36.2.2" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.2.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
+<li class="chapter" data-level="36.2.3" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="37" data-path="37-functionestimation.html"><a href="37-functionestimation.html"><i class="fa fa-check"></i><b>37</b> 함수추정</a><ul>
@@ -546,7 +572,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="40.3.1" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#isotropy"><i class="fa fa-check"></i><b>40.3.1</b> 등방성(isotropy)</a></li>
 <li class="chapter" data-level="40.3.2" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#homogeneous"><i class="fa fa-check"></i><b>40.3.2</b> 동질성(homogeneous)</a></li>
 <li class="chapter" data-level="40.3.3" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#anisotropy"><i class="fa fa-check"></i><b>40.3.3</b> 이등방성(anisotropy)</a></li>
-<li class="chapter" data-level="40.3.4" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#z3--geometric-anisotropy"><i class="fa fa-check"></i><b>40.3.4</b> z3 기하학적 이등방성(Geometric anisotropy)</a></li>
 </ul></li>
 <li class="chapter" data-level="40.4" data-path="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><i class="fa fa-check"></i><b>40.4</b> 공간 확률과정의 연속성과 미분가능성(continuity and differentiabiliy of spatial stochastic process</a><ul>
 <li class="chapter" data-level="40.4.1" data-path="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html#path-continuity---path-differentiability"><i class="fa fa-check"></i><b>40.4.1</b> 경로연속(path-continuity) 또는 경로 미분가능성(path-differentiability)</a></li>
@@ -747,22 +772,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>앞서 등장한 <span class="math inline">\(\lambda^{u}=\sigma \sqrt{2 \log n}\)</span>을 특별히 <strong>만능 임계화(universal Thresholding)</strong>라고 한다. 실제로는 <span class="math inline">\(\sigma\)</span>를 모르므로 <span class="math inline">\(\hat{\sigma}\)</span>를 사용한다.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-308" class="theorem"><strong>Theorem 25.1  (만능 임계화)  </strong></span><span class="math inline">\(X_{1},\cdots , X_{n}\)</span>을 <span class="math inline">\(EX_{i}=0, EX_{i}^{2}=1, EX_{i}X_{i+k}=\gamma(k)\)</span>인 stationary Gaussian process (Lag-k covariance structure를 갖는 Gaussian process)라고 하고 특별히 <span class="math inline">\(X_{(n)}=\max \{ X_{i} \}\)</span>라 하자. 만약 <span class="math inline">\(\lim_{k \rightarrow \infty} \gamma (k) =0\)</span>이면, <span class="math display">\[\frac{X_{(n)}}{\sqrt{2 \log n}} \rightarrow 1 \text{ as } n \rightarrow \infty\]</span> 이다.</p>
+<p><span id="thm:unnamed-chunk-308" class="theorem"><strong>Theorem 25.1  (만능 임계화)  </strong></span><span class="math inline">\(X_{1},\cdots , X_{n}\)</span>을 <span class="math inline">\(EX_{i}=0, EX_{i}^{2}=1, EX_{i}X_{i+k}=\gamma(k)\)</span>인 stationary Gaussian process (Lag-k covariance structure를 갖는 Gaussian process)라고 하고 특별히 <span class="math inline">\(X_{(n)}=\max \{ X_{i} \}\)</span>라 하자. 만약 <span class="math inline">\(\lim_{k \rightarrow \infty} \gamma (k) =0\)</span>이면,
+<span class="math display">\[\frac{X_{(n)}}{\sqrt{2 \log n}} \rightarrow 1 \text{ as } n \rightarrow \infty\]</span>
+이다.</p>
 </div>
 
 <p>위 정리는 n Gaussian 확률 변수들 중 가장 큰 것은(독립일 필요는 없다) 대략 <span class="math inline">\(\sqrt{2 \log n}\)</span> 사이즈라는 것이다. 이 정리에 비추어 만능 임계화를 생각하면 이 임계화는 오차(error)가 Gaussian random variable을 따르는 것이라면 모두 다 임계화하겠다는 뜻으로 해석할 수 있다. 이 방법은 이론적으로는 완벽해 보이기는 하나 너무나 많은 잡음(noise)을 줄이는 underfit한 임계화이다. 결국 SURE와 같은 실용적인 임계화 방법을 생각하게 된 것이다. 이 얘기는 추후에 다시 나올 것이다.</p>
 <p>만능 임계화로 돌아가서, 우리는 <span class="math inline">\(\sigma\)</span>를 모르므로 대신 <span class="math inline">\(\hat{\lambda}^{u}=\hat{\sigma}\sqrt{2 \log n}\)</span>을 이용해야 할 것이다. 그렇다면 <span class="math inline">\(\sigma\)</span>를 어떻게 추정할 것인가? 대부분의 방법은 data를 제외한 가장 finest scale (ex.J-1)의 detail 웨이블릿 계수(<span class="math inline">\(d_{J-1}\)</span>)를 이용해 추정한다. <span class="math inline">\(y\)</span>를 이용해 <span class="math inline">\(\epsilon\)</span>의 분산을 추정하려고 할 경우 <span class="math inline">\(f\)</span>의 정보가 너무 강해서 <span class="math inline">\(\epsilon\)</span>의 분산구조를 알 수 없을 것이다. 그리고 좀 더 성긴 스케일(coarser scale)로 갈수록 잡음보다는 신호 정보가 많을 것이라는 생각을 하면, <span class="math inline">\(d_{J-1}\)</span>를 이용해 분산 구조를 추정하는 것이 당연하다.</p>
-<p>가장 널리 알려진 방법은 <span class="math display">\[\hat{\sigma}=\sqrt{\frac{1}{n/2-1}\sum_{k=1}^{n/2}(d_{J-1,k}-\bar{d_{J-1}})^{2}}\]</span> 이다. 이 방법은 자료가 희소(sparse)한 경우에는 잘 맞지 않음이 알려져 있다. 그런 경우에는 대신 중앙값(median)을 이용하여 <span class="math display">\[
+<p>가장 널리 알려진 방법은
+<span class="math display">\[\hat{\sigma}=\sqrt{\frac{1}{n/2-1}\sum_{k=1}^{n/2}(d_{J-1,k}-\bar{d_{J-1}})^{2}}\]</span>
+이다. 이 방법은 자료가 희소(sparse)한 경우에는 잘 맞지 않음이 알려져 있다. 그런 경우에는 대신 중앙값(median)을 이용하여
+<span class="math display">\[
 \hat{\sigma}=1.4826 \times \text{median}(|d_{J-1,1}-\tilde{d_{J-1}}|,\cdots,|d_{J-1,\frac{n}{2}}-\tilde{d_{J-1}}|\\
 \text{ where } \tilde{d}_{J-1}=\text{median}(\mathbf{d}_{J-1})
-\]</span> 이런 식으로 추정하기도 한다.</p>
+\]</span>
+이런 식으로 추정하기도 한다.</p>
 <p>지금까지 했던 방법은 universal threshold rule(<span class="math inline">\(\lambda^{u}\)</span>)에 soft thresholding function <span class="math inline">\(\eta_{s}\)</span>를 적용한 <span class="math inline">\(\hat{\theta}=\eta_{s}(d,\lambda^{u})\)</span>로 이것을 <strong>VisuShrink</strong>라고 부른다. 이 방법은 앞서 말한 대로 noise-free reconstrunction이나 oversmooth (underfit)하는 문제가 생긴다. 즉 noise-free하지만 signal도 너무 많이 죽일 가능성이 있다는 것이다. 한편 <span class="math inline">\(\lambda^{u}\)</span>는 noise-free reconstruction을 하는 최소의 <span class="math inline">\(\lambda\)</span>이므로, <span class="math inline">\(0&lt; \lambda^{*} \ll \lambda^{u}\)</span>인 <span class="math inline">\(\lambda^{*}\)</span>를 생각할 수 있을 것이다. 이런 <span class="math inline">\(\lambda^{*}\)</span> 중의 하나로 <span class="citation">(Donoho and Johnstone <a href="#ref-Donoho1994">1994</a>)</span>에서는 <strong>RiskShrink</strong>라는 것을 제시했다. 이 방법은 <span class="math inline">\(\Lambda_{n}^{*}(=2 \log n +1)\)</span>에 해당하는 <span class="math inline">\(\Lambda_{n}^{*}\)</span>과 이에 대응되는 <span class="math inline">\(\lambda^{*}\)</span>을 table 형태로 계산한 것이다. 예를 들어 <span class="math inline">\(n=1024\)</span> 일 때 <span class="math inline">\(\lambda^{u}=3.72, \lambda^{*}=2.23, \Lambda_{n}^{*}=5.976\)</span>이다.</p>
 <p>참고로 이 논문의 결과와 더불어 일반적으로 알려져 있는 사실은 함수가 부드럽(smooth)지 않을 때 웨이블릿이 다른 어떤 비모수 방법들보다 좋다는 것이다.</p>
 </div>
 <h3> References</h3>
 <div id="refs" class="references">
 <div id="ref-Donoho1994">
-<p>Donoho, David L., and Iain M. Johnstone. 1994. “Ideal Spatial Adaptation by Wavelet Shrinkage.” <em>Biometrika</em> 81 (3): 425–55. doi:<a href="https://doi.org/10.1093/biomet/81.3.425">10.1093/biomet/81.3.425</a>.</p>
+<p>Donoho, David L., and Iain M. Johnstone. 1994. “Ideal Spatial Adaptation by Wavelet Shrinkage.” <em>Biometrika</em> 81 (3): 425–55. <a href="https://doi.org/10.1093/biomet/81.3.425">https://doi.org/10.1093/biomet/81.3.425</a>.</p>
 </div>
 </div>
             </section>
@@ -791,7 +822,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -803,6 +834,10 @@ gitbook.start({
 "edit": {
 "link": "https://seoncheolpark.github.io/book/_book/34-waveletshrinkage.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["book.pdf"],
 "toc": {
@@ -822,8 +857,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

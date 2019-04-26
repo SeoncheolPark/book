@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>통계공부와 관련된 글들</title>
+  <title>17.5 ARMIA 모델들(ARIMA models) | 통계공부와 관련된 글들</title>
   <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="통계공부와 관련된 글들" />
+  <meta property="og:title" content="17.5 ARMIA 모델들(ARIMA models) | 통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="SeoncheolPark/book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="통계공부와 관련된 글들" />
+  <meta name="twitter:title" content="17.5 ARMIA 모델들(ARIMA models) | 통계공부와 관련된 글들" />
   
   <meta name="twitter:description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다." />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-12-06">
+<meta name="date" content="2019-04-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="17-6-arima-seasonal-arima-models.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -50,41 +51,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -501,17 +528,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="part"><span><b>IV Quantile Regression and FDA</b></span></li>
 <li class="chapter" data-level="36" data-path="36-qr.html"><a href="36-qr.html"><i class="fa fa-check"></i><b>36</b> 분위수 회귀분석</a><ul>
-<li class="chapter" data-level="36.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html"><i class="fa fa-check"></i><b>36.1</b> 분위수 (quantile)</a></li>
-<li class="chapter" data-level="36.2" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html"><i class="fa fa-check"></i><b>36.2</b> 분위수 회귀분석의 기초(basics of quantile regression)</a><ul>
-<li class="chapter" data-level="36.2.1" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>36.2.1</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
-<li class="chapter" data-level="36.2.2" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--quantile-treatment-effect"><i class="fa fa-check"></i><b>36.2.2</b> 분위수 처리 효과(quantile treatment effect)</a></li>
-<li class="chapter" data-level="36.2.3" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
-<li class="chapter" data-level="36.2.4" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.2.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
+<li class="chapter" data-level="36.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html"><i class="fa fa-check"></i><b>36.1</b> 분위수 (quantile)</a><ul>
+<li class="chapter" data-level="36.1.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>36.1.1</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
+<li class="chapter" data-level="36.1.2" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--quantile-treatment-effect"><i class="fa fa-check"></i><b>36.1.2</b> 분위수 처리 효과(quantile treatment effect)</a></li>
+<li class="chapter" data-level="36.1.3" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.1.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
+<li class="chapter" data-level="36.1.4" data-path="36-1-quantile.html"><a href="36-1-quantile.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.1.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
 </ul></li>
-<li class="chapter" data-level="36.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.3</b> 극단회귀분석(extremal quantile regression)</a><ul>
-<li class="chapter" data-level="36.3.1" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.3.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
-<li class="chapter" data-level="36.3.2" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.3.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
-<li class="chapter" data-level="36.3.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.3.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
+<li class="chapter" data-level="36.2" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.2</b> 극단회귀분석(extremal quantile regression)</a><ul>
+<li class="chapter" data-level="36.2.1" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.2.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
+<li class="chapter" data-level="36.2.2" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.2.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
+<li class="chapter" data-level="36.2.3" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="37" data-path="37-functionestimation.html"><a href="37-functionestimation.html"><i class="fa fa-check"></i><b>37</b> 함수추정</a><ul>
@@ -546,7 +572,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="40.3.1" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#isotropy"><i class="fa fa-check"></i><b>40.3.1</b> 등방성(isotropy)</a></li>
 <li class="chapter" data-level="40.3.2" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#homogeneous"><i class="fa fa-check"></i><b>40.3.2</b> 동질성(homogeneous)</a></li>
 <li class="chapter" data-level="40.3.3" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#anisotropy"><i class="fa fa-check"></i><b>40.3.3</b> 이등방성(anisotropy)</a></li>
-<li class="chapter" data-level="40.3.4" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#z3--geometric-anisotropy"><i class="fa fa-check"></i><b>40.3.4</b> z3 기하학적 이등방성(Geometric anisotropy)</a></li>
 </ul></li>
 <li class="chapter" data-level="40.4" data-path="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><i class="fa fa-check"></i><b>40.4</b> 공간 확률과정의 연속성과 미분가능성(continuity and differentiabiliy of spatial stochastic process</a><ul>
 <li class="chapter" data-level="40.4.1" data-path="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html#path-continuity---path-differentiability"><i class="fa fa-check"></i><b>40.4.1</b> 경로연속(path-continuity) 또는 경로 미분가능성(path-differentiability)</a></li>
@@ -749,17 +774,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>이 모형은 현재의 관측값을 과거의 관측값들의 함수형태로 나타내는 것이다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-218" class="definition"><strong>Definition 17.5  (자기회귀모형)  </strong></span><strong>AR(p)</strong> 차수 p를 갖는 <strong>자기회귀모형(autoregressive model, AR model)</strong>은 <span class="math display">\[x_{t}=\phi_{1}x_{t-1}+\phi_{2}x_{t-2} + \cdots + \phi_{p}x_{t-p}+w_{t}\]</span> 와 같은 형태를 갖는다. 여기서 <span class="math inline">\(x_{t}\)</span>는 정상과정이며, <span class="math inline">\(\phi_{1},\ldots , \phi_{p}\)</span>는 상수이다. <span class="math inline">\((\phi_{p}\neq 0)\)</span>. 그리고 <span class="math inline">\(w_{t}\)</span>는 보통 평균이 0이고 분산이 <span class="math inline">\(\sigma_{w}^{2}\)</span>인 백색잡음이라고 놓는다. 따로 언급하지 않으면, <span class="math inline">\(x_{t}\)</span>의 평균은 0이라고 둔다. 만약 평균이 0이 아니고 <span class="math inline">\(\mu\)</span>라고 할 때는 다음과 같이 <span class="math inline">\(x_{t}\)</span> 대신 <span class="math inline">\(x_{t}-\mu\)</span>를 사용하여 <span class="math display">\[x_{t}-\mu = \phi_{1}(x_{t-1}-\mu)+\phi_{2}(x_{t-2}-\mu) + \cdots + \phi_{p}(x_{t-p}-\mu)+w_{t}\]</span> 또는 <span class="math inline">\(\alpha=\mu(1-\phi_{1}-\cdots - \phi_{p})\)</span>로 놓아 <span class="math display">\[x_{t}=\alpha + \phi_{1}x_{t-1}+\phi_{2}x_{t-2} + \cdots + \phi_{p}x_{t-p}+w_{t}\]</span></p>
+<p><span id="def:unnamed-chunk-218" class="definition"><strong>Definition 17.5  (자기회귀모형)  </strong></span><strong>AR(p)</strong> 차수 p를 갖는 <strong>자기회귀모형(autoregressive model, AR model)</strong>은
+<span class="math display">\[x_{t}=\phi_{1}x_{t-1}+\phi_{2}x_{t-2} + \cdots + \phi_{p}x_{t-p}+w_{t}\]</span>
+와 같은 형태를 갖는다. 여기서 <span class="math inline">\(x_{t}\)</span>는 정상과정이며, <span class="math inline">\(\phi_{1},\ldots , \phi_{p}\)</span>는 상수이다. <span class="math inline">\((\phi_{p}\neq 0)\)</span>. 그리고 <span class="math inline">\(w_{t}\)</span>는 보통 평균이 0이고 분산이 <span class="math inline">\(\sigma_{w}^{2}\)</span>인 백색잡음이라고 놓는다. 따로 언급하지 않으면, <span class="math inline">\(x_{t}\)</span>의 평균은 0이라고 둔다. 만약 평균이 0이 아니고 <span class="math inline">\(\mu\)</span>라고 할 때는 다음과 같이 <span class="math inline">\(x_{t}\)</span> 대신 <span class="math inline">\(x_{t}-\mu\)</span>를 사용하여
+<span class="math display">\[x_{t}-\mu = \phi_{1}(x_{t-1}-\mu)+\phi_{2}(x_{t-2}-\mu) + \cdots + \phi_{p}(x_{t-p}-\mu)+w_{t}\]</span>
+또는 <span class="math inline">\(\alpha=\mu(1-\phi_{1}-\cdots - \phi_{p})\)</span>로 놓아
+<span class="math display">\[x_{t}=\alpha + \phi_{1}x_{t-1}+\phi_{2}x_{t-2} + \cdots + \phi_{p}x_{t-p}+w_{t}\]</span></p>
 </div>
 
 <p>AR 모형이 시계열 회귀분석의 정의와 유사하므로 자기회귀(autoregression)라는 이름이 붙은 것이다. 그러나 모형을 적용하기엔 어려운데 <span class="math inline">\(x_{t-1}, \ldots, x_{t-p}\)</span>는 무작위 요인들인데, <span class="math inline">\(\mathbf{z}_{t}\)</span>는 고정된 요인이었기 때문이다.</p>
 <p>일반적으로 AR과정의 ACF는 지수적으로 감소하며, PACF는 AR과정의 차수에 해당되는 차수 이후에는 0이 되는 성질을 갖고 있다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>))
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>))
 ARsim01 &lt;-<span class="st"> </span><span class="kw">arima.sim</span>(<span class="kw">list</span>(<span class="dt">order=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>), <span class="dt">ar=</span>.<span class="dv">9</span>), <span class="dt">n=</span><span class="dv">100</span>)
 ARsim02 &lt;-<span class="st"> </span><span class="kw">arima.sim</span>(<span class="kw">list</span>(<span class="dt">order=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>), <span class="dt">ar=</span><span class="op">-</span>.<span class="dv">9</span>), <span class="dt">n=</span><span class="dv">100</span>)
 <span class="kw">plot</span>(ARsim01, <span class="dt">ylab=</span><span class="st">&quot;x&quot;</span>, <span class="dt">main=</span>(<span class="kw">expression</span>(<span class="kw">AR</span>(<span class="dv">1</span>)<span class="op">~</span><span class="er">~~</span>phi<span class="op">==+</span>.<span class="dv">9</span>)))
 <span class="kw">plot</span>(ARsim02, <span class="dt">ylab=</span><span class="st">&quot;x&quot;</span>, <span class="dt">main=</span>(<span class="kw">expression</span>(<span class="kw">AR</span>(<span class="dv">1</span>)<span class="op">~</span><span class="er">~~</span>phi<span class="op">==-</span>.<span class="dv">9</span>)))
-<span class="kw">acf</span>(ARsim01); <span class="kw">acf</span>(ARsim02); <span class="kw">pacf</span>(ARsim01); <span class="kw">pacf</span>(ARsim02)</code></pre></div>
+<span class="kw">acf</span>(ARsim01); <span class="kw">acf</span>(ARsim02); <span class="kw">pacf</span>(ARsim01); <span class="kw">pacf</span>(ARsim02)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-219"></span>
 <img src="book_files/figure-html/unnamed-chunk-219-1.svg" alt="Simulated AR model." width="672" />
 <p class="caption">
@@ -772,19 +802,26 @@ FIGURE 17.6: Simulated AR model.
 <p>AR과정과 더불어 생각해 볼 수 있는 모형으로 <strong>이동평균모형(moving average model, MA model)</strong>이라는 것이 있다. <span class="math inline">\(q\)</span>차 MA 모형은 <span class="math inline">\(\text{MA}(q)\)</span>로 보통 쓰며 백색 잡음 <span class="math inline">\(w_{t}\)</span>가 선형결합 된 것을 관찰한다고 생각한다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-220" class="definition"><strong>Definition 17.6  (이동평균모형)  </strong></span>차수 <span class="math inline">\(q\)</span>를 갖는 <strong>이동평균모형(moving average model)</strong>은 다음과 같이 정의된다. <span class="math display">\[x_{t}=w_{t}+\theta_{1}w_{t-1}+\theta_{2}w_{t-2}+\ldots \theta_{q}w_{t-q}.\]</span> 이때 <span class="math inline">\(w_{t}\sim \text{WM}(0,\sigma_{w}^{2})\)</span>이며 <span class="math inline">\(\theta_{1},\ldots, \theta_{q}(\theta_{q}\neq 0)\)</span>은 모수들이다.</p>
+<p><span id="def:unnamed-chunk-220" class="definition"><strong>Definition 17.6  (이동평균모형)  </strong></span>차수 <span class="math inline">\(q\)</span>를 갖는 <strong>이동평균모형(moving average model)</strong>은 다음과 같이 정의된다.
+<span class="math display">\[x_{t}=w_{t}+\theta_{1}w_{t-1}+\theta_{2}w_{t-2}+\ldots \theta_{q}w_{t-q}.\]</span>
+이때 <span class="math inline">\(w_{t}\sim \text{WM}(0,\sigma_{w}^{2})\)</span>이며 <span class="math inline">\(\theta_{1},\ldots, \theta_{q}(\theta_{q}\neq 0)\)</span>은 모수들이다.</p>
 </div>
 
 <p>또한 다음과 같이 <strong>이동평균작용소(moving average operator)</strong>를 정의하여 식을 간단히 쓸 수 있다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-221" class="definition"><strong>Definition 17.7  (이동평균작용소)  </strong></span><strong>이동평균작용소(moving average operator)</strong> <span class="math inline">\(\theta(B)\)</span>는 <span class="math display">\[\theta(B)=1+\theta_{1}B+\theta_{2}B^{2}+\ldots +\theta_{q}B^{q}\]</span> 로 정의된다.</p>
+<p><span id="def:unnamed-chunk-221" class="definition"><strong>Definition 17.7  (이동평균작용소)  </strong></span><strong>이동평균작용소(moving average operator)</strong> <span class="math inline">\(\theta(B)\)</span>는
+<span class="math display">\[\theta(B)=1+\theta_{1}B+\theta_{2}B^{2}+\ldots +\theta_{q}B^{q}\]</span>
+로 정의된다.</p>
 </div>
 
-<p>이동평균작용소를 이용해 <span class="math inline">\(\text{MA}(q)\)</span>과정을 다시쓰면 다음과 같다. <span class="math display">\[x_{t}=\theta(B)w_{t}.\]</span></p>
+<p>이동평균작용소를 이용해 <span class="math inline">\(\text{MA}(q)\)</span>과정을 다시쓰면 다음과 같다.
+<span class="math display">\[x_{t}=\theta(B)w_{t}.\]</span></p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-222" class="example"><strong>Example 17.1  (MA(1)과정)  </strong></span>MA과정 중에서 가장 간단한 모형으로 MA(1) 과정이 있으며 다음과 같이 쓴다. <span class="math display">\[x_{t}=w_{t}+\theta w_{t-1}.\]</span> 그러면 <span class="math inline">\(E(x_{t})=0\)</span>이다. 이것의 자기공분산함수는 다음과 같다.</p>
+<p><span id="exm:unnamed-chunk-222" class="example"><strong>Example 17.1  (MA(1)과정)  </strong></span>MA과정 중에서 가장 간단한 모형으로 MA(1) 과정이 있으며 다음과 같이 쓴다.
+<span class="math display">\[x_{t}=w_{t}+\theta w_{t-1}.\]</span>
+그러면 <span class="math inline">\(E(x_{t})=0\)</span>이다. 이것의 자기공분산함수는 다음과 같다.</p>
 <p><span class="math display">\[
 \gamma(h) = 
 \begin{cases}
@@ -805,12 +842,12 @@ FIGURE 17.6: Simulated AR model.
 </div>
 
 <p>MA과정의 PACF는 AR과정의 ACF 형태와, MA과정의 ACF는 AR과정의 PACF 형태와 같다. 참고로 유한 개의 항을 가지는 MA과정은 항상 정상과정이므로 AR과정과는 달리 유한차수의 MA과정에 대해서는 정상성 조건을 논의할 필요가 없다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>))   
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>))   
 MAsim01 &lt;-<span class="st"> </span><span class="kw">arima.sim</span>(<span class="kw">list</span>(<span class="dt">order=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>), <span class="dt">ma=</span>.<span class="dv">9</span>), <span class="dt">n=</span><span class="dv">100</span>)
 MAsim02 &lt;-<span class="st"> </span><span class="kw">arima.sim</span>(<span class="kw">list</span>(<span class="dt">order=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>), <span class="dt">ma=</span><span class="op">-</span>.<span class="dv">9</span>), <span class="dt">n=</span><span class="dv">100</span>)
 <span class="kw">plot</span>(MAsim01, <span class="dt">ylab=</span><span class="st">&quot;x&quot;</span>, <span class="dt">main=</span>(<span class="kw">expression</span>(<span class="kw">MA</span>(<span class="dv">1</span>)<span class="op">~</span><span class="er">~~</span>theta<span class="op">==+</span>.<span class="dv">9</span>)))    
 <span class="kw">plot</span>(MAsim02, <span class="dt">ylab=</span><span class="st">&quot;x&quot;</span>,<span class="dt">main=</span>(<span class="kw">expression</span>(<span class="kw">MA</span>(<span class="dv">1</span>)<span class="op">~</span><span class="er">~~</span>theta<span class="op">==-</span>.<span class="dv">9</span>))) 
-<span class="kw">acf</span>(MAsim01); <span class="kw">acf</span>(MAsim02); <span class="kw">pacf</span>(MAsim01); <span class="kw">pacf</span>(MAsim02)</code></pre></div>
+<span class="kw">acf</span>(MAsim01); <span class="kw">acf</span>(MAsim02); <span class="kw">pacf</span>(MAsim01); <span class="kw">pacf</span>(MAsim02)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-223"></span>
 <img src="book_files/figure-html/unnamed-chunk-223-1.svg" alt="Simulated MA model." width="672" />
 <p class="caption">
@@ -828,7 +865,12 @@ FIGURE 17.7: Simulated MA model.
 0 &amp; h&gt;1.
 \end{cases}
 \]</span></p>
-이다. 즉 다음 두 MA(1) 과정 <span class="math display">\[x_{t}=w_{t}+\frac{1}{5}w_{t-1}, \qquad{w_{t}\stackrel{\text{i.i.d}}{\sim}\mathcal{N}(0,25)}\]</span> <span class="math display">\[y_{t}=v_{t}+5v_{t-1}, \qquad{v_{t}\stackrel{\text{i.i.d}}{\sim}\mathcal{N}(0,1)}\]</span> 은 같은 것이다. 우리는 시계열 <span class="math inline">\(x_{t}\)</span>, <span class="math inline">\(y_{t}\)</span>만 관찰할 수 있고 잡음들 <span class="math inline">\(w_{t}\)</span>, <span class="math inline">\(v_{t}\)</span>은 관찰 못하므로 이들을 구분해낼 수 없다. 편의를 위해 <span class="math inline">\(x_{t}\)</span>와 <span class="math inline">\(w_{t}\)</span>의 역할을 바꾸면 MA(1) 모형을 <span class="math display">\[w_{t}=-\theta w_{t-1}+x_{t}\]</span> 로 쓸 수 있다. 이러면 AR 모형처럼 되고, <span class="math inline">\(|\theta|&lt;1\)</span>인 조건을 적용시키면 <span class="math inline">\(w_{t}=\sum_{j=0}^{\infty}(-\theta)^{j}x_{t-j}\)</span>임을 알 수 있다. 따라서 여러 가지 MA 모형이 있을 경우, <strong>가역(invertible)</strong>한 <span class="math inline">\(\sigma_{w}^{2}=25\)</span>이고 <span class="math inline">\(\theta=1/5\)</span> 모형을 고르게 된다.
+이다. 즉 다음 두 MA(1) 과정
+<span class="math display">\[x_{t}=w_{t}+\frac{1}{5}w_{t-1}, \qquad{w_{t}\stackrel{\text{i.i.d}}{\sim}\mathcal{N}(0,25)}\]</span>
+<span class="math display">\[y_{t}=v_{t}+5v_{t-1}, \qquad{v_{t}\stackrel{\text{i.i.d}}{\sim}\mathcal{N}(0,1)}\]</span>
+은 같은 것이다. 우리는 시계열 <span class="math inline">\(x_{t}\)</span>, <span class="math inline">\(y_{t}\)</span>만 관찰할 수 있고 잡음들 <span class="math inline">\(w_{t}\)</span>, <span class="math inline">\(v_{t}\)</span>은 관찰 못하므로 이들을 구분해낼 수 없다. 편의를 위해 <span class="math inline">\(x_{t}\)</span>와 <span class="math inline">\(w_{t}\)</span>의 역할을 바꾸면 MA(1) 모형을
+<span class="math display">\[w_{t}=-\theta w_{t-1}+x_{t}\]</span>
+로 쓸 수 있다. 이러면 AR 모형처럼 되고, <span class="math inline">\(|\theta|&lt;1\)</span>인 조건을 적용시키면 <span class="math inline">\(w_{t}=\sum_{j=0}^{\infty}(-\theta)^{j}x_{t-j}\)</span>임을 알 수 있다. 따라서 여러 가지 MA 모형이 있을 경우, <strong>가역(invertible)</strong>한 <span class="math inline">\(\sigma_{w}^{2}=25\)</span>이고 <span class="math inline">\(\theta=1/5\)</span> 모형을 고르게 된다.
 </div>
 
 </div>
@@ -843,13 +885,17 @@ FIGURE 17.7: Simulated MA model.
 &amp;=&amp;\sum_{j=1}^{p}\phi_{j}\gamma(h-j)+\sigma_{w}^{2}\sum_{j=h}^{q}\theta_{j}\psi_{j-h}, h \geq 0.
 \end{eqnarray}
 \]</span></p>
-<p>general homoegeneous equations for the ACF of the ARMA process <span class="math display">\[\gamma(h)-\phi_{1}\gamma(h-1)-\cdots - \phi_{p}\gamma(h-p)=0, h\geq \max(p,q+1)\]</span></p>
+<p>general homoegeneous equations for the ACF of the ARMA process
+<span class="math display">\[\gamma(h)-\phi_{1}\gamma(h-1)-\cdots - \phi_{p}\gamma(h-p)=0, h\geq \max(p,q+1)\]</span></p>
 <div id="arma--estimation-of-arma-models" class="section level4">
 <h4><span class="header-section-number">17.5.3.1</span> ARMA 모형의 추정(estimation of ARMA models)</h4>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-225" class="definition"><strong>Definition 17.8  (Yule-Walker equations)  </strong></span><span class="math display">\[\gamma(h)=\phi_{1}\gamma(h-1)+\cdots +\phi_{p}\gamma(h-p), h=1,2,\ldots, p, \]</span> <span class="math display">\[\sigma_{w}^{2}=\gamma(0)-\phi_{1}\gamma(1)-\cdots - \phi_{p}\gamma(p).\]</span></p>
-<p>Matrix notation으로는 <span class="math display">\[\Gamma_{p}\phi=\gamma_{p}, \sigma_{w}^{2}=\gamma(0)-\phi&#39;\gamma_{p}\]</span> 이며 <span class="math inline">\(\Gamma_{p}=\{ \gamma (k-j) \}_{j,k=1}^{p}\)</span>는 <span class="math inline">\(p\times p\)</span> 행렬이며 <span class="math inline">\(\phi=(\phi_{1},\ldots , \phi_{p})&#39;\)</span>는 <span class="math inline">\(p\times 1\)</span> 벡터이며 <span class="math inline">\(\gamma(p)=(\gamma(1),\ldots ,\gamma(p))&#39;\)</span>는 <span class="math inline">\(p\times 1\)</span> 벡터이다.</p>
+<p><span id="def:unnamed-chunk-225" class="definition"><strong>Definition 17.8  (Yule-Walker equations)  </strong></span><span class="math display">\[\gamma(h)=\phi_{1}\gamma(h-1)+\cdots +\phi_{p}\gamma(h-p), h=1,2,\ldots, p, \]</span>
+<span class="math display">\[\sigma_{w}^{2}=\gamma(0)-\phi_{1}\gamma(1)-\cdots - \phi_{p}\gamma(p).\]</span></p>
+<p>Matrix notation으로는
+<span class="math display">\[\Gamma_{p}\phi=\gamma_{p}, \sigma_{w}^{2}=\gamma(0)-\phi&#39;\gamma_{p}\]</span>
+이며 <span class="math inline">\(\Gamma_{p}=\{ \gamma (k-j) \}_{j,k=1}^{p}\)</span>는 <span class="math inline">\(p\times p\)</span> 행렬이며 <span class="math inline">\(\phi=(\phi_{1},\ldots , \phi_{p})&#39;\)</span>는 <span class="math inline">\(p\times 1\)</span> 벡터이며 <span class="math inline">\(\gamma(p)=(\gamma(1),\ldots ,\gamma(p))&#39;\)</span>는 <span class="math inline">\(p\times 1\)</span> 벡터이다.</p>
 </div>
 
 </div>
@@ -884,7 +930,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -896,6 +942,10 @@ gitbook.start({
 "edit": {
 "link": "https://seoncheolpark.github.io/book/_book/24-ts.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["book.pdf"],
 "toc": {
@@ -915,8 +965,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

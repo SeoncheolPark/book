@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>통계공부와 관련된 글들</title>
+  <title>2.3 연산자들과 노름(operators and norms) | 통계공부와 관련된 글들</title>
   <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="통계공부와 관련된 글들" />
+  <meta property="og:title" content="2.3 연산자들과 노름(operators and norms) | 통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="SeoncheolPark/book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="통계공부와 관련된 글들" />
+  <meta name="twitter:title" content="2.3 연산자들과 노름(operators and norms) | 통계공부와 관련된 글들" />
   
   <meta name="twitter:description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다." />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-12-06">
+<meta name="date" content="2019-04-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="2-4-matrix-decomposition.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -50,41 +51,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -501,17 +528,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="part"><span><b>IV Quantile Regression and FDA</b></span></li>
 <li class="chapter" data-level="36" data-path="36-qr.html"><a href="36-qr.html"><i class="fa fa-check"></i><b>36</b> 분위수 회귀분석</a><ul>
-<li class="chapter" data-level="36.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html"><i class="fa fa-check"></i><b>36.1</b> 분위수 (quantile)</a></li>
-<li class="chapter" data-level="36.2" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html"><i class="fa fa-check"></i><b>36.2</b> 분위수 회귀분석의 기초(basics of quantile regression)</a><ul>
-<li class="chapter" data-level="36.2.1" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>36.2.1</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
-<li class="chapter" data-level="36.2.2" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--quantile-treatment-effect"><i class="fa fa-check"></i><b>36.2.2</b> 분위수 처리 효과(quantile treatment effect)</a></li>
-<li class="chapter" data-level="36.2.3" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
-<li class="chapter" data-level="36.2.4" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.2.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
+<li class="chapter" data-level="36.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html"><i class="fa fa-check"></i><b>36.1</b> 분위수 (quantile)</a><ul>
+<li class="chapter" data-level="36.1.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>36.1.1</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
+<li class="chapter" data-level="36.1.2" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--quantile-treatment-effect"><i class="fa fa-check"></i><b>36.1.2</b> 분위수 처리 효과(quantile treatment effect)</a></li>
+<li class="chapter" data-level="36.1.3" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.1.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
+<li class="chapter" data-level="36.1.4" data-path="36-1-quantile.html"><a href="36-1-quantile.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.1.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
 </ul></li>
-<li class="chapter" data-level="36.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.3</b> 극단회귀분석(extremal quantile regression)</a><ul>
-<li class="chapter" data-level="36.3.1" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.3.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
-<li class="chapter" data-level="36.3.2" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.3.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
-<li class="chapter" data-level="36.3.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.3.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
+<li class="chapter" data-level="36.2" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.2</b> 극단회귀분석(extremal quantile regression)</a><ul>
+<li class="chapter" data-level="36.2.1" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.2.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
+<li class="chapter" data-level="36.2.2" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.2.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
+<li class="chapter" data-level="36.2.3" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="37" data-path="37-functionestimation.html"><a href="37-functionestimation.html"><i class="fa fa-check"></i><b>37</b> 함수추정</a><ul>
@@ -546,7 +572,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="40.3.1" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#isotropy"><i class="fa fa-check"></i><b>40.3.1</b> 등방성(isotropy)</a></li>
 <li class="chapter" data-level="40.3.2" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#homogeneous"><i class="fa fa-check"></i><b>40.3.2</b> 동질성(homogeneous)</a></li>
 <li class="chapter" data-level="40.3.3" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#anisotropy"><i class="fa fa-check"></i><b>40.3.3</b> 이등방성(anisotropy)</a></li>
-<li class="chapter" data-level="40.3.4" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#z3--geometric-anisotropy"><i class="fa fa-check"></i><b>40.3.4</b> z3 기하학적 이등방성(Geometric anisotropy)</a></li>
 </ul></li>
 <li class="chapter" data-level="40.4" data-path="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><i class="fa fa-check"></i><b>40.4</b> 공간 확률과정의 연속성과 미분가능성(continuity and differentiabiliy of spatial stochastic process</a><ul>
 <li class="chapter" data-level="40.4.1" data-path="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html#path-continuity---path-differentiability"><i class="fa fa-check"></i><b>40.4.1</b> 경로연속(path-continuity) 또는 경로 미분가능성(path-differentiability)</a></li>
@@ -748,7 +773,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3><span class="header-section-number">2.3.1</span> 직합(direct sum)</h3>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-8" class="definition"><strong>Definition 2.6  (직합)  </strong></span>크기 <span class="math inline">\(m \times n\)</span>인 행렬 <span class="math inline">\(\mathbf{A}\)</span>와 <span class="math inline">\(p\times q\)</span>인 행렬 <span class="math inline">\(\mathbf{B}\)</span>가 있을 때 이들의 <strong>직합(direct sum)</strong>은 <span class="math display">\[\mathbf{A}\oplus\mathbf{B}=
+<p><span id="def:unnamed-chunk-8" class="definition"><strong>Definition 2.6  (직합)  </strong></span>크기 <span class="math inline">\(m \times n\)</span>인 행렬 <span class="math inline">\(\mathbf{A}\)</span>와 <span class="math inline">\(p\times q\)</span>인 행렬 <span class="math inline">\(\mathbf{B}\)</span>가 있을 때 이들의 <strong>직합(direct sum)</strong>은
+<span class="math display">\[\mathbf{A}\oplus\mathbf{B}=
 \begin{bmatrix}
 \mathbf{A} &amp; 0\\
 0 &amp; \mathbf{B}\\
@@ -792,7 +818,8 @@ a_{m1} &amp; \cdots &amp; a_{mn} &amp; 0 &amp; \cdots &amp; 0 \\
 <h3><span class="header-section-number">2.3.2</span> 크로네커 곱(Kronecker product)</h3>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-10" class="definition"><strong>Definition 2.7  (크로네커 곱)  </strong></span>크기 <span class="math inline">\(m \times n\)</span>인 행렬 <span class="math inline">\(\mathbf{A}\)</span>와 <span class="math inline">\(p\times q\)</span>인 행렬 <span class="math inline">\(\mathbf{B}\)</span>가 있을 때 이들의 <strong>크로네커 곱(Kronecker product)</strong>은 <span class="math display">\[\mathbf{A}\otimes\mathbf{B}
+<p><span id="def:unnamed-chunk-10" class="definition"><strong>Definition 2.7  (크로네커 곱)  </strong></span>크기 <span class="math inline">\(m \times n\)</span>인 행렬 <span class="math inline">\(\mathbf{A}\)</span>와 <span class="math inline">\(p\times q\)</span>인 행렬 <span class="math inline">\(\mathbf{B}\)</span>가 있을 때 이들의 <strong>크로네커 곱(Kronecker product)</strong>은
+<span class="math display">\[\mathbf{A}\otimes\mathbf{B}
 =
 \begin{bmatrix}
 a_{11}\mathbf{B} &amp; \cdots &amp; a_{1n}\mathbf{B} \\
@@ -835,7 +862,13 @@ a_{m1}\mathbf{B} &amp; \cdots &amp; a_{mn}\mathbf{B} \\
 </div>
 <div id="-kroneckerian-power" class="section level3">
 <h3><span class="header-section-number">2.3.3</span> 크로네커 거듭곱(Kroneckerian power)</h3>
-<p>We call <span class="math inline">\(p^{k}\)</span>-vector <span class="math inline">\(\mathbf{a}^{\otimes k}\)</span>, the <span class="math inline">\(k\)</span>-th power of the <span class="math inline">\(p\)</span>-vector <span class="math inline">\(\mathbf{a}\)</span>, if <span class="math inline">\(\mathbf{a}^{\otimes 0}=1\)</span> and <span class="math display">\[\mathbf{a}^{\otimes k} = \mathbf{a} \otimes \cdots \otimes\mathbf{a} (\text{ k times}).\]</span> In general, for any matrix <span class="math inline">\(\mathbf{A}\)</span>, the Kroneckerian power is given by <span class="math display">\[\mathbf{A}^{\otimes k} = \mathbf{A} \otimes \cdots \otimes\mathbf{A} (\text{ k times}).\]</span> Furthermore, <span class="math inline">\(\mathbf{A}^{\otimes k}\mathbf{B}^{\otimes k}=(\mathbf{A}\mathbf{B})^{\otimes k}\)</span>. In particular, it is noted that <span class="math display">\[\mathbf{a}^{\otimes k}\otimes\mathbf{a}^{\otimes j}= \mathbf{a}^{\otimes (k+ j)}, \qquad{k,j\in\mathbb{N}.}\]</span> The following statement makes it possible to identify where in a long vector of the Kroneckerian power a certain element of the product is situated.</p>
+<p>We call <span class="math inline">\(p^{k}\)</span>-vector <span class="math inline">\(\mathbf{a}^{\otimes k}\)</span>, the <span class="math inline">\(k\)</span>-th power of the <span class="math inline">\(p\)</span>-vector <span class="math inline">\(\mathbf{a}\)</span>, if <span class="math inline">\(\mathbf{a}^{\otimes 0}=1\)</span> and
+<span class="math display">\[\mathbf{a}^{\otimes k} = \mathbf{a} \otimes \cdots \otimes\mathbf{a} (\text{ k times}).\]</span>
+In general, for any matrix <span class="math inline">\(\mathbf{A}\)</span>, the Kroneckerian power is given by
+<span class="math display">\[\mathbf{A}^{\otimes k} = \mathbf{A} \otimes \cdots \otimes\mathbf{A} (\text{ k times}).\]</span>
+Furthermore, <span class="math inline">\(\mathbf{A}^{\otimes k}\mathbf{B}^{\otimes k}=(\mathbf{A}\mathbf{B})^{\otimes k}\)</span>. In particular, it is noted that
+<span class="math display">\[\mathbf{a}^{\otimes k}\otimes\mathbf{a}^{\otimes j}= \mathbf{a}^{\otimes (k+ j)}, \qquad{k,j\in\mathbb{N}.}\]</span>
+The following statement makes it possible to identify where in a long vector of the Kroneckerian power a certain element of the product is situated.</p>
 </div>
 <div id="tensor-product" class="section level3">
 <h3><span class="header-section-number">2.3.4</span> 텐서곱(tensor product)</h3>
@@ -844,12 +877,23 @@ a_{m1}\mathbf{B} &amp; \cdots &amp; a_{mn}\mathbf{B} \\
 <ol style="list-style-type: decimal">
 <li><p>전통적인 행렬</p></li>
 <li><p><span class="math inline">\(\mathbb{R}^{N}\rightarrow\mathbb{R}^{M}\)</span>으로 가는 선형 변환: 벡터의 왼쪽이나 오른쪽에 행렬을 곱하는 형태 (유클리드 공간에서의 모든 선형 변환을 떠올려보자)</p></li>
-<li><p><span class="math inline">\(\mathbb{R}^{N}\times \mathbb{R}^{M}\rightarrow\mathbb{R}\)</span>인 겹선형(bilinear) functional: 이차 형식에서 많이 다루는 형태이다. 다음과 같이 두 유클리드 공간 <span class="math inline">\(\mathcal{H}_{1}=\mathbb{R}^{N},\mathcal{H}_{2}=\mathbb{R}^{M}\)</span>가 있다고 하자. 두 개의 벡터 <span class="math inline">\(x_{1}\in\mathbb{R}^{N}\)</span>, <span class="math inline">\(x_{2}\in\mathbb{R}^{M}\)</span>에 <strong>텐서곱(tensor product)</strong>를 적용하면 다음과 같은 행렬을 유도한다. <span class="math display">\[x_{1}\otimes x_{2}:=x_{1}x_{2}^{T}.\]</span> 또한 공간 <span class="math inline">\(\mathbb{R}^{N}\otimes \mathbb{R}^{M}\)</span>은 위와 같은 원소들의 모든 유한한 선형 결합의 공간으로 정의할 수 있다. 다시 말하면 만약 <span class="math inline">\(\mathbf{A}\in\mathbb{R}^{N}\otimes \mathbb{R}^{M}\rightarrow\mathbb{R}\)</span>이면 <span class="math inline">\(J\)</span>개의 원소들 <span class="math inline">\(x_{1j}\in\mathbb{R}^{N}\)</span>, <span class="math inline">\(x_{2j}\in\mathbb{R}^{M}\)</span>이 존재해 <span class="math display">\[\mathbf{A}=\sum_{j=1}^{J}x_{1j}\otimes x_{2j}=\sum_{j=1}^{J}x_{1j}x_{2j}^{T}\]</span> 를 만족한다. 어떤 <span class="math inline">\(N\times M\)</span> 행렬도 이런 표현 방법으로 표현할 수 있으므로 <span class="math inline">\(\mathbb{R}^{N}\otimes \mathbb{R}^{M}=\mathbb{R}^{N\times M}\)</span>으로 표현할 수 있다. 이제 이 세번째 관점을 다른 공간에 대해서도 특정화해보자. 어떤 <span class="math inline">\(N\times M\)</span> 행렬 <span class="math inline">\(\mathbf{A}\)</span>는 다음과 같은 <span class="math display">\[\mathbf{A}(y_{1},y_{2}):=y_{1}^{T}\mathbf{A}y_{2}\]</span> 인 겹선형 mapping을 이끌어낸다. 따라서 공간 <span class="math inline">\(\mathbb{R}^{N}\otimes \mathbb{R}^{M}\)</span>은 모든 겹선형 map <span class="math inline">\(\mathbb{R}^{N}\times \mathbb{R}^{M}\rightarrow \mathbb{R}\)</span>들의 집합으로 identified될 수 있다. 오브젝트 <span class="math inline">\(x_{1}\otimes x_{2}\)</span>는 또한 다음과 같은 겹선형 mapping <span class="math display">\[(x_{1}\otimes x_{2})(y_{1},y_{2})=y_{1}^{T}x_{1}x_{2}^{T}y_{2}=(y_{1}^{T}x_{1})(y_{2}^{T}x_{2})\]</span> 로 identified될 수 있다.</p></li>
+<li><p><span class="math inline">\(\mathbb{R}^{N}\times \mathbb{R}^{M}\rightarrow\mathbb{R}\)</span>인 겹선형(bilinear) functional: 이차 형식에서 많이 다루는 형태이다. 다음과 같이 두 유클리드 공간 <span class="math inline">\(\mathcal{H}_{1}=\mathbb{R}^{N},\mathcal{H}_{2}=\mathbb{R}^{M}\)</span>가 있다고 하자. 두 개의 벡터 <span class="math inline">\(x_{1}\in\mathbb{R}^{N}\)</span>, <span class="math inline">\(x_{2}\in\mathbb{R}^{M}\)</span>에 <strong>텐서곱(tensor product)</strong>를 적용하면 다음과 같은 행렬을 유도한다.
+<span class="math display">\[x_{1}\otimes x_{2}:=x_{1}x_{2}^{T}.\]</span>
+또한 공간 <span class="math inline">\(\mathbb{R}^{N}\otimes \mathbb{R}^{M}\)</span>은 위와 같은 원소들의 모든 유한한 선형 결합의 공간으로 정의할 수 있다. 다시 말하면 만약 <span class="math inline">\(\mathbf{A}\in\mathbb{R}^{N}\otimes \mathbb{R}^{M}\rightarrow\mathbb{R}\)</span>이면 <span class="math inline">\(J\)</span>개의 원소들 <span class="math inline">\(x_{1j}\in\mathbb{R}^{N}\)</span>, <span class="math inline">\(x_{2j}\in\mathbb{R}^{M}\)</span>이 존재해
+<span class="math display">\[\mathbf{A}=\sum_{j=1}^{J}x_{1j}\otimes x_{2j}=\sum_{j=1}^{J}x_{1j}x_{2j}^{T}\]</span>
+를 만족한다. 어떤 <span class="math inline">\(N\times M\)</span> 행렬도 이런 표현 방법으로 표현할 수 있으므로 <span class="math inline">\(\mathbb{R}^{N}\otimes \mathbb{R}^{M}=\mathbb{R}^{N\times M}\)</span>으로 표현할 수 있다. 이제 이 세번째 관점을 다른 공간에 대해서도 특정화해보자. 어떤 <span class="math inline">\(N\times M\)</span> 행렬 <span class="math inline">\(\mathbf{A}\)</span>는 다음과 같은
+<span class="math display">\[\mathbf{A}(y_{1},y_{2}):=y_{1}^{T}\mathbf{A}y_{2}\]</span>
+인 겹선형 mapping을 이끌어낸다. 따라서 공간 <span class="math inline">\(\mathbb{R}^{N}\otimes \mathbb{R}^{M}\)</span>은 모든 겹선형 map <span class="math inline">\(\mathbb{R}^{N}\times \mathbb{R}^{M}\rightarrow \mathbb{R}\)</span>들의 집합으로 identified될 수 있다. 오브젝트 <span class="math inline">\(x_{1}\otimes x_{2}\)</span>는 또한 다음과 같은 겹선형 mapping
+<span class="math display">\[(x_{1}\otimes x_{2})(y_{1},y_{2})=y_{1}^{T}x_{1}x_{2}^{T}y_{2}=(y_{1}^{T}x_{1})(y_{2}^{T}x_{2})\]</span>
+로 identified될 수 있다.</p></li>
 </ol>
-<p>이러한 관점에서 텐서를 바라보자. 텐서는 스칼라들의 체가 연관된 공간에서의 cartesian 곱으로부터 오는 다중선형사상(multilinear map)이다. 만약 <span class="math inline">\(\{e_{1j} \}\)</span>와 <span class="math inline">\(\{e_{2j} \}\)</span>가 <span class="math inline">\(\mathbb{R}^{N}\)</span>과 <span class="math inline">\(\mathbb{R}^{M}\)</span>의 정규 기저들이라고 하자. 그러면 <span class="math inline">\(\{e_{1j}\otimes e_{2j} \}\)</span>는 <span class="math inline">\(\mathbb{R}^{N}\times \mathbb{R}^{M}\)</span>의 기저가 된다. 이런 방식으로 우리는 이 기저를 전통적인 행렬에도 적용할 수 있다. <span class="math display">\[\mathbf{A}(e_{1j}^{T}, e_{2k})=e_{1j}^{Y}\mathbf{A}e_{2k}=\mathbf{A}(j,k).\]</span></p>
+<p>이러한 관점에서 텐서를 바라보자. 텐서는 스칼라들의 체가 연관된 공간에서의 cartesian 곱으로부터 오는 다중선형사상(multilinear map)이다. 만약 <span class="math inline">\(\{e_{1j} \}\)</span>와 <span class="math inline">\(\{e_{2j} \}\)</span>가 <span class="math inline">\(\mathbb{R}^{N}\)</span>과 <span class="math inline">\(\mathbb{R}^{M}\)</span>의 정규 기저들이라고 하자. 그러면 <span class="math inline">\(\{e_{1j}\otimes e_{2j} \}\)</span>는 <span class="math inline">\(\mathbb{R}^{N}\times \mathbb{R}^{M}\)</span>의 기저가 된다. 이런 방식으로 우리는 이 기저를 전통적인 행렬에도 적용할 수 있다.
+<span class="math display">\[\mathbf{A}(e_{1j}^{T}, e_{2k})=e_{1j}^{Y}\mathbf{A}e_{2k}=\mathbf{A}(j,k).\]</span></p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-12" class="definition"><strong>Definition 2.8  (힐버트 공간에서의 텝서곱)  </strong></span><span class="math inline">\(x_{1}\in\mathcal{H}_{1}\)</span>과 <span class="math inline">\(x_{2}\in\mathcal{H}_{2}\)</span>를 두 실 힐버트 공간에서의 원소들이라고 하자. 그러면 텐서곱 <span class="math inline">\(x_{1}\otimes x_{2}: \mathcal{H}_{1}\times\mathcal{H}_{2} \rightarrow\mathbb{R}\)</span>은 겹선형 사상으로 어떤 <span class="math inline">\((y_{1},y_{2})\times \mathcal{H}_{1}\times \mathcal{H}_{2}\)</span>에 대해 <span class="math display">\[(x_{1}\otimes x_{2})(y_{1},y_{2})=\langle x_{1},y_{1}\rangle_{\mathcal{H}_{1}}\langle x_{2},y_{2}\rangle_{\mathcal{H}_{2}}\]</span> 로 정의된다.</p>
+<p><span id="def:unnamed-chunk-12" class="definition"><strong>Definition 2.8  (힐버트 공간에서의 텝서곱)  </strong></span><span class="math inline">\(x_{1}\in\mathcal{H}_{1}\)</span>과 <span class="math inline">\(x_{2}\in\mathcal{H}_{2}\)</span>를 두 실 힐버트 공간에서의 원소들이라고 하자. 그러면 텐서곱 <span class="math inline">\(x_{1}\otimes x_{2}: \mathcal{H}_{1}\times\mathcal{H}_{2} \rightarrow\mathbb{R}\)</span>은 겹선형 사상으로 어떤 <span class="math inline">\((y_{1},y_{2})\times \mathcal{H}_{1}\times \mathcal{H}_{2}\)</span>에 대해
+<span class="math display">\[(x_{1}\otimes x_{2})(y_{1},y_{2})=\langle x_{1},y_{1}\rangle_{\mathcal{H}_{1}}\langle x_{2},y_{2}\rangle_{\mathcal{H}_{2}}\]</span>
+로 정의된다.</p>
 </div>
 
 
@@ -874,7 +918,8 @@ a_{m1}\mathbf{B} &amp; \cdots &amp; a_{mn}\mathbf{B} \\
 3 &amp; 3 &amp; 3 &amp; 4 &amp; 4 &amp; 4\\
 3 &amp; 3 &amp; 6 &amp; 4 &amp; 4 &amp; 8\\
 \end{bmatrix},
-\]</span> <span class="math display">\[
+\]</span>
+<span class="math display">\[
 \begin{bmatrix}
 1 &amp; 1 &amp; 1\\
 1 &amp; 1 &amp; 1\\
@@ -900,7 +945,9 @@ a_{m1}\mathbf{B} &amp; \cdots &amp; a_{mn}\mathbf{B} \\
 </div>
 <div id="-cartesian-product" class="section level3">
 <h3><span class="header-section-number">2.3.5</span> 데카르트 곱(Cartesian product)</h3>
-<p>두 개의 집합 <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>가 있을 때, 이들의 <strong>데카르트 곱(Cartesian product)</strong> <span class="math inline">\(A\times B\)</span>는 <span class="math display">\[A\times B = \{ (a,b)| a\in A \text{ and } b \in B\}\]</span> 로 정의된다.</p>
+<p>두 개의 집합 <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>가 있을 때, 이들의 <strong>데카르트 곱(Cartesian product)</strong> <span class="math inline">\(A\times B\)</span>는
+<span class="math display">\[A\times B = \{ (a,b)| a\in A \text{ and } b \in B\}\]</span>
+로 정의된다.</p>
 </div>
 <div id="norm" class="section level3">
 <h3><span class="header-section-number">2.3.6</span> 노름(norm)</h3>
@@ -911,8 +958,12 @@ a_{m1}\mathbf{B} &amp; \cdots &amp; a_{mn}\mathbf{B} \\
 <p><span id="def:unnamed-chunk-14" class="definition"><strong>Definition 2.9  (노름과 노름공간)  </strong></span>벡터공간 <span class="math inline">\(X\)</span>에서 다음 세 조건들이 만족되면 함수 <span class="math inline">\(\|\cdot\|\)</span>을 <strong>노름(norm)</strong>이라 하고 또한 벡터공간 <span class="math inline">\(X\)</span>를 <strong>노름공간(normed space)</strong>라 한다.</p>
 <ol style="list-style-type: decimal">
 <li><p>임의의 <span class="math inline">\(\mathbf{x}\in X\)</span>, where <span class="math inline">\(\|\mathbf{x}\| \geq 0\)</span>이며 <span class="math inline">\(\|\mathbf{x}\|=0\)</span>이기 위한 필요충분조건은 <span class="math inline">\(\mathbf{x}=\mathbf{0}\)</span>이다.</p></li>
-<li><p>임의의 <span class="math inline">\(\mathbf{x}, \mathbf{y}\in X\)</span>에 대해 <span class="math display">\[\| \mathbf{x}+\mathbf{y}\|\leq \|\mathbf{x}\| + \|\mathbf{y}\|\]</span> 가 성립한다.</p></li>
-<li>임의의 스칼라 <span class="math inline">\(\alpha\)</span>와 임의의 <span class="math inline">\(\mathbf{x}\in X\)</span>에 대해 <span class="math display">\[\| \alpha \mathbf{x}\|=|\alpha| \|\mathbf{x}\|\]</span> 가 성립한다.</li>
+<li><p>임의의 <span class="math inline">\(\mathbf{x}, \mathbf{y}\in X\)</span>에 대해
+<span class="math display">\[\| \mathbf{x}+\mathbf{y}\|\leq \|\mathbf{x}\| + \|\mathbf{y}\|\]</span>
+가 성립한다.</p></li>
+<li>임의의 스칼라 <span class="math inline">\(\alpha\)</span>와 임의의 <span class="math inline">\(\mathbf{x}\in X\)</span>에 대해
+<span class="math display">\[\| \alpha \mathbf{x}\|=|\alpha| \|\mathbf{x}\|\]</span>
+가 성립한다.</li>
 </ol>
 </div>
 
@@ -954,7 +1005,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -966,6 +1017,10 @@ gitbook.start({
 "edit": {
 "link": "https://seoncheolpark.github.io/book/_book/01-math.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["book.pdf"],
 "toc": {
@@ -985,8 +1040,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

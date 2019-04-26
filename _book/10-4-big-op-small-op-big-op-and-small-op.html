@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>통계공부와 관련된 글들</title>
+  <title>10.4 Big Op와 small op (big Op and small op) | 통계공부와 관련된 글들</title>
   <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="통계공부와 관련된 글들" />
+  <meta property="og:title" content="10.4 Big Op와 small op (big Op and small op) | 통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="SeoncheolPark/book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="통계공부와 관련된 글들" />
+  <meta name="twitter:title" content="10.4 Big Op와 small op (big Op and small op) | 통계공부와 관련된 글들" />
   
   <meta name="twitter:description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다." />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-12-06">
+<meta name="date" content="2019-04-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="11-reg.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -50,41 +51,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -501,17 +528,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="part"><span><b>IV Quantile Regression and FDA</b></span></li>
 <li class="chapter" data-level="36" data-path="36-qr.html"><a href="36-qr.html"><i class="fa fa-check"></i><b>36</b> 분위수 회귀분석</a><ul>
-<li class="chapter" data-level="36.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html"><i class="fa fa-check"></i><b>36.1</b> 분위수 (quantile)</a></li>
-<li class="chapter" data-level="36.2" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html"><i class="fa fa-check"></i><b>36.2</b> 분위수 회귀분석의 기초(basics of quantile regression)</a><ul>
-<li class="chapter" data-level="36.2.1" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>36.2.1</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
-<li class="chapter" data-level="36.2.2" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--quantile-treatment-effect"><i class="fa fa-check"></i><b>36.2.2</b> 분위수 처리 효과(quantile treatment effect)</a></li>
-<li class="chapter" data-level="36.2.3" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
-<li class="chapter" data-level="36.2.4" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.2.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
+<li class="chapter" data-level="36.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html"><i class="fa fa-check"></i><b>36.1</b> 분위수 (quantile)</a><ul>
+<li class="chapter" data-level="36.1.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>36.1.1</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
+<li class="chapter" data-level="36.1.2" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--quantile-treatment-effect"><i class="fa fa-check"></i><b>36.1.2</b> 분위수 처리 효과(quantile treatment effect)</a></li>
+<li class="chapter" data-level="36.1.3" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.1.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
+<li class="chapter" data-level="36.1.4" data-path="36-1-quantile.html"><a href="36-1-quantile.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.1.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
 </ul></li>
-<li class="chapter" data-level="36.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.3</b> 극단회귀분석(extremal quantile regression)</a><ul>
-<li class="chapter" data-level="36.3.1" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.3.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
-<li class="chapter" data-level="36.3.2" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.3.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
-<li class="chapter" data-level="36.3.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.3.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
+<li class="chapter" data-level="36.2" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.2</b> 극단회귀분석(extremal quantile regression)</a><ul>
+<li class="chapter" data-level="36.2.1" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.2.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
+<li class="chapter" data-level="36.2.2" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.2.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
+<li class="chapter" data-level="36.2.3" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="37" data-path="37-functionestimation.html"><a href="37-functionestimation.html"><i class="fa fa-check"></i><b>37</b> 함수추정</a><ul>
@@ -546,7 +572,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="40.3.1" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#isotropy"><i class="fa fa-check"></i><b>40.3.1</b> 등방성(isotropy)</a></li>
 <li class="chapter" data-level="40.3.2" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#homogeneous"><i class="fa fa-check"></i><b>40.3.2</b> 동질성(homogeneous)</a></li>
 <li class="chapter" data-level="40.3.3" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#anisotropy"><i class="fa fa-check"></i><b>40.3.3</b> 이등방성(anisotropy)</a></li>
-<li class="chapter" data-level="40.3.4" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#z3--geometric-anisotropy"><i class="fa fa-check"></i><b>40.3.4</b> z3 기하학적 이등방성(Geometric anisotropy)</a></li>
 </ul></li>
 <li class="chapter" data-level="40.4" data-path="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><i class="fa fa-check"></i><b>40.4</b> 공간 확률과정의 연속성과 미분가능성(continuity and differentiabiliy of spatial stochastic process</a><ul>
 <li class="chapter" data-level="40.4.1" data-path="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html#path-continuity---path-differentiability"><i class="fa fa-check"></i><b>40.4.1</b> 경로연속(path-continuity) 또는 경로 미분가능성(path-differentiability)</a></li>
@@ -747,20 +772,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>확률변수들의 수열 <span class="math inline">\(X_{n},n=1,2,\ldots\)</span>이 <span class="math inline">\(O_{P}(1)\)</span>인 것을 다른 말로 <strong>bounded in probability</strong>라고 부른다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-187" class="definition"><strong>Definition 10.7  (big Op)  </strong></span>확률변수들의 수열 <span class="math inline">\(X_{n},n=1,2,\ldots\)</span>이 어떤 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math inline">\(M&gt;0, N\geq 1\)</span>이 존재해 <span class="math display">\[
+<p><span id="def:unnamed-chunk-187" class="definition"><strong>Definition 10.7  (big Op)  </strong></span>확률변수들의 수열 <span class="math inline">\(X_{n},n=1,2,\ldots\)</span>이 어떤 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math inline">\(M&gt;0, N\geq 1\)</span>이 존재해
+<span class="math display">\[
 \begin{equation}
 P(|X_{n}|\leq M)&gt; 1-\epsilon,\qquad{n\geq N}
 \end{equation}
-\]</span> 이면 <span class="math inline">\(X_{n}=O_{P}(1)\)</span>이라고 한다. <span class="math inline">\(a_{n}\)</span>을 양수들의 수열이라고 하자. 좀 더 일반적으로 <span class="math inline">\(X_{n}/a_{n}=O_{P}(1)\)</span>이라고 할 때 <span class="math inline">\(X_{n}=O_{P}(a_{n})\)</span>이다.</p>
+\]</span>
+이면 <span class="math inline">\(X_{n}=O_{P}(1)\)</span>이라고 한다. <span class="math inline">\(a_{n}\)</span>을 양수들의 수열이라고 하자. 좀 더 일반적으로 <span class="math inline">\(X_{n}/a_{n}=O_{P}(1)\)</span>이라고 할 때 <span class="math inline">\(X_{n}=O_{P}(a_{n})\)</span>이다.</p>
 </div>
 
 
 <div class="lemma">
-<p><span id="lem:unnamed-chunk-188" class="lemma"><strong>Lemma 10.6  </strong></span><span class="math inline">\(X_{n}=O_{P}(1)\)</span>인 것은 모든 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math inline">\(M&gt;0\)</span>이 존재해 <span class="math display">\[
+<p><span id="lem:unnamed-chunk-188" class="lemma"><strong>Lemma 10.6  </strong></span><span class="math inline">\(X_{n}=O_{P}(1)\)</span>인 것은 모든 <span class="math inline">\(\epsilon &gt;0\)</span>에 대해 <span class="math inline">\(M&gt;0\)</span>이 존재해
+<span class="math display">\[
 \begin{equation}
 P(|X_{n}|\leq M)&gt; 1-\epsilon,\qquad{n\geq 1}
 \end{equation}
-\]</span> 인 것과 동치이다.</p>
+\]</span>
+인 것과 동치이다.</p>
 </div>
 
 
@@ -771,43 +800,57 @@ P(|X_{n}|\leq M)&gt; 1-\epsilon,\qquad{n\geq 1}
 <p>다음은 <span class="citation">(Polansky <a href="#ref-Polansky2011">2011</a>)</span>의 8장의 예제들이다.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-190" class="example"><strong>Example 10.7  (이산확률변수의 small op (1))  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>를 독립 이산확률변수들의 수열이라고 하고 <span class="math inline">\(X_{n}\)</span>은 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 다음과 같은 확률밀도함수를 갖는다. <span class="math display">\[
+<p><span id="exm:unnamed-chunk-190" class="example"><strong>Example 10.7  (이산확률변수의 small op (1))  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>를 독립 이산확률변수들의 수열이라고 하고 <span class="math inline">\(X_{n}\)</span>은 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 다음과 같은 확률밀도함수를 갖는다.
+<span class="math display">\[
 f_{n}(x) := 
 \begin{cases}
 \frac{1}{2} &amp; x\in\{0,n^{-1}\} \\
 0 &amp; \text{otherwise.}\\
 \end{cases}
-\]</span> 이 때 <span class="math inline">\(n^{1/2}X_{n}\)</span>은 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 다음과 같은 확률밀도함수를 갖는다. <span class="math display">\[
+\]</span>
+이 때 <span class="math inline">\(n^{1/2}X_{n}\)</span>은 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 다음과 같은 확률밀도함수를 갖는다.
+<span class="math display">\[
 g_{n}(x) := 
 \begin{cases}
 \frac{1}{2} &amp; x\in\{0,n^{-1/2}\} \\
 0 &amp; \text{otherwise.}\\
 \end{cases}
-\]</span> 그러면 모든 <span class="math inline">\(\epsilon &gt; 0\)</span>에 대해 <span class="math display">\[\lim_{n\rightarrow\infty}P(n^{1/2}X_{n}&gt; \epsilon)\leq \lim_{n\rightarrow\infty}n^{-1/2}=0\]</span> 이 되어 정의에 의해 <span class="math inline">\(n^{1/2}X_{n} \stackrel{P}{\rightarrow}0\)</span>이다. 따라서 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(X_{n}=o_{p}(n^{-1/2})\)</span>이다. 이 때 <span class="math inline">\(X_{n}\)</span>은 <span class="math inline">\(o_{p}(n^{-1})\)</span>이 될 수 없는데 <span class="math inline">\(nX_{n}\)</span>이 모든 <span class="math inline">\(n\)</span>에서 베르누이(1/2) 분포를 따르게 되는데, 이 확률변수들은 <span class="math inline">\(n\)</span>에 의존하지 않기 때문이다.</p>
+\]</span>
+그러면 모든 <span class="math inline">\(\epsilon &gt; 0\)</span>에 대해
+<span class="math display">\[\lim_{n\rightarrow\infty}P(n^{1/2}X_{n}&gt; \epsilon)\leq \lim_{n\rightarrow\infty}n^{-1/2}=0\]</span>
+이 되어 정의에 의해 <span class="math inline">\(n^{1/2}X_{n} \stackrel{P}{\rightarrow}0\)</span>이다. 따라서 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(X_{n}=o_{p}(n^{-1/2})\)</span>이다. 이 때 <span class="math inline">\(X_{n}\)</span>은 <span class="math inline">\(o_{p}(n^{-1})\)</span>이 될 수 없는데 <span class="math inline">\(nX_{n}\)</span>이 모든 <span class="math inline">\(n\)</span>에서 베르누이(1/2) 분포를 따르게 되는데, 이 확률변수들은 <span class="math inline">\(n\)</span>에 의존하지 않기 때문이다.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-191" class="example"><strong>Example 10.8  (이산확률변수의 small op (2))  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>를 독립 이산확률변수들의 수열이라고 하고 <span class="math inline">\(X_{n}\)</span>은 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 다음과 같은 확률밀도함수를 갖는다. <span class="math display">\[
+<p><span id="exm:unnamed-chunk-191" class="example"><strong>Example 10.8  (이산확률변수의 small op (2))  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>를 독립 이산확률변수들의 수열이라고 하고 <span class="math inline">\(X_{n}\)</span>은 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 다음과 같은 확률밀도함수를 갖는다.
+<span class="math display">\[
 f_{n}(x) := 
 \begin{cases}
 \frac{1}{2} &amp; x\in\{0,n^{-1}\} \\
 0 &amp; \text{otherwise.}\\
 \end{cases}
-\]</span> 그리고 또 다른 독립 확률변수 <span class="math inline">\(Y_{n}\)</span>을 다음과 같은 확률밀도함수를 갖도록 정의한다. <span class="math display">\[
+\]</span>
+그리고 또 다른 독립 확률변수 <span class="math inline">\(Y_{n}\)</span>을 다음과 같은 확률밀도함수를 갖도록 정의한다.
+<span class="math display">\[
 g_{n}(x) := 
 \begin{cases}
 \frac{1}{2} &amp; x\in\{n^{-1/2},1\} \\
 0 &amp; \text{otherwise.}\\
 \end{cases}
-\]</span> 이 때 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 <span class="math inline">\(X_{n}\)</span>은 <span class="math inline">\(Y_{n}\)</span>와 독립이다. 다음과 같은 또 다른 확률변수들의 수열 <span class="math inline">\(\{Z_{n}\}_{n=1}^{\infty}, Z_{n}=X_{n}Y_{n}^{-1}\)</span>을 생각해보자. <span class="math inline">\(X_{n}\)</span>과 <span class="math inline">\(Y_{n}\)</span>은 독립이므로, <span class="math inline">\(Z_{n}\)</span>의 분포는 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에 대해 다음과 같다. <span class="math display">\[
+\]</span>
+이 때 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 <span class="math inline">\(X_{n}\)</span>은 <span class="math inline">\(Y_{n}\)</span>와 독립이다. 다음과 같은 또 다른 확률변수들의 수열 <span class="math inline">\(\{Z_{n}\}_{n=1}^{\infty}, Z_{n}=X_{n}Y_{n}^{-1}\)</span>을 생각해보자. <span class="math inline">\(X_{n}\)</span>과 <span class="math inline">\(Y_{n}\)</span>은 독립이므로, <span class="math inline">\(Z_{n}\)</span>의 분포는 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에 대해 다음과 같다.
+<span class="math display">\[
 h_{n}(x) := 
 \begin{cases}
 \frac{1}{2} &amp; z=0 \\
 \frac{1}{4} &amp; z\in \{n^{-1/2}, n^{-1}\} \\
 0 &amp; \text{otherwise.}\\
 \end{cases}
-\]</span> 그러면 모든 <span class="math inline">\(\epsilon &gt; 0\)</span>에 대해 <span class="math display">\[\lim_{n\rightarrow\infty}P(Z_{n}&gt; \epsilon)\leq \lim_{n\rightarrow\infty}n^{-1/2}=0\]</span> 이 되어 정의에 의해 <span class="math inline">\(Z_{n} \stackrel{P}{\rightarrow}0\)</span>이다. 따라서 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(X_{n}=o_{p}(Y_{n})\)</span>이다.</p>
+\]</span>
+그러면 모든 <span class="math inline">\(\epsilon &gt; 0\)</span>에 대해
+<span class="math display">\[\lim_{n\rightarrow\infty}P(Z_{n}&gt; \epsilon)\leq \lim_{n\rightarrow\infty}n^{-1/2}=0\]</span>
+이 되어 정의에 의해 <span class="math inline">\(Z_{n} \stackrel{P}{\rightarrow}0\)</span>이다. 따라서 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(X_{n}=o_{p}(Y_{n})\)</span>이다.</p>
 </div>
 
 
@@ -838,7 +881,9 @@ h_{n}(x) :=
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-196" class="example"><strong>Example 10.12  (정규분포에서의 BigOp)  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>가 독립 확률변수들의 수열이며 <span class="math inline">\(X_{n}\)</span>은 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 <span class="math inline">\(\mathcal{N}(0,n^{-1})\)</span>을 따른다고 하자. <span class="math inline">\(\varepsilon &gt;0\)</span>이고 <span class="math inline">\(b\)</span>가 어떤 양의 실수라고 하자. 그러면 <span class="math display">\[\lim_{n\rightarrow\infty}P(|X_{n}|&lt;b)=\lim_{n\rightarrow\infty}P(|Z|\leq n^{1/2}b)=1\]</span> 이 된다. 이 때 <span class="math inline">\(Z\)</span>는 표준정규분포를 따르는 확률변수이다. 그러면 양의 실수 <span class="math inline">\(b_{\varepsilon}\)</span>과 양의 정수 <span class="math inline">\(n_{\varepsilon}\)</span>이 존재해 모든 <span class="math inline">\(n&gt;n_{\varepsilon}\)</span>인 모든 <span class="math inline">\(n\)</span>에서 <span class="math inline">\(P(|X_{n}|\leq b_{\varepsilon})&gt;1-\varepsilon\)</span>이며 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(X_{n}=O_{p}(1)\)</span>이다.</p>
+<p><span id="exm:unnamed-chunk-196" class="example"><strong>Example 10.12  (정규분포에서의 BigOp)  </strong></span><span class="math inline">\(\{X_{n}\}_{n=1}^{\infty}\)</span>가 독립 확률변수들의 수열이며 <span class="math inline">\(X_{n}\)</span>은 모든 <span class="math inline">\(n\in\mathbb{N}\)</span>에서 <span class="math inline">\(\mathcal{N}(0,n^{-1})\)</span>을 따른다고 하자. <span class="math inline">\(\varepsilon &gt;0\)</span>이고 <span class="math inline">\(b\)</span>가 어떤 양의 실수라고 하자. 그러면
+<span class="math display">\[\lim_{n\rightarrow\infty}P(|X_{n}|&lt;b)=\lim_{n\rightarrow\infty}P(|Z|\leq n^{1/2}b)=1\]</span>
+이 된다. 이 때 <span class="math inline">\(Z\)</span>는 표준정규분포를 따르는 확률변수이다. 그러면 양의 실수 <span class="math inline">\(b_{\varepsilon}\)</span>과 양의 정수 <span class="math inline">\(n_{\varepsilon}\)</span>이 존재해 모든 <span class="math inline">\(n&gt;n_{\varepsilon}\)</span>인 모든 <span class="math inline">\(n\)</span>에서 <span class="math inline">\(P(|X_{n}|\leq b_{\varepsilon})&gt;1-\varepsilon\)</span>이며 <span class="math inline">\(n\rightarrow\infty\)</span>일 때 <span class="math inline">\(X_{n}=O_{p}(1)\)</span>이다.</p>
 </div>
 
 
@@ -906,7 +951,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -918,6 +963,10 @@ gitbook.start({
 "edit": {
 "link": "https://seoncheolpark.github.io/book/_book/10-bigOsmallO.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["book.pdf"],
 "toc": {
@@ -937,8 +986,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

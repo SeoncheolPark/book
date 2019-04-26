@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>통계공부와 관련된 글들</title>
+  <title>41.1 덩어리 효과(nugget effect) | 통계공부와 관련된 글들</title>
   <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="통계공부와 관련된 글들" />
+  <meta property="og:title" content="41.1 덩어리 효과(nugget effect) | 통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="SeoncheolPark/book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="통계공부와 관련된 글들" />
+  <meta name="twitter:title" content="41.1 덩어리 효과(nugget effect) | 통계공부와 관련된 글들" />
   
   <meta name="twitter:description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다." />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-12-06">
+<meta name="date" content="2019-04-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="41-2-idealized-shape-of-variogram-isotropic-case.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -50,41 +51,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -501,17 +528,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="part"><span><b>IV Quantile Regression and FDA</b></span></li>
 <li class="chapter" data-level="36" data-path="36-qr.html"><a href="36-qr.html"><i class="fa fa-check"></i><b>36</b> 분위수 회귀분석</a><ul>
-<li class="chapter" data-level="36.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html"><i class="fa fa-check"></i><b>36.1</b> 분위수 (quantile)</a></li>
-<li class="chapter" data-level="36.2" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html"><i class="fa fa-check"></i><b>36.2</b> 분위수 회귀분석의 기초(basics of quantile regression)</a><ul>
-<li class="chapter" data-level="36.2.1" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>36.2.1</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
-<li class="chapter" data-level="36.2.2" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--quantile-treatment-effect"><i class="fa fa-check"></i><b>36.2.2</b> 분위수 처리 효과(quantile treatment effect)</a></li>
-<li class="chapter" data-level="36.2.3" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
-<li class="chapter" data-level="36.2.4" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.2.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
+<li class="chapter" data-level="36.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html"><i class="fa fa-check"></i><b>36.1</b> 분위수 (quantile)</a><ul>
+<li class="chapter" data-level="36.1.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>36.1.1</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
+<li class="chapter" data-level="36.1.2" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--quantile-treatment-effect"><i class="fa fa-check"></i><b>36.1.2</b> 분위수 처리 효과(quantile treatment effect)</a></li>
+<li class="chapter" data-level="36.1.3" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.1.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
+<li class="chapter" data-level="36.1.4" data-path="36-1-quantile.html"><a href="36-1-quantile.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.1.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
 </ul></li>
-<li class="chapter" data-level="36.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.3</b> 극단회귀분석(extremal quantile regression)</a><ul>
-<li class="chapter" data-level="36.3.1" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.3.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
-<li class="chapter" data-level="36.3.2" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.3.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
-<li class="chapter" data-level="36.3.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.3.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
+<li class="chapter" data-level="36.2" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.2</b> 극단회귀분석(extremal quantile regression)</a><ul>
+<li class="chapter" data-level="36.2.1" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.2.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
+<li class="chapter" data-level="36.2.2" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.2.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
+<li class="chapter" data-level="36.2.3" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="37" data-path="37-functionestimation.html"><a href="37-functionestimation.html"><i class="fa fa-check"></i><b>37</b> 함수추정</a><ul>
@@ -546,7 +572,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="40.3.1" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#isotropy"><i class="fa fa-check"></i><b>40.3.1</b> 등방성(isotropy)</a></li>
 <li class="chapter" data-level="40.3.2" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#homogeneous"><i class="fa fa-check"></i><b>40.3.2</b> 동질성(homogeneous)</a></li>
 <li class="chapter" data-level="40.3.3" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#anisotropy"><i class="fa fa-check"></i><b>40.3.3</b> 이등방성(anisotropy)</a></li>
-<li class="chapter" data-level="40.3.4" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#z3--geometric-anisotropy"><i class="fa fa-check"></i><b>40.3.4</b> z3 기하학적 이등방성(Geometric anisotropy)</a></li>
 </ul></li>
 <li class="chapter" data-level="40.4" data-path="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><i class="fa fa-check"></i><b>40.4</b> 공간 확률과정의 연속성과 미분가능성(continuity and differentiabiliy of spatial stochastic process</a><ul>
 <li class="chapter" data-level="40.4.1" data-path="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html#path-continuity---path-differentiability"><i class="fa fa-check"></i><b>40.4.1</b> 경로연속(path-continuity) 또는 경로 미분가능성(path-differentiability)</a></li>
@@ -745,17 +770,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="-nugget-effect" class="section level2">
 <h2><span class="header-section-number">41.1</span> 덩어리 효과(nugget effect)</h2>
 <p><strong>덩어리 효과(nugget effect)</strong>란 공간자료분석에서 흔히 나타나는 특징 중 하나이다.</p>
-<p>일반적으로 공간자료 모델링은 다음과 같이 한다. <span class="math display">\[Y(\mathbf{s})=\mu(\mathbf{s})+Z(\mathbf{s})+\epsilon(\mathbf{s}).\]</span> 여기서 <span class="math inline">\(Y(\mathbf{s})\)</span>는 <strong>관측과정(observed process)</strong>, <span class="math inline">\(\mu(\mathbf{s})=E(Y(\mathbf{s}))\)</span>는 <strong>결정적 평균 함수(deterministic mean function)</strong>, <span class="math inline">\(Z(\mathbf{s})\)</span>는 <strong>순수 공간과정(spatial process)</strong>, 마지막으로 <span class="math inline">\(\epsilon(\mathbf{s})\)</span>는 <strong>나머지 설명되지 않은 항(remaining unexplained term)</strong>이다. 일종의 백색잡음(white noise)이라고 생각해도 좋다. 그리고 <span class="math inline">\(Z(\mathbf{s}) \bot \epsilon(\mathbf{s})\)</span>이다.</p>
-<p><span class="math inline">\(\epsilon(\mathbf{s})\)</span>에 대해 공분산을 생각해보면, <span class="math display">\[
+<p>일반적으로 공간자료 모델링은 다음과 같이 한다.
+<span class="math display">\[Y(\mathbf{s})=\mu(\mathbf{s})+Z(\mathbf{s})+\epsilon(\mathbf{s}).\]</span>
+여기서 <span class="math inline">\(Y(\mathbf{s})\)</span>는 <strong>관측과정(observed process)</strong>, <span class="math inline">\(\mu(\mathbf{s})=E(Y(\mathbf{s}))\)</span>는 <strong>결정적 평균 함수(deterministic mean function)</strong>, <span class="math inline">\(Z(\mathbf{s})\)</span>는 <strong>순수 공간과정(spatial process)</strong>, 마지막으로 <span class="math inline">\(\epsilon(\mathbf{s})\)</span>는 <strong>나머지 설명되지 않은 항(remaining unexplained term)</strong>이다. 일종의 백색잡음(white noise)이라고 생각해도 좋다. 그리고 <span class="math inline">\(Z(\mathbf{s}) \bot \epsilon(\mathbf{s})\)</span>이다.</p>
+<p><span class="math inline">\(\epsilon(\mathbf{s})\)</span>에 대해 공분산을 생각해보면,
+<span class="math display">\[
 \text{COV}(\epsilon(\mathbf{s}),\epsilon(\mathbf{s}+\mathbf{h}))= \left\{ \begin{array}{ll}
 \sigma_{\epsilon}^{2} &amp; \textrm{if $\mathbf{h}$=0}\\
 0 &amp; \textrm{o.w.}
 \end{array} \right.
-\]</span> 인데 여기서 <span class="math inline">\(\sigma_{\epsilon}^{2}\)</span>을 <strong>덩어리(nugget)</strong>이라고 한다. 그리고 이러한 <span class="math inline">\(\epsilon(\mathbf{s})\)</span>가 있는게 <strong>덩어리 효과(nugget effect)</strong>가 있다고 한다.</p>
+\]</span>
+인데 여기서 <span class="math inline">\(\sigma_{\epsilon}^{2}\)</span>을 <strong>덩어리(nugget)</strong>이라고 한다. 그리고 이러한 <span class="math inline">\(\epsilon(\mathbf{s})\)</span>가 있는게 <strong>덩어리 효과(nugget effect)</strong>가 있다고 한다.</p>
 <p>그렇다면 왜 이름이 덩어리인지 생각해 볼 필요가 있다. ‘Nugget’은 ’조그만 덩어리’ 라는 이름의 영어로, 금광 채굴 문제에서 유래했다고 한다. 유전 발굴과 같은 경우에는 변동성이 작아 어느 지점에서 유전이 발견되면 그 주변에서도 높은 확률로 유전이 발견되지만, 금광의 경우는 microscale variability가 있어 어느 지점에서 발견되었다 하더라도 주변에는 금광이 없을 수도 있다는 것이다.</p>
-<p>또 다른 관점으로도 덩어리 효과를 표현할 수 있다. 극한값에서 생각을 해 보면 <span class="math display">\[C(\mathbf{0})-C(\mathbf{h})=\gamma(\mathbf{h})=\frac{1}{2}\text{Var}(Z(\mathbf{s}+\mathbf{h})-Z(\mathbf{s}))\]</span> 로 표현할 수 있는데, 덩어리 효가 존재할 경우 <span class="math display">\[\lim_{\mathbf{h}\rightarrow \mathbf{0}}\gamma(\mathbf{h})=\gamma_{0} &gt;0\]</span> 일 수도 있다는 것이다. 이떄 이 <span class="math inline">\(\gamma_{0}\)</span>가 덩어리 효에 대응되는 것이다.</p>
+<p>또 다른 관점으로도 덩어리 효과를 표현할 수 있다. 극한값에서 생각을 해 보면
+<span class="math display">\[C(\mathbf{0})-C(\mathbf{h})=\gamma(\mathbf{h})=\frac{1}{2}\text{Var}(Z(\mathbf{s}+\mathbf{h})-Z(\mathbf{s}))\]</span>
+로 표현할 수 있는데, 덩어리 효가 존재할 경우
+<span class="math display">\[\lim_{\mathbf{h}\rightarrow \mathbf{0}}\gamma(\mathbf{h})=\gamma_{0} &gt;0\]</span>
+일 수도 있다는 것이다. 이떄 이 <span class="math inline">\(\gamma_{0}\)</span>가 덩어리 효에 대응되는 것이다.</p>
 <p>평균제곱과정(mean square process)인 경우 공분산이 <span class="math inline">\(\mathbf{h}=\mathbf{0}\)</span>일 때 연속이어야 한다. 따라서 평균제곱이며 연속인 공간과정 <span class="math inline">\(Z(\mathbf{s})\)</span>의 경우 이러한 현상이 존재 할 수 없고 <span class="math inline">\(\epsilon(\mathbf{s})\)</span>는 <span class="math inline">\(\mathbf{h}=\mathbf{0}\)</span>일 때 불연속일 수 있고 <span class="math inline">\(Z(\mathbf{s}) \bot \epsilon(\mathbf{s})\)</span>이므로 덩어리 효과가 존재할 수 있는 것이다.</p>
-<p>그런데 앞서 또 다른 관점으로 설명할 때 <span class="math inline">\(\sigma_{\epsilon}^{2}\)</span> 대신 <span class="math inline">\(\gamma_{0}\)</span>이라는 표기를 썼는데 그 이유는 측정 오류(measurement error)가 존재할 수도 있기 때문이다. 엄밀히 얘기하면 <span class="math display">\[\sigma_{\epsilon}^{2}=\text{measurement error variance } + \text{ 순수한 microscale error variance}\]</span> 로 표현할 수 있는데 공간자료의 경우 반복관찰이 없어 집합이 1개이므로 이 둘을 따로 구분해서 측정하는 것이 불가능하다. 여러 번 측정할 수 있으면 둘을 구분해서 추정할 수 있다고 한다. (독립인 자료의 경우)</p>
+<p>그런데 앞서 또 다른 관점으로 설명할 때 <span class="math inline">\(\sigma_{\epsilon}^{2}\)</span> 대신 <span class="math inline">\(\gamma_{0}\)</span>이라는 표기를 썼는데 그 이유는 측정 오류(measurement error)가 존재할 수도 있기 때문이다. 엄밀히 얘기하면
+<span class="math display">\[\sigma_{\epsilon}^{2}=\text{measurement error variance } + \text{ 순수한 microscale error variance}\]</span>
+로 표현할 수 있는데 공간자료의 경우 반복관찰이 없어 집합이 1개이므로 이 둘을 따로 구분해서 측정하는 것이 불가능하다. 여러 번 측정할 수 있으면 둘을 구분해서 추정할 수 있다고 한다. (독립인 자료의 경우)</p>
 <p>그렇다면 언제 반복이 있느냐? 시공간 자료(spatio-temporal data)에서 시간(temporal) 정보를 다 빼냈을 경우 반복이 있는 자료라 생각할 수 있고 이 둘을 구분하여 추정할 수 있다고 한다.</p>
 </div>
             </section>
@@ -784,7 +819,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -796,6 +831,10 @@ gitbook.start({
 "edit": {
 "link": "https://seoncheolpark.github.io/book/_book/74-covmodel.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["book.pdf"],
 "toc": {
@@ -815,8 +854,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

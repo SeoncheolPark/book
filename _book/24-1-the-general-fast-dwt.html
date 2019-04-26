@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>통계공부와 관련된 글들</title>
+  <title>24.1 일반적인 이산 웨이블릿 변환(the general fast DWT) | 통계공부와 관련된 글들</title>
   <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="통계공부와 관련된 글들" />
+  <meta property="og:title" content="24.1 일반적인 이산 웨이블릿 변환(the general fast DWT) | 통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="SeoncheolPark/book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="통계공부와 관련된 글들" />
+  <meta name="twitter:title" content="24.1 일반적인 이산 웨이블릿 변환(the general fast DWT) | 통계공부와 관련된 글들" />
   
   <meta name="twitter:description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다." />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-12-06">
+<meta name="date" content="2019-04-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="24-2-the-epsilon-decimated-wavelet-transform.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -50,41 +51,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -501,17 +528,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="part"><span><b>IV Quantile Regression and FDA</b></span></li>
 <li class="chapter" data-level="36" data-path="36-qr.html"><a href="36-qr.html"><i class="fa fa-check"></i><b>36</b> 분위수 회귀분석</a><ul>
-<li class="chapter" data-level="36.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html"><i class="fa fa-check"></i><b>36.1</b> 분위수 (quantile)</a></li>
-<li class="chapter" data-level="36.2" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html"><i class="fa fa-check"></i><b>36.2</b> 분위수 회귀분석의 기초(basics of quantile regression)</a><ul>
-<li class="chapter" data-level="36.2.1" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>36.2.1</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
-<li class="chapter" data-level="36.2.2" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--quantile-treatment-effect"><i class="fa fa-check"></i><b>36.2.2</b> 분위수 처리 효과(quantile treatment effect)</a></li>
-<li class="chapter" data-level="36.2.3" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
-<li class="chapter" data-level="36.2.4" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.2.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
+<li class="chapter" data-level="36.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html"><i class="fa fa-check"></i><b>36.1</b> 분위수 (quantile)</a><ul>
+<li class="chapter" data-level="36.1.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>36.1.1</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
+<li class="chapter" data-level="36.1.2" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--quantile-treatment-effect"><i class="fa fa-check"></i><b>36.1.2</b> 분위수 처리 효과(quantile treatment effect)</a></li>
+<li class="chapter" data-level="36.1.3" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.1.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
+<li class="chapter" data-level="36.1.4" data-path="36-1-quantile.html"><a href="36-1-quantile.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.1.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
 </ul></li>
-<li class="chapter" data-level="36.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.3</b> 극단회귀분석(extremal quantile regression)</a><ul>
-<li class="chapter" data-level="36.3.1" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.3.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
-<li class="chapter" data-level="36.3.2" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.3.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
-<li class="chapter" data-level="36.3.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.3.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
+<li class="chapter" data-level="36.2" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.2</b> 극단회귀분석(extremal quantile regression)</a><ul>
+<li class="chapter" data-level="36.2.1" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.2.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
+<li class="chapter" data-level="36.2.2" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.2.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
+<li class="chapter" data-level="36.2.3" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="37" data-path="37-functionestimation.html"><a href="37-functionestimation.html"><i class="fa fa-check"></i><b>37</b> 함수추정</a><ul>
@@ -546,7 +572,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="40.3.1" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#isotropy"><i class="fa fa-check"></i><b>40.3.1</b> 등방성(isotropy)</a></li>
 <li class="chapter" data-level="40.3.2" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#homogeneous"><i class="fa fa-check"></i><b>40.3.2</b> 동질성(homogeneous)</a></li>
 <li class="chapter" data-level="40.3.3" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#anisotropy"><i class="fa fa-check"></i><b>40.3.3</b> 이등방성(anisotropy)</a></li>
-<li class="chapter" data-level="40.3.4" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#z3--geometric-anisotropy"><i class="fa fa-check"></i><b>40.3.4</b> z3 기하학적 이등방성(Geometric anisotropy)</a></li>
 </ul></li>
 <li class="chapter" data-level="40.4" data-path="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><i class="fa fa-check"></i><b>40.4</b> 공간 확률과정의 연속성과 미분가능성(continuity and differentiabiliy of spatial stochastic process</a><ul>
 <li class="chapter" data-level="40.4.1" data-path="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html#path-continuity---path-differentiability"><i class="fa fa-check"></i><b>40.4.1</b> 경로연속(path-continuity) 또는 경로 미분가능성(path-differentiability)</a></li>
@@ -748,48 +773,57 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="--the-forward-transform-in-dwt" class="section level3">
 <h3><span class="header-section-number">24.1.1</span> 이산웨이블릿 변환에서의 전방변환(the forward transform in DWT)</h3>
 <p>다음과 같은 함수 <span class="math inline">\(f(x)\in L^{2}(\mathbb{R})\)</span>이 있다고 하자. 그러면 레벨 <span class="math inline">\(J\)</span>의 웨이블릿 계수로부터 레벨 <span class="math inline">\(J-1\)</span>의 웨이블릿 계수를 어떻게 구할 수 있을까? 일단 다시한 번 <span class="math inline">\(J-1\)</span> 레벨의 척도웨이블릿 (또는 부웨이블릿) <span class="math inline">\(c\)</span>를 구하는 방법에 대해 생각해보자.</p>
-<span class="math display" id="eq:fatherj1">\[\begin{equation}
+<p><span class="math display" id="eq:fatherj1">\[\begin{equation}
 c_{J-1,k}=\int_{\mathbb{R}}f(x)\phi_{J-1,k}(x)dx
 \tag{23.1}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>왜냐하면 <span class="math inline">\(\{ \phi_{J-1,k(x)}\}_{k}\)</span>가 <span class="math inline">\(V_{j-1}\)</span>의 직교정규기저이기 때문이다. (?) (<span class="math inline">\(\phi\)</span>: 척도함수 또는 부웨이블릿) 이제 <span class="math inline">\(J-1\)</span> 레벨의 <span class="math inline">\(\phi_{J-1,k}(x)\)</span>를 <span class="math inline">\(\phi_{J,l}(x)\)</span>와 dilation eqn <span class="math inline">\(\phi(x)=\sum_{n\in\mathbb{Z}}h_{n}\phi_{1n}(x)\)</span>를 이용해 나타내보자.</p>
-<span class="math display" id="eq:fatherj2">\[\begin{eqnarray}
+<p><span class="math display" id="eq:fatherj2">\[\begin{eqnarray}
 \phi_{J-1,k}(x)&amp;=&amp;s^{(J-1)/2}\phi(2^{J-1}x-k)\nonumber\\
 &amp;=&amp;2^{(J-1)/2}\sum_{n}h_{n}\phi_{1,n}(2^{J-1}x-k)\nonumber\\
 &amp;=&amp;2^{(J-1)/2}\sum_{n}h_{n}2^{1/2}\phi\{2(2^{J-1}x-k)-n\}\nonumber\\
 &amp;=&amp;2^{J/2}\sum_{n}h_{n}\phi(2^{J}x-2k-n)\nonumber\\ 
 &amp;=&amp;\sum_{n}h_{n}\phi_{J,n+2k}(x).
 \tag{23.2}
-\end{eqnarray}\]</span>
+\end{eqnarray}\]</span></p>
 <p>이 때 위 식에 <a href="24-1-the-general-fast-dwt.html#eq:fatherj1">(23.1)</a>을 넣으면</p>
-<span class="math display" id="eq:fatherj3">\[\begin{eqnarray}
+<p><span class="math display" id="eq:fatherj3">\[\begin{eqnarray}
 c_{J-1,k}&amp;=&amp;\int_{\mathbb{R}}f(x)\sum_{n}h_{n}\phi_{J,n+2k}(x)dx\nonumber\\
 &amp;=&amp;\sum_{n}h_{n}\int_{\mathbb{R}}f(x)\phi_{J,n+2k}(x)dx\nonumber\\
 &amp;+&amp;\sum_{n}h_{n}c_{J,n+2k}
 \tag{23.3}
-\end{eqnarray}\]</span>
+\end{eqnarray}\]</span></p>
 <p>이며, 약간 재조정하면</p>
-<span class="math display" id="eq:fatherj4">\[\begin{equation}
+<p><span class="math display" id="eq:fatherj4">\[\begin{equation}
 c_{J-1,k}=\sum_{n}h_{n-2k}c_{J,n}
 \tag{23.4}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>으로 쓸 수 있다. 같은원리로</p>
-<span class="math display" id="eq:motherj1">\[\begin{equation}
+<p><span class="math display" id="eq:motherj1">\[\begin{equation}
 d_{J-1,k}=\sum_{n}g_{n-2k}c_{J,n}
 \tag{23.5}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>을 얻을 수 있다고 한다.</p>
 </div>
 <div id="----filtering-dyadic-decimation-downscaling" class="section level3">
 <h3><span class="header-section-number">24.1.2</span> 필터링, 이진 데시메이션, 그리고 다운스케일링(filtering, dyadic decimation, downscaling)</h3>
-<p>앞서 언급한 <a href="24-1-the-general-fast-dwt.html#eq:fatherj4">(23.4)</a>, <a href="24-1-the-general-fast-dwt.html#eq:motherj1">(23.5)</a>을 다른 방법으로 생각해 볼 수도 있다. 예를 들면, 우리는 <a href="24-1-the-general-fast-dwt.html#eq:fatherj4">(23.4)</a>와 같은 결과를 처음에 수열 <span class="math inline">\(\{c_{J,n}\}\)</span>에 대해 <span class="math inline">\(\{h_{n}\}\)</span>이라는 필터를 적용함으로써 <span class="math display">\[c_{J-1,k}^{*}=\sum_{n}h_{n-k}c_{J,n}\]</span> 이라는 결과를 얻을 수 있다는 것이다. 이는 일반적인 convolution 식이다. 여기서 ’every other one’을 pick해 <span class="math inline">\(c_{J-1,k}=c_{J-1,2k}^{*}\)</span>을 만드는 것이다. 이 연산을 <strong>이진 데시메이션(dyadic decimation)</strong>이라고 한다(by an integer factor of 2).</p>
+<p>앞서 언급한 <a href="24-1-the-general-fast-dwt.html#eq:fatherj4">(23.4)</a>, <a href="24-1-the-general-fast-dwt.html#eq:motherj1">(23.5)</a>을 다른 방법으로 생각해 볼 수도 있다. 예를 들면, 우리는 <a href="24-1-the-general-fast-dwt.html#eq:fatherj4">(23.4)</a>와 같은 결과를 처음에 수열 <span class="math inline">\(\{c_{J,n}\}\)</span>에 대해 <span class="math inline">\(\{h_{n}\}\)</span>이라는 필터를 적용함으로써
+<span class="math display">\[c_{J-1,k}^{*}=\sum_{n}h_{n-k}c_{J,n}\]</span>
+이라는 결과를 얻을 수 있다는 것이다. 이는 일반적인 convolution 식이다. 여기서 ’every other one’을 pick해 <span class="math inline">\(c_{J-1,k}=c_{J-1,2k}^{*}\)</span>을 만드는 것이다. 이 연산을 <strong>이진 데시메이션(dyadic decimation)</strong>이라고 한다(by an integer factor of 2).</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-283" class="definition"><strong>Definition 23.2  (이진 데시메이션)  </strong></span><strong>(even dyddic decimation operator)</strong> 어떤 수열 <span class="math inline">\(x_{i}\)</span>에 대한 <strong>(even) 이진 데시메이션 연산자(dyadic decimation operator)</strong> <span class="math inline">\(\mathcal{D}_{0}\)</span>는 <span class="math display">\[(\mathcal{D}_{0}x)_{l}=x_{2l}\]</span> 로 정의한다.
+<span id="def:unnamed-chunk-283" class="definition"><strong>Definition 23.2  (이진 데시메이션)  </strong></span><strong>(even dyddic decimation operator)</strong> 어떤 수열 <span class="math inline">\(x_{i}\)</span>에 대한 <strong>(even) 이진 데시메이션 연산자(dyadic decimation operator)</strong> <span class="math inline">\(\mathcal{D}_{0}\)</span>는
+<span class="math display">\[(\mathcal{D}_{0}x)_{l}=x_{2l}\]</span>
+로 정의한다.
 </div>
 
-<p>그러면 식 <a href="24-1-the-general-fast-dwt.html#eq:fatherj4">(23.4)</a>와 <a href="24-1-the-general-fast-dwt.html#eq:motherj1">(23.5)</a>는 (even) 이진 데시메이션 연산자를 활용해 <span class="math display">\[c_{J-1}=\mathcal{D}_{0}\mathcal{H}c_{J} \text{ and } d_{J-1}=\mathcal{D}_{0}\mathcal{G}c_{J}\]</span> 로 나타낼 수 있다. 이 때 <span class="math inline">\(\mathcal{H}\)</span>와 <span class="math inline">\(\mathcal{G}\)</span>는 <strong>정규 필터링 연산(regular filtering operation)</strong>을 나타낸다. 이러한 연산자의 사용은 식의 표현을 좀 더 효율적으로 만든다.</p>
-<p>이를 응용해, DWT 계수들의 전체집합은 <span class="math display">\[d_{j}=\mathcal{D}_{0}\mathcal{G}(\mathcal{D}_{0}\mathcal{H})^{J-j-1}c_{J},\]</span> <span class="math display">\[c_{j}=(\mathcal{D}_{0}\mathcal{H})^{J-j}c_{J}\]</span> 로 표현할 수 있다. (<span class="math inline">\(j=0,\ldots , J-1\)</span>) 이 때 <span class="math inline">\(d_{j}\)</span>, <span class="math inline">\(c_{j}\)</span>는 길이 <span class="math inline">\(2^{j}\)</span>인 벡터임을 상기하자.</p>
+<p>그러면 식 <a href="24-1-the-general-fast-dwt.html#eq:fatherj4">(23.4)</a>와 <a href="24-1-the-general-fast-dwt.html#eq:motherj1">(23.5)</a>는 (even) 이진 데시메이션 연산자를 활용해
+<span class="math display">\[c_{J-1}=\mathcal{D}_{0}\mathcal{H}c_{J} \text{ and } d_{J-1}=\mathcal{D}_{0}\mathcal{G}c_{J}\]</span>
+로 나타낼 수 있다. 이 때 <span class="math inline">\(\mathcal{H}\)</span>와 <span class="math inline">\(\mathcal{G}\)</span>는 <strong>정규 필터링 연산(regular filtering operation)</strong>을 나타낸다. 이러한 연산자의 사용은 식의 표현을 좀 더 효율적으로 만든다.</p>
+<p>이를 응용해, DWT 계수들의 전체집합은
+<span class="math display">\[d_{j}=\mathcal{D}_{0}\mathcal{G}(\mathcal{D}_{0}\mathcal{H})^{J-j-1}c_{J},\]</span>
+<span class="math display">\[c_{j}=(\mathcal{D}_{0}\mathcal{H})^{J-j}c_{J}\]</span>
+로 표현할 수 있다. (<span class="math inline">\(j=0,\ldots , J-1\)</span>) 이 때 <span class="math inline">\(d_{j}\)</span>, <span class="math inline">\(c_{j}\)</span>는 길이 <span class="math inline">\(2^{j}\)</span>인 벡터임을 상기하자.</p>
 <p>이런 벡터/연산자 개념은 유용하며 계산 단위들 <span class="math inline">\(\mathcal{D}_{0}\mathcal{G}\)</span>, <span class="math inline">\(\mathcal{D}_{0}\mathcal{H}\)</span>가 컴퓨터 프로그램 안에서 부품화(compartmentalized)될 수 있어 쉽게 개발이 가능하다는 장점이 있다. 이러한 표현은 수학적으로 자유롭게 하고 비-데시메이티드 웨이블릿과 같은 좀 더 복잡한 알고리즘을 개발할 때 더 유용하게 사용할 수 있다.</p>
 </div>
 <div id="---obtaining-the-initial-fine-scale-father-coefficients" class="section level3">
@@ -799,21 +833,21 @@ d_{J-1,k}=\sum_{n}g_{n-2k}c_{J,n}
 <li><strong>결정적 방법(deterministic approach)</strong>은 <span class="citation">(Daubechies <a href="#ref-Daubechies1992">1992</a>)</span>의 5장에 묘사되어 있다. 우리의 함수에 관한 정보가 표본으로부터 온다고 가정해보다. 즉 함수 <span class="math inline">\(f\)</span>의 정보는 정수로 표현되는 함수값들 <span class="math inline">\(f(n),n\in\mathbb{Z}\)</span>로부터 오는 것이다. 우리가 <span class="math inline">\(f\in V_{0}\)</span>의 부웨이블릿 계수들을 얻고자 한다고 가정해보자. (<span class="math inline">\(V_{0}\)</span>와 직교인 정보는 실제 <span class="math inline">\(f\)</span>가 <span class="math inline">\(V_{0}\)</span> 안에 있는지와는 상관없이 복원될 수 없다.)</li>
 </ol>
 <p>이제 <span class="math inline">\(f\in V_{0}\)</span>이므로 우리는</p>
-<span class="math display">\[\begin{equation}
+<p><span class="math display">\[\begin{equation}
 f(x)=\sum_{k}\langle f, \phi_{0,k} \rangle \phi_{0,k}(x)
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>와 같이 쓸 수 있다. 여기서 <span class="math inline">\(\langle\cdot , \cdot\rangle\)</span>은 내적을 의미한다. 그러므로</p>
-<span class="math display">\[\begin{equation}
+<p><span class="math display">\[\begin{equation}
 f(n)=\sum_{k}\langle f, \phi_{0,k} \rangle \phi(n-k)
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>가 된다. 여기에 이산 푸리에 변환을 양 변에 적용한다면 다음과 같이 된다.</p>
-<span class="math display" id="eq:initialfather1">\[\begin{eqnarray}
+<p><span class="math display" id="eq:initialfather1">\[\begin{eqnarray}
 \sum_{n}f(n)e^{-i\omega n}&amp;=&amp;\sum_{k}\langle f, \phi_{0,k} \rangle \sum_{n}\phi(n-k)e^{-i\omega n}\nonumber\\
 &amp;=&amp;\sum_{k}\langle f, \phi_{0,k} \rangle \sum_{m}\phi(m)e^{-i\omega (m+k)}\nonumber\\
 &amp;=&amp;\{ \sum_{k}\langle f, \phi_{0,k} \rangle \sum_{m}e^{-i\omega k}  \}\{ \sum_{m} \phi(m) e^{-i\omega m}\}\\
 &amp;=&amp;\Phi(\omega)\sum_{k}\langle f, \phi_{0,k} \rangle e^{-i\omega k}
 \tag{23.6}
-\end{eqnarray}\]</span>
+\end{eqnarray}\]</span></p>
 <p>(특별하지 않으면 이것을 사용)</p>
 <ol start="2" style="list-style-type: decimal">
 <li>stochastic approach</li>
@@ -855,7 +889,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -867,6 +901,10 @@ gitbook.start({
 "edit": {
 "link": "https://seoncheolpark.github.io/book/_book/33-generalDWT.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["book.pdf"],
 "toc": {
@@ -886,8 +924,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

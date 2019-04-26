@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>통계공부와 관련된 글들</title>
+  <title>36.2 극단회귀분석(extremal quantile regression) | 통계공부와 관련된 글들</title>
   <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="통계공부와 관련된 글들" />
+  <meta property="og:title" content="36.2 극단회귀분석(extremal quantile regression) | 통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="SeoncheolPark/book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="통계공부와 관련된 글들" />
+  <meta name="twitter:title" content="36.2 극단회귀분석(extremal quantile regression) | 통계공부와 관련된 글들" />
   
   <meta name="twitter:description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다." />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-10-08">
+<meta name="date" content="2019-04-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="37-functionestimation.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -52,7 +53,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -65,13 +66,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
   { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -244,7 +243,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1" data-path="8-1-markov-chain.html"><a href="8-1-markov-chain.html"><i class="fa fa-check"></i><b>8.1</b> 마르코프 체인(Markov chain)</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="9-stoprocess.html"><a href="9-stoprocess.html"><i class="fa fa-check"></i><b>9</b> 확률과정론</a><ul>
-<li class="chapter" data-level="9.1" data-path="9-1-stochastic-process.html"><a href="9-1-stochastic-process.html"><i class="fa fa-check"></i><b>9.1</b> 확률과정이란?(stochastic process)</a></li>
+<li class="chapter" data-level="9.1" data-path="9-1-stochastic-process.html"><a href="9-1-stochastic-process.html"><i class="fa fa-check"></i><b>9.1</b> 확률과정이란?(stochastic process)</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="9-1-stochastic-process.html"><a href="9-1-stochastic-process.html#stationary-stochastic-process"><i class="fa fa-check"></i><b>9.1.1</b> 정상과정(stationary stochastic process)</a></li>
+</ul></li>
 <li class="chapter" data-level="9.2" data-path="9-2-continuity-of-stochastic-process.html"><a href="9-2-continuity-of-stochastic-process.html"><i class="fa fa-check"></i><b>9.2</b> 확률과정에서의 연속성(continuity of stochastic process)</a></li>
 <li class="chapter" data-level="9.3" data-path="9-3-separable-random-functions.html"><a href="9-3-separable-random-functions.html"><i class="fa fa-check"></i><b>9.3</b> 분리가능한 무작위 함수들(separable random functions)</a></li>
 <li class="chapter" data-level="9.4" data-path="9-4-empirical-process.html"><a href="9-4-empirical-process.html"><i class="fa fa-check"></i><b>9.4</b> 경험과정(empirical process)</a></li>
@@ -257,11 +258,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.5.6" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#--nonhomogeneous-poisson-process"><i class="fa fa-check"></i><b>9.5.6</b> 비동질적 포아송 과정(nonhomogeneous Poisson process)</a></li>
 <li class="chapter" data-level="9.5.7" data-path="9-5-poisson-process.html"><a href="9-5-poisson-process.html#---theory-of-spatial-poisson-process"><i class="fa fa-check"></i><b>9.5.7</b> 공간 포아송 과정 이론(theory of spatial Poisson process)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="9-6-self-similar-process.html"><a href="9-6-self-similar-process.html"><i class="fa fa-check"></i><b>9.6</b> 자기유사과정(self-similar process)</a></li>
-<li class="chapter" data-level="9.7" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html"><i class="fa fa-check"></i><b>9.7</b> 브라운운동(Brownian motion)</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="9-7-brownian-motion.html"><a href="9-7-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.7.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
+<li class="chapter" data-level="9.6" data-path="9-6-infinitely-divisible-distribution.html"><a href="9-6-infinitely-divisible-distribution.html"><i class="fa fa-check"></i><b>9.6</b> 무한분해가능 분포(infinitely divisible distribution)</a></li>
+<li class="chapter" data-level="9.7" data-path="9-7-self-similar-process.html"><a href="9-7-self-similar-process.html"><i class="fa fa-check"></i><b>9.7</b> 자기유사과정(self-similar process)</a></li>
+<li class="chapter" data-level="9.8" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html"><i class="fa fa-check"></i><b>9.8</b> 브라운운동(Brownian motion)</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="9-8-brownian-motion.html"><a href="9-8-brownian-motion.html#-fractional-brownian-motion"><i class="fa fa-check"></i><b>9.8.1</b> 분수 브라운운동(fractional Brownian motion)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="9-8-martingale.html"><a href="9-8-martingale.html"><i class="fa fa-check"></i><b>9.8</b> 마팅게일(martingale)</a></li>
+<li class="chapter" data-level="9.9" data-path="9-9-gaussian-stochastic-process.html"><a href="9-9-gaussian-stochastic-process.html"><i class="fa fa-check"></i><b>9.9</b> 가우스과정(Gaussian stochastic process)</a></li>
+<li class="chapter" data-level="9.10" data-path="9-10-martingale.html"><a href="9-10-martingale.html"><i class="fa fa-check"></i><b>9.10</b> 마팅게일(martingale)</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-bigOsmallo.html"><a href="10-bigOsmallo.html"><i class="fa fa-check"></i><b>10</b> Big O 와 small o</a><ul>
 <li class="chapter" data-level="10.1" data-path="10-1-big-o-small-o-big-o-and-small-o.html"><a href="10-1-big-o-small-o-big-o-and-small-o.html"><i class="fa fa-check"></i><b>10.1</b> Big O와 small o (big O and small o)</a></li>
@@ -724,8 +727,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="59.2" data-path="59-2-declustering-of-extremes.html"><a href="59-2-declustering-of-extremes.html"><i class="fa fa-check"></i><b>59.2</b> 디클러스터링(declustering of extremes)</a></li>
 </ul></li>
 <li class="chapter" data-level="60" data-path="60-mevtheory.html"><a href="60-mevtheory.html"><i class="fa fa-check"></i><b>60</b> 다변량 극단값 이론</a><ul>
-<li class="chapter" data-level="60.1" data-path="60-1-copula.html"><a href="60-1-copula.html"><i class="fa fa-check"></i><b>60.1</b> 코퓰라(copula)</a></li>
-<li class="chapter" data-level="60.2" data-path="60-2-limiting-standardization.html"><a href="60-2-limiting-standardization.html"><i class="fa fa-check"></i><b>60.2</b> 극단 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.1" data-path="60-1-limiting-standardization.html"><a href="60-1-limiting-standardization.html"><i class="fa fa-check"></i><b>60.1</b> 극한의 정규화(limiting standardization)</a></li>
+<li class="chapter" data-level="60.2" data-path="60-2-copula.html"><a href="60-2-copula.html"><i class="fa fa-check"></i><b>60.2</b> 코퓰라(copula)</a></li>
+<li class="chapter" data-level="60.3" data-path="60-3-extreme-value-copula.html"><a href="60-3-extreme-value-copula.html"><i class="fa fa-check"></i><b>60.3</b> 극단값 코퓰라(extreme-value copula)</a></li>
+<li class="chapter" data-level="60.4" data-path="60-4-max-stable-distribution-with-unit-frechet-margin.html"><a href="60-4-max-stable-distribution-with-unit-frechet-margin.html"><i class="fa fa-check"></i><b>60.4</b> 단위 프례세 마진을 갖는 최대안정분포(max-stable distribution with unit Frechet margin)</a></li>
 </ul></li>
 <li class="chapter" data-level="61" data-path="61-spatextremes.html"><a href="61-spatextremes.html"><i class="fa fa-check"></i><b>61</b> 공간 극단값 이론과 최대안정과정</a><ul>
 <li class="chapter" data-level="61.1" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html"><i class="fa fa-check"></i><b>61.1</b> 최대안정과정(max-stable process)</a><ul>
@@ -764,7 +769,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="extremal-quantile-regression" class="section level2">
 <h2><span class="header-section-number">36.2</span> 극단회귀분석(extremal quantile regression)</h2>
-<p>기존에는 꼬리부분의 극단값을 추정하는 데에도 모수/비모수 방법을 그대로 적용하였다. 그러나 data sparsity 때문에 분위수 회귀방법으로 바로 추정하는 것은 extreme tail에 대해서는 좋지 않고 때때로 불안정하다. 다음과 같은 분위수 회귀분석 모형 <span class="math inline">\(Q_{Y}(\tau|\mathbf{x})=\alpha(\tau) + \mathbf{x}^{T}\boldsymbol{\beta}(\tau)\)</span>, <span class="math inline">\(\tau\in [\tau_{L},1]\)</span>, <span class="math inline">\(0&lt;\tau_{L}&lt; 1\)</span>을 생각할 때 이들의 추정량 <span class="math inline">\(\hat{\alpha}(\tau)\)</span>, <span class="math inline">\(\hat{\boldsymbol{\beta}}(\tau)\)</span>는 extreme quantile에서의 상황, 즉 <span class="math inline">\(\tau_{n}\rightarrow 1\)</span> as <span class="math inline">\(n\rightarrow\infty\)</span>일 때 data sparsity 때문에 정확한 결과를 주지 못할 수도 있다. 이를 해결하고자 <span class="citation">(Wang, Li, and He <a href="#ref-Wang2012">2023</a>)</span>, <span class="citation">(Wang and Li <a href="#ref-Wang2013">2013</a>)</span> 등이 내놓은 방법은 먼저 conventional quantile regresion에서 덜 extreme한 분위수 회귀 추정을 한 후 조건부 분위수 분포의 tail behavior에 조건을 건 상태로 high quantile에 extrapolation하는 것이다.</p>
+<p>기존에는 꼬리부분의 극단값을 추정하는 데에도 모수/비모수 방법을 그대로 적용하였다. 그러나 data sparsity 때문에 분위수 회귀방법으로 바로 추정하는 것은 extreme tail에 대해서는 좋지 않고 때때로 불안정하다. 다음과 같은 분위수 회귀분석 모형 <span class="math inline">\(Q_{Y}(\tau|\mathbf{x})=\alpha(\tau) + \mathbf{x}^{T}\boldsymbol{\beta}(\tau)\)</span>, <span class="math inline">\(\tau\in [\tau_{L},1]\)</span>, <span class="math inline">\(0&lt;\tau_{L}&lt; 1\)</span>을 생각할 때 이들의 추정량 <span class="math inline">\(\hat{\alpha}(\tau)\)</span>, <span class="math inline">\(\hat{\boldsymbol{\beta}}(\tau)\)</span>는 extreme quantile에서의 상황, 즉 <span class="math inline">\(\tau_{n}\rightarrow 1\)</span> as <span class="math inline">\(n\rightarrow\infty\)</span>일 때 data sparsity 때문에 정확한 결과를 주지 못할 수도 있다. 이를 해결하고자 <span class="citation">(Wang, Li, and He <a href="#ref-Wang2012">2012</a>)</span>, <span class="citation">(Wang and Li <a href="#ref-Wang2013">2013</a>)</span> 등이 내놓은 방법은 먼저 conventional quantile regresion에서 덜 extreme한 분위수 회귀 추정을 한 후 조건부 분위수 분포의 tail behavior에 조건을 건 상태로 high quantile에 extrapolation하는 것이다.</p>
 <p><span class="citation">(Chernozhukov <a href="#ref-Chernozhukov2005">2005</a>)</span>는 극단값 이론을 꼬리 부분의 extreme quantile regression 모형을 개발하는 데 사용하였다. <span class="math inline">\(Y\)</span>를 연속 반응 변수이며 분포함수가 <span class="math inline">\(F_{Y}(y)=P(Y\leq y)\)</span>라고 하자. 그러면 <span class="math inline">\(Y\)</span>의 marginal <span class="math inline">\(\tau\)</span>-분위수는 <span class="math inline">\(y\rightarrow F_{Y}(y)\)</span>의 <span class="math inline">\(\tau\)</span>에서의 left-inverse, 즉
 <span class="math display">\[Q_{Y}(\tau):=\inf \{ y:F_{Y}(y)\leq \tau\}, \qquad{\tau\in(0,1)}\]</span>
 라고 놓을 수 있다. <span class="math inline">\(X\)</span>는 <span class="math inline">\(Y\)</span>와 관련된 <span class="math inline">\(d_{x}\)</span>차원 공변량의 벡터라고 두고 이것의 분포함수를 <span class="math inline">\(F_{X}\)</span>라고 놓자. <span class="math inline">\(X=x\)</span>가 주어졌을 때 <span class="math inline">\(Y\)</span>의 조건부 분포 함수를 <span class="math inline">\(F_{Y}(y|x)=P(Y\leq y|X=x)\)</span>라고 두자. 그러면 앞서와 마찬가지로 <span class="math inline">\(X=x\)</span>일 때 <span class="math inline">\(Y\)</span>의 조건부 <span class="math inline">\(\tau\)</span>-분위수 함수는 <span class="math inline">\(y\rightarrow F_{Y}(y|x)\)</span>의 left inverse로, 즉
@@ -774,10 +779,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 를 <span class="math inline">\(\tau\)</span>-quantile regression function이라고 한다. 이 함수는 <span class="math inline">\(X\)</span>가 <span class="math inline">\(Y\)</span>에 미치는 효과를 재는 함수다.</p>
 <p>한편 probability index <span class="math inline">\(\tau\)</span>가 0 또는 1에 가까울 때 이 조건부 <span class="math inline">\(\tau\)</span>-quantile을 <strong>극단적(extremal)</strong>이라고 한다. 여기서는 주로 <span class="math inline">\(\tau\)</span>가 0에 가까운 경우를 가정한다. 극단 분위수의 추정량의 성질을 분석하는 것은 극단값 이론과 큰 관련이 있다. 이 이론은 표분의 크기 <span class="math inline">\(T\)</span>와 관련이 있는 분위수 인덱스들 <span class="math inline">\(\{\tau_{T}\}_{T=1}^{\infty}\)</span>의 수열을 사용한다. <span class="math inline">\(\tau_{T}T\)</span>를 <span class="math inline">\(\tau_{T}\)</span>-분위수의 차수라고 생각해보자. quantile index의 수열과 표본 크기의 짝들 <span class="math inline">\(\{\tau_{T}, T\}_{T=1}^{\infty}\)</span>는 다음과 같이 분류할 수 있다.</p>
 <ul>
-<li><p><strong>Extreme order</strong>: <span class="math inline">\(T\rightarrow \infty\)</span>일 때 <span class="math inline">\(\tau_{T}\searrow 0\)</span>이고 <span class="math inline">\(\tau_{T}T \rightarrow k \in (0,\infty)\)</span>일 때</p></li>
-<li><p><strong>Intermediate order</strong>: <span class="math inline">\(T\rightarrow \infty\)</span>일 때 <span class="math inline">\(\tau_{T}\searrow 0\)</span>이고 <span class="math inline">\(\tau_{T}T \rightarrow \infty\)</span>일 때</p></li>
-<li><p><strong>Central order</strong>: <span class="math inline">\(T\rightarrow\infty\)</span>이더라도 <span class="math inline">\(\tau_{T}\)</span>가 고정인 경우</p></li>
+<li><p><strong>Extreme order</strong>: <span class="math inline">\(T\rightarrow \infty\)</span>일 때 <span class="math inline">\(\tau_{T}\searrow 0\)</span>이고 <span class="math inline">\(\tau_{T}T \rightarrow k \in (0,\infty)\)</span>일 때 (표본 크기가 커지는 속도가 <span class="math inline">\(\tau_{T}\)</span>가 감소하는 속도와 같을 때, 즉 그만큼 <span class="math inline">\(\tau_{T}\)</span>가 빨리 감소한다는 뜻)</p></li>
+<li><p><strong>Intermediate order</strong>: <span class="math inline">\(T\rightarrow \infty\)</span>일 때 <span class="math inline">\(\tau_{T}\searrow 0\)</span>이고 <span class="math inline">\(\tau_{T}T \rightarrow \infty\)</span>일 때 (표본 크기가 커지는 속도가 <span class="math inline">\(\tau_{T}\)</span>가 감소하는 속도보다 빠를때)</p></li>
+<li><p><strong>Central order</strong>: <span class="math inline">\(T\rightarrow\infty\)</span>이더라도 <span class="math inline">\(\tau_{T}\)</span>가 (0과 1 사이에) 고정인 경우 (일반적인 경우이며 밑의 그림에서는 regular라고 부른다.)</p></li>
 </ul>
+<p>다음 그림은 위의 개념을 설명하기 위한 <span class="citation">(Zhang <a href="#ref-Zhang2018">2018</a>)</span>의 그림이다.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-347"></span>
+<img src="images/qr_quantileindex.png" alt="분위수지수(quantile index)에서의 점근분포." width="887" />
+<p class="caption">
+FIGURE 36.5: 분위수지수(quantile index)에서의 점근분포.
+</p>
+</div>
 <div id="----pareto-type-and-regularly-varying-tails" class="section level3">
 <h3><span class="header-section-number">36.2.1</span> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</h3>
 <p>극단값 분위수 이론은 <span class="math inline">\(Y\)</span>의 꼬리 분포가 <strong>파레토-타입 행동(Pareto type behavior)</strong>, 즉 꼬리는 power function의 형태로(좀 더 일반적으로는 regularly varying function) 감소한다는 가정을 한다. 이런 파레토-타입 꼬리들은 꼬리의 움직임을 두껍게도 할 수 있고, 얇게도 할 수 있으며 분포의 support가 유계일 수도, 아닐 수도 있게 한다.</p>
@@ -793,7 +805,7 @@ F_{U}(u)\sim \bar{L}(u)\cdot u^{-1/\xi}, \qquad{\tau\searrow 0}
 <p>이 때 <span class="math inline">\(\xi \neq 0\)</span> (<strong>극단값지수(extreme value index)</strong> 또는 <strong>꼬리지수(tail index)</strong>라고 부름)이고 함수 <span class="math inline">\(\tau \rightarrow L(\tau)\)</span>는 0에서 비모수적으로 천천히 변하는 함수이며 함수 <span class="math inline">\(u \rightarrow \bar{L}(u)\)</span>는 <span class="math inline">\(Q_{U}(0)\)</span>에서 비모수적으로 천천히 변하는 함수다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-335" class="definition"><strong>Definition 36.3  (천천히 변하는 함수)  </strong></span>함수 <span class="math inline">\(z\rightarrow f(z)\)</span>가 만약 모든 <span class="math inline">\(m&gt;0\)</span>일 때 <span class="math inline">\(\lim_{z\searrow z_{0}}\frac{f(z)}{f(mz)}=1\)</span>을 만족할 경우 <span class="math inline">\(z_{0}\)</span>에서 <strong>천천히 변하는(slowly varying)</strong> 함수라고 한다. 이러한 함수의 대표적인 예로 상수함수와 로그함수가 있다.</p>
+<p><span id="def:unnamed-chunk-348" class="definition"><strong>Definition 36.3  (천천히 변하는 함수)  </strong></span>함수 <span class="math inline">\(z\rightarrow f(z)\)</span>가 만약 모든 <span class="math inline">\(m&gt;0\)</span>일 때 <span class="math inline">\(\lim_{z\searrow z_{0}}\frac{f(z)}{f(mz)}=1\)</span>을 만족할 경우 <span class="math inline">\(z_{0}\)</span>에서 <strong>천천히 변하는(slowly varying)</strong> 함수라고 한다. 이러한 함수의 대표적인 예로 상수함수와 로그함수가 있다.</p>
 </div>
 
 <p><span class="math inline">\(\xi\)</span>의 절대값 <span class="math inline">\(|\xi |\)</span>는 분포의 두꺼운 꼬리 정도를 측정하는 데 사용한다. 만약 <span class="math inline">\(\xi&lt;0\)</span>일 경우 파레토-타입 꼬리 분포는 유한한 lower bound를 갖으며 <span class="math inline">\(\xi&gt;0\)</span>인 경우에는 무한한 lower bound를 갖는다.</p>
@@ -807,7 +819,7 @@ F_{U}(u)\sim \bar{L}(u)\cdot u^{-1/\xi}, \qquad{\tau\searrow 0}
 <p>파레토-타입 꼬리 가정은 극단값 이론에서 주로 다루는 <strong>정칙 변화 가정(regular variation assumption)</strong>과도 동일하다고 할 수 있다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-336" class="definition"><strong>Definition 36.4  (정칙 변화)  </strong></span>분포함수 <span class="math inline">\(u \rightarrow F_{U}(u)\)</span>가 만약 모든 <span class="math inline">\(m&gt;0\)</span>에 대해
+<p><span id="def:unnamed-chunk-349" class="definition"><strong>Definition 36.4  (정칙 변화)  </strong></span>분포함수 <span class="math inline">\(u \rightarrow F_{U}(u)\)</span>가 만약 모든 <span class="math inline">\(m&gt;0\)</span>에 대해
 <span class="math display">\[\lim_{y\searrow Q_{U}(0)}\frac{F_{U}(ym)}{F_{U}(y)}=m^{-1/\xi}\]</span>
 일 경우 <span class="math inline">\(u=Q_{U}(0)\)</span>에서 index of regular variation <span class="math inline">\(-1/\xi\)</span>를 갖는 <strong>정칙 변화 함수(regularly varying function)</strong>이라고 부른다.</p>
 <p>이 조건은 분위수 함수에도 똑같이 적용할 수 있다. 모든 <span class="math inline">\(m&gt;0\)</span>에 대해
@@ -842,7 +854,7 @@ Q_{V}(\tau|x) \sim x&#39;\gamma\cdot Q_{U}(\tau)
 <p>이 절에서의 기본 가정으로 우리는 크기 <span class="math inline">\(T\)</span>의 표본 <span class="math inline">\((Y,X)\)</span>를 갖고 있는데, i.i.d일 수도 있고 weakly dependent일 수도 있다. Extreme event들은 nonclustering condition을 만족한다고 하자. 특별히, 수열 <span class="math inline">\(\{ (Y_{t},X_{t}) \}_{t=1}^{T}\)</span>는 극단값 사건들의 curbs clustering을 만족하는 정상(stationary)이고 강한 mixing process with geometric mixing rate를 갖는다고 하자.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-337" class="definition"><strong>Definition 36.5  (기하 혼합비를 갖는 정상이며 강 혼합과정)  </strong></span><span class="citation">(Chernozhukov and Fernandez <a href="#ref-Chernozhukov2011">2011</a>)</span>논문에 정의되어 있는 가정이다. Disturbance <span class="math inline">\(V_{t}\)</span> (<span class="math inline">\(V\equiv Y-X^{T}\beta_{e}\)</span>)와 수열 <span class="math inline">\(\{W_{t}\}=(V_{t},X_{t})\)</span>가 정의되었다고 하자. 그러면 어떤 <span class="math inline">\(C&gt;0\)</span>에 대해 다음 조건
+<p><span id="def:unnamed-chunk-350" class="definition"><strong>Definition 36.5  (기하 혼합비를 갖는 정상이며 강 혼합과정)  </strong></span><span class="citation">(Chernozhukov and Fernandez <a href="#ref-Chernozhukov2011">2011</a>)</span>논문에 정의되어 있는 가정이다. Disturbance <span class="math inline">\(V_{t}\)</span> (<span class="math inline">\(V\equiv Y-X^{T}\beta_{e}\)</span>)와 수열 <span class="math inline">\(\{W_{t}\}=(V_{t},X_{t})\)</span>가 정의되었다고 하자. 그러면 어떤 <span class="math inline">\(C&gt;0\)</span>에 대해 다음 조건
 <span class="math display">\[\sup_{t} \sup_{A\in\mathcal{A}_{t}, B\in\mathcal{B}_{t+m}} |P(A\cap B) - P(A)P(B) |\exp(Cm)\stackrel{m\rightarrow\infty}{\rightarrow} 0 \]</span>
 을 만족할 경우 이 수열들이 <strong>기하 혼합비를 갖는 정상이며 강 혼합과정(stationary, strongly mixing process with a geometric mixing rate)</strong>라고 부른다. 이 때 <span class="math inline">\(\mathcal{A}_{t}=\sigma(W_{t}, W_{t-1},\ldots)\)</span>이고 <span class="math inline">\(\mathcal{B}_{t}=\sigma(W_{t},W_{t+1},\ldots)\)</span>이다. 더불어 이 수열이 극단 사건들의 <strong>갓돌 클러스터링( curb clustering)</strong>을 만족한다는 것은 다음을 뜻한다.</p>
 <p>모든 <span class="math inline">\(j\geq 1\)</span>, 모든 <span class="math inline">\(t\geq 1\)</span>에 대해
@@ -857,6 +869,24 @@ Q_{V}(\tau|x) \sim x&#39;\gamma\cdot Q_{U}(\tau)
 이 때 <span class="math inline">\(Y_{(s)}\)</span>는 <span class="math inline">\((Y_{1}, \ldots, Y_{T})\)</span>는 <span class="math inline">\(s\)</span>-차 순서통계량이고 <span class="math inline">\(\lfloor z \rfloor\)</span>는 <span class="math inline">\(z\)</span>의 정수부분을 나타낸다. 표본 <span class="math inline">\(\tau\)</span>분위수는 또한 다음의 최적화문제를 풀어 얻을 수 있다.
 <span class="math display">\[\hat{Q}_{Y}(\tau) \in \text{arg}\min_{\beta\in\mathbb{R}} \sum_{t=1}^{T}\rho_{\tau}(Y_{t}-\beta).\]</span>
 이 때 <span class="math inline">\(\rho_{\tau}(u):=(\tau - 1\{ u &lt; 0 \})u\)</span>는 asymmetric absolute deviation function이다.</p>
+<p>이제부터는 extreme and intermediate order sequence들 가정 하에서의 표본 분위수의 점근적 성질을 복습하고 extreme marginal quantile들에서의 추론 방법을 묘사한다.</p>
+<ol style="list-style-type: decimal">
+<li><strong>Extreme order approximation</strong> 극단값 이론의 극단 순서통계량에서의 극한 분포의 결과들을 상기해보자. <span class="math inline">\(T\rightarrow\infty\)</span>함에 따라 <span class="math inline">\(k_{T}:=\tau_{T}T\rightarrow k\)</span>를 만족하는 어떤 정수 <span class="math inline">\(k\geq 1\)</span>에 대해 다음의 결과를 얻는다.</li>
+</ol>
+<p><span class="math display" id="eq:limitEVz">\[\begin{equation}
+\hat{Z}_{T}(k_{T}) = A_{T}(\hat{Q}_{Y}(\tau_{T}) - Q_{Y}(\tau_{T})) \stackrel{d}{\rightarrow} \hat{Z}_{\infty}(k) = \Gamma_{k}^{-\xi} - k^{-\xi},
+\tag{36.4}
+\end{equation}\]</span></p>
+<p>where
+<span class="math display">\[A_{T}=\frac{1}{Q_{U}}(\frac{1}{T}), \qquad{\Gamma_{k} = \mathcal{E}_{1} + \ldots + \mathcal{E}_{k}}\]</span>
+이다. 이 때 변수 <span class="math inline">\(U\)</span>는 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails) 부분에서 나왔던 것이다. 그리고 <span class="math inline">\(\{\mathcal{E}_{1},\mathcal{E}_{2},\ldots\}\)</span>는 표준 지수 변수를 갖는 i.i.d. sequence이다. 여기서 <span class="math inline">\(\hat{Z}_{T}(k_{T})\)</span>는 <strong>canonical scaling constant</strong> <span class="math inline">\(A_{T}\)</span>와 관련이 있는 통계량이므로 이것을 <strong>canonically-normalized quantile (CN-Q) statistic</strong>이라고 부른다. 식 <a href="36-2-extremal-quantile-regression.html#eq:limitEVz">(36.4)</a> 에서 나온 <span class="math inline">\(\hat{Z}_{T}(k_{T})\)</span>의 극한은 scaling constant <span class="math inline">\(A_{T}\)</span>가 주어졌을 때 <span class="math inline">\(\hat{Q}_{Y}(\tau_{T})\)</span>의 유한 표본분포에 대한 근사로써의 극단값 분포를 제공한다. 이 극한 분포는 extreme value index <span class="math inline">\(\xi\)</span>와 변수 <span class="math inline">\(\Gamma_{k}\)</span>로 특성화된다. Tail index <span class="math inline">\(\xi\)</span>는 보통 알려져 있지 않으나 밑에서 나오는 방법으로 추정할 수 있다. 변수 <span class="math inline">\(\Gamma_{k}\)</span>는 gamma 확률분포이다. 따라서 극한 변수 <span class="math inline">\(\hat{Z}_{\infty}(k)\)</span>는 gamma 확률변수의 변환이다. 이것은 <span class="math inline">\(\xi &lt;1\)</span>인 경우에 유한한 평균을 갖으며 만약 <span class="math inline">\(\xi&gt;0\)</span>인 경우 <span class="math inline">\(1/\xi\)</span>차까지 유한한 모멘트들을 갖는다. 그러나 그것의 극단값 분포의 극한은 대칭이 아니며, 큰 중앙값 asymptotic bias in <span class="math inline">\(\hat{Q}_{Y}(\tau_{T})\)</span> with respect to <span class="math inline">\(Q_{Y}(\tau_{T})\)</span>가 있어서 예측할 때 median-bais corection을 고려하게끔 한다.</p>
+<p>식 <a href="36-2-extremal-quantile-regression.html#eq:limitEVz">(36.4)</a> 에서 얻은 고전적인 결과는 종종 <span class="math inline">\(Q_{Y}(\tau_{T})\)</span>를 추론하는 데 좋지 않은 데 상수 <span class="math inline">\(A_{T}\)</span>가 일반적으로 알려져 있지 않고 일치추정량을 얻을 수 없을 때도 있기 때문이다. 이 문제를 다루기 위한 방법으로 <span class="math inline">\(A_{T}\)</span>에 대한 일치추정량을 얻기 위해 식 <a href="36-2-extremal-quantile-regression.html#eq:Paretotypetail">(36.1)</a>의 천천히 변하는 함수 <span class="math inline">\(\tau \rightarrow L(\tau)\)</span>에 대해 비모수적인 방법에 강한 모수적 가정을 넣어주는 방법이 있다. 이 방법은 나중에 다루기로 한다.</p>
+<p>또 다른 방법으로 다음의 <strong>self-normalized quantile (SN-Q)</strong> 통계량을 고려하는 것이다.</p>
+<p><span class="math display" id="eq:SNQ">\[\begin{equation}
+Z_{T}(k_{T}):= \mathcal{A}_{T}(\hat{Q}_{Y}(\tau_{T}) - Q_{Y}(\tau_{T})), \qquad{\mathcal{A}_{T}:=\frac{\sqrt{k_{T}}}{\hat{Q}_{Y}(m\tau_{T})- \hat{Q}_{Y}(\tau_{T}) }  ,}
+\tag{36.5}
+\end{equation}\]</span></p>
+<p>이 때 <span class="math inline">\(mk\)</span>는 정수이며 <span class="math inline">\(m&gt;1\)</span>이다. 예를 들면 어떤 spacing parameter <span class="math inline">\(p\geq 1\)</span>에 대해 <span class="math inline">\(m= \frac{p}{k_{T}}+1 = \frac{p}{k}+1 + o(1)\)</span>로 놓는 것이다. Scaling factor <span class="math inline">\(\mathcal{A}_{T}\)</span>는 자료의 함수이며 <span class="math inline">\(A_{T}\)</span>의 일치추정량이 되도록 추정할 필요가 없다.</p>
 
 </div>
 </div>
@@ -864,13 +894,16 @@ Q_{V}(\tau|x) \sim x&#39;\gamma\cdot Q_{U}(\tau)
 <h3> References</h3>
 <div id="refs" class="references">
 <div id="ref-Wang2012">
-<p>Wang, Huixia Judy, Deyuan Li, and Xuming He. 2023. “Estimation of High Conditional Quantiles for Heavy-Tailed Distributions.” <em>Journal of the American Statistical Association</em> 107 (4): 1453–64. <a href="https://doi.org/10.1080/01621459.2012.716382" class="uri">https://doi.org/10.1080/01621459.2012.716382</a>.</p>
+<p>Wang, Huixia Judy, Deyuan Li, and Xuming He. 2012. “Estimation of High Conditional Quantiles for Heavy-Tailed Distributions.” <em>Journal of the American Statistical Association</em> 107 (4): 1453–64. <a href="https://doi.org/10.1080/01621459.2012.716382">https://doi.org/10.1080/01621459.2012.716382</a>.</p>
 </div>
 <div id="ref-Wang2013">
-<p>Wang, Huixia Judy, and Deyuan Li. 2013. “Estimation of Extreme Conditional Quantiles Through Power Transformation.” <em>Journal of the American Statistical Association</em> 108 (3): 1062–74. <a href="https://doi.org/10.1080/01621459.2013.820134" class="uri">https://doi.org/10.1080/01621459.2013.820134</a>.</p>
+<p>Wang, Huixia Judy, and Deyuan Li. 2013. “Estimation of Extreme Conditional Quantiles Through Power Transformation.” <em>Journal of the American Statistical Association</em> 108 (3): 1062–74. <a href="https://doi.org/10.1080/01621459.2013.820134">https://doi.org/10.1080/01621459.2013.820134</a>.</p>
 </div>
 <div id="ref-Chernozhukov2005">
 <p>Chernozhukov, Victor. 2005. “Extremal Quantile Regression.” <em>The Annals of Statistics</em> 33 (2): 806–39.</p>
+</div>
+<div id="ref-Zhang2018">
+<p>Zhang, Yichong. 2018. “Extreme Quantile Treatment Effects.” <em>The Annals of Statistics</em> 46 (6B): 3707–40. <a href="https://doi.org/10.1214/17-AOS1673">https://doi.org/10.1214/17-AOS1673</a>.</p>
 </div>
 <div id="ref-Chernozhukov2011">
 <p>Chernozhukov, Victor, and Ivan Fernandez. 2011. “Inference for Extremal Conditional Quantile Models, with an Application to Market and Birthweight Risks.” <em>Review of Economic Studies</em> 78: 559–89.</p>
@@ -902,7 +935,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -914,6 +947,10 @@ gitbook.start({
 "edit": {
 "link": "https://seoncheolpark.github.io/book/_book/51-qr.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["book.pdf"],
 "toc": {
@@ -934,7 +971,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

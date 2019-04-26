@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>통계공부와 관련된 글들</title>
+  <title>9.5 포아송과정(Poisson process) | 통계공부와 관련된 글들</title>
   <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="통계공부와 관련된 글들" />
+  <meta property="og:title" content="9.5 포아송과정(Poisson process) | 통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="SeoncheolPark/book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="통계공부와 관련된 글들" />
+  <meta name="twitter:title" content="9.5 포아송과정(Poisson process) | 통계공부와 관련된 글들" />
   
   <meta name="twitter:description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다." />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-12-06">
+<meta name="date" content="2019-04-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="9-6-infinitely-divisible-distribution.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -50,41 +51,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -501,17 +528,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="part"><span><b>IV Quantile Regression and FDA</b></span></li>
 <li class="chapter" data-level="36" data-path="36-qr.html"><a href="36-qr.html"><i class="fa fa-check"></i><b>36</b> 분위수 회귀분석</a><ul>
-<li class="chapter" data-level="36.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html"><i class="fa fa-check"></i><b>36.1</b> 분위수 (quantile)</a></li>
-<li class="chapter" data-level="36.2" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html"><i class="fa fa-check"></i><b>36.2</b> 분위수 회귀분석의 기초(basics of quantile regression)</a><ul>
-<li class="chapter" data-level="36.2.1" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>36.2.1</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
-<li class="chapter" data-level="36.2.2" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--quantile-treatment-effect"><i class="fa fa-check"></i><b>36.2.2</b> 분위수 처리 효과(quantile treatment effect)</a></li>
-<li class="chapter" data-level="36.2.3" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
-<li class="chapter" data-level="36.2.4" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.2.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
+<li class="chapter" data-level="36.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html"><i class="fa fa-check"></i><b>36.1</b> 분위수 (quantile)</a><ul>
+<li class="chapter" data-level="36.1.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>36.1.1</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
+<li class="chapter" data-level="36.1.2" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--quantile-treatment-effect"><i class="fa fa-check"></i><b>36.1.2</b> 분위수 처리 효과(quantile treatment effect)</a></li>
+<li class="chapter" data-level="36.1.3" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.1.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
+<li class="chapter" data-level="36.1.4" data-path="36-1-quantile.html"><a href="36-1-quantile.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.1.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
 </ul></li>
-<li class="chapter" data-level="36.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.3</b> 극단회귀분석(extremal quantile regression)</a><ul>
-<li class="chapter" data-level="36.3.1" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.3.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
-<li class="chapter" data-level="36.3.2" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.3.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
-<li class="chapter" data-level="36.3.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.3.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
+<li class="chapter" data-level="36.2" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.2</b> 극단회귀분석(extremal quantile regression)</a><ul>
+<li class="chapter" data-level="36.2.1" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.2.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
+<li class="chapter" data-level="36.2.2" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.2.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
+<li class="chapter" data-level="36.2.3" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="37" data-path="37-functionestimation.html"><a href="37-functionestimation.html"><i class="fa fa-check"></i><b>37</b> 함수추정</a><ul>
@@ -546,7 +572,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="40.3.1" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#isotropy"><i class="fa fa-check"></i><b>40.3.1</b> 등방성(isotropy)</a></li>
 <li class="chapter" data-level="40.3.2" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#homogeneous"><i class="fa fa-check"></i><b>40.3.2</b> 동질성(homogeneous)</a></li>
 <li class="chapter" data-level="40.3.3" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#anisotropy"><i class="fa fa-check"></i><b>40.3.3</b> 이등방성(anisotropy)</a></li>
-<li class="chapter" data-level="40.3.4" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#z3--geometric-anisotropy"><i class="fa fa-check"></i><b>40.3.4</b> z3 기하학적 이등방성(Geometric anisotropy)</a></li>
 </ul></li>
 <li class="chapter" data-level="40.4" data-path="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><i class="fa fa-check"></i><b>40.4</b> 공간 확률과정의 연속성과 미분가능성(continuity and differentiabiliy of spatial stochastic process</a><ul>
 <li class="chapter" data-level="40.4.1" data-path="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html#path-continuity---path-differentiability"><i class="fa fa-check"></i><b>40.4.1</b> 경로연속(path-continuity) 또는 경로 미분가능성(path-differentiability)</a></li>
@@ -823,17 +848,24 @@ FIGURE 9.2: Example of counting process.
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-156" class="example"><strong>Example 9.1  (공간 포아송 과정에서의 확률계산)  </strong></span>모수 <span class="math inline">\(\lambda=0.5\)</span>인 공간 포아송 과정이 있다고 하자. <span class="math inline">\((3,4)\)</span>를 중심으로 하고 반지름이 2인 디스크가 정확하게 5개의 점을 포함할 확률은 <span class="math inline">\(|C|=\pi r^{2}=4\pi\)</span>를 이용하면 <span class="math display">\[P(N_{C}=5)=\frac{e^{-\lambda |C|}(\lambda |C|)^{5}}{5!}=\frac{e^{-2\pi}(2\pi)^{5}}{5!}=0.152.\]</span> 가 된다.</p>
+<p><span id="exm:unnamed-chunk-156" class="example"><strong>Example 9.1  (공간 포아송 과정에서의 확률계산)  </strong></span>모수 <span class="math inline">\(\lambda=0.5\)</span>인 공간 포아송 과정이 있다고 하자. <span class="math inline">\((3,4)\)</span>를 중심으로 하고 반지름이 2인 디스크가 정확하게 5개의 점을 포함할 확률은 <span class="math inline">\(|C|=\pi r^{2}=4\pi\)</span>를 이용하면
+<span class="math display">\[P(N_{C}=5)=\frac{e^{-\lambda |C|}(\lambda |C|)^{5}}{5!}=\frac{e^{-2\pi}(2\pi)^{5}}{5!}=0.152.\]</span>
+가 된다.</p>
 </div>
 
 <p>공간 과정에서 발생하는 균등분포는 1차원 포아송 과정에서 하는 일과 유사하다. 유계집합 <span class="math inline">\(A\subseteq \mathbb{R}^{d}\)</span>이 주어졌을 때 <span class="math inline">\(A\)</span>에 <span class="math inline">\(n\)</span>개의 점이 있다고 조건을 달면 이 점들의 위치는 <span class="math inline">\(A\)</span>에서 균등하게 분포되어 있어야 한다. 이러한 이유로 공간 포아송 과정을 때때로 <strong>complete spatial randomness (CSR)</strong> 모형이라고 부르기도 한다.</p>
 <p>공간 포아송 과정은 공간상에서의 점의 분포를 모델링하는 일반적인 방법인 <strong>점과정(point process)</strong>의 특별한 경우이다. 때로는 주어진 포인트 패턴이 CSR과 얼마나 가까운지 측정하고 싶을 때도 있다. 그럴 때 사용할 수 있는 흔한 측도로 과정의 어떤 점과 그 점에서 가장 가까운 이웃과의 거리를 계산한 <strong>최근접 거리(nearest neighbor distance)</strong>가 있다.</p>
-<p>모수가 <span class="math inline">\(\lambda\)</span>인 <span class="math inline">\(\mathbb{R}^{2}\)</span>에서의 공간 포아송 과정을 생각해보자. <span class="math inline">\(x\)</span>를 plane에서의 고정된 점으로 둔다. <span class="math inline">\(D\)</span>는 <span class="math inline">\(x\)</span>의 최근접 거리라고 하자. 그러면 사건 <span class="math inline">\(\{ D &gt; t\}\)</span>는 <span class="math inline">\(x\)</span>를 중심으로 하고 반지름이 <span class="math inline">\(t\)</span>인 원 안에 다른 점이 하나도 없는 사건과 동치이다. 따라서 확률을 <span class="math display">\[P(D&gt;t)=P(N_{C_{x}}=0)=e^{-\lambda |C_{x}|} = e^{-\lambda \pi t^{2}}, \qquad{\text{for } t &gt; 0}\]</span> 과 같이 계산할 수 있다. 이것을 미분하면 최근접 거리에 대한 밀도함수를 얻을 수 있다. <span class="math display">\[f_{D}(t)=e^{-\lambda \pi t^{2}}2\lambda \pi t, \qquad{\text{for } t &gt; 0.}\]</span> 그리고 이것의 평균과 분산은 다음과 같다. <span class="math display">\[E(D) = \frac{1}{2\sqrt{\lambda}}, \text{Var}(D)=\frac{4-\pi}{4\pi\lambda}.\]</span></p>
+<p>모수가 <span class="math inline">\(\lambda\)</span>인 <span class="math inline">\(\mathbb{R}^{2}\)</span>에서의 공간 포아송 과정을 생각해보자. <span class="math inline">\(x\)</span>를 plane에서의 고정된 점으로 둔다. <span class="math inline">\(D\)</span>는 <span class="math inline">\(x\)</span>의 최근접 거리라고 하자. 그러면 사건 <span class="math inline">\(\{ D &gt; t\}\)</span>는 <span class="math inline">\(x\)</span>를 중심으로 하고 반지름이 <span class="math inline">\(t\)</span>인 원 안에 다른 점이 하나도 없는 사건과 동치이다. 따라서 확률을
+<span class="math display">\[P(D&gt;t)=P(N_{C_{x}}=0)=e^{-\lambda |C_{x}|} = e^{-\lambda \pi t^{2}}, \qquad{\text{for } t &gt; 0}\]</span>
+과 같이 계산할 수 있다. 이것을 미분하면 최근접 거리에 대한 밀도함수를 얻을 수 있다.
+<span class="math display">\[f_{D}(t)=e^{-\lambda \pi t^{2}}2\lambda \pi t, \qquad{\text{for } t &gt; 0.}\]</span>
+그리고 이것의 평균과 분산은 다음과 같다.
+<span class="math display">\[E(D) = \frac{1}{2\sqrt{\lambda}}, \text{Var}(D)=\frac{4-\pi}{4\pi\lambda}.\]</span></p>
 </div>
 <div id="----example-of-simulating-a-spatial-poisson-process" class="section level3">
 <h3><span class="header-section-number">9.5.5</span> 공간 포아송 과정 생성 예제(example of simulating a spatial Poisson process)</h3>
 <p>다음 R 예제는 <span class="math inline">\(\lambda=100\)</span>인 포아송 과정을 영역 <span class="math inline">\([0,1]\times [0,1]\)</span> 내에서 <span class="math inline">\((0.7,0.7)\)</span>을 중심으로 하고 반지름이 <span class="math inline">\(r=0.2\)</span>인 원 안에 들어가 있는 점의 갯수를 100,000번 반복 생성하여 계산해보고 기댓값과 비교해 보는 예제이다. 실제 기댓값은 <span class="math inline">\(\lambda |C|=100\pi (0.2)^{2}=12.567\)</span>이다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(plotrix)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(plotrix)
 <span class="co"># spatialPoisson.R</span>
 lambda &lt;-<span class="st"> </span><span class="dv">100</span>
 squarearea &lt;-<span class="st"> </span><span class="dv">1</span>
@@ -845,26 +877,26 @@ simlist &lt;-<span class="st"> </span><span class="kw">numeric</span>(trials)
   N &lt;-<span class="st"> </span><span class="kw">rpois</span>(<span class="dv">1</span>,lambda<span class="op">*</span>squarearea)
   xpoints &lt;-<span class="st"> </span><span class="kw">runif</span>(N,<span class="dv">0</span>,<span class="dv">1</span>)
   ypoints &lt;-<span class="st"> </span><span class="kw">runif</span>(N,<span class="dv">0</span>,<span class="dv">1</span>)
-  ct &lt;-<span class="st"> </span><span class="kw">sum</span>(((xpoints<span class="op">-</span><span class="fl">0.7</span>)<span class="op">^</span><span class="dv">2</span><span class="op">+</span>(ypoints<span class="op">-</span><span class="fl">0.7</span>)<span class="op">^</span><span class="dv">2</span>)<span class="op">&lt;=</span><span class="fl">0.2</span><span class="op">^</span><span class="dv">2</span>)
+  ct &lt;-<span class="st"> </span><span class="kw">sum</span>(((xpoints<span class="fl">-0.7</span>)<span class="op">^</span><span class="dv">2</span><span class="op">+</span>(ypoints<span class="fl">-0.7</span>)<span class="op">^</span><span class="dv">2</span>)<span class="op">&lt;=</span><span class="fl">0.2</span><span class="op">^</span><span class="dv">2</span>)
   simlist[i] &lt;-<span class="st"> </span>ct 
   <span class="cf">if</span>(i <span class="op">&lt;=</span><span class="dv">4</span>){
     <span class="kw">plot</span>(xpoints,ypoints, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;&quot;</span>, <span class="dt">main=</span><span class="st">&quot;&quot;</span>,<span class="dt">xaxt=</span><span class="st">&quot;n&quot;</span>,<span class="dt">yaxt=</span><span class="st">&quot;n&quot;</span>)
     <span class="kw">draw.circle</span>(<span class="dt">x=</span><span class="fl">0.7</span>,<span class="dt">y=</span><span class="fl">0.7</span>,<span class="dt">radius=</span><span class="fl">0.2</span>,<span class="dt">nv=</span><span class="dv">100</span>,<span class="dt">border=</span><span class="st">&quot;black&quot;</span>,<span class="dt">col=</span><span class="ot">NA</span>,<span class="dt">lty=</span><span class="dv">1</span>,<span class="dt">density=</span><span class="ot">NULL</span>,
                 <span class="dt">angle=</span><span class="dv">45</span>,<span class="dt">lwd=</span><span class="dv">1</span>)
   }
-} <span class="co"># number of points in circle</span></code></pre></div>
+} <span class="co"># number of points in circle</span></code></pre>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-157"></span>
 <img src="book_files/figure-html/unnamed-chunk-157-1.svg" alt="Samples of a spatial Poisson process." width="672" />
 <p class="caption">
 FIGURE 9.3: Samples of a spatial Poisson process.
 </p>
 </div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(simlist)</code></pre></div>
-<pre><code>&gt; [1] 12.57944</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(simlist)</code></pre></div>
-<pre><code>&gt; [1] 12.59256</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Compare with theoretical mean and variance</span>
-lambda<span class="op">*</span>pi<span class="op">*</span>(<span class="fl">0.2</span>)<span class="op">^</span><span class="dv">2</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(simlist)</code></pre>
+<pre><code>&gt; [1] 12.56605</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(simlist)</code></pre>
+<pre><code>&gt; [1] 12.57998</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Compare with theoretical mean and variance</span>
+lambda<span class="op">*</span>pi<span class="op">*</span>(<span class="fl">0.2</span>)<span class="op">^</span><span class="dv">2</span></code></pre>
 <pre><code>&gt; [1] 12.56637</code></pre>
 </div>
 <div id="--nonhomogeneous-poisson-process" class="section level3">
@@ -923,7 +955,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -935,6 +967,10 @@ gitbook.start({
 "edit": {
 "link": "https://seoncheolpark.github.io/book/_book/08-stoprocess.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["book.pdf"],
 "toc": {
@@ -954,8 +990,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

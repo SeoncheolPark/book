@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>통계공부와 관련된 글들</title>
+  <title>20.3 스펙트럼 밀도(spetral density) | 통계공부와 관련된 글들</title>
   <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="통계공부와 관련된 글들" />
+  <meta property="og:title" content="20.3 스펙트럼 밀도(spetral density) | 통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="SeoncheolPark/book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="통계공부와 관련된 글들" />
+  <meta name="twitter:title" content="20.3 스펙트럼 밀도(spetral density) | 통계공부와 관련된 글들" />
   
   <meta name="twitter:description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다." />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-12-06">
+<meta name="date" content="2019-04-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="20-4-periodogram-and-discrete-fourier-transform.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -50,41 +51,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -501,17 +528,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="part"><span><b>IV Quantile Regression and FDA</b></span></li>
 <li class="chapter" data-level="36" data-path="36-qr.html"><a href="36-qr.html"><i class="fa fa-check"></i><b>36</b> 분위수 회귀분석</a><ul>
-<li class="chapter" data-level="36.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html"><i class="fa fa-check"></i><b>36.1</b> 분위수 (quantile)</a></li>
-<li class="chapter" data-level="36.2" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html"><i class="fa fa-check"></i><b>36.2</b> 분위수 회귀분석의 기초(basics of quantile regression)</a><ul>
-<li class="chapter" data-level="36.2.1" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>36.2.1</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
-<li class="chapter" data-level="36.2.2" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--quantile-treatment-effect"><i class="fa fa-check"></i><b>36.2.2</b> 분위수 처리 효과(quantile treatment effect)</a></li>
-<li class="chapter" data-level="36.2.3" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
-<li class="chapter" data-level="36.2.4" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.2.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
+<li class="chapter" data-level="36.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html"><i class="fa fa-check"></i><b>36.1</b> 분위수 (quantile)</a><ul>
+<li class="chapter" data-level="36.1.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>36.1.1</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
+<li class="chapter" data-level="36.1.2" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--quantile-treatment-effect"><i class="fa fa-check"></i><b>36.1.2</b> 분위수 처리 효과(quantile treatment effect)</a></li>
+<li class="chapter" data-level="36.1.3" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.1.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
+<li class="chapter" data-level="36.1.4" data-path="36-1-quantile.html"><a href="36-1-quantile.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.1.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
 </ul></li>
-<li class="chapter" data-level="36.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.3</b> 극단회귀분석(extremal quantile regression)</a><ul>
-<li class="chapter" data-level="36.3.1" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.3.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
-<li class="chapter" data-level="36.3.2" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.3.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
-<li class="chapter" data-level="36.3.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.3.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
+<li class="chapter" data-level="36.2" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.2</b> 극단회귀분석(extremal quantile regression)</a><ul>
+<li class="chapter" data-level="36.2.1" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.2.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
+<li class="chapter" data-level="36.2.2" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.2.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
+<li class="chapter" data-level="36.2.3" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="37" data-path="37-functionestimation.html"><a href="37-functionestimation.html"><i class="fa fa-check"></i><b>37</b> 함수추정</a><ul>
@@ -546,7 +572,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="40.3.1" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#isotropy"><i class="fa fa-check"></i><b>40.3.1</b> 등방성(isotropy)</a></li>
 <li class="chapter" data-level="40.3.2" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#homogeneous"><i class="fa fa-check"></i><b>40.3.2</b> 동질성(homogeneous)</a></li>
 <li class="chapter" data-level="40.3.3" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#anisotropy"><i class="fa fa-check"></i><b>40.3.3</b> 이등방성(anisotropy)</a></li>
-<li class="chapter" data-level="40.3.4" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#z3--geometric-anisotropy"><i class="fa fa-check"></i><b>40.3.4</b> z3 기하학적 이등방성(Geometric anisotropy)</a></li>
 </ul></li>
 <li class="chapter" data-level="40.4" data-path="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><i class="fa fa-check"></i><b>40.4</b> 공간 확률과정의 연속성과 미분가능성(continuity and differentiabiliy of spatial stochastic process</a><ul>
 <li class="chapter" data-level="40.4.1" data-path="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html#path-continuity---path-differentiability"><i class="fa fa-check"></i><b>40.4.1</b> 경로연속(path-continuity) 또는 경로 미분가능성(path-differentiability)</a></li>
@@ -748,36 +773,46 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <div class="definition">
 <p><span id="def:unnamed-chunk-236" class="definition"><strong>Definition 20.2  (자기공분산함수의 스펙트럼 표현)  </strong></span>만약 <span class="math inline">\(\{x_{t} \}\)</span>가 정상시계열이고 자기공분산 <span class="math inline">\(\gamma(h)=\text{cov}(x_{t+h},x_{t})\)</span>를 갖는다면 <strong>스펙트럼 분포(spectral distribution)</strong>이라 불리는 유일한 단조증가 함수가 존재해 <span class="math inline">\(F(-\infty)=F(-1/2)=0\)</span>이고 <span class="math inline">\(F(\infty)=F(1/2)=\gamma(0)\)</span>이며</p>
-<span class="math display" id="eq:spectraldistnfct">\[\begin{equation}
+<p><span class="math display" id="eq:spectraldistnfct">\[\begin{equation}
 \gamma(h)=\int_{-1/2}^{1/2}e^{2\pi i \omega h}dF(\omega)
 \tag{20.6}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>이다.</p>
 </div>
 
 <p>자기공분산함수가 absolutely summable일 경우 스펙트럼 분포함수는 absolutely continuous하며 <span class="math inline">\(dF(\omega)=f(\omega)d\omega\)</span>이고 식 <a href="20-3-spetral-density.html#eq:spectraldistnfct">(20.6)</a>는 스펙트럼 밀도(spectral density)를 유도한다.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-237" class="definition"><strong>Definition 20.3  (스펙트럼 밀도)  </strong></span>자기공분산함수 <span class="math inline">\(\gamma(h)\)</span>가 정상과정이며
+<p><span id="def:unnamed-chunk-237" class="definition"><strong>Definition 20.3  (스펙트럼 밀도)  </strong></span>자기공분산함수 <span class="math inline">\(\gamma(h)\)</span>가 정상과정이며
 <span class="math display" id="eq:abssummablecond">\[\begin{equation}
 \sum_{h=-\infty}^{\infty}|\gamma(h)|&lt;\infty
 \tag{20.7}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>를 만족한다고 하면 자기공분산함수는 다음과 같은 표현</p>
-<span class="math display" id="eq:acfrepresentation">\[\begin{equation}
+<p><span class="math display" id="eq:acfrepresentation">\[\begin{equation}
 \gamma(h)=\int_{-1/2}^{1/2}e^{2\pi i \omega h}f(\omega)d\omega, h=0,\pm 1,\pm 2,\ldots
 \tag{20.8}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>을 갖고, <strong>스펙트럼 밀도(spetral density)</strong>는 그것의 역변환</p>
-<span class="math display" id="eq:spectraldensityrepresentation">\[\begin{equation}
+<p><span class="math display" id="eq:spectraldensityrepresentation">\[\begin{equation}
 f(\omega)=\sum_{h=-\infty}^{\infty}\gamma(h)e^{-2\pi i \omega h}, -1/2 \leq \omega \leq 1/2
 \tag{20.9}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>으로 정의한다.</p>
 </div>
 
-<p>스펙트럼 밀도는 확률밀도처럼 <span class="math inline">\(\gamma(h)\)</span>가 non-negative definite이므로 <span class="math display">\[f(\omega) \geq 0, \qquad{\forall\omega}\]</span> 을 만족한다. 또한 정의로부터 <span class="math display">\[f(\omega)=-f(\omega)\]</span> 이며 이는 스펙트럼 밀도함수가 우함수임을 보여준다. 이런 우함수 성질 덕분에 우리는 보통 <span class="math inline">\(0&lt;\omega \leq 1/2\)</span>인 <span class="math inline">\(\omega\)</span>에 대해서만 <span class="math inline">\(f(\omega)\)</span>를 그리게 된다. 더 나아가 식 <a href="20-3-spetral-density.html#eq:acfrepresentation">(20.8)</a>에 <span class="math inline">\(h=0\)</span>을 넣으면 다음을 얻을 수 있다. <span class="math display">\[\gamma(0)=\text{var}(x_{t})=\int_{-\frac{1}{2}}^{\frac{1}{2}}f(\omega)d\omega.\]</span> 이 말인 즉슨 총분산은 모든 주파수에서의 스펙트럼 분포의 적분 형태로 나타낼 수 있다는 것이다. 이제 자기공분산과 스펙트럼 분포가 같은 정보를 갖고 있다는 것이 분명해졌다. 그러나 그 정보는 다른 형태로 표현된다. 자기공분산 함수는 정보를 lag로 표현하고, 스펙트럼 분포에서는 같은 정보를 cycle을 이용해 표현한다.</p>
-<p>또 한가지 중요한 사실은 식 <a href="20-3-spetral-density.html#eq:acfrepresentation">(20.8)</a>의 자기공분산 함수 <span class="math inline">\(\gamma(h)\)</span>와 식 <a href="20-3-spetral-density.html#eq:spectraldensityrepresentation">(20.9)</a>의 스펙트럼 밀도는 푸리에 변환의 짝이라는 것이다. 이것은 두 개의 스펙트럼 분포 <span class="math inline">\(f(\omega),g(\omega)\)</span>가 존재해 <span class="math display">\[\gamma_{f}(h)=\int_{-\frac{1}{2}}^{\frac{1}{2}}f(\omega)e^{2\pi i\omega h}d\omega = \int_{-\frac{1}{2}}^{\frac{1}{2}}g(\omega)e^{2\pi i\omega h}d\omega =\gamma_{g}(h), \qquad{\forall 0,\pm1, \pm2,\ldots}\]</span> 을 만족하면 <span class="math display">\[f(\omega)=g(\omega)\]</span> 라는 것이다.</p>
+<p>스펙트럼 밀도는 확률밀도처럼 <span class="math inline">\(\gamma(h)\)</span>가 non-negative definite이므로
+<span class="math display">\[f(\omega) \geq 0, \qquad{\forall\omega}\]</span>
+을 만족한다. 또한 정의로부터
+<span class="math display">\[f(\omega)=-f(\omega)\]</span>
+이며 이는 스펙트럼 밀도함수가 우함수임을 보여준다. 이런 우함수 성질 덕분에 우리는 보통 <span class="math inline">\(0&lt;\omega \leq 1/2\)</span>인 <span class="math inline">\(\omega\)</span>에 대해서만 <span class="math inline">\(f(\omega)\)</span>를 그리게 된다. 더 나아가 식 <a href="20-3-spetral-density.html#eq:acfrepresentation">(20.8)</a>에 <span class="math inline">\(h=0\)</span>을 넣으면 다음을 얻을 수 있다.
+<span class="math display">\[\gamma(0)=\text{var}(x_{t})=\int_{-\frac{1}{2}}^{\frac{1}{2}}f(\omega)d\omega.\]</span>
+이 말인 즉슨 총분산은 모든 주파수에서의 스펙트럼 분포의 적분 형태로 나타낼 수 있다는 것이다. 이제 자기공분산과 스펙트럼 분포가 같은 정보를 갖고 있다는 것이 분명해졌다. 그러나 그 정보는 다른 형태로 표현된다. 자기공분산 함수는 정보를 lag로 표현하고, 스펙트럼 분포에서는 같은 정보를 cycle을 이용해 표현한다.</p>
+<p>또 한가지 중요한 사실은 식 <a href="20-3-spetral-density.html#eq:acfrepresentation">(20.8)</a>의 자기공분산 함수 <span class="math inline">\(\gamma(h)\)</span>와 식 <a href="20-3-spetral-density.html#eq:spectraldensityrepresentation">(20.9)</a>의 스펙트럼 밀도는 푸리에 변환의 짝이라는 것이다. 이것은 두 개의 스펙트럼 분포 <span class="math inline">\(f(\omega),g(\omega)\)</span>가 존재해
+<span class="math display">\[\gamma_{f}(h)=\int_{-\frac{1}{2}}^{\frac{1}{2}}f(\omega)e^{2\pi i\omega h}d\omega = \int_{-\frac{1}{2}}^{\frac{1}{2}}g(\omega)e^{2\pi i\omega h}d\omega =\gamma_{g}(h), \qquad{\forall 0,\pm1, \pm2,\ldots}\]</span>
+을 만족하면
+<span class="math display">\[f(\omega)=g(\omega)\]</span>
+라는 것이다.</p>
 <p>마지막으로 식 <a href="20-3-spetral-density.html#eq:abssummablecond">(20.7)</a>의 absolutely summable condition 식 <a href="20-2-cyclical-behavior-and-periodicity.html#eq:periodrpautocov">(20.3)</a>로 만족되어지지 않는다. 그러나 ARMA 모형에 대해서는 만족된다.</p>
 
 <div class="example">
@@ -789,29 +824,35 @@ f(\omega)=\sum_{h=-\infty}^{\infty}\gamma(h)e^{-2\pi i \omega h}, -1/2 \leq \ome
 0, &amp; h=0
 \end{cases}
 \]</span></p>
-<p>이므로 식 <a href="20-3-spetral-density.html#eq:spectraldensityrepresentation">(20.9)</a>로부터 <span class="math display">\[f_{w}(\omega)=\sigma_{w}^{2}, \qquad{-0.5\leq \omega \leq 0.5}\]</span> 를 얻을 수 있다. 즉 백색잡음에서는 모든 진동수들의 기여도가 같다.</p>
+<p>이므로 식 <a href="20-3-spetral-density.html#eq:spectraldensityrepresentation">(20.9)</a>로부터
+<span class="math display">\[f_{w}(\omega)=\sigma_{w}^{2}, \qquad{-0.5\leq \omega \leq 0.5}\]</span>
+를 얻을 수 있다. 즉 백색잡음에서는 모든 진동수들의 기여도가 같다.</p>
 </div>
 
 <p>선형과정은 가장 기본적인 과정이므로, 이런 과정의 스펙트럼을 조사하는 것은 의미있는 일이다. 일반적으로, 선형 필터는 투입된 시계열 <span class="math inline">\(x_{t}\)</span>를 변환하기 위해 특정화된 계수들의 집합 $a_{j}, j=0, 1, 2, , $을 사용하여 다음의 결과물</p>
-<span class="math display" id="eq:spectrumconvolution">\[\begin{equation}
+<p><span class="math display" id="eq:spectrumconvolution">\[\begin{equation}
 y_{t} =\sum_{j=-\infty}^{\infty}a_{j}x_{t-j}, \qquad{\sum_{j=-\infty}^{\infty}}|a_{j}|&lt;\infty
 \tag{20.10}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p><span class="math inline">\(y_{t}\)</span>를 만들어 낸다. 식 <a href="20-3-spetral-density.html#eq:spectrumconvolution">(20.10)</a>은 통계학에서 <strong>합성곱(convolution)</strong>이라고 부른다. 계수들 <span class="math inline">\(a_{j}\)</span>은 <strong>impulse response function</strong>이라고 부르며, 이것들의 푸리에 변환</p>
-<span class="math display" id="eq:IRFFourier">\[\begin{equation}
+<p><span class="math display" id="eq:IRFFourier">\[\begin{equation}
 A(\omega) = \sum_{j=-\infty}^{\infty}a_{j}e^{-2\pi i \omega j}.
 \tag{20.11}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>을 <strong>주파수 반응함수(frequency response function)</strong>이라고 부른다. 만약 식 <a href="20-3-spetral-density.html#eq:spectrumconvolution">(20.10)</a>에서 <span class="math inline">\(x_{t}\)</span>가 스펙트럼 밀도 <span class="math inline">\(f_{x}(\omega)\)</span>를 갖는다고 할 때, 다음의 성질을 얻는다.</p>
 
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-239" class="proposition"><strong>Proposition 20.1  (Output Spectrum of a Filtered Stationary Series)  </strong></span>만약 식 <a href="20-3-spetral-density.html#eq:spectrumconvolution">(20.10)</a>에서 <span class="math inline">\(x_{t}\)</span>가 스펙트럼 밀도 <span class="math inline">\(f_{x}(\omega)\)</span>를 갖는다고 할 때 filtered output <span class="math inline">\(y_{t}\)</span> 의 스펙트럼 <span class="math inline">\(f_{y}(\omega)\)</span>는 투입값 <span class="math inline">\(x_{t}\)</span>의 스펙트럼과 <span class="math display">\[f_{y}(\omega) = |A(\omega)|^{2}f_{x}(\omega)\]</span> 의 관계를 갖는다.</p>
+<p><span id="prp:unnamed-chunk-239" class="proposition"><strong>Proposition 20.1  (Output Spectrum of a Filtered Stationary Series)  </strong></span>만약 식 <a href="20-3-spetral-density.html#eq:spectrumconvolution">(20.10)</a>에서 <span class="math inline">\(x_{t}\)</span>가 스펙트럼 밀도 <span class="math inline">\(f_{x}(\omega)\)</span>를 갖는다고 할 때 filtered output <span class="math inline">\(y_{t}\)</span> 의 스펙트럼 <span class="math inline">\(f_{y}(\omega)\)</span>는 투입값 <span class="math inline">\(x_{t}\)</span>의 스펙트럼과
+<span class="math display">\[f_{y}(\omega) = |A(\omega)|^{2}f_{x}(\omega)\]</span>
+의 관계를 갖는다.</p>
 </div>
 
 <p>앞선 성질을 ARMA 과정에 적용하면 다음을 얻는다.</p>
 
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-240" class="proposition"><strong>Proposition 20.2  (ARMA의 스펙트럼 밀도)  </strong></span>만약 <span class="math inline">\(x_{t}\)</span>가 ARMA<span class="math inline">\((p,q)\)</span>를 따르고 <span class="math inline">\(\phi(B)x_{t} = \theta(B)w_{t}\)</span>라면, 그것의 스펙트럼 밀도는 <span class="math display">\[f_{x}(\omega) = \sigma_{\omega}^{2} \frac{|\theta (e^{-2\pi i \omega})|^{2} }{| \phi(e^{-2\pi i\omega})  |^{2} }\]</span> 이다. 이 떄 <span class="math inline">\(\phi(z)= 1-\sum_{k=1}^{p} \phi_{k}z^{k}\)</span>이고 <span class="math inline">\(\theta(z) = 1_ \sum_{k=1}^{q} \theta_{k}z^{k}\)</span>이다.</p>
+<p><span id="prp:unnamed-chunk-240" class="proposition"><strong>Proposition 20.2  (ARMA의 스펙트럼 밀도)  </strong></span>만약 <span class="math inline">\(x_{t}\)</span>가 ARMA<span class="math inline">\((p,q)\)</span>를 따르고 <span class="math inline">\(\phi(B)x_{t} = \theta(B)w_{t}\)</span>라면, 그것의 스펙트럼 밀도는
+<span class="math display">\[f_{x}(\omega) = \sigma_{\omega}^{2} \frac{|\theta (e^{-2\pi i \omega})|^{2} }{| \phi(e^{-2\pi i\omega})  |^{2} }\]</span>
+이다. 이 떄 <span class="math inline">\(\phi(z)= 1-\sum_{k=1}^{p} \phi_{k}z^{k}\)</span>이고 <span class="math inline">\(\theta(z) = 1_ \sum_{k=1}^{q} \theta_{k}z^{k}\)</span>이다.</p>
 </div>
 
 <p>스펙트럼을 이용해 확률과정의 총분산(또는 total power)을 각 진동수별로 분해할 수 있다. 스펙트럼은 자기상관함수의 푸리에 변환이므로 자기상관함수와 일대일 관계에 있으며 다음의 성질을 가지고 있다.</p>
@@ -848,7 +889,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -860,6 +901,10 @@ gitbook.start({
 "edit": {
 "link": "https://seoncheolpark.github.io/book/_book/29-spectral.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["book.pdf"],
 "toc": {
@@ -879,8 +924,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

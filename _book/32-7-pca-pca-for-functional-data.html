@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>통계공부와 관련된 글들</title>
+  <title>32.7 함수자료에서의 PCA (PCA for functional data) | 통계공부와 관련된 글들</title>
   <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="통계공부와 관련된 글들" />
+  <meta property="og:title" content="32.7 함수자료에서의 PCA (PCA for functional data) | 통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="SeoncheolPark/book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="통계공부와 관련된 글들" />
+  <meta name="twitter:title" content="32.7 함수자료에서의 PCA (PCA for functional data) | 통계공부와 관련된 글들" />
   
   <meta name="twitter:description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다." />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2018-12-06">
+<meta name="date" content="2019-04-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="33-CCA.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -50,41 +51,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -501,17 +528,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="part"><span><b>IV Quantile Regression and FDA</b></span></li>
 <li class="chapter" data-level="36" data-path="36-qr.html"><a href="36-qr.html"><i class="fa fa-check"></i><b>36</b> 분위수 회귀분석</a><ul>
-<li class="chapter" data-level="36.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html"><i class="fa fa-check"></i><b>36.1</b> 분위수 (quantile)</a></li>
-<li class="chapter" data-level="36.2" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html"><i class="fa fa-check"></i><b>36.2</b> 분위수 회귀분석의 기초(basics of quantile regression)</a><ul>
-<li class="chapter" data-level="36.2.1" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>36.2.1</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
-<li class="chapter" data-level="36.2.2" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--quantile-treatment-effect"><i class="fa fa-check"></i><b>36.2.2</b> 분위수 처리 효과(quantile treatment effect)</a></li>
-<li class="chapter" data-level="36.2.3" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
-<li class="chapter" data-level="36.2.4" data-path="36-2-basics-of-quantile-regression.html"><a href="36-2-basics-of-quantile-regression.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.2.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
+<li class="chapter" data-level="36.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html"><i class="fa fa-check"></i><b>36.1</b> 분위수 (quantile)</a><ul>
+<li class="chapter" data-level="36.1.1" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--linear-quantile-regression"><i class="fa fa-check"></i><b>36.1.1</b> 선형 분위수 회귀분석(linear quantile regression)</a></li>
+<li class="chapter" data-level="36.1.2" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--quantile-treatment-effect"><i class="fa fa-check"></i><b>36.1.2</b> 분위수 처리 효과(quantile treatment effect)</a></li>
+<li class="chapter" data-level="36.1.3" data-path="36-1-quantile.html"><a href="36-1-quantile.html#--advantages-of-quantile-regression"><i class="fa fa-check"></i><b>36.1.3</b> 분위수 회귀분석의 장점들(advantages of quantile regression)</a></li>
+<li class="chapter" data-level="36.1.4" data-path="36-1-quantile.html"><a href="36-1-quantile.html#----other-properties-of-quantiles-and-quantile-regression"><i class="fa fa-check"></i><b>36.1.4</b> 분위수와 분위수 회귀분석의 다른 성질들(other properties of quantiles and quantile regression)</a></li>
 </ul></li>
-<li class="chapter" data-level="36.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.3</b> 극단회귀분석(extremal quantile regression)</a><ul>
-<li class="chapter" data-level="36.3.1" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.3.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
-<li class="chapter" data-level="36.3.2" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.3.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
-<li class="chapter" data-level="36.3.3" data-path="36-3-extremal-quantile-regression.html"><a href="36-3-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.3.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
+<li class="chapter" data-level="36.2" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html"><i class="fa fa-check"></i><b>36.2</b> 극단회귀분석(extremal quantile regression)</a><ul>
+<li class="chapter" data-level="36.2.1" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#----pareto-type-and-regularly-varying-tails"><i class="fa fa-check"></i><b>36.2.1</b> 파레토 타입과 정칙적으로 변하는 꼬리들(Pareto-type and regularly varying tails)</a></li>
+<li class="chapter" data-level="36.2.2" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#---extremal-quantile-regression-models"><i class="fa fa-check"></i><b>36.2.2</b> 극단 분위수 회귀분석 모형들(extremal quantile regression models)</a></li>
+<li class="chapter" data-level="36.2.3" data-path="36-2-extremal-quantile-regression.html"><a href="36-2-extremal-quantile-regression.html#----estimation-and-inference-methods-in-extremal-quantile-regression"><i class="fa fa-check"></i><b>36.2.3</b> 극단 분위수 회귀분석의 추정과 추론(estimation and inference methods in extremal quantile regression)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="37" data-path="37-functionestimation.html"><a href="37-functionestimation.html"><i class="fa fa-check"></i><b>37</b> 함수추정</a><ul>
@@ -546,7 +572,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="40.3.1" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#isotropy"><i class="fa fa-check"></i><b>40.3.1</b> 등방성(isotropy)</a></li>
 <li class="chapter" data-level="40.3.2" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#homogeneous"><i class="fa fa-check"></i><b>40.3.2</b> 동질성(homogeneous)</a></li>
 <li class="chapter" data-level="40.3.3" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#anisotropy"><i class="fa fa-check"></i><b>40.3.3</b> 이등방성(anisotropy)</a></li>
-<li class="chapter" data-level="40.3.4" data-path="40-3-properties-of-covariance-functions.html"><a href="40-3-properties-of-covariance-functions.html#z3--geometric-anisotropy"><i class="fa fa-check"></i><b>40.3.4</b> z3 기하학적 이등방성(Geometric anisotropy)</a></li>
 </ul></li>
 <li class="chapter" data-level="40.4" data-path="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><i class="fa fa-check"></i><b>40.4</b> 공간 확률과정의 연속성과 미분가능성(continuity and differentiabiliy of spatial stochastic process</a><ul>
 <li class="chapter" data-level="40.4.1" data-path="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html"><a href="40-4-continuity-and-differentiabiliy-of-spatial-stochastic-process.html#path-continuity---path-differentiability"><i class="fa fa-check"></i><b>40.4.1</b> 경로연속(path-continuity) 또는 경로 미분가능성(path-differentiability)</a></li>
@@ -746,13 +771,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">32.7</span> 함수자료에서의 PCA (PCA for functional data)</h2>
 <p><span class="citation">(Izenman <a href="#ref-Izenman2009">2009</a>)</span>에 있는 간단한 설명이다. 어떤 상황들에서는 우리는 함수나 또는 curve로 구성된 자료를 분석하려고 한다. 이러한 함수 자료는 종종 시간-의존적이지만 시간이 특별한 역할을 하지 않는다고 놓는다. 실제로, 다르고 독립적으로 얻어진 함수자료들은 다른 시간 point에서 기록될 것이므로 자료 자체가 equally spaced되지 않았을 가능성이 높다. 이런 경우에는 이산 점들에서 얻어진 자료들을 개별적인 함수 관찰값로 보는 것이 좋다.</p>
 <p>함수 PCA에서는 각각의 관찰된 함수들이 <strong>같은 individual들의 반복된 관찰값</strong>이라고 본다. 그리고 우리는 그들을 가지고 <strong>함수의 main feature를 묘사</strong>하고자 한다. 이것을 할 수 있는 한 가지 방법은 functional PCA를 이용하는 것이다. 여기서는 각각의 값 대신 커브를 생각하기 때문에 벡터로 표시한 관찰값들 <span class="math inline">\(\mathbf{X}_{1},\ldots , \mathbf{X}_{n}\)</span>이 일변량 함수들 <span class="math inline">\(X_{1}(t),\ldots, X_{n}(t)\)</span>로 대체된다. 여기서 <span class="math inline">\(t\)</span>는 일반적으로 시간을 의미하나 닫힌 구간 <span class="math inline">\([0,T]\)</span>에서 연속인 어떤 값들로도 바뀔 수 있다.</p>
-<p>함수적 PCA에서는 각 표본 커브들이 부드러운 평균함수 <span class="math inline">\(E\{X(t)\}=\mu(t)\)</span> 그리고 공분산 함수 <span class="math display">\[\text{cov}\{X(s),X(t)\}=\sigma(s,t)\]</span> 를 갖는 <strong>일변량 확률과정 <span class="math inline">\(X(t)\)</span>의 독립적인 실현</strong>이라고 간주한다. 이것은 <span class="math inline">\(X(t)\)</span>의 잘 알려진 Karhunen-Loeve expansion이다. 공분산 함수의 스펙트럼 분해를 통해 우리는 <span class="math inline">\(\sigma\)</span>를 고유값들 <span class="math inline">\(\{\lambda_{j}\}\)</span>와 그것에 대응되는 고유함수(eigenfunction)들 <span class="math inline">\(\{V_{j}(t)\}\)</span>를 가지고 L2 관점에서 직교인 확장으로 표현할 수 있다. 즉 <span class="math display">\[\sigma(s,t)=\sum_{j=1}^{\infty}\lambda_{j}V_{j}(s)V_{j}(t)\]</span> 로 표현할 수 있다. 여기서 고유값들은 처음 몇 개들만을 제외하고는 빠르게 0으로 간다고 가정한다. 공분산 함수는 양정치이므로, 우리는 고유값들이 양수이며 <span class="math inline">\(\lambda_{1}\geq \lambda_{2} \ldots \geq 0\)</span>으로 정렬할 수 있다. 여기서의 목표는 <span class="math inline">\(\sigma(s,t)\)</span>에서 functional variation을 나타내는 처음 몇 개의 부분을 찾는 것으로, 고유치는 각각의 component들이 total variance를 얼마나 설명해주는지를 말해준다.</p>
-<p>무작위 커브 <span class="math inline">\(X(t)\)</span>는 다음과 같이 표현할 수 있다. <span class="math display">\[X(t)=\mu(t) + \sum_{j=1}^{\infty}\xi_{j}V_{j}(t).\]</span> 여기서 계수 <span class="math inline">\(\xi_{j}\)</span>는 다음과 같은 스칼라 확률변수이다.(<strong>j번째 functional PC score</strong>이다.)</p>
-<span class="math display" id="eq:Karhunen">\[\begin{equation}
+<p>함수적 PCA에서는 각 표본 커브들이 부드러운 평균함수 <span class="math inline">\(E\{X(t)\}=\mu(t)\)</span> 그리고 공분산 함수
+<span class="math display">\[\text{cov}\{X(s),X(t)\}=\sigma(s,t)\]</span>
+를 갖는 <strong>일변량 확률과정 <span class="math inline">\(X(t)\)</span>의 독립적인 실현</strong>이라고 간주한다. 이것은 <span class="math inline">\(X(t)\)</span>의 잘 알려진 Karhunen-Loeve expansion이다. 공분산 함수의 스펙트럼 분해를 통해 우리는 <span class="math inline">\(\sigma\)</span>를 고유값들 <span class="math inline">\(\{\lambda_{j}\}\)</span>와 그것에 대응되는 고유함수(eigenfunction)들 <span class="math inline">\(\{V_{j}(t)\}\)</span>를 가지고 L2 관점에서 직교인 확장으로 표현할 수 있다. 즉
+<span class="math display">\[\sigma(s,t)=\sum_{j=1}^{\infty}\lambda_{j}V_{j}(s)V_{j}(t)\]</span>
+로 표현할 수 있다. 여기서 고유값들은 처음 몇 개들만을 제외하고는 빠르게 0으로 간다고 가정한다. 공분산 함수는 양정치이므로, 우리는 고유값들이 양수이며 <span class="math inline">\(\lambda_{1}\geq \lambda_{2} \ldots \geq 0\)</span>으로 정렬할 수 있다. 여기서의 목표는 <span class="math inline">\(\sigma(s,t)\)</span>에서 functional variation을 나타내는 처음 몇 개의 부분을 찾는 것으로, 고유치는 각각의 component들이 total variance를 얼마나 설명해주는지를 말해준다.</p>
+<p>무작위 커브 <span class="math inline">\(X(t)\)</span>는 다음과 같이 표현할 수 있다.
+<span class="math display">\[X(t)=\mu(t) + \sum_{j=1}^{\infty}\xi_{j}V_{j}(t).\]</span>
+여기서 계수 <span class="math inline">\(\xi_{j}\)</span>는 다음과 같은 스칼라 확률변수이다.(<strong>j번째 functional PC score</strong>이다.)</p>
+<p><span class="math display" id="eq:Karhunen">\[\begin{equation}
 \xi_{j} =\int [X(t)-\mu(t)]V_{j}(t)dt.
 \tag{32.5}
-\end{equation}\]</span>
-<p>이 때 <span class="math inline">\(E\{xi_{j}\}=0\)</span>, <span class="math inline">\(\text{var}\{\xi_{j}\}=\lambda_{j}\)</span>, <span class="math inline">\(\sum_{j}\lambda_{j}&lt;\infty\)</span> 그리고 <span class="math inline">\(\text{cov}\{\xi_{j},\xi_{k}\}=0,j\neq k\)</span>이다. 고유함수들 <span class="math inline">\(\{V_{j}(t) \}\)</span> (<strong>PC 함수라고도 부른다</strong>)은 다음을 만족한다. <span class="math display">\[\int_{[0,T]} [V_{j}(t)]^{2}dt=1, \qquad{\int_{[0,T]} V_{j}(t)V_{k}(t)dt=0, j\neq k. }\]</span> 여기서 적분은 <span class="math inline">\([0,T]\)</span>에서 정의되며 periodic일 수 있다. 식 <a href="32-7-pca-pca-for-functional-data.html#eq:Karhunen">(32.5)</a>은 <span class="math inline">\(X(t)\)</span>에 대해 잘 알려진 <strong>Karhunen-Loeve expansion</strong>이다. 그래서 <span class="math inline">\(X(t)-\mu(t)\)</span>는 각각의 곡선들이 uncorrelated random amplitude를 갖는 직교 곡선들의 유한한 합으로 생각할 수 있다.</p>
+\end{equation}\]</span></p>
+<p>이 때 <span class="math inline">\(E\{xi_{j}\}=0\)</span>, <span class="math inline">\(\text{var}\{\xi_{j}\}=\lambda_{j}\)</span>, <span class="math inline">\(\sum_{j}\lambda_{j}&lt;\infty\)</span> 그리고 <span class="math inline">\(\text{cov}\{\xi_{j},\xi_{k}\}=0,j\neq k\)</span>이다. 고유함수들 <span class="math inline">\(\{V_{j}(t) \}\)</span> (<strong>PC 함수라고도 부른다</strong>)은 다음을 만족한다.
+<span class="math display">\[\int_{[0,T]} [V_{j}(t)]^{2}dt=1, \qquad{\int_{[0,T]} V_{j}(t)V_{k}(t)dt=0, j\neq k. }\]</span>
+여기서 적분은 <span class="math inline">\([0,T]\)</span>에서 정의되며 periodic일 수 있다. 식 <a href="32-7-pca-pca-for-functional-data.html#eq:Karhunen">(32.5)</a>은 <span class="math inline">\(X(t)\)</span>에 대해 잘 알려진 <strong>Karhunen-Loeve expansion</strong>이다. 그래서 <span class="math inline">\(X(t)-\mu(t)\)</span>는 각각의 곡선들이 uncorrelated random amplitude를 갖는 직교 곡선들의 유한한 합으로 생각할 수 있다.</p>
 <p>과학적으로는 함수 자료임이 알려졌다고 하더라도 실제로는 표본을 통해 유한한 양의 지식만을 알고 있다. 따라서 평균 곡선 <span class="math inline">\(\mu(t)\)</span>와 공분산 함수 <span class="math inline">\(\sigma\)</span>를 추정하는 것은 <span class="math inline">\(n\)</span>개의 표본 곡선들의 collection들 <span class="math inline">\(X_{1}(t),\ldots, X_{n}(t)\)</span>로부터 기반한다. 이 때 <span class="math inline">\(i\)</span>번째 곡선 <span class="math inline">\(X_{i}(t)\)</span>는 <span class="math inline">\(X_{i}(t)=\mu(t)+\sum_{j}\xi_{ij}V_{j}(t)\)</span>이다. <span class="math inline">\(i\)</span>번째 곡선의 <span class="math inline">\(k\)</span>번째 점은 <span class="math inline">\(X_{ik}=X_{i}(t_{k})\)</span>이다.</p>
 <p>이러한 functional PCA를 적합하는 방법으로는 각각의 표본 곡선들을 spline이나 local-linear smoother로 부드럽게 만든 후 적합하게 되며 regularization을 사용하기도 한다.</p>
 <p><span class="citation">(Kokoszka and Reimherr <a href="#ref-Kokoszka2017">2017</a>)</span>에 따르면, 함수자료 PCA의 목적은 관찰된 자료 <span class="math inline">\(X(t_{m})\)</span>을 추정 또는 예측된 주성분 점수 <span class="math inline">\(\{\hat{\xi}_{j} \}\)</span> 또는 부드러운 경로로 대체하는 데에 그 목적이 있다. 또한 FPCA가 달성할 수 있는 것으로 다음의 네 가지를 적었다.</p>
@@ -764,7 +797,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ol>
 <div id="-pca-estimation-of-functional-pca" class="section level3">
 <h3><span class="header-section-number">32.7.1</span> 함수자료 PCA의 적합(estimation of functional PCA)</h3>
-<p><span class="citation">(J. Ramsay and Silverman <a href="#ref-Ramsay2005">2005</a>)</span> 책 8장에 FPCA에 대해 자세히 소개되어 있다. L2관점에서 fPCA를 하는 것은 eigneproblem을 푸는 것과 같다고 한다. FPCA를 하는 것에는 다음과 같은 방법들이 있다.</p>
+<p><span class="citation">(Ramsay and Silverman <a href="#ref-Ramsay2005">2005</a>)</span> 책 8장에 FPCA에 대해 자세히 소개되어 있다. L2관점에서 fPCA를 하는 것은 eigneproblem을 푸는 것과 같다고 한다. FPCA를 하는 것에는 다음과 같은 방법들이 있다.</p>
 <ol style="list-style-type: decimal">
 <li><p><strong>Discretizing the functions</strong>: 가장 간단한 방법은 관찰된 함수 <span class="math inline">\(x_{i}\)</span>을 이산화하는 것이다. equally spcaed grid point <span class="math inline">\(t_{1},\ldots , t_{m}\)</span>을 생각하고 covariance matrix <span class="math inline">\(\mathbf{V}^{*}\)</span>를 <span class="math inline">\(\mathbf{V}(t_{i},t_{j})\)</span>로 나타낸 다음 다변량 PCA를 <span class="math inline">\(\mathbf{V}^{*}\)</span>에 적합, smoothes PC를 얻기 위해 interpolation을 추가로 한다. 이를 이용하는 방법은 함수 <code>prcomp</code>로 할 수 있다.</p></li>
 <li><p><strong>Basis expansion of the functions</strong>: <span class="math inline">\(y_{i}(t)=\sum_{j=1}^{K}c_{ij}\phi_{k}(t)\)</span>라고 호자. <span class="math inline">\(\Phi\)</span>를 orthonormal basis의 집합이라고 하자. 그리고 <span class="math inline">\(\mathbf{C}\)</span>를 <span class="math inline">\((n\times K)\)</span> coefficient matrix라고 하자. 그러면 <span class="math inline">\(\mathbf{Y}=\mathbf{C}\Phi\)</span>이고 표본 공분산 행렬은 <span class="math inline">\(\mathbf{V}=\frac{1}{n}\Phi^{T}\mathbf{C}^{T}\mathbf{C}\Phi\)</span>로 쓸 수 있다. 이를 이용하는 방법은 패키지 <code>FDA</code>에서 구현되어 있다.</p></li>
@@ -813,7 +846,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -825,6 +858,10 @@ gitbook.start({
 "edit": {
 "link": "https://seoncheolpark.github.io/book/_book/43-PCA.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["book.pdf"],
 "toc": {
@@ -844,8 +881,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;
