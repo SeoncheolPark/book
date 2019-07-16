@@ -336,5 +336,160 @@ $$\hat{\beta}_{r} =\frac{1}{m}\sum_{j=1}^{m}(\frac{j}{m+1})^{r}Y_{j:m}.$$
 
 **확률가중적률 추정량(probability weighted moment estimator)**는 식 \@ref(eq:PWM01), \@ref(eq:PWM02), \@ref(eq:PWM03)에 있는 $\beta_{r}$을 $b_{r}$ 또는 $\hat{\beta}_{r}$로 대체한 것이다. [@Hosking1985]는 $\beta_{r}$이 $b_{r}$로 교체될 경우, PWM 추정량은 feasibility criterion ($\hat{\xi}<1$, $\hat{\sigma}>0$ almost surely)을 만족함을 보였다.
 
+## 정칙 변동 (regular variation)
 
+정칙 변동 함수 이론은 두꺼운 꼬리, 장기기억 상관관계(long-range dependence) 그리고 흡인영역(domain of attraction)을 다룰 때 필수적인 이론이다. [@Resnick2007] 거칠게 얘기하자면 **정칙 변동 함수들(regularly varying functions)**은 점근적으로 멱함수(power function)처럼 행동하는 함수들을 말한다. 여기서는 단순함을 위해 일변량, 실함수만을 생각하기로 한다.
+
+```{definition, name="정칙 변동 함수"}
+어떤 가측 함수 $U: \mathbb{R}_{+}\rightarrow \mathbb{R}_{+}$가 만약 $x>0$에 대해
+$$\lim_{t\rightarrow\infty}\frac{U(tx)}{U(x)}=x^{\rho}$$
+을 만족한다면 이 함수를 $\infty$에서 **정칙 변동(regularly varying)**이라고 부른다. 그리고 $U\in \text{RV}_{\rho}$와 같이 쓴다. 이 때 index $\rho\in\mathbb{R}$을 **변동지수(exponent of variation)**이라고 부른다.
+
+```
+
+```{definition, name="천천히 변하는 함수"}
+앞선 정칙 변동 함수에서 $\rho=0$인 경우에 $U$를 특별히 **천천히 변하는 함수(slowly varying function)**이라고 부른다. 그리고 $U\in \text{RV}_{0}$ 또는 $U\in \text{SV}$로 표현하기로 한다.
+
+```
+
+천천히 변하는 함수는 일반적으로 $L(x)$라고 쓴다. 만약 $U\in\text{RV}_{\rho}$라고 하면, $\frac{U(x)}{x^{\rho}}\in\text{RV}_{0}$이 되고, $L(x)=\frac{U(x)}{x^{\rho}}$라고 둔다면 $\rho$-varying 함수들을 항상 $x^{\rho}L(x)$의 꼴로 나타낼 수 있음을 알 수 있다.
+
+다음은 [@Gut2012] Appendix에 나오는 정칙 변동 함수들의 예다.
+
+```{example, name="정칙 변동 함수들의 예"}
+다음 함수들은 정칙 변동이다.
+$$x^{rho}, x^{rho}\log^{+}(x), x^{rho}\log^{+}\log^{+}(x), x^{\rho}\frac{\log^{+}(x)}{\log^{+}\log^{+}x}.$$
+이 때 $\log^{+}(x)=\max \{1,\log(x)\}$이다.
+  
+```
+
+전형적인 천천히 변하는 함수들의 예로는 앞선 예제에서 $\rho=0$으로 한 것들을 들 수 있다. 또한 $x\rightarrow\infty$일 때 양의 유한한 극한으로 수렴하는 모든 양의 함수들은 천천히 변한다. [@Gut2012] 
+
+다음은 [@Resnick2007] 2장에 나오는 정칙 변동하지 않는 함수들의 예다.
+
+```{example, name="정칙 변동하지 않는 함수들의 예"}
+다음 함수들은 정칙 변동이 아니다.
+$$e^{x}, \sin(x+2).$$
+  
+```
+
+$[\log x ]$의 경우는 천천히 변하나 $\exp \{ [\log x ]\}$는 정칙 변동을 하지 않는다. [@Resnick2007]
+
+다음은 [@Gut2012]에 나오는 정칙 변동 함수들에 대한 따름정리이다.
+
+```{lemma, name="정칙 변동 함수들에 관한 따름정리들"}
+함수 $U$가 $U\in \text{RV}_{\rho}$이고 양의 공간에서 양의 함수라고 하자.
+
+1. 만약 $-\infty < \rho < \infty$이면 $U(x)=x^{\rho}l(x)$이며 이 때 $l\in\text{SV}$이다. 더불어 $U$가 monotone derivative $U'$를 갖을 경우
+$$\frac{xU'(x)}{U(x)}\rightarrow \rho \qquad{\text{ as } x\rightarrow\infty}.$$
+더불어 $\rho \neq 0$일 경우 $sgn(U)\cdot U' \in \text{RV}_{\rho-1}$이다.
+
+2. $\rho >0$일 때 $U^{-1}(y)=\inf\{x: U(x)\geq y\}, y >0$이라고 하자. 그러면 $U^{-1}\in\text{RV}_{1/\rho}$이다.
+
+3. $\log U \in \text{SV}$이다.
+
+4. $U_{i}\in\text{RV}_{\rho_{i}}, i=1,2$라고 하자. 그러면 $U_{1}+U_{2}\in\text{RV}_{(\max \{\rho_{1}, \rho_{2} \})}$이다.
+
+5. $U_{i}\in\text{RV}_{\rho_{i}}, i=1,2$라고 하자. 그리고 $x\rightarrow\infty$일 때 $U_{2}(x)\rightarrow\infty$라고 가정하자. $U(x)=U_{1}(U_{2}(x))$라고 둔다. 그러면 $U\in\text{RV}(\rho_{1}\cdot\rho_{2})$이다. 특별히 $U_{1}, U_{2}$ 둘 중 하나가 천천히 변할 경우 composition 또한 천천히 변한다.
+
+```
+
+```{proof}
+1과 2의 경우 증명이 쉽지 않다. 3의 경우 $t\rightarrow\infty$일 때 $\frac{U(tx)}{U(t)}\rightarrow x^{\rho}$이 된다는 사실을 이용해
+$$\frac{\log U(tx)}{\log U(t)}=\frac{\log \frac{U(tx)}{U(t)}}{\log U(t)} + 1 \rightarrow 0 + 1 \qquad{ \text{ as } t\rightarrow \infty}$$
+를 얻는다. 4는 $\rho_{1}>\rho_{2}$라고 가정할 때 다음과 같이 유도한다.
+$$
+\begin{align}
+&\frac{U_{1}(tx)+U_{2}(tx)}{U_{1}(t)+U_{2}(t)} \\
+&= \frac{U_{1}(tx)}{U_{1}(t)}\cdot \frac{U_{1}(t)}{U_{1}(t)+U_{2}(t)} + \frac{U_{2}(tx)}{U_{2}(t)}\cdot \frac{U_{2}(t)}{U_{1}(t)+U_{2}(t)}\\
+&\rightarrow x^{\rho_{1}}\cdot 1 + x^{\rho_{2}}\cdot 0\\
+&= x^{\rho_{1}} \text{ as } t \rightarrow\infty.
+\end{align}
+$$
+5는 밑의 정칙 변동 함수의 비의 수렴에 관한 따름정리를 적용하면 $t\rightarrow\infty$일 때
+$$
+\begin{align}
+&\frac{U(tx)}{U(t)}\\
+&= \frac{U_{1}(U_{2}(tx))}{U_{1}(U_{2}(tx))}\\
+&= \frac{U_{1}(\frac{U_{2}(tx)}{U_{2}(t)}\cdot U_{2}(t) )}{U_{1}(U_{2}(tx))}\\
+&\rightarrow (x^{\rho_{2}})^{\rho_{1}} = x^{\rho_{1}\cdot \rho_{2}}
+\end{align}
+$$
+를 얻는다. 참고로 5는 3을 포함한다.
+
+```
+
+정칙 변동의 정의에 따라 정칙 변동 함수와 천천히 변하는 함수의 비는 상수다. 한편, 이 비가 상수로 수렴한다면 극한도 똑같이 남게 된다.
+
+```{lemma, name="정칙 변동 함수의 비의 수렴에 관한 따름정리"}
+함수 $U$가 $U\in \text{RV}_{\rho}$이고 $-\infty < \rho < \infty$라고 하자. 그리고 $\rho=0$일 때에는 $U$가 (ultimately) monotone이라고 가정하자. 더 나아가 $n\geq 1$일 때 $a_{n}, b_{n}\in\mathbb{R}^{+}$가 존재해 다음을 만족한다고 가정하자.
+$$a_{n}, b_{n}\rightarrow \infty,$$
+$$\frac{a_{n}}{b_{n}}\rightarrow c \text{ as } n \rightarrow\infty, \text{ where } c\in(0,\infty).$$
+그러면 $n\rightarrow\infty$일 때
+$$
+\frac{U(a_{n})}{U(b_{n})}\rightarrow
+\begin{cases}
+1, & \rho=0\\
+c^{\rho}, & \rho\neq 0
+\end{cases}
+$$
+이다.
+
+```
+
+```{proof}
+$\rho >0$이라고 가정하자. 그러면 $U$는 궁극적으로 non-decreasing이다. $\varepsilon >0$이라고 하고 $n$을 충분히 크게 잡아 다음을 만족하도록 한다.
+$$b_{n}(c-\varepsilon) < a_{n} < b_{n}(c+\varepsilon).$$
+그러면 $n\rightarrow \infty$함에 따라 extreme member들이 $(c\pm \varepsilon)^{\rho}$로 수렴한다는 사실로부터 다음의 결과를 얻을 수 있다.
+$$\frac{ U(b_{n}(c-\varepsilon))}{U(b_{n})} < \frac{U(a_{n})}{U(b_{n})} < \frac{U(b_{n}(c+\varepsilon))}{U(b_{n})}.$$
+$\rho <0$인 경우도 비슷하게 얻을 수 있고, 부등호의 방향이 달라진다. $\rho=0$인 경우에는 $c^{\rho}$가 항상 1이 된다.
+
+```
+
+함수 $U$가 $U\in \text{RV}_{\rho}$이고 $\rho >-1$인 경우를 생각해보자. 그러면 천천히 변하는 함수는 $x^{\rho}$에 비해 무시가능한 부분이기 때문에 정칙 변동 함수 $U$의 적분은 $\rho+1$의 정칙 변동 함수일 것이라 추론해 보는 것이 타당하다. 이는 사실로, 다음의 따름정리에 나와 있다.
+
+```{lemma, name="정칙 변동 함수의 적분"}
+$\rho>-1$이라고 하자.
+
+1. 만약 $U\in \text{RV}_{\rho}$이면 $U(x)=\int_{a}^{x}U(y)dy \in \text{RV}_{\rho +1}$이다.
+
+2. 만약 $L\in \text{SV}$이면 $n\rightarrow \infty$일 때 $\sum_{j\leq n}j^{\rho}L(j) \sim \frac{1}{\rho + 1}n^{\rho + 1}L(n)$이다. 
+
+```
+
+천천히 변하는 함수와 반대되는 빠른 변동 함수도 있다. 이는 $\rho=+\infty$에 대응되는 개념이다.
+
+```{definition, name="빠른 변동 함수"}
+어떤 함수 $U$가 만약
+$$
+\frac{U(tx)}{U(t)}\rightarrow
+\begin{cases}
+0, & 0<x<1\\
+\infty, & x>1
+\end{cases}
+$$
+라면 $\infty$에서 **빠른 변동(rapid varying)**이라고 부른다.
+
+```
+
+빠른 변동의 의미는 무한대에서 어떤 제곱배 함수보다도 빨리 증가한다는 의미다. 지수함수 $e^{x}$가 좋은 예다.
+
+여기서 나타내는 $\sim$ 표현의 의미는 다음과 같다. $f(x)\sim g(x)$라는 것은
+$$\lim_{x\rightarrow\infty}\frac{f(x)}{g(x)}=1$$
+이라는 것이다.
+
+### 정칙 변동과 확률 응용 (regular variation and probability applications)
+
+확률 응용에서는 보통 꼬리가 정칙 변동인 분포들을 생각하게 된다. 예를 들면
+$$1-F(x)=x^{-\alpha}, \qquad{x\geq 1, \alpha >0}$$
+와 같은 분포함수를 생각한다. 이것의 극단값 분포(extreme-value distribution)는
+$$\Phi_{\alpha}(x) = \exp\{-x^{-\alpha}\}, \qquad{x\geq 0}$$
+이 된다. $\exp\{-x^{-\alpha}\}$는 다음과 같은 성질을 갖는다.
+$$1-\Phi_{\alpha}(x)\sim x^{-\alpha}, \qquad{\text{ as }x \rightarrow\infty.}$$
+
+Index $\alpha, 0<\alpha <2$인 **Stable law** ([@Resnick2007]의 154쪽 참고)는 다음과 같은 성질을 갖는다.
+$$1-G(x) \sim cx^{-\alpha}, \qquad{x\rightarrow\infty, c>0.}$$
+코시 밀도함수 $f(x)=\frac{1}{\pi (1+x^2)}$는 분포함수 $F$를 갖으며 $F$는 다음과 같은 성질을 갖는다.
+$$1-F(x) \sim \frac{1}{(\pi x)}.$$
+만약 $\mathcal{N}(x)$가 표준정규분포함수라면, $1-\mathcal{N}(x)$는 정칙 변화를 따르지 않고 굼벨 극단값 분포 $1-\exp\{-e^{-x}\}$ 꼬리를 갖지도 않는다. [@Resnick2007]
 

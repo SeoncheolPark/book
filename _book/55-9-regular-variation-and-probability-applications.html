@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 32 주성분분석 | 통계공부와 관련된 글들</title>
+  <title>55.9 정칙 변동과 확률 응용 (regular variation and probability applications) | 통계공부와 관련된 글들</title>
   <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Chapter 32 주성분분석 | 통계공부와 관련된 글들" />
+  <meta property="og:title" content="55.9 정칙 변동과 확률 응용 (regular variation and probability applications) | 통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="SeoncheolPark/book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 32 주성분분석 | 통계공부와 관련된 글들" />
+  <meta name="twitter:title" content="55.9 정칙 변동과 확률 응용 (regular variation and probability applications) | 통계공부와 관련된 글들" />
   
   <meta name="twitter:description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다." />
   
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="31-1-k-meodid-k-medoid-method.html">
-<link rel="next" href="32-1-curse-of-dimensionality.html">
+<link rel="prev" href="55-8-regular-variation.html">
+<link rel="next" href="56-pot.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -769,15 +769,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="PCA" class="section level1">
-<h1><span class="header-section-number">Chapter 32</span> 주성분분석</h1>
-<p><strong>주성분분석(principal component analysis, PCA)</strong>란 <strong>차원 축소(dimension reduction)</strong>을 위해 많이 쓰이는 툴이다. 이 분야의 유명한 참고문헌으로는 <span class="citation">(Jolliffe <a href="#ref-Jolliffe2002">2002</a>)</span>가 있다. 주성분분석은 차원 축소방법 중 변수를 직접적으로 변환하는 변수변환(feature transformation) 방법이다. 기상학에서는 empirical orthogonal functions라고 부른다.</p>
-<p>여러 다변량 데이터셋이 갖는 문제들 중 하나는 변수가 너무 많다는 것이다. 너무 많은 변수들이 가질 수 있는 문제로는 차원의 저주(curse of dimensionality)가 알려져 있다.</p> 
+<div id="----regular-variation-and-probability-applications" class="section level2">
+<h2><span class="header-section-number">55.9</span> 정칙 변동과 확률 응용 (regular variation and probability applications)</h2>
+<p>확률 응용에서는 보통 꼬리가 정칙 변동인 분포들을 생각하게 된다. 예를 들면
+<span class="math display">\[1-F(x)=x^{-\alpha}, \qquad{x\geq 1, \alpha &gt;0}\]</span>
+와 같은 분포함수를 생각한다. 이것의 극단값 분포(extreme-value distribution)는
+<span class="math display">\[\Phi_{\alpha}(x) = \exp\{-x^{-\alpha}\}, \qquad{x\geq 0}\]</span>
+이 된다. <span class="math inline">\(\exp\{-x^{-\alpha}\}\)</span>는 다음과 같은 성질을 갖는다.
+<span class="math display">\[1-\Phi_{\alpha}(x)\sim x^{-\alpha}, \qquad{\text{ as }x \rightarrow\infty.}\]</span></p>
+<p>Index <span class="math inline">\(\alpha, 0&lt;\alpha &lt;2\)</span>인 <strong>Stable law</strong> (<span class="citation">(Resnick <a href="#ref-Resnick2007">2007</a>)</span>의 154쪽 참고)는 다음과 같은 성질을 갖는다.
+<span class="math display">\[1-G(x) \sim cx^{-\alpha}, \qquad{x\rightarrow\infty, c&gt;0.}\]</span>
+코시 밀도함수 <span class="math inline">\(f(x)=\frac{1}{\pi (1+x^2)}\)</span>는 분포함수 <span class="math inline">\(F\)</span>를 갖으며 <span class="math inline">\(F\)</span>는 다음과 같은 성질을 갖는다.
+<span class="math display">\[1-F(x) \sim \frac{1}{(\pi x)}.\]</span>
+만약 <span class="math inline">\(\mathcal{N}(x)\)</span>가 표준정규분포함수라면, <span class="math inline">\(1-\mathcal{N}(x)\)</span>는 정칙 변화를 따르지 않고 굼벨 극단값 분포 <span class="math inline">\(1-\exp\{-e^{-x}\}\)</span> 꼬리를 갖지도 않는다. <span class="citation">(Resnick <a href="#ref-Resnick2007">2007</a>)</span></p>
+
 </div>
+<!-- </div> -->
 <h3> References</h3>
 <div id="refs" class="references">
-<div id="ref-Jolliffe2002">
-<p>Jolliffe, I.T. 2002. <em>Principal Component Analysis</em>. 2nd ed. Springer Science; Business Media.</p>
+<div id="ref-Resnick2007">
+<p>Resnick, Sidney I. 2007. <em>Heavy-Tail Phenomena: Probabilistic and Statistical Modeling</em>. Springer Science; Business Media.</p>
 </div>
 </div>
             </section>
@@ -785,8 +796,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="31-1-k-meodid-k-medoid-method.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="32-1-curse-of-dimensionality.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="55-8-regular-variation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="56-pot.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -816,7 +827,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://seoncheolpark.github.io/book/_book/43-PCA.Rmd",
+"link": "https://seoncheolpark.github.io/book/_book/91-uevtheory.Rmd",
 "text": "Edit"
 },
 "history": {

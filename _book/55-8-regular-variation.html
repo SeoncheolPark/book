@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 32 주성분분석 | 통계공부와 관련된 글들</title>
+  <title>55.8 정칙 변동 (regular variation) | 통계공부와 관련된 글들</title>
   <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Chapter 32 주성분분석 | 통계공부와 관련된 글들" />
+  <meta property="og:title" content="55.8 정칙 변동 (regular variation) | 통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="SeoncheolPark/book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 32 주성분분석 | 통계공부와 관련된 글들" />
+  <meta name="twitter:title" content="55.8 정칙 변동 (regular variation) | 통계공부와 관련된 글들" />
   
   <meta name="twitter:description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다." />
   
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="31-1-k-meodid-k-medoid-method.html">
-<link rel="next" href="32-1-curse-of-dimensionality.html">
+<link rel="prev" href="55-7-l-probability-weighted-moments-or-l-moments.html">
+<link rel="next" href="55-9-regular-variation-and-probability-applications.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -769,15 +769,141 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="PCA" class="section level1">
-<h1><span class="header-section-number">Chapter 32</span> 주성분분석</h1>
-<p><strong>주성분분석(principal component analysis, PCA)</strong>란 <strong>차원 축소(dimension reduction)</strong>을 위해 많이 쓰이는 툴이다. 이 분야의 유명한 참고문헌으로는 <span class="citation">(Jolliffe <a href="#ref-Jolliffe2002">2002</a>)</span>가 있다. 주성분분석은 차원 축소방법 중 변수를 직접적으로 변환하는 변수변환(feature transformation) 방법이다. 기상학에서는 empirical orthogonal functions라고 부른다.</p>
-<p>여러 다변량 데이터셋이 갖는 문제들 중 하나는 변수가 너무 많다는 것이다. 너무 많은 변수들이 가질 수 있는 문제로는 차원의 저주(curse of dimensionality)가 알려져 있다.</p> 
+<div id="--regular-variation" class="section level2">
+<h2><span class="header-section-number">55.8</span> 정칙 변동 (regular variation)</h2>
+<p>정칙 변동 함수 이론은 두꺼운 꼬리, 장기기억 상관관계(long-range dependence) 그리고 흡인영역(domain of attraction)을 다룰 때 필수적인 이론이다. <span class="citation">(Resnick <a href="#ref-Resnick2007">2007</a>)</span> 거칠게 얘기하자면 <strong>정칙 변동 함수들(regularly varying functions)</strong>은 점근적으로 멱함수(power function)처럼 행동하는 함수들을 말한다. 여기서는 단순함을 위해 일변량, 실함수만을 생각하기로 한다.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-441" class="definition"><strong>Definition 55.9  (정칙 변동 함수)  </strong></span>어떤 가측 함수 <span class="math inline">\(U: \mathbb{R}_{+}\rightarrow \mathbb{R}_{+}\)</span>가 만약 <span class="math inline">\(x&gt;0\)</span>에 대해
+<span class="math display">\[\lim_{t\rightarrow\infty}\frac{U(tx)}{U(x)}=x^{\rho}\]</span>
+을 만족한다면 이 함수를 <span class="math inline">\(\infty\)</span>에서 <strong>정칙 변동(regularly varying)</strong>이라고 부른다. 그리고 <span class="math inline">\(U\in \text{RV}_{\rho}\)</span>와 같이 쓴다. 이 때 index <span class="math inline">\(\rho\in\mathbb{R}\)</span>을 <strong>변동지수(exponent of variation)</strong>이라고 부른다.</p>
+</div>
+
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-442" class="definition"><strong>Definition 55.10  (천천히 변하는 함수)  </strong></span>앞선 정칙 변동 함수에서 <span class="math inline">\(\rho=0\)</span>인 경우에 <span class="math inline">\(U\)</span>를 특별히 <strong>천천히 변하는 함수(slowly varying function)</strong>이라고 부른다. 그리고 <span class="math inline">\(U\in \text{RV}_{0}\)</span> 또는 <span class="math inline">\(U\in \text{SV}\)</span>로 표현하기로 한다.</p>
+</div>
+
+<p>천천히 변하는 함수는 일반적으로 <span class="math inline">\(L(x)\)</span>라고 쓴다. 만약 <span class="math inline">\(U\in\text{RV}_{\rho}\)</span>라고 하면, <span class="math inline">\(\frac{U(x)}{x^{\rho}}\in\text{RV}_{0}\)</span>이 되고, <span class="math inline">\(L(x)=\frac{U(x)}{x^{\rho}}\)</span>라고 둔다면 <span class="math inline">\(\rho\)</span>-varying 함수들을 항상 <span class="math inline">\(x^{\rho}L(x)\)</span>의 꼴로 나타낼 수 있음을 알 수 있다.</p>
+<p>다음은 <span class="citation">(Gut <a href="#ref-Gut2012">2012</a>)</span> Appendix에 나오는 정칙 변동 함수들의 예다.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-443" class="example"><strong>Example 55.4  (정칙 변동 함수들의 예)  </strong></span>다음 함수들은 정칙 변동이다.
+<span class="math display">\[x^{rho}, x^{rho}\log^{+}(x), x^{rho}\log^{+}\log^{+}(x), x^{\rho}\frac{\log^{+}(x)}{\log^{+}\log^{+}x}.\]</span>
+이 때 <span class="math inline">\(\log^{+}(x)=\max \{1,\log(x)\}\)</span>이다.
+</div>
+
+<p>전형적인 천천히 변하는 함수들의 예로는 앞선 예제에서 <span class="math inline">\(\rho=0\)</span>으로 한 것들을 들 수 있다. 또한 <span class="math inline">\(x\rightarrow\infty\)</span>일 때 양의 유한한 극한으로 수렴하는 모든 양의 함수들은 천천히 변한다. <span class="citation">(Gut <a href="#ref-Gut2012">2012</a>)</span></p>
+<p>다음은 <span class="citation">(Resnick <a href="#ref-Resnick2007">2007</a>)</span> 2장에 나오는 정칙 변동하지 않는 함수들의 예다.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-444" class="example"><strong>Example 55.5  (정칙 변동하지 않는 함수들의 예)  </strong></span>다음 함수들은 정칙 변동이 아니다.
+<span class="math display">\[e^{x}, \sin(x+2).\]</span>
+</div>
+
+<p><span class="math inline">\([\log x ]\)</span>의 경우는 천천히 변하나 <span class="math inline">\(\exp \{ [\log x ]\}\)</span>는 정칙 변동을 하지 않는다. <span class="citation">(Resnick <a href="#ref-Resnick2007">2007</a>)</span></p>
+<p>다음은 <span class="citation">(Gut <a href="#ref-Gut2012">2012</a>)</span>에 나오는 정칙 변동 함수들에 대한 따름정리이다.</p>
+
+<div class="lemma">
+<p><span id="lem:unnamed-chunk-445" class="lemma"><strong>Lemma 55.1  (정칙 변동 함수들에 관한 따름정리들)  </strong></span>함수 <span class="math inline">\(U\)</span>가 <span class="math inline">\(U\in \text{RV}_{\rho}\)</span>이고 양의 공간에서 양의 함수라고 하자.</p>
+<ol style="list-style-type: decimal">
+<li><p>만약 <span class="math inline">\(-\infty &lt; \rho &lt; \infty\)</span>이면 <span class="math inline">\(U(x)=x^{\rho}l(x)\)</span>이며 이 때 <span class="math inline">\(l\in\text{SV}\)</span>이다. 더불어 <span class="math inline">\(U\)</span>가 monotone derivative <span class="math inline">\(U&#39;\)</span>를 갖을 경우
+<span class="math display">\[\frac{xU&#39;(x)}{U(x)}\rightarrow \rho \qquad{\text{ as } x\rightarrow\infty}.\]</span>
+더불어 <span class="math inline">\(\rho \neq 0\)</span>일 경우 <span class="math inline">\(sgn(U)\cdot U&#39; \in \text{RV}_{\rho-1}\)</span>이다.</p></li>
+<li><p><span class="math inline">\(\rho &gt;0\)</span>일 때 <span class="math inline">\(U^{-1}(y)=\inf\{x: U(x)\geq y\}, y &gt;0\)</span>이라고 하자. 그러면 <span class="math inline">\(U^{-1}\in\text{RV}_{1/\rho}\)</span>이다.</p></li>
+<li><p><span class="math inline">\(\log U \in \text{SV}\)</span>이다.</p></li>
+<li><p><span class="math inline">\(U_{i}\in\text{RV}_{\rho_{i}}, i=1,2\)</span>라고 하자. 그러면 <span class="math inline">\(U_{1}+U_{2}\in\text{RV}_{(\max \{\rho_{1}, \rho_{2} \})}\)</span>이다.</p></li>
+<li><span class="math inline">\(U_{i}\in\text{RV}_{\rho_{i}}, i=1,2\)</span>라고 하자. 그리고 <span class="math inline">\(x\rightarrow\infty\)</span>일 때 <span class="math inline">\(U_{2}(x)\rightarrow\infty\)</span>라고 가정하자. <span class="math inline">\(U(x)=U_{1}(U_{2}(x))\)</span>라고 둔다. 그러면 <span class="math inline">\(U\in\text{RV}(\rho_{1}\cdot\rho_{2})\)</span>이다. 특별히 <span class="math inline">\(U_{1}, U_{2}\)</span> 둘 중 하나가 천천히 변할 경우 composition 또한 천천히 변한다.</li>
+</ol>
+</div>
+
+
+<div class="proof">
+<p> <span class="proof"><em>Proof. </em></span> 1과 2의 경우 증명이 쉽지 않다. 3의 경우 <span class="math inline">\(t\rightarrow\infty\)</span>일 때 <span class="math inline">\(\frac{U(tx)}{U(t)}\rightarrow x^{\rho}\)</span>이 된다는 사실을 이용해
+<span class="math display">\[\frac{\log U(tx)}{\log U(t)}=\frac{\log \frac{U(tx)}{U(t)}}{\log U(t)} + 1 \rightarrow 0 + 1 \qquad{ \text{ as } t\rightarrow \infty}\]</span>
+를 얻는다. 4는 <span class="math inline">\(\rho_{1}&gt;\rho_{2}\)</span>라고 가정할 때 다음과 같이 유도한다.
+<span class="math display">\[
+\begin{align}
+&amp;\frac{U_{1}(tx)+U_{2}(tx)}{U_{1}(t)+U_{2}(t)} \\
+&amp;= \frac{U_{1}(tx)}{U_{1}(t)}\cdot \frac{U_{1}(t)}{U_{1}(t)+U_{2}(t)} + \frac{U_{2}(tx)}{U_{2}(t)}\cdot \frac{U_{2}(t)}{U_{1}(t)+U_{2}(t)}\\
+&amp;\rightarrow x^{\rho_{1}}\cdot 1 + x^{\rho_{2}}\cdot 0\\
+&amp;= x^{\rho_{1}} \text{ as } t \rightarrow\infty.
+\end{align}
+\]</span>
+5는 밑의 정칙 변동 함수의 비의 수렴에 관한 따름정리를 적용하면 <span class="math inline">\(t\rightarrow\infty\)</span>일 때
+<span class="math display">\[
+\begin{align}
+&amp;\frac{U(tx)}{U(t)}\\
+&amp;= \frac{U_{1}(U_{2}(tx))}{U_{1}(U_{2}(tx))}\\
+&amp;= \frac{U_{1}(\frac{U_{2}(tx)}{U_{2}(t)}\cdot U_{2}(t) )}{U_{1}(U_{2}(tx))}\\
+&amp;\rightarrow (x^{\rho_{2}})^{\rho_{1}} = x^{\rho_{1}\cdot \rho_{2}}
+\end{align}
+\]</span>
+를 얻는다. 참고로 5는 3을 포함한다.</p>
+</div>
+
+<p>정칙 변동의 정의에 따라 정칙 변동 함수와 천천히 변하는 함수의 비는 상수다. 한편, 이 비가 상수로 수렴한다면 극한도 똑같이 남게 된다.</p>
+
+<div class="lemma">
+<p><span id="lem:unnamed-chunk-447" class="lemma"><strong>Lemma 55.2  (정칙 변동 함수의 비의 수렴에 관한 따름정리)  </strong></span>함수 <span class="math inline">\(U\)</span>가 <span class="math inline">\(U\in \text{RV}_{\rho}\)</span>이고 <span class="math inline">\(-\infty &lt; \rho &lt; \infty\)</span>라고 하자. 그리고 <span class="math inline">\(\rho=0\)</span>일 때에는 <span class="math inline">\(U\)</span>가 (ultimately) monotone이라고 가정하자. 더 나아가 <span class="math inline">\(n\geq 1\)</span>일 때 <span class="math inline">\(a_{n}, b_{n}\in\mathbb{R}^{+}\)</span>가 존재해 다음을 만족한다고 가정하자.
+<span class="math display">\[a_{n}, b_{n}\rightarrow \infty,\]</span>
+<span class="math display">\[\frac{a_{n}}{b_{n}}\rightarrow c \text{ as } n \rightarrow\infty, \text{ where } c\in(0,\infty).\]</span>
+그러면 <span class="math inline">\(n\rightarrow\infty\)</span>일 때
+<span class="math display">\[
+\frac{U(a_{n})}{U(b_{n})}\rightarrow
+\begin{cases}
+1, &amp; \rho=0\\
+c^{\rho}, &amp; \rho\neq 0
+\end{cases}
+\]</span>
+이다.</p>
+</div>
+
+
+<div class="proof">
+<p> <span class="proof"><em>Proof. </em></span> <span class="math inline">\(\rho &gt;0\)</span>이라고 가정하자. 그러면 <span class="math inline">\(U\)</span>는 궁극적으로 non-decreasing이다. <span class="math inline">\(\varepsilon &gt;0\)</span>이라고 하고 <span class="math inline">\(n\)</span>을 충분히 크게 잡아 다음을 만족하도록 한다.
+<span class="math display">\[b_{n}(c-\varepsilon) &lt; a_{n} &lt; b_{n}(c+\varepsilon).\]</span>
+그러면 <span class="math inline">\(n\rightarrow \infty\)</span>함에 따라 extreme member들이 <span class="math inline">\((c\pm \varepsilon)^{\rho}\)</span>로 수렴한다는 사실로부터 다음의 결과를 얻을 수 있다.
+<span class="math display">\[\frac{ U(b_{n}(c-\varepsilon))}{U(b_{n})} &lt; \frac{U(a_{n})}{U(b_{n})} &lt; \frac{U(b_{n}(c+\varepsilon))}{U(b_{n})}.\]</span>
+<span class="math inline">\(\rho &lt;0\)</span>인 경우도 비슷하게 얻을 수 있고, 부등호의 방향이 달라진다. <span class="math inline">\(\rho=0\)</span>인 경우에는 <span class="math inline">\(c^{\rho}\)</span>가 항상 1이 된다.</p>
+</div>
+
+<p>함수 <span class="math inline">\(U\)</span>가 <span class="math inline">\(U\in \text{RV}_{\rho}\)</span>이고 <span class="math inline">\(\rho &gt;-1\)</span>인 경우를 생각해보자. 그러면 천천히 변하는 함수는 <span class="math inline">\(x^{\rho}\)</span>에 비해 무시가능한 부분이기 때문에 정칙 변동 함수 <span class="math inline">\(U\)</span>의 적분은 <span class="math inline">\(\rho+1\)</span>의 정칙 변동 함수일 것이라 추론해 보는 것이 타당하다. 이는 사실로, 다음의 따름정리에 나와 있다.</p>
+
+<div class="lemma">
+<p><span id="lem:unnamed-chunk-449" class="lemma"><strong>Lemma 55.3  (정칙 변동 함수의 적분)  </strong></span><span class="math inline">\(\rho&gt;-1\)</span>이라고 하자.</p>
+<ol style="list-style-type: decimal">
+<li><p>만약 <span class="math inline">\(U\in \text{RV}_{\rho}\)</span>이면 <span class="math inline">\(U(x)=\int_{a}^{x}U(y)dy \in \text{RV}_{\rho +1}\)</span>이다.</p></li>
+<li>만약 <span class="math inline">\(L\in \text{SV}\)</span>이면 <span class="math inline">\(n\rightarrow \infty\)</span>일 때 <span class="math inline">\(\sum_{j\leq n}j^{\rho}L(j) \sim \frac{1}{\rho + 1}n^{\rho + 1}L(n)\)</span>이다.</li>
+</ol>
+</div>
+
+<p>천천히 변하는 함수와 반대되는 빠른 변동 함수도 있다. 이는 <span class="math inline">\(\rho=+\infty\)</span>에 대응되는 개념이다.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-450" class="definition"><strong>Definition 55.11  (빠른 변동 함수)  </strong></span>어떤 함수 <span class="math inline">\(U\)</span>가 만약
+<span class="math display">\[
+\frac{U(tx)}{U(t)}\rightarrow
+\begin{cases}
+0, &amp; 0&lt;x&lt;1\\
+\infty, &amp; x&gt;1
+\end{cases}
+\]</span>
+라면 <span class="math inline">\(\infty\)</span>에서 <strong>빠른 변동(rapid varying)</strong>이라고 부른다.</p>
+</div>
+
+<p>빠른 변동의 의미는 무한대에서 어떤 제곱배 함수보다도 빨리 증가한다는 의미다. 지수함수 <span class="math inline">\(e^{x}\)</span>가 좋은 예다.</p>
+<p>여기서 나타내는 <span class="math inline">\(\sim\)</span> 표현의 의미는 다음과 같다. <span class="math inline">\(f(x)\sim g(x)\)</span>라는 것은
+<span class="math display">\[\lim_{x\rightarrow\infty}\frac{f(x)}{g(x)}=1\]</span>
+이라는 것이다.</p>
 </div>
 <h3> References</h3>
 <div id="refs" class="references">
-<div id="ref-Jolliffe2002">
-<p>Jolliffe, I.T. 2002. <em>Principal Component Analysis</em>. 2nd ed. Springer Science; Business Media.</p>
+<div id="ref-Resnick2007">
+<p>Resnick, Sidney I. 2007. <em>Heavy-Tail Phenomena: Probabilistic and Statistical Modeling</em>. Springer Science; Business Media.</p>
+</div>
+<div id="ref-Gut2012">
+<p>Gut, Allan. 2012. <em>Probability: A Graduate Course</em>. Springer Science; Business Media.</p>
 </div>
 </div>
             </section>
@@ -785,8 +911,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="31-1-k-meodid-k-medoid-method.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="32-1-curse-of-dimensionality.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="55-7-l-probability-weighted-moments-or-l-moments.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="55-9-regular-variation-and-probability-applications.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -816,7 +942,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://seoncheolpark.github.io/book/_book/43-PCA.Rmd",
+"link": "https://seoncheolpark.github.io/book/_book/91-uevtheory.Rmd",
 "text": "Edit"
 },
 "history": {

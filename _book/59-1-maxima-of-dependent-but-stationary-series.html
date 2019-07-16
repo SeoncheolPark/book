@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2019-04-26">
+<meta name="date" content="2019-07-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -711,6 +711,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="55.5" data-path="55-5-mle-in-extreme-value-statistics.html"><a href="55-5-mle-in-extreme-value-statistics.html"><i class="fa fa-check"></i><b>55.5</b> 극단값 분포에서의 최대가능도추정(mle in extreme value statistics)</a></li>
 <li class="chapter" data-level="55.6" data-path="55-6-profile-likelihood-in-extreme-value-statistics.html"><a href="55-6-profile-likelihood-in-extreme-value-statistics.html"><i class="fa fa-check"></i><b>55.6</b> 극단값 분포에서의 프로파일 가능도(profile likelihood in extreme value statistics)</a></li>
 <li class="chapter" data-level="55.7" data-path="55-7-l-probability-weighted-moments-or-l-moments.html"><a href="55-7-l-probability-weighted-moments-or-l-moments.html"><i class="fa fa-check"></i><b>55.7</b> 확률가중적률 또는 L-적률 (probability weighted moments or L-moments)</a></li>
+<li class="chapter" data-level="55.8" data-path="55-8-regular-variation.html"><a href="55-8-regular-variation.html"><i class="fa fa-check"></i><b>55.8</b> 정칙 변동 (regular variation)</a></li>
+<li class="chapter" data-level="55.9" data-path="55-9-regular-variation-and-probability-applications.html"><a href="55-9-regular-variation-and-probability-applications.html"><i class="fa fa-check"></i><b>55.9</b> 정칙 변동과 확률 응용 (regular variation and probability applications)</a></li>
 </ul></li>
 <li class="chapter" data-level="56" data-path="56-pot.html"><a href="56-pot.html"><i class="fa fa-check"></i><b>56</b> 분계점 방법들</a><ul>
 <li class="chapter" data-level="56.1" data-path="56-1-generalized-pareto-distribution.html"><a href="56-1-generalized-pareto-distribution.html"><i class="fa fa-check"></i><b>56.1</b> 일반화 파레토 분포(generalized pareto distribution)</a></li>
@@ -772,7 +774,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="citation">(Leadbetter, Lindgren, and Rootzen <a href="#ref-Leadbetter1983">1983</a>)</span>은 depdenct process의 극단값들의 성질에 대해 많은 연구를 했다. 그 중 키가 되는 결과는 ’Leadbetter’s <span class="math inline">\(D(u_{n})\)</span> condition’이라고 부르며 이 조건은 long-range dependence가 충분히 약할 경우 extreme value analysis의 asymptotics에 영향을 미치지 않을 것임을 보장해주는 조건이다.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-444" class="definition"><strong>Definition 59.1  (Leadbetter의 조건)  </strong></span><span class="citation">(Huser <a href="#ref-Huser2013">2013</a>)</span>의 16쪽 정의 14를 참고하였다. <span class="math inline">\(\mathcal{A}, \mathcal{B} \subset \{ 1, \ldots, n\}\)</span>이 각각 인덱스들 <span class="math inline">\(i_{1} &lt; \cdots &lt; i_{p}\)</span>와 <span class="math inline">\(j_{1} &lt; \cdots &lt;j_{p}\)</span>의 부분집합이며 <span class="math inline">\(j_{1} &gt; i_{p}+l\)</span>을 만족한다고 하자. 그리고 <span class="math inline">\(Y_{\mathcal{A}}\leq u\)</span>를 사건 <span class="math inline">\(\cap_{i\in\mathcal{A}}\{Y_{i}\leq u\}\)</span>를 나타낸다고 하자. 이와 유사하게 <span class="math inline">\(Y_{\mathcal{B}}\leq u\)</span>도 정의하자. 그러면
+<p><span id="def:unnamed-chunk-454" class="definition"><strong>Definition 59.1  (Leadbetter의 조건)  </strong></span><span class="citation">(Huser <a href="#ref-Huser2013">2013</a>)</span>의 16쪽 정의 14를 참고하였다. <span class="math inline">\(\mathcal{A}, \mathcal{B} \subset \{ 1, \ldots, n\}\)</span>이 각각 인덱스들 <span class="math inline">\(i_{1} &lt; \cdots &lt; i_{p}\)</span>와 <span class="math inline">\(j_{1} &lt; \cdots &lt;j_{p}\)</span>의 부분집합이며 <span class="math inline">\(j_{1} &gt; i_{p}+l\)</span>을 만족한다고 하자. 그리고 <span class="math inline">\(Y_{\mathcal{A}}\leq u\)</span>를 사건 <span class="math inline">\(\cap_{i\in\mathcal{A}}\{Y_{i}\leq u\}\)</span>를 나타낸다고 하자. 이와 유사하게 <span class="math inline">\(Y_{\mathcal{B}}\leq u\)</span>도 정의하자. 그러면
 <span class="math display">\[|P(Y_{\mathcal{A}} \leq u_{n} \cap Y_{\mathcal{B}} \leq u_{n}) - P(Y_{\mathcal{A}} \leq u_{n})P(Y_{\mathcal{B}} \leq u_{n})  | \leq \alpha(n,l)\]</span>
 을 만족할 때 Leadbetter의 조건 <span class="math inline">\(D(u_{n})\)</span>을 만족한다고 말한다. 이 때 <span class="math inline">\(\alpha(n,l_{n})\rightarrow 0\)</span> for some sequence <span class="math inline">\(l_{n}=o(n)\)</span>, <span class="math inline">\(l_{n}\rightarrow \infty\)</span> as <span class="math inline">\(n \rightarrow\infty\)</span>이다.</p>
 </div>
