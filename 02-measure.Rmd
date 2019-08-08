@@ -105,12 +105,12 @@ $f_{n}$들은 유한히 많은 점들을 제외하고 모두 연속이므로 리
 
 ## 외측도(outer measure)
 
-외측도 부분은 Christopher E. Heil의 real analysis 강의를 참고하였다. 보통의 경우에는 우리가 어떻게 측도를 만들 수 있는지 아는 $\mathbb{R}^{d}$의 부분집합의 basic class들(rectangular box 또는 cube)로부터 시작한다. 여기서는 그들의 부피로 측도를 정의할 수 있다. 그 다음에는 이 측도의 개념을 $\mathbb{R}^{d}$의 모든 부분집합들로 확장할 방법을 찾아야 한다. 모든 부분집합 $E \subset \mathbb{R}^{d}$에서 우리는 음이 아니고 확정된 실수값을 갖는 숫자를 정의할 수 있으며 cube의 개념을 확장한 개념으로 **exterior Lebesgue measure** $\mu^{*}(E)$ 또는 $|E_{e}|$로 정의한다. 여기서 좋은 점은 $\mathbb{R}^{d}$의 모든 부분집합은 유일하게 정의된 exterior measure를 갖는다는 것이다. 그러나 문제점도 한 가지 있는데, $\mu^{*}$가 측도가 아니란 것이다.(이것은 countably subadditive이지만 not countably additive이다)
+외측도 부분은 Christopher E. Heil의 real analysis 강의 2.5를 참고하였다. 보통의 경우에는 우리가 어떻게 측도를 만들 수 있는지 아는 $\mathbb{R}^{d}$의 부분집합의 basic class들(rectangular box 또는 cube)로부터 시작한다. 여기서는 그들의 부피로 측도를 정의할 수 있다. 그 다음에는 이 측도의 개념을 $\mathbb{R}^{d}$의 모든 부분집합들로 확장할 방법을 찾아야 한다. 모든 부분집합 $E \subset \mathbb{R}^{d}$에서 우리는 음이 아니고 확정된 실수값을 갖는 숫자를 정의할 수 있으며 cube의 개념을 확장한 개념으로 **exterior Lebesgue measure** $\mu^{*}(E)$ 또는 $|E_{e}|$로 정의한다. 여기서 좋은 점은 $\mathbb{R}^{d}$의 모든 부분집합은 유일하게 정의된 exterior measure를 갖는다는 것이다. 그러나 문제점도 한 가지 있는데, $\mu^{*}$가 측도가 아니란 것이다.(이것은 countably subadditive이지만 not countably additive이다)
 
 ```{definition, name="외측도"}
-$X$를 공집합이 아닌 집합이라고 하자. $X$에서의 **외측도(outer measure, or exterior measur)**는 함수 $\mu^{*}:\mathcal{P}(X)\rightarrow [0,\infty]$이며 다음의 조건들을 만족한다.
+$X$를 공집합이 아닌 집합이라고 하자. $X$에서의 **외측도(outer measure, or exterior measure)**는 함수 $\mu^{*}:\mathcal{P}(X)\rightarrow [0,\infty]$이며 다음의 조건들을 만족한다.
 
-1. $\mu^{*}(\emptyset) = 0.
+1. $\mu^{*}(\emptyset) = 0.$
 
 2. (monotinicity) 만약 $A\subseteq B$이면 $\mu^{*}(A)\leq \mu^{*}(B)$이다.
 
@@ -126,6 +126,17 @@ $$\forall A\subseteq X, \mu^{*}(A)=\mu^{*}(A\cap E) + \mu^{*}(A\backslash E)$$
 일 때 $\mu^{*}$-가측 또는 단순히 **가측(measurable)**이라고 부른다.
 
 ```
+
+```{remark, name="외측도의 따름정리"}
+1. 공집합은 $\mu^{*}(\emptyset)=0$이라는 사실에 비롯하여 $\mu^{*}$-가측이다.
+
+2. Subadditivity (쉽게 얘기해서, $A$가 어떤 함수 $f$의 domain이라고 할 때 $\forall x,y\in A, f(x+y)\leq f(x)+f(y)$를 얘기함)에 의해 다음의 부등식이 성립한다.
+$$\mu^{*}(A) \leq \mu^{*}(A\cap E) + \mu^{*}(A\backslash E).$$
+따라서 어떤 $E$가 가측임을 보이려면 모든 집합 $A\subseteq X$에 대해 반대 방향의 부등식이 성립하는지만 보면 된다.
+
+```
+
+Carath\`{e}odory의 정리는 $\mu$-가측 집합들의 collection이 $X$ 위에서 $\sigma$-대수를 형성하고, $\mu^{*}$가 이 $\sigma$-대수를 $X$ 위에서의 complete measure가 되도록 제한시켜준다는 것을 보여준다.
 
 ## 르베그 측도의 구성(construction of Lebesgue measure)
 

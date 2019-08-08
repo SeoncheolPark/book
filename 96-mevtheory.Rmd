@@ -127,4 +127,26 @@ $$l(\mathbf{v}) = V(1/\mathbf{v}), \qquad{v\in[0,\infty]^{d}.}$$
 $$l(\mathbf{x}) = \Big( \sum_{i=1}^{d}x_{i} \Big) A(w_{1},\ldots, w_{d}), \qquad{\mathbf{x}\in\mathbb{R}_{+}^{d}},$$
 이 때 $w_{j} = \frac{x_{j}}{\sum_{i=1}^{d}x_{i}}$이다.
 
+MEVD에 대한 다양한 모수족들이 사전연구에서 제시되었다. [@Gudendorf2010]에서는 extreme value copula들에 대해 정리하였다. 일반적으로 많이 쓰이는 예들은 다음과 같다.
 
+- Logistic model (and its variants)
+
+- H\''{u}sler-Reiss model
+
+- t-extreme-value copula
+
+## 극단 의존성의 측도들 (measures of extremal dependence)
+
+MEVD의 의존성 구조는 다음
+
+- Spectral measure $S$
+
+- Stable tail dependence function $l$
+
+- Pickands dependence function $A$
+
+들로 특성화된다. 이들은 자료로부터 쉽게 추론해낼 수 없는 복잡한 구조들을 말해준다.
+
+때로 의존성에 대한 단순한 요약통계량이 유용할 때가 있다. 이변량일 때에는 의존 측도들로 **켄달의 타우(Kendall's tau)** 또는 **스피어맨의 로우(Spearman's rho)** 들을 쓴다. 이들을 $A$로 표현하면 다음과 같다.
+$$\tau=\int_{0}^{1}\frac{t(1-t)}{A(t)}dA'(t), \qquad{\rho = 12\int_{0}^{1}\{A(t)+1\}^{-2}dt-3.}$$
+이들은 두 마진의 overall dependence를 잰다. 그러나 때대로 우리는 꼬리에서의 extreme observation들의 의존성을 재는 측도에 좀 더 관심이 있을 것이다.

@@ -25,7 +25,7 @@
 <meta name="author" content="Seoncheol Park">
 
 
-<meta name="date" content="2019-07-16">
+<meta name="date" content="2019-07-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="55-7-l-probability-weighted-moments-or-l-moments.html">
-<link rel="next" href="55-9-regular-variation-and-probability-applications.html">
+<link rel="next" href="56-pot.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -711,8 +711,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="55.5" data-path="55-5-mle-in-extreme-value-statistics.html"><a href="55-5-mle-in-extreme-value-statistics.html"><i class="fa fa-check"></i><b>55.5</b> 극단값 분포에서의 최대가능도추정(mle in extreme value statistics)</a></li>
 <li class="chapter" data-level="55.6" data-path="55-6-profile-likelihood-in-extreme-value-statistics.html"><a href="55-6-profile-likelihood-in-extreme-value-statistics.html"><i class="fa fa-check"></i><b>55.6</b> 극단값 분포에서의 프로파일 가능도(profile likelihood in extreme value statistics)</a></li>
 <li class="chapter" data-level="55.7" data-path="55-7-l-probability-weighted-moments-or-l-moments.html"><a href="55-7-l-probability-weighted-moments-or-l-moments.html"><i class="fa fa-check"></i><b>55.7</b> 확률가중적률 또는 L-적률 (probability weighted moments or L-moments)</a></li>
-<li class="chapter" data-level="55.8" data-path="55-8-regular-variation.html"><a href="55-8-regular-variation.html"><i class="fa fa-check"></i><b>55.8</b> 정칙 변동 (regular variation)</a></li>
-<li class="chapter" data-level="55.9" data-path="55-9-regular-variation-and-probability-applications.html"><a href="55-9-regular-variation-and-probability-applications.html"><i class="fa fa-check"></i><b>55.9</b> 정칙 변동과 확률 응용 (regular variation and probability applications)</a></li>
+<li class="chapter" data-level="55.8" data-path="55-8-regular-variation.html"><a href="55-8-regular-variation.html"><i class="fa fa-check"></i><b>55.8</b> 정칙 변동 (regular variation)</a><ul>
+<li class="chapter" data-level="55.8.1" data-path="55-8-regular-variation.html"><a href="55-8-regular-variation.html#----regular-variation-and-probability-applications"><i class="fa fa-check"></i><b>55.8.1</b> 정칙 변동과 확률 응용 (regular variation and probability applications)</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="56" data-path="56-pot.html"><a href="56-pot.html"><i class="fa fa-check"></i><b>56</b> 분계점 방법들</a><ul>
 <li class="chapter" data-level="56.1" data-path="56-1-generalized-pareto-distribution.html"><a href="56-1-generalized-pareto-distribution.html"><i class="fa fa-check"></i><b>56.1</b> 일반화 파레토 분포(generalized pareto distribution)</a></li>
@@ -896,7 +897,23 @@ c^{\rho}, &amp; \rho\neq 0
 <p>여기서 나타내는 <span class="math inline">\(\sim\)</span> 표현의 의미는 다음과 같다. <span class="math inline">\(f(x)\sim g(x)\)</span>라는 것은
 <span class="math display">\[\lim_{x\rightarrow\infty}\frac{f(x)}{g(x)}=1\]</span>
 이라는 것이다.</p>
+<div id="----regular-variation-and-probability-applications" class="section level3">
+<h3><span class="header-section-number">55.8.1</span> 정칙 변동과 확률 응용 (regular variation and probability applications)</h3>
+<p>확률 응용에서는 보통 꼬리가 정칙 변동인 분포들을 생각하게 된다. 예를 들면
+<span class="math display">\[1-F(x)=x^{-\alpha}, \qquad{x\geq 1, \alpha &gt;0}\]</span>
+와 같은 분포함수를 생각한다. 이것의 극단값 분포(extreme-value distribution)는
+<span class="math display">\[\Phi_{\alpha}(x) = \exp\{-x^{-\alpha}\}, \qquad{x\geq 0}\]</span>
+이 된다. <span class="math inline">\(\exp\{-x^{-\alpha}\}\)</span>는 다음과 같은 성질을 갖는다.
+<span class="math display">\[1-\Phi_{\alpha}(x)\sim x^{-\alpha}, \qquad{\text{ as }x \rightarrow\infty.}\]</span></p>
+<p>Index <span class="math inline">\(\alpha, 0&lt;\alpha &lt;2\)</span>인 <strong>Stable law</strong> (<span class="citation">(Resnick <a href="#ref-Resnick2007">2007</a>)</span>의 154쪽 참고)는 다음과 같은 성질을 갖는다.
+<span class="math display">\[1-G(x) \sim cx^{-\alpha}, \qquad{x\rightarrow\infty, c&gt;0.}\]</span>
+코시 밀도함수 <span class="math inline">\(f(x)=\frac{1}{\pi (1+x^2)}\)</span>는 분포함수 <span class="math inline">\(F\)</span>를 갖으며 <span class="math inline">\(F\)</span>는 다음과 같은 성질을 갖는다.
+<span class="math display">\[1-F(x) \sim \frac{1}{(\pi x)}.\]</span>
+만약 <span class="math inline">\(\mathcal{N}(x)\)</span>가 표준정규분포함수라면, <span class="math inline">\(1-\mathcal{N}(x)\)</span>는 정칙 변화를 따르지 않고 굼벨 극단값 분포 <span class="math inline">\(1-\exp\{-e^{-x}\}\)</span> 꼬리를 갖지도 않는다. <span class="citation">(Resnick <a href="#ref-Resnick2007">2007</a>)</span></p>
+
 </div>
+</div>
+<!-- </div> -->
 <h3> References</h3>
 <div id="refs" class="references">
 <div id="ref-Resnick2007">
@@ -912,7 +929,7 @@ c^{\rho}, &amp; \rho\neq 0
         </div>
       </div>
 <a href="55-7-l-probability-weighted-moments-or-l-moments.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="55-9-regular-variation-and-probability-applications.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="56-pot.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
