@@ -15,8 +15,15 @@ MEVD들은 **최대안정성(max-stability)**라는 것으로 특성화되어진
 G^{k}(\boldsymbol{\alpha}_{k}\mathbf{z}+\boldsymbol{\beta}_{k}) = G(\mathbf{z}), \qquad{\forall \mathbf{z}\in\mathbb{R}^{d}}
 (\#eq:MEVDmaxstable)
 \end{equation}
-를 만족할 때 최대안정하다라고 말한다. 최대안정 분포 $G$는 그것만의 domain of attraction을 갖는데 그것이 MEVD이다. 또한 역도 성립한다.
+를 만족할 때 최대안정하다라고 말한다. 최대안정 분포 $G$는 그것만의 domain of attraction을 갖는데 그것이 MEVD이다. 또한 역도 성립한다. 
 
+[@Dey2015]의 16장에 보충설명이 있다. $G$는 $a>0$일 때 $G^{a}$가 분포가 되도록 하며 이러한 성질을 만족하는 분포들의 클래스를 **최대-무한분해가능(max-infnitely divisible, max-id)**라고 부른다. 종 더 구체적으로 $\mathbb{R}^{d}$에서의 분포 $G$가 max-id라면, 어떤 $n\in\mathbb{N}$에 대해 $G=F_{n}^{n}$을 만족하는 분포 $F_{n}$이 존재하게 된다. 이 말은 $G$는 $n$개의 i.i.d. random vector들의 sample maxima들의 분포를 통해 항상 정의될 수 있다는 의미가 된다.
+
+MEVD의 클래스를 특성화하기 위해서는 두 가지를 특성화하는 것이 필요하다.
+
+1. 주변분포의 형태
+
+2. 의존성 구조의 형태
 
 ## 코퓰라(copula)
 
@@ -87,7 +94,7 @@ $$C_{F}^{n}(\mathbf{u}^{1/n})\rightarrow C(u_{1},\ldots, u_{d}), \qquad{(u_{1}, 
 
 극단값 코퓰라는 또한 최대안정성에 의해서도 특성화된다. 어떤 코퓰라 $C$는 모든 양의정수 $k\geq 1$에 대해 다음
 $$C(\mathbf{u})=C^{k}(\mathbf{u}^{1/k}),\qquad{\mathbf{u}\in[0,1]^{d}}$$
-을 만족할 때 최대안정이라고 부른다. 최대안정 코퓰라는 자기 자신의 domain of attraction 안에 있다. 그리고 또 한가지 중요한 성질로 극단값 코퓰라는 최대안정임과 동치이다 라는 것이 있다. 정의에 의해 극단값 코퓰라 또는 최대안정 코퓰라의 족(family)는 MEVD의 코퓰라의 집합과 일치한다.
+을 만족할 때 최대안정이라고 부른다. 최대안정 코퓰라는 자기 자신의 domain of attraction 안에 있다. 그리고 또 한가지 중요한 성질로 **극단값 코퓰라는 최대안정임과 동치**이다 라는 것이 있다. 정의에 의해 극단값 코퓰라 또는 최대안정 코퓰라의 족(family)는 MEVD의 코퓰라의 집합과 일치한다.
 
 극단값 코퓰라 $C$는 **Pickands의 종속함수(Pickands dependence function)**으로 표현할 수 있다. $\Delta_{d-1}$을 $\mathbb{R}^{d}$에서의 단위 심플렉스로
 $$\Delta_{d-1} = \{ (w_{1},\ldots, w_{d}: w_{i}>0, i=1,\ldots, d, \sum_{i=1}^{d}w_{i}=1) \}$$
@@ -150,3 +157,56 @@ MEVD의 의존성 구조는 다음
 때로 의존성에 대한 단순한 요약통계량이 유용할 때가 있다. 이변량일 때에는 의존 측도들로 **켄달의 타우(Kendall's tau)** 또는 **스피어맨의 로우(Spearman's rho)** 들을 쓴다. 이들을 $A$로 표현하면 다음과 같다.
 $$\tau=\int_{0}^{1}\frac{t(1-t)}{A(t)}dA'(t), \qquad{\rho = 12\int_{0}^{1}\{A(t)+1\}^{-2}dt-3.}$$
 이들은 두 마진의 overall dependence를 잰다. 그러나 때대로 우리는 꼬리에서의 extreme observation들의 의존성을 재는 측도에 좀 더 관심이 있을 것이다.
+
+## 극단 의존성 모형들(extreme dependence models)
+
+이 부분은 [@Dey2015]의 16장을 참고하였다. 이 분야에서는 두 개의 도전적인 과제들이 있다.
+
+첫 번째는 자료의 복잡성, 즉 자료들이 각기 다른 시간 및 공간에서 관찰된다는 것이다.([@DeHaan2007]의 9장) 따라서 이러한 점들을 고려해서 분석해야 한다.
+
+두 번째는 다변량 극단값들의 의존성 구조가 항상 언급된 모형들에서 잘 잡을 수 있는게 아니라는 것이다. [@Ledford1996]은 어떤 상황들 하에서는 의존성 구조를 **점근 독립성(asymptotic independence)**라는 개념을 통해 잘 묘사할 수 있음을 보였다.
+
+## 극단 의존성의 비모수 추정(nonparametric estimation of extremal dependence)
+
+이 부분은 [@Dey2015]의 17장을 참고하였다. 최근 들어 분포의 중심 뿐 아니라 확률벡터의 꼬리부분의 의존성 구조를 이해하는 데이도 많은 관심이 쏠리고 있다. 극단값 이론은 다변량 분포의 결합 꼬리(joint tail) 모델링 문제를 주변 분포(marginal distribution)과 의존성 구조를 독립적으로 모델링하여 문제를 푼다.
+
+High level에서의 의존성을 추정하는 데에는 **안정 꼬리 의존 함수(stable tail dependence function)**과 **스펙트럼 측도(spectral measure)**를 특별히 많이 쓰게 된다.
+
+### 꼬리 의존성(tail dependence)
+
+$\mathbf{X}=(X_{1},\ldots,X_{d})$를 continuous marginal distribution function $F_{j}(x_{j})=\mathbb{P}(X_{j}\leq x_{j})$를 갖고 joint distribution function $F(\mathbf{x})=\mathbb{P}(X_{1}\leq x_{1}, \ldots, X_{d}\leq x_{d})$를 갖도록 하는 확률 벡터라고 하자. 꼬리 의존성을 공부하기 위해 endpoint $(1,\ldots, 1)$의 주변에서의 결합분포함수 $(F_{1}(X_{1}),\ldots, F_{d}(X_{d}))$에 초점을 맞추도록 한다. 즉 여기서는
+
+$$
+\begin{align*}
+1-\mathbb{P}[F_{1}(X_{1}) &\leq 1-tx_{1},\ldots, F_{d}(X_{d})\leq 1-tx_{d}]\\
+&= \mathbb{P}[F_{1}(X_{1})>1-tx_{1} \text{ or } \ldots \text{ or } F_{d}(X_{d})>1-tx_{d}],
+\end{align*}
+$$
+에 초점을 맞춘다. 이 확률은 적어도 한 개의 변수들이 매우 클 확률을 나타낸다. 이 때 $t>0$은 작고 숫자들 $x_{1},\ldots, x_{d} \in [0,\infty)$은 $d$ 변수들의 upper endpoint들의 상대적 거리를 모수화한다. 위의 확률은 $t\rightarrow 0$으로 됨에 따라 $0$으로 수렴한다.
+
+$$
+\begin{align*}
+\max (tx_{1},\ldots, tx_{d}) &\leq \mathbb{P}[F_{1}(X_{1})>1-tx_{1} \text{ or } \ldots \text{ or } F_{d}(X_{d})>1-tx_{d}]\\
+&\leq tx_{1} +\cdots +tx_{d}.
+\end{align*}
+$$
+**안정 꼬리 의존 함수(stable tail dependence function)** $l:[0,\infty)^{d}\rightarrow [0,\infty)$는 $\mathbf{x}\in[0,\infty)^{d}$인 $\mathbf{x}$에 대해 다음과 같이 정의된다.
+$$
+l(\mathbf{x}):=\lim_{t\downarrow 0 }t^{-1}\mathbb{P}[F_{1}(X_{1})>1-tx_{1} \text{ or }\ldots \text{ or } F_{d}(X_{d})>1-tx_{d}].
+$$
+
+지금까지 살펴본 상황과는 반대로, 우리는 모든 변수들이 동시에 클 확률 또한 생각해 볼 수 있다. **꼬리 코퓰라(tail copula)** $R:[0,\infty)^{d}\rightarrow [0,\infty)$는 다음과 같이 정의된다.
+$$
+R(\mathbf{x}):=\lim_{t\downarrow 0}t^{-1}\mathbb{P}[F_{1}(X_{1})>1-tx_{1},\ldots, F_{d}(X_{d}>1-tx_{d})].
+$$
+물론 이러한 극한값이 존재한다는 가정 하에 논리를 전개해 나간다.
+
+그렇다면 안정 꼬리 의존 함수와 꼬리 코퓰라 사이에는 어떤 관계가 있을까? $d=2$인 경우에는 특별히 $R(x,y)=x+y-l(x,y)$의 관계를 갖는다. [@Dey2015]의 그림 17.2에 자세한 비교가 있다. 꼬리 코퓰라는 모든 확률변수들이 동시에 큰 값을 가져야 하기 때문에 안정 꼬리 의존함수보다 작은 확률을 갖는다. 
+
+### 스펙트럼 측도(spectral measure)
+
+### 스펙트럼 측도의 추정(estimating the spectral measure)
+
+### 안정 꼬리 의존 함수의 추정(estimating the stable tail dependence function)
+
+### 점근 독립성(asymptotic independence)

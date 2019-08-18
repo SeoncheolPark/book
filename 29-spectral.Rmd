@@ -14,7 +14,17 @@ library(TSA)
 library(kza)
 library(itsmr)
 library(dismo)
-source('~/Dropbox/R files/SeoulDataContest/Sources/Source.R', chdir = TRUE)
+OS <- .Platform$OS.type
+if (OS == "unix"){
+  source('~/Dropbox/R files/SeoulDataContest/Sources/Source.R', chdir = TRUE)
+} else if (OS == "windows"){
+  #Sys.setlocale("LC_ALL", "korean")
+  #  source.utf8 <- function(f) {
+  #  l <- readLines(f, encoding="UTF-8")
+  #  eval(parse(text=l),envir=.GlobalEnv)
+  #  }
+  #source.utf8("C:\\Users\\seoncheolpark\\Dropbox\\R files\\SeoulDataContest\\Sources\\Source.R")
+}
 ```
 
 ## 복소수값을 갖는 정상 시계열(complex-valued stationary time series)
@@ -340,7 +350,14 @@ $$\tilde{\boldsymbol{\beta}}_{n}(\omega)=\text{arg}\min_{\boldsymbol{\beta}\in\m
 여기서는 서울특별시 PM10의 1998년 1월부터 2014년 12월까지의 월별 시계열 자료를 이용해 피리오도그램을 그려보겠다.
 
 ```{r, fig.align='center', comment=">", fig.cap = 'Time series of Seoul PM10.'}
-dataspec <- read.csv('~/Dropbox/Data/PM/MonthlyPMSeoul.csv', header=T)
+OS <- .Platform$OS.type
+
+if (OS == "unix"){
+  dataspec <- read.csv('~/Dropbox/Data/PM/MonthlyPMSeoul.csv', header=T)
+} else if (OS == "windows"){
+  dataspec <- read.csv("C:\\Users\\seoncheolpark\\Dropbox\\Data\\PM\\MonthlyPMSeoul.csv", encoding="utf-8", header=T)
+}
+
 dataspec <- dataspec[,-1]
 dataspec <- t(dataspec)
 time_index_month <- seq(from = as.POSIXct("1998-01-01"), to = as.POSIXct("2014-12-01"), by = "month")

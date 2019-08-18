@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>27.1 시계열 자료의 정상성(stationary time series) | 통계공부와 관련된 글들</title>
-  <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다." />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="27.1 시계열 자료의 정상성(stationary time series) | 통계공부와 관련된 글들" />
   <meta property="og:type" content="book" />
@@ -22,14 +21,14 @@
   <meta name="twitter:description" content="통계공부를 하면서 몇 가지 내용들을 gitbook 형식으로 정리하였다." />
   
 
-<meta name="author" content="Seoncheol Park">
+<meta name="author" content="Seoncheol Park" />
 
 
-<meta name="date" content="2019-07-17">
+<meta name="date" content="2019-08-14" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="27-multiscalets.html">
@@ -56,7 +55,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -734,6 +732,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="60.2" data-path="60-2-copula.html"><a href="60-2-copula.html"><i class="fa fa-check"></i><b>60.2</b> 코퓰라(copula)</a></li>
 <li class="chapter" data-level="60.3" data-path="60-3-extreme-value-copula.html"><a href="60-3-extreme-value-copula.html"><i class="fa fa-check"></i><b>60.3</b> 극단값 코퓰라(extreme-value copula)</a></li>
 <li class="chapter" data-level="60.4" data-path="60-4-max-stable-distribution-with-unit-frechet-margin.html"><a href="60-4-max-stable-distribution-with-unit-frechet-margin.html"><i class="fa fa-check"></i><b>60.4</b> 단위 프례세 마진을 갖는 최대안정분포(max-stable distribution with unit Frechet margin)</a></li>
+<li class="chapter" data-level="60.5" data-path="60-5-measures-of-extremal-dependence.html"><a href="60-5-measures-of-extremal-dependence.html"><i class="fa fa-check"></i><b>60.5</b> 극단 의존성의 측도들 (measures of extremal dependence)</a></li>
 </ul></li>
 <li class="chapter" data-level="61" data-path="61-spatextremes.html"><a href="61-spatextremes.html"><i class="fa fa-check"></i><b>61</b> 공간 극단값 이론과 최대안정과정</a><ul>
 <li class="chapter" data-level="61.1" data-path="61-1-max-stable-process.html"><a href="61-1-max-stable-process.html"><i class="fa fa-check"></i><b>61.1</b> 최대안정과정(max-stable process)</a><ul>
@@ -777,7 +776,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 를 갖는 랜덤 프로세스라고 하자. 여기서 staionary보다 조금 더 약한 <strong>약정상과정(weakly stationary process)</strong>에 대해 생각해보자.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-318" class="definition"><strong>Definition 27.1  </strong></span>다음과 같은 세 가지 조건</p>
+<p><span id="def:unnamed-chunk-319" class="definition"><strong>Definition 27.1  </strong></span>다음과 같은 세 가지 조건</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(E|X_{t}|^{2} &lt; \infty\)</span>.</p></li>
 <li><p><span class="math inline">\(EX_{t}=m\)</span>(constant), <span class="math inline">\(\forall t\)</span>.</p></li>
@@ -788,7 +787,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-319" class="example"><strong>Example 27.1  (백색 잡음 과정)  </strong></span>백색 잡음 과정 <span class="math inline">\(\{Z_{t}\}\)</span>는
+<p><span id="exm:unnamed-chunk-320" class="example"><strong>Example 27.1  (백색 잡음 과정)  </strong></span>백색 잡음 과정 <span class="math inline">\(\{Z_{t}\}\)</span>는
 <span class="math display">\[E(Z_{t})=0, \forall t,\]</span>
 <span class="math display">\[\gamma(h)=\sigma^{2}\delta_{h}=E(Z_{t+h},Z_{t})=\sigma^{2}I\{h=0\}\]</span>
 이므로 정상 과정이다.</p>
@@ -796,7 +795,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-320" class="example"><strong>Example 27.2  (AR(1) 과정)  </strong></span>AR(1) 과정 <span class="math inline">\(\{X_{t}\}\)</span>는
+<p><span id="exm:unnamed-chunk-321" class="example"><strong>Example 27.2  (AR(1) 과정)  </strong></span>AR(1) 과정 <span class="math inline">\(\{X_{t}\}\)</span>는
 <span class="math display">\[X_{t}-\phi X_{t-1}=Z_{t}, Z_{t} \sim WN(0,\sigma^{2}), \]</span>
 <span class="math display">\[\gamma(h)=\sigma^{2}\frac{\phi^{|h|}}{1-\phi}\]</span>
 이므로 정상 과정이다.</p>
@@ -807,7 +806,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 이다. 다음은 웨이블릿 변환과 정상성에 관련된 정리이다.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-321" class="theorem"><strong>Theorem 27.1  (약정상과정 관련 정리)  </strong></span><span class="math inline">\(X(t)\)</span>가 약한 정상 과정이고 <span class="math inline">\(\gamma(t,s)\)</span>가 <span class="math inline">\(\mathbb{R}^{2}\)</span>에서 유계(bounded)이고 연속이면, <span class="math inline">\(X(t)\)</span>가 약정상과정인 것과 <span class="math inline">\(\{ d_{jk} \}\)</span>가 약정상과정인 것은 동치이다(만약 <span class="math inline">\(\psi\)</span>가 compactly supported이면 당연히 유계이므로 유계 조건이 따로 필요 없다).</p>
+<p><span id="thm:unnamed-chunk-322" class="theorem"><strong>Theorem 27.1  (약정상과정 관련 정리)  </strong></span><span class="math inline">\(X(t)\)</span>가 약한 정상 과정이고 <span class="math inline">\(\gamma(t,s)\)</span>가 <span class="math inline">\(\mathbb{R}^{2}\)</span>에서 유계(bounded)이고 연속이면, <span class="math inline">\(X(t)\)</span>가 약정상과정인 것과 <span class="math inline">\(\{ d_{jk} \}\)</span>가 약정상과정인 것은 동치이다(만약 <span class="math inline">\(\psi\)</span>가 compactly supported이면 당연히 유계이므로 유계 조건이 따로 필요 없다).</p>
 </div>
 
 </div>
