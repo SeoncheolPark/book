@@ -6,6 +6,13 @@
 #library(SpatialExtremes)
 ```
 
+## 최대안정과정에서의 포아송과정(Poisson process in Max-stable process)
+
+여기의 내용은 [@Gelfand2019]의 31.2를 참고하였다. **포아송과정(Poisson process)**는 state space $\mathcal{E}$에 놓여 있는 ramdom point들의 집합 $\mathcal{P}$에 대한 확률모형으로 확률변수들의 두 가지 성질들에 의해 정의된다.
+$$N(\mathcal{A})=|\{x: x\in \mathcal{P}\cap \mathcal{A}\}|, \mathcal{A}\subset \mathcal{E}$$
+는 집합 $\mathcal{A}$안에 $\mathcal{P}$의 점들이 얼마나 많이 들어있는지 세는 역할을 한다. 이 때 $\mathcal{A}$는 $\mathcal{E}$의 any collection of disjoint subsets로 $A_1,\ldots, A_n \subset \mathcal{E}$이다. $N(\mathcal{A}_1), \ldots, N(\mathcal{A}_n)$은 독립이다. $N(\mathcal{A})$는 평균이 $\mu(\mathcal{A})$인 포아송 분포를 따른다. 이 때 $\mu$를 그 과정의 **평균측도(mean measure)**라고 부른다. 또한 평균측도는 non-atomic, 즉 $\mu(\{x\})=0$ for any singleton $x\in\mathcal{E}$이어야 한다. 더불어 $\mu(\emptyset)=0$이지만 $\mu(\mathcal{E})$는 무한대가 될 수도 있다. ($N(\mathcal{E})$가 확률 1로 무한대인 경우) 여기서는 기술적인 이유들로 $\mu(\mathcal{A})<\infty$인 $\mathcal{A}$에만 관심을 갖도록 한다.
+
+
 ## 최대안정과정(max-stable process)
 
 최대안정과정은 GEV 분포와 같은 극단값 분포를 공간 상황에서 설명할 수 있게끔 하는 역할을 한다. 앞서 나왔던 **최대안정(max-stable)**의 정의를 다시 살펴보자. 이번엔 [@Dey2015] 버전이다.

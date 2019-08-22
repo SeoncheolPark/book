@@ -8,9 +8,9 @@ Poisson-GPD 모형은 GPD에 the number of exceedances를 Poisson 분포로 하�
 
 ## 극단값이론에서의 점과정의 정의(definitions and basic results of point process approach)
 
-점과정은 수학적은 object로 어떤 집합 안의 점들의 random distribution으로 생각할 수 있따.
+점과정은 수학적은 object로 어떤 집합 안의 점들의 random distribution으로 생각할 수 있다.
 
-$\{P_{i}\}$를 be a sequence of random points in a state space $E$ endowed with a $\sigma$-algebra $\mathcal{E}$ of subsets of $E$라고 하자. 우리는 분석 목적을 따라 $E$를 $\mathbb{R}^{d}$의 topological cluster인 $\bar{\mathbb{R}}^{d}$로 생각할 수 있다. 그리고 $\mathcal{E}$는 보렐 집합 $\matcal{B}(E)$의 $\sigma$-algebra로 생각할 수 있다. 더 나아가 $\delta_{p}$는 점 $p\in E$에서의 디락 측도로 정의한다. 즉 모든 $A\in\mathcal{E}$에 대해 다락 측도는 다음과 같이 정의된다.
+$\{P_{i}\}$를 be a sequence of random points in a state space $E$ endowed with a $\sigma$-algebra $\mathcal{E}$ of subsets of $E$라고 하자. 우리는 분석 목적을 따라 $E$를 $\mathbb{R}^{d}$의 topological cluster인 $\bar{\mathbb{R}}^{d}$로 생각할 수 있다. 그리고 $\mathcal{E}$는 보렐 집합 $\mathcal{B}(E)$의 $\sigma$-algebra로 생각할 수 있다. 더 나아가 $\delta_{p}$는 점 $p\in E$에서의 디락 측도로 정의한다. 즉 모든 $A\in\mathcal{E}$에 대해 다락 측도는 다음과 같이 정의된다.
 
 $$
 \delta_{p}(A)=

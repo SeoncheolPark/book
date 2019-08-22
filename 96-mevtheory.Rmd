@@ -158,6 +158,22 @@ MEVD의 의존성 구조는 다음
 $$\tau=\int_{0}^{1}\frac{t(1-t)}{A(t)}dA'(t), \qquad{\rho = 12\int_{0}^{1}\{A(t)+1\}^{-2}dt-3.}$$
 이들은 두 마진의 overall dependence를 잰다. 그러나 때대로 우리는 꼬리에서의 extreme observation들의 의존성을 재는 측도에 좀 더 관심이 있을 것이다.
 
+만약 우리가 꼬리에서의 극단 관찰값들의 의존성에 관심이 있다면 다음의 측도들을 고려해 볼 수 있다.
+
+### 상위 꼬리 의존성(upper tail dependence)
+
+코률라 $C$를 갖는 이변량 uniform vector $(U_1, U_2)$에 대해 다음을 정의한다.
+$$\chi(u)=P(U_1>u|U_2>u)=\frac{\bar{C}(u,u)}{1-u}=2-\frac{1-C(u,u)}{1-u}, u\in [0,1],$$
+이때 $\bar{C}(u_1,u_2)$는 $C$의 **생존 코퓰라(survival copula)**이며 $\bar{C}(u_1,u_2)=P(U_1>u_1, U_2>u_2)$로 정의된다. $C$의 **상위 꼬리 의존성 모수(upper tail dependence parameter)**는 $\chi = \lim_{u\rightarrow 1}\chi(u)$, $0\leq \chi \leq 1$이다. 
+
+- $\chi>0$: **점근 의존성(asymptotic dependence)**
+
+- $\chi=0$: **점근 독립성(asymptotic independence)**
+
+어떤 분포 $F$의 상위 꼬리 의존성 모수는 그것의 흡인영역 $G$와 관련이 있다. 만약 $F\in\mathcal{D}(G)$라면, $F$의 상위 꼬리 의존성 모수는 $G$의 상위 꼬리 의존성 모수와 같게 된다.
+
+함수 $\chi(u)$는 또한 분위수에 의존된 의존성 측도이다. $\chi(u)$의 분포는 두 변수들이 특정 분위수 레벨 $u$에서 양 또는 음의 상관관계를 갖는지를 나타내준다. 범위는 $2-\log(2u-1)/\log(u) \leq \chi(u) \leq 1$이다. 이 때 하한은 $u\leq \frac{1}{2}$일 때 $-\infty$이며 $u=1$일 때 $0$이다. 만약 $G$가 이변량 극단값 분포이며, $\chi(u)$는 상수가 되고 $\chi(u)=2-l(1,1)$이 됨을 쉽게 보일 수 있다. 이 때 $l$은 안정 꼬리 의존 함수다.
+
 ## 극단 의존성 모형들(extreme dependence models)
 
 이 부분은 [@Dey2015]의 16장을 참고하였다. 이 분야에서는 두 개의 도전적인 과제들이 있다.
